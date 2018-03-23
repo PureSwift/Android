@@ -7,68 +7,21 @@
 
 import Foundation
 import java_swift
+import JNI
 
 public extension Android.Widget {
     
     public typealias Adapter = AndroidWidgetAdapter
 }
 
-open class AndroidWidgetAdapter: JavaProtocol {
+public protocol AndroidWidgetAdapter: JavaProtocol {
     
-    // MARK: - Properties
+    func getCount() -> Int
     
-    fileprivate lazy var listener: AndroidWidgetAdapterListenerLocal = {
-        
-        let proxy = AndroidWidgetAdapterListenerProxy()
-        proxy.swiftObject = self
-        
-        return AndroidWidgetAdapterListenerLocal(owned: proxy, proto: proxy)
-    }()
-    
-    // MARK: - Initialization
-    
-    public func localJavaObject( _ locals: UnsafeMutablePointer<[jobject]> ) -> jobject? {
-        
-        return listener.localJavaObject( locals )
-    }
-    
-    public final func notifyDataSetChanged() {
-        
-        listener.notifyDataSetChanged()
-    }
-    
-    // MARK: - Listener
-    
-    open func getCount() -> Int { return 0 }
-    
-    open func getView(position: Int, convertView: Android.View.View?, parent: Android.View.ViewGroup) -> Android.View.View {
-        
-        fatalError("\(#function) must be implemented in subclass")
-    }
+    func getView(position: Int, convertView: Android.View.View?, parent: Android.View.ViewGroup) -> Android.View.View
 }
 
 // MARK: - Private
-
-fileprivate extension Android.Widget.Adapter {
-    
-    /// JNI Cache
-    struct JNICache {
-        
-        static let classSignature = Android.SwiftSupport.className(["SwiftAdapter"])
-        
-        /// JNI Java class name
-        static let className = classSignature.rawValue
-        
-        /// JNI Java class
-        static var jniClass: jclass? = AndroidWidgetAdapterListenerLocal._proxyClass
-        
-        /// JNI Method ID cache
-        struct MethodID {
-            
-            static var notifyDataSetChanged: jmethodID?
-        }
-    }
-}
 
 private typealias AndroidWidgetAdapter_getCount_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong) -> (jint)
 
@@ -102,61 +55,18 @@ private func AndroidWidgetAdapter_getView( _ __env: UnsafeMutablePointer<JNIEnv?
     
     var __locals = [jobject]()
     
-    return result?.localJavaObject(&__locals)
+    return result.localJavaObject(&__locals)
 }
 
-fileprivate final class AndroidWidgetAdapterListenerProxy: AndroidWidgetAdapterListenerProtocol {
-    
-    weak var swiftObject: Android.Widget.Adapter?
-    
-    func getCount() -> Int {
-        
-        return swiftObject?.getCount() ?? 0
-    }
-    
-    func getView(position: Int, convertView: Android.View.View?, parent: Android.View.ViewGroup) -> Android.View.View? {
-        
-        return swiftObject?.getView(position: position, convertView: convertView, parent: parent)
-    }
-}
-
-fileprivate protocol AndroidWidgetAdapterListenerProtocol: JavaProtocol {
-    
-    func getCount() -> Int
-    
-    func getView(position: Int, convertView: Android.View.View?, parent: Android.View.ViewGroup) -> Android.View.View?
-}
-
-extension AndroidWidgetAdapterListenerProtocol {
-    
-    public func localJavaObject( _ locals: UnsafeMutablePointer<[jobject]> ) -> jobject? {
-        
-        return AndroidWidgetAdapterListenerLocal( owned: self, proto: self ).localJavaObject( locals )
-    }
-    
-}
-
-fileprivate class AndroidWidgetAdapterListenerLocal: JNILocalProxy<AndroidWidgetAdapterListenerProtocol, Any> {
+internal class AndroidWidgetAdapterListenerLocal: JNILocalProxy<AndroidWidgetAdapter, Any> {
     
     fileprivate static let _proxyClass: jclass = {
         
-        var natives = [JNINativeMethod]()
-        
-        let getCountThunk: AndroidWidgetAdapter_getCount_type = AndroidWidgetAdapter_getCount
-        
-        natives.append( JNINativeMethod(name: strdup("__getCount"),
-                                        signature: strdup("(J)I"),
-                                        fnPtr: unsafeBitCast( getCountThunk, to: UnsafeMutableRawPointer.self ) ))
-        
-        let getViewThunk: AndroidWidgetAdapter_getView_type = AndroidWidgetAdapter_getView
-        
-        natives.append( JNINativeMethod(name: strdup("__getView"),
-                                        signature: strdup("(JILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;"),
-                                        fnPtr: unsafeBitCast( getViewThunk, to: UnsafeMutableRawPointer.self ) ))
-        
-        natives.append( JNINativeMethod( name: strdup("__finalize"),
-                                         signature: strdup("(J)V"),
-                                         fnPtr: unsafeBitCast( JNIReleasableProxy__finalize_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        var natives: [JNINativeMethod] = [
+            JNICache.Method.getCount.method,
+            JNICache.Method.getView.method,
+            .finalize
+        ]
         
         let clazz = JNI.FindClass( proxyClassName() )
         
@@ -172,24 +82,59 @@ fileprivate class AndroidWidgetAdapterListenerLocal: JNILocalProxy<AndroidWidget
         return JNI.api.NewGlobalRef( JNI.env, clazz )!
     }()
     
-    override open class func proxyClassName() -> String { return Android.Widget.Adapter.JNICache.className }
+    override open class func proxyClassName() -> String { return JNICache.className }
     
     override open class func proxyClass() -> jclass? { return _proxyClass }
+}
+
+extension AndroidWidgetAdapter {
     
-    func notifyDataSetChanged() {
+    public func localJavaObject( _ locals: UnsafeMutablePointer<[jobject]> ) -> jobject? {
         
-        var __locals = [jobject]()
+        return AndroidWidgetAdapterListenerLocal( owned: self, proto: self ).localJavaObject( locals )
+    }
+}
+
+internal extension AndroidWidgetAdapterListenerLocal {
+    
+    /// JNI Cache
+    struct JNICache {
         
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        static let classSignature = Android.SwiftSupport.className(["SwiftAdapter"])
         
-        withJavaObject {
+        /// JNI Java class name
+        static let className = classSignature.rawValue
+        
+        /// JNI Method cache
+        fileprivate enum Method {
             
-            JNIMethod.CallVoidMethod(object: $0,
-                methodName: "notifyDataSetChanged",
-                methodSig: "()V",
-                methodCache: &Android.Widget.Adapter.JNICache.MethodID.notifyDataSetChanged,
-                args: &__args,
-                locals: &__locals)
+            enum getCount: JNINativeMethodEntry {
+                
+                static let name = "__getCount"
+                
+                /// "(J)I"
+                static let signature = JNIMethodSignature(argumentTypes: [.long], returnType: .int)
+                
+                static let thunk: AndroidWidgetAdapter_getCount_type = AndroidWidgetAdapter_getCount
+            }
+            
+            enum getView: JNINativeMethodEntry {
+                
+                static let name = "__getView"
+                
+                /// "(JILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;"
+                static let signature = JNIMethodSignature(
+                    argumentTypes: [
+                        .long,
+                        .int,
+                        .object(Android.View.ViewGroup.ViewGroupJNICache.classSignature)
+                        ],
+                    returnType: .object(Android.View.View.JNICache.classSignature)
+                )
+                
+                static let thunk: AndroidWidgetAdapter_getView_type = AndroidWidgetAdapter_getView
+            }
+            
         }
     }
 }
