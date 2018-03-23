@@ -127,6 +127,7 @@ internal extension AndroidWidgetAdapterListenerLocal {
                     argumentTypes: [
                         .long,
                         .int,
+                        .object(Android.View.View.JNICache.classSignature),
                         .object(Android.View.ViewGroup.ViewGroupJNICache.classSignature)
                         ],
                     returnType: .object(Android.View.View.JNICache.classSignature)

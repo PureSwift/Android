@@ -52,7 +52,7 @@ public final class AndroidBluetoothAdapter: JavaObject {
                                                         methodName: "getDefaultAdapter",
                                                         methodSig: JNIMethodSignature(
                                                             argumentTypes: [],
-                                                            returnType: .void).rawValue,
+                                                            returnType: .object(JNICache.classSignature)).rawValue,
                                                         methodCache: &JNICache.MethodID.getDefaultAdapter,
                                                         args: &__args,
                                                         locals: &__locals)

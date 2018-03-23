@@ -152,6 +152,7 @@ internal extension AndroidBluetoothLowEnergyScanCallbackListenerLocal {
                 static let signature = JNIMethodSignature(
                     argumentTypes: [
                         .long,
+                        .int,
                         .object(Android.Bluetooth.LE.ScanResult.JNICache.classSignature)
                     ], returnType: .void)
                 
