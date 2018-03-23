@@ -7,6 +7,7 @@
 
 import Foundation
 import java_swift
+import JNI
 
 public extension Android.Bluetooth {
     
@@ -14,10 +15,6 @@ public extension Android.Bluetooth {
 }
 
 public final class AndroidBluetoothAdapter: JavaObject {
-    
-    fileprivate static let javaClassName = "android/bluetooth/BluetoothAdapter"
-    
-    private static var JNIClass: jclass?
     
     public convenience init?( casting object: java_swift.JavaObject,
                               _ file: StaticString = #file,
@@ -33,9 +30,7 @@ public final class AndroidBluetoothAdapter: JavaObject {
     public required init( javaObject: jobject? ) {
         super.init(javaObject: javaObject)
     }
-    
-    private static var getDefaultAdapter_MethodID: jmethodID?
-    
+        
     /**
      * Get a handle to the default local Bluetooth adapter.
      *
@@ -52,11 +47,13 @@ public final class AndroidBluetoothAdapter: JavaObject {
         
         var __args = [jvalue].init(repeating: jvalue(), count: 1)
         
-        let __return = JNIMethod.CallStaticObjectMethod(className: javaClassName,
-                                                        classCache: &JNIClass,
+        let __return = JNIMethod.CallStaticObjectMethod(className: JNICache.className,
+                                                        classCache: &JNICache.jniClass,
                                                         methodName: "getDefaultAdapter",
-                                                        methodSig: "()L\(javaClassName);",
-                                                        methodCache: &getDefaultAdapter_MethodID,
+                                                        methodSig: JNIMethodSignature(
+                                                            argumentTypes: [],
+                                                            returnType: .void).rawValue,
+                                                        methodCache: &JNICache.MethodID.getDefaultAdapter,
                                                         args: &__args,
                                                         locals: &__locals)
         
@@ -96,12 +93,12 @@ public final class AndroidBluetoothAdapter: JavaObject {
         
         var __locals = [jobject]()
         
-        var __args = [jvalue].init(repeating: jvalue(), count: 1)
+        var __args = [jvalue](repeating: jvalue(), count: 1)
         
         let __return = JNIMethod.CallObjectMethod(object: javaObject,
                                                   methodName: "getBluetoothLeScanner",
                                                   methodSig: "()Landroid/bluetooth/le/BluetoothLeScanner;",
-                                                  methodCache: &type(of: self).getBluetoothLeScanner_MethodID,
+                                                  methodCache: &JNICache.MethodID.getBluetoothLeScanner,
                                                   args: &__args,
                                                   locals: &__locals)
         
@@ -114,5 +111,29 @@ public final class AndroidBluetoothAdapter: JavaObject {
         
         @inline(__always)
         get { return getBluetoothLeScanner() }
+    }
+}
+
+// MARK: - JNICache
+
+internal extension Android.Bluetooth.Adapter {
+    
+    /// JNI Cache
+    struct JNICache {
+        
+        static let classSignature = Android.Bluetooth.className(["BluetoothAdapter"])
+        
+        /// JNI Java class name
+        static let className = classSignature.rawValue
+        
+        /// JNI Java class
+        static var jniClass: jclass?
+        
+        /// JNI Method ID cache
+        struct MethodID {
+            
+            static var getDefaultAdapter: jmethodID?
+            static var getBluetoothLeScanner: jmethodID?
+        }
     }
 }

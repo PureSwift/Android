@@ -54,8 +54,10 @@ fileprivate extension Android.Widget.Adapter {
     /// JNI Cache
     struct JNICache {
         
+        static let classSignature = Android.SwiftSupport.className(["SwiftAdapter"])
+        
         /// JNI Java class name
-        static let className = "org/pureswift/swiftandroid/SwiftAdapter"
+        static let className = classSignature.rawValue
         
         /// JNI Java class
         static var jniClass: jclass? = AndroidWidgetAdapterListenerLocal._proxyClass

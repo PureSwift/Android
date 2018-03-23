@@ -8,6 +8,7 @@
 import Foundation
 import java_swift
 import java_util
+import JNI
 
 public extension Android.Bluetooth.LE {
     
@@ -71,13 +72,15 @@ public final class AndroidBluetoothLowEnergyScanResult: JavaObject {
 
 // MARK: - JNI
 
-private extension Android.Bluetooth.LE.ScanResult {
+internal extension Android.Bluetooth.LE.ScanResult {
     
     /// JNI Cache
     struct JNICache {
         
+        static let classSignature = Android.Bluetooth.LE.className(["ScanResult"])
+        
         /// JNI Java class name
-        static let className = "android/bluetooth/le/ScanResult"
+        static let className = classSignature.rawValue
         
         /// JNI Java class
         static var jniClass: jclass?

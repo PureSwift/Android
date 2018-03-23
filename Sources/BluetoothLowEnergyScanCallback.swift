@@ -8,7 +8,7 @@
 import Foundation
 import java_swift
 import java_util
-//import JNI
+import JNI
 
 public extension Android.Bluetooth.LE {
     
@@ -57,7 +57,7 @@ private func AndroidBluetoothLowEnergyScanCallback_onScanResult( _ __env: Unsafe
     
     let swiftResult = AndroidBluetoothLowEnergyScanResult(javaObject: result)
     
-    AndroidBluetoothLowEnergyScanCallback_ListenerLocal_
+    AndroidBluetoothLowEnergyScanCallbackListenerLocal
         .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
         .onScanResult(callbackType: swiftCallbackType, result: swiftResult)
 }
@@ -73,7 +73,7 @@ private func AndroidBluetoothLowEnergyScanCallback_onBatchScanResults( _ __env: 
     
     let results = swiftResultsList?.toArray()?.map { AndroidBluetoothLowEnergyScanResult(casting: $0)! } ?? []
     
-    AndroidBluetoothLowEnergyScanCallback_ListenerLocal_
+    AndroidBluetoothLowEnergyScanCallbackListenerLocal
         .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
         .onBatchScanResults(results: results)
 }
@@ -87,39 +87,24 @@ private func AndroidBluetoothLowEnergyScanCallback_onScanFailed( _ __env: Unsafe
     
     let error = AndroidBluetoothLowEnergyScanCallbackError(rawValue: Int(__errorCode))
     
-    AndroidBluetoothLowEnergyScanCallback_ListenerLocal_
+    AndroidBluetoothLowEnergyScanCallbackListenerLocal
         .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
         .onScanFailed(error: error)
 }
 
-fileprivate class AndroidBluetoothLowEnergyScanCallback_ListenerLocal_: JNILocalProxy<AndroidBluetoothLowEnergyScanCallback, Any> {
+internal class AndroidBluetoothLowEnergyScanCallbackListenerLocal: JNILocalProxy<AndroidBluetoothLowEnergyScanCallback, Any> {
     
     fileprivate static let _proxyClass: jclass = {
-        var natives = [JNINativeMethod]()
         
-        let onScanResult_thunk: AndroidBluetoothLowEnergyScanCallback_onScanResult_type = AndroidBluetoothLowEnergyScanCallback_onScanResult
-        
-        natives.append( JNINativeMethod( name: strdup("__onScanResult"),
-                                         signature: strdup("(JILandroid/bluetooth/le/ScanResult;)V"),
-                                         fnPtr: unsafeBitCast( onScanResult_thunk, to: UnsafeMutableRawPointer.self ) ) )
-        
-        let onBatchScanResults_thunk: AndroidBluetoothLowEnergyScanCallback_onBatchScanResults_type = AndroidBluetoothLowEnergyScanCallback_onBatchScanResults
-        
-        natives.append( JNINativeMethod( name: strdup("__onBatchScanResults"),
-                                         signature: strdup("(JLjava/util/List;)V"),
-                                         fnPtr: unsafeBitCast( onBatchScanResults_thunk, to: UnsafeMutableRawPointer.self ) ) )
-        
-        let onScanFailed_thunk: AndroidBluetoothLowEnergyScanCallback_onScanFailed_type = AndroidBluetoothLowEnergyScanCallback_onScanFailed
-        
-        natives.append( JNINativeMethod( name: strdup("__onScanFailed"),
-                                         signature: strdup("(JI)V"),
-                                         fnPtr: unsafeBitCast( onScanFailed_thunk, to: UnsafeMutableRawPointer.self ) ) )
-        
-        natives.append( JNINativeMethod( name: strdup("__finalize"),
-                                         signature: strdup("(J)V"),
-                                         fnPtr: unsafeBitCast( JNIReleasableProxy__finalize_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        var natives: [JNINativeMethod] = [
+            JNICache.Method.onScanResult.method,
+            JNICache.Method.onBatchScanResults.method,
+            JNICache.Method.onScanFailed.method,
+            .finalize
+        ]
         
         let clazz = JNI.FindClass( proxyClassName() )
+        
         withUnsafePointer(to: &natives[0]) {
             nativesPtr in
             if JNI.api.RegisterNatives( JNI.env, clazz, nativesPtr, jint(natives.count) ) != jint(JNI_OK) {
@@ -128,10 +113,11 @@ fileprivate class AndroidBluetoothLowEnergyScanCallback_ListenerLocal_: JNILocal
         }
         
         defer { JNI.DeleteLocalRef( clazz ) }
+        
         return JNI.api.NewGlobalRef( JNI.env, clazz )!
     }()
     
-    override open class func proxyClassName() -> String { return "org/pureswift/swiftandroid/SwiftBluetoothScanCallback" }
+    override open class func proxyClassName() -> String { return JNICache.className }
     
     override open class func proxyClass() -> jclass? { return _proxyClass }
 }
@@ -139,7 +125,62 @@ fileprivate class AndroidBluetoothLowEnergyScanCallback_ListenerLocal_: JNILocal
 extension AndroidBluetoothLowEnergyScanCallback {
     
     public func localJavaObject( _ locals: UnsafeMutablePointer<[jobject]> ) -> jobject? {
-        return AndroidBluetoothLowEnergyScanCallback_ListenerLocal_( owned: self, proto: self ).localJavaObject( locals )
+        
+        return AndroidBluetoothLowEnergyScanCallbackListenerLocal( owned: self, proto: self ).localJavaObject( locals )
     }
     
+}
+
+internal extension AndroidBluetoothLowEnergyScanCallbackListenerLocal {
+    
+    /// JNI Cache
+    struct JNICache {
+        
+        static let classSignature = Android.SwiftSupport.className(["SwiftBluetoothScanCallback"])
+        
+        /// JNI Java class name
+        static let className = classSignature.rawValue
+        
+        /// JNI Method cache
+        fileprivate enum Method {
+            
+            enum onScanResult: JNINativeMethodEntry {
+                
+                static let name = "__onScanResult"
+                
+                /// "(JILandroid/bluetooth/le/ScanResult;)V"
+                static let signature = JNIMethodSignature(
+                    argumentTypes: [
+                        .long,
+                        .object(Android.Bluetooth.LE.ScanResult.JNICache.classSignature)
+                    ], returnType: .void)
+                
+                static let thunk: AndroidBluetoothLowEnergyScanCallback_onScanResult_type = AndroidBluetoothLowEnergyScanCallback_onScanResult
+            }
+            
+            enum onBatchScanResults: JNINativeMethodEntry {
+                
+                static let name = "__onBatchScanResults"
+                
+                /// "(JLjava/util/List;)V"
+                static let signature = JNIMethodSignature(
+                    argumentTypes: [
+                        .long,
+                        .object(JNIClassName(rawValue: "java/util/List")!),
+                    ], returnType: .void)
+                
+                static let thunk: AndroidBluetoothLowEnergyScanCallback_onBatchScanResults_type = AndroidBluetoothLowEnergyScanCallback_onBatchScanResults
+            }
+            
+            enum onScanFailed: JNINativeMethodEntry {
+                
+                static let name = "__onScanFailed"
+                
+                /// "(JI)V"
+                static let signature = JNIMethodSignature(argumentTypes: [.long, .int], returnType: .void)
+                
+                static let thunk: AndroidBluetoothLowEnergyScanCallback_onScanFailed_type = AndroidBluetoothLowEnergyScanCallback_onScanFailed
+            }
+        }
+    }
 }
