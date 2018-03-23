@@ -108,13 +108,16 @@ open class AndroidTextView: AndroidView {
 
 // MARK: - Private
 
-fileprivate extension Android.Widget.TextView {
+internal extension Android.Widget.TextView {
     
     /// JNI Cache
     struct JNICache {
         
+        /// JNI Java class signature
+        static let classSignature = Android.Widget.className(["TextView"])
+        
         /// JNI Java class name
-        static let className = "android/widget/TextView"
+        static let className = classSignature.rawValue
         
         /// JNI Java class
         static var jniClass: jclass?

@@ -8,6 +8,7 @@
 import Foundation
 import java_swift
 import java_lang
+import JNI
 
 public extension Android.View {
     
@@ -169,15 +170,18 @@ open class AndroidView: JavaObject {
     }
 }
 
-// MARK: - Private
+// MARK: - JNICache
 
-fileprivate extension Android.View.View {
+internal extension Android.View.View {
     
     /// JNI Cache
     struct JNICache {
         
+        /// JNI Java class signature
+        static let classSignature = Android.View.className(["View"])
+        
         /// JNI Java class name
-        static let className = "android/view/View"
+        static let className = classSignature.rawValue
         
         /// JNI Java class
         static var jniClass: jclass?
