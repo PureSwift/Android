@@ -20,15 +20,6 @@
         }
       },
       {
-        "package": "JNI",
-        "repositoryURL": "https://github.com/PureSwift/JNI.git",
-        "state": {
-          "branch": null,
-          "revision": "be728c97a88125670fe6ea23d5ce529a61d0e599",
-          "version": "1.0.2"
-        }
-      },
-      {
         "package": "java_lang",
         "repositoryURL": "https://github.com/SwiftJava/java_lang.git",
         "state": {
@@ -53,6 +44,15 @@
           "branch": null,
           "revision": "61005cba6a74e0d080ac1949b2eadab46dc4602b",
           "version": "2.1.0"
+        }
+      },
+      {
+        "package": "JNI",
+        "repositoryURL": "https://github.com/PureSwift/JNI.git",
+        "state": {
+          "branch": null,
+          "revision": "be728c97a88125670fe6ea23d5ce529a61d0e599",
+          "version": "1.0.2"
         }
       }
     ]

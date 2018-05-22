@@ -136,17 +136,17 @@ internal extension AndroidBluetoothLowEnergyScanCallbackListenerLocal {
     /// JNI Cache
     struct JNICache {
         
-        static let classSignature = Android.SwiftSupport.className(["SwiftBluetoothScanCallback"])
+        static let classSignature = Android.SwiftSupport.Bluetooth.LE.className(["SwiftScanCallback"])
         
         /// JNI Java class name
         static let className = classSignature.rawValue
         
         /// JNI Method cache
         fileprivate enum Method {
-            
+            internal
             enum onScanResult: JNINativeMethodEntry {
                 
-                static let name = "__onScanResult"
+                static let name = "__on_scan_result"
                 
                 /// "(JILandroid/bluetooth/le/ScanResult;)V"
                 static let signature = JNIMethodSignature(
@@ -161,7 +161,7 @@ internal extension AndroidBluetoothLowEnergyScanCallbackListenerLocal {
             
             enum onBatchScanResults: JNINativeMethodEntry {
                 
-                static let name = "__onBatchScanResults"
+                static let name = "__on_batch_scan_results"
                 
                 /// "(JLjava/util/List;)V"
                 static let signature = JNIMethodSignature(
@@ -175,7 +175,7 @@ internal extension AndroidBluetoothLowEnergyScanCallbackListenerLocal {
             
             enum onScanFailed: JNINativeMethodEntry {
                 
-                static let name = "__onScanFailed"
+                static let name = "__on_scan_failed"
                 
                 /// "(JI)V"
                 static let signature = JNIMethodSignature(argumentTypes: [.long, .int], returnType: .void)

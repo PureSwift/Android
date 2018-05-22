@@ -43,7 +43,18 @@ internal extension Android {
     internal enum SwiftSupport: JavaPackage {
         
         static let package: JNIPackage = ["org", "pureswift", "swiftandroidsupport"]
+        
+        internal enum Bluetooth: JavaPackage {
+            
+            internal static let package: JNIPackage = Android.package + ["bluetooth"]
+            
+            internal enum LE: JavaPackage {
+                
+                internal static let package: JNIPackage = Android.Bluetooth.package + ["le"]
+            }
+        }
     }
+
 }
 
 public protocol JavaPackage {

@@ -100,7 +100,7 @@ internal extension AndroidWidgetAdapterListenerLocal {
     /// JNI Cache
     struct JNICache {
         
-        static let classSignature = Android.SwiftSupport.className(["SwiftAdapter"])
+        static let classSignature = Android.SwiftSupport.className(["SwiftBaseAdapter"])
         
         /// JNI Java class name
         static let className = classSignature.rawValue
@@ -110,7 +110,7 @@ internal extension AndroidWidgetAdapterListenerLocal {
             
             enum getCount: JNINativeMethodEntry {
                 
-                static let name = "__getCount"
+                static let name = "__get_count"
                 
                 /// "(J)I"
                 static let signature = JNIMethodSignature(argumentTypes: [.long], returnType: .int)
@@ -120,7 +120,7 @@ internal extension AndroidWidgetAdapterListenerLocal {
             
             enum getView: JNINativeMethodEntry {
                 
-                static let name = "__getView"
+                static let name = "__get_view"
                 
                 /// "(JILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;"
                 static let signature = JNIMethodSignature(
