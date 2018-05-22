@@ -100,7 +100,7 @@ internal extension AndroidWidgetAdapterListenerLocal {
     /// JNI Cache
     struct JNICache {
         
-        static let classSignature = Android.SwiftSupport.className(["SwiftBaseAdapter"])
+        static let classSignature = Android.SwiftSupport.Widget.className(["SwiftBaseAdapter"])
         
         /// JNI Java class name
         static let className = classSignature.rawValue

@@ -53,6 +53,11 @@ internal extension Android {
                 internal static let package: JNIPackage = Android.Bluetooth.package + ["le"]
             }
         }
+        
+        internal enum Widget: JavaPackage {
+            
+            internal static let package: JNIPackage = Android.package + ["widget"]
+        }
     }
 
 }
