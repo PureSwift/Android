@@ -290,6 +290,25 @@ public final class AndroidBluetoothLowEnergyScanSettings: JavaObject {
             return Int(__value)
         }
     }
+    
+    //METHODS
+    
+    private static var describeContents_MethodID: jmethodID?
+    
+    public func describeContents() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(object: javaObject,
+                                               methodName: "describeContents",
+                                               methodSig: "()I",
+                                               methodCache: &AndroidBluetoothLowEnergyScanSettings.describeContents_MethodID,
+                                               args: &__args,
+                                               locals: &__locals)
+        return Int(__return)
+    }
 }
 
 // MARK: - Builder
