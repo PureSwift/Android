@@ -471,6 +471,7 @@ public final class AndroidBluetoothLowEnergyScanSettingsBuilder: JavaObject {
     
     private static var build_MethodID: jmethodID?
     
+    /// Build ScanSettings.
     public func build() -> Android.Bluetooth.LE.ScanSettings {
         
         var __locals = [jobject]()
@@ -489,10 +490,194 @@ public final class AndroidBluetoothLowEnergyScanSettingsBuilder: JavaObject {
         return AndroidBluetoothLowEnergyScanSettings( javaObject: __return )
     }
     
+    private static var setCallbackType_MethodID: jmethodID?
+    
+    /// Set callback type for Bluetooth LE scan.
+    public func setCallbackType(callbackType: Android.Bluetooth.LE.CallbackType) -> Android.Bluetooth.LE.ScanSettings {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(callbackType.rawValue))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setCallbackType",
+            methodSig: "(I)Landroid/bluetooth/le/ScanSettings$Builder;",
+            methodCache: &AndroidBluetoothLowEnergyScanSettingsBuilder.setCallbackType_MethodID,
+            args: &__args,
+            locals: &__locals )
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "setCallbackType",
+                                                  methodSig: "(I)Landroid/bluetooth/le/ScanSettings$Builder;",
+                                                  methodCache: &AndroidBluetoothLowEnergyScanSettingsBuilder.setCallbackType_MethodID,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return AndroidBluetoothLowEnergyScanSettingsBuilder(javaObject: __return)
+    }
+    
+    private static var setLegacy_MethodID: jmethodID?
+    
+    /// Set whether only legacy advertisments should be returned in scan results. Legacy advertisements include
+    /// advertisements as specified by the Bluetooth core specification 4.2 and below. This is true by default for compatibility
+    /// with older apps.
+    public func setLegacy(legacy: Bool) -> Android.Bluetooth.LE.ScanSettings {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jboolean(legacy))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setLegacy",
+            methodSig: "(I)Landroid/bluetooth/le/ScanSettings$Builder;",
+            methodCache: &AndroidBluetoothLowEnergyScanSettingsBuilder.setLegacy_MethodID,
+            args: &__args,
+            locals: &__locals )
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "setLegacy",
+                                                  methodSig: "(Z)Landroid/bluetooth/le/ScanSettings$Builder;",
+                                                  methodCache: &AndroidBluetoothLowEnergyScanSettingsBuilder.setLegacy_MethodID,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return AndroidBluetoothLowEnergyScanSettingsBuilder(javaObject: __return)
+    }
+    
+    private static var setMatchMode_MethodID: jmethodID?
+    
+    /// Set match mode for Bluetooth LE scan filters hardware match
+    public func setMatchMode(matchMode: Android.Bluetooth.LE.MatchMode) -> Android.Bluetooth.LE.ScanSettings {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(matchMode.rawValue))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setMatchMode",
+            methodSig: "(I)Landroid/bluetooth/le/ScanSettings$Builder;",
+            methodCache: &AndroidBluetoothLowEnergyScanSettingsBuilder.setMatchMode_MethodID,
+            args: &__args,
+            locals: &__locals )
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "setMatchMode",
+                                                  methodSig: "(I)Landroid/bluetooth/le/ScanSettings$Builder;",
+                                                  methodCache: &AndroidBluetoothLowEnergyScanSettingsBuilder.setMatchMode_MethodID,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return AndroidBluetoothLowEnergyScanSettingsBuilder(javaObject: __return)
+    }
+    
+    private static var setNumOfMatches_MethodID: jmethodID?
+    
+    public func setNumOfMatches(numOfMatches: Android.Bluetooth.LE.MatchNum) -> Android.Bluetooth.LE.ScanSettings {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(numOfMatches.rawValue))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setNumOfMatches",
+            methodSig: "(I)Landroid/bluetooth/le/ScanSettings$Builder;",
+            methodCache: &AndroidBluetoothLowEnergyScanSettingsBuilder.setNumOfMatches_MethodID,
+            args: &__args,
+            locals: &__locals )
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "setNumOfMatches",
+                                                  methodSig: "(I)Landroid/bluetooth/le/ScanSettings$Builder;",
+                                                  methodCache: &AndroidBluetoothLowEnergyScanSettingsBuilder.setNumOfMatches_MethodID,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return AndroidBluetoothLowEnergyScanSettingsBuilder(javaObject: __return)
+    }
+    
+    private static var setPhy_MethodID: jmethodID?
+    
+    public func setPhy(phy: Android.Bluetooth.LE.Phy) -> Android.Bluetooth.LE.ScanSettings {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(phy.rawValue))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setPhy",
+            methodSig: "(I)Landroid/bluetooth/le/ScanSettings$Builder;",
+            methodCache: &AndroidBluetoothLowEnergyScanSettingsBuilder.setPhy_MethodID,
+            args: &__args,
+            locals: &__locals )
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "setPhy",
+                                                  methodSig: "(I)Landroid/bluetooth/le/ScanSettings$Builder;",
+                                                  methodCache: &AndroidBluetoothLowEnergyScanSettingsBuilder.setPhy_MethodID,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return AndroidBluetoothLowEnergyScanSettingsBuilder(javaObject: __return)
+    }
+    
+    private static var setReportDelay_MethodID: jmethodID?
+    
+    public func setReportDelay(reportDelayMillis: Int64) -> Android.Bluetooth.LE.ScanSettings {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jlong(reportDelayMillis))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setReportDelay",
+            methodSig: "(I)Landroid/bluetooth/le/ScanSettings$Builder;",
+            methodCache: &AndroidBluetoothLowEnergyScanSettingsBuilder.setReportDelay_MethodID,
+            args: &__args,
+            locals: &__locals )
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "setReportDelay",
+                                                  methodSig: "(I)Landroid/bluetooth/le/ScanSettings$Builder;",
+                                                  methodCache: &AndroidBluetoothLowEnergyScanSettingsBuilder.setReportDelay_MethodID,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return AndroidBluetoothLowEnergyScanSettingsBuilder(javaObject: __return)
+    }
+    
     private static var setScanMode_MethodID: jmethodID?
     
-    // public android.bluetooth.le.ScanSettings$Builder setScanMode(int);
-    // descriptor: (I)Landroid/bluetooth/le/ScanSettings$Builder;
+    // Set scan mode for Bluetooth LE scan.
     public func setScanMode(_ newValue: Android.Bluetooth.LE.ScanMode) -> Android.Bluetooth.LE.ScanSettings.Builder {
         
         var __locals = [jobject]()

@@ -56,6 +56,107 @@ public final class AndroidBluetoothDevice: JavaObject {
     }
 }
 
+// MARK: - CONSTANTS
+
+public extension Android.Bluetooth.Device {
+    
+    /// Bluetooth LE 1M PHY.
+    internal static var PHY_LE_1M: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "PHY_LE_1M",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.PHY_LE_1M,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    /// Bluetooth LE 1M PHY mask.
+    internal static var PHY_LE_1M_MASK: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "PHY_LE_1M_MASK",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.PHY_LE_1M_MASK,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    /// Bluetooth LE 2M PHY.
+    internal static var PHY_LE_2M: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "PHY_LE_2M",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.PHY_LE_2M,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    /// Bluetooth LE 2M PHY mask.
+    internal static var PHY_LE_2M_MASK: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "PHY_LE_2M_MASK",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.PHY_LE_2M_MASK,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    /// Bluetooth LE Coded PHY.
+    internal static var PHY_LE_CODED: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "PHY_LE_CODED",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.PHY_LE_CODED,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    /// Bluetooth LE Coded PHY mask.
+    internal static var PHY_LE_CODED_MASK: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "PHY_LE_CODED_MASK",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.PHY_LE_CODED_MASK,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+}
+
 // MARK: - JNI
 
 private extension Android.Bluetooth.Device {
@@ -68,6 +169,17 @@ private extension Android.Bluetooth.Device {
         
         /// JNI Java class
         static var jniClass: jclass?
+        
+        /// JNI Field ID cache
+        struct FieldID {
+            
+            static var PHY_LE_1M: jfieldID?
+            static var PHY_LE_1M_MASK: jfieldID?
+            static var PHY_LE_2M: jfieldID?
+            static var PHY_LE_2M_MASK: jfieldID?
+            static var PHY_LE_CODED: jfieldID?
+            static var PHY_LE_CODED_MASK: jfieldID?
+        }
         
         /// JNI Method ID cache
         struct MethodID {
