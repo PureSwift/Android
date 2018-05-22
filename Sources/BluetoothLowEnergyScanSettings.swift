@@ -295,6 +295,11 @@ public final class AndroidBluetoothLowEnergyScanSettings: JavaObject {
     
     private static var describeContents_MethodID: jmethodID?
     
+    /// Describe the kinds of special objects contained in this Parcelable instance's marshaled representation. For example, if
+    /// the object will include a file descriptor in the output of writeToParcel(Parcel, int), the return value of this method
+    /// must include the CONTENTS_FILE_DESCRIPTOR bit.
+    ///
+    /// @return a bitmask indicating the set of special object types marshaled by this Parcelable object instance.
     public func describeContents() -> Int {
         
         var __locals = [jobject]()
@@ -305,6 +310,112 @@ public final class AndroidBluetoothLowEnergyScanSettings: JavaObject {
                                                methodName: "describeContents",
                                                methodSig: "()I",
                                                methodCache: &AndroidBluetoothLowEnergyScanSettings.describeContents_MethodID,
+                                               args: &__args,
+                                               locals: &__locals)
+        return Int(__return)
+    }
+    
+    private static var getCallbackType_MethodID: jmethodID?
+    
+    public func getCallbackType() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(object: javaObject,
+                                               methodName: "getCallbackType",
+                                               methodSig: "()I",
+                                               methodCache: &AndroidBluetoothLowEnergyScanSettings.getCallbackType_MethodID,
+                                               args: &__args,
+                                               locals: &__locals)
+        return Int(__return)
+    }
+    
+    private static var getLegacy_MethodID: jmethodID?
+    
+    /// Returns whether only legacy advertisements will be returned. Legacy advertisements include advertisements as
+    /// specified by the Bluetooth core specification 4.2 and below.
+    public func getLegacy() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                               methodName: "getLegacy",
+                                               methodSig: "()Z",
+                                               methodCache: &AndroidBluetoothLowEnergyScanSettings.getLegacy_MethodID,
+                                               args: &__args,
+                                               locals: &__locals)
+        return Bool(__return)
+    }
+    
+    private static var getPhy_MethodID: jmethodID?
+    
+    /// Returns the physical layer used during a scan.
+    public func getPhy() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(object: javaObject,
+                                               methodName: "getPhy",
+                                               methodSig: "()I",
+                                               methodCache: &AndroidBluetoothLowEnergyScanSettings.getPhy_MethodID,
+                                               args: &__args,
+                                               locals: &__locals)
+        return Int(__return)
+    }
+    
+    private static var getReportDelayMillis_MethodID: jmethodID?
+    
+    /// Returns report delay timestamp based on the device clock.
+    public func getReportDelayMillis() -> Int64 {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallLongMethod(object: javaObject,
+                                               methodName: "getReportDelayMillis",
+                                               methodSig: "()J",
+                                               methodCache: &AndroidBluetoothLowEnergyScanSettings.getReportDelayMillis_MethodID,
+                                               args: &__args,
+                                               locals: &__locals)
+        return __return
+    }
+    
+    private static var getScanMode_MethodID: jmethodID?
+    
+    public func getScanMode() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(object: javaObject,
+                                               methodName: "getScanMode",
+                                               methodSig: "()I",
+                                               methodCache: &AndroidBluetoothLowEnergyScanSettings.getScanMode_MethodID,
+                                               args: &__args,
+                                               locals: &__locals)
+        return Int(__return)
+    }
+    
+    private static var getScanResultType_MethodID: jmethodID?
+    
+    public func getScanResultType() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(object: javaObject,
+                                               methodName: "getScanResultType",
+                                               methodSig: "()I",
+                                               methodCache: &AndroidBluetoothLowEnergyScanSettings.getScanResultType_MethodID,
                                                args: &__args,
                                                locals: &__locals)
         return Int(__return)
