@@ -15,6 +15,60 @@ public extension Android.Bluetooth.LE {
     public typealias ScanResult = AndroidBluetoothLowEnergyScanResult
     
     public typealias DataStatus = AndroidBluetoothLowEnergyDataStatus
+    
+    public typealias PrimaryPhy = AndroidBluetoothLowEnergyPrimaryPhy
+    
+    public typealias SecondaryPhy = AndroidBluetoothLowEnergySecondaryPhy
+}
+
+/// LE Primary Phy
+public struct AndroidBluetoothLowEnergyPrimaryPhy: RawRepresentable {
+    
+    public let rawValue: Int
+    
+    public init(rawValue: Int) {
+        self.rawValue = rawValue
+    }
+    
+    /**
+     * Bluetooth LE 1M PHY. Used to refer to LE 1M Physical Channel for advertising, scanning or connection.
+     */
+    public static let phyLe1m = Android.Bluetooth.LE.PrimaryPhy(rawValue: Android.Bluetooth.Device.PHY_LE_1M)
+    
+    /**
+     * Bluetooth LE Coded PHY. Used to refer to LE Coded Physical Channel for advertising, scanning or connection.
+     */
+    public static let phyLeCoded = Android.Bluetooth.LE.PrimaryPhy(rawValue: Android.Bluetooth.Device.PHY_LE_CODED)
+}
+
+/// LE Secondary Phy
+public struct AndroidBluetoothLowEnergySecondaryPhy: RawRepresentable {
+    
+    public let rawValue: Int
+    
+    public init(rawValue: Int) {
+        self.rawValue = rawValue
+    }
+    
+    /**
+     * Bluetooth LE 1M PHY. Used to refer to LE 1M Physical Channel for advertising, scanning or connection.
+     */
+    public static let phyLe1m = Android.Bluetooth.LE.SecondaryPhy(rawValue: Android.Bluetooth.Device.PHY_LE_1M)
+    
+    /**
+     * Bluetooth LE Coded PHY. Used to refer to LE Coded Physical Channel for advertising, scanning or connection.
+     */
+    public static let phyLeCoded = Android.Bluetooth.LE.SecondaryPhy(rawValue: Android.Bluetooth.Device.PHY_LE_CODED)
+    
+    /**
+     * Bluetooth LE 2M PHY. Used to refer to LE 2M Physical Channel for advertising, scanning or connection.
+     */
+    public static let phyLe2m = Android.Bluetooth.LE.SecondaryPhy(rawValue: Android.Bluetooth.Device.PHY_LE_2M)
+    
+    /**
+     * Indicates that the secondary physical layer was not used.
+     */
+    public static let phyUnused = Android.Bluetooth.LE.SecondaryPhy(rawValue: Android.Bluetooth.LE.ScanResult.PHY_UNUSED)
 }
 
 /// LE Data Status.
@@ -71,6 +125,44 @@ public final class AndroidBluetoothLowEnergyScanResult: JavaObject {
     }
     
     /**
+     * Returns the periodic advertising interval in units of 1.25ms. Valid range is 6 (7.5ms) to 65536 (81918.75ms).
+     * A value of PERIODIC_INTERVAL_NOT_PRESENT means periodic advertising interval is not present.
+     */
+    public var periodicAdvertisingInterval: Int {
+        
+        @inline(__always)
+        get { return getPeriodicAdvertisingInterval() }
+    }
+    
+    /**
+     * Returns the primary Physical Layer on which this advertisment was received. Can be one of PHY_LE_1M or PHY_LE_CODED.
+     */
+    public var primaryPhy: Android.Bluetooth.LE.PrimaryPhy {
+        
+        @inline(__always)
+        get { return getPrimaryPhy() }
+    }
+    
+    /**
+     * Returns the received signal strength in dBm. The valid range is [-127, 126].
+     */
+    public var rssi: Int {
+        
+        @inline(__always)
+        get { return getRssi() }
+    }
+    
+    /**
+     * Returns the secondary Physical Layer on which this advertisment was received. Can be one of PHY_LE_1M, PHY_LE_2M,
+     * PHY_LE_CODED or PHY_UNUSED - if the advertisement was not received on a secondary physical channel.
+     */
+    public var secondaryPhy: Android.Bluetooth.LE.SecondaryPhy {
+        
+        @inline(__always)
+        get { return getSecondaryPhy() }
+    }
+    
+    /**
      * Returns the scan record, which is a combination of advertisement and scan response.
      */
     public var scanRecord: JavaObject? {
@@ -78,6 +170,44 @@ public final class AndroidBluetoothLowEnergyScanResult: JavaObject {
         @inline(__always)
         get { return nil }
     }
+    
+    /**
+     * Returns timestamp since boot when the scan record was observed.
+     */
+    public var timestampNanos: Int64 {
+        
+        @inline(__always)
+        get { return getTimestampNanos() }
+    }
+    
+    /**
+     * Returns the transmit power in dBm. Valid range is [-127, 126]. A value of TX_POWER_NOT_PRESENT indicates that the TX power is not present.
+     */
+    public var txPower: Int {
+        
+        @inline(__always)
+        get { return getTxPower() }
+    }
+    
+    /**
+     * Returns true if this object represents connectable scan result.
+     */
+    public var isConnectable: Bool {
+        
+        @inline(__always)
+        get { return getConnectable() }
+    }
+    
+    /**
+     * Returns true if this object represents legacy scan result. Legacy scan results do not contain advanced advertising information as specified in the Bluetooth Core Specification v5.
+     */
+    public var isLegacy: Bool {
+        
+        @inline(__always)
+        get { return getLegacy() }
+    }
+    
+    
 }
 
 // MARK: CONSTANTS
@@ -214,9 +344,9 @@ internal extension Android.Bluetooth.LE.ScanResult {
                                                methodCache: &JNICache.MethodID.getDataStatus,
                                                args: &__args,
                                                locals: &__locals)
-        return Android.Bluetooth.LE.DataStatus.init(rawValue: Int(__return))
+        
+        return Android.Bluetooth.LE.DataStatus(rawValue: Int(__return))
     }
-    
     
     @_versioned
     internal func getDevice() -> Android.Bluetooth.Device {
@@ -237,7 +367,137 @@ internal extension Android.Bluetooth.LE.ScanResult {
         return Android.Bluetooth.Device( javaObject: __return )
     }
     
+    @_versioned
+    internal func getPeriodicAdvertisingInterval() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallIntMethod(object: javaObject,
+                                                  methodName: "getPeriodicAdvertisingInterval",
+                                                  methodSig: "()I",
+                                                  methodCache: &JNICache.MethodID.getPeriodicAdvertisingInterval,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        return Int(__return)
+    }
     
+    @_versioned
+    internal func getPrimaryPhy() -> Android.Bluetooth.LE.PrimaryPhy {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallIntMethod(object: javaObject,
+                                               methodName: "getPrimaryPhy",
+                                               methodSig: "()I",
+                                               methodCache: &JNICache.MethodID.getPrimaryPhy,
+                                               args: &__args,
+                                               locals: &__locals)
+        
+        return Android.Bluetooth.LE.PrimaryPhy(rawValue: Int(__return))
+    }
+    
+    
+    
+    @_versioned
+    internal func getSecondaryPhy() -> Android.Bluetooth.LE.SecondaryPhy {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallIntMethod(object: javaObject,
+                                               methodName: "getSecondaryPhy",
+                                               methodSig: "()I",
+                                               methodCache: &JNICache.MethodID.getSecondaryPhy,
+                                               args: &__args,
+                                               locals: &__locals)
+        
+        return Android.Bluetooth.LE.SecondaryPhy(rawValue: Int(__return))
+    }
+    
+    @_versioned
+    internal func getRssi() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallIntMethod(object: javaObject,
+                                               methodName: "getRssi",
+                                               methodSig: "()I",
+                                               methodCache: &JNICache.MethodID.getRssi,
+                                               args: &__args,
+                                               locals: &__locals)
+        return Int(__return)
+    }
+    
+    @_versioned
+    internal func getTimestampNanos() -> Int64 {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallLongMethod(object: javaObject,
+                                               methodName: "getTimestampNanos",
+                                               methodSig: "()J",
+                                               methodCache: &JNICache.MethodID.getTimestampNanos,
+                                               args: &__args,
+                                               locals: &__locals)
+        return Int64(__return)
+    }
+    
+    @_versioned
+    internal func getTxPower() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallIntMethod(object: javaObject,
+                                               methodName: "getTxPower",
+                                               methodSig: "()I",
+                                               methodCache: &JNICache.MethodID.getTxPower,
+                                               args: &__args,
+                                               locals: &__locals)
+        return Int(__return)
+    }
+    
+    @_versioned
+    internal func getConnectable() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                               methodName: "isConnectable",
+                                               methodSig: "()Z",
+                                               methodCache: &JNICache.MethodID.isConnectable,
+                                               args: &__args,
+                                               locals: &__locals)
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    @_versioned
+    internal func getLegacy() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                               methodName: "isLegacy",
+                                               methodSig: "()Z",
+                                               methodCache: &JNICache.MethodID.isLegacy,
+                                               args: &__args,
+                                               locals: &__locals)
+        return __return != jboolean(JNI_FALSE)
+    }
 }
 
 // MARK: - JNI
