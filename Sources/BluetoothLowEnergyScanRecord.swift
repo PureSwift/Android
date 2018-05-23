@@ -72,7 +72,8 @@ public final class AndroidBluetoothLowEnergyScanRecord: JavaObject {
     public var serviceData: AnyObject? {
         
         @inline(__always)
-        get { fatalError("Not implemented")
+        get {
+            fatalError("Not implemented")
             return nil
         }
     }
@@ -157,7 +158,7 @@ internal extension Android.Bluetooth.LE.ScanRecord {
         
         let __return = JNIMethod.CallObjectMethod(object: javaObject,
                                                   methodName: "getDeviceName",
-                                                  methodSig: "()Ljava/lang/String",
+                                                  methodSig: "()Ljava/lang/String;",
                                                   methodCache: &JNICache.MethodID.getDeviceName,
                                                   args: &__args,
                                                   locals: &__locals)

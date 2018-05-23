@@ -142,6 +142,7 @@ public final class AndroidBluetoothLowEnergyScanResult: JavaObject {
         @inline(__always)
         get { return getPrimaryPhy() }
     }
+
     
     /**
      * Returns the received signal strength in dBm. The valid range is [-127, 126].
@@ -165,10 +166,10 @@ public final class AndroidBluetoothLowEnergyScanResult: JavaObject {
     /**
      * Returns the scan record, which is a combination of advertisement and scan response.
      */
-    public var scanRecord: JavaObject? {
+    public var scanRecord: Android.Bluetooth.LE.ScanRecord {
         
         @inline(__always)
-        get { return nil }
+        get { return getScanRecord() }
     }
     
     /**
@@ -497,6 +498,33 @@ internal extension Android.Bluetooth.LE.ScanResult {
                                                args: &__args,
                                                locals: &__locals)
         return __return != jboolean(JNI_FALSE)
+    }
+    
+    @_versioned
+    internal func getScanRecord() -> Android.Bluetooth.LE.ScanRecord {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "getScanRecord",
+            methodSig: "(I)android.bluetooth.le.ScanRecord;",
+            methodCache: &JNICache.MethodID.getScanRecord,
+            args: &__args,
+            locals: &__locals )
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "getScanRecord",
+                                                  methodSig: "(I)android.bluetooth.le.ScanRecord;",
+                                                  methodCache: &JNICache.MethodID.getScanRecord,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return Android.Bluetooth.LE.ScanRecord(javaObject: __return)
     }
 }
 
