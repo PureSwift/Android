@@ -348,7 +348,7 @@ public final class AndroidBluetoothLowEnergyScanSettings: JavaObject {
                                                methodCache: &AndroidBluetoothLowEnergyScanSettings.getLegacy_MethodID,
                                                args: &__args,
                                                locals: &__locals)
-        return Bool(__return)
+        return __return != jboolean(JNI_FALSE)
     }
     
     private static var getPhy_MethodID: jmethodID?
@@ -493,7 +493,7 @@ public final class AndroidBluetoothLowEnergyScanSettingsBuilder: JavaObject {
     private static var setCallbackType_MethodID: jmethodID?
     
     /// Set callback type for Bluetooth LE scan.
-    public func setCallbackType(callbackType: Android.Bluetooth.LE.CallbackType) -> Android.Bluetooth.LE.ScanSettings {
+    public func setCallbackType(callbackType: Android.Bluetooth.LE.CallbackType) -> Android.Bluetooth.LE.ScanSettings.Builder {
         
         var __locals = [jobject]()
         
@@ -526,13 +526,13 @@ public final class AndroidBluetoothLowEnergyScanSettingsBuilder: JavaObject {
     /// Set whether only legacy advertisments should be returned in scan results. Legacy advertisements include
     /// advertisements as specified by the Bluetooth core specification 4.2 and below. This is true by default for compatibility
     /// with older apps.
-    public func setLegacy(legacy: Bool) -> Android.Bluetooth.LE.ScanSettings {
+    public func setLegacy(legacy: Bool) -> Android.Bluetooth.LE.ScanSettings.Builder {
         
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         
-        __args[0] = jvalue(i: jboolean(legacy))
+        __args[0] = jvalue(z: jboolean(legacy ?  JNI_TRUE : JNI_FALSE) )
         
         JNIMethod.CallVoidMethod(
             object: javaObject,
@@ -557,7 +557,7 @@ public final class AndroidBluetoothLowEnergyScanSettingsBuilder: JavaObject {
     private static var setMatchMode_MethodID: jmethodID?
     
     /// Set match mode for Bluetooth LE scan filters hardware match
-    public func setMatchMode(matchMode: Android.Bluetooth.LE.MatchMode) -> Android.Bluetooth.LE.ScanSettings {
+    public func setMatchMode(matchMode: Android.Bluetooth.LE.MatchMode) -> Android.Bluetooth.LE.ScanSettings.Builder {
         
         var __locals = [jobject]()
         
@@ -587,7 +587,7 @@ public final class AndroidBluetoothLowEnergyScanSettingsBuilder: JavaObject {
     
     private static var setNumOfMatches_MethodID: jmethodID?
     
-    public func setNumOfMatches(numOfMatches: Android.Bluetooth.LE.MatchNum) -> Android.Bluetooth.LE.ScanSettings {
+    public func setNumOfMatches(numOfMatches: Android.Bluetooth.LE.MatchNum) -> Android.Bluetooth.LE.ScanSettings.Builder {
         
         var __locals = [jobject]()
         
@@ -617,7 +617,7 @@ public final class AndroidBluetoothLowEnergyScanSettingsBuilder: JavaObject {
     
     private static var setPhy_MethodID: jmethodID?
     
-    public func setPhy(phy: Android.Bluetooth.LE.Phy) -> Android.Bluetooth.LE.ScanSettings {
+    public func setPhy(phy: Android.Bluetooth.LE.Phy) -> Android.Bluetooth.LE.ScanSettings.Builder {
         
         var __locals = [jobject]()
         
@@ -647,13 +647,13 @@ public final class AndroidBluetoothLowEnergyScanSettingsBuilder: JavaObject {
     
     private static var setReportDelay_MethodID: jmethodID?
     
-    public func setReportDelay(reportDelayMillis: Int64) -> Android.Bluetooth.LE.ScanSettings {
+    public func setReportDelay(reportDelayMillis: Int64) -> Android.Bluetooth.LE.ScanSettings.Builder {
         
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         
-        __args[0] = jvalue(i: jlong(reportDelayMillis))
+        __args[0] = jvalue(j: jlong(reportDelayMillis))
         
         JNIMethod.CallVoidMethod(
             object: javaObject,
