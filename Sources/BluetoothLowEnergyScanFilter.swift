@@ -268,4 +268,102 @@ public final class AndroidBluetoothLowEnergyScanFilterBuilder: JavaObject {
         
         return AndroidBluetoothLowEnergyScanFilterBuilder(javaObject: __return)
     }
+    
+    private static var setServiceData_MethodID: jmethodID?
+    /**
+     * Set filtering on service data.
+     */
+    public func setServiceData(serviceDataUuid: Android.Os.ParcelUuid, serviceData: [Int8]) -> Android.Bluetooth.LE.ScanFilter.Builder {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] =  JNIType.toJava( value: serviceDataUuid, locals: &__locals )
+        __args[1] = JNIType.toJava( value: serviceData, locals: &__locals )
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "setServiceData",
+                                                  methodSig: "(Landroid/os/ParcelUuid;[B)Landroid/bluetooth/le/ScanFilter$Builder;",
+                                                  methodCache: &type(of: self).setServiceData_MethodID,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return AndroidBluetoothLowEnergyScanFilterBuilder(javaObject: __return)
+    }
+    
+    private static var setServiceData2_MethodID: jmethodID?
+    /**
+     * Set filtering on service data.
+     */
+    public func setServiceData(serviceDataUuid: Android.Os.ParcelUuid, serviceData: [Int8], serviceDataMask: [Int8]) -> Android.Bluetooth.LE.ScanFilter.Builder {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] =  JNIType.toJava( value: serviceDataUuid, locals: &__locals )
+        __args[1] = JNIType.toJava( value: serviceData, locals: &__locals )
+        __args[2] = JNIType.toJava( value: serviceDataMask, locals: &__locals )
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "setServiceData",
+                                                  methodSig: "(Landroid/os/ParcelUuid;[B[B)Landroid/bluetooth/le/ScanFilter$Builder;",
+                                                  methodCache: &type(of: self).setServiceData2_MethodID,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return AndroidBluetoothLowEnergyScanFilterBuilder(javaObject: __return)
+    }
+    
+    /// Set filter on partial service uuid.
+    private static var setServiceUuuid_MethodID: jmethodID?
+    public func setServiceUuuid(serviceUuid: Android.Os.ParcelUuid, uuidMask: Android.Os.ParcelUuid) -> Android.Bluetooth.LE.ScanFilter.Builder {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] =  JNIType.toJava( value: serviceUuid, locals: &__locals )
+        __args[1] = JNIType.toJava( value: uuidMask, locals: &__locals )
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "setServiceUuid",
+                                                  methodSig: "(Landroid/os/ParcelUuid;Landroid/os/ParcelUuid;)Landroid/bluetooth/le/ScanFilter$Builder;",
+                                                  methodCache: &type(of: self).setServiceUuuid_MethodID,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return AndroidBluetoothLowEnergyScanFilterBuilder(javaObject: __return)
+    }
+    
+    /// Set filter on service uuid.
+    private static var setServiceUuuid2_MethodID: jmethodID?
+    public func setServiceUuuid(serviceUuid: Android.Os.ParcelUuid) -> Android.Bluetooth.LE.ScanFilter.Builder {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] =  JNIType.toJava( value: serviceUuid, locals: &__locals )
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "setServiceUuid",
+                                                  methodSig: "(Landroid/os/ParcelUuid;)Landroid/bluetooth/le/ScanFilter$Builder;",
+                                                  methodCache: &type(of: self).setServiceUuuid2_MethodID,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return AndroidBluetoothLowEnergyScanFilterBuilder(javaObject: __return)
+    }
+    
+    
 }

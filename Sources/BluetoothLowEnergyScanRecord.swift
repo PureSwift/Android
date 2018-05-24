@@ -79,11 +79,11 @@ public final class AndroidBluetoothLowEnergyScanRecord: JavaObject {
     /**
      * Returns a list of service UUIDs within the advertisement that are used to identify the bluetooth GATT services.
      */
-    public var serviceUuids: AnyObject? {
+    public var serviceUuids: List? {
         
         @inline(__always)
         get {
-            fatalError("Not implemented")
+            return getServiceUuids()
         }
     }
     
