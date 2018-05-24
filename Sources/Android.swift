@@ -12,6 +12,11 @@ public enum Android: JavaPackage {
     
     public static let package: JNIPackage = ["android"]
     
+    public enum Os: JavaPackage {
+        
+        public static let package: JNIPackage = Android.package + ["os"]
+    }
+    
     public enum Content: JavaPackage {
         
         public static let package: JNIPackage = Android.package + ["content"]

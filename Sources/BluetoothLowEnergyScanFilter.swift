@@ -142,35 +142,130 @@ public final class AndroidBluetoothLowEnergyScanFilterBuilder: JavaObject {
         return AndroidBluetoothLowEnergyScanSettings( javaObject: __return )
     }
     
-    private static var setScanMode_MethodID: jmethodID?
+    private static var setDeviceAddress_MethodID: jmethodID?
     
-    // public android.bluetooth.le.ScanSettings$Builder setScanMode(int);
-    // descriptor: (I)Landroid/bluetooth/le/ScanSettings$Builder;
-    public func setScanMode(_ newValue: Android.Bluetooth.LE.ScanMode) -> Android.Bluetooth.LE.ScanSettings.Builder {
+    /// Set filter on device address.
+    public func setDeviceAddress(_ deviceAddress: String) -> Android.Bluetooth.LE.ScanFilter.Builder {
         
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         
-        __args[0] = jvalue(i: jint(newValue.rawValue))
+        __args[0] = JNIType.toJava( value: deviceAddress, locals: &__locals )
         
         JNIMethod.CallVoidMethod(
             object: javaObject,
-            methodName: "setScanMode",
-            methodSig: "(I)Landroid/bluetooth/le/ScanSettings$Builder;",
-            methodCache: &type(of: self).setScanMode_MethodID,
+            methodName: "setDeviceAddress",
+            methodSig: "(Ljava/lang/String;)Landroid/bluetooth/le/ScanFilter$Builder;",
+            methodCache: &type(of: self).setDeviceAddress_MethodID,
             args: &__args,
             locals: &__locals )
         
         let __return = JNIMethod.CallObjectMethod(object: javaObject,
-                                                  methodName: "setScanMode",
-                                                  methodSig: "(I)Landroid/bluetooth/le/ScanSettings$Builder;",
-                                                  methodCache: &type(of: self).setScanMode_MethodID,
+                                                  methodName: "setDeviceAddress",
+                                                  methodSig: "(Ljava/lang/String;)Landroid/bluetooth/le/ScanFilter$Builder;",
+                                                  methodCache: &type(of: self).setDeviceAddress_MethodID,
                                                   args: &__args,
                                                   locals: &__locals)
         
         defer { JNI.DeleteLocalRef( __return ) }
         
-        return AndroidBluetoothLowEnergyScanSettingsBuilder(javaObject: __return)
+        return AndroidBluetoothLowEnergyScanFilterBuilder(javaObject: __return)
+    }
+    
+    private static var setDeviceName_MethodID: jmethodID?
+    
+    /// Set filter on device name.
+    public func setDeviceName(_ deviceName: String) -> Android.Bluetooth.LE.ScanFilter.Builder {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava( value: deviceName, locals: &__locals )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setDeviceName",
+            methodSig: "(Ljava/lang/String;)Landroid/bluetooth/le/ScanFilter$Builder;",
+            methodCache: &type(of: self).setDeviceName_MethodID,
+            args: &__args,
+            locals: &__locals )
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "setDeviceName",
+                                                  methodSig: "(Ljava/lang/String;)Landroid/bluetooth/le/ScanFilter$Builder;",
+                                                  methodCache: &type(of: self).setDeviceName_MethodID,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return AndroidBluetoothLowEnergyScanFilterBuilder(javaObject: __return)
+    }
+    
+    private static var setManufacturerData_MethodID: jmethodID?
+    
+    /// Set filter on on manufacturerData.
+    public func setManufacturerData(_ manufacturerId: Int, _ manufacturerData: [Int8]) -> Android.Bluetooth.LE.ScanFilter.Builder {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = jvalue(i: jint(manufacturerId))
+        __args[1] = JNIType.toJava( value: manufacturerData, locals: &__locals )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setManufacturerData",
+            methodSig: "(Ljava/lang/String;)Landroid/bluetooth/le/ScanFilter$Builder;",
+            methodCache: &type(of: self).setManufacturerData_MethodID,
+            args: &__args,
+            locals: &__locals )
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "setManufacturerData",
+                                                  methodSig: "(Ljava/lang/String;)Landroid/bluetooth/le/ScanFilter$Builder;",
+                                                  methodCache: &type(of: self).setManufacturerData_MethodID,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return AndroidBluetoothLowEnergyScanFilterBuilder(javaObject: __return)
+    }
+    
+    private static var setManufacturerData2_MethodID: jmethodID?
+    
+    /// Set filter on partial manufacture data.
+    public func setManufacturerData(_ manufacturerId: Int, _ manufacturerData: [Int8], _ manufacturerDataMask: [Int8]) -> Android.Bluetooth.LE.ScanFilter.Builder {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        
+        __args[0] = jvalue(i: jint(manufacturerId))
+        __args[1] = JNIType.toJava( value: manufacturerData, locals: &__locals )
+        __args[2] = JNIType.toJava( value: manufacturerDataMask, locals: &__locals )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setManufacturerData",
+            methodSig: "(Ljava/lang/String;)Landroid/bluetooth/le/ScanFilter$Builder;",
+            methodCache: &type(of: self).setManufacturerData2_MethodID,
+            args: &__args,
+            locals: &__locals )
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "setManufacturerData",
+                                                  methodSig: "(Ljava/lang/String;)Landroid/bluetooth/le/ScanFilter$Builder;",
+                                                  methodCache: &type(of: self).setManufacturerData2_MethodID,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return AndroidBluetoothLowEnergyScanFilterBuilder(javaObject: __return)
     }
 }

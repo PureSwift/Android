@@ -7,6 +7,7 @@
 
 import Foundation
 import java_swift
+import java_util
 
 public extension Android.Bluetooth.LE {
     
@@ -69,13 +70,10 @@ public final class AndroidBluetoothLowEnergyScanRecord: JavaObject {
     /**
      * Returns a map of service UUID and its corresponding service data.
      */
-    public var serviceData: AnyObject? {
+    public var serviceData: JavaMap? {
         
         @inline(__always)
-        get {
-            fatalError("Not implemented")
-            return nil
-        }
+        get { return __getServiceData() }
     }
     
     /**
@@ -86,7 +84,6 @@ public final class AndroidBluetoothLowEnergyScanRecord: JavaObject {
         @inline(__always)
         get {
             fatalError("Not implemented")
-            return nil
         }
     }
     
@@ -102,6 +99,7 @@ public final class AndroidBluetoothLowEnergyScanRecord: JavaObject {
     
     // METHODS
     
+    /// Returns the manufacturer specific data associated with the manufacturer id.
     public func getManufacturerSpecificData(manufacturerId: Int) -> [Int8]? {
         
         var __locals = [jobject]()
@@ -121,15 +119,69 @@ public final class AndroidBluetoothLowEnergyScanRecord: JavaObject {
         return JNIType.toSwift( type: [Int8].self, from: __return )
     }
     
-    public func getServiceData(){
-        fatalError("Not implemented")
+    /// Returns the service data byte array associated with the serviceUuid.
+    public func getServiceData(serviceDataUuid: Android.Os.ParcelUuid) -> [Int8]? {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        __args[0] = JNIType.toJava(value: serviceDataUuid, locals: &__locals)
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "getServiceData",
+                                                  methodSig: "(Landroid/os/ParcelUuid;)[B",
+                                                  methodCache: &JNICache.MethodID.getServiceData_param,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return JNIType.toSwift( type: [Int8].self, from: __return )
     }
 }
 
 // MARK: - METHODS
 
 internal extension Android.Bluetooth.LE.ScanRecord {
+    
+    @_versioned
+    internal func getServiceUuids() -> List? {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "getServiceUuids",
+                                                  methodSig: "()Ljava/util/List;",
+                                                  methodCache: &JNICache.MethodID.getServiceUuids,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return __return != nil ? ListForward( javaObject: __return ) : nil
+    }
+    
+    @_versioned
+    internal func __getServiceData() -> JavaMap? {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "getServiceData",
+                                                  methodSig: "()Ljava/util/Map;",
+                                                  methodCache: &JNICache.MethodID.getServiceData,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
 
+        return JNIType.toSwift( type: java_swift.JavaMapForward.self, from: __return )
+    }
+    
     @_versioned
     internal func __getManufacturerSpecificData() -> [Int8]? {
         
