@@ -68,11 +68,84 @@ public final class AndroidBluetoothLowEnergyScanFilter: JavaObject {
         
         get { return getDeviceAddress() }
     }
+    
+    /**
+     * Returns the filter set the device name field of Bluetooth advertisement data.
+     */
+    public var deviceName: String {
+        
+        get { return getDeviceAddress() }
+    }
+    
+    public var manufacturerData: [Int8]? {
+        
+        get { return getManufacturerData() }
+    }
+    
+    public var manufacturerDataMask: [Int8]? {
+        
+        get { return getManufacturerDataMask() }
+    }
+    
+    /**
+     * Returns the manufacturer id.
+     */
+    public var manufacturerId: Int {
+        
+        get { return getManufacturerId() }
+    }
+    
+    public var serviceData: [Int8]? {
+        
+        get { return getServiceData() }
+    }
+    
+    public var serviceDataMask: [Int8]? {
+        
+        get { return getServiceDataMask() }
+    }
+    
+    public var serviceDataUuid: Android.Os.ParcelUuid? {
+        
+        get { return getServiceDataUuid() }
+    }
+    
+    public var serviceUuid: Android.Os.ParcelUuid? {
+        
+        get { return getServiceUuid() }
+    }
+    
+    public var serviceUuidMask: Android.Os.ParcelUuid? {
+        
+        get { return getServiceUuidMask() }
+    }
 }
 
 // MARK: METHODS
 
 public extension Android.Bluetooth.LE.ScanFilter {
+    
+    public func matches(scanResult: Android.Bluetooth.LE.ScanResult) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        __args[0] = JNIType.toJava( value: scanResult, locals: &__locals )
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                                   methodName: "matches",
+                                                   methodSig: "(Landroid/bluetooth/le/ScanResult;)Z",
+                                                   methodCache: &JNICache.MethodID.matches,
+                                                   args: &__args,
+                                                   locals: &__locals)
+        return __return != jboolean(JNI_FALSE)
+    }
+}
+
+// MARK: INTERNAL METHODS
+
+internal extension Android.Bluetooth.LE.ScanFilter {
     
     @_versioned
     internal func getDeviceAddress() -> String {
@@ -93,7 +166,170 @@ public extension Android.Bluetooth.LE.ScanFilter {
         return String(javaObject: __return)
     }
     
+    @_versioned
+    internal func getDeviceName() -> String {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "getDeviceName",
+                                                  methodSig: "()Ljava/lang/String;",
+                                                  methodCache: &JNICache.MethodID.getDeviceName,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return String(javaObject: __return)
+    }
     
+    @_versioned
+    internal func getManufacturerData() -> [Int8]? {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "getManufacturerData",
+                                                  methodSig: "()[B",
+                                                  methodCache: &JNICache.MethodID.getManufacturerData,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return JNIType.toSwift( type: [Int8].self, from: __return )
+    }
+    
+    @_versioned
+    internal func getManufacturerDataMask() -> [Int8]? {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "getManufacturerDataMask",
+                                                  methodSig: "()[B",
+                                                  methodCache: &JNICache.MethodID.getManufacturerDataMask,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return JNIType.toSwift( type: [Int8].self, from: __return )
+    }
+    
+    @_versioned
+    internal func getManufacturerId() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallIntMethod(object: javaObject,
+                                               methodName: "getManufacturerId",
+                                               methodSig: "()I",
+                                               methodCache: &JNICache.MethodID.getManufacturerId,
+                                               args: &__args,
+                                               locals: &__locals)
+        return Int(__return)
+    }
+    
+    @_versioned
+    internal func getServiceData() -> [Int8]? {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "getServiceData",
+                                                  methodSig: "()[B",
+                                                  methodCache: &JNICache.MethodID.getServiceData,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return JNIType.toSwift( type: [Int8].self, from: __return )
+    }
+    
+    @_versioned
+    internal func getServiceDataMask() -> [Int8]? {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "getServiceDataMask",
+                                                  methodSig: "()[B",
+                                                  methodCache: &JNICache.MethodID.getServiceDataMask,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return JNIType.toSwift( type: [Int8].self, from: __return )
+    }
+    
+    @_versioned
+    internal func getServiceDataUuid() -> Android.Os.ParcelUuid? {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallStaticObjectMethod( className: JNICache.className,
+                                                         classCache: &JNICache.jniClass,
+                                                         methodName: "getServiceDataUuid",
+                                                         methodSig: "()Landroid/os/ParcelUuid;",
+                                                         methodCache: &JNICache.MethodID.getServiceDataUuid,
+                                                         args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return __return != nil ? Android.Os.ParcelUuid( javaObject: __return ) : nil
+    }
+    
+    @_versioned
+    internal func getServiceUuid() -> Android.Os.ParcelUuid? {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallStaticObjectMethod( className: JNICache.className,
+                                                         classCache: &JNICache.jniClass,
+                                                         methodName: "getServiceUuid",
+                                                         methodSig: "()Landroid/os/ParcelUuid;",
+                                                         methodCache: &JNICache.MethodID.getServiceUuid,
+                                                         args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return __return != nil ? Android.Os.ParcelUuid( javaObject: __return ) : nil
+    }
+    
+    @_versioned
+    internal func getServiceUuidMask() -> Android.Os.ParcelUuid? {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallStaticObjectMethod( className: JNICache.className,
+                                                         classCache: &JNICache.jniClass,
+                                                         methodName: "getServiceUuidMask",
+                                                         methodSig: "()Landroid/os/ParcelUuid;",
+                                                         methodCache: &JNICache.MethodID.getServiceUuidMask,
+                                                         args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return __return != nil ? Android.Os.ParcelUuid( javaObject: __return ) : nil
+    }
 }
 
 // MARK: - JNICache
