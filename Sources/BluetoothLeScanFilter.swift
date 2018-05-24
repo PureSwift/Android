@@ -26,8 +26,6 @@ public extension Android.Bluetooth.LE {
  */
 public final class AndroidBluetoothLowEnergyScanFilter: JavaObject {
 
-    private static var JNIClass: jclass?
-    
     public convenience init?( casting object: java_swift.JavaObject,
                               _ file: StaticString = #file,
                               _ line: Int = #line ) {
@@ -53,7 +51,7 @@ public final class AndroidBluetoothLowEnergyScanFilter: JavaObject {
         
         let __object = JNIMethod.NewObject(
             className: JNICache.className,
-            classCache: &type(of: self).JNIClass,
+            classCache: &JNICache.jniClass,
             methodSig: "()V",
             methodCache: &type(of: self).new_MethodID_1,
             args: &__args,
@@ -364,4 +362,3 @@ internal extension Android.Bluetooth.LE.ScanFilter {
         }
     }
 }
-
