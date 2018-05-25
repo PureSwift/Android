@@ -82,7 +82,7 @@ public extension Android.Bluetooth.LE.PeriodicAdvertisingParameters.Builder {
         JNIMethod.CallVoidMethod(
             object: javaObject,
             methodName: "setIncludeTxPower",
-            methodSig: "(I)Landroid/bluetooth/le/PeriodicAdvertisingParameters$Builder;",
+            methodSig: "(Z)Landroid/bluetooth/le/PeriodicAdvertisingParameters$Builder;",
             methodCache: &JNICache.MethodID.setIncludeTxPower,
             args: &__args,
             locals: &__locals )
@@ -119,7 +119,7 @@ public extension Android.Bluetooth.LE.PeriodicAdvertisingParameters.Builder {
         
         let __return = JNIMethod.CallObjectMethod(object: javaObject,
                                                   methodName: "setInterval",
-                                                  methodSig: "(Z)Landroid/bluetooth/le/PeriodicAdvertisingParameters$Builder;",
+                                                  methodSig: "(I)Landroid/bluetooth/le/PeriodicAdvertisingParameters$Builder;",
                                                   methodCache: &JNICache.MethodID.setInterval,
                                                   args: &__args,
                                                   locals: &__locals)
