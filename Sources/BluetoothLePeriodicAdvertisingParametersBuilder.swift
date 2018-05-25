@@ -46,6 +46,90 @@ public final class AndroidBluetoothLowEnergyPeriodicAdvertisingParametersBuilder
     }
 }
 
+// MARK: - METHODS
+
+public extension Android.Bluetooth.LE.PeriodicAdvertisingParameters.Builder {
+    
+    public func build() -> Android.Bluetooth.LE.PeriodicAdvertisingParameters {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue].init(repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "build",
+                                                  methodSig: "()Landroid/bluetooth/le/PeriodicAdvertisingParameters;",
+                                                  methodCache: &JNICache.MethodID.build,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return Android.Bluetooth.LE.PeriodicAdvertisingParameters( javaObject: __return )
+    }
+    
+    /**
+     * Whether the transmission power level should be included in the periodic packet.
+     */
+    public func setIncludeTxPower(includeTxPower: Bool) -> Android.Bluetooth.LE.PeriodicAdvertisingParameters.Builder {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(includeTxPower ?  JNI_TRUE : JNI_FALSE) )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setIncludeTxPower",
+            methodSig: "(I)Landroid/bluetooth/le/PeriodicAdvertisingParameters$Builder;",
+            methodCache: &JNICache.MethodID.setIncludeTxPower,
+            args: &__args,
+            locals: &__locals )
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "setIncludeTxPower",
+                                                  methodSig: "(Z)Landroid/bluetooth/le/PeriodicAdvertisingParameters$Builder;",
+                                                  methodCache: &JNICache.MethodID.setIncludeTxPower,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return Android.Bluetooth.LE.PeriodicAdvertisingParameters.Builder(javaObject: __return)
+    }
+    
+    /**
+     * Set advertising interval for periodic advertising, in 1.25ms unit.
+     */
+    public func setInterval(interval: Int) -> Android.Bluetooth.LE.PeriodicAdvertisingParameters.Builder {
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(interval) )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setInterval",
+            methodSig: "(I)Landroid/bluetooth/le/PeriodicAdvertisingParameters$Builder;",
+            methodCache: &JNICache.MethodID.setInterval,
+            args: &__args,
+            locals: &__locals )
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "setInterval",
+                                                  methodSig: "(Z)Landroid/bluetooth/le/PeriodicAdvertisingParameters$Builder;",
+                                                  methodCache: &JNICache.MethodID.setInterval,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return Android.Bluetooth.LE.PeriodicAdvertisingParameters.Builder(javaObject: __return)
+    }
+}
+
 // MARK: - JNICache
 
 internal extension Android.Bluetooth.LE.PeriodicAdvertisingParameters.Builder {
@@ -63,6 +147,9 @@ internal extension Android.Bluetooth.LE.PeriodicAdvertisingParameters.Builder {
         struct MethodID {
             
             static var initMethod: jmethodID?
+            static var build: jmethodID?
+            static var setIncludeTxPower: jmethodID?
+            static var setInterval: jmethodID?
         }
     }
 }
