@@ -48,8 +48,269 @@ public final class AndroidBluetoothLowEnergyAdvertisingSetParametersBuilder: Jav
 
 // MARK: - METHODS
 
-internal extension AndroidBluetoothLowEnergyAdvertisingSetParameters.Builder {
+public extension AndroidBluetoothLowEnergyAdvertisingSetParameters.Builder {
     
+    public func build() -> AndroidBluetoothLowEnergyAdvertisingSetParameters {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue].init(repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "build",
+                                                  methodSig: "()Landroid/bluetooth/le/AdvertisingParameters;",
+                                                  methodCache: &JNICache.MethodID.build,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return AndroidBluetoothLowEnergyAdvertisingSetParameters( javaObject: __return )
+    }
+    
+    /**
+     * Set whether advertiser address should be ommited from all packets.
+     */
+    public func setConnectable(connectable: Bool) -> AndroidBluetoothLowEnergyAdvertisingSetParameters.Builder {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(connectable ?  JNI_TRUE : JNI_FALSE) )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setConnectable",
+            methodSig: "(Z)Landroid/bluetooth/le/AdvertisingParameters$Builder;",
+            methodCache: &JNICache.MethodID.setIncludeTxPower,
+            args: &__args,
+            locals: &__locals )
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "setConnectable",
+                                                  methodSig: "(Z)Landroid/bluetooth/le/AdvertisingParameters$Builder;",
+                                                  methodCache: &JNICache.MethodID.setConnectable,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return AndroidBluetoothLowEnergyAdvertisingSetParameters.Builder(javaObject: __return)
+    }
+    
+    /**
+     * Set whether TX power should be included in the extended header.
+     */
+    public func setIncludeTxPower(includeTxPower: Bool) -> AndroidBluetoothLowEnergyAdvertisingSetParameters.Builder {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(includeTxPower ?  JNI_TRUE : JNI_FALSE) )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setIncludeTxPower",
+            methodSig: "(Z)Landroid/bluetooth/le/AdvertisingParameters$Builder;",
+            methodCache: &JNICache.MethodID.setIncludeTxPower,
+            args: &__args,
+            locals: &__locals )
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "setIncludeTxPower",
+                                                  methodSig: "(Z)Landroid/bluetooth/le/AdvertisingParameters$Builder;",
+                                                  methodCache: &JNICache.MethodID.setIncludeTxPower,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return AndroidBluetoothLowEnergyAdvertisingSetParameters.Builder(javaObject: __return)
+    }
+    
+    /**
+     * Set advertising interval.
+     */
+    public func setInterval(interval: Int) -> AndroidBluetoothLowEnergyAdvertisingSetParameters.Builder {
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(interval) )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setInterval",
+            methodSig: "(I)Landroid/bluetooth/le/AdvertisingParameters$Builder;",
+            methodCache: &JNICache.MethodID.setInterval,
+            args: &__args,
+            locals: &__locals )
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "setInterval",
+                                                  methodSig: "(I)Landroid/bluetooth/le/AdvertisingParameters$Builder;",
+                                                  methodCache: &JNICache.MethodID.setInterval,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return AndroidBluetoothLowEnergyAdvertisingSetParameters.Builder(javaObject: __return)
+    }
+    
+    /**
+     * When set to true, advertising set will advertise 4.x Spec compliant advertisements.
+     */
+    public func setLegacyMode( isLegacy: Bool) -> AndroidBluetoothLowEnergyAdvertisingSetParameters.Builder {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(isLegacy ?  JNI_TRUE : JNI_FALSE) )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setLegacyMode",
+            methodSig: "(Z)Landroid/bluetooth/le/AdvertisingParameters$Builder;",
+            methodCache: &JNICache.MethodID.setLegacyMode,
+            args: &__args,
+            locals: &__locals )
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "setLegacyMode",
+                                                  methodSig: "(Z)Landroid/bluetooth/le/AdvertisingParameters$Builder;",
+                                                  methodCache: &JNICache.MethodID.setLegacyMode,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return AndroidBluetoothLowEnergyAdvertisingSetParameters.Builder(javaObject: __return)
+    }
+    
+    /**
+     * Set the primary physical channel used for this advertising set.
+     */
+    public func setPrimaryPhy(interval: Int) -> AndroidBluetoothLowEnergyAdvertisingSetParameters.Builder {
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(interval) )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setPrimaryPhy",
+            methodSig: "(I)Landroid/bluetooth/le/AdvertisingParameters$Builder;",
+            methodCache: &JNICache.MethodID.setPrimaryPhy,
+            args: &__args,
+            locals: &__locals )
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "setPrimaryPhy",
+                                                  methodSig: "(I)Landroid/bluetooth/le/AdvertisingParameters$Builder;",
+                                                  methodCache: &JNICache.MethodID.setPrimaryPhy,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return AndroidBluetoothLowEnergyAdvertisingSetParameters.Builder(javaObject: __return)
+    }
+    
+    /**
+     * Set whether the advertisement type should be scannable.
+     */
+    public func setScannable( scannable: Bool) -> AndroidBluetoothLowEnergyAdvertisingSetParameters.Builder {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(scannable ?  JNI_TRUE : JNI_FALSE) )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setScannable",
+            methodSig: "(Z)Landroid/bluetooth/le/AdvertisingParameters$Builder;",
+            methodCache: &JNICache.MethodID.setScannable,
+            args: &__args,
+            locals: &__locals )
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "setScannable",
+                                                  methodSig: "(Z)Landroid/bluetooth/le/AdvertisingParameters$Builder;",
+                                                  methodCache: &JNICache.MethodID.setScannable,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return AndroidBluetoothLowEnergyAdvertisingSetParameters.Builder(javaObject: __return)
+    }
+    
+    /**
+     * Set the secondary physical channel used for this advertising set.
+     */
+    public func setSecondaryPhy(secondaryPhy: Int) -> AndroidBluetoothLowEnergyAdvertisingSetParameters.Builder {
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(secondaryPhy) )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setSecondaryPhy",
+            methodSig: "(I)Landroid/bluetooth/le/AdvertisingParameters$Builder;",
+            methodCache: &JNICache.MethodID.setSecondaryPhy,
+            args: &__args,
+            locals: &__locals )
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "setSecondaryPhy",
+                                                  methodSig: "(I)Landroid/bluetooth/le/AdvertisingParameters$Builder;",
+                                                  methodCache: &JNICache.MethodID.setSecondaryPhy,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return AndroidBluetoothLowEnergyAdvertisingSetParameters.Builder(javaObject: __return)
+    }
+    
+    /**
+     * Set the transmission power level for the advertising.
+     */
+    public func setTxPowerLevel(txPowerLevel: Int) -> AndroidBluetoothLowEnergyAdvertisingSetParameters.Builder {
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(txPowerLevel) )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setTxPowerLevel",
+            methodSig: "(I)Landroid/bluetooth/le/AdvertisingParameters$Builder;",
+            methodCache: &JNICache.MethodID.setTxPowerLevel,
+            args: &__args,
+            locals: &__locals )
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "setTxPowerLevel",
+                                                  methodSig: "(I)Landroid/bluetooth/le/AdvertisingParameters$Builder;",
+                                                  methodCache: &JNICache.MethodID.setTxPowerLevel,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return AndroidBluetoothLowEnergyAdvertisingSetParameters.Builder(javaObject: __return)
+    }
 }
 
 // MARK: - JNICache
