@@ -159,14 +159,14 @@ public extension Android.Bluetooth.LE.ScanFilter {
         JNIMethod.CallVoidMethod(
             object: javaObject,
             methodName: "setManufacturerData",
-            methodSig: "(Ljava/lang/String;)Landroid/bluetooth/le/ScanFilter$Builder;",
+            methodSig: "(I[B)Landroid/bluetooth/le/ScanFilter$Builder;",
             methodCache: &type(of: self).setManufacturerData_MethodID,
             args: &__args,
             locals: &__locals )
         
         let __return = JNIMethod.CallObjectMethod(object: javaObject,
                                                   methodName: "setManufacturerData",
-                                                  methodSig: "(Ljava/lang/String;)Landroid/bluetooth/le/ScanFilter$Builder;",
+                                                  methodSig: "(I[B)Landroid/bluetooth/le/ScanFilter$Builder;",
                                                   methodCache: &type(of: self).setManufacturerData_MethodID,
                                                   args: &__args,
                                                   locals: &__locals)
@@ -192,14 +192,14 @@ public extension Android.Bluetooth.LE.ScanFilter {
         JNIMethod.CallVoidMethod(
             object: javaObject,
             methodName: "setManufacturerData",
-            methodSig: "(Ljava/lang/String;)Landroid/bluetooth/le/ScanFilter$Builder;",
+            methodSig: "(I[B[B)Landroid/bluetooth/le/ScanFilter$Builder;",
             methodCache: &type(of: self).setManufacturerData2_MethodID,
             args: &__args,
             locals: &__locals )
         
         let __return = JNIMethod.CallObjectMethod(object: javaObject,
                                                   methodName: "setManufacturerData",
-                                                  methodSig: "(Ljava/lang/String;)Landroid/bluetooth/le/ScanFilter$Builder;",
+                                                  methodSig: "(I[B[B)Landroid/bluetooth/le/ScanFilter$Builder;",
                                                   methodCache: &type(of: self).setManufacturerData2_MethodID,
                                                   args: &__args,
                                                   locals: &__locals)

@@ -130,7 +130,7 @@ public extension Android.Bluetooth.LE.ScanSettings.Builder {
         JNIMethod.CallVoidMethod(
             object: javaObject,
             methodName: "setLegacy",
-            methodSig: "(I)Landroid/bluetooth/le/ScanSettings$Builder;",
+            methodSig: "(Z)Landroid/bluetooth/le/ScanSettings$Builder;",
             methodCache: &AndroidBluetoothLowEnergyScanSettingsBuilder.setLegacy_MethodID,
             args: &__args,
             locals: &__locals )
@@ -251,14 +251,14 @@ public extension Android.Bluetooth.LE.ScanSettings.Builder {
         JNIMethod.CallVoidMethod(
             object: javaObject,
             methodName: "setReportDelay",
-            methodSig: "(I)Landroid/bluetooth/le/ScanSettings$Builder;",
+            methodSig: "(J)Landroid/bluetooth/le/ScanSettings$Builder;",
             methodCache: &AndroidBluetoothLowEnergyScanSettingsBuilder.setReportDelay_MethodID,
             args: &__args,
             locals: &__locals )
         
         let __return = JNIMethod.CallObjectMethod(object: javaObject,
                                                   methodName: "setReportDelay",
-                                                  methodSig: "(I)Landroid/bluetooth/le/ScanSettings$Builder;",
+                                                  methodSig: "(J)Landroid/bluetooth/le/ScanSettings$Builder;",
                                                   methodCache: &AndroidBluetoothLowEnergyScanSettingsBuilder.setReportDelay_MethodID,
                                                   args: &__args,
                                                   locals: &__locals)
