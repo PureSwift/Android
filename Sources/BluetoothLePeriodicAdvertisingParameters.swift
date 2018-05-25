@@ -33,6 +33,53 @@ public final class AndroidBluetoothLowEnergyPeriodicAdvertisingParameters: JavaO
     public required init( javaObject: jobject? ) {
         super.init(javaObject: javaObject)
     }
+    
+    public var includeTxPower: Int {
+        
+        get { return getIncludeTxPower() }
+    }
+    
+    public var interval: Bool {
+        
+        get { return getInterval() }
+    }
+}
+
+// MARK: - INTERNAL METHODS
+
+internal extension Android.Bluetooth.LE.PeriodicAdvertisingParameters {
+    
+    @_versioned
+    internal func getIncludeTxPower() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallIntMethod(object: javaObject,
+                                               methodName: "getIncludeTxPower",
+                                               methodSig: "()I",
+                                               methodCache: &JNICache.MethodID.getIncludeTxPower,
+                                               args: &__args,
+                                               locals: &__locals)
+        return Int(__return)
+    }
+    
+    @_versioned
+    internal func getInterval() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                                   methodName: "getInterval",
+                                                   methodSig: "()Z",
+                                                   methodCache: &JNICache.MethodID.getInterval,
+                                                   args: &__args,
+                                                   locals: &__locals)
+        return __return != jboolean(JNI_FALSE)
+    }
 }
 
 // MARK: - JNICache
@@ -53,7 +100,8 @@ internal extension Android.Bluetooth.LE.PeriodicAdvertisingParameters {
         /// JNI Method ID cache
         struct MethodID {
             
-            static var getDeviceAddress: jmethodID?
+            static var getIncludeTxPower: jmethodID?
+            static var getInterval: jmethodID?
         }
     }
 }
