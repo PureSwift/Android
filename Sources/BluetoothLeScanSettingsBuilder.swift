@@ -86,7 +86,7 @@ public extension Android.Bluetooth.LE.ScanSettings.Builder {
     
     private static var setCallbackType_MethodID: jmethodID?
     /// Set callback type for Bluetooth LE scan.
-    public func setCallbackType(callbackType: Android.Bluetooth.LE.CallbackType) -> Android.Bluetooth.LE.ScanSettings.Builder {
+    public func setCallbackType(callbackType: Android.Bluetooth.LE.ScanSettings.CallbackType) -> Android.Bluetooth.LE.ScanSettings.Builder {
         
         var __locals = [jobject]()
         
@@ -150,7 +150,7 @@ public extension Android.Bluetooth.LE.ScanSettings.Builder {
     private static var setMatchMode_MethodID: jmethodID?
     
     /// Set match mode for Bluetooth LE scan filters hardware match
-    public func setMatchMode(matchMode: Android.Bluetooth.LE.MatchMode) -> Android.Bluetooth.LE.ScanSettings.Builder {
+    public func setMatchMode(matchMode: Android.Bluetooth.LE.ScanSettings.MatchMode) -> Android.Bluetooth.LE.ScanSettings.Builder {
         
         var __locals = [jobject]()
         
@@ -180,7 +180,7 @@ public extension Android.Bluetooth.LE.ScanSettings.Builder {
     
     private static var setNumOfMatches_MethodID: jmethodID?
     
-    public func setNumOfMatches(numOfMatches: Android.Bluetooth.LE.MatchNum) -> Android.Bluetooth.LE.ScanSettings.Builder {
+    public func setNumOfMatches(numOfMatches: Android.Bluetooth.LE.ScanSettings.MatchNum) -> Android.Bluetooth.LE.ScanSettings.Builder {
         
         var __locals = [jobject]()
         
@@ -210,7 +210,7 @@ public extension Android.Bluetooth.LE.ScanSettings.Builder {
     
     private static var setPhy_MethodID: jmethodID?
     
-    public func setPhy(phy: Android.Bluetooth.LE.Phy) -> Android.Bluetooth.LE.ScanSettings.Builder {
+    public func setPhy(phy: Android.Bluetooth.LE.ScanSettings.Phy) -> Android.Bluetooth.LE.ScanSettings.Builder {
         
         var __locals = [jobject]()
         
@@ -271,13 +271,13 @@ public extension Android.Bluetooth.LE.ScanSettings.Builder {
     private static var setScanMode_MethodID: jmethodID?
     
     // Set scan mode for Bluetooth LE scan.
-    public func setScanMode(_ newValue: Android.Bluetooth.LE.ScanMode) -> Android.Bluetooth.LE.ScanSettings.Builder {
+    public func setScanMode(_ scanMode: Android.Bluetooth.LE.ScanSettings.ScanMode) -> Android.Bluetooth.LE.ScanSettings.Builder {
         
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         
-        __args[0] = jvalue(i: jint(newValue.rawValue))
+        __args[0] = jvalue(i: jint(scanMode.rawValue))
         
         JNIMethod.CallVoidMethod(
             object: javaObject,
