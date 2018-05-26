@@ -13,6 +13,9 @@ import JNI
 public extension Android.Bluetooth.LE {
     
     public typealias ScanResult = AndroidBluetoothLowEnergyScanResult
+}
+
+public extension Android.Bluetooth.LE.ScanResult {
     
     public typealias DataStatus = AndroidBluetoothLowEnergyDataStatus
     
@@ -21,76 +24,9 @@ public extension Android.Bluetooth.LE {
     public typealias SecondaryPhy = AndroidBluetoothLowEnergySecondaryPhy
 }
 
-/// LE Primary Phy
-public struct AndroidBluetoothLowEnergyPrimaryPhy: RawRepresentable {
-    
-    public let rawValue: Int
-    
-    public init(rawValue: Int) {
-        self.rawValue = rawValue
-    }
-    
-    /**
-     * Bluetooth LE 1M PHY. Used to refer to LE 1M Physical Channel for advertising, scanning or connection.
-     */
-    public static let phyLe1m = Android.Bluetooth.LE.PrimaryPhy(rawValue: Android.Bluetooth.Device.PHY_LE_1M)
-    
-    /**
-     * Bluetooth LE Coded PHY. Used to refer to LE Coded Physical Channel for advertising, scanning or connection.
-     */
-    public static let phyLeCoded = Android.Bluetooth.LE.PrimaryPhy(rawValue: Android.Bluetooth.Device.PHY_LE_CODED)
-}
-
-/// LE Secondary Phy
-public struct AndroidBluetoothLowEnergySecondaryPhy: RawRepresentable {
-    
-    public let rawValue: Int
-    
-    public init(rawValue: Int) {
-        self.rawValue = rawValue
-    }
-    
-    /**
-     * Bluetooth LE 1M PHY. Used to refer to LE 1M Physical Channel for advertising, scanning or connection.
-     */
-    public static let phyLe1m = Android.Bluetooth.LE.SecondaryPhy(rawValue: Android.Bluetooth.Device.PHY_LE_1M)
-    
-    /**
-     * Bluetooth LE Coded PHY. Used to refer to LE Coded Physical Channel for advertising, scanning or connection.
-     */
-    public static let phyLeCoded = Android.Bluetooth.LE.SecondaryPhy(rawValue: Android.Bluetooth.Device.PHY_LE_CODED)
-    
-    /**
-     * Bluetooth LE 2M PHY. Used to refer to LE 2M Physical Channel for advertising, scanning or connection.
-     */
-    public static let phyLe2m = Android.Bluetooth.LE.SecondaryPhy(rawValue: Android.Bluetooth.Device.PHY_LE_2M)
-    
-    /**
-     * Indicates that the secondary physical layer was not used.
-     */
-    public static let phyUnused = Android.Bluetooth.LE.SecondaryPhy(rawValue: Android.Bluetooth.LE.ScanResult.PHY_UNUSED)
-}
-
-/// LE Data Status.
-public struct AndroidBluetoothLowEnergyDataStatus: RawRepresentable {
-    
-    public let rawValue: Int
-    
-    public init(rawValue: Int) {
-        self.rawValue = rawValue
-    }
-    
-    /**
-     * For chained advertisements, inidcates tha the data contained in this scan result is complete.
-     */
-    public static let dataComplete = Android.Bluetooth.LE.DataStatus(rawValue: Android.Bluetooth.LE.ScanResult.DATA_COMPLETE)
-    
-    /**
-     * For chained advertisements, indicates that the controller was unable to receive all chained packets and the scan result contains incomplete truncated data.
-     */
-    public static let dataTruncated = Android.Bluetooth.LE.DataStatus(rawValue: Android.Bluetooth.LE.ScanResult.DATA_TRUNCATED)
-}
-
+/**
+ * ScanResult for Bluetooth LE scan.
+ */
 public final class AndroidBluetoothLowEnergyScanResult: JavaObject {
     
     public convenience init?( casting object: java_swift.JavaObject,
@@ -137,7 +73,7 @@ public final class AndroidBluetoothLowEnergyScanResult: JavaObject {
     /**
      * Returns the primary Physical Layer on which this advertisment was received. Can be one of PHY_LE_1M or PHY_LE_CODED.
      */
-    public var primaryPhy: Android.Bluetooth.LE.PrimaryPhy {
+    public var primaryPhy: Android.Bluetooth.LE.ScanResult.PrimaryPhy {
         
         @inline(__always)
         get { return getPrimaryPhy() }
@@ -157,7 +93,7 @@ public final class AndroidBluetoothLowEnergyScanResult: JavaObject {
      * Returns the secondary Physical Layer on which this advertisment was received. Can be one of PHY_LE_1M, PHY_LE_2M,
      * PHY_LE_CODED or PHY_UNUSED - if the advertisement was not received on a secondary physical channel.
      */
-    public var secondaryPhy: Android.Bluetooth.LE.SecondaryPhy {
+    public var secondaryPhy: Android.Bluetooth.LE.ScanResult.SecondaryPhy {
         
         @inline(__always)
         get { return getSecondaryPhy() }
@@ -207,8 +143,6 @@ public final class AndroidBluetoothLowEnergyScanResult: JavaObject {
         @inline(__always)
         get { return getLegacy() }
     }
-    
-    
 }
 
 // MARK: CONSTANTS
@@ -333,7 +267,7 @@ internal extension Android.Bluetooth.LE.ScanResult {
     }
     
     @_versioned
-    internal func getDataStatus() -> Android.Bluetooth.LE.DataStatus {
+    internal func getDataStatus() -> Android.Bluetooth.LE.ScanResult.DataStatus {
         
         var __locals = [jobject]()
         
@@ -346,7 +280,7 @@ internal extension Android.Bluetooth.LE.ScanResult {
                                                args: &__args,
                                                locals: &__locals)
         
-        return Android.Bluetooth.LE.DataStatus(rawValue: Int(__return))
+        return Android.Bluetooth.LE.ScanResult.DataStatus(rawValue: Int(__return))
     }
     
     @_versioned
@@ -385,7 +319,7 @@ internal extension Android.Bluetooth.LE.ScanResult {
     }
     
     @_versioned
-    internal func getPrimaryPhy() -> Android.Bluetooth.LE.PrimaryPhy {
+    internal func getPrimaryPhy() -> Android.Bluetooth.LE.ScanResult.PrimaryPhy {
         
         var __locals = [jobject]()
         
@@ -398,13 +332,13 @@ internal extension Android.Bluetooth.LE.ScanResult {
                                                args: &__args,
                                                locals: &__locals)
         
-        return Android.Bluetooth.LE.PrimaryPhy(rawValue: Int(__return))
+        return Android.Bluetooth.LE.ScanResult.PrimaryPhy(rawValue: Int(__return))
     }
     
     
     
     @_versioned
-    internal func getSecondaryPhy() -> Android.Bluetooth.LE.SecondaryPhy {
+    internal func getSecondaryPhy() -> Android.Bluetooth.LE.ScanResult.SecondaryPhy {
         
         var __locals = [jobject]()
         
@@ -417,7 +351,7 @@ internal extension Android.Bluetooth.LE.ScanResult {
                                                args: &__args,
                                                locals: &__locals)
         
-        return Android.Bluetooth.LE.SecondaryPhy(rawValue: Int(__return))
+        return Android.Bluetooth.LE.ScanResult.SecondaryPhy(rawValue: Int(__return))
     }
     
     @_versioned
@@ -568,5 +502,80 @@ internal extension Android.Bluetooth.LE.ScanResult {
             static var isConnectable: jmethodID?
             static var isLegacy: jmethodID?
         }
+    }
+}
+
+// MARK: NESTED STRUCTS
+
+public extension Android.Bluetooth.LE.ScanResult {
+    
+    /// LE Primary Phy
+    public struct AndroidBluetoothLowEnergyPrimaryPhy: RawRepresentable {
+        
+        public let rawValue: Int
+        
+        public init(rawValue: Int) {
+            self.rawValue = rawValue
+        }
+        
+        /**
+         * Bluetooth LE 1M PHY. Used to refer to LE 1M Physical Channel for advertising, scanning or connection.
+         */
+        public static let phyLe1m = Android.Bluetooth.LE.ScanResult.PrimaryPhy(rawValue: Android.Bluetooth.Device.PHY_LE_1M)
+        
+        /**
+         * Bluetooth LE Coded PHY. Used to refer to LE Coded Physical Channel for advertising, scanning or connection.
+         */
+        public static let phyLeCoded = Android.Bluetooth.LE.ScanResult.PrimaryPhy(rawValue: Android.Bluetooth.Device.PHY_LE_CODED)
+    }
+    
+    /// LE Secondary Phy
+    public struct AndroidBluetoothLowEnergySecondaryPhy: RawRepresentable {
+        
+        public let rawValue: Int
+        
+        public init(rawValue: Int) {
+            self.rawValue = rawValue
+        }
+        
+        /**
+         * Bluetooth LE 1M PHY. Used to refer to LE 1M Physical Channel for advertising, scanning or connection.
+         */
+        public static let phyLe1m = Android.Bluetooth.LE.ScanResult.SecondaryPhy(rawValue: Android.Bluetooth.Device.PHY_LE_1M)
+        
+        /**
+         * Bluetooth LE Coded PHY. Used to refer to LE Coded Physical Channel for advertising, scanning or connection.
+         */
+        public static let phyLeCoded = Android.Bluetooth.LE.ScanResult.SecondaryPhy(rawValue: Android.Bluetooth.Device.PHY_LE_CODED)
+        
+        /**
+         * Bluetooth LE 2M PHY. Used to refer to LE 2M Physical Channel for advertising, scanning or connection.
+         */
+        public static let phyLe2m = Android.Bluetooth.LE.ScanResult.SecondaryPhy(rawValue: Android.Bluetooth.Device.PHY_LE_2M)
+        
+        /**
+         * Indicates that the secondary physical layer was not used.
+         */
+        public static let phyUnused = Android.Bluetooth.LE.ScanResult.SecondaryPhy(rawValue: Android.Bluetooth.LE.ScanResult.PHY_UNUSED)
+    }
+    
+    /// LE Data Status.
+    public struct AndroidBluetoothLowEnergyDataStatus: RawRepresentable {
+        
+        public let rawValue: Int
+        
+        public init(rawValue: Int) {
+            self.rawValue = rawValue
+        }
+        
+        /**
+         * For chained advertisements, inidcates tha the data contained in this scan result is complete.
+         */
+        public static let dataComplete = Android.Bluetooth.LE.ScanResult.DataStatus(rawValue: Android.Bluetooth.LE.ScanResult.DATA_COMPLETE)
+        
+        /**
+         * For chained advertisements, indicates that the controller was unable to receive all chained packets and the scan result contains incomplete truncated data.
+         */
+        public static let dataTruncated = Android.Bluetooth.LE.ScanResult.DataStatus(rawValue: Android.Bluetooth.LE.ScanResult.DATA_TRUNCATED)
     }
 }
