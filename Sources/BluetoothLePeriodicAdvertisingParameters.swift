@@ -34,12 +34,12 @@ public final class AndroidBluetoothLowEnergyPeriodicAdvertisingParameters: JavaO
         super.init(javaObject: javaObject)
     }
     
-    public var includeTxPower: Int {
+    public var includeTxPower: Bool {
         
         get { return getIncludeTxPower() }
     }
     
-    public var interval: Bool {
+    public var interval: Int {
         
         get { return getInterval() }
     }
@@ -50,7 +50,7 @@ public final class AndroidBluetoothLowEnergyPeriodicAdvertisingParameters: JavaO
 internal extension Android.Bluetooth.LE.PeriodicAdvertisingParameters {
     
     @_versioned
-    internal func getIncludeTxPower() -> Int {
+    internal func getIncludeTxPower() -> Bool {
         
         var __locals = [jobject]()
         
@@ -62,11 +62,11 @@ internal extension Android.Bluetooth.LE.PeriodicAdvertisingParameters {
                                                methodCache: &JNICache.MethodID.getIncludeTxPower,
                                                args: &__args,
                                                locals: &__locals)
-        return Int(__return)
+        return __return != jboolean(JNI_FALSE)
     }
     
     @_versioned
-    internal func getInterval() -> Bool {
+    internal func getInterval() -> Int {
         
         var __locals = [jobject]()
         
@@ -78,7 +78,7 @@ internal extension Android.Bluetooth.LE.PeriodicAdvertisingParameters {
                                                    methodCache: &JNICache.MethodID.getInterval,
                                                    args: &__args,
                                                    locals: &__locals)
-        return __return != jboolean(JNI_FALSE)
+        return Int(__return)
     }
 }
 
