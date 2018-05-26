@@ -132,6 +132,9 @@ public extension AndroidBluetoothLowEnergyAdvertisingSetParameters.Builder {
     
     /**
      * Set advertising interval.
+     *
+     * interval - int: Bluetooth LE Advertising interval, in 0.625ms unit. Valid range is from 160 (100ms) to 16777215 (10,485.759375 s).
+     * Recommended values are: INTERVAL_LOW, INTERVAL_MEDIUM, or INTERVAL_HIGH.
      */
     public func setInterval(interval: Int) -> AndroidBluetoothLowEnergyAdvertisingSetParameters.Builder {
         var __locals = [jobject]()
@@ -192,14 +195,15 @@ public extension AndroidBluetoothLowEnergyAdvertisingSetParameters.Builder {
     }
     
     /**
-     * Set the primary physical channel used for this advertising set.
+     * Set the primary physical channel used for this advertising set. This is used only if legacy mode is not used.
+     * Use isLeCodedPhySupported() to determine if LE Coded PHY is supported on this device.
      */
-    public func setPrimaryPhy(interval: Int) -> AndroidBluetoothLowEnergyAdvertisingSetParameters.Builder {
+    public func setPrimaryPhy(primaryphy: Android.Bluetooth.LE.AdvertisingSetParameters.PrimaryPhy) -> AndroidBluetoothLowEnergyAdvertisingSetParameters.Builder {
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         
-        __args[0] = jvalue(i: jint(interval) )
+        __args[0] = jvalue(i: jint(primaryphy.rawValue) )
         
         JNIMethod.CallVoidMethod(
             object: javaObject,
@@ -255,12 +259,12 @@ public extension AndroidBluetoothLowEnergyAdvertisingSetParameters.Builder {
     /**
      * Set the secondary physical channel used for this advertising set.
      */
-    public func setSecondaryPhy(secondaryPhy: Int) -> AndroidBluetoothLowEnergyAdvertisingSetParameters.Builder {
+    public func setSecondaryPhy(secondaryPhy: Android.Bluetooth.LE.AdvertisingSetParameters.SecondaryPhy) -> AndroidBluetoothLowEnergyAdvertisingSetParameters.Builder {
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         
-        __args[0] = jvalue(i: jint(secondaryPhy) )
+        __args[0] = jvalue(i: jint(secondaryPhy.rawValue) )
         
         JNIMethod.CallVoidMethod(
             object: javaObject,
@@ -285,12 +289,12 @@ public extension AndroidBluetoothLowEnergyAdvertisingSetParameters.Builder {
     /**
      * Set the transmission power level for the advertising.
      */
-    public func setTxPowerLevel(txPowerLevel: Int) -> AndroidBluetoothLowEnergyAdvertisingSetParameters.Builder {
+    public func setTxPowerLevel(txPowerLevel: Android.Bluetooth.LE.AdvertisingSetParameters.TxPowerLevel) -> AndroidBluetoothLowEnergyAdvertisingSetParameters.Builder {
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         
-        __args[0] = jvalue(i: jint(txPowerLevel) )
+        __args[0] = jvalue(i: jint(txPowerLevel.rawValue) )
         
         JNIMethod.CallVoidMethod(
             object: javaObject,
