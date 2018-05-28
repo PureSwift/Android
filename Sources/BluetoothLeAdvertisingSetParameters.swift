@@ -110,7 +110,7 @@ public final class AndroidBluetoothLowEnergyAdvertisingSetParameters: JavaObject
 
 public extension Android.Bluetooth.LE.AdvertisingSetParameters {
     
-    internal static var INTERVAL_HIGH: Int {
+    public static var INTERVAL_HIGH: Int {
         get {
             let __value = JNIField.GetStaticIntField(
                 fieldName: "INTERVAL_HIGH",
@@ -122,7 +122,7 @@ public extension Android.Bluetooth.LE.AdvertisingSetParameters {
         }
     }
     
-    internal static var INTERVAL_LOW: Int {
+    public static var INTERVAL_LOW: Int {
         get {
             let __value = JNIField.GetStaticIntField(
                 fieldName: "INTERVAL_LOW",
@@ -134,7 +134,7 @@ public extension Android.Bluetooth.LE.AdvertisingSetParameters {
         }
     }
     
-    internal static var INTERVAL_MAX: Int {
+    public static var INTERVAL_MAX: Int {
         get {
             let __value = JNIField.GetStaticIntField(
                 fieldName: "INTERVAL_MAX",
@@ -146,7 +146,7 @@ public extension Android.Bluetooth.LE.AdvertisingSetParameters {
         }
     }
     
-    internal static var INTERVAL_MEDIUM: Int {
+    public static var INTERVAL_MEDIUM: Int {
         get {
             let __value = JNIField.GetStaticIntField(
                 fieldName: "INTERVAL_MEDIUM",
@@ -158,7 +158,7 @@ public extension Android.Bluetooth.LE.AdvertisingSetParameters {
         }
     }
     
-    internal static var INTERVAL_MIN: Int {
+    public static var INTERVAL_MIN: Int {
         get {
             let __value = JNIField.GetStaticIntField(
                 fieldName: "INTERVAL_MIN",
@@ -170,7 +170,7 @@ public extension Android.Bluetooth.LE.AdvertisingSetParameters {
         }
     }
     
-    internal static var TX_POWER_HIGH: Int {
+    public static var TX_POWER_HIGH: Int {
         get {
             let __value = JNIField.GetStaticIntField(
                 fieldName: "TX_POWER_HIGH",
@@ -182,7 +182,7 @@ public extension Android.Bluetooth.LE.AdvertisingSetParameters {
         }
     }
     
-    internal static var TX_POWER_LOW: Int {
+    public static var TX_POWER_LOW: Int {
         get {
             let __value = JNIField.GetStaticIntField(
                 fieldName: "TX_POWER_LOW",
@@ -206,7 +206,7 @@ public extension Android.Bluetooth.LE.AdvertisingSetParameters {
         }
     }
     
-    internal static var TX_POWER_MEDIUM: Int {
+    public static var TX_POWER_MEDIUM: Int {
         get {
             let __value = JNIField.GetStaticIntField(
                 fieldName: "TX_POWER_MEDIUM",
@@ -218,7 +218,7 @@ public extension Android.Bluetooth.LE.AdvertisingSetParameters {
         }
     }
     
-    internal static var TX_POWER_MIN: Int {
+    public static var TX_POWER_MIN: Int {
         get {
             let __value = JNIField.GetStaticIntField(
                 fieldName: "TX_POWER_MIN",
@@ -230,7 +230,7 @@ public extension Android.Bluetooth.LE.AdvertisingSetParameters {
         }
     }
     
-    internal static var TX_POWER_ULTRA_LOW: Int {
+    public static var TX_POWER_ULTRA_LOW: Int {
         get {
             let __value = JNIField.GetStaticIntField(
                 fieldName: "TX_POWER_ULTRA_LOW",

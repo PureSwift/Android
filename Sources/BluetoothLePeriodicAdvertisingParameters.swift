@@ -56,7 +56,7 @@ internal extension Android.Bluetooth.LE.PeriodicAdvertisingParameters {
         
         var __args = [jvalue](repeating: jvalue(), count: 1)
         
-        let __return = JNIMethod.CallIntMethod(object: javaObject,
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
                                                methodName: "getIncludeTxPower",
                                                methodSig: "()Z",
                                                methodCache: &JNICache.MethodID.getIncludeTxPower,
@@ -72,7 +72,7 @@ internal extension Android.Bluetooth.LE.PeriodicAdvertisingParameters {
         
         var __args = [jvalue](repeating: jvalue(), count: 1)
         
-        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+        let __return = JNIMethod.CallIntMethod(object: javaObject,
                                                    methodName: "getInterval",
                                                    methodSig: "()I",
                                                    methodCache: &JNICache.MethodID.getInterval,

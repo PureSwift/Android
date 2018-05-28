@@ -73,7 +73,7 @@ internal extension AndroidBluetoothLowEnergyAdvertiseData {
         
         var __args = [jvalue](repeating: jvalue(), count: 1)
         
-        let __return = JNIMethod.CallIntMethod(object: javaObject,
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
                                                methodName: "getIncludeDeviceName",
                                                methodSig: "()Z",
                                                methodCache: &JNICache.MethodID.getIncludeDeviceName,
@@ -89,7 +89,7 @@ internal extension AndroidBluetoothLowEnergyAdvertiseData {
         
         var __args = [jvalue](repeating: jvalue(), count: 1)
         
-        let __return = JNIMethod.CallIntMethod(object: javaObject,
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
                                                methodName: "getIncludeTxPowerLevel",
                                                methodSig: "()Z",
                                                methodCache: &JNICache.MethodID.getIncludeTxPowerLevel,
