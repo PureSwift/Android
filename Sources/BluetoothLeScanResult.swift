@@ -150,7 +150,7 @@ public final class AndroidBluetoothLowEnergyScanResult: JavaObject {
 public extension Android.Bluetooth.LE.ScanResult {
     
     /// For chained advertisements, inidcates tha the data contained in this scan result is complete.
-    internal static var DATA_COMPLETE: Int {
+    public static var DATA_COMPLETE: Int {
         
         get {
             
@@ -166,7 +166,7 @@ public extension Android.Bluetooth.LE.ScanResult {
     }
     
     /// For chained advertisements, indicates that the controller was unable to receive all chained packets and the scan result contains incomplete truncated data.
-    internal static var DATA_TRUNCATED: Int {
+    public static var DATA_TRUNCATED: Int {
         
         get {
             
@@ -182,7 +182,7 @@ public extension Android.Bluetooth.LE.ScanResult {
     }
     
     /// Periodic advertising interval is not present in the packet.
-    internal static var PERIODIC_INTERVAL_NOT_PRESENT: Int {
+    public static var PERIODIC_INTERVAL_NOT_PRESENT: Int {
         
         get {
             
@@ -198,7 +198,7 @@ public extension Android.Bluetooth.LE.ScanResult {
     }
     
     /// Indicates that the secondary physical layer was not used.
-    internal static var PHY_UNUSED: Int {
+    public static var PHY_UNUSED: Int {
         
         get {
             
@@ -214,7 +214,7 @@ public extension Android.Bluetooth.LE.ScanResult {
     }
     
     /// Advertising Set ID is not present in the packet.
-    internal static var SID_NOT_PRESENT: Int {
+    public static var SID_NOT_PRESENT: Int {
         
         get {
             
@@ -230,7 +230,7 @@ public extension Android.Bluetooth.LE.ScanResult {
     }
     
     /// TX power is not present in the packet.
-    internal static var TX_POWER_NOT_PRESENT: Int {
+    public static var TX_POWER_NOT_PRESENT: Int {
         
         get {
             

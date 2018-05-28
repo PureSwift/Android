@@ -98,6 +98,7 @@ internal extension AndroidBluetoothLowEnergyAdvertiseCallbackListenerLocal {
                 /// "(JILandroid/bluetooth/le/AdvertiseSettings;)V"
                 static let signature = JNIMethodSignature(
                     argumentTypes: [
+                        .long,
                         .object(Android.Bluetooth.LE.AdvertiseSettings.JNICache.classSignature)
                     ], returnType: .void)
                 
