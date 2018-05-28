@@ -436,6 +436,8 @@ public extension Android.Bluetooth.LE.ScanSettings {
     }
 }
 
+// MARK: - Supporting Types
+
 public extension Android.Bluetooth.LE.ScanSettings {
     
     /// LE Scan mode.

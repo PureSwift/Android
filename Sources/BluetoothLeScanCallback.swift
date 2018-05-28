@@ -13,12 +13,15 @@ import JNI
 public extension Android.Bluetooth.LE {
     
     public typealias ScanCallback = AndroidBluetoothLowEnergyScanCallback
+    
+    public typealias ScanCallbackType = AndroidBluetoothLowEnergyScanCallbackType
 }
 
 public extension Android.Bluetooth.LE.ScanCallback {
     
     public typealias Error = AndroidBluetoothLowEnergyScanCallbackError
 }
+
 
 /// Proxy listener class for Android Bluetooth LE callbacks.
 public protocol AndroidBluetoothLowEnergyScanCallback: JavaProtocol {
@@ -33,6 +36,16 @@ public protocol AndroidBluetoothLowEnergyScanCallback: JavaProtocol {
 
 // MARK: - Supporting Types
 
+public struct AndroidBluetoothLowEnergyScanCallbackType: RawRepresentable {
+    
+    public let rawValue: Int
+    
+    public init(rawValue: Int) {
+        
+        self.rawValue = rawValue
+    }
+}
+
 public struct AndroidBluetoothLowEnergyScanCallbackError: RawRepresentable, Swift.Error {
     
     public let rawValue: Int
@@ -43,53 +56,14 @@ public struct AndroidBluetoothLowEnergyScanCallbackError: RawRepresentable, Swif
     }
 }
 
-// MARK: - Private
+// MARK: - Local Listener
 
-private typealias AndroidBluetoothLowEnergyScanCallback_onScanResult_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jint, _: jobject?) -> ()
-
-private func AndroidBluetoothLowEnergyScanCallback_onScanResult( _ __env: UnsafeMutablePointer<JNIEnv?>,
-                                                                 _ __this: jobject?,
-                                                                 _ __swiftObject: jlong,
-                                                                 _ callbackType: jint,
-                                                                 _ result: jobject? ) -> () {
+extension AndroidBluetoothLowEnergyScanCallback {
     
-    let swiftCallbackType = AndroidBluetoothLowEnergyScanCallbackType(rawValue: Int(callbackType))
-    
-    let swiftResult = AndroidBluetoothLowEnergyScanResult(javaObject: result)
-    
-    AndroidBluetoothLowEnergyScanCallbackListenerLocal
-        .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
-        .onScanResult(callbackType: swiftCallbackType, result: swiftResult)
-}
-
-private typealias AndroidBluetoothLowEnergyScanCallback_onBatchScanResults_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject?) -> ()
-
-private func AndroidBluetoothLowEnergyScanCallback_onBatchScanResults( _ __env: UnsafeMutablePointer<JNIEnv?>,
-                                                                 _ __this: jobject?,
-                                                                 _ __swiftObject: jlong,
-                                                                 _ __results: jobject?) -> () {
-    
-    let swiftResultsList = __results != nil ? ListForward(javaObject: __results) : nil
-    
-    let results = swiftResultsList?.toArray()?.map { AndroidBluetoothLowEnergyScanResult(casting: $0)! } ?? []
-    
-    AndroidBluetoothLowEnergyScanCallbackListenerLocal
-        .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
-        .onBatchScanResults(results: results)
-}
-
-private typealias AndroidBluetoothLowEnergyScanCallback_onScanFailed_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jint) -> ()
-
-private func AndroidBluetoothLowEnergyScanCallback_onScanFailed( _ __env: UnsafeMutablePointer<JNIEnv?>,
-                                                                 _ __this: jobject?,
-                                                                 _ __swiftObject: jlong,
-                                                                 _ __errorCode: jint) -> () {
-    
-    let error = AndroidBluetoothLowEnergyScanCallbackError(rawValue: Int(__errorCode))
-    
-    AndroidBluetoothLowEnergyScanCallbackListenerLocal
-        .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
-        .onScanFailed(error: error)
+    public func localJavaObject( _ locals: UnsafeMutablePointer<[jobject]> ) -> jobject? {
+        
+        return AndroidBluetoothLowEnergyScanCallbackListenerLocal( owned: self, proto: self ).localJavaObject( locals )
+    }
 }
 
 internal class AndroidBluetoothLowEnergyScanCallbackListenerLocal: JNILocalProxy<AndroidBluetoothLowEnergyScanCallback, Any> {
@@ -120,15 +94,6 @@ internal class AndroidBluetoothLowEnergyScanCallbackListenerLocal: JNILocalProxy
     override open class func proxyClassName() -> String { return JNICache.className }
     
     override open class func proxyClass() -> jclass? { return _proxyClass }
-}
-
-extension AndroidBluetoothLowEnergyScanCallback {
-    
-    public func localJavaObject( _ locals: UnsafeMutablePointer<[jobject]> ) -> jobject? {
-        
-        return AndroidBluetoothLowEnergyScanCallbackListenerLocal( owned: self, proto: self ).localJavaObject( locals )
-    }
-    
 }
 
 internal extension AndroidBluetoothLowEnergyScanCallbackListenerLocal {
@@ -184,4 +149,53 @@ internal extension AndroidBluetoothLowEnergyScanCallbackListenerLocal {
             }
         }
     }
+}
+
+// MARK: - Private Methods
+
+private typealias AndroidBluetoothLowEnergyScanCallback_onScanResult_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jint, _: jobject?) -> ()
+
+private func AndroidBluetoothLowEnergyScanCallback_onScanResult( _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                                                 _ __this: jobject?,
+                                                                 _ __swiftObject: jlong,
+                                                                 _ callbackType: jint,
+                                                                 _ result: jobject? ) -> () {
+    
+    let swiftCallbackType = AndroidBluetoothLowEnergyScanCallbackType(rawValue: Int(callbackType))
+    
+    let swiftResult = AndroidBluetoothLowEnergyScanResult(javaObject: result)
+    
+    AndroidBluetoothLowEnergyScanCallbackListenerLocal
+        .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
+        .onScanResult(callbackType: swiftCallbackType, result: swiftResult)
+}
+
+private typealias AndroidBluetoothLowEnergyScanCallback_onBatchScanResults_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject?) -> ()
+
+private func AndroidBluetoothLowEnergyScanCallback_onBatchScanResults( _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                                                       _ __this: jobject?,
+                                                                       _ __swiftObject: jlong,
+                                                                       _ __results: jobject?) -> () {
+    
+    let swiftResultsList = __results != nil ? ListForward(javaObject: __results) : nil
+    
+    let results = swiftResultsList?.toArray()?.map { AndroidBluetoothLowEnergyScanResult(casting: $0)! } ?? []
+    
+    AndroidBluetoothLowEnergyScanCallbackListenerLocal
+        .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
+        .onBatchScanResults(results: results)
+}
+
+private typealias AndroidBluetoothLowEnergyScanCallback_onScanFailed_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jint) -> ()
+
+private func AndroidBluetoothLowEnergyScanCallback_onScanFailed( _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                                                 _ __this: jobject?,
+                                                                 _ __swiftObject: jlong,
+                                                                 _ __errorCode: jint) -> () {
+    
+    let error = AndroidBluetoothLowEnergyScanCallbackError(rawValue: Int(__errorCode))
+    
+    AndroidBluetoothLowEnergyScanCallbackListenerLocal
+        .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
+        .onScanFailed(error: error)
 }

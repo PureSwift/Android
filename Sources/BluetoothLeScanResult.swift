@@ -505,7 +505,7 @@ internal extension Android.Bluetooth.LE.ScanResult {
     }
 }
 
-// MARK: NESTED STRUCTS
+// MARK: - Supporting Types
 
 public extension Android.Bluetooth.LE.ScanResult {
     
