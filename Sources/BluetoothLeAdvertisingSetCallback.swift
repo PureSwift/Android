@@ -134,7 +134,130 @@ internal extension AndroidBluetoothLowEnergyAdvertiseSetCallbackListenerLocal {
                         .int
                     ], returnType: .void)
                 
-                static let thunk: AndroidBluetoothLowEnergyAdvertiseCallback_OnStartSuccess_Type = AndroidBluetoothLowEnergyAdvertiseSetCallback_onAdvertisingDataSet
+                static let thunk: AndroidBluetoothLowEnergyAdvertiseSetCallback_OnAdvertisingDataSet_Type = AndroidBluetoothLowEnergyAdvertiseSetCallback_onAdvertisingDataSet
+            }
+            
+            enum onAdvertisingEnabled: JNINativeMethodEntry {
+                
+                static let name = "__on_advertising_enabled"
+                
+                /// "(JILandroid/bluetooth/le/AdvertiseSettings;)V"
+                static let signature = JNIMethodSignature(
+                    argumentTypes: [
+                        .long,
+                        .object(Android.Bluetooth.LE.AdvertisingSet.JNICache.classSignature),
+                        .boolean,
+                        .int
+                    ], returnType: .void)
+                
+                static let thunk: AndroidBluetoothLowEnergyAdvertiseSetCallback_OnAdvertisingEnabled_Type = AndroidBluetoothLowEnergyAdvertiseSetCallback_onAdvertisingEnabled
+            }
+            
+            enum onAdvertisingParametersUpdated: JNINativeMethodEntry {
+                
+                static let name = "__on_avertising_parameters_updated"
+                
+                /// "(JILandroid/bluetooth/le/AdvertiseSettings;)V"
+                static let signature = JNIMethodSignature(
+                    argumentTypes: [
+                        .long,
+                        .object(Android.Bluetooth.LE.AdvertisingSet.JNICache.classSignature),
+                        .int,
+                        .int
+                    ], returnType: .void)
+                
+                static let thunk: AndroidBluetoothLowEnergyAdvertiseSetCallback_OnAdvertisingParametersUpdated_Type = AndroidBluetoothLowEnergyAdvertiseSetCallback_onAdvertisingParametersUpdated
+            }
+            
+            enum onAdvertisingSetStarted: JNINativeMethodEntry {
+                
+                static let name = "__on_advertising_set_started"
+                
+                /// "(JILandroid/bluetooth/le/AdvertiseSettings;)V"
+                static let signature = JNIMethodSignature(
+                    argumentTypes: [
+                        .long,
+                        .object(Android.Bluetooth.LE.AdvertisingSet.JNICache.classSignature),
+                        .int,
+                        .int
+                    ], returnType: .void)
+                
+                static let thunk: AndroidBluetoothLowEnergyAdvertiseSetCallback_OnAdvertisingSetStarted_Type = AndroidBluetoothLowEnergyAdvertiseSetCallback_onAdvertisingSetStarted
+            }
+            
+            enum onAdvertisingSetStopped: JNINativeMethodEntry {
+                
+                static let name = "__on_advertising_set_stopped"
+                
+                /// "(JILandroid/bluetooth/le/AdvertiseSettings;)V"
+                static let signature = JNIMethodSignature(
+                    argumentTypes: [
+                        .long,
+                        .object(Android.Bluetooth.LE.AdvertisingSet.JNICache.classSignature)
+                    ], returnType: .void)
+                
+                static let thunk: AndroidBluetoothLowEnergyAdvertiseSetCallback_OnAdvertisingSetStopped_Type = AndroidBluetoothLowEnergyAdvertiseSetCallback_onAdvertisingSetStopped
+            }
+            
+            enum onPeriodicAdvertisingDataSet: JNINativeMethodEntry {
+                
+                static let name = "__on_periodic_advertising_dataSet"
+                
+                /// "(JILandroid/bluetooth/le/AdvertiseSettings;)V"
+                static let signature = JNIMethodSignature(
+                    argumentTypes: [
+                        .long,
+                        .object(Android.Bluetooth.LE.AdvertisingSet.JNICache.classSignature),
+                        .int
+                    ], returnType: .void)
+                
+                static let thunk: AndroidBluetoothLowEnergyAdvertiseSetCallback_OnPeriodicAdvertisingDataSet_Type = AndroidBluetoothLowEnergyAdvertiseSetCallback_onPeriodicAdvertisingDataSet
+            }
+            
+            enum onPeriodicAdvertisingEnabled: JNINativeMethodEntry {
+                
+                static let name = "__on_periodic_advertising_enabled"
+                
+                /// "(JILandroid/bluetooth/le/AdvertiseSettings;)V"
+                static let signature = JNIMethodSignature(
+                    argumentTypes: [
+                        .long,
+                        .object(Android.Bluetooth.LE.AdvertisingSet.JNICache.classSignature),
+                        .boolean,
+                        .int
+                    ], returnType: .void)
+                
+                static let thunk: AndroidBluetoothLowEnergyAdvertiseSetCallback_OnPeriodicAdvertisingEnabled_Type = AndroidBluetoothLowEnergyAdvertiseSetCallback_onPeriodicAdvertisingEnabled
+            }
+            
+            enum onPeriodicAdvertisingParametersUpdated: JNINativeMethodEntry {
+                
+                static let name = "__on_periodic_advertising_parameters_updated"
+                
+                /// "(JILandroid/bluetooth/le/AdvertiseSettings;)V"
+                static let signature = JNIMethodSignature(
+                    argumentTypes: [
+                        .long,
+                        .object(Android.Bluetooth.LE.AdvertisingSet.JNICache.classSignature),
+                        .int
+                    ], returnType: .void)
+                
+                static let thunk: AndroidBluetoothLowEnergyAdvertiseSetCallback_OnPeriodicAdvertisingParametersUpdated_Type = AndroidBluetoothLowEnergyAdvertiseSetCallback_onPeriodicAdvertisingParametersUpdated
+            }
+            
+            enum onScanResponsaDataset: JNINativeMethodEntry {
+                
+                static let name = "__on_scan_response_dataSet"
+                
+                /// "(JILandroid/bluetooth/le/AdvertiseSettings;)V"
+                static let signature = JNIMethodSignature(
+                    argumentTypes: [
+                        .long,
+                        .object(Android.Bluetooth.LE.AdvertisingSet.JNICache.classSignature),
+                        .int
+                    ], returnType: .void)
+                
+                static let thunk: AndroidBluetoothLowEnergyAdvertiseSetCallback_OnScanResponsaDataset_Type = AndroidBluetoothLowEnergyAdvertiseSetCallback_onScanResponsaDataset
             }
         }
     }
@@ -142,7 +265,7 @@ internal extension AndroidBluetoothLowEnergyAdvertiseSetCallbackListenerLocal {
 
 // MARK: - Private Methods
 
-private typealias AndroidBluetoothLowEnergyAdvertiseCallback_OnStartSuccess_Type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject?, _: jint) -> ()
+private typealias AndroidBluetoothLowEnergyAdvertiseSetCallback_OnAdvertisingDataSet_Type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject?, _: jint) -> ()
 
 private func AndroidBluetoothLowEnergyAdvertiseSetCallback_onAdvertisingDataSet( _ __env: UnsafeMutablePointer<JNIEnv?>,
                                                                         _ __this: jobject?,
@@ -156,4 +279,138 @@ private func AndroidBluetoothLowEnergyAdvertiseSetCallback_onAdvertisingDataSet(
     AndroidBluetoothLowEnergyAdvertiseSetCallbackListenerLocal
         .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
         .onAdvertisingDataSet(advertisingSet: advertisingSet, status: status)
+}
+
+private typealias AndroidBluetoothLowEnergyAdvertiseSetCallback_OnAdvertisingEnabled_Type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject?, _: jboolean, _: jint) -> ()
+
+private func AndroidBluetoothLowEnergyAdvertiseSetCallback_onAdvertisingEnabled( _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                                                                 _ __this: jobject?,
+                                                                                 _ __swiftObject: jlong,
+                                                                                 _ advertisingSetParam: jobject?,
+                                                                                 _ enableParam: jboolean,
+                                                                                 _ statusParam: jint) -> () {
+    
+    let advertisingSet = Android.Bluetooth.LE.AdvertisingSet(javaObject: advertisingSetParam)
+    let status = Int(statusParam)
+    let enable = enableParam != jboolean(JNI_FALSE)
+    
+    AndroidBluetoothLowEnergyAdvertiseSetCallbackListenerLocal
+        .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
+        .onAdvertisingEnabled(advertisingSet: advertisingSet, enable: enable, status: status)
+}
+
+private typealias AndroidBluetoothLowEnergyAdvertiseSetCallback_OnAdvertisingParametersUpdated_Type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject?, _: jint, _: jint) -> ()
+
+private func AndroidBluetoothLowEnergyAdvertiseSetCallback_onAdvertisingParametersUpdated( _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                                                                 _ __this: jobject?,
+                                                                                 _ __swiftObject: jlong,
+                                                                                 _ advertisingSetParam: jobject?,
+                                                                                 _ txPowerParam: jint,
+                                                                                 _ statusParam: jint) -> () {
+    
+    let advertisingSet = Android.Bluetooth.LE.AdvertisingSet(javaObject: advertisingSetParam)
+    let txPower = Int(txPowerParam)
+    let status = Int(statusParam)
+    
+    AndroidBluetoothLowEnergyAdvertiseSetCallbackListenerLocal
+        .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
+        .onAdvertisingParametersUpdated(advertisingSet: advertisingSet, txPower: txPower, status: status)
+}
+
+private typealias AndroidBluetoothLowEnergyAdvertiseSetCallback_OnAdvertisingSetStarted_Type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject?, _: jint, _: jint) -> ()
+
+private func AndroidBluetoothLowEnergyAdvertiseSetCallback_onAdvertisingSetStarted( _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                                                                           _ __this: jobject?,
+                                                                                           _ __swiftObject: jlong,
+                                                                                           _ advertisingSetParam: jobject?,
+                                                                                           _ txPowerParam: jint,
+                                                                                           _ statusParam: jint) -> () {
+    
+    let advertisingSet = Android.Bluetooth.LE.AdvertisingSet(javaObject: advertisingSetParam)
+    let txPower = Int(txPowerParam)
+    let status = Int(statusParam)
+    
+    AndroidBluetoothLowEnergyAdvertiseSetCallbackListenerLocal
+        .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
+        .onAdvertisingSetStarted(advertisingSet: advertisingSet, txPower: txPower, status: status)
+}
+
+private typealias AndroidBluetoothLowEnergyAdvertiseSetCallback_OnAdvertisingSetStopped_Type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject?) -> ()
+
+private func AndroidBluetoothLowEnergyAdvertiseSetCallback_onAdvertisingSetStopped( _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                                                                    _ __this: jobject?,
+                                                                                    _ __swiftObject: jlong,
+                                                                                    _ advertisingSetParam: jobject?) -> () {
+    
+    let advertisingSet = Android.Bluetooth.LE.AdvertisingSet(javaObject: advertisingSetParam)
+    
+    AndroidBluetoothLowEnergyAdvertiseSetCallbackListenerLocal
+        .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
+        .onAdvertisingSetStopped(advertisingSet: advertisingSet)
+}
+
+private typealias AndroidBluetoothLowEnergyAdvertiseSetCallback_OnPeriodicAdvertisingDataSet_Type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject?, _: jint) -> ()
+
+private func AndroidBluetoothLowEnergyAdvertiseSetCallback_onPeriodicAdvertisingDataSet( _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                                                                 _ __this: jobject?,
+                                                                                 _ __swiftObject: jlong,
+                                                                                 _ advertisingSetParam: jobject?,
+                                                                                 _ statusParam: jint) -> () {
+    
+    let advertisingSet = Android.Bluetooth.LE.AdvertisingSet(javaObject: advertisingSetParam)
+    let status = Int(statusParam)
+    
+    AndroidBluetoothLowEnergyAdvertiseSetCallbackListenerLocal
+        .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
+        .onPeriodicAdvertisingDataSet(advertisingSet: advertisingSet, status: status)
+}
+
+private typealias AndroidBluetoothLowEnergyAdvertiseSetCallback_OnPeriodicAdvertisingEnabled_Type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject?, _: jboolean, _: jint) -> ()
+
+private func AndroidBluetoothLowEnergyAdvertiseSetCallback_onPeriodicAdvertisingEnabled( _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                                                                 _ __this: jobject?,
+                                                                                 _ __swiftObject: jlong,
+                                                                                 _ advertisingSetParam: jobject?,
+                                                                                 _ enableParam: jboolean,
+                                                                                 _ statusParam: jint) -> () {
+    
+    let advertisingSet = Android.Bluetooth.LE.AdvertisingSet(javaObject: advertisingSetParam)
+    let status = Int(statusParam)
+    let enable = enableParam != jboolean(JNI_FALSE)
+    
+    AndroidBluetoothLowEnergyAdvertiseSetCallbackListenerLocal
+        .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
+        .onPeriodicAdvertisingEnabled(advertisingSet: advertisingSet, enable: enable, status: status)
+}
+
+private typealias AndroidBluetoothLowEnergyAdvertiseSetCallback_OnPeriodicAdvertisingParametersUpdated_Type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject?, _: jint) -> ()
+
+private func AndroidBluetoothLowEnergyAdvertiseSetCallback_onPeriodicAdvertisingParametersUpdated( _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                                                                           _ __this: jobject?,
+                                                                                           _ __swiftObject: jlong,
+                                                                                           _ advertisingSetParam: jobject?,
+                                                                                           _ statusParam: jint) -> () {
+    
+    let advertisingSet = Android.Bluetooth.LE.AdvertisingSet(javaObject: advertisingSetParam)
+    let status = Int(statusParam)
+    
+    AndroidBluetoothLowEnergyAdvertiseSetCallbackListenerLocal
+        .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
+        .onPeriodicAdvertisingParametersUpdated(advertisingSet: advertisingSet, status: status)
+}
+
+private typealias AndroidBluetoothLowEnergyAdvertiseSetCallback_OnScanResponsaDataset_Type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject?, _: jint) -> ()
+
+private func AndroidBluetoothLowEnergyAdvertiseSetCallback_onScanResponsaDataset( _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                                                                                   _ __this: jobject?,
+                                                                                                   _ __swiftObject: jlong,
+                                                                                                   _ advertisingSetParam: jobject?,
+                                                                                                   _ statusParam: jint) -> () {
+    
+    let advertisingSet = Android.Bluetooth.LE.AdvertisingSet(javaObject: advertisingSetParam)
+    let status = Int(statusParam)
+    
+    AndroidBluetoothLowEnergyAdvertiseSetCallbackListenerLocal
+        .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
+        .onScanResponseDataSet(advertisingSet: advertisingSet, status: status)
 }
