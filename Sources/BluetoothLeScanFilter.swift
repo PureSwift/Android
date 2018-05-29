@@ -103,17 +103,17 @@ public final class AndroidBluetoothLowEnergyScanFilter: JavaObject {
         get { return getServiceDataMask() }
     }
     
-    public var serviceDataUuid: Android.Os.ParcelUuid? {
+    public var serviceDataUuid: Android.OS.ParcelUuid? {
         
         get { return getServiceDataUuid() }
     }
     
-    public var serviceUuid: Android.Os.ParcelUuid? {
+    public var serviceUuid: Android.OS.ParcelUuid? {
         
         get { return getServiceUuid() }
     }
     
-    public var serviceUuidMask: Android.Os.ParcelUuid? {
+    public var serviceUuidMask: Android.OS.ParcelUuid? {
         
         get { return getServiceUuidMask() }
     }
@@ -276,7 +276,7 @@ internal extension Android.Bluetooth.LE.ScanFilter {
     }
     
     @_versioned
-    internal func getServiceDataUuid() -> Android.Os.ParcelUuid? {
+    internal func getServiceDataUuid() -> Android.OS.ParcelUuid? {
         
         var __locals = [jobject]()
         
@@ -290,11 +290,11 @@ internal extension Android.Bluetooth.LE.ScanFilter {
                                                          args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         
-        return __return != nil ? Android.Os.ParcelUuid( javaObject: __return ) : nil
+        return __return != nil ? Android.OS.ParcelUuid( javaObject: __return ) : nil
     }
     
     @_versioned
-    internal func getServiceUuid() -> Android.Os.ParcelUuid? {
+    internal func getServiceUuid() -> Android.OS.ParcelUuid? {
         
         var __locals = [jobject]()
         
@@ -308,11 +308,11 @@ internal extension Android.Bluetooth.LE.ScanFilter {
                                                          args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         
-        return __return != nil ? Android.Os.ParcelUuid( javaObject: __return ) : nil
+        return __return != nil ? Android.OS.ParcelUuid( javaObject: __return ) : nil
     }
     
     @_versioned
-    internal func getServiceUuidMask() -> Android.Os.ParcelUuid? {
+    internal func getServiceUuidMask() -> Android.OS.ParcelUuid? {
         
         var __locals = [jobject]()
         
@@ -326,7 +326,7 @@ internal extension Android.Bluetooth.LE.ScanFilter {
                                                          args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         
-        return __return != nil ? Android.Os.ParcelUuid( javaObject: __return ) : nil
+        return __return != nil ? Android.OS.ParcelUuid( javaObject: __return ) : nil
     }
 }
 

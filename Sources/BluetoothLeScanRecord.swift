@@ -120,7 +120,7 @@ public final class AndroidBluetoothLowEnergyScanRecord: JavaObject {
     }
     
     /// Returns the service data byte array associated with the serviceUuid.
-    public func getServiceData(serviceDataUuid: Android.Os.ParcelUuid) -> [Int8]? {
+    public func getServiceData(serviceDataUuid: Android.OS.ParcelUuid) -> [Int8]? {
         
         var __locals = [jobject]()
         

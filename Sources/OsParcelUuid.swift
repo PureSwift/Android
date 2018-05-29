@@ -9,7 +9,7 @@ import Foundation
 import java_swift
 import java_util
 
-public extension Android.Os {
+public extension Android.OS {
     
     public typealias ParcelUuid = AndroidOsParcelUuid
 }
@@ -37,7 +37,7 @@ public final class AndroidOsParcelUuid: JavaObject {
         JNI.DeleteLocalRef( __object )
     }
     
-    public class func fromString( arg0: String ) -> Android.Os.ParcelUuid? {
+    public class func fromString( arg0: String ) -> Android.OS.ParcelUuid? {
         
         var __locals = [jobject]()
         
@@ -53,7 +53,7 @@ public final class AndroidOsParcelUuid: JavaObject {
                                                          args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         
-        return __return != nil ? Android.Os.ParcelUuid( javaObject: __return ) : nil
+        return __return != nil ? Android.OS.ParcelUuid( javaObject: __return ) : nil
     }
     
     public func getUuid() -> java_util.UUID? {
@@ -74,7 +74,7 @@ public final class AndroidOsParcelUuid: JavaObject {
 
 // MARK: - JNI
 
-private extension Android.Os.ParcelUuid {
+private extension Android.OS.ParcelUuid {
     
     /// JNI Cache
     struct JNICache {

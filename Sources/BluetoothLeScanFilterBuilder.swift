@@ -213,7 +213,7 @@ public extension Android.Bluetooth.LE.ScanFilter {
     /**
      * Set filtering on service data.
      */
-    public func setServiceData(serviceDataUuid: Android.Os.ParcelUuid, serviceData: [Int8]) -> Android.Bluetooth.LE.ScanFilter.Builder {
+    public func setServiceData(serviceDataUuid: Android.OS.ParcelUuid, serviceData: [Int8]) -> Android.Bluetooth.LE.ScanFilter.Builder {
         
         var __locals = [jobject]()
         
@@ -238,7 +238,7 @@ public extension Android.Bluetooth.LE.ScanFilter {
     /**
      * Set filtering on service data.
      */
-    public func setServiceData(serviceDataUuid: Android.Os.ParcelUuid, serviceData: [Int8], serviceDataMask: [Int8]) -> Android.Bluetooth.LE.ScanFilter.Builder {
+    public func setServiceData(serviceDataUuid: Android.OS.ParcelUuid, serviceData: [Int8], serviceDataMask: [Int8]) -> Android.Bluetooth.LE.ScanFilter.Builder {
         
         var __locals = [jobject]()
         
@@ -262,7 +262,7 @@ public extension Android.Bluetooth.LE.ScanFilter {
     
     /// Set filter on partial service uuid.
     private static var setServiceUuuid_MethodID: jmethodID?
-    public func setServiceUuuid(serviceUuid: Android.Os.ParcelUuid, uuidMask: Android.Os.ParcelUuid) -> Android.Bluetooth.LE.ScanFilter.Builder {
+    public func setServiceUuuid(serviceUuid: Android.OS.ParcelUuid, uuidMask: Android.OS.ParcelUuid) -> Android.Bluetooth.LE.ScanFilter.Builder {
         
         var __locals = [jobject]()
         
@@ -285,7 +285,7 @@ public extension Android.Bluetooth.LE.ScanFilter {
     
     /// Set filter on service uuid.
     private static var setServiceUuuid2_MethodID: jmethodID?
-    public func setServiceUuuid(serviceUuid: Android.Os.ParcelUuid) -> Android.Bluetooth.LE.ScanFilter.Builder {
+    public func setServiceUuuid(serviceUuid: Android.OS.ParcelUuid) -> Android.Bluetooth.LE.ScanFilter.Builder {
         
         var __locals = [jobject]()
         

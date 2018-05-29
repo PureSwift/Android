@@ -103,7 +103,7 @@ public extension AndroidBluetoothLowEnergyAdvertiseDataBuilder {
         return AndroidBluetoothLowEnergyAdvertiseData.Builder(javaObject: __return)
     }
     
-    public func addServiceData(serviceDataUuid: Android.Os.ParcelUuid, serviceData: [Int8]) -> AndroidBluetoothLowEnergyAdvertiseData.Builder {
+    public func addServiceData(serviceDataUuid: Android.OS.ParcelUuid, serviceData: [Int8]) -> AndroidBluetoothLowEnergyAdvertiseData.Builder {
         
         var __locals = [jobject]()
         
@@ -124,7 +124,7 @@ public extension AndroidBluetoothLowEnergyAdvertiseDataBuilder {
         return AndroidBluetoothLowEnergyAdvertiseData.Builder(javaObject: __return)
     }
     
-    public func addServiceData(serviceDataUuid: Android.Os.ParcelUuid) -> AndroidBluetoothLowEnergyAdvertiseData.Builder {
+    public func addServiceData(serviceDataUuid: Android.OS.ParcelUuid) -> AndroidBluetoothLowEnergyAdvertiseData.Builder {
         
         var __locals = [jobject]()
         

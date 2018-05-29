@@ -22,95 +22,84 @@ public extension Android.Bluetooth.LE.AdvertisingSetParameters {
     public typealias TxPowerLevel = AndroidBluetoothLowEnergyTxPowerLevel
 }
 
-public extension Android.Bluetooth.LE.AdvertisingSetParameters {
+/// LE Primary Phy
+public struct AndroidBluetoothLowEnergyPrimaryPhy: RawRepresentable {
     
-    /// LE Primary Phy
-    public struct AndroidBluetoothLowEnergyPrimaryPhy: RawRepresentable {
-        
-        public let rawValue: Int
-        
-        public init(rawValue: Int) {
-            self.rawValue = rawValue
-        }
-        
-        /**
-         * Bluetooth LE 1M PHY. Used to refer to LE 1M Physical Channel for advertising, scanning or connection.
-         */
-        public static let phyLe1m = Android.Bluetooth.LE.AdvertisingSetParameters.PrimaryPhy(rawValue: Android.Bluetooth.Device.PHY_LE_1M)
-        
-        /**
-         * Bluetooth LE Coded PHY. Used to refer to LE Coded Physical Channel for advertising, scanning or connection.
-         */
-        public static let phyLeCoded = Android.Bluetooth.LE.AdvertisingSetParameters.PrimaryPhy(rawValue: Android.Bluetooth.Device.PHY_LE_CODED)
+    public let rawValue: Int
+    
+    public init(rawValue: Int) {
+        self.rawValue = rawValue
     }
     
-    /// LE Secondary Phy
-    public struct AndroidBluetoothLowEnergySecondaryPhy: RawRepresentable {
-        
-        public let rawValue: Int
-        
-        public init(rawValue: Int) {
-            self.rawValue = rawValue
-        }
-        
-        /**
-         * Bluetooth LE 1M PHY. Used to refer to LE 1M Physical Channel for advertising, scanning or connection.
-         */
-        public static let phyLe1m = Android.Bluetooth.LE.AdvertisingSetParameters.SecondaryPhy(rawValue: Android.Bluetooth.Device.PHY_LE_1M)
-        
-        /**
-         * Bluetooth LE Coded PHY. Used to refer to LE Coded Physical Channel for advertising, scanning or connection.
-         */
-        public static let phyLeCoded = Android.Bluetooth.LE.AdvertisingSetParameters.SecondaryPhy(rawValue: Android.Bluetooth.Device.PHY_LE_CODED)
-        
-        /**
-         * Bluetooth LE 2M PHY. Used to refer to LE 2M Physical Channel for advertising, scanning or connection.
-         */
-        public static let phyLe2m = Android.Bluetooth.LE.AdvertisingSetParameters.SecondaryPhy(rawValue: Android.Bluetooth.Device.PHY_LE_2M)
-    }
+    /**
+     * Bluetooth LE 1M PHY. Used to refer to LE 1M Physical Channel for advertising, scanning or connection.
+     */
+    public static let phyLe1m = Android.Bluetooth.LE.AdvertisingSetParameters.PrimaryPhy(rawValue: Android.Bluetooth.Device.PHY_LE_1M)
     
-    /// LE Secondary Phy
-    public struct AndroidBluetoothLowEnergyTxPowerLevel: RawRepresentable {
-        
-        public let rawValue: Int
-        
-        public init(rawValue: Int) {
-            self.rawValue = rawValue
-        }
-        
-        public static let txPowerUltraLow = Android.Bluetooth.LE.AdvertisingSetParameters.TxPowerLevel(rawValue: Android.Bluetooth.LE.AdvertisingSetParameters.TX_POWER_ULTRA_LOW)
-        
-        public static let txPowerLow = Android.Bluetooth.LE.AdvertisingSetParameters.TxPowerLevel(rawValue: Android.Bluetooth.LE.AdvertisingSetParameters.TX_POWER_LOW)
-        
-        public static let txPowerMedium = Android.Bluetooth.LE.AdvertisingSetParameters.TxPowerLevel(rawValue: Android.Bluetooth.LE.AdvertisingSetParameters.TX_POWER_MEDIUM)
-        
-        public static let txPowerHigh = Android.Bluetooth.LE.AdvertisingSetParameters.TxPowerLevel(rawValue: Android.Bluetooth.LE.AdvertisingSetParameters.TX_POWER_HIGH)
-    }
+    /**
+     * Bluetooth LE Coded PHY. Used to refer to LE Coded Physical Channel for advertising, scanning or connection.
+     */
+    public static let phyLeCoded = Android.Bluetooth.LE.AdvertisingSetParameters.PrimaryPhy(rawValue: Android.Bluetooth.Device.PHY_LE_CODED)
 }
 
-public final class AndroidBluetoothLowEnergyAdvertisingSetParameters: JavaObject {
+/// LE Secondary Phy
+public struct AndroidBluetoothLowEnergySecondaryPhy: RawRepresentable {
     
-    public convenience init?( casting object: java_swift.JavaObject,
-                              _ file: StaticString = #file,
-                              _ line: Int = #line ) {
-        
-        self.init(javaObject: nil)
-        
-        object.withJavaObject {
-            self.javaObject = $0
-        }
+    public let rawValue: Int
+    
+    public init(rawValue: Int) {
+        self.rawValue = rawValue
     }
     
-    public required init( javaObject: jobject? ) {
-        super.init(javaObject: javaObject)
+    /**
+     * Bluetooth LE 1M PHY. Used to refer to LE 1M Physical Channel for advertising, scanning or connection.
+     */
+    public static let phyLe1m = Android.Bluetooth.LE.AdvertisingSetParameters.SecondaryPhy(rawValue: Android.Bluetooth.Device.PHY_LE_1M)
+    
+    /**
+     * Bluetooth LE Coded PHY. Used to refer to LE Coded Physical Channel for advertising, scanning or connection.
+     */
+    public static let phyLeCoded = Android.Bluetooth.LE.AdvertisingSetParameters.SecondaryPhy(rawValue: Android.Bluetooth.Device.PHY_LE_CODED)
+    
+    /**
+     * Bluetooth LE 2M PHY. Used to refer to LE 2M Physical Channel for advertising, scanning or connection.
+     */
+    public static let phyLe2m = Android.Bluetooth.LE.AdvertisingSetParameters.SecondaryPhy(rawValue: Android.Bluetooth.Device.PHY_LE_2M)
+}
+
+/// LE Secondary Phy
+public struct AndroidBluetoothLowEnergyTxPowerLevel: RawRepresentable {
+    
+    public let rawValue: Int
+    
+    public init(rawValue: Int) {
+        self.rawValue = rawValue
     }
+    
+    public static let ultraLow = Android.Bluetooth.LE.AdvertisingSetParameters.TxPowerLevel(rawValue: Android.Bluetooth.LE.AdvertisingSetParameters.Constants.TX_POWER_ULTRA_LOW)
+    
+    public static let low = Android.Bluetooth.LE.AdvertisingSetParameters.TxPowerLevel(rawValue: Android.Bluetooth.LE.AdvertisingSetParameters.Constants.TX_POWER_LOW)
+    
+    public static let medium = Android.Bluetooth.LE.AdvertisingSetParameters.TxPowerLevel(rawValue: Android.Bluetooth.LE.AdvertisingSetParameters.Constants.TX_POWER_MEDIUM)
+    
+    public static let high = Android.Bluetooth.LE.AdvertisingSetParameters.TxPowerLevel(rawValue: Android.Bluetooth.LE.AdvertisingSetParameters.Constants.TX_POWER_HIGH)
+}
+
+public protocol AndroidBluetoothLowEnergyAdvertisingSetParameters {
+    
+    
 }
 
 // MARK: CONSTANTS
 
-public extension Android.Bluetooth.LE.AdvertisingSetParameters {
+internal extension Android.Bluetooth.LE.AdvertisingSetParameters {
     
-    public static var INTERVAL_HIGH: Int {
+    internal typealias Constants = AndroidBluetoothLowEnergyAdvertisingSetParametersConstants
+}
+
+internal enum AndroidBluetoothLowEnergyAdvertisingSetParametersConstants {
+    
+    internal static var INTERVAL_HIGH: Int {
         get {
             let __value = JNIField.GetStaticIntField(
                 fieldName: "INTERVAL_HIGH",
@@ -122,7 +111,7 @@ public extension Android.Bluetooth.LE.AdvertisingSetParameters {
         }
     }
     
-    public static var INTERVAL_LOW: Int {
+    internal static var INTERVAL_LOW: Int {
         get {
             let __value = JNIField.GetStaticIntField(
                 fieldName: "INTERVAL_LOW",
@@ -134,7 +123,7 @@ public extension Android.Bluetooth.LE.AdvertisingSetParameters {
         }
     }
     
-    public static var INTERVAL_MAX: Int {
+    internal static var INTERVAL_MAX: Int {
         get {
             let __value = JNIField.GetStaticIntField(
                 fieldName: "INTERVAL_MAX",
@@ -146,7 +135,7 @@ public extension Android.Bluetooth.LE.AdvertisingSetParameters {
         }
     }
     
-    public static var INTERVAL_MEDIUM: Int {
+    internal static var INTERVAL_MEDIUM: Int {
         get {
             let __value = JNIField.GetStaticIntField(
                 fieldName: "INTERVAL_MEDIUM",
@@ -158,7 +147,7 @@ public extension Android.Bluetooth.LE.AdvertisingSetParameters {
         }
     }
     
-    public static var INTERVAL_MIN: Int {
+    internal static var INTERVAL_MIN: Int {
         get {
             let __value = JNIField.GetStaticIntField(
                 fieldName: "INTERVAL_MIN",
@@ -170,7 +159,7 @@ public extension Android.Bluetooth.LE.AdvertisingSetParameters {
         }
     }
     
-    public static var TX_POWER_HIGH: Int {
+    internal static var TX_POWER_HIGH: Int {
         get {
             let __value = JNIField.GetStaticIntField(
                 fieldName: "TX_POWER_HIGH",
@@ -182,7 +171,7 @@ public extension Android.Bluetooth.LE.AdvertisingSetParameters {
         }
     }
     
-    public static var TX_POWER_LOW: Int {
+    internal static var TX_POWER_LOW: Int {
         get {
             let __value = JNIField.GetStaticIntField(
                 fieldName: "TX_POWER_LOW",
@@ -206,7 +195,7 @@ public extension Android.Bluetooth.LE.AdvertisingSetParameters {
         }
     }
     
-    public static var TX_POWER_MEDIUM: Int {
+    internal static var TX_POWER_MEDIUM: Int {
         get {
             let __value = JNIField.GetStaticIntField(
                 fieldName: "TX_POWER_MEDIUM",
@@ -218,7 +207,7 @@ public extension Android.Bluetooth.LE.AdvertisingSetParameters {
         }
     }
     
-    public static var TX_POWER_MIN: Int {
+    internal static var TX_POWER_MIN: Int {
         get {
             let __value = JNIField.GetStaticIntField(
                 fieldName: "TX_POWER_MIN",
@@ -230,7 +219,7 @@ public extension Android.Bluetooth.LE.AdvertisingSetParameters {
         }
     }
     
-    public static var TX_POWER_ULTRA_LOW: Int {
+    internal static var TX_POWER_ULTRA_LOW: Int {
         get {
             let __value = JNIField.GetStaticIntField(
                 fieldName: "TX_POWER_ULTRA_LOW",
@@ -241,6 +230,10 @@ public extension Android.Bluetooth.LE.AdvertisingSetParameters {
             return Int(__value)
         }
     }
+    
+}
+
+public extension AndroidBluetoothLowEnergyAdvertisingSetParameters {
     
     /**
      * Returns the advertising interval.
@@ -466,7 +459,7 @@ internal extension Android.Bluetooth.LE.AdvertisingSetParameters {
 
 // MARK: - JNICache
 
-internal extension Android.Bluetooth.LE.AdvertisingSetParameters {
+internal extension Android.Bluetooth.LE.AdvertisingSetParameters.Constants {
     
     /// JNI Cache
     struct JNICache {
