@@ -18,7 +18,6 @@ public extension Android.Bluetooth.LE {
 /// Bluetooth LE advertising set callbacks, used to deliver advertising operation status.
 public protocol AndroidBluetoothLowEnergyAdvertisingSetCallback: JavaProtocol {
     
-    
     /**
      * Callback triggered in response to setAdvertisingData(AdvertiseData) indicating result of the operation.
      */
