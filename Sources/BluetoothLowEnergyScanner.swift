@@ -167,6 +167,7 @@ public extension AndroidBluetoothLowEnergyScanner {
             args: &__args,
             locals: &__locals )
     }
+    
     /**
      * Start Bluetooth LE scan.
      *
