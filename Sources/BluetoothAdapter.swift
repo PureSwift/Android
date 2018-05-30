@@ -625,7 +625,7 @@ public extension Android.Bluetooth.Adapter {
         
         JNIMethod.CallVoidMethod(object: javaObject,
                                  methodName: "closeProfileProxy",
-                                 methodSig: "(ILandroid/bluetooth/BluetoothProfile;)",
+                                 methodSig: "(ILandroid/bluetooth/BluetoothProfile;)V",
                                  methodCache: &JNICache.MethodID.closeProfileProxy,
                                  args: &__args,
                                  locals: &__locals)
