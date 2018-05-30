@@ -749,6 +749,346 @@ public extension Android.Bluetooth.Adapter {
         
         return JavaSetForward(javaObject: __return)
     }
+    
+    /**
+     * Get a handle to the default local Bluetooth adapter.
+     */
+    public class func getDefaultAdapter() -> Android.Bluetooth.Adapter {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallStaticObjectMethod(className: JNICache.className,
+                                                         classCache: &JNICache.jniClass,
+                                                         methodName: "getDefaultAdapter",
+                                                         methodSig: "()Landroid/bluetooth/BluetoothAdapter;",
+                                                         methodCache: &JNICache.MethodID.getDefaultAdapter,
+                                                         args: &__args,
+                                                         locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return Android.Bluetooth.Adapter(javaObject: __return)
+    }
+    
+    /**
+     * Return the maximum LE advertising data length in bytes, if LE Extended Advertising feature is supported, 0 otherwise.
+     */
+    public func getLeMaximumAdvertisingDataLength() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallIntMethod(object: javaObject,
+                                                   methodName: "getLeMaximumAdvertisingDataLength",
+                                                   methodSig: "()I",
+                                                   methodCache: &JNICache.MethodID.getLeMaximumAdvertisingDataLength,
+                                                   args: &__args,
+                                                   locals: &__locals)
+        return Int(__return)
+    }
+    
+    /**
+     * Get the friendly Bluetooth name of the local Bluetooth adapter.
+     */
+    public func getName() -> String {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "getName",
+                                                  methodSig: "()Ljava/lang/String;",
+                                                  methodCache: &JNICache.MethodID.getName,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return String(javaObject: __return)
+    }
+    
+    /**
+     * Get the current connection state of a profile.
+     */
+    public func getProfileConnectionState(profile: Int) -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        __args[0] = jvalue(i: jint(profile))
+        
+        let __return = JNIMethod.CallIntMethod(object: javaObject,
+                                               methodName: "getProfileConnectionState",
+                                               methodSig: "(I)I",
+                                               methodCache: &JNICache.MethodID.getProfileConnectionState,
+                                               args: &__args,
+                                               locals: &__locals)
+        return Int(__return)
+    }
+    
+    /**
+     * Get the profile proxy object associated with the profile.
+     */
+    public func getProfileProxy(context: Android.Content.Context, listener: JavaObject, profile: Int) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            JNIType.toJava( value: context, locals: &__locals ),
+            JNIType.toJava( value: listener, locals: &__locals ),
+            jvalue(i: jint(profile))
+        ]
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                               methodName: "getProfileProxy",
+                                               methodSig: "(Landroid/content/Context;Landroid/bluetooth/BluetoothProfile$ServiceListener;I)I",
+                                               methodCache: &JNICache.MethodID.getProfileProxy,
+                                               args: &__args,
+                                               locals: &__locals)
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Get a BluetoothDevice object for the given Bluetooth hardware address.
+     */
+    public func getRemoteDevice(address: [Int8]) -> Android.Bluetooth.Device {
+        
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            JNIType.toJava(value: address, locals: &__locals)
+        ]
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                               methodName: "getRemoteDevice",
+                                               methodSig: "([B)I",
+                                               methodCache: &JNICache.MethodID.getRemoteDevice,
+                                               args: &__args,
+                                               locals: &__locals)
+        return Android.Bluetooth.Device(javaObject: __return)
+    }
+    
+    /**
+     * Get a BluetoothDevice object for the given Bluetooth hardware address.
+     */
+    public func getRemoteDevice(address: String) -> Android.Bluetooth.Device {
+        
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            JNIType.toJava(value: address, locals: &__locals)
+        ]
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "getRemoteDevice",
+                                                  methodSig: "(Ljava/lang/String;)I",
+                                                  methodCache: &JNICache.MethodID.getRemoteDevice2,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        return Android.Bluetooth.Device(javaObject: __return)
+    }
+    
+    /**
+     * Get the current Bluetooth scan mode of the local Bluetooth adapter.
+     */
+    public func getScanMode() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallIntMethod(object: javaObject,
+                                               methodName: "getScanMode",
+                                               methodSig: "()I",
+                                               methodCache: &JNICache.MethodID.getScanMode,
+                                               args: &__args,
+                                               locals: &__locals)
+        return Int(__return)
+    }
+    
+    /**
+     * Get the current state of the local Bluetooth adapter.
+     */
+    public func getState() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallIntMethod(object: javaObject,
+                                               methodName: "getState",
+                                               methodSig: "()I",
+                                               methodCache: &JNICache.MethodID.getState,
+                                               args: &__args,
+                                               locals: &__locals)
+        return Int(__return)
+    }
+    
+    /**
+     * Return true if the local Bluetooth adapter is currently in the device discovery process.
+     */
+    public func isDiscovering() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                                   methodName: "isDiscovering",
+                                                   methodSig: "()Z",
+                                                   methodCache: &JNICache.MethodID.isDiscovering,
+                                                   args: &__args,
+                                                   locals: &__locals)
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Return true if Bluetooth is currently enabled and ready for use.
+     */
+    public func isEnabled() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                                   methodName: "isEnabled",
+                                                   methodSig: "()Z",
+                                                   methodCache: &JNICache.MethodID.isEnabled,
+                                                   args: &__args,
+                                                   locals: &__locals)
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Return true if LE 2M PHY feature is supported.
+     */
+    public func isLe2MPhySupported() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                                   methodName: "isLe2MPhySupported",
+                                                   methodSig: "()Z",
+                                                   methodCache: &JNICache.MethodID.isLe2MPhySupported,
+                                                   args: &__args,
+                                                   locals: &__locals)
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Return true if LE Coded PHY feature is supported.
+     */
+    public func isLeCodedPhySupported() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                                   methodName: "isLeCodedPhySupported",
+                                                   methodSig: "()Z",
+                                                   methodCache: &JNICache.MethodID.isLeCodedPhySupported,
+                                                   args: &__args,
+                                                   locals: &__locals)
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Return true if LE Extended Advertising feature is supported.
+     */
+    public func isLeExtendedAdvertisingSupported() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                                   methodName: "isLeExtendedAdvertisingSupported",
+                                                   methodSig: "()Z",
+                                                   methodCache: &JNICache.MethodID.isLeExtendedAdvertisingSupported,
+                                                   args: &__args,
+                                                   locals: &__locals)
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Return true if LE Periodic Advertising feature is supported.
+     */
+    public func isLePeriodicAdvertisingSupported() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                                   methodName: "isLePeriodicAdvertisingSupported",
+                                                   methodSig: "()Z",
+                                                   methodCache: &JNICache.MethodID.isLePeriodicAdvertisingSupported,
+                                                   args: &__args,
+                                                   locals: &__locals)
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Return true if the multi advertisement is supported by the chipset.
+     */
+    public func isMultipleAdvertisementSupported() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                                   methodName: "isMultipleAdvertisementSupported",
+                                                   methodSig: "()Z",
+                                                   methodCache: &JNICache.MethodID.isMultipleAdvertisementSupported,
+                                                   args: &__args,
+                                                   locals: &__locals)
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Return true if offloaded filters are supported.
+     */
+    public func isOffloadedFilteringSupported() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                                   methodName: "isOffloadedFilteringSupported",
+                                                   methodSig: "()Z",
+                                                   methodCache: &JNICache.MethodID.isOffloadedFilteringSupported,
+                                                   args: &__args,
+                                                   locals: &__locals)
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Return true if offloaded scan batching is supported.
+     */
+    public func isOffloadedScanBatchingSupported() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                                   methodName: "isOffloadedScanBatchingSupported",
+                                                   methodSig: "()Z",
+                                                   methodCache: &JNICache.MethodID.isOffloadedScanBatchingSupported,
+                                                   args: &__args,
+                                                   locals: &__locals)
+        return __return != jboolean(JNI_FALSE)
+    }
 }
 
 // MARK: - JNICache
