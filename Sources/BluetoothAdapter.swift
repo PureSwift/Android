@@ -7,6 +7,7 @@
 
 import Foundation
 import java_swift
+import java_util
 import JNI
 
 public extension Android.Bluetooth {
@@ -869,6 +870,9 @@ public extension Android.Bluetooth.Adapter {
                                                methodCache: &JNICache.MethodID.getRemoteDevice,
                                                args: &__args,
                                                locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
         return Android.Bluetooth.Device(javaObject: __return)
     }
     
@@ -889,6 +893,9 @@ public extension Android.Bluetooth.Adapter {
                                                   methodCache: &JNICache.MethodID.getRemoteDevice2,
                                                   args: &__args,
                                                   locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
         return Android.Bluetooth.Device(javaObject: __return)
     }
     
@@ -1089,6 +1096,92 @@ public extension Android.Bluetooth.Adapter {
                                                    locals: &__locals)
         return __return != jboolean(JNI_FALSE)
     }
+    
+    /**
+     * Create a listening, insecure RFCOMM Bluetooth socket with Service Record.
+     */
+    public func listenUsingInsecureRfcommWithServiceRecord(name: String, uuid: java_util.UUID) -> Android.Bluetooth.ServerSocket {
+        
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            JNIType.toJava(value: name, locals: &__locals),
+            JNIType.toJava(value: uuid, locals: &__locals),
+        ]
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "listenUsingInsecureRfcommWithServiceRecord",
+                                                  methodSig: "(Ljava/lang/String;Ljava/util/UUID;)Landroid/bluetooth/BluetoothServerSocket;",
+                                                  methodCache: &JNICache.MethodID.listenUsingInsecureRfcommWithServiceRecord,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return Android.Bluetooth.ServerSocket(javaObject: __return)
+    }
+    
+    /**
+     * Create a listening, secure RFCOMM Bluetooth socket with Service Record.
+     */
+    public func listenUsingRfcommWithServiceRecord(name: String, uuid: java_util.UUID) -> Android.Bluetooth.ServerSocket {
+        
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            JNIType.toJava(value: name, locals: &__locals),
+            JNIType.toJava(value: uuid, locals: &__locals),
+            ]
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "listenUsingRfcommWithServiceRecord",
+                                                  methodSig: "(Ljava/lang/String;Ljava/util/UUID;)Landroid/bluetooth/BluetoothServerSocket;",
+                                                  methodCache: &JNICache.MethodID.listenUsingRfcommWithServiceRecord,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return Android.Bluetooth.ServerSocket(javaObject: __return)
+    }
+    
+    /**
+     * Set the friendly Bluetooth name of the local Bluetooth adapter.
+     */
+    public func setName(name: String) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            JNIType.toJava(value: name, locals: &__locals)
+        ]
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                                   methodName: "setName",
+                                                   methodSig: "(Ljava/lang/String;)Z",
+                                                   methodCache: &JNICache.MethodID.setName,
+                                                   args: &__args,
+                                                   locals: &__locals)
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Start the remote device discovery process.
+     */
+    public func startDiscovery() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                                   methodName: "startDiscovery",
+                                                   methodSig: "()Z",
+                                                   methodCache: &JNICache.MethodID.startDiscovery,
+                                                   args: &__args,
+                                                   locals: &__locals)
+        return __return != jboolean(JNI_FALSE)
+    }
 }
 
 // MARK: - JNICache
@@ -1173,9 +1266,6 @@ internal extension Android.Bluetooth.Adapter {
             static var listenUsingRfcommWithServiceRecord: jmethodID?
             static var setName: jmethodID?
             static var startDiscovery: jmethodID?
-            static var startLeScan: jmethodID?
-            static var startLeScan2: jmethodID?
-            static var startLeScan3: jmethodID?
         }
     }
 }
