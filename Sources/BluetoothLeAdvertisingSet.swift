@@ -59,7 +59,7 @@ public extension AndroidBluetoothLowEnergyAdvertisingSet {
         
         JNIMethod.CallVoidMethod(object: javaObject,
                                    methodName: "enableAdvertising",
-                                   methodSig: "(ZII)",
+                                   methodSig: "(ZII)V",
                                    methodCache: &JNICache.MethodID.enableAdvertising,
                                    args: &__args,
                                    locals: &__locals)
@@ -77,7 +77,7 @@ public extension AndroidBluetoothLowEnergyAdvertisingSet {
         
         JNIMethod.CallVoidMethod(object: javaObject,
                                  methodName: "setPeriodicAdvertisingEnabled",
-                                 methodSig: "(Z)",
+                                 methodSig: "(Z)V",
                                  methodCache: &JNICache.MethodID.setPeriodicAdvertisingEnabled,
                                  args: &__args,
                                  locals: &__locals)
@@ -95,7 +95,7 @@ public extension AndroidBluetoothLowEnergyAdvertisingSet {
         
         JNIMethod.CallVoidMethod(object: javaObject,
                                  methodName: "setAdvertisingData",
-                                 methodSig: "(Landroid/bluetooth/le/AdvertiseData;)",
+                                 methodSig: "(Landroid/bluetooth/le/AdvertiseData;)V",
                                  methodCache: &JNICache.MethodID.setAdvertisingData,
                                  args: &__args,
                                  locals: &__locals)
@@ -114,7 +114,7 @@ public extension AndroidBluetoothLowEnergyAdvertisingSet {
         
         JNIMethod.CallVoidMethod(object: javaObject,
                                  methodName: "setAdvertisingParameters",
-                                 methodSig: "(Landroid/bluetooth/le/AdvertisingSetParameters;)",
+                                 methodSig: "(Landroid/bluetooth/le/AdvertisingSetParameters;)V",
                                  methodCache: &JNICache.MethodID.setAdvertisingParameters,
                                  args: &__args,
                                  locals: &__locals)
@@ -132,7 +132,7 @@ public extension AndroidBluetoothLowEnergyAdvertisingSet {
         
         JNIMethod.CallVoidMethod(object: javaObject,
                                  methodName: "setPeriodicAdvertisingParameters",
-                                 methodSig: "(Landroid/bluetooth/le/PeriodicAdvertisingParameters;)",
+                                 methodSig: "(Landroid/bluetooth/le/PeriodicAdvertisingParameters;)V",
                                  methodCache: &JNICache.MethodID.setPeriodicAdvertisingParameters,
                                  args: &__args,
                                  locals: &__locals)
@@ -150,7 +150,7 @@ public extension AndroidBluetoothLowEnergyAdvertisingSet {
         
         JNIMethod.CallVoidMethod(object: javaObject,
                                  methodName: "setScanResponseData",
-                                 methodSig: "(Landroid/bluetooth/le/AdvertiseData;)",
+                                 methodSig: "(Landroid/bluetooth/le/AdvertiseData;)V",
                                  methodCache: &JNICache.MethodID.setScanResponseData,
                                  args: &__args,
                                  locals: &__locals)
