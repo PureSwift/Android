@@ -8,6 +8,7 @@
 import Foundation
 import java_swift
 import java_util
+import JNI
 
 public extension Android.Bluetooth.LE {
     
@@ -274,7 +275,7 @@ public extension AndroidBluetoothLowEnergyAdvertiser {
             object: javaObject,
             methodName: "stopAdvertising",
             methodSig: "(Landroid/bluetooth/le/AdvertisingSetCallback;)V",
-            methodCache: &JNICache.MethodID.stopAdvertising2,
+            methodCache: &JNICache.MethodID.stopAdvertisingSet,
             args: &__args,
             locals: &__locals )
     }
