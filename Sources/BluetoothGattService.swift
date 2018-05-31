@@ -261,10 +261,12 @@ public extension AndroidBluetoothGattService {
         
         let __return = JNIMethod.CallObjectMethod(object: javaObject,
                                                methodName: "getUuid",
-                                               methodSig: "()I",
+                                               methodSig: "()Ljava/util/UUID;",
                                                methodCache: &JNICache.MethodID.getUuid,
                                                args: &__args,
                                                locals: &__locals)
+        defer { JNI.DeleteLocalRef(__return) }
+        
         return java_util.UUID(javaObject: __return)
     }
 }

@@ -257,6 +257,100 @@ public extension AndroidBluetoothGattDescriptor {
 
 public extension AndroidBluetoothGattDescriptor {
     
+    /**
+     * Returns the characteristic this descriptor belongs to.
+     */
+    public func getCharacteristic() -> Android.Bluetooth.GattCharacteristic {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "getCharacteristic",
+                                                  methodSig: "()Landroid/bluetooth/BluetoothGattCharacteristic;",
+                                                  methodCache: &JNICache.MethodID.getCharacteristic,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        return Android.Bluetooth.GattCharacteristic(javaObject: __return)
+    }
+    
+    /**
+     * Returns the permissions for this descriptor.
+     */
+    public func getPermissions() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallIntMethod(object: javaObject,
+                                                  methodName: "getPermissions",
+                                                  methodSig: "()I",
+                                                  methodCache: &JNICache.MethodID.getPermissions,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        return Int(__return)
+    }
+    
+    /**
+     * Returns the UUID of this descriptor.
+     */
+    public func getUuid() -> java_util.UUID {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "getUuid",
+                                                  methodSig: "()Ljava/util/UUID;",
+                                                  methodCache: &JNICache.MethodID.getUuid,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        defer { JNI.DeleteLocalRef(__return) }
+        
+        return java_util.UUID(javaObject: __return)
+    }
+    
+    /**
+     * Returns the stored value for this descriptor
+     *
+     * This function returns the stored value for this descriptor as retrieved by calling readDescriptor(BluetoothGattDescriptor).
+     */
+    public func getValue() -> [Int8]? {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "getValue",
+                                                  methodSig: "()[B",
+                                                  methodCache: &JNICache.MethodID.getValue,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        defer { JNI.DeleteLocalRef(__return) }
+        
+        return JNIType.toSwift( type: [Int8].self, from: __return )
+    }
+    
+    public func setValue(_ value: [Int8]) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            JNIType.toJava(value: value, locals: &__locals)
+        ]
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                                  methodName: "setValue",
+                                                  methodSig: "([B)Z",
+                                                  methodCache: &JNICache.MethodID.setValue,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        return __return != jboolean(JNI_FALSE)
+    }
 }
 
 // MARKL - Supporting type
