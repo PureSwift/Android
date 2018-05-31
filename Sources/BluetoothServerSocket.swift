@@ -31,6 +31,8 @@ public extension Android.Bluetooth {
  * on the BluetoothServerSocket when it's no longer needed for accepting connections. Closing the BluetoothServerSocket will not close the returned BluetoothSocket.
  *
  * BluetoothServerSocket is thread safe. In particular, close() will always immediately abort ongoing operations and close the server socket.
+ *
+ * Note: Requires the BLUETOOTH permission.
  */
 public final class AndroidBluetoothServerSocket: JavaObject {
     
@@ -47,5 +49,111 @@ public final class AndroidBluetoothServerSocket: JavaObject {
     
     public required init( javaObject: jobject? ) {
         super.init(javaObject: javaObject)
+    }
+}
+
+// MARK: Maethods
+
+public extension AndroidBluetoothServerSocket {
+    
+    /**
+     * Block until a connection is established.
+     *
+     * Returns a connected BluetoothSocket on successful connection.
+     *
+     * Once this call returns, it can be called again to accept subsequent incoming connections.
+     *
+     * close() can be used to abort this call from another thread.
+     */
+    public func accept() -> Android.Bluetooth.Socket {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "accept",
+                                                  methodSig: "()Landroid/bluetooth/BluetoothSocket;",
+                                                  methodCache: &JNICache.MethodID.accept,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef(__return) }
+        
+        return Android.Bluetooth.Socket(javaObject: __return)
+    }
+    
+    /**
+     * Block until a connection is established, with timeout.
+     *
+     * Returns a connected BluetoothSocket on successful connection.
+     *
+     * Once this call returns, it can be called again to accept subsequent incoming connections.
+     *
+     * close() can be used to abort this call from another thread.
+     */
+    public func accept(timeout: Int) -> Android.Bluetooth.Socket {
+        
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            jvalue(i: jint(timeout) )
+        ]
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "accept",
+                                                  methodSig: "(I)Landroid/bluetooth/BluetoothSocket;",
+                                                  methodCache: &JNICache.MethodID.accept,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef(__return) }
+        
+        return Android.Bluetooth.Socket(javaObject: __return)
+    }
+    
+    /**
+     * Immediately close this socket, and release all associated resources.
+     *
+     * Causes blocked calls on this socket in other threads to immediately throw an IOException.
+     *
+     * Closing the BluetoothServerSocket will not close any BluetoothSocket received from accept().
+     */
+    public func clone() {
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        JNIMethod.CallVoidMethod(object: javaObject,
+                                 methodName: "clonse",
+                                 methodSig: "()V",
+                                 methodCache: &JNICache.MethodID.close,
+                                 args: &__args,
+                                 locals: &__locals)
+    }
+}
+
+// MARK: - JNICache
+
+internal extension AndroidBluetoothServerSocket {
+    
+    /// JNI Cache
+    struct JNICache {
+        
+        static let classSignature = Android.Bluetooth.className(["BluetoothServerSocket"])
+        
+        /// JNI Java class name
+        static let className = classSignature.rawValue
+        
+        /// JNI Java class
+        static var jniClass: jclass?
+        
+        /// JNI Method ID cache
+        struct MethodID {
+            
+            static var accept: jmethodID?
+            static var accept2: jmethodID?
+            static var close: jmethodID?
+        }
     }
 }
