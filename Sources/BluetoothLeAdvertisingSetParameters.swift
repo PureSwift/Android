@@ -22,82 +22,172 @@ public extension Android.Bluetooth.LE.AdvertisingSetParameters {
     public typealias TxPowerLevel = AndroidBluetoothLowEnergyTxPowerLevel
 }
 
-/// LE Primary Phy
-public struct AndroidBluetoothLowEnergyPrimaryPhy: RawRepresentable {
+public extension Android.Bluetooth.LE.AdvertisingSetParameters {
     
-    public let rawValue: Int
+    /// LE Primary Phy
+    public struct AndroidBluetoothLowEnergyPrimaryPhy: RawRepresentable {
+        
+        public let rawValue: Int
+        
+        public init(rawValue: Int) {
+            self.rawValue = rawValue
+        }
+        
+        /**
+         * Bluetooth LE 1M PHY. Used to refer to LE 1M Physical Channel for advertising, scanning or connection.
+         */
+        public static let phyLe1m = Android.Bluetooth.LE.AdvertisingSetParameters.PrimaryPhy(rawValue: Android.Bluetooth.Device.PHY_LE_1M)
+        
+        /**
+         * Bluetooth LE Coded PHY. Used to refer to LE Coded Physical Channel for advertising, scanning or connection.
+         */
+        public static let phyLeCoded = Android.Bluetooth.LE.AdvertisingSetParameters.PrimaryPhy(rawValue: Android.Bluetooth.Device.PHY_LE_CODED)
+    }
     
-    public init(rawValue: Int) {
-        self.rawValue = rawValue
+    /// LE Secondary Phy
+    public struct AndroidBluetoothLowEnergySecondaryPhy: RawRepresentable {
+        
+        public let rawValue: Int
+        
+        public init(rawValue: Int) {
+            self.rawValue = rawValue
+        }
+        
+        /**
+         * Bluetooth LE 1M PHY. Used to refer to LE 1M Physical Channel for advertising, scanning or connection.
+         */
+        public static let phyLe1m = Android.Bluetooth.LE.AdvertisingSetParameters.SecondaryPhy(rawValue: Android.Bluetooth.Device.PHY_LE_1M)
+        
+        /**
+         * Bluetooth LE Coded PHY. Used to refer to LE Coded Physical Channel for advertising, scanning or connection.
+         */
+        public static let phyLeCoded = Android.Bluetooth.LE.AdvertisingSetParameters.SecondaryPhy(rawValue: Android.Bluetooth.Device.PHY_LE_CODED)
+        
+        /**
+         * Bluetooth LE 2M PHY. Used to refer to LE 2M Physical Channel for advertising, scanning or connection.
+         */
+        public static let phyLe2m = Android.Bluetooth.LE.AdvertisingSetParameters.SecondaryPhy(rawValue: Android.Bluetooth.Device.PHY_LE_2M)
+    }
+    
+    /// LE Secondary Phy
+    public struct AndroidBluetoothLowEnergyTxPowerLevel: RawRepresentable {
+        
+        public let rawValue: Int
+        
+        public init(rawValue: Int) {
+            self.rawValue = rawValue
+        }
+        
+        public static let ultraLow = Android.Bluetooth.LE.AdvertisingSetParameters.TxPowerLevel(rawValue: Android.Bluetooth.LE.AdvertisingSetParameters.TX_POWER_ULTRA_LOW)
+        
+        public static let low = Android.Bluetooth.LE.AdvertisingSetParameters.TxPowerLevel(rawValue: Android.Bluetooth.LE.AdvertisingSetParameters.TX_POWER_LOW)
+        
+        public static let medium = Android.Bluetooth.LE.AdvertisingSetParameters.TxPowerLevel(rawValue: Android.Bluetooth.LE.AdvertisingSetParameters.TX_POWER_MEDIUM)
+        
+        public static let high = Android.Bluetooth.LE.AdvertisingSetParameters.TxPowerLevel(rawValue: Android.Bluetooth.LE.AdvertisingSetParameters.TX_POWER_HIGH)
+    }
+}
+
+
+
+public final class AndroidBluetoothLowEnergyAdvertisingSetParameters: JavaObject {
+    
+    public convenience init?( casting object: java_swift.JavaObject,
+                              _ file: StaticString = #file,
+                              _ line: Int = #line ) {
+        
+        self.init(javaObject: nil)
+        
+        object.withJavaObject {
+            self.javaObject = $0
+        }
+    }
+    
+    public required init( javaObject: jobject? ) {
+        super.init(javaObject: javaObject)
+    }
+}
+
+// MARK: Properties
+
+public extension AndroidBluetoothLowEnergyAdvertisingSetParameters {
+    
+    /**
+     * Returns the advertising interval.
+     */
+    public var interval: Int {
+        
+        get { return getInterval() }
     }
     
     /**
-     * Bluetooth LE 1M PHY. Used to refer to LE 1M Physical Channel for advertising, scanning or connection.
+     * Returns the primary advertising phy.
      */
-    public static let phyLe1m = Android.Bluetooth.LE.AdvertisingSetParameters.PrimaryPhy(rawValue: Android.Bluetooth.Device.PHY_LE_1M)
-    
-    /**
-     * Bluetooth LE Coded PHY. Used to refer to LE Coded Physical Channel for advertising, scanning or connection.
-     */
-    public static let phyLeCoded = Android.Bluetooth.LE.AdvertisingSetParameters.PrimaryPhy(rawValue: Android.Bluetooth.Device.PHY_LE_CODED)
-}
-
-/// LE Secondary Phy
-public struct AndroidBluetoothLowEnergySecondaryPhy: RawRepresentable {
-    
-    public let rawValue: Int
-    
-    public init(rawValue: Int) {
-        self.rawValue = rawValue
+    public var primaryPhy: Android.Bluetooth.LE.AdvertisingSetParameters.PrimaryPhy? {
+        
+        get { return getPrimaryPhy() }
     }
     
     /**
-     * Bluetooth LE 1M PHY. Used to refer to LE 1M Physical Channel for advertising, scanning or connection.
+     * Returns the secondary advertising phy.
      */
-    public static let phyLe1m = Android.Bluetooth.LE.AdvertisingSetParameters.SecondaryPhy(rawValue: Android.Bluetooth.Device.PHY_LE_1M)
-    
-    /**
-     * Bluetooth LE Coded PHY. Used to refer to LE Coded Physical Channel for advertising, scanning or connection.
-     */
-    public static let phyLeCoded = Android.Bluetooth.LE.AdvertisingSetParameters.SecondaryPhy(rawValue: Android.Bluetooth.Device.PHY_LE_CODED)
-    
-    /**
-     * Bluetooth LE 2M PHY. Used to refer to LE 2M Physical Channel for advertising, scanning or connection.
-     */
-    public static let phyLe2m = Android.Bluetooth.LE.AdvertisingSetParameters.SecondaryPhy(rawValue: Android.Bluetooth.Device.PHY_LE_2M)
-}
-
-/// LE Secondary Phy
-public struct AndroidBluetoothLowEnergyTxPowerLevel: RawRepresentable {
-    
-    public let rawValue: Int
-    
-    public init(rawValue: Int) {
-        self.rawValue = rawValue
+    public var secondaryPhy: Android.Bluetooth.LE.AdvertisingSetParameters.SecondaryPhy? {
+        
+        get { return getSecondaryPhy() }
     }
     
-    public static let ultraLow = Android.Bluetooth.LE.AdvertisingSetParameters.TxPowerLevel(rawValue: Android.Bluetooth.LE.AdvertisingSetParameters.Constants.TX_POWER_ULTRA_LOW)
+    /**
+     * Returns the TX power level for advertising.
+     */
+    public var txPowerLevel: Android.Bluetooth.LE.AdvertisingSetParameters.TxPowerLevel? {
+        
+        get { return getTxPowerLevel() }
+    }
     
-    public static let low = Android.Bluetooth.LE.AdvertisingSetParameters.TxPowerLevel(rawValue: Android.Bluetooth.LE.AdvertisingSetParameters.Constants.TX_POWER_LOW)
+    /**
+     * Returns whether the TX Power will be included.
+     */
+    public var includeTxPower: Bool {
+        
+        get { return getIncludeTxPower() }
+    }
     
-    public static let medium = Android.Bluetooth.LE.AdvertisingSetParameters.TxPowerLevel(rawValue: Android.Bluetooth.LE.AdvertisingSetParameters.Constants.TX_POWER_MEDIUM)
+    /**
+     * Returns whether the advertisement will be anonymous.
+     */
+    public var isAnonymous: Bool {
+        
+        get { return getIsAnonymous() }
+    }
     
-    public static let high = Android.Bluetooth.LE.AdvertisingSetParameters.TxPowerLevel(rawValue: Android.Bluetooth.LE.AdvertisingSetParameters.Constants.TX_POWER_HIGH)
-}
-
-public protocol AndroidBluetoothLowEnergyAdvertisingSetParameters {
+    /**
+     * Returns whether the advertisement will be connectable.
+     */
+    public var isConnectable: Bool {
+        
+        get { return getIsConnectable() }
+    }
     
+    /**
+     * Returns whether the legacy advertisement will be used.
+     */
+    public var isLegacy: Bool {
+        
+        get { return getIsLegacy() }
+    }
     
+    /**
+     * Returns whether the advertisement will be scannable.
+     */
+    public var isScannable: Bool {
+        
+        get { return getIsScannable() }
+    }
 }
 
 // MARK: CONSTANTS
 
 internal extension Android.Bluetooth.LE.AdvertisingSetParameters {
-    
-    internal typealias Constants = AndroidBluetoothLowEnergyAdvertisingSetParametersConstants
-}
-
-internal enum AndroidBluetoothLowEnergyAdvertisingSetParametersConstants {
     
     internal static var INTERVAL_HIGH: Int {
         get {
@@ -229,82 +319,6 @@ internal enum AndroidBluetoothLowEnergyAdvertisingSetParametersConstants {
                 classCache: &JNICache.jniClass )
             return Int(__value)
         }
-    }
-    
-}
-
-public extension AndroidBluetoothLowEnergyAdvertisingSetParameters {
-    
-    /**
-     * Returns the advertising interval.
-     */
-    public var interval: Int {
-        
-        get { return getInterval() }
-    }
-    
-    /**
-     * Returns the primary advertising phy.
-     */
-    public var primaryPhy: Android.Bluetooth.LE.AdvertisingSetParameters.PrimaryPhy? {
-        
-        get { return getPrimaryPhy() }
-    }
-    
-    /**
-     * Returns the secondary advertising phy.
-     */
-    public var secondaryPhy: Android.Bluetooth.LE.AdvertisingSetParameters.SecondaryPhy? {
-        
-        get { return getSecondaryPhy() }
-    }
-    
-    /**
-     * Returns the TX power level for advertising.
-     */
-    public var txPowerLevel: Android.Bluetooth.LE.AdvertisingSetParameters.TxPowerLevel? {
-        
-        get { return getTxPowerLevel() }
-    }
-    
-    /**
-     * Returns whether the TX Power will be included.
-     */
-    public var includeTxPower: Bool {
-        
-        get { return getIncludeTxPower() }
-    }
-    
-    /**
-     * Returns whether the advertisement will be anonymous.
-     */
-    public var isAnonymous: Bool {
-        
-        get { return getIsAnonymous() }
-    }
-    
-    /**
-     * Returns whether the advertisement will be connectable.
-     */
-    public var isConnectable: Bool {
-        
-        get { return getIsConnectable() }
-    }
-    
-    /**
-     * Returns whether the legacy advertisement will be used.
-     */
-    public var isLegacy: Bool {
-        
-        get { return getIsLegacy() }
-    }
-    
-    /**
-     * Returns whether the advertisement will be scannable.
-     */
-    public var isScannable: Bool {
-        
-        get { return getIsScannable() }
     }
 }
 
@@ -459,7 +473,7 @@ internal extension Android.Bluetooth.LE.AdvertisingSetParameters {
 
 // MARK: - JNICache
 
-internal extension Android.Bluetooth.LE.AdvertisingSetParameters.Constants {
+internal extension Android.Bluetooth.LE.AdvertisingSetParameters {
     
     /// JNI Cache
     struct JNICache {
