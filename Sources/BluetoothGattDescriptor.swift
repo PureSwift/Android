@@ -37,3 +37,58 @@ public final class AndroidBluetoothGattDescriptor: JavaObject {
         super.init(javaObject: javaObject)
     }
 }
+
+// MARK: Constants
+
+public extension AndroidBluetoothGattDescriptor {
+    
+}
+
+// MARK: Methods
+
+public extension AndroidBluetoothGattDescriptor {
+    
+}
+
+// MARK: - JNICache
+
+internal extension AndroidBluetoothGattDescriptor {
+    
+    /// JNI Cache
+    struct JNICache {
+        
+        static let classSignature = Android.Bluetooth.className(["BluetoothGattDescriptor"])
+        
+        /// JNI Java class name
+        static let className = classSignature.rawValue
+        
+        /// JNI Java class
+        static var jniClass: jclass?
+        
+        /// JNI Field ID cache
+        struct FieldID {
+            
+            static var PERMISSION_READ: jfieldID?
+            static var PERMISSION_READ_ENCRYPTED: jfieldID?
+            static var PERMISSION_READ_ENCRYPTED_MITM: jfieldID?
+            static var PERMISSION_WRITE: jfieldID?
+            static var PERMISSION_WRITE_ENCRYPTED: jfieldID?
+            static var PERMISSION_WRITE_ENCRYPTED_MITM: jfieldID?
+            static var PERMISSION_WRITE_SIGNED: jfieldID?
+            static var PERMISSION_WRITE_SIGNED_MITM: jfieldID?
+            static var DISABLE_NOTIFICATION_VALUE: jfieldID?
+            static var ENABLE_INDICATION_VALUE: jfieldID?
+            static var ENABLE_NOTIFICATION_VALUE: jfieldID?
+        }
+        
+        /// JNI Method ID cache
+        struct MethodID {
+            
+            static var getCharacteristic: jmethodID?
+            static var getPermissions: jmethodID?
+            static var getUuid: jmethodID?
+            static var getValue: jmethodID?
+            static var setValue: jmethodID?
+        }
+    }
+}
