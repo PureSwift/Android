@@ -17,7 +17,7 @@ public extension Android.Bluetooth {
 
 public extension Android.Bluetooth.GattService {
     
-    public typealias ServiceType = AndroidBluetoothLowEnergyServiceType
+    public typealias ServiceType = AndroidBluetootServiceType
 }
 
 /**
@@ -274,7 +274,7 @@ public extension AndroidBluetoothGattService {
 public extension AndroidBluetoothGattService {
     
     /// LE Secondary Phy
-    public struct AndroidBluetoothLowEnergyServiceType: RawRepresentable {
+    public struct AndroidBluetootServiceType: RawRepresentable {
         
         public let rawValue: Int
         

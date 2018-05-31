@@ -8,10 +8,16 @@
 import Foundation
 import Bluetooth
 import java_swift
+import java_util
 
 public extension Android.Bluetooth {
     
     public typealias GattDescriptor = AndroidBluetoothGattDescriptor
+}
+
+public extension Android.Bluetooth.GattDescriptor {
+    
+    public typealias Permission = AndroidBluetoothPermission
 }
 
 /**
@@ -36,17 +42,276 @@ public final class AndroidBluetoothGattDescriptor: JavaObject {
     public required init( javaObject: jobject? ) {
         super.init(javaObject: javaObject)
     }
+    
+    /**
+     * Create a new BluetoothGattDescriptor.
+     *
+     * Requires BLUETOOTH permission.
+     */
+    public convenience init(uuid: java_util.UUID, permissions: Permission){
+        
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            JNIType.toJava(value: uuid, locals: &__locals),
+            jvalue(i: jint(permissions.rawValue))
+        ]
+        
+        let __object = JNIMethod.NewObject(
+            className: JNICache.className,
+            classCache: &JNICache.jniClass,
+            methodSig: "(Ljava/util/UUID;I)V",
+            methodCache: &JNICache.MethodID.init_method,
+            args: &__args,
+            locals: &__locals )
+        
+        self.init( javaObject: __object )
+        
+        JNI.DeleteLocalRef( __object )
+    }
 }
 
 // MARK: Constants
 
 public extension AndroidBluetoothGattDescriptor {
     
+    /// Descriptor read permission
+    internal static var PERMISSION_READ: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "PERMISSION_READ",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.PERMISSION_READ,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    /// Descriptor permission: Allow encrypted read operations
+    internal static var PERMISSION_READ_ENCRYPTED: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "PERMISSION_READ_ENCRYPTED",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.PERMISSION_READ_ENCRYPTED,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    /// Descriptor permission: Allow reading with man-in-the-middle protection
+    internal static var PERMISSION_READ_ENCRYPTED_MITM: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "PERMISSION_READ_ENCRYPTED_MITM",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.PERMISSION_READ_ENCRYPTED_MITM,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    /// Descriptor write permission
+    internal static var PERMISSION_WRITE: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "PERMISSION_WRITE",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.PERMISSION_WRITE,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    /// Descriptor permission: Allow encrypted writes
+    internal static var PERMISSION_WRITE_ENCRYPTED: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "PERMISSION_WRITE_ENCRYPTED",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.PERMISSION_WRITE_ENCRYPTED,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    /// Descriptor permission: Allow encrypted writes with man-in-the-middle protection
+    internal static var PERMISSION_WRITE_ENCRYPTED_MITM: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "PERMISSION_WRITE_ENCRYPTED_MITM",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.PERMISSION_WRITE_ENCRYPTED_MITM,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    /// Descriptor permission: Allow signed write operations
+    internal static var PERMISSION_WRITE_SIGNED: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "PERMISSION_WRITE_SIGNED",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.PERMISSION_WRITE_SIGNED,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    /// Descriptor permission: Allow signed write operations with man-in-the-middle protection
+    internal static var PERMISSION_WRITE_SIGNED_MITM: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "PERMISSION_WRITE_SIGNED_MITM",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.PERMISSION_WRITE_SIGNED_MITM,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    /// Value used to disable notifications or indicatinos
+    internal static var DISABLE_NOTIFICATION_VALUE: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "DISABLE_NOTIFICATION_VALUE",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.DISABLE_NOTIFICATION_VALUE,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    /// Value used to enable indication for a client configuration descriptor
+    internal static var ENABLE_INDICATION_VALUE: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "ENABLE_INDICATION_VALUE",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.ENABLE_INDICATION_VALUE,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    /// Value used to enable notification for a client configuration descriptor
+    internal static var ENABLE_NOTIFICATION_VALUE: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "ENABLE_NOTIFICATION_VALUE",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.ENABLE_NOTIFICATION_VALUE,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
 }
 
 // MARK: Methods
 
 public extension AndroidBluetoothGattDescriptor {
+    
+}
+
+// MARKL - Supporting type
+
+public extension AndroidBluetoothGattDescriptor {
+    
+    public struct AndroidBluetoothPermission: RawRepresentable {
+        
+        public let rawValue: Int
+        
+        public init(rawValue: Int) {
+            self.rawValue = rawValue
+        }
+        
+        /**
+         * Descriptor read permission.
+         */
+        public static let read = AndroidBluetoothGattDescriptor.Permission(rawValue: AndroidBluetoothGattDescriptor.PERMISSION_READ)
+        
+        /**
+         * Descriptor permission: Allow encrypted read operations.
+         */
+        public static let readEncrypted = AndroidBluetoothGattDescriptor.Permission(rawValue: AndroidBluetoothGattDescriptor.PERMISSION_READ_ENCRYPTED)
+        
+        /**
+         * Descriptor permission: Allow reading with man-in-the-middle protection.
+         */
+        public static let readEncryptedMITM = AndroidBluetoothGattDescriptor.Permission(rawValue: AndroidBluetoothGattDescriptor.PERMISSION_READ_ENCRYPTED_MITM)
+        
+        /**
+         * Descriptor permission: Allow encrypted read operations.
+         */
+        public static let write = AndroidBluetoothGattDescriptor.Permission(rawValue: AndroidBluetoothGattDescriptor.PERMISSION_WRITE)
+        
+        /**
+         * Descriptor permission: Allow encrypted writes.
+         */
+        public static let writeEncrypted = AndroidBluetoothGattDescriptor.Permission(rawValue: AndroidBluetoothGattDescriptor.PERMISSION_WRITE_ENCRYPTED)
+        
+        /**
+         * Descriptor permission: Allow encrypted writes with man-in-the-middle protection.
+         */
+        public static let writeEncryptedMITM = AndroidBluetoothGattDescriptor.Permission(rawValue: AndroidBluetoothGattDescriptor.PERMISSION_WRITE_ENCRYPTED_MITM)
+        
+        
+        /**
+         * Descriptor permission: Allow signed write operations.
+         */
+        public static let writeSigned = AndroidBluetoothGattDescriptor.Permission(rawValue: AndroidBluetoothGattDescriptor.PERMISSION_WRITE_SIGNED)
+        
+        /**
+         * Descriptor permission: Allow signed write operations with man-in-the-middle protection.
+         */
+        public static let writeSignedMITM = AndroidBluetoothGattDescriptor.Permission(rawValue: AndroidBluetoothGattDescriptor.PERMISSION_WRITE_SIGNED_MITM)
+    }
     
 }
 
@@ -84,6 +349,7 @@ internal extension AndroidBluetoothGattDescriptor {
         /// JNI Method ID cache
         struct MethodID {
             
+            static var init_method: jmethodID?
             static var getCharacteristic: jmethodID?
             static var getPermissions: jmethodID?
             static var getUuid: jmethodID?
