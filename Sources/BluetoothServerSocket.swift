@@ -125,7 +125,7 @@ public extension AndroidBluetoothServerSocket {
         var __args = [jvalue](repeating: jvalue(), count: 1)
         
         JNIMethod.CallVoidMethod(object: javaObject,
-                                 methodName: "clonse",
+                                 methodName: "clone",
                                  methodSig: "()V",
                                  methodCache: &JNICache.MethodID.close,
                                  args: &__args,
