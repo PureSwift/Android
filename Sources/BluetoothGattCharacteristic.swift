@@ -8,11 +8,21 @@
 import Foundation
 import Bluetooth
 import java_swift
+import java_util
 
 public extension Android.Bluetooth {
     
     public typealias GattCharacteristic = AndroidBluetoothGattCharacteristic
 }
+
+public extension Android.Bluetooth.GattCharacteristic {
+    
+    public typealias FormatType = AndroidBluetoothFormatType
+    public typealias Permission = AndroidBluetoothPermission
+    public typealias Property = AndroidBluetoothProperty
+    public typealias WriteType = AndroidBluetoothWriteType
+}
+
 
 /**
  * Represents a Bluetooth GATT Characteristic
@@ -235,12 +245,12 @@ public extension AndroidBluetoothGattCharacteristic {
     }
     
     /// Characteristic permission: Allow encrypted writes
-    internal static var PERMISSION_WRITE_ENCRYPTE: Int {
+    internal static var PERMISSION_WRITE_ENCRYPTED: Int {
         
         get {
             
             let __value = JNIField.GetStaticIntField(
-                fieldName: "PERMISSION_WRITE_ENCRYPTE",
+                fieldName: "PERMISSION_WRITE_ENCRYPTED",
                 fieldType: "I",
                 fieldCache: &JNICache.FieldID.PERMISSION_WRITE_ENCRYPTED,
                 className: JNICache.className,
@@ -432,8 +442,7 @@ public extension AndroidBluetoothGattCharacteristic {
         get {
             
             let __value = JNIField.GetStaticIntField(
-                fieldName: "WRITE_TYPE_DEFAULT",
-                fieldType: "I",
+                fieldName: "WRITE_TYPE_DEFAULT",                fieldType: "I",
                 fieldCache: &JNICache.FieldID.WRITE_TYPE_DEFAULT,
                 className: JNICache.className,
                 classCache: &JNICache.jniClass )
@@ -479,6 +488,247 @@ public extension AndroidBluetoothGattCharacteristic {
 
 public extension AndroidBluetoothGattCharacteristic {
     
+    /**
+     * Adds a descriptor to this characteristic.
+     */
+    public func addDescriptor(descriptor: Android.Bluetooth.GattDescriptor) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            JNIType.toJava(value: descriptor, locals: &__locals)
+        ]
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                                   methodName: "addDescriptor",
+                                                   methodSig: "(Landroid/bluetooth/BluetoothGattDescriptor;)Z",
+                                                   methodCache: &JNICache.MethodID.addDescriptor,
+                                                   args: &__args,
+                                                   locals: &__locals)
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Returns a descriptor with a given UUID out of the list of descriptors for this characteristic.
+     */
+    public func getDescriptor(uuid: java_util.UUID) -> Android.Bluetooth.GattDescriptor {
+        
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            JNIType.toJava(value: uuid, locals: &__locals)
+        ]
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                   methodName: "getDescriptor",
+                                                   methodSig: "(Ljava/util/UUID;)Landroid/bluetooth/BluetoothGattDescriptor;",
+                                                   methodCache: &JNICache.MethodID.getDescriptor,
+                                                   args: &__args,
+                                                   locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef(__return) }
+        
+        return Android.Bluetooth.GattDescriptor(javaObject: __return)
+    }
+    
+    /**
+     * Returns a list of descriptors for this characteristic.
+     */
+    public func getDescriptors() -> List? {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "getDescriptors",
+                                                  methodSig: "()Ljava/util/List;",
+                                                  methodCache: &JNICache.MethodID.getDescriptors,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef(__return) }
+        
+        return ListForward(javaObject: __return)
+    }
+    
+    
+}
+
+// MARK: - Supporting types
+
+public extension AndroidBluetoothGattCharacteristic {
+    
+    public struct AndroidBluetoothPermission: RawRepresentable {
+        
+        public let rawValue: Int
+        
+        public init(rawValue: Int){
+            self.rawValue = rawValue
+        }
+        
+        /**
+         * Characteristic read permission.
+         */
+        public static let read = AndroidBluetoothGattCharacteristic.Permission(rawValue: AndroidBluetoothGattCharacteristic.PERMISSION_READ)
+        
+        /**
+         * Characteristic permission: Allow encrypted read operations.
+         */
+        public static let readEncrypted = AndroidBluetoothGattCharacteristic.Permission(rawValue: AndroidBluetoothGattCharacteristic.PERMISSION_READ_ENCRYPTED)
+        
+        /**
+         * Characteristic permission: Allow reading with man-in-the-middle protection.
+         */
+        public static let readEncryptedMITM = AndroidBluetoothGattCharacteristic.Permission(rawValue: AndroidBluetoothGattCharacteristic.PERMISSION_READ_ENCRYPTED_MITM)
+        
+        /**
+         * Characteristic write permission.
+         */
+        public static let write = AndroidBluetoothGattCharacteristic.Permission(rawValue: AndroidBluetoothGattCharacteristic.PERMISSION_WRITE)
+        
+        /**
+         * Characteristic permission: Allow encrypted writes.
+         */
+        public static let writeEncrypted = AndroidBluetoothGattCharacteristic.Permission(rawValue: AndroidBluetoothGattCharacteristic.PERMISSION_WRITE_ENCRYPTED)
+        
+        /**
+         * Characteristic permission: Allow encrypted writes with man-in-the-middle protection.
+         */
+        public static let writeEncryptedMITM = AndroidBluetoothGattCharacteristic.Permission(rawValue: AndroidBluetoothGattCharacteristic.PERMISSION_WRITE_ENCRYPTED_MITM)
+        
+        /**
+         * Characteristic permission: Allow signed write operations.
+         */
+        public static let writeSigned = AndroidBluetoothGattCharacteristic.Permission(rawValue: AndroidBluetoothGattCharacteristic.PERMISSION_WRITE_SIGNED)
+        
+        /**
+         * Characteristic permission: Allow signed write operations with man-in-the-middle protection.
+         */
+        public static let writeSignedMITM = AndroidBluetoothGattCharacteristic.Permission(rawValue: AndroidBluetoothGattCharacteristic.PERMISSION_WRITE_SIGNED_MITM)
+    }
+    
+    public struct AndroidBluetoothProperty: RawRepresentable {
+        
+        public let rawValue: Int
+        
+        public init(rawValue: Int){
+            self.rawValue = rawValue
+        }
+        
+        /**
+         * Characteristic proprty: Characteristic is broadcastable.
+         */
+        public static let broadcast = AndroidBluetoothGattCharacteristic.Property(rawValue: AndroidBluetoothGattCharacteristic.PROPERTY_BROADCAST)
+        
+        /**
+         * Characteristic property: Characteristic has extended properties.
+         */
+        public static let extendedProps = AndroidBluetoothGattCharacteristic.Property(rawValue: AndroidBluetoothGattCharacteristic.PROPERTY_EXTENDED_PROPS)
+        
+        /**
+         * Characteristic property: Characteristic supports indication.
+         */
+        public static let indicate = AndroidBluetoothGattCharacteristic.Property(rawValue: AndroidBluetoothGattCharacteristic.PROPERTY_INDICATE)
+        
+        /**
+         * Characteristic property: Characteristic supports notification.
+         */
+        public static let notify = AndroidBluetoothGattCharacteristic.Property(rawValue: AndroidBluetoothGattCharacteristic.PROPERTY_NOTIFY)
+        
+        /**
+         * Characteristic property: Characteristic is readable.
+         */
+        public static let read = AndroidBluetoothGattCharacteristic.Property(rawValue: AndroidBluetoothGattCharacteristic.PROPERTY_READ)
+        
+        /**
+         * Characteristic property: Characteristic supports write with signature.
+         */
+        public static let signedWrite = AndroidBluetoothGattCharacteristic.Property(rawValue: AndroidBluetoothGattCharacteristic.PROPERTY_SIGNED_WRITE)
+        
+        /**
+         * Characteristic property: Characteristic can be written.
+         */
+        public static let write = AndroidBluetoothGattCharacteristic.Property(rawValue: AndroidBluetoothGattCharacteristic.PROPERTY_WRITE)
+        
+        /**
+         * Characteristic property: Characteristic can be written without response.
+         */
+        public static let writeNoResponse = AndroidBluetoothGattCharacteristic.Property(rawValue: AndroidBluetoothGattCharacteristic.PROPERTY_WRITE_NO_RESPONSE)
+    }
+    
+    public struct AndroidBluetoothWriteType: RawRepresentable {
+        
+        public let rawValue: Int
+        
+        public init(rawValue: Int){
+            self.rawValue = rawValue
+        }
+        
+        /**
+         * Write characteristic, requesting acknoledgement by the remote device.
+         */
+        public static let `default` = AndroidBluetoothGattCharacteristic.WriteType(rawValue: AndroidBluetoothGattCharacteristic.WRITE_TYPE_DEFAULT)
+        
+        /**
+         * Write characteristic without requiring a response by the remote device.
+         */
+        public static let noResponse = AndroidBluetoothGattCharacteristic.WriteType(rawValue: AndroidBluetoothGattCharacteristic.WRITE_TYPE_NO_RESPONSE)
+        
+        /**
+         * Write characteristic including authentication signature.
+         */
+        public static let signed = AndroidBluetoothGattCharacteristic.WriteType(rawValue: AndroidBluetoothGattCharacteristic.WRITE_TYPE_SIGNED)
+    }
+    
+    public struct AndroidBluetoothFormatType: RawRepresentable {
+        
+        public let rawValue: Int
+        
+        public init(rawValue: Int){
+            self.rawValue = rawValue
+        }
+        
+        /**
+         * Characteristic value format type float (32-bit float).
+         */
+        public static let float = AndroidBluetoothGattCharacteristic.FormatType(rawValue: AndroidBluetoothGattCharacteristic.FORMAT_FLOAT)
+        
+        /**
+         * Characteristic value format type sfloat (16-bit float).
+         */
+        public static let sfloat = AndroidBluetoothGattCharacteristic.FormatType(rawValue: AndroidBluetoothGattCharacteristic.FORMAT_SFLOAT)
+        
+        /**
+         * Characteristic value format type sint16.
+         */
+        public static let sInt16 = AndroidBluetoothGattCharacteristic.FormatType(rawValue: AndroidBluetoothGattCharacteristic.FORMAT_SINT16)
+        
+        /**
+         * Characteristic value format type sint32.
+         */
+        public static let sInt32 = AndroidBluetoothGattCharacteristic.FormatType(rawValue: AndroidBluetoothGattCharacteristic.FORMAT_SINT32)
+        
+        /**
+         * Characteristic value format type sint8.
+         */
+        public static let sInt8 = AndroidBluetoothGattCharacteristic.FormatType(rawValue: AndroidBluetoothGattCharacteristic.FORMAT_SINT8)
+        
+        /**
+         * Characteristic value format type uint16.
+         */
+        public static let uInt16 = AndroidBluetoothGattCharacteristic.FormatType(rawValue: AndroidBluetoothGattCharacteristic.FORMAT_UINT16)
+        
+        /**
+         * Characteristic value format type uint32.
+         */
+        public static let uInt32 = AndroidBluetoothGattCharacteristic.FormatType(rawValue: AndroidBluetoothGattCharacteristic.FORMAT_UINT32)
+        
+        /**
+         * Characteristic value format type uint8.
+         */
+        public static let uInt8 = AndroidBluetoothGattCharacteristic.FormatType(rawValue: AndroidBluetoothGattCharacteristic.FORMAT_UINT8)
+    }
 }
 
 // MARK: - JNICache
