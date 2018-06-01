@@ -552,7 +552,327 @@ public extension AndroidBluetoothGattCharacteristic {
         return ListForward(javaObject: __return)
     }
     
+    /**
+     * Return the stored value of this characteristic.
+     */
+    public func getFloatValue(formatType: FormatType, offset: Int) -> Float {
+        
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            jvalue(i: jint(formatType.rawValue)),
+            jvalue(i: jint(offset))
+        ]
+        
+        let __return = JNIMethod.CallFloatMethod(object: javaObject,
+                                                  methodName: "getFloatValue",
+                                                  methodSig: "(II)F",
+                                                  methodCache: &JNICache.MethodID.getFloatValue,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        return __return
+    }
     
+    /**
+     * Returns the instance ID for this characteristic.
+     */
+    public func getInstanceId() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallIntMethod(object: javaObject,
+                                                 methodName: "getInstanceId",
+                                                 methodSig: "()I",
+                                                 methodCache: &JNICache.MethodID.getInstanceId,
+                                                 args: &__args,
+                                                 locals: &__locals)
+        return Int(__return)
+    }
+    
+    /**
+     * Return the stored value of this characteristic.
+     *
+     * The formatType parameter determines how the characteristic value is to be interpreted. For example,
+     * settting formatType to FORMAT_UINT16 specifies that the first two bytes of the characteristic value
+     * at the given offset are interpreted to generate the return value.
+     */
+    public func getIntValue(formatType: FormatType, offset: Int) -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            jvalue(i: jint(formatType.rawValue)),
+            jvalue(i: jint(offset))
+        ]
+        
+        let __return = JNIMethod.CallIntMethod(object: javaObject,
+                                               methodName: "getIntValue",
+                                               methodSig: "(II)I",
+                                               methodCache: &JNICache.MethodID.getIntValue,
+                                               args: &__args,
+                                               locals: &__locals)
+        return Int(__return)
+    }
+    
+    /**
+     * Returns the permissions for this characteristic.
+     */
+    public func getPermissions() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallIntMethod(object: javaObject,
+                                               methodName: "getPermissions",
+                                               methodSig: "()I",
+                                               methodCache: &JNICache.MethodID.getPermissions,
+                                               args: &__args,
+                                               locals: &__locals)
+        return Int(__return)
+    }
+    
+    /**
+     * Returns the properties of this characteristic.
+     *
+     * The properties contain a bit mask of property flags indicating the features of this characteristic.
+     */
+    public func getProperties() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallIntMethod(object: javaObject,
+                                               methodName: "getProperties",
+                                               methodSig: "()I",
+                                               methodCache: &JNICache.MethodID.getProperties,
+                                               args: &__args,
+                                               locals: &__locals)
+        return Int(__return)
+    }
+    
+    /**
+     * Returns the service this characteristic belongs to.
+     */
+    public func getService() -> Android.Bluetooth.GattService {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                               methodName: "getProperties",
+                                               methodSig: "()Landroid/bluetooth/BluetoothGattService;",
+                                               methodCache: &JNICache.MethodID.getProperties,
+                                               args: &__args,
+                                               locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef(__return) }
+        
+        return Android.Bluetooth.GattService(javaObject: __return)
+    }
+    
+    /**
+     * Return the stored value of this characteristic.
+     */
+    public func getStringValue(offSet: Int) -> String {
+        
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            jvalue(i: jint(offSet))
+        ]
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "getStringValue",
+                                                  methodSig: "(I)Ljava/lang/String;",
+                                                  methodCache: &JNICache.MethodID.getStringValue,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef(__return) }
+        
+        return String(javaObject: __return)
+    }
+    
+    /**
+     * Returns the UUID of this characteristic.
+     */
+    public func getUuid() -> java_util.UUID {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "getUuid",
+                                                  methodSig: "()Ljava/util/UUID;",
+                                                  methodCache: &JNICache.MethodID.getUuid,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        defer { JNI.DeleteLocalRef(__return) }
+        
+        return java_util.UUID(javaObject: __return)
+    }
+    
+    /**
+     * Get the stored value for this characteristic.
+     *
+     * This function returns the stored value for this characteristic as retrieved by calling readCharacteristic(BluetoothGattCharacteristic).
+     * The cached value of the characteristic is updated as a result of a read characteristic operation or if a characteristic update notification has been received.
+     */
+    public func getValue() -> [Int8]? {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "getValue",
+                                                  methodSig: "()[B",
+                                                  methodCache: &JNICache.MethodID.getValue,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        defer { JNI.DeleteLocalRef(__return) }
+        
+        return JNIType.toSwift(type: [Int8].self, from: __return)
+    }
+    
+    /**
+     * Gets the write type for this characteristic.
+     */
+    public func getWriteType() -> WriteType {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallIntMethod(object: javaObject,
+                                               methodName: "getWriteType",
+                                               methodSig: "()I",
+                                               methodCache: &JNICache.MethodID.getWriteType,
+                                               args: &__args,
+                                               locals: &__locals)
+        return WriteType(rawValue: Int(__return))
+    }
+    
+    /**
+     * Set the locally stored value of this characteristic.
+     *
+     * See setValue(byte[]) for details.
+     */
+    public func setValue(value: String) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            JNIType.toJava(value: value, locals: &__locals)
+        ]
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                               methodName: "setValue",
+                                               methodSig: "(Ljava/lang/String;)Z",
+                                               methodCache: &JNICache.MethodID.setValue,
+                                               args: &__args,
+                                               locals: &__locals)
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Set the locally stored value of this characteristic.
+     *
+     * See setValue(byte[]) for details.
+     */
+    public func setValue(value: Int, formatType: FormatType, offset: Int) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            jvalue(i: jint(value)),
+            jvalue(i: jint(formatType.rawValue)),
+            jvalue(i: jint(offset))
+        ]
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                                   methodName: "setValue",
+                                                   methodSig: "(III)Z",
+                                                   methodCache: &JNICache.MethodID.setValue2,
+                                                   args: &__args,
+                                                   locals: &__locals)
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Updates the locally stored value of this characteristic.
+     *
+     * This function modifies the locally stored cached value of this characteristic. To send the value to the remote device,
+     * call writeCharacteristic(BluetoothGattCharacteristic) to send the value to the remote device.
+     */
+    public func setValue(value: [Int8]) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            JNIType.toJava(value: value, locals: &__locals)
+        ]
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                                   methodName: "setValue",
+                                                   methodSig: "([B)Z",
+                                                   methodCache: &JNICache.MethodID.setValue3,
+                                                   args: &__args,
+                                                   locals: &__locals)
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Set the locally stored value of this characteristic.
+     *
+     * See setValue(byte[]) for details.
+     */
+    public func setValue(mantissa: Int, exponent: Int, formatType: FormatType, offset: Int) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            jvalue(i: jint(mantissa)),
+            jvalue(i: jint(exponent)),
+            jvalue(i: jint(formatType.rawValue)),
+            jvalue(i: jint(offset))
+        ]
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                                   methodName: "setValue",
+                                                   methodSig: "(IIII)Z",
+                                                   methodCache: &JNICache.MethodID.setValue4,
+                                                   args: &__args,
+                                                   locals: &__locals)
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Set the write type for this characteristic
+     *
+     * Setting the write type of a characteristic determines how the writeCharacteristic(BluetoothGattCharacteristic) function write this characteristic.
+     */
+    public func setWriteType(writeType: WriteType) {
+        
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            jvalue(i: jint(writeType.rawValue))
+        ]
+        
+        JNIMethod.CallVoidMethod(object: javaObject,
+                                 methodName: "setWriteType",
+                                 methodSig: "(I)V",
+                                 methodCache: &JNICache.MethodID.setWriteType,
+                                 args: &__args,
+                                 locals: &__locals)
+    }
 }
 
 // MARK: - Supporting types
