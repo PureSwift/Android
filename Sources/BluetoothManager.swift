@@ -114,7 +114,7 @@ public extension AndroidBluetoothManager {
     /**
      * Open a GATT Server The callback is used to deliver results to Caller, such as connection status as well as the results of any other GATT server operations.
      */
-    public func openGattServer(context: Android.Content.Context, callback: JavaObject) -> Android.Bluetooth.GattServer {
+    public func openGattServer(context: Android.Content.Context, callback: JavaObject) -> Android.Bluetooth.GattServer? {
         
         var __locals = [jobject]()
         
@@ -129,7 +129,7 @@ public extension AndroidBluetoothManager {
                                                   methodCache: &JNICache.MethodID.openGattServer,
                                                   args: &__args,
                                                   locals: &__locals)
-        return Android.Bluetooth.GattServer(javaObject: __return)
+        return __return != nil ? Android.Bluetooth.GattServer(javaObject: __return) : nil
     }
     
     /**

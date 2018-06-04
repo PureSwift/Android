@@ -43,6 +43,80 @@ public final class AndroidBluetoothGattServer: JavaObject {
 
 public extension AndroidBluetoothGattServer {
     
+    /**
+     * Add a service to the list of services to be hosted.
+     */
+    public func addService(service: Android.Bluetooth.GattService) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            JNIType.toJava(value: service, locals: &__locals)
+        ]
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                               methodName: "addService",
+                                               methodSig: "(Landroid/bluetooth/BluetoothGattService;)Z",
+                                               methodCache: &JNICache.MethodID.addService,
+                                               args: &__args,
+                                               locals: &__locals)
+        return __return != jboolean(__return)
+    }
+    
+    /**
+     * Disconnects an established connection, or cancels a connection attempt currently in progress.
+     */
+    public func cancelConnection(device: Android.Bluetooth.Device) {
+        
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            JNIType.toJava(value: device, locals: &__locals)
+        ]
+        
+        JNIMethod.CallVoidMethod(object: javaObject,
+                                   methodName: "cancelConnection",
+                                   methodSig: "(Landroid/bluetooth/BluetoothDevice;)V",
+                                   methodCache: &JNICache.MethodID.cancelConnection,
+                                   args: &__args,
+                                   locals: &__locals)
+    }
+    
+    /**
+     * Remove all services from the list of provided services.
+     */
+    public func clearServices() {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        JNIMethod.CallVoidMethod(object: javaObject,
+                                 methodName: "clearServices",
+                                 methodSig: "()V",
+                                 methodCache: &JNICache.MethodID.clearServices,
+                                 args: &__args,
+                                 locals: &__locals)
+    }
+    
+    /**
+     * Close this GATT server instance.
+     */
+    public func close() {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        JNIMethod.CallVoidMethod(object: javaObject,
+                                 methodName: "close",
+                                 methodSig: "()V",
+                                 methodCache: &JNICache.MethodID.close,
+                                 args: &__args,
+                                 locals: &__locals)
+    }
+    
+    
 }
 
 // MARK: - JNICache
