@@ -101,7 +101,7 @@ internal extension AndroidBluetoothLowEnergyScanCallbackListenerLocal {
     /// JNI Cache
     struct JNICache {
         
-        static let classSignature = Android.SwiftSupport.Bluetooth.LE.className(["SwiftScanCallback"])
+        static let classSignature = SwiftSupport.Bluetooth.LE.className(["SwiftScanCallback"])
         
         /// JNI Java class name
         static let className = classSignature.rawValue

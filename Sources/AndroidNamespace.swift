@@ -48,28 +48,25 @@ public enum Android: JavaPackage {
     }
 }
 
-internal extension Android {
+/// Support Library namespace.
+public enum SwiftSupport: JavaPackage {
+
+    public static let package: JNIPackage = ["org", "pureswift", "swiftandroidsupport"]
     
-    internal enum SwiftSupport: JavaPackage {
+    public enum Bluetooth: JavaPackage {
         
-        static let package: JNIPackage = ["org", "pureswift", "swiftandroidsupport"]
+        public static let package: JNIPackage = SwiftSupport.package + ["bluetooth"]
         
-        internal enum Bluetooth: JavaPackage {
+        public enum LE: JavaPackage {
             
-            internal static let package: JNIPackage = Android.package + ["bluetooth"]
-            
-            internal enum LE: JavaPackage {
-                
-                internal static let package: JNIPackage = Android.Bluetooth.package + ["le"]
-            }
-        }
-        
-        internal enum Widget: JavaPackage {
-            
-            internal static let package: JNIPackage = Android.package + ["widget"]
+            public static let package: JNIPackage = SwiftSupport.Bluetooth.package + ["le"]
         }
     }
-
+        
+    public enum Widget: JavaPackage {
+        
+        public static let package: JNIPackage = SwiftSupport.package + ["widget"]
+    }
 }
 
 public protocol JavaPackage {

@@ -109,7 +109,7 @@ internal extension AndroidBluetoothLowEnergyAdvertiseSetCallbackListenerLocal {
     /// JNI Cache
     struct JNICache {
         
-        static let classSignature = Android.SwiftSupport.Bluetooth.LE.className(["SwiftAdvertiseSetCallback"])
+        static let classSignature = SwiftSupport.Bluetooth.LE.className(["SwiftAdvertiseSetCallback"])
         
         /// JNI Java class name
         static let className = classSignature.rawValue
