@@ -1,5 +1,5 @@
 //
-//  AndroidWidgetAdapter.swift
+//  WidgetAdapter.swift
 //  PureSwift
 //
 //  Created by Alsey Coleman Miller on 3/21/18.
@@ -85,6 +85,23 @@ internal class AndroidWidgetAdapterListenerLocal: JNILocalProxy<AndroidWidgetAda
     override open class func proxyClassName() -> String { return JNICache.className }
     
     override open class func proxyClass() -> jclass? { return _proxyClass }
+    
+    func notifyDataSetChanged() {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        withJavaObject {
+            
+            JNIMethod.CallVoidMethod(object: $0,
+                                     methodName: "notifyDataSetChanged",
+                                     methodSig: "()V",
+                                     methodCache: &AndroidWidgetAdapterListenerLocal.JNICache.Method.notifyDataSetChanged,
+                                     args: &__args,
+                                     locals: &__locals)
+        }
+    }
 }
 
 extension AndroidWidgetAdapter {
@@ -107,6 +124,8 @@ internal extension AndroidWidgetAdapterListenerLocal {
         
         /// JNI Method cache
         fileprivate enum Method {
+            
+            static var notifyDataSetChanged: jmethodID?
             
             enum getCount: JNINativeMethodEntry {
                 
