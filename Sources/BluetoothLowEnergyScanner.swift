@@ -176,7 +176,7 @@ public extension AndroidBluetoothLowEnergyScanner {
      * @- Parameter callback: Callback used to deliver scan results.
      */
     public func startScan(filters: [Android.Bluetooth.LE.ScanFilter]? = nil,
-                          settings: Android.Bluetooth.LE.ScanSettings = Android.Bluetooth.LE.ScanSettings.Builder().build(),
+                          settings: Android.Bluetooth.LE.ScanSettings,
                           callback: Android.Bluetooth.LE.ScanCallback) {
         
         let filterList: ArrayList?

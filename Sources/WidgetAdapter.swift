@@ -21,41 +21,12 @@ public protocol AndroidWidgetAdapter: JavaProtocol {
     func getView(position: Int, convertView: Android.View.View?, parent: Android.View.ViewGroup) -> Android.View.View
 }
 
-// MARK: - Private
-
-private typealias AndroidWidgetAdapter_getCount_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong) -> (jint)
-
-private func AndroidWidgetAdapter_getCount( _ __env: UnsafeMutablePointer<JNIEnv?>,
-                                            _ __this: jobject?,
-                                            _ __swiftObject: jlong) -> jint {
+extension AndroidWidgetAdapter {
     
-    let result = AndroidWidgetAdapterListenerLocal
-        .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
-        .getCount()
-    
-    return jint(result)
-}
-
-private typealias AndroidWidgetAdapter_getView_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jint, _: jobject?, _: jobject?) -> jobject?
-
-private func AndroidWidgetAdapter_getView( _ __env: UnsafeMutablePointer<JNIEnv?>,
-                                            _ __this: jobject?,
-                                            _ __swiftObject: jlong,
-                                            _ __position: jint,
-                                            _ __convertView: jobject?,
-                                            _ __parent: jobject?) -> jobject? {
-    
-    let convertView = __convertView != nil ? Android.View.View(javaObject: __convertView) : nil
-    
-    let parentView = Android.View.ViewGroup(javaObject: __parent)
-    
-    let result = AndroidWidgetAdapterListenerLocal
-        .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
-        .getView(position: Int(__position), convertView: convertView, parent: parentView)
-    
-    var __locals = [jobject]()
-    
-    return result.localJavaObject(&__locals)
+    public func localJavaObject( _ locals: UnsafeMutablePointer<[jobject]> ) -> jobject? {
+        
+        return AndroidWidgetAdapterListenerLocal( owned: self, proto: self ).localJavaObject( locals )
+    }
 }
 
 internal class AndroidWidgetAdapterListenerLocal: JNILocalProxy<AndroidWidgetAdapter, Any> {
@@ -104,13 +75,7 @@ internal class AndroidWidgetAdapterListenerLocal: JNILocalProxy<AndroidWidgetAda
     }
 }
 
-extension AndroidWidgetAdapter {
-    
-    public func localJavaObject( _ locals: UnsafeMutablePointer<[jobject]> ) -> jobject? {
-        
-        return AndroidWidgetAdapterListenerLocal( owned: self, proto: self ).localJavaObject( locals )
-    }
-}
+// MARK: - JNI Cache
 
 internal extension AndroidWidgetAdapterListenerLocal {
     
@@ -157,4 +122,41 @@ internal extension AndroidWidgetAdapterListenerLocal {
             
         }
     }
+}
+
+// MARK: - Private
+
+private typealias AndroidWidgetAdapter_getCount_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong) -> (jint)
+
+private func AndroidWidgetAdapter_getCount( _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                            _ __this: jobject?,
+                                            _ __swiftObject: jlong) -> jint {
+    
+    let result = AndroidWidgetAdapterListenerLocal
+        .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
+        .getCount()
+    
+    return jint(result)
+}
+
+private typealias AndroidWidgetAdapter_getView_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jint, _: jobject?, _: jobject?) -> jobject?
+
+private func AndroidWidgetAdapter_getView( _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                           _ __this: jobject?,
+                                           _ __swiftObject: jlong,
+                                           _ __position: jint,
+                                           _ __convertView: jobject?,
+                                           _ __parent: jobject?) -> jobject? {
+    
+    let convertView = __convertView != nil ? Android.View.View(javaObject: __convertView) : nil
+    
+    let parentView = Android.View.ViewGroup(javaObject: __parent)
+    
+    let result = AndroidWidgetAdapterListenerLocal
+        .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
+        .getView(position: Int(__position), convertView: convertView, parent: parentView)
+    
+    var __locals = [jobject]()
+    
+    return result.localJavaObject(&__locals)
 }
