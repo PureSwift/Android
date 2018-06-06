@@ -1,5 +1,5 @@
 //
-//  WidgetAdapter.swift
+//  WidgetBaseAdapter.swift
 //  PureSwift
 //
 //  Created by Alsey Coleman Miller on 3/21/18.
@@ -11,7 +11,7 @@ import JNI
 
 public extension Android.Widget {
     
-    public typealias Adapter = AndroidWidgetAdapter
+    public typealias BaseAdapter = AndroidWidgetAdapter
 }
 
 public protocol AndroidWidgetAdapter: JavaProtocol {
@@ -20,6 +20,30 @@ public protocol AndroidWidgetAdapter: JavaProtocol {
     
     func getView(position: Int, convertView: Android.View.View?, parent: Android.View.ViewGroup) -> Android.View.View
 }
+
+// MARK: - Methods
+
+extension AndroidWidgetAdapter {
+    
+    func notifyDataSetChanged() {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        withJavaObject {
+            
+            JNIMethod.CallVoidMethod(object: $0,
+                                     methodName: "notifyDataSetChanged",
+                                     methodSig: "()V",
+                                     methodCache: &AndroidWidgetAdapterListenerLocal.JNICache.Method.notifyDataSetChanged,
+                                     args: &__args,
+                                     locals: &__locals)
+        }
+    }
+}
+
+// MARK: - Local Java Object
 
 extension AndroidWidgetAdapter {
     
@@ -56,23 +80,6 @@ internal class AndroidWidgetAdapterListenerLocal: JNILocalProxy<AndroidWidgetAda
     override open class func proxyClassName() -> String { return JNICache.className }
     
     override open class func proxyClass() -> jclass? { return _proxyClass }
-    
-    func notifyDataSetChanged() {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        withJavaObject {
-            
-            JNIMethod.CallVoidMethod(object: $0,
-                                     methodName: "notifyDataSetChanged",
-                                     methodSig: "()V",
-                                     methodCache: &AndroidWidgetAdapterListenerLocal.JNICache.Method.notifyDataSetChanged,
-                                     args: &__args,
-                                     locals: &__locals)
-        }
-    }
 }
 
 // MARK: - JNI Cache
@@ -119,12 +126,11 @@ internal extension AndroidWidgetAdapterListenerLocal {
                 
                 static let thunk: AndroidWidgetAdapter_getView_type = AndroidWidgetAdapter_getView
             }
-            
         }
     }
 }
 
-// MARK: - Private
+// MARK: - Native Methods
 
 private typealias AndroidWidgetAdapter_getCount_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong) -> (jint)
 
