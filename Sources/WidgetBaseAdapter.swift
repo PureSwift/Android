@@ -23,9 +23,9 @@ public protocol AndroidWidgetAdapter: JavaProtocol {
 
 // MARK: - Methods
 
-extension AndroidWidgetAdapter {
+public extension AndroidWidgetAdapter {
     
-    func notifyDataSetChanged() {
+    public func notifyDataSetChanged() {
         
         var __locals = [jobject]()
         
