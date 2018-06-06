@@ -93,7 +93,7 @@ public extension AndroidBluetoothClass {
     /**
      * Return the (major and minor) device class component of this BluetoothClass.
      */
-    func getDeviceClass() -> Int {
+    func getDeviceClass() -> Android.Bluetooth.Class.Device {
         
         var __locals = [jobject]()
         
@@ -105,13 +105,13 @@ public extension AndroidBluetoothClass {
                                                methodCache: &JNICache.MethodID.getDeviceClass,
                                                args: &__args,
                                                locals: &__locals)
-        return Int(__return)
+        return Android.Bluetooth.Class.Device(rawValue: Int(__return))
     }
     
     /**
      * Return the major device class component of this BluetoothClass.
      */
-    func getMajorDeviceClass() -> Int {
+    func getMajorDeviceClass() -> Android.Bluetooth.Class.Device.Major {
         
         var __locals = [jobject]()
         
@@ -123,18 +123,18 @@ public extension AndroidBluetoothClass {
                                                methodCache: &JNICache.MethodID.getMajorDeviceClass,
                                                args: &__args,
                                                locals: &__locals)
-        return Int(__return)
+        return Android.Bluetooth.Class.Device.Major(rawValue: Int(__return))
     }
     
     /**
      * Return true if the specified service class is supported by this BluetoothClass.
      */
-    public func hasService(service: Int) -> Bool {
+    public func hasService(service: Android.Bluetooth.Class.Service) -> Bool {
         
         var __locals = [jobject]()
         
         var __args: [jvalue] = [
-            jvalue(i: jint(service))
+            jvalue(i: jint(service.rawValue))
         ]
         
         let __return = JNIMethod.CallBooleanMethod(object: javaObject,
