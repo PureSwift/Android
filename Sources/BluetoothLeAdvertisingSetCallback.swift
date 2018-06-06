@@ -15,30 +15,35 @@ public extension Android.Bluetooth.LE {
     public typealias AdvertisingSetCallback = AndroidBluetoothLowEnergyAdvertisingSetCallback
 }
 
+public extension Android.Bluetooth.LE.AdvertisingSetCallback {
+    
+    public typealias Status = AndroidBluetoothLowEnergyAdvertisingStatus
+}
+
 /// Bluetooth LE advertising set callbacks, used to deliver advertising operation status.
 public protocol AndroidBluetoothLowEnergyAdvertisingSetCallback: JavaProtocol {
     
     /**
      * Callback triggered in response to setAdvertisingData(AdvertiseData) indicating result of the operation.
      */
-    func onAdvertisingDataSet(advertisingSet: Android.Bluetooth.LE.AdvertisingSet, status: Int)
+    func onAdvertisingDataSet(advertisingSet: Android.Bluetooth.LE.AdvertisingSet, status: Status)
     
     /**
      * Callback triggered in response to startAdvertisingSet(AdvertisingSetParameters, AdvertiseData, AdvertiseData, PeriodicAdvertisingParameters,
      * AdvertiseData, AdvertisingSetCallback) indicating result of the operation.
      */
-    func onAdvertisingEnabled(advertisingSet: Android.Bluetooth.LE.AdvertisingSet, enable: Bool, status: Int)
+    func onAdvertisingEnabled(advertisingSet: Android.Bluetooth.LE.AdvertisingSet, enable: Bool, status: Status)
     
     /**
      * Callback triggered in response to setAdvertisingParameters(AdvertisingSetParameters) indicating result of the operation.
      */
-    func onAdvertisingParametersUpdated(advertisingSet: Android.Bluetooth.LE.AdvertisingSet, txPower: Int, status: Int)
+    func onAdvertisingParametersUpdated(advertisingSet: Android.Bluetooth.LE.AdvertisingSet, txPower: Int, status: Status)
     
     /**
      * Callback triggered in response to startAdvertisingSet(AdvertisingSetParameters, AdvertiseData, AdvertiseData, PeriodicAdvertisingParameters,
      * AdvertiseData, AdvertisingSetCallback) indicating result of the operation.
      */
-    func onAdvertisingSetStarted(advertisingSet: Android.Bluetooth.LE.AdvertisingSet, txPower: Int, status: Int)
+    func onAdvertisingSetStarted(advertisingSet: Android.Bluetooth.LE.AdvertisingSet, txPower: Int, status: Status)
 
     /**
      * Callback triggered in response to stopAdvertisingSet(AdvertisingSetCallback) indicating advertising set is stopped.
@@ -48,22 +53,166 @@ public protocol AndroidBluetoothLowEnergyAdvertisingSetCallback: JavaProtocol {
     /**
      * Callback triggered in response to setPeriodicAdvertisingData(AdvertiseData) indicating result of the operation.
      */
-    func onPeriodicAdvertisingDataSet(advertisingSet: Android.Bluetooth.LE.AdvertisingSet, status: Int)
+    func onPeriodicAdvertisingDataSet(advertisingSet: Android.Bluetooth.LE.AdvertisingSet, status: Status)
     
     /**
      * Callback triggered in response to setPeriodicAdvertisingEnabled(boolean) indicating result of the operation.
      */
-    func onPeriodicAdvertisingEnabled(advertisingSet: Android.Bluetooth.LE.AdvertisingSet, enable: Bool, status: Int)
+    func onPeriodicAdvertisingEnabled(advertisingSet: Android.Bluetooth.LE.AdvertisingSet, enable: Bool, status: Status)
     
     /**
      * Callback triggered in response to setPeriodicAdvertisingParameters(PeriodicAdvertisingParameters) indicating result of the operation.
      */
-    func onPeriodicAdvertisingParametersUpdated(advertisingSet: Android.Bluetooth.LE.AdvertisingSet, status: Int)
+    func onPeriodicAdvertisingParametersUpdated(advertisingSet: Android.Bluetooth.LE.AdvertisingSet, status: Status)
     
     /**
      * Callback triggered in response to setAdvertisingData(AdvertiseData) indicating result of the operation.
      */
-    func onScanResponseDataSet(advertisingSet: Android.Bluetooth.LE.AdvertisingSet, status: Int)
+    func onScanResponseDataSet(advertisingSet: Android.Bluetooth.LE.AdvertisingSet, status: Status)
+}
+
+// MARK: - Supporting Type
+
+public struct AndroidBluetoothLowEnergyAdvertisingStatus: RawRepresentable {
+    
+    public let rawValue: Int
+    
+    public init(rawValue: Int) {
+        self.rawValue = rawValue
+    }
+    
+    /**
+     * Failed to start advertising as the advertising is already started.
+     */
+    public static let alreadyStarted = Android.Bluetooth.LE.AdvertisingSetCallback.Status(rawValue: AndroidBluetoothLowEnergyAdvertisingSetCallbackConstants.ADVERTISE_FAILED_ALREADY_STARTED)
+    
+    /**
+     * Failed to start advertising as the advertise data to be broadcasted is too large.
+     */
+    public static let dataTooLarge = Android.Bluetooth.LE.AdvertisingSetCallback.Status(rawValue: AndroidBluetoothLowEnergyAdvertisingSetCallbackConstants.ADVERTISE_FAILED_DATA_TOO_LARGE)
+    
+    /**
+     * This feature is not supported on this platform.
+     */
+    public static let featureUnsupported = Android.Bluetooth.LE.AdvertisingSetCallback.Status(rawValue: AndroidBluetoothLowEnergyAdvertisingSetCallbackConstants.ADVERTISE_FAILED_FEATURE_UNSUPPORTED)
+    
+    /**
+     * Operation failed due to an internal error.
+     */
+    public static let internalError = Android.Bluetooth.LE.AdvertisingSetCallback.Status(rawValue: AndroidBluetoothLowEnergyAdvertisingSetCallbackConstants.ADVERTISE_FAILED_INTERNAL_ERROR)
+    
+    /**
+     * Failed to start advertising because no advertising instance is available.
+     */
+    public static let tooManyAdvertisers = Android.Bluetooth.LE.AdvertisingSetCallback.Status(rawValue: AndroidBluetoothLowEnergyAdvertisingSetCallbackConstants.ADVERTISE_FAILED_TOO_MANY_ADVERTISERS)
+    
+    /**
+     * The requested operation was successful.
+     */
+    public static let success = Android.Bluetooth.LE.AdvertisingSetCallback.Status(rawValue: AndroidBluetoothLowEnergyAdvertisingSetCallbackConstants.ADVERTISE_SUCCESS)
+    
+}
+
+// MARK: - Constants
+
+internal class AndroidBluetoothLowEnergyAdvertisingSetCallbackConstants {
+    
+    /// Failed to start advertising as the advertising is already started.
+    internal static var ADVERTISE_FAILED_ALREADY_STARTED: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "ADVERTISE_FAILED_ALREADY_STARTED",
+                fieldType: "I",
+                fieldCache: &AndroidBluetoothLowEnergyAdvertiseSetCallbackListenerLocal.JNICache.FieldID.ADVERTISE_FAILED_ALREADY_STARTED,
+                className: AndroidBluetoothLowEnergyAdvertiseSetCallbackListenerLocal.JNICache.className,
+                classCache: &AndroidBluetoothLowEnergyAdvertiseSetCallbackListenerLocal.JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    /// Failed to start advertising as the advertise data to be broadcasted is too large.
+    internal static var ADVERTISE_FAILED_DATA_TOO_LARGE: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "ADVERTISE_FAILED_DATA_TOO_LARGE",
+                fieldType: "I",
+                fieldCache: &AndroidBluetoothLowEnergyAdvertiseSetCallbackListenerLocal.JNICache.FieldID.ADVERTISE_FAILED_DATA_TOO_LARGE,
+                className: AndroidBluetoothLowEnergyAdvertiseSetCallbackListenerLocal.JNICache.className,
+                classCache: &AndroidBluetoothLowEnergyAdvertiseSetCallbackListenerLocal.JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    /// This feature is not supported on this platform.
+    internal static var ADVERTISE_FAILED_FEATURE_UNSUPPORTED: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "ADVERTISE_FAILED_FEATURE_UNSUPPORTED",
+                fieldType: "I",
+                fieldCache: &AndroidBluetoothLowEnergyAdvertiseSetCallbackListenerLocal.JNICache.FieldID.ADVERTISE_FAILED_FEATURE_UNSUPPORTED,
+                className: AndroidBluetoothLowEnergyAdvertiseSetCallbackListenerLocal.JNICache.className,
+                classCache: &AndroidBluetoothLowEnergyAdvertiseSetCallbackListenerLocal.JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    
+    /// Operation failed due to an internal error.
+    internal static var ADVERTISE_FAILED_INTERNAL_ERROR: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "ADVERTISE_FAILED_INTERNAL_ERROR",
+                fieldType: "I",
+                fieldCache: &AndroidBluetoothLowEnergyAdvertiseSetCallbackListenerLocal.JNICache.FieldID.ADVERTISE_FAILED_INTERNAL_ERROR,
+                className: AndroidBluetoothLowEnergyAdvertiseSetCallbackListenerLocal.JNICache.className,
+                classCache: &AndroidBluetoothLowEnergyAdvertiseSetCallbackListenerLocal.JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    /// Failed to start advertising because no advertising instance is available.
+    internal static var ADVERTISE_FAILED_TOO_MANY_ADVERTISERS: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "ADVERTISE_FAILED_TOO_MANY_ADVERTISERS",
+                fieldType: "I",
+                fieldCache: &AndroidBluetoothLowEnergyAdvertiseSetCallbackListenerLocal.JNICache.FieldID.ADVERTISE_FAILED_TOO_MANY_ADVERTISERS,
+                className: AndroidBluetoothLowEnergyAdvertiseSetCallbackListenerLocal.JNICache.className,
+                classCache: &AndroidBluetoothLowEnergyAdvertiseSetCallbackListenerLocal.JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    /// The requested operation was successful.
+    internal static var ADVERTISE_SUCCESS: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "ADVERTISE_SUCCESS",
+                fieldType: "I",
+                fieldCache: &AndroidBluetoothLowEnergyAdvertiseSetCallbackListenerLocal.JNICache.FieldID.ADVERTISE_SUCCESS,
+                className: AndroidBluetoothLowEnergyAdvertiseSetCallbackListenerLocal.JNICache.className,
+                classCache: &AndroidBluetoothLowEnergyAdvertiseSetCallbackListenerLocal.JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
 }
 
 // MARK: - Local Listener
@@ -114,8 +263,16 @@ internal extension AndroidBluetoothLowEnergyAdvertiseSetCallbackListenerLocal {
         /// JNI Java class name
         static let className = classSignature.rawValue
         
+        /// JNI Java class
+        static var jniClass: jclass?
+        
         struct FieldID {
-            static var DATA_COMPLETE: jfieldID?
+            static var ADVERTISE_FAILED_ALREADY_STARTED: jfieldID?
+            static var ADVERTISE_FAILED_DATA_TOO_LARGE: jfieldID?
+            static var ADVERTISE_FAILED_FEATURE_UNSUPPORTED: jfieldID?
+            static var ADVERTISE_FAILED_INTERNAL_ERROR: jfieldID?
+            static var ADVERTISE_FAILED_TOO_MANY_ADVERTISERS: jfieldID?
+            static var ADVERTISE_SUCCESS: jfieldID?
         }
         
         /// JNI Method cache
@@ -273,7 +430,7 @@ private func AndroidBluetoothLowEnergyAdvertiseSetCallback_onAdvertisingDataSet(
                                                                         _ statusParam: jint) -> () {
     
     let advertisingSet = Android.Bluetooth.LE.AdvertisingSet(javaObject: advertisingSetParam)
-    let status = Int(statusParam)
+    let status = Android.Bluetooth.LE.AdvertisingSetCallback.Status(rawValue: Int(statusParam))
     
     AndroidBluetoothLowEnergyAdvertiseSetCallbackListenerLocal
         .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
@@ -290,7 +447,7 @@ private func AndroidBluetoothLowEnergyAdvertiseSetCallback_onAdvertisingEnabled(
                                                                                  _ statusParam: jint) -> () {
     
     let advertisingSet = Android.Bluetooth.LE.AdvertisingSet(javaObject: advertisingSetParam)
-    let status = Int(statusParam)
+    let status = Android.Bluetooth.LE.AdvertisingSetCallback.Status(rawValue: Int(statusParam))
     let enable = enableParam != jboolean(JNI_FALSE)
     
     AndroidBluetoothLowEnergyAdvertiseSetCallbackListenerLocal
@@ -309,7 +466,7 @@ private func AndroidBluetoothLowEnergyAdvertiseSetCallback_onAdvertisingParamete
     
     let advertisingSet = Android.Bluetooth.LE.AdvertisingSet(javaObject: advertisingSetParam)
     let txPower = Int(txPowerParam)
-    let status = Int(statusParam)
+    let status = Android.Bluetooth.LE.AdvertisingSetCallback.Status(rawValue: Int(statusParam))
     
     AndroidBluetoothLowEnergyAdvertiseSetCallbackListenerLocal
         .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
@@ -327,7 +484,7 @@ private func AndroidBluetoothLowEnergyAdvertiseSetCallback_onAdvertisingSetStart
     
     let advertisingSet = Android.Bluetooth.LE.AdvertisingSet(javaObject: advertisingSetParam)
     let txPower = Int(txPowerParam)
-    let status = Int(statusParam)
+    let status = Android.Bluetooth.LE.AdvertisingSetCallback.Status(rawValue: Int(statusParam))
     
     AndroidBluetoothLowEnergyAdvertiseSetCallbackListenerLocal
         .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
@@ -357,7 +514,7 @@ private func AndroidBluetoothLowEnergyAdvertiseSetCallback_onPeriodicAdvertising
                                                                                  _ statusParam: jint) -> () {
     
     let advertisingSet = Android.Bluetooth.LE.AdvertisingSet(javaObject: advertisingSetParam)
-    let status = Int(statusParam)
+    let status = Android.Bluetooth.LE.AdvertisingSetCallback.Status(rawValue: Int(statusParam))
     
     AndroidBluetoothLowEnergyAdvertiseSetCallbackListenerLocal
         .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
@@ -374,7 +531,7 @@ private func AndroidBluetoothLowEnergyAdvertiseSetCallback_onPeriodicAdvertising
                                                                                  _ statusParam: jint) -> () {
     
     let advertisingSet = Android.Bluetooth.LE.AdvertisingSet(javaObject: advertisingSetParam)
-    let status = Int(statusParam)
+    let status = Android.Bluetooth.LE.AdvertisingSetCallback.Status(rawValue: Int(statusParam))
     let enable = enableParam != jboolean(JNI_FALSE)
     
     AndroidBluetoothLowEnergyAdvertiseSetCallbackListenerLocal
@@ -391,7 +548,7 @@ private func AndroidBluetoothLowEnergyAdvertiseSetCallback_onPeriodicAdvertising
                                                                                            _ statusParam: jint) -> () {
     
     let advertisingSet = Android.Bluetooth.LE.AdvertisingSet(javaObject: advertisingSetParam)
-    let status = Int(statusParam)
+    let status = Android.Bluetooth.LE.AdvertisingSetCallback.Status(rawValue: Int(statusParam))
     
     AndroidBluetoothLowEnergyAdvertiseSetCallbackListenerLocal
         .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
@@ -407,7 +564,7 @@ private func AndroidBluetoothLowEnergyAdvertiseSetCallback_onScanResponsaDataset
                                                                                                    _ statusParam: jint) -> () {
     
     let advertisingSet = Android.Bluetooth.LE.AdvertisingSet(javaObject: advertisingSetParam)
-    let status = Int(statusParam)
+    let status = Android.Bluetooth.LE.AdvertisingSetCallback.Status(rawValue: Int(statusParam))
     
     AndroidBluetoothLowEnergyAdvertiseSetCallbackListenerLocal
         .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
