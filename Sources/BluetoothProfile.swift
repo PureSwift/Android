@@ -286,8 +286,10 @@ private extension AndroidBluetoothProfileLocal {
     /// JNI Cache
     struct JNICache {
         
+        static let classSignature = SwiftSupport.Bluetooth.className(["SwiftBluetoothProfile"])
+        
         /// JNI Java class name
-        static let className = "android/bluetooth/BluetoothProfile"
+        static let className = classSignature.rawValue
         
         /// JNI Java class
         static var jniClass: jclass?
