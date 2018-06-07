@@ -22,7 +22,6 @@ public extension Android.Bluetooth.LE.ScanCallback {
     public typealias Error = AndroidBluetoothLowEnergyScanCallbackError
 }
 
-
 /// Proxy listener class for Android Bluetooth LE callbacks.
 public protocol AndroidBluetoothLowEnergyScanCallback: JavaProtocol {
     
