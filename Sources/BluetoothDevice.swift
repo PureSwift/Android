@@ -8,6 +8,7 @@
 import Foundation
 import Bluetooth
 import java_swift
+import java_util
 
 public extension Android.Bluetooth {
     
@@ -29,25 +30,6 @@ public final class AndroidBluetoothDevice: JavaObject {
     
     public required init( javaObject: jobject? ) {
         super.init(javaObject: javaObject)
-    }
-
-    @_versioned
-    internal func getAddress() -> String {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue](repeating: jvalue(), count: 1)
-        
-        let __return = JNIMethod.CallObjectMethod(object: javaObject,
-                                                  methodName: "getAddress",
-                                                  methodSig: "()Ljava/lang/String;",
-                                                  methodCache: &JNICache.MethodID.getAddress,
-                                                  args: &__args,
-                                                  locals: &__locals)
-        
-        defer { JNI.DeleteLocalRef( __return ) }
-        
-        return String(javaObject: __return)
     }
     
     public var address: Bluetooth.Address {
@@ -706,9 +688,355 @@ public extension Android.Bluetooth.Device {
 
 // MARK: - Methods
 
-private extension Android.Bluetooth.Device {
+public extension Android.Bluetooth.Device {
     
+    /**
+     * Connect to GATT Server hosted by this device.
+     */
+    public func connectGatt(context: Android.Content.Context, autoConnect: Bool, callback: JavaObject) -> Android.Bluetooth.Gatt {
+        
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            JNIType.toJava(value: context, locals: &__locals),
+            jvalue(z: jboolean(autoConnect ? JNI_TRUE : JNI_FALSE)),
+            JNIType.toJava(value: callback, locals: &__locals)
+        ]
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "connectGatt",
+                                                  methodSig: "(Landroid/content/Content;ZLandroid/bluetooth/BluetoothGattCallback;)Landroid/bluetooth/BluetoothGatt;",
+                                                  methodCache: &JNICache.MethodID.connectGatt,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef(__return) }
+        
+        return Android.Bluetooth.Gatt(javaObject: __return)
+    }
     
+    /**
+     * Connect to GATT Server hosted by this device.
+     */
+    public func connectGatt(context: Android.Content.Context, autoConnect: Bool, callback: JavaObject, transport: Int, phy: Int, handler: JavaObject) -> Android.Bluetooth.Gatt {
+        
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            JNIType.toJava(value: context, locals: &__locals),
+            jvalue(z: jboolean(autoConnect ? JNI_TRUE : JNI_FALSE)),
+            JNIType.toJava(value: callback, locals: &__locals),
+            jvalue(i: jint(transport)),
+            jvalue(i: jint(phy)),
+            JNIType.toJava(value: handler, locals: &__locals)
+        ]
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "connectGatt",
+                                                  methodSig: "(Landroid/content/Content;ZLandroid/bluetooth/BluetoothGattCallback;IILandroid/os/Handler;)Landroid/bluetooth/BluetoothGatt;",
+                                                  methodCache: &JNICache.MethodID.connectGatt2,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef(__return) }
+        
+        return Android.Bluetooth.Gatt(javaObject: __return)
+    }
+    
+    /**
+     * Connect to GATT Server hosted by this device.
+     */
+    public func connectGatt(context: Android.Content.Context, autoConnect: Bool, callback: JavaObject, transport: Int, phy: Int) -> Android.Bluetooth.Gatt {
+        
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            JNIType.toJava(value: context, locals: &__locals),
+            jvalue(z: jboolean(autoConnect ? JNI_TRUE : JNI_FALSE)),
+            JNIType.toJava(value: callback, locals: &__locals),
+            jvalue(i: jint(transport)),
+            jvalue(i: jint(phy))
+        ]
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "connectGatt",
+                                                  methodSig: "(Landroid/content/Content;ZLandroid/bluetooth/BluetoothGattCallback;II)Landroid/bluetooth/BluetoothGatt;",
+                                                  methodCache: &JNICache.MethodID.connectGatt3,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef(__return) }
+        
+        return Android.Bluetooth.Gatt(javaObject: __return)
+    }
+    
+    /**
+     * Connect to GATT Server hosted by this device.
+     */
+    public func connectGatt(context: Android.Content.Context, autoConnect: Bool, callback: JavaObject, transport: Int) -> Android.Bluetooth.Gatt {
+        
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            JNIType.toJava(value: context, locals: &__locals),
+            jvalue(z: jboolean(autoConnect ? JNI_TRUE : JNI_FALSE)),
+            JNIType.toJava(value: callback, locals: &__locals),
+            jvalue(i: jint(transport))
+        ]
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "connectGatt",
+                                                  methodSig: "(Landroid/content/Content;ZLandroid/bluetooth/BluetoothGattCallback;I)Landroid/bluetooth/BluetoothGatt;",
+                                                  methodCache: &JNICache.MethodID.connectGatt3,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef(__return) }
+        
+        return Android.Bluetooth.Gatt(javaObject: __return)
+    }
+    
+    /**
+     * Start the bonding (pairing) process with the remote device.
+     */
+    public func createBond() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                                   methodName: "createBond",
+                                                   methodSig: "()Z",
+                                                   methodCache: &JNICache.MethodID.createBond,
+                                                   args: &__args,
+                                                   locals: &__locals)
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Create an RFCOMM BluetoothSocket socket ready to start an insecure outgoing connection to this remote device using SDP lookup of uuid.
+     */
+    public func createInsecureRfcommSocketToServiceRecord(uuid: java_util.UUID) -> Android.Bluetooth.Socket {
+        
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            JNIType.toJava(value: uuid, locals: &__locals)
+        ]
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "createInsecureRfcommSocketToServiceRecord",
+                                                  methodSig: "(Ljava/util/UUID;)Landroid/bluetooth/BluetoothSocket;",
+                                                  methodCache: &JNICache.MethodID.createInsecureRfcommSocketToServiceRecord,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef(__return) }
+        
+        return Android.Bluetooth.Socket(javaObject: __return)
+    }
+    
+    /**
+     * Create an RFCOMM BluetoothSocket ready to start a secure outgoing connection to this remote device using SDP lookup of uuid.
+     */
+    public func createRfcommSocketToServiceRecord(uuid: java_util.UUID) -> Android.Bluetooth.Socket {
+        
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            JNIType.toJava(value: uuid, locals: &__locals)
+        ]
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "createRfcommSocketToServiceRecord",
+                                                  methodSig: "(Ljava/util/UUID;)Landroid/bluetooth/BluetoothSocket;",
+                                                  methodCache: &JNICache.MethodID.createRfcommSocketToServiceRecord,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef(__return) }
+        
+        return Android.Bluetooth.Socket(javaObject: __return)
+    }
+    
+    /**
+     * Perform a service discovery on the remote device to get the UUIDs supported.
+     */
+    public func fetchUuidsWithSd() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                                   methodName: "fetchUuidsWithSd",
+                                                   methodSig: "()Z",
+                                                   methodCache: &JNICache.MethodID.fetchUuidsWithSd,
+                                                   args: &__args,
+                                                   locals: &__locals)
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Returns the hardware address of this BluetoothDevice.
+     */
+    public func getAddress() -> String {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "getAddress",
+                                                  methodSig: "()Ljava/lang/String;",
+                                                  methodCache: &JNICache.MethodID.getAddress,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef(__return) }
+        
+        return String(javaObject: __return)
+    }
+    
+    /**
+     * Get the Bluetooth class of the remote device.
+     */
+    public func getBluetoothClass() -> String {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "getBluetoothClass",
+                                                  methodSig: "()Landroid/bluetooth/BluetoothClass;",
+                                                  methodCache: &JNICache.MethodID.getBluetoothClass,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef(__return) }
+        
+        return String(javaObject: __return)
+    }
+    
+    /**
+     * Get the bond state of the remote device.
+     */
+    public func getBondState() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallIntMethod(object: javaObject,
+                                               methodName: "getBondState",
+                                               methodSig: "()I",
+                                               methodCache: &JNICache.MethodID.getBondState,
+                                               args: &__args,
+                                               locals: &__locals)
+        return Int(__return)
+    }
+    
+    /**
+     * Get the friendly Bluetooth name of the remote device.
+     */
+    public func getName() -> String {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "getName",
+                                                  methodSig: "()Ljava/lang/String;",
+                                                  methodCache: &JNICache.MethodID.getName,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef(__return) }
+        
+        return String(javaObject: __return)
+    }
+    
+    /**
+     * Get the Bluetooth device type of the remote device.
+     */
+    public func getType() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallIntMethod(object: javaObject,
+                                               methodName: "getType",
+                                               methodSig: "()I",
+                                               methodCache: &JNICache.MethodID.getType,
+                                               args: &__args,
+                                               locals: &__locals)
+        return Int(__return)
+    }
+    
+    /**
+     * Get the friendly Bluetooth name of the remote device.
+     */
+    public func getUuids() -> [Android.OS.ParcelUuid]? {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "getUuids",
+                                                  methodSig: "()[Landroid/os/ParcelUuid;",
+                                                  methodCache: &JNICache.MethodID.getUuids,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef(__return) }
+        
+        return JNIType.toSwift(type: [Android.OS.ParcelUuid].self, from: __return)
+    }
+    
+    /**
+     * Confirm passkey for PAIRING_VARIANT_PASSKEY_CONFIRMATION pairing.
+     */
+    public func setPairingConfirmation(confirm: Bool) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            jvalue(z: jboolean(confirm ? JNI_TRUE : JNI_FALSE))
+        ]
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                                   methodName: "setPairingConfirmation",
+                                                   methodSig: "(Z)Z",
+                                                   methodCache: &JNICache.MethodID.setPairingConfirmation,
+                                                   args: &__args,
+                                                   locals: &__locals)
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Set the pin during pairing when the pairing method is PAIRING_VARIANT_PIN.
+     */
+    public func setPin(pin: [Int8]) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            JNIType.toJava(value: pin, locals: &__locals)
+        ]
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                                   methodName: "setPin",
+                                                   methodSig: "([B)Z",
+                                                   methodCache: &JNICache.MethodID.setPin,
+                                                   args: &__args,
+                                                   locals: &__locals)
+        return __return != jboolean(JNI_FALSE)
+    }
 }
 
 
