@@ -155,6 +155,54 @@ public extension Android.Bluetooth.Device {
             return Int(__value)
         }
     }
+    
+    /// No preferred coding when transmitting on the LE Coded PHY.
+    internal static var PHY_OPTION_NO_PREFERRED: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "PHY_OPTION_NO_PREFERRED",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.PHY_OPTION_NO_PREFERRED,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    /// Prefer the S=2 coding to be used when transmitting on the LE Coded PHY.
+    internal static var PHY_OPTION_S2: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "PHY_OPTION_S2",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.PHY_OPTION_S2,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    /// Prefer the S=8 coding to be used when transmitting on the LE Coded PHY.
+    internal static var PHY_OPTION_S8: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "PHY_OPTION_S8",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.PHY_OPTION_S8,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
 }
 
 // MARK: - JNI
@@ -179,6 +227,9 @@ private extension Android.Bluetooth.Device {
             static var PHY_LE_2M_MASK: jfieldID?
             static var PHY_LE_CODED: jfieldID?
             static var PHY_LE_CODED_MASK: jfieldID?
+            static var PHY_OPTION_NO_PREFERRED: jfieldID?
+            static var PHY_OPTION_S2: jfieldID?
+            static var PHY_OPTION_S8: jfieldID?
         }
         
         /// JNI Method ID cache
