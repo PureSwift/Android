@@ -15,6 +15,12 @@ public extension Android.Bluetooth {
     public typealias Gatt = AndroidBluetoothGatt
 }
 
+public extension Android.Bluetooth.Gatt {
+    
+    public typealias ConnectionPriority = AndroidBluetoothConnectionPriority
+}
+
+
 /**
  * Public API for the Bluetooth GATT Profile.
  *
@@ -500,12 +506,12 @@ public extension AndroidBluetoothGatt {
     /**
      * Request a connection parameter update.
      */
-    public func requestConnectionPriority(connectionPriority: Int) -> Bool {
+    public func requestConnectionPriority(connectionPriority: Android.Bluetooth.Gatt.ConnectionPriority) -> Bool {
         
         var __locals = [jobject]()
         
         var __args: [jvalue] = [
-            jvalue(i: jint(connectionPriority))
+            jvalue(i: jint(connectionPriority.rawValue))
         ]
         
         let __return = JNIMethod.CallBooleanMethod(object: javaObject,
@@ -620,6 +626,37 @@ public extension AndroidBluetoothGatt {
     }
 }
 
+// MARK: - Supporting types
+
+public extension AndroidBluetoothGatt {
+    
+    public struct AndroidBluetoothConnectionPriority: RawRepresentable {
+        
+        public let rawValue: Int
+        
+        public init(rawValue: Int) {
+            self.rawValue = rawValue
+        }
+        
+        /**
+         * Connection parameter update - Use the connection parameters recommended by the Bluetooth SIG. This is the default value if no connection parameter update is requested.
+         */
+        public static let balanced = Android.Bluetooth.Gatt.ConnectionPriority(rawValue: Android.Bluetooth.Gatt.CONNECTION_PRIORITY_BALANCED)
+        
+        /**
+         * Connection parameter update - Request a high priority, low latency connection. An application should only request high priority connection parameters to transfer
+         * large amounts of data over LE quickly. Once the transfer is complete, the application should request CONNECTION_PRIORITY_BALANCED connection parameters to reduce energy use.
+         */
+        public static let high = Android.Bluetooth.Gatt.ConnectionPriority(rawValue: Android.Bluetooth.Gatt.CONNECTION_PRIORITY_HIGH)
+        
+        /**
+         * Connection parameter update - Request low power, reduced data rate connection parameters.
+         */
+        public static let lowPower = Android.Bluetooth.Gatt.ConnectionPriority(rawValue: Android.Bluetooth.Gatt.CONNECTION_PRIORITY_LOW_POWER)
+    }
+    
+}
+
 // MARK: - JNICache
 
 internal extension AndroidBluetoothGatt {
@@ -665,7 +702,6 @@ internal extension AndroidBluetoothGatt {
             static var discoverServices: jmethodID?
             static var executeReliableWrite: jmethodID?
             static var getConnectedDevices: jmethodID?
-            static var getConnectionState: jmethodID?
             static var getDevice: jmethodID?
             static var getDevicesMatchingConnectionStates: jmethodID?
             static var getService: jmethodID?
