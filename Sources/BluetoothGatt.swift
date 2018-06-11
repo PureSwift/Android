@@ -392,6 +392,8 @@ public extension AndroidBluetoothGatt {
                                                    args: &__args,
                                                    locals: &__locals)
         
+        defer { JNI.DeleteLocalRef(__return) }
+        
         return Android.Bluetooth.Device(javaObject: __return)
     }
     
@@ -413,6 +415,8 @@ public extension AndroidBluetoothGatt {
                                                   args: &__args,
                                                   locals: &__locals)
         
+        defer { JNI.DeleteLocalRef(__return) }
+        
         return Android.Bluetooth.GattService(javaObject: __return)
     }
     
@@ -431,6 +435,9 @@ public extension AndroidBluetoothGatt {
                                                   methodCache: &JNICache.MethodID.getServices,
                                                   args: &__args,
                                                   locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef(__return) }
+        
         return ListForward(javaObject: __return)
     }
     
