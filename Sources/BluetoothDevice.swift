@@ -704,6 +704,14 @@ public extension Android.Bluetooth.Device {
     }
 }
 
+// MARK: - Methods
+
+private extension Android.Bluetooth.Device {
+    
+    
+}
+
+
 // MARK: - JNI
 
 private extension Android.Bluetooth.Device {
@@ -765,7 +773,23 @@ private extension Android.Bluetooth.Device {
         /// JNI Method ID cache
         struct MethodID {
             
+            static var connectGatt: jmethodID?
+            static var connectGatt2: jmethodID?
+            static var connectGatt3: jmethodID?
+            static var connectGatt4: jmethodID?
+            static var createBond: jmethodID?
+            static var createInsecureRfcommSocketToServiceRecord: jmethodID?
+            static var createRfcommSocketToServiceRecord: jmethodID?
+            static var equals: jmethodID?
+            static var fetchUuidsWithSd: jmethodID?
             static var getAddress: jmethodID?
+            static var getBluetoothClass: jmethodID?
+            static var getBondState: jmethodID?
+            static var getName: jmethodID?
+            static var getType: jmethodID?
+            static var getUuids: jmethodID?
+            static var setPairingConfirmation: jmethodID?
+            static var setPin: jmethodID?
         }
     }
 }

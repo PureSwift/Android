@@ -39,4 +39,6 @@ public protocol AndroidBluetoothGattServerCallback: JavaProtocol {
     func onPhyUpdate(device: Android.Bluetooth.Device, txPhy: Int, rxPhy: Int, status: Int)
     
     func onServiceAdded(status: Int, service: Android.Bluetooth.GattService)
+    
+    
 }
