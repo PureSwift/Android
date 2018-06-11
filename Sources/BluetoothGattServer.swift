@@ -8,6 +8,7 @@
 import Foundation
 import Bluetooth
 import java_swift
+import java_util
 
 public extension Android.Bluetooth {
     
@@ -121,6 +122,178 @@ public extension AndroidBluetoothGattServer {
                                  methodName: "close",
                                  methodSig: "()V",
                                  methodCache: &JNICache.MethodID.close,
+                                 args: &__args,
+                                 locals: &__locals)
+    }
+    
+    /**
+     * Initiate a connection to a Bluetooth GATT capable device.
+     */
+    public func connect(device: Android.Bluetooth.Device, autoConnect: Bool) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            JNIType.toJava(value: device, locals: &__locals),
+            jvalue(z: jboolean(autoConnect ? JNI_TRUE : JNI_FALSE))
+        ]
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                 methodName: "connect",
+                                 methodSig: "(Landroid/bluetooth/BluetoothDevice;Z)Z",
+                                 methodCache: &JNICache.MethodID.connect,
+                                 args: &__args,
+                                 locals: &__locals)
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Returns a BluetoothGattService from the list of services offered by this device.
+     */
+    public func getService(uuid: java_util.UUID) -> Android.Bluetooth.GattService {
+        
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            JNIType.toJava(value: uuid, locals: &__locals)
+        ]
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                   methodName: "getService",
+                                                   methodSig: "(Ljava/util/UUID;)Landroid/bluetooth/BluetoothGattService;",
+                                                   methodCache: &JNICache.MethodID.getService,
+                                                   args: &__args,
+                                                   locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef(__return) }
+        
+        return Android.Bluetooth.GattService(javaObject: __return)
+    }
+    
+    /**
+     * Returns a list of GATT services offered by this device.
+     */
+    public func getServices() -> List? {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "getServices",
+                                                  methodSig: "()Ljava/util/List;",
+                                                  methodCache: &JNICache.MethodID.getServices,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef(__return) }
+        
+        return ListForward(javaObject: __return)
+    }
+    
+    /**
+     * Send a notification or indication that a local characteristic has been updated.
+     */
+    public func notifyCharacteristicChanged(device: Android.Bluetooth.Device, characteristic: Android.Bluetooth.GattCharacteristic, confirm: Bool) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            JNIType.toJava(value: device, locals: &__locals),
+            JNIType.toJava(value: characteristic, locals: &__locals),
+            jvalue(z: jboolean(confirm ? JNI_TRUE : JNI_FALSE))
+        ]
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                                   methodName: "notifyCharacteristicChanged",
+                                                   methodSig: "(Landroid/bluetooth/BluetoothDevice;Landroid/bluetooth/BluetoothGattCharacteristic;Z)Z",
+                                                   methodCache: &JNICache.MethodID.notifyCharacteristicChanged,
+                                                   args: &__args,
+                                                   locals: &__locals)
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Read the current transmitter PHY and receiver PHY of the connection.
+     */
+    public func readPhy(device: Android.Bluetooth.Device) {
+        
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            JNIType.toJava(value: device, locals: &__locals)
+        ]
+        
+        JNIMethod.CallVoidMethod(object: javaObject,
+                                 methodName: "readPhy",
+                                 methodSig: "(Landroid/bluetooth/BluetoothDevice;)V",
+                                 methodCache: &JNICache.MethodID.readPhy,
+                                 args: &__args,
+                                 locals: &__locals)
+    }
+    
+    /**
+     * Removes a service from the list of services to be provided.
+     */
+    public func removeService(service: Android.Bluetooth.GattService) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            JNIType.toJava(value: service, locals: &__locals)
+        ]
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                                   methodName: "removeService",
+                                                   methodSig: "(Landroid/bluetooth/BluetoothGattService;)Z",
+                                                   methodCache: &JNICache.MethodID.removeService,
+                                                   args: &__args,
+                                                   locals: &__locals)
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Send a response to a read or write request to a remote device.
+     */
+    public func sendResponse(device: Android.Bluetooth.Device, requestId: Int, status: Int, offset: Int, value: [Int8]) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            JNIType.toJava(value: device, locals: &__locals),
+            jvalue(i: jint(requestId)),
+            jvalue(i: jint(status)),
+            jvalue(i: jint(offset)),
+            JNIType.toJava(value: value, locals: &__locals),
+        ]
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                                   methodName: "removeService",
+                                                   methodSig: "(Landroid/bluetooth/BluetoothDevice;III[B)Z",
+                                                   methodCache: &JNICache.MethodID.removeService,
+                                                   args: &__args,
+                                                   locals: &__locals)
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Set the preferred connection PHY for this app.
+     */
+    public func setPreferredPhy(device: Android.Bluetooth.Device, txPhy: TxPhy, rxPhy: RxPhy, phyOptions: PhyOptions) {
+        
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            JNIType.toJava(value: device, locals: &__locals),
+            jvalue(i: jint(txPhy.rawValue)),
+            jvalue(i: jint(rxPhy.rawValue)),
+            jvalue(i: jint(phyOptions.rawValue))
+        ]
+        
+        JNIMethod.CallVoidMethod(object: javaObject,
+                                 methodName: "setPreferredPhy",
+                                 methodSig: "(Landroid/bluetooth/BluetoothDevice;III)V",
+                                 methodCache: &JNICache.MethodID.setPreferredPhy,
                                  args: &__args,
                                  locals: &__locals)
     }
