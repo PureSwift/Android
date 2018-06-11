@@ -16,6 +16,11 @@ public extension Android.Bluetooth {
     public typealias Profile = AndroidBluetoothProfile
 }
 
+public extension Android.Bluetooth.Profile {
+    
+    public typealias Constants = AndroidBluetoothProfileConstants
+}
+
 /**
  * Public APIs for the Bluetooth Profiles.
  *
@@ -42,7 +47,7 @@ public protocol AndroidBluetoothProfile: JavaProtocol {
 
 // MARK: - Constants
 
-internal extension AndroidBluetoothProfile {
+public final class AndroidBluetoothProfileConstants {
     
     internal static var A2DP: Int {
         

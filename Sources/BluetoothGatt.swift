@@ -18,6 +18,12 @@ public extension Android.Bluetooth {
 public extension Android.Bluetooth.Gatt {
     
     public typealias ConnectionPriority = AndroidBluetoothConnectionPriority
+    
+    public typealias TxPhy = AndroidBluetoothTxPhy
+    
+    public typealias RxPhy = AndroidBluetoothRxPhy
+    
+    public typealias PhyOptions = AndroidBluetoothPhyOptions
 }
 
 
@@ -567,14 +573,14 @@ public extension AndroidBluetoothGatt {
     /**
      * Set the preferred connection PHY for this app.
      */
-    public func setPreferredPhy(txPhy: Int, rxPhy: Int, phyOptions: Int)  {
+    public func setPreferredPhy(txPhy: Android.Bluetooth.Gatt.TxPhy, rxPhy: Android.Bluetooth.Gatt.RxPhy, phyOptions: Android.Bluetooth.Gatt.PhyOptions)  {
         
         var __locals = [jobject]()
         
         var __args: [jvalue] = [
-            jvalue(i: jint(txPhy)),
-            jvalue(i: jint(rxPhy)),
-            jvalue(i: jint(phyOptions))
+            jvalue(i: jint(txPhy.rawValue)),
+            jvalue(i: jint(rxPhy.rawValue)),
+            jvalue(i: jint(phyOptions.rawValue))
         ]
         
         JNIMethod.CallVoidMethod(object: javaObject,
@@ -655,6 +661,77 @@ public extension AndroidBluetoothGatt {
         public static let lowPower = Android.Bluetooth.Gatt.ConnectionPriority(rawValue: Android.Bluetooth.Gatt.CONNECTION_PRIORITY_LOW_POWER)
     }
     
+    public struct AndroidBluetoothTxPhy: RawRepresentable {
+        
+        public let rawValue: Int
+        
+        public init(rawValue: Int) {
+            self.rawValue = rawValue
+        }
+        
+        /**
+         * Bluetooth LE 1M PHY mask. Used to specify LE 1M Physical Channel as one of many available options in a bitmask.
+         */
+        public static let phyLe1mMask = Android.Bluetooth.Gatt.TxPhy(rawValue: Android.Bluetooth.Device.PHY_LE_1M_MASK)
+        
+        /**
+         * Bluetooth LE 2M PHY mask. Used to specify LE 2M Physical Channel as one of many available options in a bitmask.
+         */
+        public static let phyLe2mMask = Android.Bluetooth.Gatt.TxPhy(rawValue: Android.Bluetooth.Device.PHY_LE_2M_MASK)
+        
+        /**
+         * Bluetooth LE Coded PHY mask. Used to specify LE Coded Physical Channel as one of many available options in a bitmask.
+         */
+        public static let phyLecodedMask = Android.Bluetooth.Gatt.TxPhy(rawValue: Android.Bluetooth.Device.PHY_LE_CODED_MASK)
+    }
+    
+    public struct AndroidBluetoothRxPhy: RawRepresentable {
+        
+        public let rawValue: Int
+        
+        public init(rawValue: Int) {
+            self.rawValue = rawValue
+        }
+        
+        /**
+         * Bluetooth LE 1M PHY mask. Used to specify LE 1M Physical Channel as one of many available options in a bitmask.
+         */
+        public static let phyLe1mMask = Android.Bluetooth.Gatt.TxPhy(rawValue: Android.Bluetooth.Device.PHY_LE_1M_MASK)
+        
+        /**
+         * Bluetooth LE 2M PHY mask. Used to specify LE 2M Physical Channel as one of many available options in a bitmask.
+         */
+        public static let phyLe2mMask = Android.Bluetooth.Gatt.TxPhy(rawValue: Android.Bluetooth.Device.PHY_LE_2M_MASK)
+        
+        /**
+         * Bluetooth LE Coded PHY mask. Used to specify LE Coded Physical Channel as one of many available options in a bitmask.
+         */
+        public static let phyLecodedMask = Android.Bluetooth.Gatt.TxPhy(rawValue: Android.Bluetooth.Device.PHY_LE_CODED_MASK)
+    }
+    
+    public struct AndroidBluetoothPhyOptions: RawRepresentable {
+        
+        public let rawValue: Int
+        
+        public init(rawValue: Int) {
+            self.rawValue = rawValue
+        }
+        
+        /**
+         * No preferred coding when transmitting on the LE Coded PHY.
+         */
+        public static let noPreferred = Android.Bluetooth.Gatt.PhyOptions(rawValue: Android.Bluetooth.Device.PHY_OPTION_NO_PREFERRED)
+        
+        /**
+         * Prefer the S=2 coding to be used when transmitting on the LE Coded PHY.
+         */
+        public static let optionS2 = Android.Bluetooth.Gatt.PhyOptions(rawValue: Android.Bluetooth.Device.PHY_OPTION_S2)
+        
+        /**
+         * Prefer the S=8 coding to be used when transmitting on the LE Coded PHY.
+         */
+        public static let optionS8 = Android.Bluetooth.Gatt.PhyOptions(rawValue: Android.Bluetooth.Device.PHY_OPTION_S8)
+    }
 }
 
 // MARK: - JNICache
@@ -701,9 +778,10 @@ internal extension AndroidBluetoothGatt {
             static var disconnect: jmethodID?
             static var discoverServices: jmethodID?
             static var executeReliableWrite: jmethodID?
-            static var getConnectedDevices: jmethodID?
+            static var getConnectedDevices: jmethodID? // Not supported
+            static var getConnectionState: jmethodID?  // Not supported
             static var getDevice: jmethodID?
-            static var getDevicesMatchingConnectionStates: jmethodID?
+            static var getDevicesMatchingConnectionStates: jmethodID? // Not supported
             static var getService: jmethodID?
             static var getServices: jmethodID?
             static var readCharacteristic: jmethodID?
