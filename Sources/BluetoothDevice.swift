@@ -15,6 +15,11 @@ public extension Android.Bluetooth {
     public typealias Device = AndroidBluetoothDevice
 }
 
+public extension Android.Bluetooth.Device {
+    
+    public typealias DeviceType = AndroidBluetoothLowEnergyDeviceType
+}
+
 public final class AndroidBluetoothDevice: JavaObject {
     
     public convenience init?( casting object: java_swift.JavaObject,
@@ -35,6 +40,11 @@ public final class AndroidBluetoothDevice: JavaObject {
     public var address: Bluetooth.Address {
         
         get { return Address(rawValue: getAddress())! }
+    }
+    
+    public var type: Android.Bluetooth.Device.DeviceType {
+        
+        get { return getType() }
     }
 }
 
@@ -962,7 +972,8 @@ public extension Android.Bluetooth.Device {
     /**
      * Get the Bluetooth device type of the remote device.
      */
-    public func getType() -> Int {
+    @_versioned
+    internal func getType() -> Android.Bluetooth.Device.DeviceType {
         
         var __locals = [jobject]()
         
@@ -974,7 +985,7 @@ public extension Android.Bluetooth.Device {
                                                methodCache: &JNICache.MethodID.getType,
                                                args: &__args,
                                                locals: &__locals)
-        return Int(__return)
+        return Android.Bluetooth.Device.DeviceType(rawValue: Int(__return))
     }
     
     /**
@@ -1039,6 +1050,46 @@ public extension Android.Bluetooth.Device {
     }
 }
 
+// MARK: - Suporting type
+
+public extension Android.Bluetooth.Device {
+    
+    public struct AndroidBluetoothLowEnergyDeviceType: RawRepresentable {
+        
+        public let rawValue: Int
+        
+        public init(rawValue: Int) {
+            self.rawValue = rawValue
+        }
+        
+        /**
+         * Indicates the remote device is not bonded (paired).
+         *
+         * There is no shared link key with the remote device, so communication (if it is allowed at all) will be unauthenticated and unencrypted.
+         */
+        public static let none = Android.Bluetooth.Device.DeviceType(rawValue: Android.Bluetooth.Device.BOND_NONE)
+        
+        /**
+         * Bluetooth device type, Classic - BR/EDR devices
+         */
+        public static let classic = Android.Bluetooth.Device.DeviceType(rawValue: Android.Bluetooth.Device.DEVICE_TYPE_CLASSIC)
+        
+        /**
+         * Bluetooth device type, Dual Mode - BR/EDR/LE
+         */
+        public static let dual = Android.Bluetooth.Device.DeviceType(rawValue: Android.Bluetooth.Device.DEVICE_TYPE_DUAL)
+        
+        /**
+         * Bluetooth device type, Low Energy - LE-only
+         */
+        public static let le = Android.Bluetooth.Device.DeviceType(rawValue: Android.Bluetooth.Device.DEVICE_TYPE_LE)
+        
+        /**
+         * Bluetooth device type, Unknown
+         */
+        public static let unknow = Android.Bluetooth.Device.DeviceType(rawValue: Android.Bluetooth.Device.DEVICE_TYPE_UNKNOWN)
+    }
+}
 
 // MARK: - JNI
 
