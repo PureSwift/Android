@@ -18,6 +18,9 @@ public extension Android.Bluetooth {
 public extension Android.Bluetooth.Device {
     
     public typealias DeviceType = AndroidBluetoothLowEnergyDeviceType
+    
+    
+    public typealias BondState = AndroidBluetoothLowEnergyBondState
 }
 
 public final class AndroidBluetoothDevice: JavaObject {
@@ -45,6 +48,11 @@ public final class AndroidBluetoothDevice: JavaObject {
     public var type: Android.Bluetooth.Device.DeviceType {
         
         get { return getType() }
+    }
+    
+    public var bondType: Android.Bluetooth.Device.BondState {
+        
+        get { return getBondState() }
     }
 }
 
@@ -933,7 +941,8 @@ public extension Android.Bluetooth.Device {
     /**
      * Get the bond state of the remote device.
      */
-    public func getBondState() -> Int {
+    @_versioned
+    internal func getBondState() -> Android.Bluetooth.Device.BondState {
         
         var __locals = [jobject]()
         
@@ -945,7 +954,7 @@ public extension Android.Bluetooth.Device {
                                                methodCache: &JNICache.MethodID.getBondState,
                                                args: &__args,
                                                locals: &__locals)
-        return Int(__return)
+        return Android.Bluetooth.Device.BondState(rawValue: Int(__return))
     }
     
     /**
@@ -1063,13 +1072,6 @@ public extension Android.Bluetooth.Device {
         }
         
         /**
-         * Indicates the remote device is not bonded (paired).
-         *
-         * There is no shared link key with the remote device, so communication (if it is allowed at all) will be unauthenticated and unencrypted.
-         */
-        public static let none = Android.Bluetooth.Device.DeviceType(rawValue: Android.Bluetooth.Device.BOND_NONE)
-        
-        /**
          * Bluetooth device type, Classic - BR/EDR devices
          */
         public static let classic = Android.Bluetooth.Device.DeviceType(rawValue: Android.Bluetooth.Device.DEVICE_TYPE_CLASSIC)
@@ -1088,6 +1090,30 @@ public extension Android.Bluetooth.Device {
          * Bluetooth device type, Unknown
          */
         public static let unknow = Android.Bluetooth.Device.DeviceType(rawValue: Android.Bluetooth.Device.DEVICE_TYPE_UNKNOWN)
+    }
+    
+    public struct AndroidBluetoothLowEnergyBondState: RawRepresentable {
+        
+        public let rawValue: Int
+        
+        public init(rawValue: Int) {
+            self.rawValue = rawValue
+        }
+        
+        /**
+         * Indicates the remote device is not bonded (paired).
+         */
+        public static let none = Android.Bluetooth.Device.BondState(rawValue: Android.Bluetooth.Device.BOND_NONE)
+        
+        /**
+         * Indicates bonding (pairing) is in progress with the remote device.
+         */
+        public static let bonding = Android.Bluetooth.Device.BondState(rawValue: Android.Bluetooth.Device.BOND_BONDING)
+        
+        /**
+         * Indicates the remote device is bonded (paired).
+         */
+        public static let bonded = Android.Bluetooth.Device.BondState(rawValue: Android.Bluetooth.Device.BOND_BONDED)
     }
 }
 
