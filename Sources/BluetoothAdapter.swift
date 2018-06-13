@@ -31,37 +31,6 @@ public final class AndroidBluetoothAdapter: JavaObject {
     public required init( javaObject: jobject? ) {
         super.init(javaObject: javaObject)
     }
-        
-    /**
-     * Get a handle to the default local Bluetooth adapter.
-     *
-     * Currently Android only supports one Bluetooth adapter, but the API
-     * could be extended to support more. This will always return the default
-     * adapter.
-     *
-     * - Returns: The default local adapter, or null if Bluetooth is not supported on this hardware platform.
-     */
-    @_versioned
-    internal static func getDefaultAdapter() -> Android.Bluetooth.Adapter? {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue].init(repeating: jvalue(), count: 1)
-        
-        let __return = JNIMethod.CallStaticObjectMethod(className: JNICache.className,
-                                                        classCache: &JNICache.jniClass,
-                                                        methodName: "getDefaultAdapter",
-                                                        methodSig: JNIMethodSignature(
-                                                            argumentTypes: [],
-                                                            returnType: .object(JNICache.classSignature)).rawValue,
-                                                        methodCache: &JNICache.MethodID.getDefaultAdapter,
-                                                        args: &__args,
-                                                        locals: &__locals)
-        
-        defer { JNI.DeleteLocalRef( __return ) }
-                
-        return __return != nil ? Android.Bluetooth.Adapter( javaObject: __return ) : nil
-    }
     
     /**
      * Get a handle to the default local Bluetooth adapter.
@@ -670,7 +639,8 @@ public extension Android.Bluetooth.Adapter {
     /**
      * Returns the hardware address of the local Bluetooth adapter.
      */
-    public func getAddress() -> String {
+    @_versioned
+    internal func getAddress() -> String {
         
         var __locals = [jobject]()
         
@@ -753,25 +723,35 @@ public extension Android.Bluetooth.Adapter {
     
     /**
      * Get a handle to the default local Bluetooth adapter.
+     *
+     * Currently Android only supports one Bluetooth adapter, but the API
+     * could be extended to support more. This will always return the default
+     * adapter.
+     *
+     * - Returns: The default local adapter, or null if Bluetooth is not supported on this hardware platform.
      */
-    public class func getDefaultAdapter() -> Android.Bluetooth.Adapter {
+    @_versioned
+    internal static func getDefaultAdapter() -> Android.Bluetooth.Adapter? {
         
         var __locals = [jobject]()
         
-        var __args = [jvalue](repeating: jvalue(), count: 1)
+        var __args = [jvalue].init(repeating: jvalue(), count: 1)
         
         let __return = JNIMethod.CallStaticObjectMethod(className: JNICache.className,
-                                                         classCache: &JNICache.jniClass,
-                                                         methodName: "getDefaultAdapter",
-                                                         methodSig: "()Landroid/bluetooth/BluetoothAdapter;",
-                                                         methodCache: &JNICache.MethodID.getDefaultAdapter,
-                                                         args: &__args,
-                                                         locals: &__locals)
+                                                        classCache: &JNICache.jniClass,
+                                                        methodName: "getDefaultAdapter",
+                                                        methodSig: JNIMethodSignature(
+                                                            argumentTypes: [],
+                                                            returnType: .object(JNICache.classSignature)).rawValue,
+                                                        methodCache: &JNICache.MethodID.getDefaultAdapter,
+                                                        args: &__args,
+                                                        locals: &__locals)
         
         defer { JNI.DeleteLocalRef( __return ) }
         
-        return Android.Bluetooth.Adapter(javaObject: __return)
+        return __return != nil ? Android.Bluetooth.Adapter( javaObject: __return ) : nil
     }
+    
     
     /**
      * Return the maximum LE advertising data length in bytes, if LE Extended Advertising feature is supported, 0 otherwise.
@@ -1266,6 +1246,9 @@ internal extension Android.Bluetooth.Adapter {
             static var listenUsingRfcommWithServiceRecord: jmethodID?
             static var setName: jmethodID?
             static var startDiscovery: jmethodID?
+            static var startLeScan: jmethodID? //deprecated api 21
+            static var startLeScan2: jmethodID? //deprecated api 21
+            static var startLeScan3: jmethodID? //deprecated api 21
         }
     }
 }
