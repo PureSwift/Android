@@ -1249,6 +1249,7 @@ internal extension Android.Bluetooth.Adapter {
             static var startLeScan: jmethodID? //deprecated api 21
             static var startLeScan2: jmethodID? //deprecated api 21
             static var startLeScan3: jmethodID? //deprecated api 21
+            static var stopLeScan: jmethodID? //deprecated api 21
         }
     }
 }
