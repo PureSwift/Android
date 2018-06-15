@@ -10,7 +10,7 @@ import java_swift
 import java_util
 import JNI
 
-public extension Android.Bluetooth.LE {
+public extension Android.Bluetooth {
     
     public typealias GattServerCallback = AndroidBluetoothGattServerCallback
 }
