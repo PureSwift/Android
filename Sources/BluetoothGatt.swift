@@ -24,6 +24,8 @@ public extension Android.Bluetooth.Gatt {
     public typealias RxPhy = AndroidBluetoothRxPhy
     
     public typealias PhyOptions = AndroidBluetoothPhyOptions
+    
+    public typealias Status = AndroidBluetoothGattStatus
 }
 
 
@@ -130,6 +132,22 @@ internal extension AndroidBluetoothGatt {
                 fieldName: "GATT_INSUFFICIENT_AUTHENTICATION",
                 fieldType: "I",
                 fieldCache: &JNICache.FieldID.GATT_INSUFFICIENT_AUTHENTICATION,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    /// A GATT operation failed, errors other than the above
+    internal static var GATT_FAILURE: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "GATT_FAILURE",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.GATT_FAILURE,
                 className: JNICache.className,
                 classCache: &JNICache.jniClass )
             
@@ -738,6 +756,65 @@ public extension AndroidBluetoothGatt {
          * Prefer the S=8 coding to be used when transmitting on the LE Coded PHY.
          */
         public static let optionS8 = Android.Bluetooth.Gatt.PhyOptions(rawValue: Android.Bluetooth.Device.PHY_OPTION_S8)
+    }
+    
+    public struct AndroidBluetoothGattStatus: RawRepresentable {
+        
+        public let rawValue: Int
+        
+        public init(rawValue: Int) {
+            self.rawValue = rawValue
+        }
+        
+        /**
+         * A remote device connection is congested.
+         */
+        public static let connectionCongested = Android.Bluetooth.Gatt.Status(rawValue: Android.Bluetooth.Gatt.GATT_CONNECTION_CONGESTED)
+        
+        /**
+         * A GATT operation failed, errors other than the above
+         */
+        public static let failure = Android.Bluetooth.Gatt.Status(rawValue: Android.Bluetooth.Gatt.GATT_FAILURE)
+        
+        /**
+         * Insufficient authentication for a given operation
+         */
+        public static let insufficientAuthentication = Android.Bluetooth.Gatt.Status(rawValue: Android.Bluetooth.Gatt.GATT_INSUFFICIENT_AUTHENTICATION)
+        
+        /**
+         * Insufficient encryption for a given operation
+         */
+        public static let insufficientEncryption = Android.Bluetooth.Gatt.Status(rawValue: Android.Bluetooth.Gatt.GATT_INSUFFICIENT_ENCRYPTION)
+        
+        /**
+         * A write operation exceeds the maximum length of the attribute
+         */
+        public static let invalidAttibuteLength = Android.Bluetooth.Gatt.Status(rawValue: Android.Bluetooth.Gatt.GATT_INVALID_ATTRIBUTE_LENGTH)
+        
+        /**
+         * A read or write operation was requested with an invalid offset
+         */
+        public static let invalidOffset = Android.Bluetooth.Gatt.Status(rawValue: Android.Bluetooth.Gatt.GATT_INVALID_OFFSET)
+        
+        /**
+         * GATT read operation is not permitted
+         */
+        public static let readNotPermitted = Android.Bluetooth.Gatt.Status(rawValue: Android.Bluetooth.Gatt.GATT_READ_NOT_PERMITTED)
+        
+        /**
+         * The given request is not supported
+         */
+        public static let requestNotSupported = Android.Bluetooth.Gatt.Status(rawValue: Android.Bluetooth.Gatt.GATT_REQUEST_NOT_SUPPORTED)
+        
+        /**
+         * A GATT operation completed successfully
+         */
+        public static let success = Android.Bluetooth.Gatt.Status(rawValue: Android.Bluetooth.Gatt.GATT_SUCCESS)
+        
+        /**
+         * GATT write operation is not permitted
+         */
+        public static let writeNotPermitted = Android.Bluetooth.Gatt.Status(rawValue: Android.Bluetooth.Gatt.GATT_WRITE_NOT_PERMITTED)
     }
 }
 
