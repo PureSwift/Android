@@ -104,8 +104,7 @@ internal extension AndroidBluetoothGattCallbackLocal {
                     argumentTypes: [
                         .long,
                         .object(Android.Bluetooth.Gatt.JNICache.classSignature),
-                        .object(Android.Bluetooth.GattCharacteristic.JNICache.classSignature),
-                        .int
+                        .object(Android.Bluetooth.GattCharacteristic.JNICache.classSignature)
                     ], returnType: .void)
                 
                 static let thunk: AndroidBluetoothGattCallback_OnCharacteristicChanged_Type = AndroidBluetoothGattCallback_onCharacteristicChanged
@@ -141,6 +140,150 @@ internal extension AndroidBluetoothGattCallbackLocal {
                     ], returnType: .void)
                 
                 static let thunk: AndroidBluetoothGattCallback_OnCharacteristicWrite_Type = AndroidBluetoothGattCallback_onCharacteristicWrite
+            }
+            
+            internal
+            enum onConnectionStateChange: JNINativeMethodEntry {
+                
+                static let name = "__onConnectionStateChange"
+                
+                static let signature = JNIMethodSignature(
+                    argumentTypes: [
+                        .long,
+                        .object(Android.Bluetooth.Gatt.JNICache.classSignature),
+                        .int,
+                        .int
+                    ], returnType: .void)
+                
+                static let thunk: AndroidBluetoothGattCallback_OnConnectionStateChange_Type = AndroidBluetoothGattCallback_onConnectionStateChange
+            }
+            
+            internal
+            enum onDescriptorRead: JNINativeMethodEntry {
+                
+                static let name = "__onDescriptorRead"
+                
+                static let signature = JNIMethodSignature(
+                    argumentTypes: [
+                        .long,
+                        .object(Android.Bluetooth.Gatt.JNICache.classSignature),
+                        .object(Android.Bluetooth.GattDescriptor.JNICache.classSignature),
+                        .int
+                    ], returnType: .void)
+                
+                static let thunk: AndroidBluetoothGattCallback_OnDescriptorRead_Type = AndroidBluetoothGattCallback_onDescriptorRead
+            }
+            
+            internal
+            enum onDescriptorWrite: JNINativeMethodEntry {
+                
+                static let name = "__onDescriptorWrite"
+                
+                static let signature = JNIMethodSignature(
+                    argumentTypes: [
+                        .long,
+                        .object(Android.Bluetooth.Gatt.JNICache.classSignature),
+                        .object(Android.Bluetooth.GattDescriptor.JNICache.classSignature),
+                        .int
+                    ], returnType: .void)
+                
+                static let thunk: AndroidBluetoothGattCallback_OnDescriptorWrite_Type = AndroidBluetoothGattCallback_onDescriptorWrite
+            }
+            
+            internal
+            enum onMtuChanged: JNINativeMethodEntry {
+                
+                static let name = "__onMtuChanged"
+                
+                static let signature = JNIMethodSignature(
+                    argumentTypes: [
+                        .long,
+                        .object(Android.Bluetooth.Gatt.JNICache.classSignature),
+                        .int,
+                        .int
+                    ], returnType: .void)
+                
+                static let thunk: AndroidBluetoothGattCallback_OnMtuChanged_Type = AndroidBluetoothGattCallback_onMtuChanged
+            }
+            
+            internal
+            enum onPhyRead: JNINativeMethodEntry {
+                
+                static let name = "__onPhyRead"
+                
+                static let signature = JNIMethodSignature(
+                    argumentTypes: [
+                        .long,
+                        .object(Android.Bluetooth.Gatt.JNICache.classSignature),
+                        .int,
+                        .int,
+                        .int
+                    ], returnType: .void)
+                
+                static let thunk: AndroidBluetoothGattCallback_OnPhyRead_Type = AndroidBluetoothGattCallback_onPhyRead
+            }
+            
+            internal
+            enum onPhyUpdate: JNINativeMethodEntry {
+                
+                static let name = "__onPhyUpdate"
+                
+                static let signature = JNIMethodSignature(
+                    argumentTypes: [
+                        .long,
+                        .object(Android.Bluetooth.Gatt.JNICache.classSignature),
+                        .int,
+                        .int,
+                        .int
+                    ], returnType: .void)
+                
+                static let thunk: AndroidBluetoothGattCallback_OnPhyUpdate_Type = AndroidBluetoothGattCallback_onPhyUpdate
+            }
+            
+            internal
+            enum onReadRemoteRssi: JNINativeMethodEntry {
+                
+                static let name = "__onReadRemoteRssi"
+                
+                static let signature = JNIMethodSignature(
+                    argumentTypes: [
+                        .long,
+                        .object(Android.Bluetooth.Gatt.JNICache.classSignature),
+                        .int,
+                        .int
+                    ], returnType: .void)
+                
+                static let thunk: AndroidBluetoothGattCallback_OnReadRemoteRssi_Type = AndroidBluetoothGattCallback_onReadRemoteRssi
+            }
+            
+            internal
+            enum onReliableWriteCompleted: JNINativeMethodEntry {
+                
+                static let name = "__onReliableWriteCompleted"
+                
+                static let signature = JNIMethodSignature(
+                    argumentTypes: [
+                        .long,
+                        .object(Android.Bluetooth.Gatt.JNICache.classSignature),
+                        .int
+                    ], returnType: .void)
+                
+                static let thunk: AndroidBluetoothGattCallback_OnReliableWriteCompleted_Type = AndroidBluetoothGattCallback_onReliableWriteCompleted
+            }
+            
+            internal
+            enum onServicesDiscovered: JNINativeMethodEntry {
+                
+                static let name = "__onServicesDiscovered"
+                
+                static let signature = JNIMethodSignature(
+                    argumentTypes: [
+                        .long,
+                        .object(Android.Bluetooth.Gatt.JNICache.classSignature),
+                        .int
+                    ], returnType: .void)
+                
+                static let thunk: AndroidBluetoothGattCallback_OnServicesDiscovered_Type = AndroidBluetoothGattCallback_onServicesDiscovered
             }
         }
     }
@@ -200,4 +343,175 @@ private func AndroidBluetoothGattCallback_onCharacteristicWrite( _ __env: Unsafe
     AndroidBluetoothGattCallbackLocal
         .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
         .onCharacteristicWrite(gatt: gatt, characteristic: characteristic, status: status)
+}
+
+private typealias AndroidBluetoothGattCallback_OnConnectionStateChange_Type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject?, _: jint, _: jint) -> ()
+
+private func AndroidBluetoothGattCallback_onConnectionStateChange( _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                                                 _ __this: jobject?,
+                                                                 _ __swiftObject: jlong,
+                                                                 _ gattParam: jobject?,
+                                                                 _ statusParam: jint,
+                                                                 _ newStatusParam: jint) -> () {
+    let gatt = Android.Bluetooth.Gatt(javaObject: gattParam)
+    
+    let status = Android.Bluetooth.Gatt.Status(rawValue: Int(statusParam))
+    
+    let newStatus = Android.Bluetooth.Gatt.Status(rawValue: Int(newStatusParam))
+    
+    AndroidBluetoothGattCallbackLocal
+        .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
+        .onConnectionStateChange(gatt: gatt, status: status, newStatus: newStatus)
+}
+
+private typealias AndroidBluetoothGattCallback_OnDescriptorRead_Type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject?, _: jobject?, _: jint) -> ()
+
+private func AndroidBluetoothGattCallback_onDescriptorRead( _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                                                   _ __this: jobject?,
+                                                                   _ __swiftObject: jlong,
+                                                                   _ gattParam: jobject?,
+                                                                   _ descriptorParam: jobject?,
+                                                                   _ statusParam: jint) -> () {
+    let gatt = Android.Bluetooth.Gatt(javaObject: gattParam)
+    
+    let descriptor = Android.Bluetooth.GattDescriptor(javaObject: descriptorParam)
+    
+    let status = Android.Bluetooth.Gatt.Status(rawValue: Int(statusParam))
+    
+    AndroidBluetoothGattCallbackLocal
+        .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
+        .onDescriptorRead(gatt: gatt, descriptor: descriptor, status: status)
+}
+
+private typealias AndroidBluetoothGattCallback_OnDescriptorWrite_Type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject?, _: jobject?, _: jint) -> ()
+
+private func AndroidBluetoothGattCallback_onDescriptorWrite( _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                                            _ __this: jobject?,
+                                                            _ __swiftObject: jlong,
+                                                            _ gattParam: jobject?,
+                                                            _ descriptorParam: jobject?,
+                                                            _ statusParam: jint) -> () {
+    let gatt = Android.Bluetooth.Gatt(javaObject: gattParam)
+    
+    let descriptor = Android.Bluetooth.GattDescriptor(javaObject: descriptorParam)
+    
+    let status = Android.Bluetooth.Gatt.Status(rawValue: Int(statusParam))
+    
+    AndroidBluetoothGattCallbackLocal
+        .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
+        .onDescriptorWrite(gatt: gatt, descriptor: descriptor, status: status)
+}
+
+private typealias AndroidBluetoothGattCallback_OnMtuChanged_Type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject?, _: jint, _: jint) -> ()
+
+private func AndroidBluetoothGattCallback_onMtuChanged( _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                                             _ __this: jobject?,
+                                                             _ __swiftObject: jlong,
+                                                             _ gattParam: jobject?,
+                                                             _ mtuParam: jint,
+                                                             _ statusParam: jint) -> () {
+    let gatt = Android.Bluetooth.Gatt(javaObject: gattParam)
+    
+    let mtu = Int(mtuParam)
+    
+    let status = Android.Bluetooth.Gatt.Status(rawValue: Int(statusParam))
+    
+    AndroidBluetoothGattCallbackLocal
+        .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
+        .onMtuChanged(gatt: gatt, mtu: mtu, status: status)
+}
+
+private typealias AndroidBluetoothGattCallback_OnPhyRead_Type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject?, _: jint, _: jint, _: jint) -> ()
+
+private func AndroidBluetoothGattCallback_onPhyRead( _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                                        _ __this: jobject?,
+                                                        _ __swiftObject: jlong,
+                                                        _ gattParam: jobject?,
+                                                        _ txPhyParam: jint,
+                                                        _ rxPhyParam: jint,
+                                                        _ statusParam: jint) -> () {
+    let gatt = Android.Bluetooth.Gatt(javaObject: gattParam)
+    
+    let txPhy = Android.Bluetooth.Gatt.TxPhy(rawValue: Int(txPhyParam))
+    
+    let rxPhy = Android.Bluetooth.Gatt.RxPhy(rawValue: Int(rxPhyParam))
+    
+    let status = Android.Bluetooth.Gatt.Status(rawValue: Int(statusParam))
+    
+    AndroidBluetoothGattCallbackLocal
+        .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
+        .onPhyRead(gatt: gatt, txPhy: txPhy, rxPhy: rxPhy, status: status)
+}
+
+private typealias AndroidBluetoothGattCallback_OnPhyUpdate_Type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject?, _: jint, _: jint, _: jint) -> ()
+
+private func AndroidBluetoothGattCallback_onPhyUpdate( _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                                     _ __this: jobject?,
+                                                     _ __swiftObject: jlong,
+                                                     _ gattParam: jobject?,
+                                                     _ txPhyParam: jint,
+                                                     _ rxPhyParam: jint,
+                                                     _ statusParam: jint) -> () {
+    let gatt = Android.Bluetooth.Gatt(javaObject: gattParam)
+    
+    let txPhy = Android.Bluetooth.Gatt.TxPhy(rawValue: Int(txPhyParam))
+    
+    let rxPhy = Android.Bluetooth.Gatt.RxPhy(rawValue: Int(rxPhyParam))
+    
+    let status = Android.Bluetooth.Gatt.Status(rawValue: Int(statusParam))
+    
+    AndroidBluetoothGattCallbackLocal
+        .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
+        .onPhyUpdate(gatt: gatt, txPhy: txPhy, rxPhy: rxPhy, status: status)
+}
+
+private typealias AndroidBluetoothGattCallback_OnReadRemoteRssi_Type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject?, _: jint, _: jint) -> ()
+
+private func AndroidBluetoothGattCallback_onReadRemoteRssi( _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                                       _ __this: jobject?,
+                                                       _ __swiftObject: jlong,
+                                                       _ gattParam: jobject?,
+                                                       _ rssiParam: jint,
+                                                       _ statusParam: jint) -> () {
+    let gatt = Android.Bluetooth.Gatt(javaObject: gattParam)
+    
+    let rssi = Int(rssiParam)
+    
+    let status = Android.Bluetooth.Gatt.Status(rawValue: Int(statusParam))
+    
+    AndroidBluetoothGattCallbackLocal
+        .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
+        .onReadRemoteRssi(gatt: gatt, rssi: rssi, status: status)
+}
+
+private typealias AndroidBluetoothGattCallback_OnReliableWriteCompleted_Type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject?, _: jint) -> ()
+
+private func AndroidBluetoothGattCallback_onReliableWriteCompleted( _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                                            _ __this: jobject?,
+                                                            _ __swiftObject: jlong,
+                                                            _ gattParam: jobject?,
+                                                            _ statusParam: jint) -> () {
+    let gatt = Android.Bluetooth.Gatt(javaObject: gattParam)
+
+    let status = Android.Bluetooth.Gatt.Status(rawValue: Int(statusParam))
+    
+    AndroidBluetoothGattCallbackLocal
+        .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
+        .onReliableWriteCompleted(gatt: gatt, status: status)
+}
+
+private typealias AndroidBluetoothGattCallback_OnServicesDiscovered_Type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject?, _: jint) -> ()
+
+private func AndroidBluetoothGattCallback_onServicesDiscovered( _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                                                    _ __this: jobject?,
+                                                                    _ __swiftObject: jlong,
+                                                                    _ gattParam: jobject?,
+                                                                    _ statusParam: jint) -> () {
+    let gatt = Android.Bluetooth.Gatt(javaObject: gattParam)
+    
+    let status = Android.Bluetooth.Gatt.Status(rawValue: Int(statusParam))
+    
+    AndroidBluetoothGattCallbackLocal
+        .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
+        .onServicesDiscovered(gatt: gatt, status: status)
 }
