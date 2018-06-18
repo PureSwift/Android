@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/PureSwift/Bluetooth.git",
         "state": {
           "branch": null,
-          "revision": "c0aa0394517e0a5dd9fab0353404b1ae244c2f27",
-          "version": "1.5.7"
+          "revision": "855bde5e8f541b37cc14ff3a11eb9893a8d8793e",
+          "version": "2.1.0"
         }
       },
       {
@@ -24,8 +24,8 @@
         "repositoryURL": "https://github.com/SwiftJava/java_lang.git",
         "state": {
           "branch": null,
-          "revision": "c9b8b55fd8f40bc25ec2c49fa03a7d3a51b78766",
-          "version": "2.1.1"
+          "revision": "3e3404bcdc29d6bc03ceed17d95e05f0254f7679",
+          "version": "2.3.2"
         }
       },
       {
@@ -33,8 +33,8 @@
         "repositoryURL": "https://github.com/SwiftJava/java_swift.git",
         "state": {
           "branch": null,
-          "revision": "1d31a0c46d90e3588a192509390aca022d03080b",
-          "version": "2.2.1"
+          "revision": "b898d1e2a3440e4d8549ef2840f9f0e97c6289de",
+          "version": "2.3.2"
         }
       },
       {
@@ -42,8 +42,8 @@
         "repositoryURL": "https://github.com/SwiftJava/java_util.git",
         "state": {
           "branch": null,
-          "revision": "61005cba6a74e0d080ac1949b2eadab46dc4602b",
-          "version": "2.1.0"
+          "revision": "496b963217a7bf3b3c028db11ede5cfcbb3540e6",
+          "version": "2.3.2"
         }
       },
       {
@@ -51,8 +51,8 @@
         "repositoryURL": "https://github.com/PureSwift/JNI.git",
         "state": {
           "branch": null,
-          "revision": "be728c97a88125670fe6ea23d5ce529a61d0e599",
-          "version": "1.0.2"
+          "revision": "983ece85363e1c26ad5719404502d81b0b13f2d5",
+          "version": "1.0.3"
         }
       }
     ]
