@@ -37,6 +37,11 @@ public enum Android: JavaPackage {
         public static let package: JNIPackage = Android.package + ["view"]
     }
     
+    public enum App: JavaPackage {
+        
+        public static let package: JNIPackage = Android.package + ["app"]
+    }
+    
     public enum Bluetooth: JavaPackage {
         
         public static let package: JNIPackage = Android.package + ["bluetooth"]
@@ -66,6 +71,11 @@ public enum SwiftSupport: JavaPackage {
     public enum Widget: JavaPackage {
         
         public static let package: JNIPackage = SwiftSupport.package + ["widget"]
+    }
+    
+    public enum App: JavaPackage {
+        
+        public static let package: JNIPackage = SwiftSupport.package + ["app"]
     }
 }
 
