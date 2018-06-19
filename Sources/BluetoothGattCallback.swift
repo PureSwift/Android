@@ -24,7 +24,7 @@ public protocol AndroidBluetoothGattCallback: JavaProtocol {
     
     func onCharacteristicWrite(gatt: Android.Bluetooth.Gatt, characteristic: Android.Bluetooth.GattCharacteristic, status: Android.Bluetooth.Gatt.Status)
     
-    func onConnectionStateChange(gatt: Android.Bluetooth.Gatt, status: Android.Bluetooth.Gatt.Status, newStatus: Android.Bluetooth.Gatt.Status)
+    func onConnectionStateChange(gatt: Android.Bluetooth.Gatt, status: Android.Bluetooth.Gatt.Status, newState: Android.Bluetooth.Device.State)
     
     func onDescriptorRead(gatt: Android.Bluetooth.Gatt, descriptor: Android.Bluetooth.GattDescriptor, status: Android.Bluetooth.Gatt.Status)
     
@@ -352,16 +352,16 @@ private func AndroidBluetoothGattCallback_onConnectionStateChange( _ __env: Unsa
                                                                  _ __swiftObject: jlong,
                                                                  _ gattParam: jobject?,
                                                                  _ statusParam: jint,
-                                                                 _ newStatusParam: jint) -> () {
+                                                                 _ newStateParam: jint) -> () {
     let gatt = Android.Bluetooth.Gatt(javaObject: gattParam)
     
     let status = Android.Bluetooth.Gatt.Status(rawValue: Int(statusParam))
     
-    let newStatus = Android.Bluetooth.Gatt.Status(rawValue: Int(newStatusParam))
+    let newState = Android.Bluetooth.Device.State(rawValue: Int(newStateParam))
     
     AndroidBluetoothGattCallbackLocal
         .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
-        .onConnectionStateChange(gatt: gatt, status: status, newStatus: newStatus)
+        .onConnectionStateChange(gatt: gatt, status: status, newState: newState)
 }
 
 private typealias AndroidBluetoothGattCallback_OnDescriptorRead_Type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject?, _: jobject?, _: jint) -> ()

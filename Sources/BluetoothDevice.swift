@@ -19,8 +19,9 @@ public extension Android.Bluetooth.Device {
     
     public typealias DeviceType = AndroidBluetoothLowEnergyDeviceType
     
-    
     public typealias BondState = AndroidBluetoothLowEnergyBondState
+    
+     public typealias State = AndroidBluetoothLowEnergyState
 }
 
 public final class AndroidBluetoothDevice: JavaObject {
@@ -1114,6 +1115,25 @@ public extension Android.Bluetooth.Device {
          * Indicates the remote device is bonded (paired).
          */
         public static let bonded = Android.Bluetooth.Device.BondState(rawValue: Android.Bluetooth.Device.BOND_BONDED)
+    }
+    
+    public struct AndroidBluetoothLowEnergyState: RawRepresentable {
+        
+        public let rawValue: Int
+        
+        public init(rawValue: Int) {
+            self.rawValue = rawValue
+        }
+        
+        /**
+         * The profile is in connected state
+         */
+        public static let connected = Android.Bluetooth.Device.State(rawValue: Android.Bluetooth.Profile.Constants.STATE_CONNECTED)
+        
+        /**
+         * The profile is in disconnected state
+         */
+        public static let disconnected = Android.Bluetooth.Device.State(rawValue: Android.Bluetooth.Profile.Constants.STATE_DISCONNECTED)
     }
 }
 
