@@ -712,7 +712,7 @@ public extension Android.Bluetooth.Device {
     /**
      * Connect to GATT Server hosted by this device.
      */
-    public func connectGatt(context: Android.Content.Context, autoConnect: Bool, callback: JavaObject) -> Android.Bluetooth.Gatt {
+    public func connectGatt(context: Android.Content.Context, autoConnect: Bool, callback: Android.Bluetooth.GattCallback) -> Android.Bluetooth.Gatt {
         
         var __locals = [jobject]()
         
