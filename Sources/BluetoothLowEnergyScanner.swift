@@ -163,7 +163,7 @@ public extension AndroidBluetoothLowEnergyScanner {
             object: javaObject,
             methodName: "startScan",
             methodSig: "(Landroid/bluetooth/le/ScanCallback;)V",
-            methodCache: &JNICache.MethodID.startScan3,
+            methodCache: &JNICache.MethodID.startScan2,
             args: &__args,
             locals: &__locals )
     }
