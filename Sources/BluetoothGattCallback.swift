@@ -59,7 +59,18 @@ internal class AndroidBluetoothGattCallbackLocal: JNILocalProxy<AndroidBluetooth
     fileprivate static let _proxyClass: jclass = {
         
         var natives: [JNINativeMethod] = [
-            //JNICache.Method.onScanResult.method,
+            JNICache.Method.onCharacteristicChanged.method,
+            JNICache.Method.onCharacteristicRead.method,
+            JNICache.Method.onCharacteristicWrite.method,
+            JNICache.Method.onConnectionStateChange.method,
+            JNICache.Method.onDescriptorRead.method,
+            JNICache.Method.onDescriptorWrite.method,
+            JNICache.Method.onMtuChanged.method,
+            JNICache.Method.onPhyRead.method,
+            JNICache.Method.onPhyUpdate.method,
+            JNICache.Method.onReadRemoteRssi.method,
+            JNICache.Method.onReliableWriteCompleted.method,
+            JNICache.Method.onServicesDiscovered.method,
             .finalize
         ]
         
