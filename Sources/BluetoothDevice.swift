@@ -724,7 +724,7 @@ public extension Android.Bluetooth.Device {
         
         let __return = JNIMethod.CallObjectMethod(object: javaObject,
                                                   methodName: "connectGatt",
-                                                  methodSig: "(Landroid/content/Content;ZLandroid/bluetooth/BluetoothGattCallback;)Landroid/bluetooth/BluetoothGatt;",
+                                                  methodSig: "(Landroid/content/Context;ZLandroid/bluetooth/BluetoothGattCallback;)Landroid/bluetooth/BluetoothGatt;",
                                                   methodCache: &JNICache.MethodID.connectGatt,
                                                   args: &__args,
                                                   locals: &__locals)
@@ -752,7 +752,7 @@ public extension Android.Bluetooth.Device {
         
         let __return = JNIMethod.CallObjectMethod(object: javaObject,
                                                   methodName: "connectGatt",
-                                                  methodSig: "(Landroid/content/Content;ZLandroid/bluetooth/BluetoothGattCallback;IILandroid/os/Handler;)Landroid/bluetooth/BluetoothGatt;",
+                                                  methodSig: "(Landroid/content/Context;ZLandroid/bluetooth/BluetoothGattCallback;IILandroid/os/Handler;)Landroid/bluetooth/BluetoothGatt;",
                                                   methodCache: &JNICache.MethodID.connectGatt2,
                                                   args: &__args,
                                                   locals: &__locals)
@@ -779,7 +779,7 @@ public extension Android.Bluetooth.Device {
         
         let __return = JNIMethod.CallObjectMethod(object: javaObject,
                                                   methodName: "connectGatt",
-                                                  methodSig: "(Landroid/content/Content;ZLandroid/bluetooth/BluetoothGattCallback;II)Landroid/bluetooth/BluetoothGatt;",
+                                                  methodSig: "(Landroid/content/Context;ZLandroid/bluetooth/BluetoothGattCallback;II)Landroid/bluetooth/BluetoothGatt;",
                                                   methodCache: &JNICache.MethodID.connectGatt3,
                                                   args: &__args,
                                                   locals: &__locals)
@@ -805,8 +805,8 @@ public extension Android.Bluetooth.Device {
         
         let __return = JNIMethod.CallObjectMethod(object: javaObject,
                                                   methodName: "connectGatt",
-                                                  methodSig: "(Landroid/content/Content;ZLandroid/bluetooth/BluetoothGattCallback;I)Landroid/bluetooth/BluetoothGatt;",
-                                                  methodCache: &JNICache.MethodID.connectGatt3,
+                                                  methodSig: "(Landroid/content/Context;ZLandroid/bluetooth/BluetoothGattCallback;I)Landroid/bluetooth/BluetoothGatt;",
+                                                  methodCache: &JNICache.MethodID.connectGatt4,
                                                   args: &__args,
                                                   locals: &__locals)
         
