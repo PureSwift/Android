@@ -57,40 +57,40 @@ public final class AndroidBluetoothProfileConstants {
                 fieldName: "A2DP",
                 fieldType: "I",
                 fieldCache: &AndroidBluetoothProfileConstants.JNICache.FieldID.A2DP,
-                className: AndroidBluetoothProfileLocal.JNICache.className,
-                classCache: &AndroidBluetoothProfileLocal.JNICache.jniClass )
+                className: AndroidBluetoothProfileConstants.JNICache.className,
+                classCache: &AndroidBluetoothProfileConstants.JNICache.jniClass )
             
             return Int(__value)
         }
     }
     
-    internal static var EXTRA_PREVIOUS_STATE: Int {
+    internal static var EXTRA_PREVIOUS_STATE: String {
         
         get {
             
             let __value = JNIField.GetStaticIntField(
                 fieldName: "EXTRA_PREVIOUS_STATE",
-                fieldType: "I",
+                fieldType: "Ljava/lang/String;",
                 fieldCache: &AndroidBluetoothProfileConstants.JNICache.FieldID.EXTRA_PREVIOUS_STATE,
-                className: AndroidBluetoothProfileLocal.JNICache.className,
-                classCache: &AndroidBluetoothProfileLocal.JNICache.jniClass )
+                className: AndroidBluetoothProfileConstants.JNICache.className,
+                classCache: &AndroidBluetoothProfileConstants.JNICache.jniClass )
             
-            return Int(__value)
+            return String(__value)
         }
     }
     
-    internal static var EXTRA_STATE: Int {
+    internal static var EXTRA_STATE: String {
         
         get {
             
             let __value = JNIField.GetStaticIntField(
                 fieldName: "EXTRA_STATE",
-                fieldType: "I",
+                fieldType: "Ljava/lang/String;",
                 fieldCache: &AndroidBluetoothProfileConstants.JNICache.FieldID.EXTRA_STATE,
-                className: AndroidBluetoothProfileLocal.JNICache.className,
-                classCache: &AndroidBluetoothProfileLocal.JNICache.jniClass )
+                className: AndroidBluetoothProfileConstants.JNICache.className,
+                classCache: &AndroidBluetoothProfileConstants.JNICache.jniClass )
             
-            return Int(__value)
+            return String(__value)
         }
     }
     
@@ -102,8 +102,8 @@ public final class AndroidBluetoothProfileConstants {
                 fieldName: "GATT",
                 fieldType: "I",
                 fieldCache: &AndroidBluetoothProfileConstants.JNICache.FieldID.GATT,
-                className: AndroidBluetoothProfileLocal.JNICache.className,
-                classCache: &AndroidBluetoothProfileLocal.JNICache.jniClass )
+                className: AndroidBluetoothProfileConstants.JNICache.className,
+                classCache: &AndroidBluetoothProfileConstants.JNICache.jniClass )
             
             return Int(__value)
         }
@@ -117,8 +117,8 @@ public final class AndroidBluetoothProfileConstants {
                 fieldName: "GATT_SERVER",
                 fieldType: "I",
                 fieldCache: &AndroidBluetoothProfileConstants.JNICache.FieldID.GATT_SERVER,
-                className: AndroidBluetoothProfileLocal.JNICache.className,
-                classCache: &AndroidBluetoothProfileLocal.JNICache.jniClass )
+                className: AndroidBluetoothProfileConstants.JNICache.className,
+                classCache: &AndroidBluetoothProfileConstants.JNICache.jniClass )
             
             return Int(__value)
         }
@@ -132,8 +132,8 @@ public final class AndroidBluetoothProfileConstants {
                 fieldName: "HEADSET",
                 fieldType: "I",
                 fieldCache: &AndroidBluetoothProfileConstants.JNICache.FieldID.HEADSET,
-                className: AndroidBluetoothProfileLocal.JNICache.className,
-                classCache: &AndroidBluetoothProfileLocal.JNICache.jniClass )
+                className: AndroidBluetoothProfileConstants.JNICache.className,
+                classCache: &AndroidBluetoothProfileConstants.JNICache.jniClass )
             
             return Int(__value)
         }
@@ -147,8 +147,8 @@ public final class AndroidBluetoothProfileConstants {
                 fieldName: "HEALTH",
                 fieldType: "I",
                 fieldCache: &AndroidBluetoothProfileConstants.JNICache.FieldID.HEALTH,
-                className: AndroidBluetoothProfileLocal.JNICache.className,
-                classCache: &AndroidBluetoothProfileLocal.JNICache.jniClass )
+                className: AndroidBluetoothProfileConstants.JNICache.className,
+                classCache: &AndroidBluetoothProfileConstants.JNICache.jniClass )
             
             return Int(__value)
         }
@@ -162,8 +162,8 @@ public final class AndroidBluetoothProfileConstants {
                 fieldName: "HID_DEVICE",
                 fieldType: "I",
                 fieldCache: &AndroidBluetoothProfileConstants.JNICache.FieldID.HID_DEVICE,
-                className: AndroidBluetoothProfileLocal.JNICache.className,
-                classCache: &AndroidBluetoothProfileLocal.JNICache.jniClass )
+                className: AndroidBluetoothProfileConstants.JNICache.className,
+                classCache: &AndroidBluetoothProfileConstants.JNICache.jniClass )
             
             return Int(__value)
         }
@@ -177,8 +177,8 @@ public final class AndroidBluetoothProfileConstants {
                 fieldName: "SAP",
                 fieldType: "I",
                 fieldCache: &AndroidBluetoothProfileConstants.JNICache.FieldID.SAP,
-                className: AndroidBluetoothProfileLocal.JNICache.className,
-                classCache: &AndroidBluetoothProfileLocal.JNICache.jniClass )
+                className: AndroidBluetoothProfileConstants.JNICache.className,
+                classCache: &AndroidBluetoothProfileConstants.JNICache.jniClass )
             
             return Int(__value)
         }
@@ -192,8 +192,8 @@ public final class AndroidBluetoothProfileConstants {
                 fieldName: "STATE_CONNECTED",
                 fieldType: "I",
                 fieldCache: &AndroidBluetoothProfileConstants.JNICache.FieldID.STATE_CONNECTED,
-                className: AndroidBluetoothProfileLocal.JNICache.className,
-                classCache: &AndroidBluetoothProfileLocal.JNICache.jniClass )
+                className: AndroidBluetoothProfileConstants.JNICache.className,
+                classCache: &AndroidBluetoothProfileConstants.JNICache.jniClass )
             
             return Int(__value)
         }
@@ -206,8 +206,8 @@ public final class AndroidBluetoothProfileConstants {
                 fieldName: "STATE_CONNECTING",
                 fieldType: "I",
                 fieldCache: &AndroidBluetoothProfileConstants.JNICache.FieldID.STATE_CONNECTING,
-                className: AndroidBluetoothProfileLocal.JNICache.className,
-                classCache: &AndroidBluetoothProfileLocal.JNICache.jniClass )
+                className: AndroidBluetoothProfileConstants.JNICache.className,
+                classCache: &AndroidBluetoothProfileConstants.JNICache.jniClass )
             
             return Int(__value)
         }
@@ -221,8 +221,8 @@ public final class AndroidBluetoothProfileConstants {
                 fieldName: "STATE_DISCONNECTED",
                 fieldType: "I",
                 fieldCache: &AndroidBluetoothProfileConstants.JNICache.FieldID.STATE_DISCONNECTED,
-                className: AndroidBluetoothProfileLocal.JNICache.className,
-                classCache: &AndroidBluetoothProfileLocal.JNICache.jniClass )
+                className: AndroidBluetoothProfileConstants.JNICache.className,
+                classCache: &AndroidBluetoothProfileConstants.JNICache.jniClass )
             
             return Int(__value)
         }
@@ -236,8 +236,8 @@ public final class AndroidBluetoothProfileConstants {
                 fieldName: "STATE_DISCONNECTING",
                 fieldType: "I",
                 fieldCache: &AndroidBluetoothProfileConstants.JNICache.FieldID.STATE_DISCONNECTING,
-                className: AndroidBluetoothProfileLocal.JNICache.className,
-                classCache: &AndroidBluetoothProfileLocal.JNICache.jniClass )
+                className: AndroidBluetoothProfileConstants.JNICache.className,
+                classCache: &AndroidBluetoothProfileConstants.JNICache.jniClass )
             
             return Int(__value)
         }
