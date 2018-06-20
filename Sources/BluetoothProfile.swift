@@ -56,7 +56,7 @@ public final class AndroidBluetoothProfileConstants {
             let __value = JNIField.GetStaticIntField(
                 fieldName: "A2DP",
                 fieldType: "I",
-                fieldCache: &AndroidBluetoothProfileLocal.JNICache.FieldID.A2DP,
+                fieldCache: &AndroidBluetoothProfileConstants.JNICache.FieldID.A2DP,
                 className: AndroidBluetoothProfileLocal.JNICache.className,
                 classCache: &AndroidBluetoothProfileLocal.JNICache.jniClass )
             
@@ -71,7 +71,7 @@ public final class AndroidBluetoothProfileConstants {
             let __value = JNIField.GetStaticIntField(
                 fieldName: "EXTRA_PREVIOUS_STATE",
                 fieldType: "I",
-                fieldCache: &AndroidBluetoothProfileLocal.JNICache.FieldID.EXTRA_PREVIOUS_STATE,
+                fieldCache: &AndroidBluetoothProfileConstants.JNICache.FieldID.EXTRA_PREVIOUS_STATE,
                 className: AndroidBluetoothProfileLocal.JNICache.className,
                 classCache: &AndroidBluetoothProfileLocal.JNICache.jniClass )
             
@@ -86,7 +86,7 @@ public final class AndroidBluetoothProfileConstants {
             let __value = JNIField.GetStaticIntField(
                 fieldName: "EXTRA_STATE",
                 fieldType: "I",
-                fieldCache: &AndroidBluetoothProfileLocal.JNICache.FieldID.EXTRA_STATE,
+                fieldCache: &AndroidBluetoothProfileConstants.JNICache.FieldID.EXTRA_STATE,
                 className: AndroidBluetoothProfileLocal.JNICache.className,
                 classCache: &AndroidBluetoothProfileLocal.JNICache.jniClass )
             
@@ -101,7 +101,7 @@ public final class AndroidBluetoothProfileConstants {
             let __value = JNIField.GetStaticIntField(
                 fieldName: "GATT",
                 fieldType: "I",
-                fieldCache: &AndroidBluetoothProfileLocal.JNICache.FieldID.GATT,
+                fieldCache: &AndroidBluetoothProfileConstants.JNICache.FieldID.GATT,
                 className: AndroidBluetoothProfileLocal.JNICache.className,
                 classCache: &AndroidBluetoothProfileLocal.JNICache.jniClass )
             
@@ -116,7 +116,7 @@ public final class AndroidBluetoothProfileConstants {
             let __value = JNIField.GetStaticIntField(
                 fieldName: "GATT_SERVER",
                 fieldType: "I",
-                fieldCache: &AndroidBluetoothProfileLocal.JNICache.FieldID.GATT_SERVER,
+                fieldCache: &AndroidBluetoothProfileConstants.JNICache.FieldID.GATT_SERVER,
                 className: AndroidBluetoothProfileLocal.JNICache.className,
                 classCache: &AndroidBluetoothProfileLocal.JNICache.jniClass )
             
@@ -131,7 +131,7 @@ public final class AndroidBluetoothProfileConstants {
             let __value = JNIField.GetStaticIntField(
                 fieldName: "HEADSET",
                 fieldType: "I",
-                fieldCache: &AndroidBluetoothProfileLocal.JNICache.FieldID.HEADSET,
+                fieldCache: &AndroidBluetoothProfileConstants.JNICache.FieldID.HEADSET,
                 className: AndroidBluetoothProfileLocal.JNICache.className,
                 classCache: &AndroidBluetoothProfileLocal.JNICache.jniClass )
             
@@ -146,7 +146,7 @@ public final class AndroidBluetoothProfileConstants {
             let __value = JNIField.GetStaticIntField(
                 fieldName: "HEALTH",
                 fieldType: "I",
-                fieldCache: &AndroidBluetoothProfileLocal.JNICache.FieldID.HEALTH,
+                fieldCache: &AndroidBluetoothProfileConstants.JNICache.FieldID.HEALTH,
                 className: AndroidBluetoothProfileLocal.JNICache.className,
                 classCache: &AndroidBluetoothProfileLocal.JNICache.jniClass )
             
@@ -161,7 +161,7 @@ public final class AndroidBluetoothProfileConstants {
             let __value = JNIField.GetStaticIntField(
                 fieldName: "HID_DEVICE",
                 fieldType: "I",
-                fieldCache: &AndroidBluetoothProfileLocal.JNICache.FieldID.HID_DEVICE,
+                fieldCache: &AndroidBluetoothProfileConstants.JNICache.FieldID.HID_DEVICE,
                 className: AndroidBluetoothProfileLocal.JNICache.className,
                 classCache: &AndroidBluetoothProfileLocal.JNICache.jniClass )
             
@@ -176,7 +176,7 @@ public final class AndroidBluetoothProfileConstants {
             let __value = JNIField.GetStaticIntField(
                 fieldName: "SAP",
                 fieldType: "I",
-                fieldCache: &AndroidBluetoothProfileLocal.JNICache.FieldID.SAP,
+                fieldCache: &AndroidBluetoothProfileConstants.JNICache.FieldID.SAP,
                 className: AndroidBluetoothProfileLocal.JNICache.className,
                 classCache: &AndroidBluetoothProfileLocal.JNICache.jniClass )
             
@@ -191,7 +191,7 @@ public final class AndroidBluetoothProfileConstants {
             let __value = JNIField.GetStaticIntField(
                 fieldName: "STATE_CONNECTED",
                 fieldType: "I",
-                fieldCache: &AndroidBluetoothProfileLocal.JNICache.FieldID.STATE_CONNECTED,
+                fieldCache: &AndroidBluetoothProfileConstants.JNICache.FieldID.STATE_CONNECTED,
                 className: AndroidBluetoothProfileLocal.JNICache.className,
                 classCache: &AndroidBluetoothProfileLocal.JNICache.jniClass )
             
@@ -205,7 +205,7 @@ public final class AndroidBluetoothProfileConstants {
             let __value = JNIField.GetStaticIntField(
                 fieldName: "STATE_CONNECTING",
                 fieldType: "I",
-                fieldCache: &AndroidBluetoothProfileLocal.JNICache.FieldID.STATE_CONNECTING,
+                fieldCache: &AndroidBluetoothProfileConstants.JNICache.FieldID.STATE_CONNECTING,
                 className: AndroidBluetoothProfileLocal.JNICache.className,
                 classCache: &AndroidBluetoothProfileLocal.JNICache.jniClass )
             
@@ -220,7 +220,7 @@ public final class AndroidBluetoothProfileConstants {
             let __value = JNIField.GetStaticIntField(
                 fieldName: "STATE_DISCONNECTED",
                 fieldType: "I",
-                fieldCache: &AndroidBluetoothProfileLocal.JNICache.FieldID.STATE_DISCONNECTED,
+                fieldCache: &AndroidBluetoothProfileConstants.JNICache.FieldID.STATE_DISCONNECTED,
                 className: AndroidBluetoothProfileLocal.JNICache.className,
                 classCache: &AndroidBluetoothProfileLocal.JNICache.jniClass )
             
@@ -235,7 +235,7 @@ public final class AndroidBluetoothProfileConstants {
             let __value = JNIField.GetStaticIntField(
                 fieldName: "STATE_DISCONNECTING",
                 fieldType: "I",
-                fieldCache: &AndroidBluetoothProfileLocal.JNICache.FieldID.STATE_DISCONNECTING,
+                fieldCache: &AndroidBluetoothProfileConstants.JNICache.FieldID.STATE_DISCONNECTING,
                 className: AndroidBluetoothProfileLocal.JNICache.className,
                 classCache: &AndroidBluetoothProfileLocal.JNICache.jniClass )
             
@@ -260,8 +260,8 @@ internal class AndroidBluetoothProfileLocal: JNILocalProxy<AndroidBluetoothProfi
         
         var natives: [JNINativeMethod] = [
             JNICache.Method.getConnectedDevices.method,
-            //JNICache.Method.onBatchScanResults.method,
-            //JNICache.Method.onScanFailed.method,
+            JNICache.Method.getConnectionState.method,
+            JNICache.Method.getDevicesMatchingConnectionStates.method,
             .finalize
         ]
         
@@ -286,12 +286,12 @@ internal class AndroidBluetoothProfileLocal: JNILocalProxy<AndroidBluetoothProfi
 
 // MARK: - JNI
 
-private extension AndroidBluetoothProfileLocal {
+private extension AndroidBluetoothProfileConstants {
     
     /// JNI Cache
     struct JNICache {
         
-        static let classSignature = SwiftSupport.Bluetooth.className(["SwiftBluetoothProfile"])
+        static let classSignature = Android.Bluetooth.className(["BluetoothProfile"])
         
         /// JNI Java class name
         static let className = classSignature.rawValue
@@ -316,6 +316,21 @@ private extension AndroidBluetoothProfileLocal {
             static var STATE_DISCONNECTED: jfieldID?
             static var STATE_DISCONNECTING: jfieldID?
         }
+    }
+}
+
+private extension AndroidBluetoothProfileLocal {
+    
+    /// JNI Cache
+    struct JNICache {
+        
+        static let classSignature = SwiftSupport.Bluetooth.className(["SwiftBluetoothProfile"])
+        
+        /// JNI Java class name
+        static let className = classSignature.rawValue
+        
+        /// JNI Java class
+        static var jniClass: jclass?
         
         /// JNI Method cache
         fileprivate enum Method {
