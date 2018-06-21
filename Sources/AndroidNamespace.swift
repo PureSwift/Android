@@ -77,6 +77,11 @@ public enum SwiftSupport: JavaPackage {
         
         public static let package: JNIPackage = SwiftSupport.package + ["app"]
     }
+    
+    public enum Content: JavaPackage {
+        
+        public static let package: JNIPackage = SwiftSupport.package + ["content"]
+    }
 }
 
 public protocol JavaPackage {

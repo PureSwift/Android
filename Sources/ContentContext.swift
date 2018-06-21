@@ -16,7 +16,7 @@ public extension Android.Content {
 
 open class AndroidContext: JavaObject {
     
-    private static let javaClassName = "android/content/Context"
+    static let javaClassName = "android/content/Context"
     
     private static var JNIClass: jclass?
     
