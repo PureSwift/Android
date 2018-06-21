@@ -23,6 +23,113 @@ public protocol AndroidBroadcastReceiver: JavaProtocol {
 
 public extension AndroidBroadcastReceiver {
     
+    /**
+     * Sets the flag indicating that this receiver should abort the current broadcast; only works with broadcasts sent through Context.sendOrderedBroadcast.
+     */
+    public func abortBroadcast() {
+        
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        withJavaObject {
+            
+            JNIMethod.CallVoidMethod(object: $0,
+                                     methodName: "abortBroadcast",
+                                     methodSig: "()V",
+                                     methodCache: &AndroidBroadcastReceiverLocal.JNICache.Method.abortBroadcast,
+                                     args: &__args,
+                                     locals: &__locals)
+        }
+    }
+    
+    /**
+     * Clears the flag indicating that this receiver should abort the current broadcast.
+     */
+    public func clearAbortBroadcast() {
+        
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        withJavaObject {
+            
+            JNIMethod.CallVoidMethod(object: $0,
+                                     methodName: "clearAbortBroadcast",
+                                     methodSig: "()V",
+                                     methodCache: &AndroidBroadcastReceiverLocal.JNICache.Method.clearAbortBroadcast,
+                                     args: &__args,
+                                     locals: &__locals)
+        }
+    }
+    
+    /**
+     * Returns the flag indicating whether or not this receiver should abort the current broadcast.
+     */
+    public func getAbortBroadcast() -> Bool {
+        
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        var __return: jboolean = jboolean(JNI_FALSE)
+        
+        withJavaObject {
+            
+            __return = JNIMethod.CallBooleanMethod(object: $0,
+                                     methodName: "getAbortBroadcast",
+                                     methodSig: "()Z",
+                                     methodCache: &AndroidBroadcastReceiverLocal.JNICache.Method.getAbortBroadcast,
+                                     args: &__args,
+                                     locals: &__locals)
+        }
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Return the last value given to setDebugUnregister(boolean).
+     */
+    public func getDebugUnregister() -> Bool {
+        
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        var __return: jboolean = jboolean(JNI_FALSE)
+        
+        withJavaObject {
+            
+            __return = JNIMethod.CallBooleanMethod(object: $0,
+                                                   methodName: "getDebugUnregister",
+                                                   methodSig: "()Z",
+                                                   methodCache: &AndroidBroadcastReceiverLocal.JNICache.Method.getDebugUnregister,
+                                                   args: &__args,
+                                                   locals: &__locals)
+        }
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Retrieve the current result code, as set by the previous receiver.
+     */
+    public func getResultCode() -> Int {
+        
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        var returnValue : Int = Int.min
+        
+        withJavaObject {
+            
+            let __return = JNIMethod.CallIntMethod(object: $0,
+                                                   methodName: "getResultCode",
+                                                   methodSig: "()Z",
+                                                   methodCache: &AndroidBroadcastReceiverLocal.JNICache.Method.getResultCode,
+                                                   args: &__args,
+                                                   locals: &__locals)
+            returnValue = Int(__return)
+        }
+        
+        return returnValue
+    }
 }
 
 // MARK: - Local Java Object
@@ -40,7 +147,7 @@ internal class AndroidBroadcastReceiverLocal: JNILocalProxy<AndroidBroadcastRece
     fileprivate static let _proxyClass: jclass = {
         
         var natives: [JNINativeMethod] = [
-            JNICache.Method.onReceive.method,
+            JNICacheLocal.Method.onReceive.method,
             .finalize
         ]
         
@@ -58,7 +165,7 @@ internal class AndroidBroadcastReceiverLocal: JNILocalProxy<AndroidBroadcastRece
         return JNI.api.NewGlobalRef( JNI.env, clazz )!
     }()
     
-    override open class func proxyClassName() -> String { return JNICache.className }
+    override open class func proxyClassName() -> String { return JNICacheLocal.className }
     
     override open class func proxyClass() -> jclass? { return _proxyClass }
 }
@@ -68,18 +175,19 @@ internal class AndroidBroadcastReceiverLocal: JNILocalProxy<AndroidBroadcastRece
 internal extension AndroidBroadcastReceiverLocal {
     
     /// JNI Cache
-    struct JNICache {
+    struct JNICacheLocal {
         
         static let classSignature = SwiftSupport.Content.className(["SwiftBroadcastReceiver"])
         
         /// JNI Java class name
         static let className = classSignature.rawValue
         
+        /// JNI Java class
+        static var jniClass: jclass?
+        
         /// JNI Method cache
         fileprivate enum Method {
             
-            //static var notifyDataSetChanged: jmethodID?
-        
             enum onReceive: JNINativeMethodEntry {
                 
                 static let name = "__onReceive"
@@ -97,7 +205,41 @@ internal extension AndroidBroadcastReceiverLocal {
             }
         }
     }
+    
+    /// JNI Cache
+    struct JNICache {
+        
+        /// JNI Java class name
+        static let className = "android/content/BroadcastReceiver"
+        
+        /// JNI Java class
+        static var jniClass: jclass?
+        
+        /// JNI Method cache
+        fileprivate enum Method {
+            
+            static var abortBroadcast: jmethodID?
+            static var clearAbortBroadcast: jmethodID?
+            static var getAbortBroadcast: jmethodID?
+            static var getDebugUnregister: jmethodID?
+            static var getResultCode: jmethodID?
+            static var getResultData: jmethodID?
+            static var getResultExtras: jmethodID?
+            static var goAsync: jmethodID?
+            static var isInitialStickyBroadcast: jmethodID?
+            static var isOrderedBroadcast: jmethodID?
+            static var peekService: jmethodID?
+            static var setDebugUnregister: jmethodID?
+            static var setOrderedHint: jmethodID?
+            static var setResult: jmethodID?
+            static var setResultCode: jmethodID?
+            static var setResultData: jmethodID?
+            static var setResultExtras: jmethodID?
+        }
+    }
 }
+
+// MARK: - Native Methods
 
 private typealias AndroidBroadcastReceiver_onReceive_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject?, _: jobject?) -> ()
 
