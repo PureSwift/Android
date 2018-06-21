@@ -16,7 +16,7 @@ public extension SwiftSupport.App {
 
 public protocol SwiftSupportAppCompatActivity: JavaProtocol {
     
-    func onCreate(savedInstanceState: JavaObject, persistentState: JavaObject)
+    func onCreate(savedInstanceState: Android.OS.Bundle)
     
     func onResume()
     
@@ -89,4 +89,19 @@ internal extension SwiftSupportAppCompatActivityLocal {
             }*/
         }
     }
+}
+
+// MARK: - Native Methods
+
+private typealias SwiftSupportAppCompatActivityLocal_onCreate_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jobject?) -> ()
+
+private func SwiftSupportAppCompatActivityLocal_onCreate( _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                                 _ __this: jobject?,
+                                                 _ __savedInstanceState: jobject?) -> () {
+    
+    let bundle = Android.OS.Bundle(javaObject: __savedInstanceState)
+    /*
+    SwiftSupportAppCompatActivityLocal
+        .takeOwnership()
+        .*/
 }
