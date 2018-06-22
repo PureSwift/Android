@@ -121,9 +121,9 @@ fileprivate func recoverPointer( _ swiftObject: jlong, _ file: StaticString = #f
 }
 
 @_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity__1_1finalize")
-private func SwiftSupportAppCompatActivityLocal_finalize ( _ __swiftObject: jlong,
-                                                           _ __env: UnsafeMutablePointer<JNIEnv?>,
-                                                           _ __this: jobject?) -> () {
+private func SwiftSupportAppCompatActivityLocal_finalize ( _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                                           _ __this: jobject?,
+                                                           _ __swiftObject: jlong) -> () {
     
     let local = SwiftSupportAppCompatActivityLocal.swiftObject(jniEnv: __env, javaObject: __this, swiftObject: __swiftObject)
     
@@ -131,9 +131,9 @@ private func SwiftSupportAppCompatActivityLocal_finalize ( _ __swiftObject: jlon
 }
 
 @_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity__1_1onCreate")
-private func SwiftSupportAppCompatActivityLocal_onCreate( _ __swiftObject: jlong?,
-                                                          _ __env: UnsafeMutablePointer<JNIEnv?>,
+private func SwiftSupportAppCompatActivityLocal_onCreate( _ __env: UnsafeMutablePointer<JNIEnv?>,
                                                           _ __this: jobject?,
+                                                          _ __swiftObject: jlong?,
                                                           _ __savedInstanceState: jobject?) -> () {
     
     let bundle = Android.OS.Bundle(javaObject: __savedInstanceState)
