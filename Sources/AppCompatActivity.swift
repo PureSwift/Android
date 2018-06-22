@@ -27,46 +27,6 @@ public protocol SwiftSupportAppCompatActivity {
     func onRequestPermissionsResult(requestCode: Int, permissions: [String], grantResults: [Int])
 }
 
-public extension SwiftSupportAppCompatActivity {
-    
-    /// The activity type that gets initialized by Java.
-    public static var activityType: SwiftSupportAppCompatActivity.Type {
-        
-        get { return _activityType }
-        
-        set { _activityType = newValue }
-    }
-}
-
-private var _activityType: SwiftSupportAppCompatActivity.Type = MainActivity.self
-
-internal final class MainActivity: SwiftSupportAppCompatActivity {
-    
-    init() {
-        
-    }
-    
-    func onCreate(savedInstanceState: Android.OS.Bundle?) {
-        
-        NSLog("Swift \(#function)")
-    }
-    
-    func onResume() {
-        
-        NSLog("Swift \(#function)")
-    }
-    
-    func onPause() {
-        
-        NSLog("Swift \(#function)")
-    }
-    
-    func onRequestPermissionsResult(requestCode: Int, permissions: [String], grantResults: [Int]) {
-        
-        NSLog("Swift \(#function)")
-    }
-}
-
 // MARK: - Local Java Object
 
 internal class SwiftSupportAppCompatActivityLocal {
@@ -74,7 +34,8 @@ internal class SwiftSupportAppCompatActivityLocal {
     @_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_bind")
     public static func bind( __env: UnsafeMutablePointer<JNIEnv?>, __this: jobject?) -> jlong? {
         
-        let activity = _activityType.init()
+        // Ask app for main activity. 
+        let activity = SwiftAndroidMainActivity()
         
         let local = SwiftSupportAppCompatActivityLocal(activity: activity, javaObject: __this)
         
@@ -105,6 +66,10 @@ internal class SwiftSupportAppCompatActivityLocal {
 }
 
 // MARK: - Native Methods
+
+/// Needs to be implemented by app.
+@_silgen_name("SwiftAndroidMainActivity")
+internal func SwiftAndroidMainActivity() -> SwiftSupportAppCompatActivity
 
 fileprivate func recoverPointer( _ swiftObject: jlong, _ file: StaticString = #file, _ line: Int = #line ) -> uintptr_t {
     #if os(Android)
