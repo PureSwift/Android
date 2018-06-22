@@ -14,41 +14,68 @@ public extension SwiftSupport.App {
     public typealias AppCompatActivity = SwiftSupportAppCompatActivity
 }
 
-open class SwiftSupportAppCompatActivity {
+/**
+ <# Type / Member Name#>
+ 
+ <#Description#>
+ */
+protocol SwiftSupportAppCompatActivity {
         
-    open func onCreate(savedInstanceState: Android.OS.Bundle?){
+    func onCreate(savedInstanceState: Android.OS.Bundle?)
+    
+    func onStart()
+    
+    func onResume()
+    
+    func onPause()
+    
+    func onRestart()
+    
+    func onStop()
+    
+    func onDestroy()
+    
+    func onActivityResult(requestCode: Int, resultCode: Int, data: Android.Content.Intent?)
+    
+    func onRequestPermissionsResult(requestCode: Int, permissions: [String], grantResults: [Int])
+}
+
+extension SwiftSupportAppCompatActivity {
+    
+    func onCreate(savedInstanceState: Android.OS.Bundle?) {
+        
         NSLog("\(type(of: self)) \(#function)")
     }
     
-    open func onStart(){
+    func onStart(){
         NSLog("\(type(of: self)) \(#function)")
     }
     
-    open func onResume(){
+    func onResume(){
         NSLog("\(type(of: self)) \(#function)")
     }
     
-    open func onPause(){
+    func onPause(){
         NSLog("\(type(of: self)) \(#function)")
     }
     
-    open func onRestart(){
+    func onRestart(){
         NSLog("\(type(of: self)) \(#function)")
     }
     
-    open func onStop(){
+    func onStop(){
         NSLog("\(type(of: self)) \(#function)")
     }
     
-    open func onDestroy(){
+    func onDestroy(){
         NSLog("\(type(of: self)) \(#function)")
     }
     
-    open func onActivityResult(requestCode: Int, resultCode: Int, data: Android.Content.Intent?){
+    func onActivityResult(requestCode: Int, resultCode: Int, data: Android.Content.Intent?) {
         NSLog("\(type(of: self)) \(#function)")
     }
     
-    open func onRequestPermissionsResult(requestCode: Int, permissions: [String], grantResults: [Int]){
+    func onRequestPermissionsResult(requestCode: Int, permissions: [String], grantResults: [Int]) {
         NSLog("\(type(of: self)) \(#function)")
     }
 }
