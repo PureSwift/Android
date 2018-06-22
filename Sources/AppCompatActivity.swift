@@ -92,8 +92,6 @@ internal class SwiftSupportAppCompatActivityLocal {
         self.javaObject = javaObject
     }
     
-    
-    
     static func swiftObject( jniEnv: UnsafeMutablePointer<JNIEnv?>?, javaObject: jobject?, swiftObject: jlong ) -> SwiftSupportAppCompatActivityLocal {
         
         return unsafeBitCast( recoverPointer( swiftObject ), to: SwiftSupportAppCompatActivityLocal.self )
@@ -120,27 +118,15 @@ fileprivate func recoverPointer( _ swiftObject: jlong, _ file: StaticString = #f
     return swiftPointer
 }
 
-@_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_onCreateNotSavedInstanceStateNative")
-public func SwiftSupportAppCompatActivityLocal_onCreate( _ __env: UnsafeMutablePointer<JNIEnv?>,
-                                                         _ __this: jobject,
-                                                         _ __swiftObject: jlong) -> () {
-    
-    NSLog("\(#function) \(__env) \(__this) \(__swiftObject)")
-    
-    let local = SwiftSupportAppCompatActivityLocal.swiftObject(jniEnv: __env, javaObject: __this, swiftObject: __swiftObject)
-    
-    local.activity.onCreate(savedInstanceState: nil)
-}
-
 @_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_onCreateNative")
 public func SwiftSupportAppCompatActivityLocal_onCreate( _ __env: UnsafeMutablePointer<JNIEnv?>,
-                                                         _ __this: jobject,
+                                                         _ __this: jobject?,
                                                          _ __swiftObject: jlong,
-                                                         _ __savedInstanceState: jobject) -> () {
+                                                         _ __savedInstanceState: jobject?) -> () {
     
     NSLog("\(#function) \(__env) \(__this) \(__swiftObject) \(__savedInstanceState)")
     
-    let bundle = Android.OS.Bundle(javaObject: __savedInstanceState)
+    let bundle = __savedInstanceState != nil ? Android.OS.Bundle(javaObject: __savedInstanceState) : nil
     
     let local = SwiftSupportAppCompatActivityLocal.swiftObject(jniEnv: __env, javaObject: __this, swiftObject: __swiftObject)
     
