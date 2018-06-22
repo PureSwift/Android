@@ -120,11 +120,13 @@ fileprivate func recoverPointer( _ swiftObject: jlong, _ file: StaticString = #f
     return swiftPointer
 }
 
-@_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_onCreateNavite")
+@_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_onCreateNative")
 public func SwiftSupportAppCompatActivityLocal_onCreate( _ __env: UnsafeMutablePointer<JNIEnv?>,
                                                          _ __this: jobject?,
                                                          _ __swiftObject: jlong?,
                                                          _ __savedInstanceState: jobject?) -> () {
+    
+    NSLog("\(#function) \(__env) \(__this) \(__swiftObject) \(__savedInstanceState)")
     
     var bundle: Android.OS.Bundle? = nil
     
