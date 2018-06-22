@@ -15,9 +15,7 @@ public extension SwiftSupport.App {
 }
 
 public protocol SwiftSupportAppCompatActivity {
-    
-    init()
-    
+        
     func onCreate(savedInstanceState: Android.OS.Bundle?)
     
     func onResume()
@@ -29,7 +27,7 @@ public protocol SwiftSupportAppCompatActivity {
 
 // MARK: - Local Java Object
 
-internal class SwiftSupportAppCompatActivityLocal {
+internal class SwiftSupportAppCompatActivityLocal: JNIObject {
     
     @_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_bind")
     public static func bind( __env: UnsafeMutablePointer<JNIEnv?>, __this: jobject?) -> jlong? {
@@ -47,14 +45,18 @@ internal class SwiftSupportAppCompatActivityLocal {
         #endif
     }
     
-    let activity: SwiftSupportAppCompatActivity
+    private(set) var activity: SwiftSupportAppCompatActivity!
     
-    let javaObject: jobject?
-    
-    private init(activity: SwiftSupportAppCompatActivity, javaObject: jobject?) {
+    private init(javaObject: jobject?, activity: SwiftSupportAppCompatActivity) {
         
         self.activity = activity
-        self.javaObject = javaObject
+        super.init(javaObject: javaObject)
+    }
+    
+    required init(javaObject: jobject?) {
+        super.init(javaObject: javaObject)
+        
+        assertionFailure("Not designated initializer)")
     }
     
     static func swiftObject( jniEnv: UnsafeMutablePointer<JNIEnv?>?, javaObject: jobject?, swiftObject: jlong ) -> SwiftSupportAppCompatActivityLocal {
