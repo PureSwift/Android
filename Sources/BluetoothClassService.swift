@@ -45,7 +45,6 @@ public struct AndroidBluetoothClassService: RawRepresentable {
     public static let render = Android.Bluetooth.Class.Service(rawValue: AndroidBluetoothClassServiceConstants.RENDER)
     
     public static let telephony = Android.Bluetooth.Class.Service(rawValue: AndroidBluetoothClassServiceConstants.TELEPHONY)
-    
 }
 
 // MARK: - Constants

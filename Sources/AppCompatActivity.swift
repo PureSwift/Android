@@ -14,7 +14,9 @@ public extension SwiftSupport.App {
     public typealias AppCompatActivity = SwiftSupportAppCompatActivity
 }
 
-public protocol SwiftSupportAppCompatActivity: JavaProtocol {
+public protocol SwiftSupportAppCompatActivity {
+    
+    init()
     
     func onCreate(savedInstanceState: Android.OS.Bundle)
     
@@ -25,83 +27,118 @@ public protocol SwiftSupportAppCompatActivity: JavaProtocol {
     func onRequestPermissionsResult(requestCode: Int, permissions: [String], grantResults: [Int])
 }
 
-// MARK: - Local Java Object
-
-extension SwiftSupportAppCompatActivity {
+public extension SwiftSupportAppCompatActivity {
     
-    public func localJavaObject( _ locals: UnsafeMutablePointer<[jobject]> ) -> jobject? {
+    /// The activity type that gets initialized by Java.
+    public static var activityType: SwiftSupportAppCompatActivity.Type {
         
-        return SwiftSupportAppCompatActivityLocal( owned: self, proto: self ).localJavaObject( locals )
+        get { return _activityType }
+        
+        set { _activityType = newValue }
     }
 }
 
-internal class SwiftSupportAppCompatActivityLocal: JNILocalProxy<SwiftSupportAppCompatActivity, Any> {
+private var _activityType: SwiftSupportAppCompatActivity.Type = MainActivity.self
+
+internal final class MainActivity: SwiftSupportAppCompatActivity {
     
-    fileprivate static let _proxyClass: jclass = {
+    init() {
         
-        var natives: [JNINativeMethod] = [
-           .finalize
-        ]
-        
-        let clazz = JNI.FindClass( proxyClassName() )
-        
-        withUnsafePointer(to: &natives[0]) {
-            nativesPtr in
-            if JNI.api.RegisterNatives( JNI.env, clazz, nativesPtr, jint(natives.count) ) != jint(JNI_OK) {
-                JNI.report( "Unable to register java natives" )
-            }
-        }
-        
-        defer { JNI.DeleteLocalRef( clazz ) }
-        
-        return JNI.api.NewGlobalRef( JNI.env, clazz )!
-    }()
+    }
     
-    override open class func proxyClassName() -> String { return JNICache.className }
+    func onCreate(savedInstanceState: Android.OS.Bundle) {
+        
+        NSLog("Swift \(#function)")
+    }
     
-    override open class func proxyClass() -> jclass? { return _proxyClass }
+    func onResume() {
+        
+        NSLog("Swift \(#function)")
+    }
+    
+    func onPause() {
+        
+        NSLog("Swift \(#function)")
+    }
+    
+    func onRequestPermissionsResult(requestCode: Int, permissions: [String], grantResults: [Int]) {
+        
+        NSLog("Swift \(#function)")
+    }
 }
 
-// MARK: - JNI Cache
+// MARK: - Local Java Object
 
-internal extension SwiftSupportAppCompatActivityLocal {
+internal class SwiftSupportAppCompatActivityLocal {
     
-    /// JNI Cache
-    struct JNICache {
+    @_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_bind")
+    public static func bind( __env: UnsafeMutablePointer<JNIEnv?>, __this: jobject?) -> jlong? {
         
-        static let classSignature = SwiftSupport.App.className(["SwiftAppCompatActivity"])
+        let activity = _activityType.init()
         
-        /// JNI Java class name
-        static let className = classSignature.rawValue
+        let local = SwiftSupportAppCompatActivityLocal(activity: activity, javaObject: __this)
         
-        /// JNI Method cache
-        fileprivate enum Method {
-            
-            /*
-            enum onCreate: JNINativeMethodEntry {
-                
-                static let name = "__onCreate"
-                
-                /// "(J)I"
-                static let signature = JNIMethodSignature(argumentTypes: [.long], returnType: .int)
-                
-                static let thunk: SwiftSupportAppCompatActivity_onCreate_type = SwiftSupportAppCompatActivity_onCreate
-            }*/
-        }
+        // ARC +1
+        return jlong(unsafeBitCast(Unmanaged.passRetained(local), to: uintptr_t.self))
+    }
+    
+    let activity: SwiftSupportAppCompatActivity
+    
+    let javaObject: jobject?
+    
+    private init(activity: SwiftSupportAppCompatActivity, javaObject: jobject?) {
+        
+        self.activity = activity
+        self.javaObject = javaObject
+    }
+    
+    
+    
+    static func swiftObject( jniEnv: UnsafeMutablePointer<JNIEnv?>?, javaObject: jobject?, swiftObject: jlong ) -> SwiftSupportAppCompatActivityLocal {
+        
+        return unsafeBitCast( recoverPointer( swiftObject ), to: SwiftSupportAppCompatActivityLocal.self )
+    }
+    
+    deinit {
+        
+        // deallocated
+        NSLog("\(SwiftSupportAppCompatActivityLocal.self) \(#function)")
     }
 }
 
 // MARK: - Native Methods
 
-private typealias SwiftSupportAppCompatActivityLocal_onCreate_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jobject?) -> ()
+fileprivate func recoverPointer( _ swiftObject: jlong, _ file: StaticString = #file, _ line: Int = #line ) -> uintptr_t {
+    #if os(Android)
+    let swiftPointer = uintptr_t(swiftObject&0xffffffff)
+    #else
+    let swiftPointer = uintptr_t(swiftObject)
+    #endif
+    if swiftPointer == 0 {
+        JNI.report( "WTF dude", file, line )
+    }
+    return swiftPointer
+}
 
-private func SwiftSupportAppCompatActivityLocal_onCreate( _ __env: UnsafeMutablePointer<JNIEnv?>,
-                                                 _ __this: jobject?,
-                                                 _ __savedInstanceState: jobject?) -> () {
+@_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_finalize")
+private func SwiftSupportAppCompatActivityLocal_finalize ( _ __swiftObject: jlong,
+                                                           _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                                           _ __this: jobject?) -> () {
+    
+    let local = SwiftSupportAppCompatActivityLocal.swiftObject(jniEnv: __env, javaObject: __this, swiftObject: __swiftObject)
+    
+    Unmanaged.passUnretained(local).release()
+}
+
+@_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_onCreate")
+private func SwiftSupportAppCompatActivityLocal_onCreate( _ __swiftObject: jlong?,
+                                                          _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                                          _ __this: jobject?,
+                                                          _ __savedInstanceState: jobject?) -> () {
     
     let bundle = Android.OS.Bundle(javaObject: __savedInstanceState)
-    /*
-    SwiftSupportAppCompatActivityLocal
-        .takeOwnership()
-        .*/
+    
+    let local = SwiftSupportAppCompatActivityLocal.swiftObject(jniEnv: __env, javaObject: __this, swiftObject: __swiftObject!)
+    
+    local.activity.onCreate(savedInstanceState: bundle)
 }
