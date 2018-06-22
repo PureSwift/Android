@@ -19,7 +19,7 @@ public extension SwiftSupport.App {
  
  <#Description#>
  */
-protocol SwiftSupportAppCompatActivity {
+public protocol SwiftSupportAppCompatActivity {
         
     func onCreate(savedInstanceState: Android.OS.Bundle?)
     
@@ -40,7 +40,7 @@ protocol SwiftSupportAppCompatActivity {
     func onRequestPermissionsResult(requestCode: Int, permissions: [String], grantResults: [Int])
 }
 
-extension SwiftSupportAppCompatActivity {
+public extension SwiftSupportAppCompatActivity {
     
     func onCreate(savedInstanceState: Android.OS.Bundle?) {
         
