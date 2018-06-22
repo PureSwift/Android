@@ -14,15 +14,43 @@ public extension SwiftSupport.App {
     public typealias AppCompatActivity = SwiftSupportAppCompatActivity
 }
 
-public protocol SwiftSupportAppCompatActivity {
+open class SwiftSupportAppCompatActivity {
         
-    func onCreate(savedInstanceState: Android.OS.Bundle?)
+    open func onCreate(savedInstanceState: Android.OS.Bundle?){
+        NSLog("\(type(of: self)) \(#function)")
+    }
     
-    func onResume()
+    open func onStart(){
+        NSLog("\(type(of: self)) \(#function)")
+    }
     
-    func onPause()
+    open func onResume(){
+        NSLog("\(type(of: self)) \(#function)")
+    }
     
-    func onRequestPermissionsResult(requestCode: Int, permissions: [String], grantResults: [Int])
+    open func onPause(){
+        NSLog("\(type(of: self)) \(#function)")
+    }
+    
+    open func onRestart(){
+        NSLog("\(type(of: self)) \(#function)")
+    }
+    
+    open func onStop(){
+        NSLog("\(type(of: self)) \(#function)")
+    }
+    
+    open func onDestroy(){
+        NSLog("\(type(of: self)) \(#function)")
+    }
+    
+    open func onActivityResult(requestCode: Int, resultCode: Int, data: Android.Content.Intent?){
+        NSLog("\(type(of: self)) \(#function)")
+    }
+    
+    open func onRequestPermissionsResult(requestCode: Int, permissions: [String], grantResults: [Int]){
+        NSLog("\(type(of: self)) \(#function)")
+    }
 }
 
 // MARK: - Local Java Object
@@ -97,13 +125,90 @@ public func SwiftSupportAppCompatActivityLocal_onCreate( _ __env: UnsafeMutableP
                                                          _ __swiftObject: jlong,
                                                          _ __savedInstanceState: jobject?) -> () {
     
-    NSLog("\(#function) \(__env) \(__this) \(__swiftObject) \(__savedInstanceState)")
-    
     let bundle = __savedInstanceState != nil ? Android.OS.Bundle(javaObject: __savedInstanceState) : nil
     
     let local = SwiftSupportAppCompatActivityLocal.swiftObject(jniEnv: __env, javaObject: __this, swiftObject: __swiftObject)
     
     local.activity.onCreate(savedInstanceState: bundle)
+}
+
+@_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_onStartNative")
+public func SwiftSupportAppCompatActivityLocal_onStart( _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                                         _ __this: jobject?,
+                                                         _ __swiftObject: jlong) -> () {
+
+    let local = SwiftSupportAppCompatActivityLocal.swiftObject(jniEnv: __env, javaObject: __this, swiftObject: __swiftObject)
+    
+    local.activity.onStart()
+}
+
+@_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_onResumeNative")
+public func SwiftSupportAppCompatActivityLocal_onResume( _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                                        _ __this: jobject?,
+                                                        _ __swiftObject: jlong) -> () {
+    
+    let local = SwiftSupportAppCompatActivityLocal.swiftObject(jniEnv: __env, javaObject: __this, swiftObject: __swiftObject)
+    
+    local.activity.onResume()
+}
+
+@_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_onPauseNative")
+public func SwiftSupportAppCompatActivityLocal_onPause( _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                                         _ __this: jobject?,
+                                                         _ __swiftObject: jlong) -> () {
+    
+    let local = SwiftSupportAppCompatActivityLocal.swiftObject(jniEnv: __env, javaObject: __this, swiftObject: __swiftObject)
+    
+    local.activity.onPause()
+}
+
+@_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_onRestartNative")
+public func SwiftSupportAppCompatActivityLocal_onRestart( _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                                         _ __this: jobject?,
+                                                         _ __swiftObject: jlong) -> () {
+    
+    let local = SwiftSupportAppCompatActivityLocal.swiftObject(jniEnv: __env, javaObject: __this, swiftObject: __swiftObject)
+    
+    local.activity.onRestart()
+}
+
+@_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_onStopNative")
+public func SwiftSupportAppCompatActivityLocal_onStop( _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                                          _ __this: jobject?,
+                                                          _ __swiftObject: jlong) -> () {
+    
+    let local = SwiftSupportAppCompatActivityLocal.swiftObject(jniEnv: __env, javaObject: __this, swiftObject: __swiftObject)
+    
+    local.activity.onStop()
+}
+
+@_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_onDestroyNative")
+public func SwiftSupportAppCompatActivityLocal_onDestroy( _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                                       _ __this: jobject?,
+                                                       _ __swiftObject: jlong) -> () {
+    
+    let local = SwiftSupportAppCompatActivityLocal.swiftObject(jniEnv: __env, javaObject: __this, swiftObject: __swiftObject)
+    
+    local.activity.onDestroy()
+}
+
+@_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_onActivityResultNative")
+public func SwiftSupportAppCompatActivityLocal_onActivityResultNative( _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                                          _ __this: jobject?,
+                                                          _ __swiftObject: jlong,
+                                                          _ __requestCode: jint,
+                                                          _ __resultCode: jint,
+                                                          _ __data: jobject?) -> () {
+    
+    let local = SwiftSupportAppCompatActivityLocal.swiftObject(jniEnv: __env, javaObject: __this, swiftObject: __swiftObject)
+    
+    let requestCode = Int(__requestCode)
+    
+    let resultCode = Int(__resultCode)
+    
+    let data = __data != nil ? Android.Content.Intent(javaObject: __data) : nil
+    
+    local.activity.onActivityResult(requestCode: requestCode, resultCode: resultCode, data: data)
 }
 
 @_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_finalizeNative")
