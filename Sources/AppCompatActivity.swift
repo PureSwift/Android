@@ -64,7 +64,7 @@ internal class SwiftSupportAppCompatActivityLocal: JNIObject {
         // Ask app for main activity.
         let activity = SwiftAndroidMainActivity()
         
-        let local = SwiftSupportAppCompatActivityLocal(activity: activity, javaObject: __this)
+        let local = SwiftSupportAppCompatActivityLocal(javaObject: __this, activity: activity)
         
         // ARC +1
         return jlong(unsafeBitCast(Unmanaged.passRetained(local), to: uintptr_t.self))
