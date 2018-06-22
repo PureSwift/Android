@@ -18,7 +18,7 @@ public protocol SwiftSupportAppCompatActivity {
     
     init()
     
-    func onCreate(savedInstanceState: Android.OS.Bundle)
+    func onCreate(savedInstanceState: Android.OS.Bundle?)
     
     func onResume()
     
@@ -46,7 +46,7 @@ internal final class MainActivity: SwiftSupportAppCompatActivity {
         
     }
     
-    func onCreate(savedInstanceState: Android.OS.Bundle) {
+    func onCreate(savedInstanceState: Android.OS.Bundle?) {
         
         NSLog("Swift \(#function)")
     }
@@ -120,6 +120,23 @@ fileprivate func recoverPointer( _ swiftObject: jlong, _ file: StaticString = #f
     return swiftPointer
 }
 
+@_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_onCreateNavite")
+public func SwiftSupportAppCompatActivityLocal_onCreate( _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                                         _ __this: jobject?,
+                                                         _ __swiftObject: jlong?,
+                                                         _ __savedInstanceState: jobject?) -> () {
+    
+    var bundle: Android.OS.Bundle? = nil
+    
+    if(__savedInstanceState != nil){
+        bundle = Android.OS.Bundle(javaObject: __savedInstanceState)
+    }
+    
+    let local = SwiftSupportAppCompatActivityLocal.swiftObject(jniEnv: __env, javaObject: __this, swiftObject: __swiftObject!)
+    
+    local.activity.onCreate(savedInstanceState: bundle)
+}
+
 @_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_finalizeNative")
 public func SwiftSupportAppCompatActivityLocal_finalize ( _ __env: UnsafeMutablePointer<JNIEnv?>,
                                                            _ __this: jobject?,
@@ -128,17 +145,4 @@ public func SwiftSupportAppCompatActivityLocal_finalize ( _ __env: UnsafeMutable
     let local = SwiftSupportAppCompatActivityLocal.swiftObject(jniEnv: __env, javaObject: __this, swiftObject: __swiftObject)
     
     Unmanaged.passUnretained(local).release()
-}
-
-@_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_onCreateNavite")
-public func SwiftSupportAppCompatActivityLocal_onCreate( _ __env: UnsafeMutablePointer<JNIEnv?>,
-                                                          _ __this: jobject?,
-                                                          _ __swiftObject: jlong?,
-                                                          _ __savedInstanceState: jobject?) -> () {
-    
-    let bundle = Android.OS.Bundle(javaObject: __savedInstanceState)
-    
-    let local = SwiftSupportAppCompatActivityLocal.swiftObject(jniEnv: __env, javaObject: __this, swiftObject: __swiftObject!)
-    
-    local.activity.onCreate(savedInstanceState: bundle)
 }
