@@ -15,9 +15,19 @@ public extension SwiftSupport.App {
 }
 
 /**
- <# Type / Member Name#>
- 
- <#Description#>
+ * An activity is a single, focused thing that the user can do. Almost all activities interact with the user,
+ * so the Activity class takes care of creating a window for you in which you can place your UI with setContentView(View).
+ * While activities are often presented to the user as full-screen windows, they can also be used in other ways: as
+ * floating windows (via a theme with R.attr.windowIsFloating set) or embedded inside of another activity (using ActivityGroup).
+ * There are two methods almost all subclasses of Activity will implement:
+ *
+ * - onCreate(Bundle) is where you initialize your activity. Most importantly, here you will usually call setContentView(int) with
+ * a layout resource defining your UI, and using findViewById(int) to retrieve the widgets in that UI that you need to interact with programmatically.
+ *
+ * - onPause() is where you deal with the user leaving your activity. Most importantly, any changes made by the user should at
+ * this point be committed (usually to the ContentProvider holding the data).
+ *
+ * To be of use with Context.startActivity(), all activity classes must have a corresponding <activity> declaration in their package's AndroidManifest.xml.
  */
 public protocol SwiftSupportAppCompatActivity {
         
@@ -246,4 +256,6 @@ public func SwiftSupportAppCompatActivityLocal_finalize ( _ __env: UnsafeMutable
     let local = SwiftSupportAppCompatActivityLocal.swiftObject(jniEnv: __env, javaObject: __this, swiftObject: __swiftObject)
     
     Unmanaged.passUnretained(local).release()
+    
+    NSLog("native \(#function)")
 }
