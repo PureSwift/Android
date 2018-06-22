@@ -120,7 +120,7 @@ fileprivate func recoverPointer( _ swiftObject: jlong, _ file: StaticString = #f
     return swiftPointer
 }
 
-@_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity__1_1finalize")
+@_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_finalizeNative")
 private func SwiftSupportAppCompatActivityLocal_finalize ( _ __env: UnsafeMutablePointer<JNIEnv?>,
                                                            _ __this: jobject?,
                                                            _ __swiftObject: jlong) -> () {
@@ -130,7 +130,7 @@ private func SwiftSupportAppCompatActivityLocal_finalize ( _ __env: UnsafeMutabl
     Unmanaged.passUnretained(local).release()
 }
 
-@_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity__1_1onCreate")
+@_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_onCreateNavite")
 private func SwiftSupportAppCompatActivityLocal_onCreate( _ __env: UnsafeMutablePointer<JNIEnv?>,
                                                           _ __this: jobject?,
                                                           _ __swiftObject: jlong?,
