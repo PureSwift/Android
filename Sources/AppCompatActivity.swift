@@ -15,6 +15,7 @@ public extension SwiftSupport.App {
 }
 
 /**
+<<<<<<< HEAD
  * An activity is a single, focused thing that the user can do. Almost all activities interact with the user,
  * so the Activity class takes care of creating a window for you in which you can place your UI with setContentView(View).
  * While activities are often presented to the user as full-screen windows, they can also be used in other ways: as
@@ -28,9 +29,14 @@ public extension SwiftSupport.App {
  * this point be committed (usually to the ContentProvider holding the data).
  *
  * To be of use with Context.startActivity(), all activity classes must have a corresponding <activity> declaration in their package's AndroidManifest.xml.
+=======
+ Activity
+ 
+ <#Description#>
+>>>>>>> origin/master
  */
 public protocol SwiftSupportAppCompatActivity {
-        
+    
     func onCreate(savedInstanceState: Android.OS.Bundle?)
     
     func onStart()
