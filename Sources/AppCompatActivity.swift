@@ -34,13 +34,17 @@ internal class SwiftSupportAppCompatActivityLocal {
     @_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_bind")
     public static func bind( __env: UnsafeMutablePointer<JNIEnv?>, __this: jobject?) -> jlong? {
         
-        // Ask app for main activity. 
+        #if os(Android)
+        // Ask app for main activity.
         let activity = SwiftAndroidMainActivity()
         
         let local = SwiftSupportAppCompatActivityLocal(activity: activity, javaObject: __this)
         
         // ARC +1
         return jlong(unsafeBitCast(Unmanaged.passRetained(local), to: uintptr_t.self))
+        #else
+        fatalError("Can only run on Android OS")
+        #endif
     }
     
     let activity: SwiftSupportAppCompatActivity
@@ -67,9 +71,11 @@ internal class SwiftSupportAppCompatActivityLocal {
 
 // MARK: - Native Methods
 
+#if os(Android)
 /// Needs to be implemented by app.
 @_silgen_name("SwiftAndroidMainActivity")
 internal func SwiftAndroidMainActivity() -> SwiftSupportAppCompatActivity
+#endif
 
 fileprivate func recoverPointer( _ swiftObject: jlong, _ file: StaticString = #file, _ line: Int = #line ) -> uintptr_t {
     #if os(Android)
