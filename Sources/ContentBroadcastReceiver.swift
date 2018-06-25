@@ -195,7 +195,7 @@ internal extension AndroidBroadcastReceiverLocal {
                 static let signature = JNIMethodSignature(
                     argumentTypes: [
                         .long,
-                        .object(JNIClassName(rawValue: Android.Content.Context.javaClassName)!),
+                        .object(JNIClassName(rawValue: Android.Content.Context.JNICache.className)!),
                         .object(JNIClassName(rawValue: "android/content/Intent")!)
                     ],
                     returnType: .object(Android.View.View.JNICache.classSignature)

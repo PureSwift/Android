@@ -16,10 +16,6 @@ public extension Android.Content {
 
 open class AndroidContext: JavaObject {
     
-    static let javaClassName = "android/content/Context"
-    
-    private static var JNIClass: jclass?
-    
     public convenience init?( casting object: java_swift.JavaObject,
                               _ file: StaticString = #file,
                               _ line: Int = #line ) {
@@ -30,8 +26,50 @@ open class AndroidContext: JavaObject {
             self.javaObject = $0
         }
     }
+}
+
+// MARK: - Constants
+
+internal extension AndroidContext {
     
-    private static var getSystemService_MethodID: jmethodID?
+    internal static var bluetoothService: String? {
+        
+        get {
+            
+            let __value = JNIField.GetStaticObjectField(
+                fieldName: "BLUETOOTH_SERVICE",
+                fieldType: "Ljava/lang/String;",
+                fieldCache: &JNICache.FieldID.BLUETOOTH_SERVICE,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            defer { JNI.DeleteLocalRef( __value ) }
+            
+            return __value != nil ? String( javaObject: __value ) : nil
+        }
+    }
+    
+    internal static var layoutInflaterService: String? {
+        
+        get {
+            
+            let __value = JNIField.GetStaticObjectField(
+                fieldName: "LAYOUT_INFLATER_SERVICE",
+                fieldType: "Ljava/lang/String;",
+                fieldCache: &JNICache.FieldID.LAYOUT_INFLATER_SERVICE,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            defer { JNI.DeleteLocalRef( __value ) }
+            
+            return __value != nil ? String( javaObject: __value ) : nil
+        }
+    }
+}
+
+// MARK: - Constants
+
+public extension AndroidContext {
     
     public func systemService <T> (_ service: T.Type) -> T? where T: JavaObject, T: Android.Content.Context.SystemService {
         
@@ -45,8 +83,8 @@ open class AndroidContext: JavaObject {
         
         let __return = JNIMethod.CallObjectMethod(object: javaObject,
                                                   methodName: "getSystemService",
-                                                  methodSig: "(Ljava/lang/String;)Ljava/lang/Object",
-                                                  methodCache: &AndroidContext.getSystemService_MethodID,
+                                                  methodSig: "(Ljava/lang/String;)Ljava/lang/Object;",
+                                                  methodCache: &JNICache.MethodID.getSystemService,
                                                   args: &__args,
                                                   locals: &__locals)
         
@@ -54,42 +92,34 @@ open class AndroidContext: JavaObject {
         
         return __return != nil ? T( javaObject: __return ) : nil
     }
+}
+
+// MARK: - JNICache
+
+internal extension AndroidContext {
     
-    private static var BLUETOOTH_SERVICE_FieldID: jfieldID?
-    
-    internal static var bluetoothService: String? {
+    /// JNI Cache
+    struct JNICache {
         
-        get {
+        static let classSignature = Android.Content.className(["Context"])
+        
+        /// JNI Java class name
+        static let className = classSignature.rawValue
+        
+        /// JNI Java class
+        static var jniClass: jclass?
+        
+        /// JNI Field ID cache
+        struct FieldID {
             
-            let __value = JNIField.GetStaticObjectField(
-                fieldName: "BLUETOOTH_SERVICE",
-                fieldType: "Ljava/lang/String;",
-                fieldCache: &BLUETOOTH_SERVICE_FieldID,
-                className: javaClassName,
-                classCache: &JNIClass )
-            
-            defer { JNI.DeleteLocalRef( __value ) }
-            
-            return __value != nil ? String( javaObject: __value ) : nil
+            static var BLUETOOTH_SERVICE: jfieldID?
+            static var LAYOUT_INFLATER_SERVICE: jfieldID?
         }
-    }
-    
-    private static var LAYOUT_INFLATER_SERVICE_FieldID: jfieldID?
-    
-    internal static var layoutInflaterService: String? {
         
-        get {
+        /// JNI Method ID cache
+        struct MethodID {
             
-            let __value = JNIField.GetStaticObjectField(
-                fieldName: "LAYOUT_INFLATER_SERVICE",
-                fieldType: "Ljava/lang/String;",
-                fieldCache: &LAYOUT_INFLATER_SERVICE_FieldID,
-                className: javaClassName,
-                classCache: &JNIClass )
-            
-            defer { JNI.DeleteLocalRef( __value ) }
-            
-            return __value != nil ? String( javaObject: __value ) : nil
+            static var getSystemService: jmethodID?
         }
     }
 }
