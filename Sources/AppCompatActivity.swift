@@ -90,6 +90,58 @@ public extension SwiftSupportAppCompatActivity {
     }
 }
 
+// MARK: - Constants
+
+public extension SwiftSupportAppCompatActivity {
+    
+    public static var RESULT_OK: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "RESULT_OK",
+                fieldType: "I",
+                fieldCache: &SwiftSupportAppCompatActivityLocal.JNICache.FieldID.RESULT_OK,
+                className: SwiftSupportAppCompatActivityLocal.JNICache.className,
+                classCache: &SwiftSupportAppCompatActivityLocal.JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    public static var RESULT_FIRST_USER: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "RESULT_FIRST_USER",
+                fieldType: "I",
+                fieldCache: &SwiftSupportAppCompatActivityLocal.JNICache.FieldID.RESULT_FIRST_USER,
+                className: SwiftSupportAppCompatActivityLocal.JNICache.className,
+                classCache: &SwiftSupportAppCompatActivityLocal.JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    public static var RESULT_CANCELED: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "RESULT_CANCELED",
+                fieldType: "I",
+                fieldCache: &SwiftSupportAppCompatActivityLocal.JNICache.FieldID.RESULT_CANCELED,
+                className: SwiftSupportAppCompatActivityLocal.JNICache.className,
+                classCache: &SwiftSupportAppCompatActivityLocal.JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    
+}
+
 // MARK: - Local Java Object
 
 internal class SwiftSupportAppCompatActivityLocal: JNIObject {
@@ -135,6 +187,39 @@ internal class SwiftSupportAppCompatActivityLocal: JNIObject {
         NSLog("\(SwiftSupportAppCompatActivityLocal.self) \(#function)")
     }
 }
+
+// MARK: - JNICache
+
+internal extension SwiftSupportAppCompatActivityLocal {
+    
+    /// JNI Cache
+    struct JNICache {
+        
+        static let classSignature = Android.App.className(["Activity"])
+        
+        /// JNI Java class name
+        static let className = classSignature.rawValue
+        
+        /// JNI Java class
+        static var jniClass: jclass?
+        
+        /// JNI Field ID cache
+        struct FieldID {
+            
+            static var RESULT_FIRST_USER: jfieldID?
+            static var RESULT_OK: jfieldID?
+            static var RESULT_CANCELED: jfieldID?
+        }
+        
+        /// JNI Method ID cache
+        struct MethodID {
+            
+            static var registerReceiver: jmethodID?
+            static var unregisterReceiver: jmethodID?
+        }
+    }
+}
+
 
 // MARK: - Native Methods
 
