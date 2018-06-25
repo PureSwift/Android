@@ -9,7 +9,7 @@ import Foundation
 import java_swift
 import JNI
 
-public extension Android.Widget {
+public extension Android.Content {
     
     public typealias BroadcastReceiver = AndroidBroadcastReceiver
 }

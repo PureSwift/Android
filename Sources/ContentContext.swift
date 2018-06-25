@@ -92,6 +92,45 @@ public extension AndroidContext {
         
         return __return != nil ? T( javaObject: __return ) : nil
     }
+    
+    public func registerReceiver(receiver: Android.Content.BroadcastReceiver, filter: Android.Content.IntentFilter) -> Android.Content.Intent {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2)
+        
+        __args[0] = JNIType.toJava( value: receiver, locals: &__locals )
+        __args[1] = JNIType.toJava( value: filter, locals: &__locals )
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "registerReceiver",
+                                                  methodSig: "(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;",
+                                                  methodCache: &JNICache.MethodID.registerReceiver,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer {
+            JNI.DeleteLocalRef(__return)
+        }
+        
+        return Android.Content.Intent(javaObject: __return)
+    }
+    
+    public func unregisterReceiver(receiver: Android.Content.BroadcastReceiver){
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1)
+        
+        __args[0] = JNIType.toJava( value: receiver, locals: &__locals )
+        
+        JNIMethod.CallVoidMethod(object: javaObject,
+                                  methodName: "unregisterReceiver",
+                                  methodSig: "(Landroid/content/BroadcastReceiver;)",
+                                  methodCache: &JNICache.MethodID.unregisterReceiver,
+                                  args: &__args,
+                                  locals: &__locals)
+    }
 }
 
 // MARK: - JNICache
@@ -120,6 +159,8 @@ internal extension AndroidContext {
         struct MethodID {
             
             static var getSystemService: jmethodID?
+            static var registerReceiver: jmethodID?
+            static var unregisterReceiver: jmethodID?
         }
     }
 }
