@@ -127,8 +127,10 @@ private extension Android.Content.Intent {
     // JNI Cache
     struct JNICache {
         
+        static let classSignature = Android.Content.className(["Intent"])
+        
         // JNI Java class name
-        static let className = "android/content/Intent"
+        static let className = classSignature.rawValue
         
         // JNI Java class
         static var jniClass: jclass?
