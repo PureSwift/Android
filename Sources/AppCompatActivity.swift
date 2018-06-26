@@ -198,6 +198,14 @@ public extension SwiftSupportAppCompatActivity {
 
 // MARK: - Local Java Object
 
+extension SwiftSupportAppCompatActivity {
+    /*
+    public func localJavaObject( _ locals: UnsafeMutablePointer<[jobject]> ) -> jobject? {
+        
+        return SwiftSupportAppCompatActivityLocal( owned: self, proto: self ).localJavaObject( locals )
+    }*/
+}
+
 internal class SwiftSupportAppCompatActivityLocal: JNIObject {
     
     @_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_bind")
