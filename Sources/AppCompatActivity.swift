@@ -29,7 +29,7 @@ public extension SwiftSupport.App {
  *
  * To be of use with Context.startActivity(), all activity classes must have a corresponding <activity> declaration in their package's AndroidManifest.xml.
  */
-public protocol SwiftSupportAppCompatActivity {
+public protocol SwiftSupportAppCompatActivity: JavaProtocol {
     
     func onCreate(savedInstanceState: Android.OS.Bundle?)
     
@@ -49,6 +49,8 @@ public protocol SwiftSupportAppCompatActivity {
     
     func onRequestPermissionsResult(requestCode: Int, permissions: [String], grantResults: [Int])
 }
+
+// MARK: - Implemented Callbacks
 
 public extension SwiftSupportAppCompatActivity {
     
@@ -90,6 +92,58 @@ public extension SwiftSupportAppCompatActivity {
     }
 }
 
+// MARK: - Methods
+
+public extension SwiftSupportAppCompatActivity {
+    
+    public func registerReceiver(receiver: Android.Content.BroadcastReceiver, filter: Android.Content.IntentFilter) -> Android.Content.Intent? {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2)
+        
+        __args[0] = JNIType.toJava( value: receiver, locals: &__locals )
+        __args[1] = JNIType.toJava( value: filter, locals: &__locals )
+        
+        var intent: Android.Content.Intent?
+        
+        withJavaObject {
+            
+            var __return = JNIMethod.CallObjectMethod(object: $0,
+                                                      methodName: "registerReceiver",
+                                                      methodSig: "(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;",
+                                                      methodCache: &SwiftSupportAppCompatActivityLocal.JNICache.MethodID.registerReceiver,
+                                                      args: &__args,
+                                                      locals: &__locals)
+            defer {
+                JNI.DeleteLocalRef(__return)
+            }
+            
+            intent = Android.Content.Intent(javaObject: __return)
+        }
+        return intent != nil ? intent : nil
+    }
+    
+    public func unregisterReceiver(receiver: Android.Content.BroadcastReceiver){
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1)
+        
+        __args[0] = JNIType.toJava( value: receiver, locals: &__locals )
+        
+        withJavaObject {
+            
+            JNIMethod.CallVoidMethod(object: $0,
+                                     methodName: "unregisterReceiver",
+                                     methodSig: "(Landroid/content/BroadcastReceiver;)",
+                                     methodCache: &SwiftSupportAppCompatActivityLocal.JNICache.MethodID.unregisterReceiver,
+                                     args: &__args,
+                                     locals: &__locals)
+        }
+    }
+}
+
 // MARK: - Constants
 
 public extension SwiftSupportAppCompatActivity {
@@ -101,7 +155,7 @@ public extension SwiftSupportAppCompatActivity {
             let __value = JNIField.GetStaticIntField(
                 fieldName: "RESULT_OK",
                 fieldType: "I",
-                fieldCache: &SwiftSupportAppCompatActivityLocal.JNICache.FieldID.RESULT_OK,
+                fieldCache: &SwiftSupportAppCompatActivityLocal.ActivityJNICache.FieldID.RESULT_OK,
                 className: SwiftSupportAppCompatActivityLocal.JNICache.className,
                 classCache: &SwiftSupportAppCompatActivityLocal.JNICache.jniClass )
             
@@ -116,7 +170,7 @@ public extension SwiftSupportAppCompatActivity {
             let __value = JNIField.GetStaticIntField(
                 fieldName: "RESULT_FIRST_USER",
                 fieldType: "I",
-                fieldCache: &SwiftSupportAppCompatActivityLocal.JNICache.FieldID.RESULT_FIRST_USER,
+                fieldCache: &SwiftSupportAppCompatActivityLocal.ActivityJNICache.FieldID.RESULT_FIRST_USER,
                 className: SwiftSupportAppCompatActivityLocal.JNICache.className,
                 classCache: &SwiftSupportAppCompatActivityLocal.JNICache.jniClass )
             
@@ -131,7 +185,7 @@ public extension SwiftSupportAppCompatActivity {
             let __value = JNIField.GetStaticIntField(
                 fieldName: "RESULT_CANCELED",
                 fieldType: "I",
-                fieldCache: &SwiftSupportAppCompatActivityLocal.JNICache.FieldID.RESULT_CANCELED,
+                fieldCache: &SwiftSupportAppCompatActivityLocal.ActivityJNICache.FieldID.RESULT_CANCELED,
                 className: SwiftSupportAppCompatActivityLocal.JNICache.className,
                 classCache: &SwiftSupportAppCompatActivityLocal.JNICache.jniClass )
             
@@ -193,7 +247,7 @@ internal class SwiftSupportAppCompatActivityLocal: JNIObject {
 internal extension SwiftSupportAppCompatActivityLocal {
     
     /// JNI Cache
-    struct JNICache {
+    struct ActivityJNICache {
         
         static let classSignature = Android.App.className(["Activity"])
         
@@ -210,6 +264,18 @@ internal extension SwiftSupportAppCompatActivityLocal {
             static var RESULT_OK: jfieldID?
             static var RESULT_CANCELED: jfieldID?
         }
+    }
+    
+    /// JNI Cache
+    struct JNICache {
+        
+        static let classSignature = SwiftSupport.App.className(["SwiftAppCompatActivity"])
+        
+        /// JNI Java class name
+        static let className = classSignature.rawValue
+        
+        /// JNI Java class
+        static var jniClass: jclass?
         
         /// JNI Method ID cache
         struct MethodID {
