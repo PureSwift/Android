@@ -16,6 +16,46 @@ public extension Android.Widget {
 
 open class AndroidWidgetBaseAdapter: JavaObject {
     
+    // MARK: - Properties
+    
+    open override var javaObject: jobject? {
+        
+        get { return listener.javaObject }
+        
+        set { listener.javaObject = newValue }
+    }
+    
+    /// The underlying listener object.
+    internal let listener: JNIListenerDelegate<AndroidWidgetBaseAdapter>
+    
+    // MARK: - Initialization
+    
+    /// Create a Swift-owned Java Object.
+    public convenience init() {
+        
+        var locals = [jobject]()
+        
+        var methodID: jmethodID?
+        
+        var args: [jvalue] = [listener.swiftValue()]
+        
+        // returned objects are always local refs
+        guard let __object: jobject = JNIMethod.NewObject(className: className, classObject: classObject,
+                                                          methodSig: "(J)V", methodCache: &methodID,
+                                                          args: &args, locals: &locals )
+            else { fatalError("Could not initialize \(className)") }
+        
+        self.init(javaObject: __object, swiftObject: swiftObject)
+        
+        JNI.DeleteLocalRef( __object ) // delete local ref
+    }
+    
+    public required init(javaObject: jobject?) {
+        super.init(javaObject: javaObject)
+        
+        self.listener = JNIListenerDelegate<AndroidWidgetBaseAdapter>(javaObject: javaObject, swiftObject: self)
+    }
+    
     public convenience init?( casting object: JavaObject, _ file: StaticString = #file, _ line: Int = #line ) {
         self.init( javaObject: nil )
         object.withJavaObject {
@@ -23,28 +63,28 @@ open class AndroidWidgetBaseAdapter: JavaObject {
         }
     }
     
-    // MARK: - Properties
-    
-    fileprivate lazy var listener: AndroidWidgetBaseAdapterListenerLocal = {
-        
-        let proxy = AndroidWidgetBaseAdapterListenerProxy()
-        proxy.swiftObject = self
-        
-        return AndroidWidgetBaseAdapterListenerLocal(owned: proxy, proto: proxy)
-    }()
-    
-    // MARK: - Initialization
-    
-    public func localJavaObject( _ locals: UnsafeMutablePointer<[jobject]> ) -> jobject? {
+    open override func localJavaObject( _ locals: UnsafeMutablePointer<[jobject]> ) -> jobject? {
         
         return listener.localJavaObject( locals )
     }
     
     // MARK: - Responder
     
-    public final func notifyDataSetChanged() {
+    func notifyDataSetChanged() {
         
-        listener.notifyDataSetChanged()
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        withJavaObject {
+            
+            JNIMethod.CallVoidMethod(object: $0,
+                                     methodName: "notifyDataSetChanged",
+                                     methodSig: "()V",
+                                     methodCache: &Android.Widget.BaseAdapter.JNICache.MethodID.notifyDataSetChanged,
+                                     args: &__args,
+                                     locals: &__locals)
+        }
     }
     
     // MARK: - Listener
@@ -178,56 +218,19 @@ internal class AndroidWidgetBaseAdapterInternal: JNIListenerResponder {
     override open class func proxyClass() -> jclass? { return _proxyClass }
     
     
-    
-    // MARK: - Java Methods
-    
-    func notifyDataSetChanged() {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        withJavaObject {
-            
-            JNIMethod.CallVoidMethod(object: $0,
-                                     methodName: "notifyDataSetChanged",
-                                     methodSig: "()V",
-                                     methodCache: &Android.Widget.BaseAdapter.JNICache.MethodID.notifyDataSetChanged,
-                                     args: &__args,
-                                     locals: &__locals)
-        }
-    }
 }
 
-internal final class JNIListenerResponder <T: JavaObject>: JavaObject {
+internal class JNIListenerDelegate <T: JavaObject>: JavaObject {
     
     private(set) weak var swiftObject: T?
     
-    // Create a Swift-owned Java Object.
-    convenience init(className: String, classObject: jclass, swiftObject: T) {
-        
-        var locals = [jobject]()
-        
-        var methodID: jmethodID?
-        
-        var args: [jvalue] = [swiftValue()]
-        
-        // returned objects are always local refs
-        guard let __object: jobject = JNIMethod.NewObject(className: className, classObject: classObject,
-                                                         methodSig: "(J)V", methodCache: &methodID,
-                                                         args: &args, locals: &locals )
-            else { fatalError("Could not initialize \(className)") }
+    /// Designated initializer.
+    convenience init(javaObject: jobject?, swiftObject: T) {
         
         self.swiftObject = swiftObject
         
-        // initialize and store with new local ref
-        self.init(javaObject: __object ) // new global ref
-        
-        JNI.DeleteLocalRef( __object ) // delete local ref
-    }
-    
-    required init(javaObject: jobject?) {
-        fatalError("Invalid initializer")
+        // initialize and store with new global ref
+        self.init(javaObject: javaObject) // new global ref
     }
     
     static fileprivate func recoverPointer( _ swiftObject: jlong, _ file: StaticString = #file, _ line: Int = #line ) -> uintptr_t {
@@ -270,6 +273,6 @@ internal final class JNIListenerResponder <T: JavaObject>: JavaObject {
     
     static func swiftObject( jniEnv: UnsafeMutablePointer<JNIEnv?>?, javaObject: jobject?, swiftObject: jlong ) -> T? {
         
-        return unsafeBitCast( recoverPointer( swiftObject ), to: JNIListenerResponder<T>.self ).swiftObject
+        return unsafeBitCast( recoverPointer( swiftObject ), to: JNIListenerDelegate<T>.self ).swiftObject
     }
 }
