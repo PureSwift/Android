@@ -29,7 +29,7 @@ public extension SwiftSupport.App {
  *
  * To be of use with Context.startActivity(), all activity classes must have a corresponding <activity> declaration in their package's AndroidManifest.xml.
  */
-public protocol SwiftSupportAppCompatActivity: JavaProtocol {
+public protocol SwiftSupportAppCompatActivity/*: JavaProtocol*/ {
     
     func onCreate(savedInstanceState: Android.OS.Bundle?)
     
@@ -95,7 +95,7 @@ public extension SwiftSupportAppCompatActivity {
 // MARK: - Methods
 
 public extension SwiftSupportAppCompatActivity {
-    
+    /*
     public func registerReceiver(receiver: Android.Content.BroadcastReceiver, filter: Android.Content.IntentFilter) -> Android.Content.Intent? {
         
         var __locals = [jobject]()
@@ -141,7 +141,7 @@ public extension SwiftSupportAppCompatActivity {
                                      args: &__args,
                                      locals: &__locals)
         }
-    }
+    }*/8698510a0df90b437216da5e71f80368a6328c0b
 }
 
 // MARK: - Constants
