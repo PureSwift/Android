@@ -16,44 +16,36 @@ public extension Android.Widget {
 
 open class AndroidWidgetBaseAdapter: JavaObject {
     
-    // MARK: - Properties
-    
-    open override var javaObject: jobject? {
-        
-        get { return listener.javaObject }
-        
-        set { listener.javaObject = newValue }
-    }
-    
-    /// The underlying listener object.
-    internal let listener: JNIListenerDelegate<AndroidWidgetBaseAdapter>
-    
     // MARK: - Initialization
     
     /// Create a Swift-owned Java Object.
     public convenience init() {
         
+        self.init(javaObject: nil)
+        
         var locals = [jobject]()
         
         var methodID: jmethodID?
         
-        var args: [jvalue] = [listener.swiftValue()]
+        var args: [jvalue] = [self.swiftValue()]
         
         // returned objects are always local refs
-        guard let __object: jobject = JNIMethod.NewObject(className: className, classObject: classObject,
-                                                          methodSig: "(J)V", methodCache: &methodID,
-                                                          args: &args, locals: &locals )
+        guard let __object: jobject = JNIMethod.NewObject(className: AndroidWidgetBaseAdapter.JNICache.className,
+                                                          classObject: AndroidWidgetBaseAdapter.JNICache.jniClass,
+                                                          methodSig: "(J)V",
+                                                          methodCache: &methodID,
+                                                          args: &args,
+                                                          locals: &locals )
+            
             else { fatalError("Could not initialize \(className)") }
         
-        self.init(javaObject: __object, swiftObject: swiftObject)
+        self.javaObject = __object
         
         JNI.DeleteLocalRef( __object ) // delete local ref
     }
     
     public required init(javaObject: jobject?) {
         super.init(javaObject: javaObject)
-        
-        self.listener = JNIListenerDelegate<AndroidWidgetBaseAdapter>(javaObject: javaObject, swiftObject: self)
     }
     
     public convenience init?( casting object: JavaObject, _ file: StaticString = #file, _ line: Int = #line ) {
@@ -63,14 +55,9 @@ open class AndroidWidgetBaseAdapter: JavaObject {
         }
     }
     
-    open override func localJavaObject( _ locals: UnsafeMutablePointer<[jobject]> ) -> jobject? {
-        
-        return listener.localJavaObject( locals )
-    }
-    
     // MARK: - Responder
     
-    func notifyDataSetChanged() {
+    open func notifyDataSetChanged() {
         
         var __locals = [jobject]()
         
@@ -97,6 +84,8 @@ open class AndroidWidgetBaseAdapter: JavaObject {
     }
 }
 
+extension AndroidWidgetBaseAdapter: JNIListener { }
+
 // MARK: - Private
 
 fileprivate extension Android.Widget.BaseAdapter {
@@ -110,7 +99,39 @@ fileprivate extension Android.Widget.BaseAdapter {
         static let className = classSignature.rawValue
         
         /// JNI Java class
-        static var jniClass: jclass? = AndroidWidgetBaseAdapterListenerLocal._proxyClass
+        static let jniClass: jclass = {
+            
+            var natives = [JNINativeMethod]()
+            
+            let getCountThunk: AndroidWidgetBaseAdapter_getCount_type = AndroidWidgetBaseAdapter_getCount
+            
+            natives.append( JNINativeMethod(name: strdup("__getCount"),
+                                            signature: strdup("(J)I"),
+                                            fnPtr: unsafeBitCast( getCountThunk, to: UnsafeMutableRawPointer.self ) ))
+            
+            let getViewThunk: AndroidWidgetBaseAdapter_getView_type = AndroidWidgetBaseAdapter_getView
+            
+            natives.append( JNINativeMethod(name: strdup("__getView"),
+                                            signature: strdup("(JILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;"),
+                                            fnPtr: unsafeBitCast( getViewThunk, to: UnsafeMutableRawPointer.self ) ))
+            
+            natives.append( JNINativeMethod( name: strdup("__finalize"),
+                                             signature: strdup("(J)V"),
+                                             fnPtr: unsafeBitCast( JNIReleasableProxy__finalize_thunk, to: UnsafeMutableRawPointer.self ) ) )
+            
+            let clazz = JNI.FindClass( className )
+            
+            withUnsafePointer(to: &natives[0]) {
+                nativesPtr in
+                if JNI.api.RegisterNatives( JNI.env, clazz, nativesPtr, jint(natives.count) ) != jint(JNI_OK) {
+                    JNI.report( "Unable to register java natives" )
+                }
+            }
+            
+            defer { JNI.DeleteLocalRef( clazz ) }
+            
+            return JNI.api.NewGlobalRef( JNI.env, clazz )!
+        }()
         
         /// JNI Method ID cache
         struct MethodID {
@@ -126,9 +147,9 @@ private func AndroidWidgetBaseAdapter_getCount( _ __env: UnsafeMutablePointer<JN
                                             _ __this: jobject?,
                                             _ __swiftObject: jlong) -> jint {
     
-    let result = AndroidWidgetBaseAdapterListenerLocal
-        .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
-        .getCount()
+    let result = AndroidWidgetBaseAdapter
+        .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )?
+        .getCount() ?? 0
     
     return jint(result)
 }
@@ -146,8 +167,8 @@ private func AndroidWidgetBaseAdapter_getView( _ __env: UnsafeMutablePointer<JNI
     
     let parentView = Android.View.ViewGroup(javaObject: __parent)
     
-    let result = AndroidWidgetBaseAdapterListenerLocal
-        .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
+    let result = AndroidWidgetBaseAdapter
+        .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )?
         .getView(position: Int(__position), convertView: convertView, parent: parentView)
     
     var __locals = [jobject]()
@@ -155,83 +176,9 @@ private func AndroidWidgetBaseAdapter_getView( _ __env: UnsafeMutablePointer<JNI
     return result?.localJavaObject(&__locals)
 }
 
-fileprivate final class AndroidWidgetBaseAdapterListenerProxy: AndroidWidgetBaseAdapterListenerProtocol {
-    
-    weak var swiftObject: Android.Widget.BaseAdapter?
-    
-    func getCount() -> Int {
-        
-        return swiftObject?.getCount() ?? 0
-    }
-    
-    func getView(position: Int, convertView: Android.View.View?, parent: Android.View.ViewGroup) -> Android.View.View? {
-        
-        return swiftObject?.getView(position: position, convertView: convertView, parent: parent)
-    }
-}
+internal protocol JNIListener: class, JavaProtocol { }
 
-fileprivate protocol AndroidWidgetBaseAdapterListenerProtocol {
-    
-    func getCount() -> Int
-    
-    func getView(position: Int, convertView: Android.View.View?, parent: Android.View.ViewGroup) -> Android.View.View?
-}
-
-internal class AndroidWidgetBaseAdapterInternal: JNIListenerResponder {
-    
-    fileprivate static let _proxyClass: jclass = {
-        
-        var natives = [JNINativeMethod]()
-        
-        let getCountThunk: AndroidWidgetBaseAdapter_getCount_type = AndroidWidgetBaseAdapter_getCount
-        
-        natives.append( JNINativeMethod(name: strdup("__getCount"),
-                                        signature: strdup("(J)I"),
-                                        fnPtr: unsafeBitCast( getCountThunk, to: UnsafeMutableRawPointer.self ) ))
-        
-        let getViewThunk: AndroidWidgetBaseAdapter_getView_type = AndroidWidgetBaseAdapter_getView
-        
-        natives.append( JNINativeMethod(name: strdup("__getView"),
-                                        signature: strdup("(JILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;"),
-                                        fnPtr: unsafeBitCast( getViewThunk, to: UnsafeMutableRawPointer.self ) ))
-        
-        natives.append( JNINativeMethod( name: strdup("__finalize"),
-                                         signature: strdup("(J)V"),
-                                         fnPtr: unsafeBitCast( JNIReleasableProxy__finalize_thunk, to: UnsafeMutableRawPointer.self ) ) )
-        
-        let clazz = JNI.FindClass( proxyClassName() )
-        
-        withUnsafePointer(to: &natives[0]) {
-            nativesPtr in
-            if JNI.api.RegisterNatives( JNI.env, clazz, nativesPtr, jint(natives.count) ) != jint(JNI_OK) {
-                JNI.report( "Unable to register java natives" )
-            }
-        }
-        
-        defer { JNI.DeleteLocalRef( clazz ) }
-        
-        return JNI.api.NewGlobalRef( JNI.env, clazz )!
-    }()
-    
-    override open class func proxyClassName() -> String { return Android.Widget.BaseAdapter.JNICache.className }
-    
-    override open class func proxyClass() -> jclass? { return _proxyClass }
-    
-    
-}
-
-internal class JNIListenerDelegate <T: JavaObject>: JavaObject {
-    
-    private(set) weak var swiftObject: T?
-    
-    /// Designated initializer.
-    convenience init(javaObject: jobject?, swiftObject: T) {
-        
-        self.swiftObject = swiftObject
-        
-        // initialize and store with new global ref
-        self.init(javaObject: javaObject) // new global ref
-    }
+internal extension JNIListener {
     
     static fileprivate func recoverPointer( _ swiftObject: jlong, _ file: StaticString = #file, _ line: Int = #line ) -> uintptr_t {
         #if os(Android)
@@ -245,11 +192,11 @@ internal class JNIListenerDelegate <T: JavaObject>: JavaObject {
         return swiftPointer
     }
     
-    private func swiftValue() -> jvalue {
+    internal func swiftValue() -> jvalue {
         return jvalue( j: jlong(unsafeBitCast(Unmanaged.passRetained(self), to: uintptr_t.self)) )
     }
     
-    private func takeOwnership( javaObject: jobject?, _ file: StaticString = #file, _ line: Int = #line ) {
+    internal func takeOwnership( javaObject: jobject?, _ file: StaticString = #file, _ line: Int = #line ) {
         
         guard javaObject != nil else { return }
         var locals = [jobject]()
@@ -271,8 +218,8 @@ internal class JNIListenerDelegate <T: JavaObject>: JavaObject {
         }
     }
     
-    static func swiftObject( jniEnv: UnsafeMutablePointer<JNIEnv?>?, javaObject: jobject?, swiftObject: jlong ) -> T? {
+    internal static func swiftObject( jniEnv: UnsafeMutablePointer<JNIEnv?>?, javaObject: jobject?, swiftObject: jlong ) -> Self? {
         
-        return unsafeBitCast( recoverPointer( swiftObject ), to: JNIListenerDelegate<T>.self ).swiftObject
+        return unsafeBitCast( recoverPointer( swiftObject ), to: Self.self )
     }
 }
