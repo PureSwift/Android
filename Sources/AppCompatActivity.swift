@@ -121,7 +121,7 @@ public extension SwiftSupportAppCompatActivity {
             
             intent = Android.Content.Intent(javaObject: __return)
         }
-        return intent != nil ? intent : nil
+        return intent
     }
     
     public func unregisterReceiver(receiver: Android.Content.BroadcastReceiver){
