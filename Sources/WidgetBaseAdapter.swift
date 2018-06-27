@@ -14,7 +14,14 @@ public extension Android.Widget {
     public typealias BaseAdapter = AndroidWidgetBaseAdapter
 }
 
-open class AndroidWidgetBaseAdapter: JavaProtocol {
+open class AndroidWidgetBaseAdapter: JavaObject {
+    
+    public convenience init?( casting object: JavaObject, _ file: StaticString = #file, _ line: Int = #line ) {
+        self.init( javaObject: nil )
+        object.withJavaObject {
+            self.javaObject = $0
+        }
+    }
     
     // MARK: - Properties
     
@@ -32,6 +39,8 @@ open class AndroidWidgetBaseAdapter: JavaProtocol {
         
         return listener.localJavaObject( locals )
     }
+    
+    // MARK: - Responder
     
     public final func notifyDataSetChanged() {
         
@@ -121,23 +130,14 @@ fileprivate final class AndroidWidgetBaseAdapterListenerProxy: AndroidWidgetBase
     }
 }
 
-fileprivate protocol AndroidWidgetBaseAdapterListenerProtocol: JavaProtocol {
+fileprivate protocol AndroidWidgetBaseAdapterListenerProtocol {
     
     func getCount() -> Int
     
     func getView(position: Int, convertView: Android.View.View?, parent: Android.View.ViewGroup) -> Android.View.View?
 }
 
-extension AndroidWidgetBaseAdapterListenerProtocol {
-    
-    public func localJavaObject( _ locals: UnsafeMutablePointer<[jobject]> ) -> jobject? {
-        
-        return AndroidWidgetBaseAdapterListenerLocal( owned: self, proto: self ).localJavaObject( locals )
-    }
-    
-}
-
-fileprivate class AndroidWidgetBaseAdapterListenerLocal: JNILocalProxy<AndroidWidgetBaseAdapterListenerProtocol, Any> {
+internal class AndroidWidgetBaseAdapterInternal: JNIListenerResponder {
     
     fileprivate static let _proxyClass: jclass = {
         
@@ -177,6 +177,10 @@ fileprivate class AndroidWidgetBaseAdapterListenerLocal: JNILocalProxy<AndroidWi
     
     override open class func proxyClass() -> jclass? { return _proxyClass }
     
+    
+    
+    // MARK: - Java Methods
+    
     func notifyDataSetChanged() {
         
         var __locals = [jobject]()
@@ -192,5 +196,80 @@ fileprivate class AndroidWidgetBaseAdapterListenerLocal: JNILocalProxy<AndroidWi
                                      args: &__args,
                                      locals: &__locals)
         }
+    }
+}
+
+internal final class JNIListenerResponder <T: JavaObject>: JavaObject {
+    
+    private(set) weak var swiftObject: T?
+    
+    // Create a Swift-owned Java Object.
+    convenience init(className: String, classObject: jclass, swiftObject: T) {
+        
+        var locals = [jobject]()
+        
+        var methodID: jmethodID?
+        
+        var args: [jvalue] = [swiftValue()]
+        
+        // returned objects are always local refs
+        guard let __object: jobject = JNIMethod.NewObject(className: className, classObject: classObject,
+                                                         methodSig: "(J)V", methodCache: &methodID,
+                                                         args: &args, locals: &locals )
+            else { fatalError("Could not initialize \(className)") }
+        
+        self.swiftObject = swiftObject
+        
+        // initialize and store with new local ref
+        self.init(javaObject: __object ) // new global ref
+        
+        JNI.DeleteLocalRef( __object ) // delete local ref
+    }
+    
+    required init(javaObject: jobject?) {
+        fatalError("Invalid initializer")
+    }
+    
+    static fileprivate func recoverPointer( _ swiftObject: jlong, _ file: StaticString = #file, _ line: Int = #line ) -> uintptr_t {
+        #if os(Android)
+        let swiftPointer = uintptr_t(swiftObject&0xffffffff)
+        #else
+        let swiftPointer = uintptr_t(swiftObject)
+        #endif
+        if swiftPointer == 0 {
+            JNI.report( "Race condition setting swiftObject on Java Proxy. More thought required...", file, line )
+        }
+        return swiftPointer
+    }
+    
+    private func swiftValue() -> jvalue {
+        return jvalue( j: jlong(unsafeBitCast(Unmanaged.passRetained(self), to: uintptr_t.self)) )
+    }
+    
+    private func takeOwnership( javaObject: jobject?, _ file: StaticString = #file, _ line: Int = #line ) {
+        
+        guard javaObject != nil else { return }
+        var locals = [jobject]()
+        var fieldID: jfieldID?
+        
+        let existing: jlong = JNIField.GetLongField( fieldName: "__swiftObject", fieldType: "J", fieldCache: &fieldID,
+                                                     object: javaObject, file, line )
+        
+        // get retained pointer
+        let swiftValue = self.swiftValue().j
+        
+        // store pointer in Java property
+        JNIField.SetLongField( fieldName: "__swiftObject", fieldType: "J", fieldCache: &fieldID,
+                               object: javaObject, value: swiftValue, locals: &locals, file, line )
+        
+        // release old instance (if any)
+        if existing != 0 {
+            JNIReleasableProxy.canrelease( swiftObject: existing )
+        }
+    }
+    
+    static func swiftObject( jniEnv: UnsafeMutablePointer<JNIEnv?>?, javaObject: jobject?, swiftObject: jlong ) -> T? {
+        
+        return unsafeBitCast( recoverPointer( swiftObject ), to: JNIListenerResponder<T>.self ).swiftObject
     }
 }
