@@ -242,7 +242,6 @@ fileprivate extension SwiftSupport.App.AppCompatActivity {
     }
 }
 
-
 // MARK: - Native Methods
 
 #if os(Android)
@@ -250,18 +249,6 @@ fileprivate extension SwiftSupport.App.AppCompatActivity {
 @_silgen_name("SwiftAndroidMainActivity")
 internal func SwiftAndroidMainActivity() -> SwiftSupportAppCompatActivity
 #endif
-
-fileprivate func recoverPointer( _ swiftObject: jlong, _ file: StaticString = #file, _ line: Int = #line ) -> uintptr_t {
-    #if os(Android)
-    let swiftPointer = uintptr_t(swiftObject&0xffffffff)
-    #else
-    let swiftPointer = uintptr_t(swiftObject)
-    #endif
-    if swiftPointer == 0 {
-        JNI.report( "WTF dude", file, line )
-    }
-    return swiftPointer
-}
 
 @_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_onCreateNative")
 public func SwiftSupportAppCompatActivityLocal_onCreate( _ __env: UnsafeMutablePointer<JNIEnv?>,
