@@ -213,7 +213,7 @@ public func SwiftApplication_finalize( _ __env: UnsafeMutablePointer<JNIEnv?>,
                                                           _ __this: jobject?,
                                                           _ __swiftObject: jlong) -> () {
     
-    SwiftApplication.canrelease(swiftObject: __swiftObject)
+    SwiftApplication.release(swiftObject: __swiftObject )
     
     NSLog("native \(#function)")
 }

@@ -55,10 +55,14 @@ internal extension JNIListener {
         
         return unsafeBitCast( recoverPointer( swiftObject ), to: Self.self )
     }
+}
+
+internal extension JNIListener where Self: JavaObject  {
     
-    internal static func canrelease( swiftObject: jlong ) {
-        let toRelease: JNIReleasableProxy = unsafeBitCast( recoverPointer( swiftObject ), to: JNIReleasableProxy.self )
-        toRelease.clearLocal()
+    internal static func release(swiftObject: jlong) {
+        
+        let toRelease = unsafeBitCast( recoverPointer( swiftObject ), to: JavaObject.self )
+        
         Unmanaged.passUnretained(toRelease).release()
     }
 }

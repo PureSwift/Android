@@ -129,6 +129,7 @@ fileprivate extension Android.Widget.BaseAdapter {
                                             signature: strdup("(JILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;"),
                                             fnPtr: unsafeBitCast( getViewThunk, to: UnsafeMutableRawPointer.self ) ))
             
+            // FIXME: use specialized `finalize` that does not assume the object is a subclass of `JNILocalProxy`
             natives.append( JNINativeMethod( name: strdup("__finalize"),
                                              signature: strdup("(J)V"),
                                              fnPtr: unsafeBitCast( JNIReleasableProxy__finalize_thunk, to: UnsafeMutableRawPointer.self ) ) )
@@ -188,4 +189,13 @@ private func AndroidWidgetBaseAdapter_getView( _ __env: UnsafeMutablePointer<JNI
     var __locals = [jobject]()
     
     return result?.localJavaObject(&__locals)
+}
+
+public func AndroidWidgetBaseAdapter_finalize ( _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                                     _ __this: jobject?,
+                                                     _ __swiftObject: jlong) -> () {
+    
+    SwiftSupportAppCompatActivity.release(swiftObject: __swiftObject )
+    
+    NSLog("native \(#function)")
 }

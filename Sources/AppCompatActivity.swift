@@ -35,13 +35,10 @@ open class SwiftSupportAppCompatActivity: JavaObject {
     public static func bind( __env: UnsafeMutablePointer<JNIEnv?>, __this: jobject?) -> jlong? {
         
         #if os(Android)
-        // Ask app for main activity.
-        let activity = SwiftAndroidMainActivity()
+        // Ask app for main activity type.
+        let activityType = SwiftAndroidMainActivity()
         
-        let local = SwiftSupportAppCompatActivityLocal(javaObject: __this, activity: activity)
-        
-        // ARC +1
-        return jlong(unsafeBitCast(Unmanaged.passRetained(local), to: uintptr_t.self))
+        return activityType(javaObject: __this)
         #else
         fatalError("Can only run on Android OS")
         #endif
@@ -247,11 +244,11 @@ fileprivate extension SwiftSupport.App.AppCompatActivity {
 #if os(Android)
 /// Needs to be implemented by app.
 @_silgen_name("SwiftAndroidMainActivity")
-internal func SwiftAndroidMainActivity() -> SwiftSupportAppCompatActivity
+internal func SwiftAndroidMainActivity() -> SwiftSupportAppCompatActivity.Type
 #endif
 
 @_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_onCreateNative")
-public func SwiftSupportAppCompatActivityLocal_onCreate( _ __env: UnsafeMutablePointer<JNIEnv?>,
+public func SwiftSupportAppCompatActivity_onCreate( _ __env: UnsafeMutablePointer<JNIEnv?>,
                                                          _ __this: jobject?,
                                                          _ __swiftObject: jlong,
                                                          _ __savedInstanceState: jobject?) -> () {
@@ -264,7 +261,7 @@ public func SwiftSupportAppCompatActivityLocal_onCreate( _ __env: UnsafeMutableP
 }
 
 @_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_onStartNative")
-public func SwiftSupportAppCompatActivityLocal_onStart( _ __env: UnsafeMutablePointer<JNIEnv?>,
+public func SwiftSupportAppCompatActivity_onStart( _ __env: UnsafeMutablePointer<JNIEnv?>,
                                                          _ __this: jobject?,
                                                          _ __swiftObject: jlong) -> () {
 
@@ -274,7 +271,7 @@ public func SwiftSupportAppCompatActivityLocal_onStart( _ __env: UnsafeMutablePo
 }
 
 @_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_onResumeNative")
-public func SwiftSupportAppCompatActivityLocal_onResume( _ __env: UnsafeMutablePointer<JNIEnv?>,
+public func SwiftSupportAppCompatActivity_onResume( _ __env: UnsafeMutablePointer<JNIEnv?>,
                                                         _ __this: jobject?,
                                                         _ __swiftObject: jlong) -> () {
     
@@ -284,7 +281,7 @@ public func SwiftSupportAppCompatActivityLocal_onResume( _ __env: UnsafeMutableP
 }
 
 @_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_onPauseNative")
-public func SwiftSupportAppCompatActivityLocal_onPause( _ __env: UnsafeMutablePointer<JNIEnv?>,
+public func SwiftSupportAppCompatActivity_onPause( _ __env: UnsafeMutablePointer<JNIEnv?>,
                                                          _ __this: jobject?,
                                                          _ __swiftObject: jlong) -> () {
     
@@ -294,7 +291,7 @@ public func SwiftSupportAppCompatActivityLocal_onPause( _ __env: UnsafeMutablePo
 }
 
 @_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_onRestartNative")
-public func SwiftSupportAppCompatActivityLocal_onRestart( _ __env: UnsafeMutablePointer<JNIEnv?>,
+public func SwiftSupportAppCompatActivity_onRestart( _ __env: UnsafeMutablePointer<JNIEnv?>,
                                                          _ __this: jobject?,
                                                          _ __swiftObject: jlong) -> () {
     
@@ -304,7 +301,7 @@ public func SwiftSupportAppCompatActivityLocal_onRestart( _ __env: UnsafeMutable
 }
 
 @_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_onStopNative")
-public func SwiftSupportAppCompatActivityLocal_onStop( _ __env: UnsafeMutablePointer<JNIEnv?>,
+public func SwiftSupportAppCompatActivity_onStop( _ __env: UnsafeMutablePointer<JNIEnv?>,
                                                           _ __this: jobject?,
                                                           _ __swiftObject: jlong) -> () {
     
@@ -314,7 +311,7 @@ public func SwiftSupportAppCompatActivityLocal_onStop( _ __env: UnsafeMutablePoi
 }
 
 @_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_onDestroyNative")
-public func SwiftSupportAppCompatActivityLocal_onDestroy( _ __env: UnsafeMutablePointer<JNIEnv?>,
+public func SwiftSupportAppCompatActivity_onDestroy( _ __env: UnsafeMutablePointer<JNIEnv?>,
                                                        _ __this: jobject?,
                                                        _ __swiftObject: jlong) -> () {
     
@@ -324,7 +321,7 @@ public func SwiftSupportAppCompatActivityLocal_onDestroy( _ __env: UnsafeMutable
 }
 
 @_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_onActivityResultNative")
-public func SwiftSupportAppCompatActivityLocal_onActivityResultNative( _ __env: UnsafeMutablePointer<JNIEnv?>,
+public func SwiftSupportAppCompatActivity_onActivityResultNative( _ __env: UnsafeMutablePointer<JNIEnv?>,
                                                           _ __this: jobject?,
                                                           _ __swiftObject: jlong,
                                                           _ __requestCode: jint,
@@ -343,11 +340,11 @@ public func SwiftSupportAppCompatActivityLocal_onActivityResultNative( _ __env: 
 }
 
 @_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_finalizeNative")
-public func SwiftSupportAppCompatActivityLocal_finalize ( _ __env: UnsafeMutablePointer<JNIEnv?>,
+public func SwiftSupportAppCompatActivity_finalize ( _ __env: UnsafeMutablePointer<JNIEnv?>,
                                                            _ __this: jobject?,
                                                            _ __swiftObject: jlong) -> () {
     
-    SwiftSupportAppCompatActivity.canrelease(swiftObject: __swiftObject)
+    SwiftSupportAppCompatActivity.release(swiftObject: __swiftObject )
     
     NSLog("native \(#function)")
 }
