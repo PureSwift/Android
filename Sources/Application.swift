@@ -16,7 +16,24 @@ public extension SwiftSupport.App {
 
 open class SwiftApplication: JavaObject {
     
-    open func onConfigurationChanged(newConfig: JavaObject?){
+    @_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftApplication_bind")
+    public static func bind( __env: UnsafeMutablePointer<JNIEnv?>, __this: jobject?) -> jlong? {
+        
+        #if os(Android)
+        // Ask app for main activity type.
+        let objectType = SwiftAndroidMainApplication()
+        
+        let swiftObject = objectType.init(javaObject: __this)
+        
+        //var locals = [jobject]()
+        //return swiftObject.localJavaObject( &locals )
+        return swiftObject.swiftValue()
+        #else
+        fatalError("Can only run on Android OS")
+        #endif
+    }
+    
+    open func onConfigurationChanged(newConfig: JavaObject?) {
         
         NSLog("\(type(of: self)) \(#function)")
     }
@@ -41,17 +58,17 @@ open class SwiftApplication: JavaObject {
         NSLog("\(type(of: self)) \(#function)")
     }
     
-    open func registerActivityLifecycleCallbacks(callback: JavaObject?){
+    open func registerActivityLifecycleCallbacks(callback: JavaObject?) {
         
         NSLog("\(type(of: self)) \(#function)")
     }
     
-    open func unregisterActivityLifecycleCallbacks(callback: JavaObject?){
+    open func unregisterActivityLifecycleCallbacks(callback: JavaObject?) {
         
         NSLog("\(type(of: self)) \(#function)")
     }
     
-    open func registerComponentCallbacks(callback: JavaObject?){
+    open func registerComponentCallbacks(callback: JavaObject?) {
         
         NSLog("\(type(of: self)) \(#function)")
     }
@@ -73,6 +90,14 @@ open class SwiftApplication: JavaObject {
 }
 
 extension SwiftApplication: JNIListener { }
+
+// MARK: - Native Functions
+
+#if os(Android)
+/// Needs to be implemented by app.
+@_silgen_name("SwiftAndroidMainApplication")
+internal func SwiftAndroidMainApplication() -> SwiftApplication.Type
+#endif
 
 @_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftApplication_onConfigurationChangedNative")
 public func SwiftApplication_onConfigurationChanged( _ __env: UnsafeMutablePointer<JNIEnv?>,

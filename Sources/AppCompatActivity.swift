@@ -36,9 +36,13 @@ open class SwiftSupportAppCompatActivity: JavaObject {
         
         #if os(Android)
         // Ask app for main activity type.
-        let activityType = SwiftAndroidMainActivity()
+        let objectType = SwiftAndroidMainActivity()
         
-        return activityType(javaObject: __this)
+        let swiftObject = objectType.init(javaObject: __this)
+        
+        //var locals = [jobject]()
+        //return swiftObject.localJavaObject( &locals )
+        return swiftObject.swiftValue()
         #else
         fatalError("Can only run on Android OS")
         #endif
