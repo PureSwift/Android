@@ -27,7 +27,7 @@ open class SwiftApplication: JavaObject {
         
         //var locals = [jobject]()
         //return swiftObject.localJavaObject( &locals )
-        return swiftObject.swiftValue()
+        return swiftObject.swiftValue().j
         #else
         fatalError("Can only run on Android OS")
         #endif
