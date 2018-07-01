@@ -18,10 +18,10 @@ open class AndroidWidgetBaseAdapter: JavaObject {
     
     // MARK: - Initialization
     
-    /// Create a Swift-owned Java Object.
-    public convenience init() {
+    /// Initialize a new Java instance and bind to this Swift object.
+    public func bindNewJavaObject() {
         
-        self.init(javaObject: nil)
+        let hasOldJavaObject = javaObject != nil
         
         var locals = [jobject]()
         
@@ -39,9 +39,23 @@ open class AndroidWidgetBaseAdapter: JavaObject {
             
             else { fatalError("Could not initialize \(className)") }
         
-        self.javaObject = __object
+        self.javaObject = __object // dereference old value, add global ref for new value
         
         JNI.DeleteLocalRef( __object ) // delete local ref
+        
+        /// Release old swift value.
+        if hasOldJavaObject {
+            
+            try! finalize()
+        }
+        
+    }
+    
+    /// Create a Swift-owned Java Object.
+    public convenience init() {
+        
+        self.init(javaObject: nil)
+        self.bindNewJavaObject()
     }
     
     public required init(javaObject: jobject?) {
