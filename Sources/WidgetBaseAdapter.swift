@@ -129,10 +129,11 @@ fileprivate extension Android.Widget.BaseAdapter {
                                             signature: strdup("(JILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;"),
                                             fnPtr: unsafeBitCast( getViewThunk, to: UnsafeMutableRawPointer.self ) ))
             
-            // FIXME: use specialized `finalize` that does not assume the object is a subclass of `JNILocalProxy`
+            let finalizeThunk: AndroidWidgetBaseAdapter_finalize_type = AndroidWidgetBaseAdapter_finalize
+            
             natives.append( JNINativeMethod( name: strdup("__finalize"),
                                              signature: strdup("(J)V"),
-                                             fnPtr: unsafeBitCast( JNIReleasableProxy__finalize_thunk, to: UnsafeMutableRawPointer.self ) ) )
+                                             fnPtr: unsafeBitCast( finalizeThunk, to: UnsafeMutableRawPointer.self ) ) )
             
             let clazz = JNI.FindClass( className )
             
@@ -190,6 +191,8 @@ private func AndroidWidgetBaseAdapter_getView( _ __env: UnsafeMutablePointer<JNI
     
     return result?.localJavaObject(&__locals)
 }
+
+private typealias AndroidWidgetBaseAdapter_finalize_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong) -> ()
 
 public func AndroidWidgetBaseAdapter_finalize ( _ __env: UnsafeMutablePointer<JNIEnv?>,
                                                      _ __this: jobject?,
