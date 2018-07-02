@@ -28,7 +28,7 @@ open class AndroidWidgetRecyclerViewAdapter: JavaObject {
     }
     
     /// Create a Swift-owned Java Object.
-    public convenience init(itemView: Android.View.View) {
+    public convenience init() {
         
         self.init(javaObject: nil)
         
@@ -60,6 +60,209 @@ open class AndroidWidgetRecyclerViewAdapter: JavaObject {
             try! finalize()
         }
     }
+    
+    // MARK: - Responder
+    
+    /// Notify any registered observers that the data set has changed.
+    public func notifyDataSetChanged() {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        withJavaObject {
+            
+            JNIMethod.CallVoidMethod(object: $0,
+                                     methodName: "notifyDataSetChanged",
+                                     methodSig: "()V",
+                                     methodCache: &AndroidWidgetRecyclerViewAdapter.JNICache.MethodID.notifyDataSetChanged,
+                                     args: &__args,
+                                     locals: &__locals)
+        }
+    }
+    
+    /// Notify any registered observers that the item at position has changed with an optional payload object.
+    public func notifyItemChanged(position: Int, payload: JavaObject) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue(i: jint(position))
+        __args[1] = JNIType.toJava(value: payload, locals: &__locals)
+        
+        withJavaObject {
+            
+            JNIMethod.CallVoidMethod(object: $0,
+                                     methodName: "notifyItemChanged",
+                                     methodSig: "(ILjava/lang/Object;)V",
+                                     methodCache: &AndroidWidgetRecyclerViewAdapter.JNICache.MethodID.notifyItemChanged,
+                                     args: &__args,
+                                     locals: &__locals)
+        }
+    }
+    
+    /// Notify any registered observers that the item at position has changed. Equivalent to calling notifyItemChanged(position, null);
+    public func notifyItemChanged(position: Int) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue(i: jint(position))
+        
+        withJavaObject {
+            
+            JNIMethod.CallVoidMethod(object: $0,
+                                     methodName: "notifyItemChanged",
+                                     methodSig: "(I)V",
+                                     methodCache: &AndroidWidgetRecyclerViewAdapter.JNICache.MethodID.notifyItemChanged2,
+                                     args: &__args,
+                                     locals: &__locals)
+        }
+    }
+    
+    /// Notify any registered observers that the item reflected at position has been newly inserted. The item previously at position is now at position position + 1
+    public func notifyItemInserted(position: Int) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue(i: jint(position))
+        
+        withJavaObject {
+            
+            JNIMethod.CallVoidMethod(object: $0,
+                                     methodName: "notifyItemInserted",
+                                     methodSig: "(I)V",
+                                     methodCache: &AndroidWidgetRecyclerViewAdapter.JNICache.MethodID.notifyItemInserted,
+                                     args: &__args,
+                                     locals: &__locals)
+        }
+    }
+    
+    /// Notify any registered observers that the item reflected at fromPosition has been moved to toPosition.
+    public func notifyItemMoved(fromPosition: Int, toPosition: Int) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue(i: jint(fromPosition))
+        __args[1] = jvalue(i: jint(toPosition))
+        
+        withJavaObject {
+            
+            JNIMethod.CallVoidMethod(object: $0,
+                                     methodName: "notifyItemMoved",
+                                     methodSig: "(II)V",
+                                     methodCache: &AndroidWidgetRecyclerViewAdapter.JNICache.MethodID.notifyItemMoved,
+                                     args: &__args,
+                                     locals: &__locals)
+        }
+    }
+    
+    /// Notify any registered observers that the itemCount items starting at position positionStart have changed. An optional payload can be passed to each changed item.
+    public func notifyItemRangeChanged(positionStart: Int, itemCount: Int, payload: JavaObject) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        __args[0] = jvalue(i: jint(positionStart))
+        __args[1] = jvalue(i: jint(itemCount))
+        __args[2] = JNIType.toJava(value: payload, locals: &__locals)
+        
+        withJavaObject {
+            
+            JNIMethod.CallVoidMethod(object: $0,
+                                     methodName: "notifyItemRangeChanged",
+                                     methodSig: "(IILjava/lang/Object;)V",
+                                     methodCache: &AndroidWidgetRecyclerViewAdapter.JNICache.MethodID.notifyItemRangeChanged,
+                                     args: &__args,
+                                     locals: &__locals)
+        }
+    }
+    
+    /// Notify any registered observers that the itemCount items starting at position positionStart have changed. Equivalent to calling notifyItemRangeChanged(position, itemCount, null);.
+    public func notifyItemRangeChanged(positionStart: Int, itemCount: Int) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        __args[0] = jvalue(i: jint(positionStart))
+        __args[1] = jvalue(i: jint(itemCount))
+        
+        withJavaObject {
+            
+            JNIMethod.CallVoidMethod(object: $0,
+                                     methodName: "notifyItemRangeChanged",
+                                     methodSig: "(II)V",
+                                     methodCache: &AndroidWidgetRecyclerViewAdapter.JNICache.MethodID.notifyItemRangeChanged2,
+                                     args: &__args,
+                                     locals: &__locals)
+        }
+    }
+    
+    /// Notify any registered observers that the currently reflected itemCount items starting at positionStart have been newly inserted.
+    /// The items previously located at positionStart and beyond can now be found starting at position positionStart + itemCount.
+    public func notifyItemRangeInserted(positionStart: Int, itemCount: Int) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        __args[0] = jvalue(i: jint(positionStart))
+        __args[1] = jvalue(i: jint(itemCount))
+        
+        withJavaObject {
+            
+            JNIMethod.CallVoidMethod(object: $0,
+                                     methodName: "notifyItemRangeInserted",
+                                     methodSig: "(II)V",
+                                     methodCache: &AndroidWidgetRecyclerViewAdapter.JNICache.MethodID.notifyItemRangeInserted,
+                                     args: &__args,
+                                     locals: &__locals)
+        }
+    }
+    
+    /// Notify any registered observers that the itemCount items previously located at positionStart have been removed from the data set.
+    /// The items previously located at and after positionStart + itemCount may now be found at oldPosition - itemCount.
+    public func notifyItemRangeRemoved(positionStart: Int, itemCount: Int) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue(i: jint(positionStart))
+        __args[1] = jvalue(i: jint(itemCount))
+        
+        withJavaObject {
+            
+            JNIMethod.CallVoidMethod(object: $0,
+                                     methodName: "notifyItemRangeRemoved",
+                                     methodSig: "(II)V",
+                                     methodCache: &AndroidWidgetRecyclerViewAdapter.JNICache.MethodID.notifyItemRangeRemoved,
+                                     args: &__args,
+                                     locals: &__locals)
+        }
+    }
+    
+    /// Notify any registered observers that the item previously located at position has been removed from the data set.
+    /// The items previously located at and after position may now be found at oldPosition - 1.
+    public func notifyItemRemoved(position: Int) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue(i: jint(position))
+        
+        withJavaObject {
+            
+            JNIMethod.CallVoidMethod(object: $0,
+                                     methodName: "notifyItemRemoved",
+                                     methodSig: "(I)V",
+                                     methodCache: &AndroidWidgetRecyclerViewAdapter.JNICache.MethodID.notifyItemRemoved,
+                                     args: &__args,
+                                     locals: &__locals)
+        }
+    }
+    
+    // MARK: - Listener
     
     open func onCreateViewHolder(parent: Android.View.ViewGroup, viewType: Int?) -> Android.Widget.RecyclerViewViewHolder {
         
@@ -150,6 +353,15 @@ fileprivate extension AndroidWidgetRecyclerViewAdapter {
         struct MethodID {
             
             static var notifyDataSetChanged: jmethodID?
+            static var notifyItemChanged: jmethodID?
+            static var notifyItemChanged2: jmethodID?
+            static var notifyItemInserted: jmethodID?
+            static var notifyItemMoved: jmethodID?
+            static var notifyItemRangeChanged: jmethodID?
+            static var notifyItemRangeChanged2: jmethodID?
+            static var notifyItemRangeInserted: jmethodID?
+            static var notifyItemRangeRemoved: jmethodID?
+            static var notifyItemRemoved: jmethodID?
         }
     }
 }
