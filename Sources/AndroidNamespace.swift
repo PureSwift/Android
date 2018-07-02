@@ -82,6 +82,11 @@ public enum SwiftSupport: JavaPackage {
         
         public static let package: JNIPackage = SwiftSupport.package + ["content"]
     }
+    
+    public enum RecyclerView: JavaPackage {
+        
+        public static let package: JNIPackage = SwiftSupport.package + ["recyclerview"]
+    }
 }
 
 public protocol JavaPackage {

@@ -69,7 +69,7 @@ fileprivate extension AndroidWidgetRecyclerViewViewHolder {
     /// JNI Cache
     struct JNICache {
         
-        static let classSignature = SwiftSupport.Widget.className(["SwiftRecyclerViewAdapter"])
+        static let classSignature = SwiftSupport.RecyclerView.className(["SwiftRecyclerViewAdapter"])
         
         /// JNI Java class name
         static let className = classSignature.rawValue
