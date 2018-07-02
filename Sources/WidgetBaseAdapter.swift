@@ -119,13 +119,13 @@ fileprivate extension Android.Widget.BaseAdapter {
             
             let getCountThunk: AndroidWidgetBaseAdapter_getCount_type = AndroidWidgetBaseAdapter_getCount
             
-            natives.append( JNINativeMethod(name: strdup("__getCount"),
+            natives.append( JNINativeMethod(name: strdup("__get_count"),
                                             signature: strdup("(J)I"),
                                             fnPtr: unsafeBitCast( getCountThunk, to: UnsafeMutableRawPointer.self ) ))
             
             let getViewThunk: AndroidWidgetBaseAdapter_getView_type = AndroidWidgetBaseAdapter_getView
             
-            natives.append( JNINativeMethod(name: strdup("__getView"),
+            natives.append( JNINativeMethod(name: strdup("__get_view"),
                                             signature: strdup("(JILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;"),
                                             fnPtr: unsafeBitCast( getViewThunk, to: UnsafeMutableRawPointer.self ) ))
             
