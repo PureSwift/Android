@@ -48,6 +48,42 @@ public final class AndroidWidgetRecyclerView: JavaObject {
     }
 }
 
+public extension AndroidWidgetRecyclerView {
+    
+    public func getAdapter() -> AndroidWidgetRecyclerViewAdapter {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "getAdapter",
+                                                  methodSig: "()Lorg/pureswift/swiftandroidsupport/recyclerview/SwiftRecyclerViewAdapter;",
+                                                  methodCache: &JNICache.MethodID.getAdapter,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        return Android.Widget.RecyclerViewAdapter(javaObject: __return)
+    }
+    
+    public func setAdapter(_ adapter: AndroidWidgetRecyclerViewAdapter) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava(value: adapter, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(object: javaObject,
+                                 methodName: "setAdapter",
+                                 methodSig: "(Lorg/pureswift/swiftandroidsupport/recyclerview/SwiftRecyclerViewAdapter;)V",
+                                 methodCache: &JNICache.MethodID.setAdapter,
+                                 args: &__args,
+                                 locals: &__locals)
+    }
+    
+    
+}
+
 internal extension AndroidWidgetRecyclerView {
     
     /// JNI Cache
@@ -65,6 +101,14 @@ internal extension AndroidWidgetRecyclerView {
         struct MethodID {
             
             static var init_method_1: jmethodID?
+            static var getAdapter: jmethodID?
+            static var setAdapter: jmethodID?
+            static var setLayoutManager: jmethodID?
+            static var setItemAnimator: jmethodID?
+            static var addItemDecoration: jmethodID?
+            static var setHasFixedSize: jmethodID?
+            static var setNestedScrollingEnabled: jmethodID?
+            static var setOnFlingListener: jmethodID?
         }
     }
 }
