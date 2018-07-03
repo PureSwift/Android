@@ -53,6 +53,16 @@ public enum Android: JavaPackage {
     }
 }
 
+public enum SupportV7: JavaPackage {
+    
+    public static let package: JNIPackage = ["android", "support", "v7"]
+    
+    public enum Widget: JavaPackage {
+        
+        public static let package: JNIPackage = SwiftSupport.package + ["widget"]
+    }
+}
+
 /// Support Library namespace.
 public enum SwiftSupport: JavaPackage {
 
