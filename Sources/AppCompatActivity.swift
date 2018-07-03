@@ -137,8 +137,92 @@ open class SwiftSupportAppCompatActivity: JavaObject {
             
             JNIMethod.CallVoidMethod(object: $0,
                                      methodName: "unregisterReceiver",
-                                     methodSig: "(Landroid/content/BroadcastReceiver;)",
+                                     methodSig: "(Landroid/content/BroadcastReceiver;)V",
                                      methodCache: &SwiftActivityJNICache.MethodID.unregisterReceiver,
+                                     args: &__args,
+                                     locals: &__locals)
+        }
+    }
+    
+    public func checkSelfPermission(permission: String)-> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1)
+        
+        __args[0] = JNIType.toJava( value: permission, locals: &__locals )
+        
+        var result: Int?
+        
+        withJavaObject {
+            
+            let __return = JNIMethod.CallIntMethod(object: $0,
+                                     methodName: "checkSelfPermission",
+                                     methodSig: "(Ljava/lang/String;)I",
+                                     methodCache: &SwiftActivityJNICache.MethodID.checkSelfPermission,
+                                     args: &__args,
+                                     locals: &__locals)
+            
+            result = Int(__return)
+        }
+        
+        return result!
+    }
+    
+    public func startActivity(intent: Android.Content.Intent){
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1)
+        
+        __args[0] = JNIType.toJava( value: intent, locals: &__locals )
+        
+        withJavaObject {
+            
+            JNIMethod.CallVoidMethod(object: $0,
+                                     methodName: "startActivity",
+                                     methodSig: "(Landroid/content/Intent;)V",
+                                     methodCache: &SwiftActivityJNICache.MethodID.startActivity,
+                                     args: &__args,
+                                     locals: &__locals)
+        }
+    }
+    
+    public func startActivityForResult(intent: Android.Content.Intent, requestCode: Int) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2)
+        
+        __args[0] = JNIType.toJava( value: intent, locals: &__locals )
+        __args[1] = jvalue(i: jint(requestCode))
+        
+        withJavaObject {
+            
+            JNIMethod.CallVoidMethod(object: $0,
+                                     methodName: "startActivityForResult",
+                                     methodSig: "(Landroid/content/Intent;I)V",
+                                     methodCache: &SwiftActivityJNICache.MethodID.startActivityForResult,
+                                     args: &__args,
+                                     locals: &__locals)
+        }
+    }
+    
+    public func requestPermissions(permissions: [String], requestCode: Int) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2)
+        
+        __args[0] = JNIType.toJava( value: permissions, locals: &__locals )
+        __args[1] = jvalue(i: jint(requestCode))
+        
+        withJavaObject {
+            
+            JNIMethod.CallVoidMethod(object: $0,
+                                     methodName: "askPermissions",
+                                     methodSig: "([Ljava/lang/String;I)V",
+                                     methodCache: &SwiftActivityJNICache.MethodID.askPermissions,
                                      args: &__args,
                                      locals: &__locals)
         }
@@ -239,6 +323,10 @@ fileprivate extension SwiftSupport.App.AppCompatActivity {
             
             static var registerReceiver: jmethodID?
             static var unregisterReceiver: jmethodID?
+            static var checkSelfPermission: jmethodID?
+            static var startActivity: jmethodID?
+            static var startActivityForResult: jmethodID?
+            static var askPermissions: jmethodID?
         }
     }
 }
