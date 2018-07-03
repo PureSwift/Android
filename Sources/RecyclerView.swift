@@ -53,6 +53,13 @@ public final class AndroidWidgetRecyclerView: JavaObject {
         get { return getAdapter() }
         set { setAdapter(newValue) }
     }
+    
+    public var layoutManager: Android.Widget.RecyclerViewLayoutManager {
+        
+        @inline(__always)
+        get { return getLayoutManager() }
+        set { setLayoutManager(newValue) }
+    }
 }
 
 public extension AndroidWidgetRecyclerView {
@@ -90,7 +97,38 @@ public extension AndroidWidgetRecyclerView {
                                  locals: &__locals)
     }
     
+    @_versioned
+    internal func getLayoutManager() -> Android.Widget.RecyclerViewLayoutManager {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "getLayoutManager",
+                                                  methodSig: "()Landroid/support/v7/widget/RecyclerView$LayoutManager;",
+                                                  methodCache: &JNICache.MethodID.getLayoutManager,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        return Android.Widget.RecyclerViewLayoutManager(javaObject: __return)
+    }
     
+    @_versioned
+    internal func setLayoutManager(_ layoutManager: Android.Widget.RecyclerViewLayoutManager) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava(value: adapter, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(object: javaObject,
+                                 methodName: "setLayoutManager",
+                                 methodSig: "(Landroid/support/v7/widget/RecyclerView$LayoutManager;)V",
+                                 methodCache: &JNICache.MethodID.setLayoutManager,
+                                 args: &__args,
+                                 locals: &__locals)
+    }
 }
 
 internal extension AndroidWidgetRecyclerView {
@@ -112,6 +150,7 @@ internal extension AndroidWidgetRecyclerView {
             static var init_method_1: jmethodID?
             static var getAdapter: jmethodID?
             static var setAdapter: jmethodID?
+            static var getLayoutManager: jmethodID?
             static var setLayoutManager: jmethodID?
             static var setItemAnimator: jmethodID?
             static var addItemDecoration: jmethodID?
