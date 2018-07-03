@@ -27,38 +27,24 @@ open class AndroidWidgetRecyclerViewViewHolder: JavaObject {
         }
     }
     
-    /// Create a Swift-owned Java Object.
     public convenience init(itemView: Android.View.View) {
         
-        self.init(javaObject: nil)
+        var __locals = [jobject]()
         
-        let hasOldJavaObject = javaObject != nil
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava(value: itemView, locals: &__locals)
         
-        var locals = [jobject]()
+        let __object = JNIMethod.NewObject(
+            className: JNICache.className,
+            classCache: &JNICache.jniClass,
+            methodSig: "(Landroid/view/View;)V",
+            methodCache: &JNICache.MethodID.init_method_1,
+            args: &__args,
+            locals: &__locals )
         
-        var methodID: jmethodID?
+        self.init( javaObject: __object )
         
-        var args: [jvalue] = [self.swiftValue()]
-        
-        // returned objects are always local refs
-        guard let __object: jobject = JNIMethod.NewObject(className: AndroidWidgetRecyclerViewViewHolder.JNICache.className,
-                                                          classObject: AndroidWidgetRecyclerViewViewHolder.JNICache.jniClass,
-                                                          methodSig: "(J)V",
-                                                          methodCache: &methodID,
-                                                          args: &args,
-                                                          locals: &locals )
-            
-            else { fatalError("Could not initialize \(className)") }
-        
-        self.javaObject = __object // dereference old value, add global ref for new value
-        
-        JNI.DeleteLocalRef( __object ) // delete local ref
-        
-        /// Release old swift value.
-        if hasOldJavaObject {
-            
-            try! finalize()
-        }
+        JNI.DeleteLocalRef( __object )
     }
     
     public var adapterPosition: Int {
@@ -212,9 +198,7 @@ open class AndroidWidgetRecyclerViewViewHolder: JavaObject {
     }
 }
 
-extension AndroidWidgetRecyclerViewViewHolder: JNIListener { }
-
-fileprivate extension AndroidWidgetRecyclerViewViewHolder {
+internal extension AndroidWidgetRecyclerViewViewHolder {
     
     /// JNI Cache
     struct JNICache {
@@ -230,6 +214,7 @@ fileprivate extension AndroidWidgetRecyclerViewViewHolder {
         /// JNI Method ID cache
         struct MethodID {
             
+            static var init_method_1: jmethodID?
             static var obtainAdapterPosition: jmethodID?
             static var obtainItemId: jmethodID?
             static var obtainItemViewType: jmethodID?

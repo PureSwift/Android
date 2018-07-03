@@ -48,7 +48,7 @@ public final class AndroidWidgetRecyclerView: JavaObject {
     }
 }
 
-fileprivate extension AndroidWidgetRecyclerView {
+internal extension AndroidWidgetRecyclerView {
     
     /// JNI Cache
     struct JNICache {
