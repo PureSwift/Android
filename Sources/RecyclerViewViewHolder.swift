@@ -14,6 +14,15 @@ public extension Android.Widget {
     public typealias RecyclerViewViewHolder = AndroidWidgetRecyclerViewViewHolder
 }
 
+/**
+ * A ViewHolder describes an item view and metadata about its place within the RecyclerView.
+ *
+ * RecyclerView.Adapter implementations should subclass ViewHolder and add fields for caching potentially expensive findViewById(int) results.
+ *
+ * While RecyclerView.LayoutParams belong to the RecyclerView.LayoutManager, ViewHolders belong to the adapter. Adapters should feel free to
+ * use their own custom ViewHolder implementations to store data that makes binding view contents easier. Implementations should assume that
+ * individual item views will hold strong references to ViewHolder objects and that RecyclerView instances may hold strong references to extra off-screen item views for caching purposes.
+ */
 open class AndroidWidgetRecyclerViewViewHolder: JavaObject {
     
     public required init(javaObject: jobject?) {

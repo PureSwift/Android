@@ -14,6 +14,10 @@ public extension Android.Widget {
     public typealias RecyclerView = AndroidWidgetRecyclerView
 }
 
+/**
+ * A flexible view for providing a limited window into a large data set.
+ *
+ */
 public final class AndroidWidgetRecyclerView: JavaObject {
     
     public required init(javaObject: jobject?) {

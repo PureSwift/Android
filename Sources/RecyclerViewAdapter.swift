@@ -14,6 +14,11 @@ public extension Android.Widget {
     public typealias RecyclerViewAdapter = AndroidWidgetRecyclerViewAdapter
 }
 
+/**
+ * Base class for an Adapter
+ *
+ * Adapters provide a binding from an app-specific data set to views that are displayed within a RecyclerView.
+ */
 open class AndroidWidgetRecyclerViewAdapter: JavaObject {
     
     public required init(javaObject: jobject?) {
