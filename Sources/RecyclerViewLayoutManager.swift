@@ -9,9 +9,9 @@ import Foundation
 import java_swift
 import JNI
 
-public extension Android.Widget {
+public extension Android.Widget.RecyclerView {
     
-    public typealias RecyclerViewLayoutManager = AndroidWidgetRecyclerViewLayoutManager
+    public typealias LayoutManager = AndroidWidgetRecyclerViewLayoutManager
 }
 
 /**

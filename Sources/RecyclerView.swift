@@ -58,7 +58,7 @@ public final class AndroidWidgetRecyclerView: JavaObject {
         set { setAdapter(newValue) }
     }
     
-    public var layoutManager: Android.Widget.RecyclerViewLayoutManager {
+    public var layoutManager: Android.Widget.RecyclerView.LayoutManager {
         
         @inline(__always)
         get { return getLayoutManager() }
@@ -82,7 +82,7 @@ public extension AndroidWidgetRecyclerView {
                                                   args: &__args,
                                                   locals: &__locals)
         
-        return Android.Widget.RecyclerViewAdapter(javaObject: __return)
+        return Android.Widget.RecyclerView.Adapter(javaObject: __return)
     }
     
     @_versioned
@@ -102,7 +102,7 @@ public extension AndroidWidgetRecyclerView {
     }
     
     @_versioned
-    internal func getLayoutManager() -> Android.Widget.RecyclerViewLayoutManager {
+    internal func getLayoutManager() -> Android.Widget.RecyclerView.LayoutManager {
         
         var __locals = [jobject]()
         
@@ -115,11 +115,11 @@ public extension AndroidWidgetRecyclerView {
                                                   args: &__args,
                                                   locals: &__locals)
         
-        return Android.Widget.RecyclerViewLayoutManager(javaObject: __return)
+        return Android.Widget.RecyclerView.LayoutManager(javaObject: __return)
     }
     
     @_versioned
-    internal func setLayoutManager(_ layoutManager: Android.Widget.RecyclerViewLayoutManager) {
+    internal func setLayoutManager(_ layoutManager: Android.Widget.RecyclerView.LayoutManager) {
         
         var __locals = [jobject]()
         

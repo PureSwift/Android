@@ -9,9 +9,9 @@ import Foundation
 import java_swift
 import JNI
 
-public extension Android.Widget {
+public extension Android.Widget.RecyclerView {
     
-    public typealias RecyclerViewAdapter = AndroidWidgetRecyclerViewAdapter
+    public typealias Adapter = AndroidWidgetRecyclerViewAdapter
 }
 
 /**
@@ -269,7 +269,7 @@ open class AndroidWidgetRecyclerViewAdapter: JavaObject {
     
     // MARK: - Listener
     
-    open func onCreateViewHolder(parent: Android.View.ViewGroup, viewType: Int?) -> Android.Widget.RecyclerViewViewHolder {
+    open func onCreateViewHolder(parent: Android.View.ViewGroup, viewType: Int?) -> Android.Widget.RecyclerView.ViewHolder {
         
         fatalError("\(#function) must be implemented in subclass")
     }
@@ -284,7 +284,7 @@ open class AndroidWidgetRecyclerViewAdapter: JavaObject {
         fatalError("\(#function) must be implemented in subclass")
     }
     
-    open func onBindViewHolder(holder: Android.Widget.RecyclerViewViewHolder, position: Int) {
+    open func onBindViewHolder(holder: Android.Widget.RecyclerView.ViewHolder, position: Int) {
         
         fatalError("\(#function) must be implemented in subclass")
     }
@@ -428,7 +428,7 @@ private func AndroidWidgetRecyclerViewAdapter_onBindViewHolder( _ __env: UnsafeM
                                                                   _ __holder: jobject?,
                                                                   _ __position: jint) -> () {
     
-    let holder = Android.Widget.RecyclerViewViewHolder(javaObject: __holder)
+    let holder = Android.Widget.RecyclerView.ViewHolder(javaObject: __holder)
     let position = Int(__position)
     
     AndroidWidgetRecyclerViewAdapter
