@@ -46,11 +46,19 @@ public final class AndroidWidgetRecyclerView: JavaObject {
         
         JNI.DeleteLocalRef( __object )
     }
+    
+    public var adapter: AndroidWidgetRecyclerViewAdapter {
+        
+        @inline(__always)
+        get { return getAdapter() }
+        set { setAdapter(newValue) }
+    }
 }
 
 public extension AndroidWidgetRecyclerView {
     
-    public func getAdapter() -> AndroidWidgetRecyclerViewAdapter {
+    @_versioned
+    internal func getAdapter() -> AndroidWidgetRecyclerViewAdapter {
         
         var __locals = [jobject]()
         
@@ -66,7 +74,8 @@ public extension AndroidWidgetRecyclerView {
         return Android.Widget.RecyclerViewAdapter(javaObject: __return)
     }
     
-    public func setAdapter(_ adapter: AndroidWidgetRecyclerViewAdapter) {
+    @_versioned
+    internal func setAdapter(_ adapter: AndroidWidgetRecyclerViewAdapter) {
         
         var __locals = [jobject]()
         
