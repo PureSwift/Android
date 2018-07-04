@@ -66,7 +66,7 @@ open class AndroidBroadcastReceiver: JavaObject {
     
     // MARK: - Listener
     
-    open func onReceive(context: Android.Content.Context, intent: JavaObject){
+    open func onReceive(context: Android.Content.Context?, intent: Android.Content.Intent?){
         
         fatalError("\(#function) must be implemented in subclass")
     }
@@ -204,7 +204,7 @@ fileprivate extension AndroidBroadcastReceiver {
             let onReceiveThunk: AndroidBroadcastReceiver_onReceive_type = AndroidBroadcastReceiver_onReceive
             
             natives.append( JNINativeMethod(name: strdup("__onReceive"),
-                                            signature: strdup("(JLandroid/content/Context;Landrod/content/Intent;)V"),
+                                            signature: strdup("(JLandroid/content/Context;Landroid/content/Intent;)V"),
                                             fnPtr: unsafeBitCast( onReceiveThunk, to: UnsafeMutableRawPointer.self ) ))
             
             
@@ -272,8 +272,8 @@ private func AndroidBroadcastReceiver_onReceive( _ __env: UnsafeMutablePointer<J
                                            _ __context: jobject?,
                                            _ __intent: jobject?) -> () {
     
-    let context = Android.Content.Context(javaObject: __context)
-    let intent = JavaObject(javaObject: __intent)
+    let context = __context != nil ? Android.Content.Context(javaObject: __context) : nil
+    let intent = __intent != nil ? Android.Content.Intent(javaObject: __intent) : nil
     
     AndroidBroadcastReceiver
         .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )?
