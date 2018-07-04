@@ -188,7 +188,7 @@ open class AndroidWidgetRecyclerViewViewHolder: JavaObject {
                                                 args: &__args,
                                                 locals: &__locals)
         
-        return jboolean(__return) != JNI_FALSE
+        return __return != jboolean(JNI_FALSE)
     }
     
     public func putIsRecyclable(recyclable: Bool) {

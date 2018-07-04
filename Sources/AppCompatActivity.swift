@@ -227,6 +227,123 @@ open class SwiftSupportAppCompatActivity: JavaObject {
                                      locals: &__locals)
         }
     }
+    
+    public func finish() {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1)
+        
+        withJavaObject {
+            
+            JNIMethod.CallVoidMethod(object: $0,
+                                     methodName: "finish",
+                                     methodSig: "()V",
+                                     methodCache: &SwiftActivityJNICache.MethodID.finish,
+                                     args: &__args,
+                                     locals: &__locals)
+        }
+    }
+    
+    public func isFinishing()-> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1)
+        
+        var result: Bool?
+        
+        withJavaObject {
+            
+            let __return = JNIMethod.CallBooleanMethod(object: $0,
+                                                   methodName: "isFinishing",
+                                                   methodSig: "()Z",
+                                                   methodCache: &SwiftActivityJNICache.MethodID.isFinishing,
+                                                   args: &__args,
+                                                   locals: &__locals)
+            
+            result = __return != jboolean(JNI_FALSE)
+        }
+        
+        return result!
+    }
+    
+    public func startService(service: Android.Content.Intent) -> JavaObject? {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1)
+        
+        __args[0] = JNIType.toJava( value: service, locals: &__locals )
+        
+        var componentName: JavaObject?
+        
+        withJavaObject {
+            
+            var __return = JNIMethod.CallObjectMethod(object: $0,
+                                                      methodName: "startService",
+                                                      methodSig: "(Landroid/content/Intent;)Landroid/content/ComponentName;",
+                                                      methodCache: &SwiftActivityJNICache.MethodID.startService,
+                                                      args: &__args,
+                                                      locals: &__locals)
+            defer {
+                JNI.DeleteLocalRef(__return)
+            }
+            
+            componentName = JavaObject(javaObject: __return)
+        }
+        return componentName
+    }
+    
+    public func stopService(name: Android.Content.Intent)-> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1)
+        
+        var result: Bool?
+        
+        withJavaObject {
+            
+            let __return = JNIMethod.CallBooleanMethod(object: $0,
+                                                       methodName: "stopService",
+                                                       methodSig: "(Landroid/content/Intent;)Z",
+                                                       methodCache: &SwiftActivityJNICache.MethodID.stopService,
+                                                       args: &__args,
+                                                       locals: &__locals)
+            
+            result = __return != jboolean(JNI_FALSE)
+        }
+        
+        return result!
+    }
+    
+    public func getIdentifier(name: String, type: String) -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1)
+        
+        __args[0] = JNIType.toJava( value: name, locals: &__locals )
+        __args[1] = JNIType.toJava( value: type, locals: &__locals )
+        
+        var result: Int?
+        
+        withJavaObject {
+            
+            let __return = JNIMethod.CallIntMethod(object: $0,
+                                                   methodName: "getIdentifier",
+                                                   methodSig: "(Ljava/lang/String;Ljava/lang/String;)I",
+                                                   methodCache: &SwiftActivityJNICache.MethodID.getIdentifier,
+                                                   args: &__args,
+                                                   locals: &__locals)
+            
+            result = Int(__return)
+        }
+        
+        return result!
+    }
+    
 }
 
 extension SwiftSupportAppCompatActivity: JNIListener { }
@@ -327,6 +444,11 @@ fileprivate extension SwiftSupport.App.AppCompatActivity {
             static var startActivity: jmethodID?
             static var startActivityForResult: jmethodID?
             static var askPermissions: jmethodID?
+            static var startService: jmethodID?
+            static var stopService: jmethodID?
+            static var finish: jmethodID?
+            static var isFinishing: jmethodID?
+            static var getIdentifier: jmethodID?
         }
     }
 }
