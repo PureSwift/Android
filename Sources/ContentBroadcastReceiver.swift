@@ -16,10 +16,8 @@ public extension Android.Content {
 
 open class AndroidBroadcastReceiver: JavaObject {
     
-    public convenience init() {
-        
-        self.init(javaObject: nil)
-        
+    /// Initialize a new Java instance and bind to this Swift object.
+    public func bindNewJavaObject() {
         let hasOldJavaObject = javaObject != nil
         
         var locals = [jobject]()
@@ -47,6 +45,12 @@ open class AndroidBroadcastReceiver: JavaObject {
             
             try! finalize()
         }
+    }
+    
+    public convenience init() {
+        
+        self.init(javaObject: nil)
+        self.bindNewJavaObject()
     }
     
     public required init(javaObject: jobject?) {
