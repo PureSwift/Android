@@ -29,7 +29,7 @@ public extension SwiftSupport.App {
  *
  * To be of use with Context.startActivity(), all activity classes must have a corresponding <activity> declaration in their package's AndroidManifest.xml.
  */
-open class SwiftSupportAppCompatActivity: JavaObject {
+open class SwiftSupportAppCompatActivity: Android.Content.ContextWrapper {
     
     @_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_bind")
     public static func bind( __env: UnsafeMutablePointer<JNIEnv?>, __this: jobject?) -> jlong? {
@@ -96,7 +96,7 @@ open class SwiftSupportAppCompatActivity: JavaObject {
     }
     
     // MARK: - Responder
-    
+    /*
     public func registerReceiver(receiver: Android.Content.BroadcastReceiver, filter: Android.Content.IntentFilter) -> Android.Content.Intent? {
         
         var __locals = [jobject]()
@@ -143,7 +143,7 @@ open class SwiftSupportAppCompatActivity: JavaObject {
                                      locals: &__locals)
         }
     }
-    
+    */
     public func checkSelfPermission(permission: String)-> Int {
         
         var __locals = [jobject]()
