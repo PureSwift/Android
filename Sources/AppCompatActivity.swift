@@ -29,7 +29,7 @@ public extension SwiftSupport.App {
  *
  * To be of use with Context.startActivity(), all activity classes must have a corresponding <activity> declaration in their package's AndroidManifest.xml.
  */
-open class SwiftSupportAppCompatActivity: JavaObject {
+open class SwiftSupportAppCompatActivity: AndroidContextWrapper {
     
     @_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_bind")
     public static func bind( __env: UnsafeMutablePointer<JNIEnv?>, __this: jobject?) -> jlong? {
@@ -96,53 +96,6 @@ open class SwiftSupportAppCompatActivity: JavaObject {
     }
     
     // MARK: - Responder
-    
-    public func registerReceiver(receiver: Android.Content.BroadcastReceiver, filter: Android.Content.IntentFilter) -> Android.Content.Intent? {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 2)
-        
-        __args[0] = JNIType.toJava( value: receiver, locals: &__locals )
-        __args[1] = JNIType.toJava( value: filter, locals: &__locals )
-        
-        var intent: Android.Content.Intent?
-        
-        withJavaObject {
-            
-            var __return = JNIMethod.CallObjectMethod(object: $0,
-                                                      methodName: "registerReceiver",
-                                                      methodSig: "(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;",
-                                                      methodCache: &SwiftActivityJNICache.MethodID.registerReceiver,
-                                                      args: &__args,
-                                                      locals: &__locals)
-            defer {
-                JNI.DeleteLocalRef(__return)
-            }
-            
-            intent = Android.Content.Intent(javaObject: __return)
-        }
-        return intent
-    }
-    
-    public func unregisterReceiver(receiver: Android.Content.BroadcastReceiver){
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1)
-        
-        __args[0] = JNIType.toJava( value: receiver, locals: &__locals )
-        
-        withJavaObject {
-            
-            JNIMethod.CallVoidMethod(object: $0,
-                                     methodName: "unregisterReceiver",
-                                     methodSig: "(Landroid/content/BroadcastReceiver;)V",
-                                     methodCache: &SwiftActivityJNICache.MethodID.unregisterReceiver,
-                                     args: &__args,
-                                     locals: &__locals)
-        }
-    }
     
     public func checkSelfPermission(permission: String)-> Int {
         
