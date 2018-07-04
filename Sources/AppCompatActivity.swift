@@ -29,7 +29,7 @@ public extension SwiftSupport.App {
  *
  * To be of use with Context.startActivity(), all activity classes must have a corresponding <activity> declaration in their package's AndroidManifest.xml.
  */
-open class SwiftSupportAppCompatActivity: Android.Content.ContextWrapper {
+open class SwiftSupportAppCompatActivity: AndroidContextWrapper {
     
     @_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_bind")
     public static func bind( __env: UnsafeMutablePointer<JNIEnv?>, __this: jobject?) -> jlong? {
