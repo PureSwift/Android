@@ -14,14 +14,60 @@ public extension Android.Content {
     public typealias BroadcastReceiver = AndroidBroadcastReceiver
 }
 
-public protocol AndroidBroadcastReceiver: JavaProtocol {
+open class AndroidBroadcastReceiver: JavaObject {
     
-    func onReceive(context: Android.Content.Context, intent: JavaObject)
-}
-
-//Mark: Methods
-
-public extension AndroidBroadcastReceiver {
+    public convenience init() {
+        
+        self.init(javaObject: nil)
+        
+        let hasOldJavaObject = javaObject != nil
+        
+        var locals = [jobject]()
+        
+        var methodID: jmethodID?
+        
+        var args: [jvalue] = [self.swiftValue()]
+        
+        // returned objects are always local refs
+        guard let __object: jobject = JNIMethod.NewObject(className: JNICache.className,
+                                                          classObject: JNICache.jniClass,
+                                                          methodSig: "(J)V",
+                                                          methodCache: &methodID,
+                                                          args: &args,
+                                                          locals: &locals )
+            
+            else { fatalError("Could not initialize \(className)") }
+        
+        self.javaObject = __object // dereference old value, add global ref for new value
+        
+        JNI.DeleteLocalRef( __object ) // delete local ref
+        
+        /// Release old swift value.
+        if hasOldJavaObject {
+            
+            try! finalize()
+        }
+    }
+    
+    public required init(javaObject: jobject?) {
+        super.init(javaObject: javaObject)
+    }
+    
+    public convenience init?( casting object: JavaObject, _ file: StaticString = #file, _ line: Int = #line ) {
+        self.init( javaObject: nil )
+        object.withJavaObject {
+            self.javaObject = $0
+        }
+    }
+    
+    // MARK: - Listener
+    
+    open func onReceive(context: Android.Content.Context, intent: JavaObject){
+        
+        fatalError("\(#function) must be implemented in subclass")
+    }
+    
+     // MARK: - Responder
     
     /**
      * Sets the flag indicating that this receiver should abort the current broadcast; only works with broadcasts sent through Context.sendOrderedBroadcast.
@@ -36,7 +82,7 @@ public extension AndroidBroadcastReceiver {
             JNIMethod.CallVoidMethod(object: $0,
                                      methodName: "abortBroadcast",
                                      methodSig: "()V",
-                                     methodCache: &AndroidBroadcastReceiverLocal.JNICache.Method.abortBroadcast,
+                                     methodCache: &BroadcastReceiverJNICache.Method.abortBroadcast,
                                      args: &__args,
                                      locals: &__locals)
         }
@@ -55,7 +101,7 @@ public extension AndroidBroadcastReceiver {
             JNIMethod.CallVoidMethod(object: $0,
                                      methodName: "clearAbortBroadcast",
                                      methodSig: "()V",
-                                     methodCache: &AndroidBroadcastReceiverLocal.JNICache.Method.clearAbortBroadcast,
+                                     methodCache: &BroadcastReceiverJNICache.Method.clearAbortBroadcast,
                                      args: &__args,
                                      locals: &__locals)
         }
@@ -74,11 +120,11 @@ public extension AndroidBroadcastReceiver {
         withJavaObject {
             
             __return = JNIMethod.CallBooleanMethod(object: $0,
-                                     methodName: "getAbortBroadcast",
-                                     methodSig: "()Z",
-                                     methodCache: &AndroidBroadcastReceiverLocal.JNICache.Method.getAbortBroadcast,
-                                     args: &__args,
-                                     locals: &__locals)
+                                                   methodName: "getAbortBroadcast",
+                                                   methodSig: "()Z",
+                                                   methodCache: &BroadcastReceiverJNICache.Method.getAbortBroadcast,
+                                                   args: &__args,
+                                                   locals: &__locals)
         }
         
         return __return != jboolean(JNI_FALSE)
@@ -99,7 +145,7 @@ public extension AndroidBroadcastReceiver {
             __return = JNIMethod.CallBooleanMethod(object: $0,
                                                    methodName: "getDebugUnregister",
                                                    methodSig: "()Z",
-                                                   methodCache: &AndroidBroadcastReceiverLocal.JNICache.Method.getDebugUnregister,
+                                                   methodCache: &BroadcastReceiverJNICache.Method.getDebugUnregister,
                                                    args: &__args,
                                                    locals: &__locals)
         }
@@ -122,7 +168,7 @@ public extension AndroidBroadcastReceiver {
             let __return = JNIMethod.CallIntMethod(object: $0,
                                                    methodName: "getResultCode",
                                                    methodSig: "()Z",
-                                                   methodCache: &AndroidBroadcastReceiverLocal.JNICache.Method.getResultCode,
+                                                   methodCache: &BroadcastReceiverJNICache.Method.getResultCode,
                                                    args: &__args,
                                                    locals: &__locals)
             returnValue = Int(__return)
@@ -132,50 +178,14 @@ public extension AndroidBroadcastReceiver {
     }
 }
 
-// MARK: - Local Java Object
+extension AndroidBroadcastReceiver: JNIListener { }
 
-extension AndroidBroadcastReceiver {
-    
-    public func localJavaObject( _ locals: UnsafeMutablePointer<[jobject]> ) -> jobject? {
-        
-        return AndroidBroadcastReceiverLocal( owned: self, proto: self ).localJavaObject( locals )
-    }
-}
+// MARK: - Private
 
-internal class AndroidBroadcastReceiverLocal: JNILocalProxy<AndroidBroadcastReceiver, Any> {
-    
-    fileprivate static let _proxyClass: jclass = {
-        
-        var natives: [JNINativeMethod] = [
-            JNICacheLocal.Method.onReceive.method,
-            .finalize
-        ]
-        
-        let clazz = JNI.FindClass( proxyClassName() )
-        
-        withUnsafePointer(to: &natives[0]) {
-            nativesPtr in
-            if JNI.api.RegisterNatives( JNI.env, clazz, nativesPtr, jint(natives.count) ) != jint(JNI_OK) {
-                JNI.report( "Unable to register java natives" )
-            }
-        }
-        
-        defer { JNI.DeleteLocalRef( clazz ) }
-        
-        return JNI.api.NewGlobalRef( JNI.env, clazz )!
-    }()
-    
-    override open class func proxyClassName() -> String { return JNICacheLocal.className }
-    
-    override open class func proxyClass() -> jclass? { return _proxyClass }
-}
-
-// MARK: - JNI Cache
-
-internal extension AndroidBroadcastReceiverLocal {
+fileprivate extension AndroidBroadcastReceiver {
     
     /// JNI Cache
-    struct JNICacheLocal {
+    struct JNICache {
         
         static let classSignature = SwiftSupport.Content.className(["SwiftBroadcastReceiver"])
         
@@ -183,31 +193,40 @@ internal extension AndroidBroadcastReceiverLocal {
         static let className = classSignature.rawValue
         
         /// JNI Java class
-        static var jniClass: jclass?
-        
-        /// JNI Method cache
-        fileprivate enum Method {
+        static let jniClass: jclass = {
             
-            enum onReceive: JNINativeMethodEntry {
-                
-                static let name = "__onReceive"
-                
-                static let signature = JNIMethodSignature(
-                    argumentTypes: [
-                        .long,
-                        .object(JNIClassName(rawValue: Android.Content.Context.JNICache.className)!),
-                        .object(JNIClassName(rawValue: "android/content/Intent")!)
-                    ],
-                    returnType: .object(Android.View.View.JNICache.classSignature)
-                )
-                
-                static let thunk: AndroidBroadcastReceiver_onReceive_type = AndroidBroadcastReceiver_onReceive
+            var natives = [JNINativeMethod]()
+            
+            let onReceiveThunk: AndroidBroadcastReceiver_onReceive_type = AndroidBroadcastReceiver_onReceive
+            
+            natives.append( JNINativeMethod(name: strdup("__onReceive"),
+                                            signature: strdup("(JLandroid/content/Context;Landrod/content/Intent;)V"),
+                                            fnPtr: unsafeBitCast( onReceiveThunk, to: UnsafeMutableRawPointer.self ) ))
+            
+            
+            let finalizeThunk: AndroidBroadcastReceiver_finalize_type = AndroidBroadcastReceiver_finalize
+            
+            natives.append( JNINativeMethod( name: strdup("__finalize"),
+                                             signature: strdup("(J)V"),
+                                             fnPtr: unsafeBitCast( finalizeThunk, to: UnsafeMutableRawPointer.self ) ) )
+            
+            let clazz = JNI.FindClass( className )
+            
+            withUnsafePointer(to: &natives[0]) {
+                nativesPtr in
+                if JNI.api.RegisterNatives( JNI.env, clazz, nativesPtr, jint(natives.count) ) != jint(JNI_OK) {
+                    JNI.report( "Unable to register java natives" )
+                }
             }
-        }
+            
+            defer { JNI.DeleteLocalRef( clazz ) }
+            
+            return JNI.api.NewGlobalRef( JNI.env, clazz )!
+        }()
     }
     
     /// JNI Cache
-    struct JNICache {
+    struct BroadcastReceiverJNICache {
         
         /// JNI Java class name
         static let className = "android/content/BroadcastReceiver"
@@ -252,7 +271,19 @@ private func AndroidBroadcastReceiver_onReceive( _ __env: UnsafeMutablePointer<J
     let context = Android.Content.Context(javaObject: __context)
     let intent = JavaObject(javaObject: __intent)
     
-    AndroidBroadcastReceiverLocal
-        .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )
+    AndroidBroadcastReceiver
+        .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )?
         .onReceive(context: context, intent: intent)
+}
+
+private typealias AndroidBroadcastReceiver_finalize_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong) -> ()
+
+
+public func AndroidBroadcastReceiver_finalize( _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                                _ __this: jobject?,
+                                                _ __swiftObject: jlong) -> () {
+    
+    AndroidBroadcastReceiver.release(swiftObject: __swiftObject )
+    
+    NSLog("native \(#function)")
 }
