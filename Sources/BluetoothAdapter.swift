@@ -690,7 +690,7 @@ public extension Android.Bluetooth.Adapter {
 
 // MARK: - Constants
 
-internal extension Android.Bluetooth.Adapter {
+public extension Android.Bluetooth.Adapter {
     
     /// Intent used to broadcast the change in connection state of the local Bluetooth adapter to a profile of the remote device.
     internal static var ACTION_CONNECTION_STATE_CHANGED: Int {
@@ -805,18 +805,20 @@ internal extension Android.Bluetooth.Adapter {
     }
     
     /// Broadcast Action: The state of the local Bluetooth adapter has been changed.
-    internal static var ACTION_STATE_CHANGED: Int {
+    public static var ACTION_STATE_CHANGED: String {
         
         get {
             
-            let __value = JNIField.GetStaticIntField(
+            let __value = JNIField.GetStaticObjectField(
                 fieldName: "ACTION_STATE_CHANGED",
                 fieldType: "I",
                 fieldCache: &JNICache.FieldID.ACTION_STATE_CHANGED,
                 className: JNICache.className,
                 classCache: &JNICache.jniClass )
             
-            return Int(__value)
+            defer { JNI.DeleteLocalRef(__value) }
+            
+            return String(javaObject: __value)
         }
     }
     

@@ -554,7 +554,7 @@ public func SwiftSupportAppCompatActivity_onActivityResultNative( _ __env: Unsaf
 }
 
 @_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_finalizeNative")
-public func SwiftSupportAppCompatActivity_finalize ( _ __env: UnsafeMutablePointer<JNIEnv?>,
+public func SwiftSupportAppCompatActivity_finalize( _ __env: UnsafeMutablePointer<JNIEnv?>,
                                                            _ __this: jobject?,
                                                            _ __swiftObject: jlong) -> () {
     
