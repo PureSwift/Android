@@ -63,7 +63,7 @@ public extension AndroidContextWrapper {
         
         JNIMethod.CallVoidMethod(object: javaObject,
                                  methodName: "unregisterReceiver",
-                                 methodSig: "(Landroid/content/BroadcastReceiver;)",
+                                 methodSig: "(Landroid/content/BroadcastReceiver;)V",
                                  methodCache: &JNICache.MethodID.unregisterReceiver,
                                  args: &__args,
                                  locals: &__locals)
