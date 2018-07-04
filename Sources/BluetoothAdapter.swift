@@ -811,7 +811,7 @@ public extension Android.Bluetooth.Adapter {
             
             let __value = JNIField.GetStaticObjectField(
                 fieldName: "ACTION_STATE_CHANGED",
-                fieldType: "I",
+                fieldType: "Ljava/lang/String;",
                 fieldCache: &JNICache.FieldID.ACTION_STATE_CHANGED,
                 className: JNICache.className,
                 classCache: &JNICache.jniClass )
