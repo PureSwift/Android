@@ -12,11 +12,14 @@ import java_util
 public extension AndroidBuild {
     
     public typealias Version = AndroidBuildVersion
+}
+
+public extension AndroidBuild.Version {
     
     public typealias Sdk = AndroidBuildSdk
 }
 
-public struct AndroidBuildSdk {
+public struct AndroidBuildSdk: RawRepresentable {
     
     public let rawValue: Int
     
@@ -26,13 +29,13 @@ public struct AndroidBuildSdk {
     
     /// The SDK version of the software currently running on this hardware device. This value never changes while a
     /// device is booted, but it may increase when the hardware manufacturer provides an OTA update.
-    public static let sdkInt = Android.OS.Build.Version(rawValue: AndroidBuildVersionConstants.SDK_INT)
+    public static let sdkInt = Android.OS.Build.Version.Sdk(rawValue: AndroidBuildVersionConstants.SDK_INT)
     
     /// The developer preview revision of a prerelease SDK. This value will always be 0 on production platform builds/devices.
-    public static let previewSdkInt = Android.OS.Build.Version(rawValue: AndroidBuildVersionConstants.PREVIEW_SDK_INT)
+    public static let previewSdkInt = Android.OS.Build.Version.Sdk(rawValue: AndroidBuildVersionConstants.PREVIEW_SDK_INT)
 }
 
-public struct AndroidBuildVersion {
+public struct AndroidBuildVersion: RawRepresentable {
     
     public let rawValue: String
     
@@ -149,20 +152,18 @@ fileprivate extension AndroidBuildVersionConstants {
         }
     }
     
-    fileprivate static var PREVIEW_SDK_INT: String {
+    fileprivate static var PREVIEW_SDK_INT: Int {
         
         get {
             
-            let __value = JNIField.GetStaticObjectField(
+            let __value = JNIField.GetStaticIntField(
                 fieldName: "PREVIEW_SDK_INT",
-                fieldType: "Ljava/lang/String;",
+                fieldType: "I",
                 fieldCache: &JNICache.FieldID.PREVIEW_SDK_INT,
                 className: JNICache.className,
                 classCache: &JNICache.jniClass )
             
-            defer { JNI.DeleteLocalRef(__value) }
-            
-            return String(javaObject: __value)
+            return Int(__value)
         }
     }
     
@@ -183,20 +184,18 @@ fileprivate extension AndroidBuildVersionConstants {
         }
     }
     
-    fileprivate static var SDK_INT: String {
+    fileprivate static var SDK_INT: Int {
         
         get {
             
-            let __value = JNIField.GetStaticObjectField(
+            let __value = JNIField.GetStaticIntField(
                 fieldName: "SDK_INT",
-                fieldType: "Ljava/lang/String;",
+                fieldType: "I",
                 fieldCache: &JNICache.FieldID.SDK_INT,
                 className: JNICache.className,
                 classCache: &JNICache.jniClass )
             
-            defer { JNI.DeleteLocalRef(__value) }
-            
-            return String(javaObject: __value)
+            return Int(__value)
         }
     }
     

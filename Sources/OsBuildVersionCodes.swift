@@ -14,7 +14,7 @@ public extension AndroidBuild {
     public typealias VersionCodes = AndroidBuildVersionCodes
 }
 
-public struct AndroidBuildVersionCodes {
+public struct AndroidBuildVersionCodes: RawRepresentable {
     
     public let rawValue: Int
     
