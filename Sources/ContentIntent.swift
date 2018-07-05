@@ -242,6 +242,30 @@ public extension Android.Content.Intent {
     }
     
     /**
+     * Add extended data to the intent. (int[])
+     */
+    public func putExtra(name: String, value: [Int]) -> Android.Content.Intent {
+        
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            JNIType.toJava(value: name, locals: &__locals),
+            JNIType.toJava(value: value, locals: &__locals)
+        ]
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "putExtra",
+                                                  methodSig: "(Ljava/lang/String;[I)Landroid/content/Intent;",
+                                                  methodCache: &JNICache.MethodID.putExtra15,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef(__return) }
+        
+        return Android.Content.Intent(javaObject: __return)
+    }
+    
+    /**
      * Add extended data to the intent. (String)
      */
     public func putExtra(name: String, value: String) -> Android.Content.Intent {
@@ -293,6 +317,7 @@ private extension Android.Content.Intent {
             static var putExtra3: jmethodID?
             static var putExtra7: jmethodID?
             static var putExtra14: jmethodID?
+            static var putExtra15: jmethodID?
             static var putExtra19: jmethodID?
         }
     }
