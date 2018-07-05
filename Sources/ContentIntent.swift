@@ -84,6 +84,7 @@ public final class AndroidIntent: JavaObject {
     }
 }
 
+
 public extension Android.Content.Intent {
     
     /**
@@ -110,14 +111,14 @@ public extension Android.Content.Intent {
     /**
      * Retrieve extended data from the intent. (Byte array)
      */
-    public func getByteArrayExtra(name: String) -> [Int8] {
+    public func getByteArrayExtra(name: String) -> [Int8]? {
         var __locals = [jobject]()
         
         var __args: [jvalue] = [
             JNIType.toJava(value: name, locals: &__locals)
         ]
         
-        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
                                                    methodName: "getByteArrayExtra",
                                                    methodSig: "(Ljava/lang/String;)[B",
                                                    methodCache: &JNICache.MethodID.getByteArrayExtra,
@@ -144,7 +145,7 @@ public extension Android.Content.Intent {
                                                    args: &__args,
                                                    locals: &__locals)
         
-        return Int8(javaObject: __return)
+        return Int8(__return)
     }
     
     /**
@@ -165,7 +166,7 @@ public extension Android.Content.Intent {
                                                    args: &__args,
                                                    locals: &__locals)
         
-        return Int(javaObject: __return)
+        return Int(__return)
     }
     
     /**
@@ -247,7 +248,7 @@ public extension Android.Content.Intent {
         
         var __args: [jvalue] = [
             JNIType.toJava(value:name, locals: &__locals),
-            jvalue(d: jint(value))
+            jvalue(d: jdouble(value))
         ]
         
         let __return = JNIMethod.CallObjectMethod(object: javaObject,
@@ -331,6 +332,9 @@ private extension Android.Content.Intent {
         
         // JNI Method ID cache
         struct MethodID {
+            static var init_method1: jmethodID?
+            static var init_method2: jmethodID?
+            static var init_method3: jmethodID?
             static var getBooleanExtra: jmethodID?
             static var getByteArrayExtra: jmethodID?
             static var getByteExtra: jmethodID?
