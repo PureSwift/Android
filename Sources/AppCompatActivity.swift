@@ -457,6 +457,25 @@ public func SwiftSupportAppCompatActivity_onActivityResultNative( _ __env: Unsaf
     activity?.onActivityResult(requestCode: requestCode, resultCode: resultCode, data: data)
 }
 
+@_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_onRequestPermissionsResultNative")
+public func SwiftSupportAppCompatActivity_onRequestPermissionsResultNative( _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                                                  _ __this: jobject?,
+                                                                  _ __swiftObject: jlong,
+                                                                  _ __requestCode: jint,
+                                                                  _ __permissions: jobject,
+                                                                  _ __grantResults: jobject) -> () {
+    
+    let requestCode = Int(__requestCode)
+    
+    let permissions = JNIType.toSwift(type: [String].self, from: __permissions)!
+    
+    let grantResults = JNIType.toSwift(type: [Int].self, from: __grantResults)!
+    
+    let activity = SwiftSupportAppCompatActivity.swiftObject(jniEnv: __env, javaObject: __this, swiftObject: __swiftObject)
+    
+    activity?.onRequestPermissionsResult(requestCode: requestCode, permissions: permissions, grantResults: grantResults)
+}
+
 @_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_finalizeNative")
 public func SwiftSupportAppCompatActivity_finalize( _ __env: UnsafeMutablePointer<JNIEnv?>,
                                                            _ __this: jobject?,
