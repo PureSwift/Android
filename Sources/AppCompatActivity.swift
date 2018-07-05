@@ -97,31 +97,6 @@ open class SwiftSupportAppCompatActivity: AndroidContextWrapper {
     
     // MARK: - Responder
     
-    public func checkSelfPermission(permission: String)-> Int {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1)
-        
-        __args[0] = JNIType.toJava( value: permission, locals: &__locals )
-        
-        var result: Int?
-        
-        withJavaObject {
-            
-            let __return = JNIMethod.CallIntMethod(object: $0,
-                                     methodName: "checkSelfPermission",
-                                     methodSig: "(Ljava/lang/String;)I",
-                                     methodCache: &SwiftActivityJNICache.MethodID.checkSelfPermission,
-                                     args: &__args,
-                                     locals: &__locals)
-            
-            result = Int(__return)
-        }
-        
-        return result!
-    }
-    
     public func startActivity(intent: Android.Content.Intent){
         
         var __locals = [jobject]()
@@ -156,26 +131,6 @@ open class SwiftSupportAppCompatActivity: AndroidContextWrapper {
                                      methodName: "startActivityForResult",
                                      methodSig: "(Landroid/content/Intent;I)V",
                                      methodCache: &SwiftActivityJNICache.MethodID.startActivityForResult,
-                                     args: &__args,
-                                     locals: &__locals)
-        }
-    }
-    
-    public func requestPermissions(permissions: [String], requestCode: Int) {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 2)
-        
-        __args[0] = JNIType.toJava( value: permissions, locals: &__locals )
-        __args[1] = jvalue(i: jint(requestCode))
-        
-        withJavaObject {
-            
-            JNIMethod.CallVoidMethod(object: $0,
-                                     methodName: "askPermissions",
-                                     methodSig: "([Ljava/lang/String;I)V",
-                                     methodCache: &SwiftActivityJNICache.MethodID.askPermissions,
                                      args: &__args,
                                      locals: &__locals)
         }
@@ -391,12 +346,8 @@ fileprivate extension SwiftSupport.App.AppCompatActivity {
         /// JNI Method ID cache
         struct MethodID {
             
-            static var registerReceiver: jmethodID?
-            static var unregisterReceiver: jmethodID?
-            static var checkSelfPermission: jmethodID?
             static var startActivity: jmethodID?
             static var startActivityForResult: jmethodID?
-            static var askPermissions: jmethodID?
             static var startService: jmethodID?
             static var stopService: jmethodID?
             static var finish: jmethodID?

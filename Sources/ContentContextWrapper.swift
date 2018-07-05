@@ -68,6 +68,51 @@ public extension AndroidContextWrapper {
                                  args: &__args,
                                  locals: &__locals)
     }
+    
+    public func checkSelfPermission(permission: String)-> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1)
+        
+        __args[0] = JNIType.toJava( value: permission, locals: &__locals )
+        
+        var result: Int?
+        
+        withJavaObject {
+            
+            let __return = JNIMethod.CallIntMethod(object: $0,
+                                                   methodName: "checkSelfPermission",
+                                                   methodSig: "(Ljava/lang/String;)I",
+                                                   methodCache: &JNICache.MethodID.checkSelfPermission,
+                                                   args: &__args,
+                                                   locals: &__locals)
+            
+            result = Int(__return)
+        }
+        
+        return result!
+    }
+    
+    public func requestPermissions(permissions: [String], requestCode: Int) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2)
+        
+        __args[0] = JNIType.toJava( value: permissions, locals: &__locals )
+        __args[1] = jvalue(i: jint(requestCode))
+        
+        withJavaObject {
+            
+            JNIMethod.CallVoidMethod(object: $0,
+                                     methodName: "requestPermissions",
+                                     methodSig: "([Ljava/lang/String;I)V",
+                                     methodCache: &JNICache.MethodID.requestPermissions,
+                                     args: &__args,
+                                     locals: &__locals)
+        }
+    }
 }
 
 // MARK: - Constants
@@ -91,6 +136,8 @@ internal extension AndroidContextWrapper {
             static var getSystemService: jmethodID?
             static var registerReceiver: jmethodID?
             static var unregisterReceiver: jmethodID?
+            static var checkSelfPermission: jmethodID?
+            static var requestPermissions: jmethodID?
         }
     }
 }
