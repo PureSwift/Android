@@ -11,7 +11,7 @@ import java_util
 
 public extension AndroidBuild {
     
-    public typealias BuildVersionCodes = AndroidBuildVersionCodes
+    public typealias VersionCodes = AndroidBuildVersionCodes
 }
 
 public struct AndroidBuildVersionCodes {
@@ -23,91 +23,91 @@ public struct AndroidBuildVersionCodes {
     }
     
     /// October 2008: The original, first, version of Android. Yay!
-    public static let base = Android.OS.Build.BuildVersionCodes(rawValue: AndroidBuildVersionCodesConstants.BASE)
+    public static let base = Android.OS.Build.VersionCodes(rawValue: AndroidBuildVersionCodesConstants.BASE)
     
     /// February 2009: First Android update, officially called 1.1.
-    public static let base11 = Android.OS.Build.BuildVersionCodes(rawValue: AndroidBuildVersionCodesConstants.BASE_1_1)
+    public static let base11 = Android.OS.Build.VersionCodes(rawValue: AndroidBuildVersionCodesConstants.BASE_1_1)
     
     /// May 2009: Android 1.5.
-    public static let cupcake = Android.OS.Build.BuildVersionCodes(rawValue: AndroidBuildVersionCodesConstants.CUPCAKE)
+    public static let cupcake = Android.OS.Build.VersionCodes(rawValue: AndroidBuildVersionCodesConstants.CUPCAKE)
     
     /// Magic version number for a current development build, which has not yet turned into an official release.
-    public static let CurDevelopment = Android.OS.Build.BuildVersionCodes(rawValue: AndroidBuildVersionCodesConstants.CUR_DEVELOPMENT)
+    public static let CurDevelopment = Android.OS.Build.VersionCodes(rawValue: AndroidBuildVersionCodesConstants.CUR_DEVELOPMENT)
     
     /// September 2009: Android 1.6.
-    public static let donut = Android.OS.Build.BuildVersionCodes(rawValue: AndroidBuildVersionCodesConstants.DONUT)
+    public static let donut = Android.OS.Build.VersionCodes(rawValue: AndroidBuildVersionCodesConstants.DONUT)
     
     /// November 2009: Android 2.0
-    public static let eclair = Android.OS.Build.BuildVersionCodes(rawValue: AndroidBuildVersionCodesConstants.ECLAIR)
+    public static let eclair = Android.OS.Build.VersionCodes(rawValue: AndroidBuildVersionCodesConstants.ECLAIR)
     
     /// December 2009: Android 2.0.1
-    public static let eclair01 = Android.OS.Build.BuildVersionCodes(rawValue: AndroidBuildVersionCodesConstants.ECLAIR_0_1)
+    public static let eclair01 = Android.OS.Build.VersionCodes(rawValue: AndroidBuildVersionCodesConstants.ECLAIR_0_1)
     
     /// January 2010: Android 2.1
-    public static let eclairMr1 = Android.OS.Build.BuildVersionCodes(rawValue: AndroidBuildVersionCodesConstants.ECLAIR_MR1)
+    public static let eclairMr1 = Android.OS.Build.VersionCodes(rawValue: AndroidBuildVersionCodesConstants.ECLAIR_MR1)
     
     /// June 2010: Android 2.2
-    public static let froyo = Android.OS.Build.BuildVersionCodes(rawValue: AndroidBuildVersionCodesConstants.FROYO)
+    public static let froyo = Android.OS.Build.VersionCodes(rawValue: AndroidBuildVersionCodesConstants.FROYO)
     
     /// November 2010: Android 2.3
-    public static let gingerbread = Android.OS.Build.BuildVersionCodes(rawValue: AndroidBuildVersionCodesConstants.GINGERBREAD)
+    public static let gingerbread = Android.OS.Build.VersionCodes(rawValue: AndroidBuildVersionCodesConstants.GINGERBREAD)
     
     /// February 2011: Android 2.3.3.
-    public static let gingerbreadMr1 = Android.OS.Build.BuildVersionCodes(rawValue: AndroidBuildVersionCodesConstants.GINGERBREAD_MR1)
+    public static let gingerbreadMr1 = Android.OS.Build.VersionCodes(rawValue: AndroidBuildVersionCodesConstants.GINGERBREAD_MR1)
     
     /// February 2011: Android 3.0.
-    public static let honeycomb = Android.OS.Build.BuildVersionCodes(rawValue: AndroidBuildVersionCodesConstants.HONEYCOMB)
+    public static let honeycomb = Android.OS.Build.VersionCodes(rawValue: AndroidBuildVersionCodesConstants.HONEYCOMB)
     
     /// May 2011: Android 3.1.
-    public static let honeycombMr1 = Android.OS.Build.BuildVersionCodes(rawValue: AndroidBuildVersionCodesConstants.HONEYCOMB_MR1)
+    public static let honeycombMr1 = Android.OS.Build.VersionCodes(rawValue: AndroidBuildVersionCodesConstants.HONEYCOMB_MR1)
     
     /// June 2011: Android 3.2.
-    public static let honeycombMr2 = Android.OS.Build.BuildVersionCodes(rawValue: AndroidBuildVersionCodesConstants.HONEYCOMB_MR2)
+    public static let honeycombMr2 = Android.OS.Build.VersionCodes(rawValue: AndroidBuildVersionCodesConstants.HONEYCOMB_MR2)
     
     /// October 2011: Android 4.0.
-    public static let iceCreamSandwich = Android.OS.Build.BuildVersionCodes(rawValue: AndroidBuildVersionCodesConstants.ICE_CREAM_SANDWICH)
+    public static let iceCreamSandwich = Android.OS.Build.VersionCodes(rawValue: AndroidBuildVersionCodesConstants.ICE_CREAM_SANDWICH)
     
     /// December 2011: Android 4.0.3.
-    public static let iceCreamSandwichMr1 = Android.OS.Build.BuildVersionCodes(rawValue: AndroidBuildVersionCodesConstants.ICE_CREAM_SANDWICH_MR1)
+    public static let iceCreamSandwichMr1 = Android.OS.Build.VersionCodes(rawValue: AndroidBuildVersionCodesConstants.ICE_CREAM_SANDWICH_MR1)
     
     /// June 2012: Android 4.1.
-    public static let jellyBean = Android.OS.Build.BuildVersionCodes(rawValue: AndroidBuildVersionCodesConstants.JELLY_BEAN)
+    public static let jellyBean = Android.OS.Build.VersionCodes(rawValue: AndroidBuildVersionCodesConstants.JELLY_BEAN)
     
     /// November 2012: Android 4.2, Moar jelly beans!
-    public static let jellyBeanMr1 = Android.OS.Build.BuildVersionCodes(rawValue: AndroidBuildVersionCodesConstants.JELLY_BEAN_MR1)
+    public static let jellyBeanMr1 = Android.OS.Build.VersionCodes(rawValue: AndroidBuildVersionCodesConstants.JELLY_BEAN_MR1)
     
     /// July 2013: Android 4.3, the revenge of the beans.
-    public static let jellyBeanMr2 = Android.OS.Build.BuildVersionCodes(rawValue: AndroidBuildVersionCodesConstants.JELLY_BEAN_MR2)
+    public static let jellyBeanMr2 = Android.OS.Build.VersionCodes(rawValue: AndroidBuildVersionCodesConstants.JELLY_BEAN_MR2)
     
     /// October 2013: Android 4.4, KitKat, another tasty treat.
-    public static let kitkat = Android.OS.Build.BuildVersionCodes(rawValue: AndroidBuildVersionCodesConstants.KITKAT)
+    public static let kitkat = Android.OS.Build.VersionCodes(rawValue: AndroidBuildVersionCodesConstants.KITKAT)
     
     /// June 2014: Android 4.4W. KitKat for watches, snacks on the run.
-    public static let kitkatWatch = Android.OS.Build.BuildVersionCodes(rawValue: AndroidBuildVersionCodesConstants.KITKAT_WATCH)
+    public static let kitkatWatch = Android.OS.Build.VersionCodes(rawValue: AndroidBuildVersionCodesConstants.KITKAT_WATCH)
     
     /// November 2014: Lollipop. A flat one with beautiful shadows. But still tasty.
-    public static let lollipop = Android.OS.Build.BuildVersionCodes(rawValue: AndroidBuildVersionCodesConstants.LOLLIPOP)
+    public static let lollipop = Android.OS.Build.VersionCodes(rawValue: AndroidBuildVersionCodesConstants.LOLLIPOP)
     
     /// March 2015: Lollipop with an extra sugar coating on the outside!
-    public static let lollipopMr1 = Android.OS.Build.BuildVersionCodes(rawValue: AndroidBuildVersionCodesConstants.LOLLIPOP_MR1)
+    public static let lollipopMr1 = Android.OS.Build.VersionCodes(rawValue: AndroidBuildVersionCodesConstants.LOLLIPOP_MR1)
     
     /// M is for Marshmallow!
-    public static let m = Android.OS.Build.BuildVersionCodes(rawValue: AndroidBuildVersionCodesConstants.M)
+    public static let m = Android.OS.Build.VersionCodes(rawValue: AndroidBuildVersionCodesConstants.M)
     
     /// N is for Nougat.
-    public static let n = Android.OS.Build.BuildVersionCodes(rawValue: AndroidBuildVersionCodesConstants.N)
+    public static let n = Android.OS.Build.VersionCodes(rawValue: AndroidBuildVersionCodesConstants.N)
     
     /// N MR1: Nougat++.
-    public static let nMr1 = Android.OS.Build.BuildVersionCodes(rawValue: AndroidBuildVersionCodesConstants.N_MR1)
+    public static let nMr1 = Android.OS.Build.VersionCodes(rawValue: AndroidBuildVersionCodesConstants.N_MR1)
     
     /// O.
-    public static let o = Android.OS.Build.BuildVersionCodes(rawValue: AndroidBuildVersionCodesConstants.O)
+    public static let o = Android.OS.Build.VersionCodes(rawValue: AndroidBuildVersionCodesConstants.O)
     
     /// O MR1.
-    public static let oMr1 = Android.OS.Build.BuildVersionCodes(rawValue: AndroidBuildVersionCodesConstants.O_MR1)
+    public static let oMr1 = Android.OS.Build.VersionCodes(rawValue: AndroidBuildVersionCodesConstants.O_MR1)
     
     /// P.
-    public static let p = Android.OS.Build.BuildVersionCodes(rawValue: AndroidBuildVersionCodesConstants.P)
+    public static let p = Android.OS.Build.VersionCodes(rawValue: AndroidBuildVersionCodesConstants.P)
 }
 
 fileprivate class AndroidBuildVersionCodesConstants: JavaObject {

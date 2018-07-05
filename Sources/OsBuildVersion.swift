@@ -11,10 +11,42 @@ import java_util
 
 public extension AndroidBuild {
     
-    public typealias BuildVersion = AndroidBuildVersion
+    public typealias Version = AndroidBuildVersion
 }
 
-public class AndroidBuildVersion: JavaObject {
+public struct AndroidBuildVersion {
+    
+    public let rawValue: String
+    
+    public init(rawValue: String) {
+        self.rawValue = rawValue
+    }
+    
+    /// The base OS build the product is based on.
+    public static let baseOS = Android.OS.Build.Version(rawValue: AndroidBuildVersionConstants.BASE_OS)
+    
+    /// The current development codename, or the string "REL" if this is a release build.
+    public static let codename = Android.OS.Build.Version(rawValue: AndroidBuildVersionConstants.CODENAME)
+    
+    /// The internal value used by the underlying source control to represent this build. E.g., a perforce changelist number or a git hash.
+    public static let incremental = Android.OS.Build.Version(rawValue: AndroidBuildVersionConstants.INCREMENTAL)
+    
+    /// The developer preview revision of a prerelease SDK. This value will always be 0 on production platform builds/devices.
+    public static let previewSdkInt = Android.OS.Build.Version(rawValue: AndroidBuildVersionConstants.PREVIEW_SDK_INT)
+    
+    /// The user-visible version string. E.g., "1.0" or "3.4b5".
+    public static let release = Android.OS.Build.Version(rawValue: AndroidBuildVersionConstants.RELEASE)
+    
+    /// The SDK version of the software currently running on this hardware device. This value never changes while a
+    /// device is booted, but it may increase when the hardware manufacturer provides an OTA update.
+    public static let sdkInt = Android.OS.Build.Version(rawValue: AndroidBuildVersionConstants.SDK_INT)
+    
+    /// The user-visible security patch level.
+    public static let securityPatch = Android.OS.Build.Version(rawValue: AndroidBuildVersionConstants.SECURITY_PATCH)
+    
+}
+
+fileprivate class AndroidBuildVersionConstants: JavaObject {
     
     // MARK: - Initialization
     
@@ -54,15 +86,18 @@ public class AndroidBuildVersion: JavaObject {
 
 // MARK: Fields
 
-public extension AndroidBuildVersion {
+fileprivate extension AndroidBuildVersionConstants {
     
-    public var BASE_OS: String {
+    fileprivate static var BASE_OS: String {
         
         get {
-            let __value = JNIField.GetObjectField(fieldName: "BASE_OS",
-                                                  fieldType: "Ljava/lang/String;",
-                                                  fieldCache: &JNICache.FieldID.BASE_OS,
-                                                  object: javaObject)
+            
+            let __value = JNIField.GetStaticObjectField(
+                fieldName: "BASE_OS",
+                fieldType: "Ljava/lang/String;",
+                fieldCache: &JNICache.FieldID.BASE_OS,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
             
             defer { JNI.DeleteLocalRef(__value) }
             
@@ -70,13 +105,16 @@ public extension AndroidBuildVersion {
         }
     }
     
-    public var CODENAME: String {
+    fileprivate static var CODENAME: String {
         
         get {
-            let __value = JNIField.GetObjectField(fieldName: "CODENAME",
-                                                  fieldType: "Ljava/lang/String;",
-                                                  fieldCache: &JNICache.FieldID.CODENAME,
-                                                  object: javaObject)
+            
+            let __value = JNIField.GetStaticObjectField(
+                fieldName: "CODENAME",
+                fieldType: "Ljava/lang/String;",
+                fieldCache: &JNICache.FieldID.CODENAME,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
             
             defer { JNI.DeleteLocalRef(__value) }
             
@@ -84,13 +122,16 @@ public extension AndroidBuildVersion {
         }
     }
     
-    public var INCREMENTAL: String {
+    fileprivate static var INCREMENTAL: String {
         
         get {
-            let __value = JNIField.GetObjectField(fieldName: "INCREMENTAL",
-                                                  fieldType: "Ljava/lang/String;",
-                                                  fieldCache: &JNICache.FieldID.INCREMENTAL,
-                                                  object: javaObject)
+            
+            let __value = JNIField.GetStaticObjectField(
+                fieldName: "INCREMENTAL",
+                fieldType: "Ljava/lang/String;",
+                fieldCache: &JNICache.FieldID.INCREMENTAL,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
             
             defer { JNI.DeleteLocalRef(__value) }
             
@@ -98,13 +139,16 @@ public extension AndroidBuildVersion {
         }
     }
     
-    public var PREVIEW_SDK_INT: String {
+    fileprivate static var PREVIEW_SDK_INT: String {
         
         get {
-            let __value = JNIField.GetObjectField(fieldName: "PREVIEW_SDK_INT",
-                                                  fieldType: "Ljava/lang/String;",
-                                                  fieldCache: &JNICache.FieldID.PREVIEW_SDK_INT,
-                                                  object: javaObject)
+            
+            let __value = JNIField.GetStaticObjectField(
+                fieldName: "PREVIEW_SDK_INT",
+                fieldType: "Ljava/lang/String;",
+                fieldCache: &JNICache.FieldID.PREVIEW_SDK_INT,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
             
             defer { JNI.DeleteLocalRef(__value) }
             
@@ -112,13 +156,16 @@ public extension AndroidBuildVersion {
         }
     }
     
-    public var RELEASE: String {
+    fileprivate static var RELEASE: String {
         
         get {
-            let __value = JNIField.GetObjectField(fieldName: "RELEASE",
-                                                  fieldType: "Ljava/lang/String;",
-                                                  fieldCache: &JNICache.FieldID.RELEASE,
-                                                  object: javaObject)
+            
+            let __value = JNIField.GetStaticObjectField(
+                fieldName: "RELEASE",
+                fieldType: "Ljava/lang/String;",
+                fieldCache: &JNICache.FieldID.RELEASE,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
             
             defer { JNI.DeleteLocalRef(__value) }
             
@@ -126,13 +173,16 @@ public extension AndroidBuildVersion {
         }
     }
     
-    public var SDK_INT: String {
+    fileprivate static var SDK_INT: String {
         
         get {
-            let __value = JNIField.GetObjectField(fieldName: "SDK_INT",
-                                                  fieldType: "Ljava/lang/String;",
-                                                  fieldCache: &JNICache.FieldID.SDK_INT,
-                                                  object: javaObject)
+            
+            let __value = JNIField.GetStaticObjectField(
+                fieldName: "SDK_INT",
+                fieldType: "Ljava/lang/String;",
+                fieldCache: &JNICache.FieldID.SDK_INT,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
             
             defer { JNI.DeleteLocalRef(__value) }
             
@@ -140,13 +190,16 @@ public extension AndroidBuildVersion {
         }
     }
     
-    public var SECURITY_PATCH: String {
+    fileprivate static var SECURITY_PATCH: String {
         
         get {
-            let __value = JNIField.GetObjectField(fieldName: "SECURITY_PATCH",
-                                                  fieldType: "Ljava/lang/String;",
-                                                  fieldCache: &JNICache.FieldID.SECURITY_PATCH,
-                                                  object: javaObject)
+            
+            let __value = JNIField.GetStaticObjectField(
+                fieldName: "SECURITY_PATCH",
+                fieldType: "Ljava/lang/String;",
+                fieldCache: &JNICache.FieldID.SECURITY_PATCH,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
             
             defer { JNI.DeleteLocalRef(__value) }
             
@@ -157,7 +210,7 @@ public extension AndroidBuildVersion {
 
 // MARK: - JNI
 
-internal extension AndroidBuildVersion {
+fileprivate extension AndroidBuildVersionConstants {
     
     /// JNI Cache
     struct JNICache {
