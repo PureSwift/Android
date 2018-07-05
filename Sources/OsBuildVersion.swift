@@ -12,6 +12,24 @@ import java_util
 public extension AndroidBuild {
     
     public typealias Version = AndroidBuildVersion
+    
+    public typealias Sdk = AndroidBuildSdk
+}
+
+public struct AndroidBuildSdk {
+    
+    public let rawValue: Int
+    
+    public init(rawValue: Int) {
+        self.rawValue = rawValue
+    }
+    
+    /// The SDK version of the software currently running on this hardware device. This value never changes while a
+    /// device is booted, but it may increase when the hardware manufacturer provides an OTA update.
+    public static let sdkInt = Android.OS.Build.Version(rawValue: AndroidBuildVersionConstants.SDK_INT)
+    
+    /// The developer preview revision of a prerelease SDK. This value will always be 0 on production platform builds/devices.
+    public static let previewSdkInt = Android.OS.Build.Version(rawValue: AndroidBuildVersionConstants.PREVIEW_SDK_INT)
 }
 
 public struct AndroidBuildVersion {
@@ -31,19 +49,11 @@ public struct AndroidBuildVersion {
     /// The internal value used by the underlying source control to represent this build. E.g., a perforce changelist number or a git hash.
     public static let incremental = Android.OS.Build.Version(rawValue: AndroidBuildVersionConstants.INCREMENTAL)
     
-    /// The developer preview revision of a prerelease SDK. This value will always be 0 on production platform builds/devices.
-    public static let previewSdkInt = Android.OS.Build.Version(rawValue: AndroidBuildVersionConstants.PREVIEW_SDK_INT)
-    
     /// The user-visible version string. E.g., "1.0" or "3.4b5".
     public static let release = Android.OS.Build.Version(rawValue: AndroidBuildVersionConstants.RELEASE)
     
-    /// The SDK version of the software currently running on this hardware device. This value never changes while a
-    /// device is booted, but it may increase when the hardware manufacturer provides an OTA update.
-    public static let sdkInt = Android.OS.Build.Version(rawValue: AndroidBuildVersionConstants.SDK_INT)
-    
     /// The user-visible security patch level.
     public static let securityPatch = Android.OS.Build.Version(rawValue: AndroidBuildVersionConstants.SECURITY_PATCH)
-    
 }
 
 fileprivate class AndroidBuildVersionConstants: JavaObject {
