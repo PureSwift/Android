@@ -87,7 +87,7 @@ public final class AndroidIntent: JavaObject {
 public extension Android.Content.Intent {
     
     /**
-     * Retrieve extended data from the intent.
+     * Retrieve extended data from the intent. (Boolean)
      */
     public func getBooleanExtra(name: String, defaultValue: Bool) -> Bool {
         var __locals = [jobject]()
@@ -108,12 +108,76 @@ public extension Android.Content.Intent {
     }
     
     /**
+     * Retrieve extended data from the intent. (Byte array)
+     */
+    public func getByteArrayExtra(name: String) -> [Int8] {
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            JNIType.toJava(value: name, locals: &__locals)
+        ]
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                                   methodName: "getByteArrayExtra",
+                                                   methodSig: "(Ljava/lang/String;)[B",
+                                                   methodCache: &JNICache.MethodID.getByteArrayExtra,
+                                                   args: &__args,
+                                                   locals: &__locals)
+        
+        return JNIType.toSwift(type: [Int8].self, from: __return)
+    }
+    
+    /**
+     * Retrieve extended data from the intent. (Byte)
+     */
+    public func getByteArrayExtra(name: String) -> Int8 {
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            JNIType.toJava(value: name, locals: &__locals)
+        ]
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                                   methodName: "getByteExtra",
+                                                   methodSig: "(Ljava/lang/String;)B",
+                                                   methodCache: &JNICache.MethodID.getByteExtra,
+                                                   args: &__args,
+                                                   locals: &__locals)
+        
+        return Int8(javaObject: __return)
+    }
+    
+    /**
+     * Add extended data to the intent. (long[])
+     */
+    public func putExtra(name: String, value: [Int64]) -> Android.Content.Intent {
+        
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            JNIType.toJava(value: name, locals: &__locals),
+            JNIType.toJava(value: value, locals: &__locals)
+        ]
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "putExtra",
+                                                  methodSig: "(Ljava/lang/String;[J)Landroid/content/Intent;",
+                                                  methodCache: &JNICache.MethodID.putExtra2,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef(__return) }
+        
+        return Android.Content.Intent(javaObject: __return)
+    }
+    
+    /**
      * Add extended data to the intent. (byte)
      */
     public func putExtra(name: String, value: Int8) -> Android.Content.Intent {
         
         var __locals = [jobject]()
-    
+        
         var __args: [jvalue] = [
             JNIType.toJava(value: name, locals: &__locals),
             jvalue(b: jbyte(value))
@@ -122,7 +186,53 @@ public extension Android.Content.Intent {
         let __return = JNIMethod.CallObjectMethod(object: javaObject,
                                                   methodName: "putExtra",
                                                   methodSig: "(Ljava/lang/String;B)Landroid/content/Intent;",
-                                                  methodCache: &JNICache.MethodID.putExtra,
+                                                  methodCache: &JNICache.MethodID.putExtra3,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef(__return) }
+        
+        return Android.Content.Intent(javaObject: __return)
+    }
+    
+    /**
+     * Add extended data to the intent. (int)
+     */
+    public func putExtra(name: String, value: Int) -> Android.Content.Intent {
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            JNIType.toJava(value:name, locals: &__locals),
+            jvalue(i: jint(value))
+        ]
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "putExtra",
+                                                  methodSig: "(Ljava/lang/String;I)Landroid/content/Intent;",
+                                                  methodCache: &JNICache.MethodID.putExtra7,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef(__return) }
+        
+        return Android.Content.Intent(javaObject: __return)
+    }
+    
+    /**
+     * Add extended data to the intent. (double)
+     */
+    public func putExtra(name: String, value: Double) -> Android.Content.Intent {
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            JNIType.toJava(value:name, locals: &__locals),
+            jvalue(d: jint(value))
+        ]
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "putExtra",
+                                                  methodSig: "(Ljava/lang/String;D)Landroid/content/Intent;",
+                                                  methodCache: &JNICache.MethodID.putExtra14,
                                                   args: &__args,
                                                   locals: &__locals)
         
@@ -146,7 +256,7 @@ public extension Android.Content.Intent {
         let __return = JNIMethod.CallObjectMethod(object: javaObject,
                                                   methodName: "putExtra",
                                                   methodSig: "(Ljava/lang/String;Ljava/land/String;)Landroid/content/Intent;",
-                                                  methodCache: &JNICache.MethodID.putExtra2,
+                                                  methodCache: &JNICache.MethodID.putExtra19,
                                                   args: &__args,
                                                   locals: &__locals)
         
@@ -154,30 +264,6 @@ public extension Android.Content.Intent {
         
         return Android.Content.Intent(javaObject: __return)
     }
-    
-    /**
-     * Add extended data to the intent. (int)
-     */
-    public func putExtra(name: String, value: Int) -> Android.Content.Intent {
-        var __locals = [jobject]()
-        
-        var __args: [jvalue] = [
-            JNIType.toJava(value:name, locals: &__locals),
-            jvalue(i: jint(value))
-        ]
-        
-        let __return = JNIMethod.CallObjectMethod(object: javaObject,
-                                                  methodName: "putExtra",
-                                                  methodSig: "(Ljava/lang/String;I)Landroid/content/Intent;",
-                                                  methodCache: &JNICache.MethodID.putExtra3,
-                                                  args: &__args,
-                                                  locals: &__locals)
-        
-        defer { JNI.DeleteLocalRef(__return) }
-        
-        return Android.Content.Intent(javaObject: __return)
-    }
-    
     
 }
 
@@ -200,15 +286,14 @@ private extension Android.Content.Intent {
         
         // JNI Method ID cache
         struct MethodID {
-            
-            
-            static var init_method1: jmethodID?
-            static var init_method2: jmethodID?
-            static var init_method3: jmethodID?
             static var getBooleanExtra: jmethodID?
-            static var putExtra: jmethodID?
+            static var getByteArrayExtra: jmethodID?
+            static var getByteExtra: jmethodID?
             static var putExtra2: jmethodID?
             static var putExtra3: jmethodID?
+            static var putExtra7: jmethodID?
+            static var putExtra14: jmethodID?
+            static var putExtra19: jmethodID?
         }
     }
 }
