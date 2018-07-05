@@ -24,6 +24,64 @@ public final class AndroidIntent: JavaObject {
             self.javaObject = $0
         }
     }
+    
+    public convenience init(){
+        
+        var __locals = [jobject]()
+        var __args = [jvalue](repeating: jvalue(), count: 0)
+        
+        let __object = JNIMethod.NewObject(
+            className: JNICache.className,
+            classCache: &JNICache.jniClass,
+            methodSig: "()V",
+            methodCache: &JNICache.MethodID.init_method1,
+            args: &__args,
+            locals: &__locals )
+        
+        self.init( javaObject: __object )
+        
+        JNI.DeleteLocalRef( __object )
+    }
+    
+    public convenience init(o: Android.Content.Intent){
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            JNIType.toJava(value: o, locals: &__locals)
+        ]
+        
+        let __object = JNIMethod.NewObject(
+            className: JNICache.className,
+            classCache: &JNICache.jniClass,
+            methodSig: "(Landroid/content/Intent;)V",
+            methodCache: &JNICache.MethodID.init_method2,
+            args: &__args,
+            locals: &__locals )
+        
+        self.init( javaObject: __object )
+        
+        JNI.DeleteLocalRef( __object )
+    }
+    
+    public convenience init(action: String){
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            JNIType.toJava(value: action, locals: &__locals)
+        ]
+        
+        let __object = JNIMethod.NewObject(
+            className: JNICache.className,
+            classCache: &JNICache.jniClass,
+            methodSig: "(Ljava/lang/String;)V",
+            methodCache: &JNICache.MethodID.init_method3,
+            args: &__args,
+            locals: &__locals )
+        
+        self.init( javaObject: __object )
+        
+        JNI.DeleteLocalRef( __object )
+    }
 }
 
 public extension Android.Content.Intent {
@@ -142,6 +200,11 @@ private extension Android.Content.Intent {
         
         // JNI Method ID cache
         struct MethodID {
+            
+            
+            static var init_method1: jmethodID?
+            static var init_method2: jmethodID?
+            static var init_method3: jmethodID?
             static var getBooleanExtra: jmethodID?
             static var putExtra: jmethodID?
             static var putExtra2: jmethodID?
