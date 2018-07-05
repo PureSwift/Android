@@ -130,7 +130,7 @@ public extension Android.Content.Intent {
     /**
      * Retrieve extended data from the intent. (Byte)
      */
-    public func getByteArrayExtra(name: String) -> Int8 {
+    public func getByteExtra(name: String) -> Int8 {
         var __locals = [jobject]()
         
         var __args: [jvalue] = [
@@ -145,6 +145,27 @@ public extension Android.Content.Intent {
                                                    locals: &__locals)
         
         return Int8(javaObject: __return)
+    }
+    
+    /**
+     * Retrieve extended data from the intent. (Int)
+     */
+    public func getIntExtra(name: String, defaultValue: Int) -> Int {
+        var __locals = [jobject]()
+        
+        var __args: [jvalue] = [
+            JNIType.toJava(value: name, locals: &__locals),
+            jvalue(i: jint(defaultValue))
+        ]
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                                   methodName: "getIntExtra",
+                                                   methodSig: "(Ljava/lang/String;I)I",
+                                                   methodCache: &JNICache.MethodID.getIntExtra,
+                                                   args: &__args,
+                                                   locals: &__locals)
+        
+        return Int(javaObject: __return)
     }
     
     /**
@@ -313,6 +334,7 @@ private extension Android.Content.Intent {
             static var getBooleanExtra: jmethodID?
             static var getByteArrayExtra: jmethodID?
             static var getByteExtra: jmethodID?
+            static var getIntExtra: jmethodID?
             static var putExtra2: jmethodID?
             static var putExtra3: jmethodID?
             static var putExtra7: jmethodID?
