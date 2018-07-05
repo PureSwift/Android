@@ -887,130 +887,146 @@ internal extension Android.Bluetooth.Adapter {
     }
     
     /// Extra used by ACTION_CONNECTION_STATE_CHANGED This extra represents the current connection state.
-    internal static var EXTRA_CONNECTION_STATE: Int {
+    internal static var EXTRA_CONNECTION_STATE: String {
         
         get {
             
-            let __value = JNIField.GetStaticIntField(
+            let __value = JNIField.GetStaticObjectField(
                 fieldName: "EXTRA_CONNECTION_STATE",
-                fieldType: "I",
+                fieldType: "Ljava/lang/String;",
                 fieldCache: &JNICache.FieldID.EXTRA_CONNECTION_STATE,
                 className: JNICache.className,
                 classCache: &JNICache.jniClass )
             
-            return Int(__value)
+            defer { JNI.DeleteLocalRef(__value) }
+            
+            return String(javaObject: __value)
         }
     }
     
     /// Used as an optional int extra field in ACTION_REQUEST_DISCOVERABLE intents to request a specific duration for discoverability in seconds.
-    internal static var EXTRA_DISCOVERABLE_DURATION: Int {
+    internal static var EXTRA_DISCOVERABLE_DURATION: String {
         
         get {
             
-            let __value = JNIField.GetStaticIntField(
+            let __value = JNIField.GetStaticObjectField(
                 fieldName: "EXTRA_DISCOVERABLE_DURATION",
-                fieldType: "I",
+                fieldType: "Ljava/lang/String;",
                 fieldCache: &JNICache.FieldID.EXTRA_DISCOVERABLE_DURATION,
                 className: JNICache.className,
                 classCache: &JNICache.jniClass )
             
-            return Int(__value)
+            defer { JNI.DeleteLocalRef(__value) }
+            
+            return String(javaObject: __value)
         }
     }
     
     /// Used as a String extra field in ACTION_LOCAL_NAME_CHANGED intents to request the local Bluetooth name.
-    internal static var EXTRA_LOCAL_NAME: Int {
+    internal static var EXTRA_LOCAL_NAME: String {
         
         get {
             
-            let __value = JNIField.GetStaticIntField(
+            let __value = JNIField.GetStaticObjectField(
                 fieldName: "EXTRA_LOCAL_NAME",
-                fieldType: "I",
+                fieldType: "Ljava/lang/String;",
                 fieldCache: &JNICache.FieldID.EXTRA_LOCAL_NAME,
                 className: JNICache.className,
                 classCache: &JNICache.jniClass )
             
-            return Int(__value)
+            defer { JNI.DeleteLocalRef(__value) }
+            
+            return String(javaObject: __value)
         }
     }
     
     /// Extra used by ACTION_CONNECTION_STATE_CHANGED This extra represents the previous connection state.
-    internal static var EXTRA_PREVIOUS_CONNECTION_STATE: Int {
+    internal static var EXTRA_PREVIOUS_CONNECTION_STATE: String {
         
         get {
             
-            let __value = JNIField.GetStaticIntField(
+            let __value = JNIField.GetStaticObjectField(
                 fieldName: "EXTRA_PREVIOUS_CONNECTION_STATE",
-                fieldType: "I",
+                fieldType: "Ljava/lang/String;",
                 fieldCache: &JNICache.FieldID.EXTRA_PREVIOUS_CONNECTION_STATE,
                 className: JNICache.className,
                 classCache: &JNICache.jniClass )
             
-            return Int(__value)
+            defer { JNI.DeleteLocalRef(__value) }
+            
+            return String(javaObject: __value)
         }
     }
     
     /// Used as an int extra field in ACTION_SCAN_MODE_CHANGED intents to request the previous scan mode.
-    internal static var EXTRA_PREVIOUS_SCAN_MODE: Int {
+    internal static var EXTRA_PREVIOUS_SCAN_MODE: String {
         
         get {
             
-            let __value = JNIField.GetStaticIntField(
+            let __value = JNIField.GetStaticObjectField(
                 fieldName: "EXTRA_PREVIOUS_SCAN_MODE",
-                fieldType: "I",
+                fieldType: "Ljava/lang/String;",
                 fieldCache: &JNICache.FieldID.EXTRA_PREVIOUS_SCAN_MODE,
                 className: JNICache.className,
                 classCache: &JNICache.jniClass )
             
-            return Int(__value)
+            defer { JNI.DeleteLocalRef(__value) }
+            
+            return String(javaObject: __value)
         }
     }
     
     /// Used as an int extra field in ACTION_STATE_CHANGED intents to request the previous power state.
-    internal static var EXTRA_PREVIOUS_STATE: Int {
+    internal static var EXTRA_PREVIOUS_STATE: String {
         
         get {
             
-            let __value = JNIField.GetStaticIntField(
+            let __value = JNIField.GetStaticObjectField(
                 fieldName: "EXTRA_PREVIOUS_STATE",
-                fieldType: "I",
+                fieldType: "Ljava/lang/String;",
                 fieldCache: &JNICache.FieldID.EXTRA_PREVIOUS_STATE,
                 className: JNICache.className,
                 classCache: &JNICache.jniClass )
             
-            return Int(__value)
+            defer { JNI.DeleteLocalRef(__value) }
+            
+            return String(javaObject: __value)
         }
     }
     
     /// Used as an int extra field in ACTION_SCAN_MODE_CHANGED intents to request the current scan mode.
-    internal static var EXTRA_SCAN_MODE: Int {
+    internal static var EXTRA_SCAN_MODE: String {
         
         get {
             
-            let __value = JNIField.GetStaticIntField(
+            let __value = JNIField.GetStaticObjectField(
                 fieldName: "EXTRA_SCAN_MODE",
-                fieldType: "I",
+                fieldType: "Ljava/lang/String;",
                 fieldCache: &JNICache.FieldID.EXTRA_SCAN_MODE,
                 className: JNICache.className,
                 classCache: &JNICache.jniClass )
             
-            return Int(__value)
+            defer { JNI.DeleteLocalRef(__value) }
+            
+            return String(javaObject: __value)
         }
     }
     
     /// Used as an int extra field in ACTION_STATE_CHANGED intents to request the current power state.
-    internal static var EXTRA_STATE: Int {
+    internal static var EXTRA_STATE: String {
         
         get {
             
-            let __value = JNIField.GetStaticIntField(
+            let __value = JNIField.GetStaticObjectField(
                 fieldName: "EXTRA_STATE",
-                fieldType: "I",
+                fieldType: "Ljava/lang/String;",
                 fieldCache: &JNICache.FieldID.EXTRA_STATE,
                 className: JNICache.className,
                 classCache: &JNICache.jniClass )
             
-            return Int(__value)
+            defer { JNI.DeleteLocalRef(__value) }
+            
+            return String(javaObject: __value)
         }
     }
     
