@@ -15,6 +15,11 @@ public extension Android.Bluetooth {
     public typealias Adapter = AndroidBluetoothAdapter
 }
 
+public extension Android.Bluetooth.Adapter {
+    
+    public typealias Action = AndroidBluetoothAdapterAction
+}
+
 public final class AndroidBluetoothAdapter: JavaObject {
     
     public convenience init?( casting object: java_swift.JavaObject,
@@ -688,124 +693,167 @@ public extension Android.Bluetooth.Adapter {
     }
 }
 
-// MARK: - Constants
-
 public extension Android.Bluetooth.Adapter {
     
+    /// Adapter Action
+    public struct AndroidBluetoothAdapterAction: RawRepresentable {
+        
+        public let rawValue: String
+        
+        public init(rawValue: String) {
+            self.rawValue = rawValue
+        }
+        
+        public static let connectionStateChanged = Android.Bluetooth.Adapter.Action(rawValue: Android.Bluetooth.Adapter.ACTION_CONNECTION_STATE_CHANGED)
+        
+        public static let discoveryFinished = Android.Bluetooth.Adapter.Action(rawValue: Android.Bluetooth.Adapter.ACTION_DISCOVERY_FINISHED)
+        
+        public static let discoveryStarted = Android.Bluetooth.Adapter.Action(rawValue: Android.Bluetooth.Adapter.ACTION_DISCOVERY_STARTED)
+        
+        public static let localNameChanged = Android.Bluetooth.Adapter.Action(rawValue: Android.Bluetooth.Adapter.ACTION_LOCAL_NAME_CHANGED)
+        
+        public static let requestDiscoverable = Android.Bluetooth.Adapter.Action(rawValue: Android.Bluetooth.Adapter.ACTION_REQUEST_DISCOVERABLE)
+        
+        public static let requestEnable = Android.Bluetooth.Adapter.Action(rawValue: Android.Bluetooth.Adapter.ACTION_REQUEST_ENABLE)
+        
+        public static let scanModeChanged = Android.Bluetooth.Adapter.Action(rawValue: Android.Bluetooth.Adapter.ACTION_SCAN_MODE_CHANGED)
+        
+        public static let stateChanged = Android.Bluetooth.Adapter.Action(rawValue: Android.Bluetooth.Adapter.ACTION_STATE_CHANGED)
+    }
+}
+
+// MARK: - Constants
+
+internal extension Android.Bluetooth.Adapter {
+    
     /// Intent used to broadcast the change in connection state of the local Bluetooth adapter to a profile of the remote device.
-    internal static var ACTION_CONNECTION_STATE_CHANGED: Int {
+    internal static var ACTION_CONNECTION_STATE_CHANGED: String {
         
         get {
             
-            let __value = JNIField.GetStaticIntField(
+            let __value = JNIField.GetStaticObjectField(
                 fieldName: "ACTION_CONNECTION_STATE_CHANGED",
-                fieldType: "I",
+                fieldType: "Ljava/lang/String;",
                 fieldCache: &JNICache.FieldID.ACTION_CONNECTION_STATE_CHANGED,
                 className: JNICache.className,
                 classCache: &JNICache.jniClass )
             
-            return Int(__value)
+            defer { JNI.DeleteLocalRef(__value) }
+            
+            return String(javaObject: __value)
         }
     }
     
     /// Broadcast Action: The local Bluetooth adapter has finished the device discovery process.
-    internal static var ACTION_DISCOVERY_FINISHED: Int {
+    internal static var ACTION_DISCOVERY_FINISHED: String {
         
         get {
             
-            let __value = JNIField.GetStaticIntField(
+            let __value = JNIField.GetStaticObjectField(
                 fieldName: "ACTION_DISCOVERY_FINISHED",
-                fieldType: "I",
+                fieldType: "Ljava/lang/String;",
                 fieldCache: &JNICache.FieldID.ACTION_DISCOVERY_FINISHED,
                 className: JNICache.className,
                 classCache: &JNICache.jniClass )
             
-            return Int(__value)
+            defer { JNI.DeleteLocalRef(__value) }
+            
+            return String(javaObject: __value)
         }
     }
     
     /// Broadcast Action: The local Bluetooth adapter has started the remote device discovery process.
-    internal static var ACTION_DISCOVERY_STARTED: Int {
+    internal static var ACTION_DISCOVERY_STARTED: String {
         
         get {
             
-            let __value = JNIField.GetStaticIntField(
+            let __value = JNIField.GetStaticObjectField(
                 fieldName: "ACTION_DISCOVERY_STARTED",
-                fieldType: "I",
+                fieldType: "Ljava/lang/String;",
                 fieldCache: &JNICache.FieldID.ACTION_DISCOVERY_STARTED,
                 className: JNICache.className,
                 classCache: &JNICache.jniClass )
             
-            return Int(__value)
+            defer { JNI.DeleteLocalRef(__value) }
+            
+            return String(javaObject: __value)
         }
     }
     
     /// Broadcast Action: The local Bluetooth adapter has changed its friendly Bluetooth name.
-    internal static var ACTION_LOCAL_NAME_CHANGED: Int {
+    internal static var ACTION_LOCAL_NAME_CHANGED: String {
         
         get {
             
-            let __value = JNIField.GetStaticIntField(
+            let __value = JNIField.GetStaticObjectField(
                 fieldName: "ACTION_LOCAL_NAME_CHANGED",
-                fieldType: "I",
+                fieldType: "Ljava/lang/String;",
                 fieldCache: &JNICache.FieldID.ACTION_LOCAL_NAME_CHANGED,
                 className: JNICache.className,
                 classCache: &JNICache.jniClass )
             
-            return Int(__value)
+            defer { JNI.DeleteLocalRef(__value) }
+            
+            return String(javaObject: __value)
         }
     }
     
     /// Activity Action: Show a system activity that requests discoverable mode.
-    internal static var ACTION_REQUEST_DISCOVERABLE: Int {
+    internal static var ACTION_REQUEST_DISCOVERABLE: String {
         
         get {
             
-            let __value = JNIField.GetStaticIntField(
+            let __value = JNIField.GetStaticObjectField(
                 fieldName: "ACTION_REQUEST_DISCOVERABLE",
-                fieldType: "I",
+                fieldType: "Ljava/lang/String;",
                 fieldCache: &JNICache.FieldID.ACTION_REQUEST_DISCOVERABLE,
                 className: JNICache.className,
                 classCache: &JNICache.jniClass )
             
-            return Int(__value)
+            defer { JNI.DeleteLocalRef(__value) }
+            
+            return String(javaObject: __value)
         }
     }
     
     /// Activity Action: Show a system activity that allows the user to turn on Bluetooth.
-    internal static var ACTION_REQUEST_ENABLE: Int {
+    internal static var ACTION_REQUEST_ENABLE: String {
         
         get {
             
-            let __value = JNIField.GetStaticIntField(
+            let __value = JNIField.GetStaticObjectField(
                 fieldName: "ACTION_REQUEST_ENABLE",
-                fieldType: "I",
+                fieldType: "Ljava/lang/String;",
                 fieldCache: &JNICache.FieldID.ACTION_REQUEST_ENABLE,
                 className: JNICache.className,
                 classCache: &JNICache.jniClass )
             
-            return Int(__value)
+            defer { JNI.DeleteLocalRef(__value) }
+            
+            return String(javaObject: __value)
         }
     }
     
     /// Broadcast Action: Indicates the Bluetooth scan mode of the local Adapter has changed.
-    internal static var ACTION_SCAN_MODE_CHANGED: Int {
+    internal static var ACTION_SCAN_MODE_CHANGED: String {
         
         get {
             
-            let __value = JNIField.GetStaticIntField(
+            let __value = JNIField.GetStaticObjectField(
                 fieldName: "ACTION_SCAN_MODE_CHANGED",
-                fieldType: "I",
+                fieldType: "Ljava/lang/String;",
                 fieldCache: &JNICache.FieldID.ACTION_SCAN_MODE_CHANGED,
                 className: JNICache.className,
                 classCache: &JNICache.jniClass )
             
-            return Int(__value)
+            defer { JNI.DeleteLocalRef(__value) }
+            
+            return String(javaObject: __value)
         }
     }
     
     /// Broadcast Action: The state of the local Bluetooth adapter has been changed.
-    public static var ACTION_STATE_CHANGED: String {
+    internal static var ACTION_STATE_CHANGED: String {
         
         get {
             
