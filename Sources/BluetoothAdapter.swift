@@ -694,61 +694,6 @@ public extension Android.Bluetooth.Adapter {
     }
 }
 
-public extension Android.Bluetooth.Adapter {
-    
-    /// Adapter Action
-    public struct AndroidBluetoothAdapterAction: RawRepresentable {
-        
-        public let rawValue: String
-        
-        public init(rawValue: String) {
-            self.rawValue = rawValue
-        }
-        
-        public static let connectionStateChanged = Android.Bluetooth.Adapter.Action(rawValue: Android.Bluetooth.Adapter.ACTION_CONNECTION_STATE_CHANGED)
-        
-        public static let discoveryFinished = Android.Bluetooth.Adapter.Action(rawValue: Android.Bluetooth.Adapter.ACTION_DISCOVERY_FINISHED)
-        
-        public static let discoveryStarted = Android.Bluetooth.Adapter.Action(rawValue: Android.Bluetooth.Adapter.ACTION_DISCOVERY_STARTED)
-        
-        public static let localNameChanged = Android.Bluetooth.Adapter.Action(rawValue: Android.Bluetooth.Adapter.ACTION_LOCAL_NAME_CHANGED)
-        
-        public static let requestDiscoverable = Android.Bluetooth.Adapter.Action(rawValue: Android.Bluetooth.Adapter.ACTION_REQUEST_DISCOVERABLE)
-        
-        public static let requestEnable = Android.Bluetooth.Adapter.Action(rawValue: Android.Bluetooth.Adapter.ACTION_REQUEST_ENABLE)
-        
-        public static let scanModeChanged = Android.Bluetooth.Adapter.Action(rawValue: Android.Bluetooth.Adapter.ACTION_SCAN_MODE_CHANGED)
-        
-        public static let stateChanged = Android.Bluetooth.Adapter.Action(rawValue: Android.Bluetooth.Adapter.ACTION_STATE_CHANGED)
-    }
-    
-    /// Adapter Action
-    public struct AndroidBluetoothAdapterExtra: RawRepresentable {
-        
-        public let rawValue: String
-        
-        public init(rawValue: String) {
-            self.rawValue = rawValue
-        }
-        
-        public static let connectionState = Android.Bluetooth.Adapter.Extra(rawValue: Android.Bluetooth.Adapter.EXTRA_CONNECTION_STATE)
-        
-        public static let discoverableDuration = Android.Bluetooth.Adapter.Extra(rawValue: Android.Bluetooth.Adapter.EXTRA_DISCOVERABLE_DURATION)
-        
-        public static let localName = Android.Bluetooth.Adapter.Extra(rawValue: Android.Bluetooth.Adapter.EXTRA_LOCAL_NAME)
-        
-        public static let previousConnectionState = Android.Bluetooth.Adapter.Extra(rawValue: Android.Bluetooth.Adapter.EXTRA_PREVIOUS_CONNECTION_STATE)
-        
-        public static let previousScanMode = Android.Bluetooth.Adapter.Extra(rawValue: Android.Bluetooth.Adapter.EXTRA_PREVIOUS_SCAN_MODE)
-        
-        public static let previousState = Android.Bluetooth.Adapter.Extra(rawValue: Android.Bluetooth.Adapter.EXTRA_PREVIOUS_STATE)
-        
-        public static let scanMode = Android.Bluetooth.Adapter.Extra(rawValue: Android.Bluetooth.Adapter.EXTRA_SCAN_MODE)
-        
-        public static let state = Android.Bluetooth.Adapter.Extra(rawValue: Android.Bluetooth.Adapter.EXTRA_STATE)
-    }
-}
-
 // MARK: - Constants
 
 internal extension Android.Bluetooth.Adapter {
@@ -1234,6 +1179,62 @@ internal extension Android.Bluetooth.Adapter {
     }
 }
 
+// Mark: Supporting Types
+
+public extension Android.Bluetooth.Adapter {
+    
+    /// Adapter Action
+    public struct AndroidBluetoothAdapterAction: RawRepresentable {
+        
+        public let rawValue: String
+        
+        public init(rawValue: String) {
+            self.rawValue = rawValue
+        }
+        
+        public static let connectionStateChanged = Android.Bluetooth.Adapter.Action(rawValue: Android.Bluetooth.Adapter.ACTION_CONNECTION_STATE_CHANGED)
+        
+        public static let discoveryFinished = Android.Bluetooth.Adapter.Action(rawValue: Android.Bluetooth.Adapter.ACTION_DISCOVERY_FINISHED)
+        
+        public static let discoveryStarted = Android.Bluetooth.Adapter.Action(rawValue: Android.Bluetooth.Adapter.ACTION_DISCOVERY_STARTED)
+        
+        public static let localNameChanged = Android.Bluetooth.Adapter.Action(rawValue: Android.Bluetooth.Adapter.ACTION_LOCAL_NAME_CHANGED)
+        
+        public static let requestDiscoverable = Android.Bluetooth.Adapter.Action(rawValue: Android.Bluetooth.Adapter.ACTION_REQUEST_DISCOVERABLE)
+        
+        public static let requestEnable = Android.Bluetooth.Adapter.Action(rawValue: Android.Bluetooth.Adapter.ACTION_REQUEST_ENABLE)
+        
+        public static let scanModeChanged = Android.Bluetooth.Adapter.Action(rawValue: Android.Bluetooth.Adapter.ACTION_SCAN_MODE_CHANGED)
+        
+        public static let stateChanged = Android.Bluetooth.Adapter.Action(rawValue: Android.Bluetooth.Adapter.ACTION_STATE_CHANGED)
+    }
+    
+    /// Adapter Action
+    public struct AndroidBluetoothAdapterExtra: RawRepresentable {
+        
+        public let rawValue: String
+        
+        public init(rawValue: String) {
+            self.rawValue = rawValue
+        }
+        
+        public static let connectionState = Android.Bluetooth.Adapter.Extra(rawValue: Android.Bluetooth.Adapter.EXTRA_CONNECTION_STATE)
+        
+        public static let discoverableDuration = Android.Bluetooth.Adapter.Extra(rawValue: Android.Bluetooth.Adapter.EXTRA_DISCOVERABLE_DURATION)
+        
+        public static let localName = Android.Bluetooth.Adapter.Extra(rawValue: Android.Bluetooth.Adapter.EXTRA_LOCAL_NAME)
+        
+        public static let previousConnectionState = Android.Bluetooth.Adapter.Extra(rawValue: Android.Bluetooth.Adapter.EXTRA_PREVIOUS_CONNECTION_STATE)
+        
+        public static let previousScanMode = Android.Bluetooth.Adapter.Extra(rawValue: Android.Bluetooth.Adapter.EXTRA_PREVIOUS_SCAN_MODE)
+        
+        public static let previousState = Android.Bluetooth.Adapter.Extra(rawValue: Android.Bluetooth.Adapter.EXTRA_PREVIOUS_STATE)
+        
+        public static let scanMode = Android.Bluetooth.Adapter.Extra(rawValue: Android.Bluetooth.Adapter.EXTRA_SCAN_MODE)
+        
+        public static let state = Android.Bluetooth.Adapter.Extra(rawValue: Android.Bluetooth.Adapter.EXTRA_STATE)
+    }
+}
 
 // MARK: - JNICache
 

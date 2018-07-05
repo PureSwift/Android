@@ -14,7 +14,21 @@ public extension AndroidBuild {
     public typealias BuildVersionCodes = AndroidBuildVersionCodes
 }
 
-public class AndroidBuildVersionCodes: JavaObject {
+public struct AndroidBuildVersionCodes {
+    
+    public let rawValue: Int
+    
+    public init(rawValue: Int) {
+        self.rawValue = rawValue
+    }
+    
+    /// October 2008: The original, first, version of Android. Yay!
+    public static let base = Android.OS.Build.BuildVersionCodes(rawValue: AndroidBuildVersionCodesConstants.BASE)
+    
+    /// February 2009: First Android update, officially called 1.1.
+}
+
+fileprivate class AndroidBuildVersionCodesConstants: JavaObject {
     
     // MARK: - Initialization
     
@@ -52,9 +66,450 @@ public class AndroidBuildVersionCodes: JavaObject {
     }
 }
 
+// MARK: Constants
+
+fileprivate extension AndroidBuildVersionCodesConstants {
+    
+    fileprivate static var BASE: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "BASE",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.BASE,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    fileprivate static var BASE_1_1: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "BASE_1_1",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.BASE_1_1,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    fileprivate static var CUPCAKE: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "CUPCAKE",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.CUPCAKE,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    fileprivate static var CUR_DEVELOPMENT: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "CUR_DEVELOPMENT",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.CUR_DEVELOPMENT,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    fileprivate static var DONUT: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "DONUT",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.DONUT,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    fileprivate static var ECLAIR: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "ECLAIR",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.ECLAIR,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    fileprivate static var ECLAIR_0_1: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "ECLAIR_0_1",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.ECLAIR_0_1,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    fileprivate static var ECLAIR_MR1: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "ECLAIR_MR1",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.ECLAIR_MR1,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    fileprivate static var FROYO: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "FROYO",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.FROYO,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    fileprivate static var GINGERBREAD: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "GINGERBREAD",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.GINGERBREAD,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    fileprivate static var GINGERBREAD_MR1: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "GINGERBREAD_MR1",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.GINGERBREAD_MR1,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    fileprivate static var HONEYCOMB: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "HONEYCOMB",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.HONEYCOMB,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    fileprivate static var HONEYCOMB_MR1: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "HONEYCOMB_MR1",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.HONEYCOMB_MR1,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    fileprivate static var HONEYCOMB_MR2: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "HONEYCOMB_MR2",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.HONEYCOMB_MR2,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    fileprivate static var ICE_CREAM_SANDWICH: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "ICE_CREAM_SANDWICH",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.ICE_CREAM_SANDWICH,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    fileprivate static var ICE_CREAM_SANDWICH_MR1: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "ICE_CREAM_SANDWICH_MR1",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.ICE_CREAM_SANDWICH_MR1,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    fileprivate static var JELLY_BEAN: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "JELLY_BEAN",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.JELLY_BEAN,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    fileprivate static var JELLY_BEAN_MR1: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "JELLY_BEAN_MR1",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.JELLY_BEAN_MR1,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    fileprivate static var JELLY_BEAN_MR2: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "JELLY_BEAN_MR2",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.JELLY_BEAN_MR2,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    fileprivate static var KITKAT: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "KITKAT",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.KITKAT,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    fileprivate static var KITKAT_WATCH: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "KITKAT_WATCH",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.KITKAT_WATCH,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    fileprivate static var LOLLIPOP: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "LOLLIPOP",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.LOLLIPOP,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    fileprivate static var LOLLIPOP_MR1: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "LOLLIPOP_MR1",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.LOLLIPOP_MR1,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    fileprivate static var M: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "M",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.M
+,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    fileprivate static var N: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "N",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.N,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    fileprivate static var N_MR1: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "N_MR1",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.N_MR1,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    fileprivate static var O: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "O",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.O,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    fileprivate static var O_MR1: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "O_MR1",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.O_MR1,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    fileprivate static var P: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "P",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.P,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+}
+
 // MARK: - JNI
 
-internal extension AndroidBuildVersionCodes {
+fileprivate extension AndroidBuildVersionCodesConstants {
     
     /// JNI Cache
     struct JNICache {
@@ -96,7 +551,7 @@ internal extension AndroidBuildVersionCodes {
             static var N_MR1: jfieldID?
             static var O: jfieldID?
             static var O_MR1: jfieldID?
-            static var p: jfieldID?
+            static var P: jfieldID?
         }
         
         /// JNI Method ID cache
