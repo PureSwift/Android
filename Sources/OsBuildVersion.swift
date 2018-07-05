@@ -52,6 +52,109 @@ public class AndroidBuildVersion: JavaObject {
     }
 }
 
+// MARK: Fields
+
+public extension AndroidBuildVersion {
+    
+    public var BASE_OS: String {
+        
+        get {
+            let __value = JNIField.GetObjectField(fieldName: "BASE_OS",
+                                                  fieldType: "Ljava/lang/String;",
+                                                  fieldCache: &JNICache.FieldID.BASE_OS,
+                                                  object: javaObject)
+            
+            defer { JNI.DeleteLocalRef(__value) }
+            
+            return String(javaObject: __value)
+        }
+    }
+    
+    public var CODENAME: String {
+        
+        get {
+            let __value = JNIField.GetObjectField(fieldName: "CODENAME",
+                                                  fieldType: "Ljava/lang/String;",
+                                                  fieldCache: &JNICache.FieldID.CODENAME,
+                                                  object: javaObject)
+            
+            defer { JNI.DeleteLocalRef(__value) }
+            
+            return String(javaObject: __value)
+        }
+    }
+    
+    public var INCREMENTAL: String {
+        
+        get {
+            let __value = JNIField.GetObjectField(fieldName: "INCREMENTAL",
+                                                  fieldType: "Ljava/lang/String;",
+                                                  fieldCache: &JNICache.FieldID.INCREMENTAL,
+                                                  object: javaObject)
+            
+            defer { JNI.DeleteLocalRef(__value) }
+            
+            return String(javaObject: __value)
+        }
+    }
+    
+    public var PREVIEW_SDK_INT: String {
+        
+        get {
+            let __value = JNIField.GetObjectField(fieldName: "PREVIEW_SDK_INT",
+                                                  fieldType: "Ljava/lang/String;",
+                                                  fieldCache: &JNICache.FieldID.PREVIEW_SDK_INT,
+                                                  object: javaObject)
+            
+            defer { JNI.DeleteLocalRef(__value) }
+            
+            return String(javaObject: __value)
+        }
+    }
+    
+    public var RELEASE: String {
+        
+        get {
+            let __value = JNIField.GetObjectField(fieldName: "RELEASE",
+                                                  fieldType: "Ljava/lang/String;",
+                                                  fieldCache: &JNICache.FieldID.RELEASE,
+                                                  object: javaObject)
+            
+            defer { JNI.DeleteLocalRef(__value) }
+            
+            return String(javaObject: __value)
+        }
+    }
+    
+    public var SDK_INT: String {
+        
+        get {
+            let __value = JNIField.GetObjectField(fieldName: "SDK_INT",
+                                                  fieldType: "Ljava/lang/String;",
+                                                  fieldCache: &JNICache.FieldID.SDK_INT,
+                                                  object: javaObject)
+            
+            defer { JNI.DeleteLocalRef(__value) }
+            
+            return String(javaObject: __value)
+        }
+    }
+    
+    public var SECURITY_PATCH: String {
+        
+        get {
+            let __value = JNIField.GetObjectField(fieldName: "SECURITY_PATCH",
+                                                  fieldType: "Ljava/lang/String;",
+                                                  fieldCache: &JNICache.FieldID.SECURITY_PATCH,
+                                                  object: javaObject)
+            
+            defer { JNI.DeleteLocalRef(__value) }
+            
+            return String(javaObject: __value)
+        }
+    }
+}
+
 // MARK: - JNI
 
 internal extension AndroidBuildVersion {
