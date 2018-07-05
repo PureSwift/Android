@@ -18,6 +18,7 @@ public extension Android.Bluetooth {
 public extension Android.Bluetooth.Adapter {
     
     public typealias Action = AndroidBluetoothAdapterAction
+    public typealias Extra = AndroidBluetoothAdapterExtra
 }
 
 public final class AndroidBluetoothAdapter: JavaObject {
@@ -719,6 +720,32 @@ public extension Android.Bluetooth.Adapter {
         public static let scanModeChanged = Android.Bluetooth.Adapter.Action(rawValue: Android.Bluetooth.Adapter.ACTION_SCAN_MODE_CHANGED)
         
         public static let stateChanged = Android.Bluetooth.Adapter.Action(rawValue: Android.Bluetooth.Adapter.ACTION_STATE_CHANGED)
+    }
+    
+    /// Adapter Action
+    public struct AndroidBluetoothAdapterExtra: RawRepresentable {
+        
+        public let rawValue: String
+        
+        public init(rawValue: String) {
+            self.rawValue = rawValue
+        }
+        
+        public static let connectionState = Android.Bluetooth.Adapter.Extra(rawValue: Android.Bluetooth.Adapter.EXTRA_CONNECTION_STATE)
+        
+        public static let discoverableDuration = Android.Bluetooth.Adapter.Extra(rawValue: Android.Bluetooth.Adapter.EXTRA_DISCOVERABLE_DURATION)
+        
+        public static let localName = Android.Bluetooth.Adapter.Extra(rawValue: Android.Bluetooth.Adapter.EXTRA_LOCAL_NAME)
+        
+        public static let previousConnectionState = Android.Bluetooth.Adapter.Extra(rawValue: Android.Bluetooth.Adapter.EXTRA_PREVIOUS_CONNECTION_STATE)
+        
+        public static let previousScanMode = Android.Bluetooth.Adapter.Extra(rawValue: Android.Bluetooth.Adapter.EXTRA_PREVIOUS_SCAN_MODE)
+        
+        public static let previousState = Android.Bluetooth.Adapter.Extra(rawValue: Android.Bluetooth.Adapter.EXTRA_PREVIOUS_STATE)
+        
+        public static let scanMode = Android.Bluetooth.Adapter.Extra(rawValue: Android.Bluetooth.Adapter.EXTRA_SCAN_MODE)
+        
+        public static let state = Android.Bluetooth.Adapter.Extra(rawValue: Android.Bluetooth.Adapter.EXTRA_STATE)
     }
 }
 
