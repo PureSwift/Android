@@ -252,6 +252,81 @@ open class SwiftSupportAppCompatActivity: AndroidContextWrapper {
         return result!
     }
     
+    public func setContentView(layoutResID: Int) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1)
+        __args[0] = jvalue(i: jint(layoutResID))
+        
+        withJavaObject {
+            
+            JNIMethod.CallVoidMethod(object: $0,
+                                     methodName: "setContentView",
+                                     methodSig: "(I)V",
+                                     methodCache: &SwiftActivityJNICache.MethodID.setContentView1,
+                                     args: &__args,
+                                     locals: &__locals)
+        }
+    }
+    
+    public func setContentView(layout: Android.R.Layout) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1)
+        __args[0] = jvalue(i: jint(layout.rawValue))
+        
+        withJavaObject {
+            
+            JNIMethod.CallVoidMethod(object: $0,
+                                     methodName: "setContentView",
+                                     methodSig: "(I)V",
+                                     methodCache: &SwiftActivityJNICache.MethodID.setContentView1,
+                                     args: &__args,
+                                     locals: &__locals)
+        }
+    }
+    
+    public func setContentView(view: Android.View.View) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1)
+        __args[0] = JNIType.toJava( value: view, locals: &__locals )
+        
+        withJavaObject {
+            
+            JNIMethod.CallVoidMethod(object: $0,
+                                     methodName: "setContentView",
+                                     methodSig: "(Landroid/view/View;)V",
+                                     methodCache: &SwiftActivityJNICache.MethodID.setContentView2,
+                                     args: &__args,
+                                     locals: &__locals)
+        }
+    }
+    
+    public func findViewById(_ id: Int) -> Android.View.View? {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: id, locals: &__locals)
+        
+        let __return = JNIMethod.CallObjectMethod(
+            object: javaObject,
+            methodName: "findViewById",
+            methodSig: "(I)Landroid/view/View;",
+            methodCache: &SwiftActivityJNICache.MethodID.findViewById,
+            args: &__args,
+            locals: &__locals )
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return __return != nil ? Android.View.View(javaObject: __return) : nil
+    }
+    
 }
 
 extension SwiftSupportAppCompatActivity: JNIListener { }
@@ -353,6 +428,9 @@ fileprivate extension SwiftSupport.App.AppCompatActivity {
             static var finish: jmethodID?
             static var isFinishing: jmethodID?
             static var getIdentifier: jmethodID?
+            static var setContentView1: jmethodID?
+            static var setContentView2: jmethodID?
+            static var findViewById: jmethodID?
         }
     }
 }
