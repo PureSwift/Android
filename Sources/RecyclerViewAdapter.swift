@@ -36,7 +36,11 @@ open class AndroidWidgetRecyclerViewAdapter: JavaObject {
     public convenience init() {
         
         self.init(javaObject: nil)
-        
+        bindNewJavaObject()
+    }
+    
+    /// Initialize a new Java instance and bind to this Swift object.
+    public func bindNewJavaObject() {
         let hasOldJavaObject = javaObject != nil
         
         var locals = [jobject]()

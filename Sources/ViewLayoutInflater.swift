@@ -31,8 +31,11 @@ public final class AndroidLayoutInflater: JavaObject {
     public required init( javaObject: jobject? ) {
         super.init(javaObject: javaObject)
     }
-    
-    // MARK: - Methods
+}
+
+// MARK: - Methods
+
+extension Android.View.LayoutInflater {
     
     /// Inflate a new view hierarchy from the specified xml resource.
     public func inflate(resource: Android.R.Layout, root: Android.View.ViewGroup? = nil, attachToRoot: Bool? = nil) -> Android.View.View {
@@ -60,6 +63,24 @@ public final class AndroidLayoutInflater: JavaObject {
         
         return Android.View.View(javaObject: __return)
     }
+    
+    /// Obtains the LayoutInflater from the given context.
+    public static func from(context: Android.Content.Context) -> Android.View.LayoutInflater {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava(value: context, locals: &__locals)
+        
+        let __return = JNIMethod.CallStaticObjectMethod(className: JNICache.className,
+                                                        classCache: &JNICache.jniClass,
+                                                        methodName: "from",
+                                                        methodSig: "(Landroid/content/Context;)Landroid/view/LayoutInflater;",
+                                                        methodCache: &JNICache.MethodID.from,
+                                                        args: &__args,
+                                                        locals: &__locals)
+        return Android.View.LayoutInflater(javaObject: __return)
+    }
 }
 
 // MARK: - Android.Content.Context.SystemService
@@ -86,6 +107,8 @@ fileprivate extension Android.View.LayoutInflater {
         struct MethodID {
             
             static var inflate0: jmethodID?
+            static var from: jmethodID?
+            
         }
     }
 }

@@ -25,6 +25,8 @@ public extension Android.Widget.RecyclerView {
  */
 open class AndroidWidgetRecyclerViewViewHolder: JavaObject {
     
+    public var itemView: Android.View.View?
+    
     public required init(javaObject: jobject?) {
         super.init(javaObject: javaObject)
     }
@@ -36,8 +38,8 @@ open class AndroidWidgetRecyclerViewViewHolder: JavaObject {
         }
     }
     
-    public convenience init(itemView: Android.View.View) {
-        
+    /// Initialize a new Java instance and bind to this Swift object.
+    public func bindNewJavaObject(itemView: Android.View.View) {
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
@@ -51,7 +53,7 @@ open class AndroidWidgetRecyclerViewViewHolder: JavaObject {
             args: &__args,
             locals: &__locals )
         
-        self.init( javaObject: __object )
+        self.itemView = itemView
         
         JNI.DeleteLocalRef( __object )
     }

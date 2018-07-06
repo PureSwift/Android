@@ -35,12 +35,11 @@ open class AndroidView: JavaObject {
         super.init(javaObject: javaObject)
     }
     
-    // MARK: - Methods
-    
-    @inline(__always)
-    public func findViewById(_ id: Android.R.ID) -> Android.View.View? {
+    public var context: Android.Content.Context {
         
-        return findViewById(id.rawValue)
+        get {
+            return getContext()
+        }
     }
     
     open func findViewById(_ id: Int) -> Android.View.View? {
@@ -84,6 +83,17 @@ open class AndroidView: JavaObject {
         
         return __return != nil ? Android.View.View(javaObject: __return) : nil
     }
+}
+
+// MARK: - Methods
+
+public extension Android.View.View {
+    
+    @inline(__always)
+    public func findViewById(_ id: Android.R.ID) -> Android.View.View? {
+        
+        return findViewById(id.rawValue)
+    }
     
     private func setId(_ id: Int) {
         
@@ -93,7 +103,7 @@ open class AndroidView: JavaObject {
         
         __args[0] = JNIType.toJava(value: id, locals: &__locals)
         
-       JNIMethod.CallVoidMethod(
+        JNIMethod.CallVoidMethod(
             object: javaObject,
             methodName: "setId",
             methodSig: "(I)V",
@@ -168,6 +178,26 @@ open class AndroidView: JavaObject {
         
         set { setTag(newValue) }
     }
+    
+    @inline(__always)
+    internal func getContext() -> Android.Content.Context {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallObjectMethod(
+            object: javaObject,
+            methodName: "getContext",
+            methodSig: "()Landroid/content/Context;",
+            methodCache: &JNICache.MethodID.getContext,
+            args: &__args,
+            locals: &__locals )
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return Android.Content.Context(javaObject: __return)
+    }
 }
 
 // MARK: - JNICache
@@ -195,6 +225,7 @@ internal extension Android.View.View {
             static var getId: jmethodID?
             static var getTag: jmethodID?
             static var setTag: jmethodID?
+            static var getContext: jmethodID?
         }
     }
 }
