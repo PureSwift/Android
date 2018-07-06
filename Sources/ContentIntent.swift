@@ -159,7 +159,7 @@ public extension Android.Content.Intent {
             jvalue(i: jint(defaultValue))
         ]
         
-        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+        let __return = JNIMethod.CallIntMethod(object: javaObject,
                                                    methodName: "getIntExtra",
                                                    methodSig: "(Ljava/lang/String;I)I",
                                                    methodCache: &JNICache.MethodID.getIntExtra,
