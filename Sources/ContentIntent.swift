@@ -138,7 +138,7 @@ public extension Android.Content.Intent {
             JNIType.toJava(value: name, locals: &__locals)
         ]
         
-        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+        let __return = JNIMethod.CallByteMethod(object: javaObject,
                                                    methodName: "getByteExtra",
                                                    methodSig: "(Ljava/lang/String;)B",
                                                    methodCache: &JNICache.MethodID.getByteExtra,
@@ -348,17 +348,3 @@ private extension Android.Content.Intent {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
