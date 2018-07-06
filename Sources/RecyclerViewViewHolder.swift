@@ -25,8 +25,6 @@ public extension Android.Widget.RecyclerView {
  */
 open class AndroidWidgetRecyclerViewViewHolder: JavaObject {
     
-    public var itemView: Android.View.View?
-    
     public required init(javaObject: jobject?) {
         super.init(javaObject: javaObject)
     }
@@ -52,8 +50,6 @@ open class AndroidWidgetRecyclerViewViewHolder: JavaObject {
             methodCache: &JNICache.MethodID.init_method_1,
             args: &__args,
             locals: &__locals )
-        
-        self.itemView = itemView
         
         self.javaObject = __object // dereference old value, add global ref for new value
         
