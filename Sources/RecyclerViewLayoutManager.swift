@@ -24,7 +24,7 @@ public extension Android.Widget.RecyclerView {
  * RecyclerView will instantiate and set the LayoutManager when being inflated. Most used properties can be then obtained
  * from getProperties(Context, AttributeSet, int, int). In case a LayoutManager specifies both constructors, the non-default constructor will take precedence.
  */
-public final class AndroidWidgetRecyclerViewLayoutManager: JavaObject {
+open class AndroidWidgetRecyclerViewLayoutManager: JavaObject {
     
     public required init(javaObject: jobject?) {
         super.init(javaObject: javaObject)
@@ -44,10 +44,10 @@ public final class AndroidWidgetRecyclerViewLayoutManager: JavaObject {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         
         let __object = JNIMethod.NewObject(
-            className: JNICache.className,
-            classCache: &JNICache.jniClass,
+            className: LayoutManagerJNICache.className,
+            classCache: &LayoutManagerJNICache.jniClass,
             methodSig: "()V",
-            methodCache: &JNICache.MethodID.init_method_1,
+            methodCache: &LayoutManagerJNICache.MethodID.init_method_1,
             args: &__args,
             locals: &__locals )
         
@@ -60,7 +60,7 @@ public final class AndroidWidgetRecyclerViewLayoutManager: JavaObject {
 internal extension AndroidWidgetRecyclerViewLayoutManager {
     
     /// JNI Cache
-    struct JNICache {
+    struct LayoutManagerJNICache {
         
         static let classSignature = SupportV7.Widget.className(["RecyclerView$LayoutManager"])
         

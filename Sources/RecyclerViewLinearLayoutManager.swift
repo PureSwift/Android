@@ -14,7 +14,7 @@ public extension Android.Widget.RecyclerView {
     public typealias LinearLayoutManager = AndroidWidgetRecyclerViewLinearLayoutManager
 }
 
-public final class AndroidWidgetRecyclerViewLinearLayoutManager: JavaObject {
+public final class AndroidWidgetRecyclerViewLinearLayoutManager: AndroidWidgetRecyclerViewLayoutManager {
     
     public required init(javaObject: jobject?) {
         super.init(javaObject: javaObject)
