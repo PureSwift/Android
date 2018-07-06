@@ -301,7 +301,7 @@ public extension Android.Content.Intent {
         
         let __return = JNIMethod.CallObjectMethod(object: javaObject,
                                                   methodName: "putExtra",
-                                                  methodSig: "(Ljava/lang/String;Ljava/land/String;)Landroid/content/Intent;",
+                                                  methodSig: "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;",
                                                   methodCache: &JNICache.MethodID.putExtra19,
                                                   args: &__args,
                                                   locals: &__locals)
