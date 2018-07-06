@@ -55,6 +55,8 @@ open class AndroidWidgetRecyclerViewViewHolder: JavaObject {
         
         self.itemView = itemView
         
+        self.javaObject = __object // dereference old value, add global ref for new value
+        
         JNI.DeleteLocalRef( __object )
     }
     
