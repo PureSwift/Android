@@ -77,7 +77,7 @@ public extension AndroidWidgetRecyclerView {
         
         let __return = JNIMethod.CallObjectMethod(object: javaObject,
                                                   methodName: "getAdapter",
-                                                  methodSig: "()Lorg/pureswift/swiftandroidsupport/recyclerview/SwiftRecyclerViewAdapter;",
+                                                  methodSig: "()Landroid/support/v7/widget/RecyclerView$Adapter;",
                                                   methodCache: &JNICache.MethodID.getAdapter,
                                                   args: &__args,
                                                   locals: &__locals)
@@ -95,7 +95,7 @@ public extension AndroidWidgetRecyclerView {
         
         JNIMethod.CallVoidMethod(object: javaObject,
                                  methodName: "setAdapter",
-                                 methodSig: "(Lorg/pureswift/swiftandroidsupport/recyclerview/SwiftRecyclerViewAdapter;)V",
+                                 methodSig: "(Landroid/support/v7/widget/RecyclerView$Adapter;)V",
                                  methodCache: &JNICache.MethodID.setAdapter,
                                  args: &__args,
                                  locals: &__locals)
