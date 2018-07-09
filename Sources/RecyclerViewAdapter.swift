@@ -334,7 +334,7 @@ fileprivate extension AndroidWidgetRecyclerViewAdapter {
             let onBindViewHolder: AndroidWidgetRecyclerViewAdapter_onBindViewHolder_type = AndroidWidgetRecyclerViewAdapter_onBindViewHolder
             
             natives.append( JNINativeMethod(name: strdup("__onBindViewHolder"),
-                                            signature: strdup("(Lorg/pureswift/swiftandroidsupport/recyclerview/SwiftRecyclerViewViewHolder;I)V"),
+                                            signature: strdup("(JLorg/pureswift/swiftandroidsupport/recyclerview/SwiftRecyclerViewViewHolder;I)V"),
                                             fnPtr: unsafeBitCast( onBindViewHolder, to: UnsafeMutableRawPointer.self ) ))
             
             
