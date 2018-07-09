@@ -87,6 +87,41 @@ open class AndroidView: JavaObject {
 
 // MARK: - Methods
 
+internal extension Android.View.View {
+    
+    internal static var VISIBLE: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "VISIBLE",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.VISIBLE,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    internal static var INVISIBLE: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "INVISIBLE",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.INVISIBLE,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+}
+
+// MARK: - Methods
+
 public extension Android.View.View {
     
     @inline(__always)
@@ -215,6 +250,12 @@ internal extension Android.View.View {
         
         /// JNI Java class
         static var jniClass: jclass?
+        
+        struct FieldID {
+            
+            static var INVISIBLE: jfieldID?
+            static var VISIBLE: jfieldID?
+        }
         
         /// JNI Method ID cache
         struct MethodID {
