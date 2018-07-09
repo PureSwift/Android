@@ -53,7 +53,7 @@ open class AndroidWidgetRecyclerViewViewHolder: JavaObject {
         
         self.javaObject = __object // dereference old value, add global ref for new value
         NSLog("\(type(of: self)) ob \(__object)")
-        NSLog("\(type(of: self))jo  \(self.javaObject)")
+        NSLog("\(type(of: self)) jo  \(self.javaObject)")
         JNI.DeleteLocalRef( __object )
     }
     
