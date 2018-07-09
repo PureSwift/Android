@@ -64,7 +64,7 @@ public enum SupportV7: JavaPackage {
     
     public enum Widget: JavaPackage {
         
-        public static let package: JNIPackage = SwiftSupport.package + ["widget"]
+        public static let package: JNIPackage = SupportV7.package + ["widget"]
     }
 }
 

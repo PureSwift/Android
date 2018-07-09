@@ -35,10 +35,10 @@ public final class AndroidWidgetRecyclerViewLinearLayoutManager: AndroidWidgetRe
         __args[0] = JNIType.toJava(value: context, locals: &__locals)
         
         let __object = JNIMethod.NewObject(
-            className: JNICache.className,
-            classCache: &JNICache.jniClass,
+            className: LinearLMJNICache.className,
+            classCache: &LinearLMJNICache.jniClass,
             methodSig: "(Landroid/content/Context;)V",
-            methodCache: &JNICache.MethodID.init_method_1,
+            methodCache: &LinearLMJNICache.MethodID.init_method_1,
             args: &__args,
             locals: &__locals )
         
@@ -57,10 +57,10 @@ public final class AndroidWidgetRecyclerViewLinearLayoutManager: AndroidWidgetRe
         __args[2] = jvalue(z: jboolean(reverseLayout ? JNI_TRUE : JNI_FALSE) )
         
         let __object = JNIMethod.NewObject(
-            className: JNICache.className,
-            classCache: &JNICache.jniClass,
+            className: LinearLMJNICache.className,
+            classCache: &LinearLMJNICache.jniClass,
             methodSig: "(Landroid/content/Context;)V",
-            methodCache: &JNICache.MethodID.init_method_1,
+            methodCache: &LinearLMJNICache.MethodID.init_method_1,
             args: &__args,
             locals: &__locals )
         
@@ -73,7 +73,7 @@ public final class AndroidWidgetRecyclerViewLinearLayoutManager: AndroidWidgetRe
 internal extension AndroidWidgetRecyclerViewLinearLayoutManager {
     
     /// JNI Cache
-    struct JNICache {
+    struct LinearLMJNICache {
         
         static let classSignature = SupportV7.Widget.className(["LinearLayoutManager"])
         
