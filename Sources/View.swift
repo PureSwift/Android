@@ -164,7 +164,7 @@ internal extension Android.View.View {
     /**
      * Hint indicating that this view can be autofilled with a credit card expiration date.
      */
-    fileprivate static var AUTOFILL_HINT_CREDIT_CARD_EXPIRATION_DATE: String {
+    internal static var AUTOFILL_HINT_CREDIT_CARD_EXPIRATION_DATE: String {
         
         get {
             
@@ -182,7 +182,7 @@ internal extension Android.View.View {
     /**
      * Hint indicating that this view can be autofilled with a credit card expiration day.
      */
-    fileprivate static var AUTOFILL_HINT_CREDIT_CARD_EXPIRATION_DAY: String {
+    internal static var AUTOFILL_HINT_CREDIT_CARD_EXPIRATION_DAY: String {
         
         get {
             
@@ -200,7 +200,7 @@ internal extension Android.View.View {
     /**
      * Hint indicating that this view can be autofilled with a credit card expiration month.
      */
-    fileprivate static var AUTOFILL_HINT_CREDIT_CARD_EXPIRATION_MONTH: String {
+    internal static var AUTOFILL_HINT_CREDIT_CARD_EXPIRATION_MONTH: String {
         
         get {
             
@@ -218,7 +218,7 @@ internal extension Android.View.View {
     /**
      * Hint indicating that this view can be autofilled with a credit card expiration year.
      */
-    fileprivate static var AUTOFILL_HINT_CREDIT_CARD_EXPIRATION_YEAR: String {
+    internal static var AUTOFILL_HINT_CREDIT_CARD_EXPIRATION_YEAR: String {
         
         get {
             
@@ -236,7 +236,7 @@ internal extension Android.View.View {
     /**
      * Hint indicating that this view can be autofilled with a credit card number.
      */
-    fileprivate static var AUTOFILL_HINT_CREDIT_CARD_NUMBER: String {
+    internal static var AUTOFILL_HINT_CREDIT_CARD_NUMBER: String {
         
         get {
             
@@ -254,7 +254,7 @@ internal extension Android.View.View {
     /**
      * Hint indicating that this view can be autofilled with a credit card security code.
      */
-    fileprivate static var AUTOFILL_HINT_CREDIT_CARD_SECURITY_CODE: String {
+    internal static var AUTOFILL_HINT_CREDIT_CARD_SECURITY_CODE: String {
         
         get {
             
@@ -272,7 +272,7 @@ internal extension Android.View.View {
     /**
      * Hint indicating that this view can be autofilled with an email address.
      */
-    fileprivate static var AUTOFILL_HINT_EMAIL_ADDRESS: String {
+    internal static var AUTOFILL_HINT_EMAIL_ADDRESS: String {
         
         get {
             
@@ -290,7 +290,7 @@ internal extension Android.View.View {
     /**
      * Hint indicating that this view can be autofilled with a user's real name.
      */
-    fileprivate static var AUTOFILL_HINT_NAME: String {
+    internal static var AUTOFILL_HINT_NAME: String {
         
         get {
             
@@ -308,7 +308,7 @@ internal extension Android.View.View {
     /**
      * Hint indicating that this view can be autofilled with a password.
      */
-    fileprivate static var AUTOFILL_HINT_PASSWORD: String {
+    internal static var AUTOFILL_HINT_PASSWORD: String {
         
         get {
             
@@ -326,7 +326,7 @@ internal extension Android.View.View {
     /**
      * Hint indicating that this view can be autofilled with a phone number.
      */
-    fileprivate static var AUTOFILL_HINT_PHONE: String {
+    internal static var AUTOFILL_HINT_PHONE: String {
         
         get {
             
@@ -344,7 +344,7 @@ internal extension Android.View.View {
     /**
      * Hint indicating that this view can be autofilled with a postal address.
      */
-    fileprivate static var AUTOFILL_HINT_POSTAL_ADDRESS: String {
+    internal static var AUTOFILL_HINT_POSTAL_ADDRESS: String {
         
         get {
             
@@ -362,7 +362,7 @@ internal extension Android.View.View {
     /**
      * Hint indicating that this view can be autofilled with a postal code.
      */
-    fileprivate static var AUTOFILL_HINT_POSTAL_CODE: String {
+    internal static var AUTOFILL_HINT_POSTAL_CODE: String {
         
         get {
             
@@ -380,7 +380,7 @@ internal extension Android.View.View {
     /**
      * Hint indicating that this view can be autofilled with a username.
      */
-    fileprivate static var AUTOFILL_HINT_USERNAME: String {
+    internal static var AUTOFILL_HINT_USERNAME: String {
         
         get {
             
@@ -2198,7 +2198,7 @@ internal extension Android.View.View {
     /**
      * The logging tag used by this class with android.util.Log.
      */
-    fileprivate static var VIEW_LOG_TAG: String {
+    internal static var VIEW_LOG_TAG: String {
         
         get {
             
