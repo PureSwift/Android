@@ -38,6 +38,13 @@ open class AndroidTextView: AndroidView {
         super.init(javaObject: javaObject)
     }
     
+    public var text: String {
+        
+        get { return getText() ?? "" }
+        
+        set { setText(newValue) }
+    }
+    
     // MARK: - Accessors
     
     public var isEmpty: Bool {
@@ -96,13 +103,6 @@ open class AndroidTextView: AndroidView {
             methodCache: &JNICache.MethodID.setText,
             args: &__args,
             locals: &__locals )
-    }
-    
-    public var text: String {
-        
-        get { return getText() ?? "" }
-        
-        set { setText(newValue) }
     }
 }
 
