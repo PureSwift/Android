@@ -230,7 +230,7 @@ open class SwiftSupportAppCompatActivity: AndroidContextWrapper {
         
         var __locals = [jobject]()
         
-        var __args = [jvalue]( repeating: jvalue(), count: 1)
+        var __args = [jvalue]( repeating: jvalue(), count: 2)
         
         __args[0] = JNIType.toJava( value: name, locals: &__locals )
         __args[1] = JNIType.toJava( value: type, locals: &__locals )
