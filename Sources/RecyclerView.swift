@@ -124,7 +124,7 @@ public extension AndroidWidgetRecyclerView {
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        __args[0] = JNIType.toJava(value: adapter, locals: &__locals)
+        __args[0] = JNIType.toJava(value: layoutManager, locals: &__locals)
         
         JNIMethod.CallVoidMethod(object: javaObject,
                                  methodName: "setLayoutManager",
