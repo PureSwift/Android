@@ -40,20 +40,19 @@ open class AndroidWidgetRecyclerViewViewHolder: JavaObject {
     public func bindNewJavaObject(itemView: Android.View.View) {
         var __locals = [jobject]()
         
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        __args[0] = JNIType.toJava(value: itemView, locals: &__locals)
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = self.swiftValue()
+        __args[1] = JNIType.toJava(value: itemView, locals: &__locals)
         
         let __object = JNIMethod.NewObject(
             className: JNICache.className,
             classCache: &JNICache.jniClass,
-            methodSig: "(Landroid/view/View;)V",
+            methodSig: "(JLandroid/view/View;)V",
             methodCache: &JNICache.MethodID.init_method_1,
             args: &__args,
             locals: &__locals )
         
         self.javaObject = __object // dereference old value, add global ref for new value
-        NSLog("\(type(of: self)) ob \(__object)")
-        NSLog("\(type(of: self)) jo  \(self.javaObject)")
         JNI.DeleteLocalRef( __object )
     }
     
@@ -101,11 +100,11 @@ open class AndroidWidgetRecyclerViewViewHolder: JavaObject {
         var __args = [jvalue](repeating: jvalue(), count: 1)
         
         let __return = JNIMethod.CallIntMethod(object: javaObject,
-                                               methodName: "obtainAdapterPosition",
-                                               methodSig: "()I",
-                                               methodCache: &JNICache.MethodID.obtainAdapterPosition,
-                                               args: &__args,
-                                               locals: &__locals)
+                                                   methodName: "obtainAdapterPosition",
+                                                   methodSig: "()I",
+                                                   methodCache: &JNICache.MethodID.obtainAdapterPosition,
+                                                   args: &__args,
+                                                   locals: &__locals)
         return Int(__return)
     }
     
@@ -208,7 +207,11 @@ open class AndroidWidgetRecyclerViewViewHolder: JavaObject {
     }
 }
 
-internal extension AndroidWidgetRecyclerViewViewHolder {
+extension AndroidWidgetRecyclerViewViewHolder: JNIListener { }
+
+// MARK: - Private
+
+fileprivate extension AndroidWidgetRecyclerViewViewHolder {
     
     /// JNI Cache
     struct JNICache {
@@ -219,7 +222,29 @@ internal extension AndroidWidgetRecyclerViewViewHolder {
         static let className = classSignature.rawValue
         
         /// JNI Java class
-        static var jniClass: jclass?
+        static var jniClass: jclass? = {
+            
+            var natives = [JNINativeMethod]()
+            
+            let finalizeThunk: AndroidWidgetRecyclerViewViewHolder_finalize_type = AndroidWidgetRecyclerViewViewHolder_finalize
+            
+            natives.append( JNINativeMethod( name: strdup("__finalize"),
+                                             signature: strdup("(J)V"),
+                                             fnPtr: unsafeBitCast( finalizeThunk, to: UnsafeMutableRawPointer.self ) ) )
+            
+            let clazz = JNI.FindClass( className )
+            
+            withUnsafePointer(to: &natives[0]) {
+                nativesPtr in
+                if JNI.api.RegisterNatives( JNI.env, clazz, nativesPtr, jint(natives.count) ) != jint(JNI_OK) {
+                    JNI.report( "Unable to register java natives" )
+                }
+            }
+            
+            defer { JNI.DeleteLocalRef( clazz ) }
+            
+            return JNI.api.NewGlobalRef( JNI.env, clazz )!
+        }()
         
         /// JNI Method ID cache
         struct MethodID {
@@ -234,5 +259,16 @@ internal extension AndroidWidgetRecyclerViewViewHolder {
             static var putIsRecyclable: jmethodID?
         }
     }
+}
+
+private typealias AndroidWidgetRecyclerViewViewHolder_finalize_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong) -> ()
+
+public func AndroidWidgetRecyclerViewViewHolder_finalize ( _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                                        _ __this: jobject?,
+                                                        _ __swiftObject: jlong) -> () {
+    
+    AndroidWidgetRecyclerViewViewHolder.release(swiftObject: __swiftObject )
+    
+    NSLog("native \(#function)")
 }
 

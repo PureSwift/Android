@@ -50,8 +50,8 @@ open class AndroidWidgetRecyclerViewAdapter: JavaObject {
         var args: [jvalue] = [self.swiftValue()]
         
         // returned objects are always local refs
-        guard let __object: jobject = JNIMethod.NewObject(className: AndroidWidgetRecyclerViewAdapter.JNICache.className,
-                                                          classObject: AndroidWidgetRecyclerViewAdapter.JNICache.jniClass,
+        guard let __object: jobject = JNIMethod.NewObject(className: JNICache.className,
+                                                          classObject: JNICache.jniClass,
                                                           methodSig: "(J)V",
                                                           methodCache: &methodID,
                                                           args: &args,
@@ -84,7 +84,7 @@ open class AndroidWidgetRecyclerViewAdapter: JavaObject {
             JNIMethod.CallVoidMethod(object: $0,
                                      methodName: "notifyDataSetChanged",
                                      methodSig: "()V",
-                                     methodCache: &AndroidWidgetRecyclerViewAdapter.JNICache.MethodID.notifyDataSetChanged,
+                                     methodCache: &JNICache.MethodID.notifyDataSetChanged,
                                      args: &__args,
                                      locals: &__locals)
         }
@@ -104,7 +104,7 @@ open class AndroidWidgetRecyclerViewAdapter: JavaObject {
             JNIMethod.CallVoidMethod(object: $0,
                                      methodName: "notifyItemChanged",
                                      methodSig: "(ILjava/lang/Object;)V",
-                                     methodCache: &AndroidWidgetRecyclerViewAdapter.JNICache.MethodID.notifyItemChanged,
+                                     methodCache: &JNICache.MethodID.notifyItemChanged,
                                      args: &__args,
                                      locals: &__locals)
         }
@@ -123,7 +123,7 @@ open class AndroidWidgetRecyclerViewAdapter: JavaObject {
             JNIMethod.CallVoidMethod(object: $0,
                                      methodName: "notifyItemChanged",
                                      methodSig: "(I)V",
-                                     methodCache: &AndroidWidgetRecyclerViewAdapter.JNICache.MethodID.notifyItemChanged2,
+                                     methodCache: &JNICache.MethodID.notifyItemChanged2,
                                      args: &__args,
                                      locals: &__locals)
         }
@@ -142,7 +142,7 @@ open class AndroidWidgetRecyclerViewAdapter: JavaObject {
             JNIMethod.CallVoidMethod(object: $0,
                                      methodName: "notifyItemInserted",
                                      methodSig: "(I)V",
-                                     methodCache: &AndroidWidgetRecyclerViewAdapter.JNICache.MethodID.notifyItemInserted,
+                                     methodCache: &JNICache.MethodID.notifyItemInserted,
                                      args: &__args,
                                      locals: &__locals)
         }
@@ -162,7 +162,7 @@ open class AndroidWidgetRecyclerViewAdapter: JavaObject {
             JNIMethod.CallVoidMethod(object: $0,
                                      methodName: "notifyItemMoved",
                                      methodSig: "(II)V",
-                                     methodCache: &AndroidWidgetRecyclerViewAdapter.JNICache.MethodID.notifyItemMoved,
+                                     methodCache: &JNICache.MethodID.notifyItemMoved,
                                      args: &__args,
                                      locals: &__locals)
         }
@@ -183,7 +183,7 @@ open class AndroidWidgetRecyclerViewAdapter: JavaObject {
             JNIMethod.CallVoidMethod(object: $0,
                                      methodName: "notifyItemRangeChanged",
                                      methodSig: "(IILjava/lang/Object;)V",
-                                     methodCache: &AndroidWidgetRecyclerViewAdapter.JNICache.MethodID.notifyItemRangeChanged,
+                                     methodCache: &JNICache.MethodID.notifyItemRangeChanged,
                                      args: &__args,
                                      locals: &__locals)
         }
@@ -203,7 +203,7 @@ open class AndroidWidgetRecyclerViewAdapter: JavaObject {
             JNIMethod.CallVoidMethod(object: $0,
                                      methodName: "notifyItemRangeChanged",
                                      methodSig: "(II)V",
-                                     methodCache: &AndroidWidgetRecyclerViewAdapter.JNICache.MethodID.notifyItemRangeChanged2,
+                                     methodCache: &JNICache.MethodID.notifyItemRangeChanged2,
                                      args: &__args,
                                      locals: &__locals)
         }
@@ -224,7 +224,7 @@ open class AndroidWidgetRecyclerViewAdapter: JavaObject {
             JNIMethod.CallVoidMethod(object: $0,
                                      methodName: "notifyItemRangeInserted",
                                      methodSig: "(II)V",
-                                     methodCache: &AndroidWidgetRecyclerViewAdapter.JNICache.MethodID.notifyItemRangeInserted,
+                                     methodCache: &JNICache.MethodID.notifyItemRangeInserted,
                                      args: &__args,
                                      locals: &__locals)
         }
@@ -245,7 +245,7 @@ open class AndroidWidgetRecyclerViewAdapter: JavaObject {
             JNIMethod.CallVoidMethod(object: $0,
                                      methodName: "notifyItemRangeRemoved",
                                      methodSig: "(II)V",
-                                     methodCache: &AndroidWidgetRecyclerViewAdapter.JNICache.MethodID.notifyItemRangeRemoved,
+                                     methodCache: &JNICache.MethodID.notifyItemRangeRemoved,
                                      args: &__args,
                                      locals: &__locals)
         }
@@ -265,7 +265,7 @@ open class AndroidWidgetRecyclerViewAdapter: JavaObject {
             JNIMethod.CallVoidMethod(object: $0,
                                      methodName: "notifyItemRemoved",
                                      methodSig: "(I)V",
-                                     methodCache: &AndroidWidgetRecyclerViewAdapter.JNICache.MethodID.notifyItemRemoved,
+                                     methodCache: &JNICache.MethodID.notifyItemRemoved,
                                      args: &__args,
                                      locals: &__locals)
         }
