@@ -107,7 +107,7 @@ public func SwiftApplication_onConfigurationChanged( _ __env: UnsafeMutablePoint
     
     let newConfig = __newConfig != nil ? JavaObject(javaObject: __newConfig) : nil
     
-    let appication = SwiftApplication.swiftObject(jniEnv: __env, javaObject: __this, swiftObject: __swiftObject)
+    let appication = SwiftApplication.swiftObject(from: __swiftObject)
     
     appication?.onConfigurationChanged(newConfig: newConfig)
 }
@@ -117,7 +117,7 @@ public func SwiftApplication_onCreate( _ __env: UnsafeMutablePointer<JNIEnv?>,
                                        _ __this: jobject?,
                                        _ __swiftObject: jlong) -> () {
     
-    let appication = SwiftApplication.swiftObject(jniEnv: __env, javaObject: __this, swiftObject: __swiftObject)
+    let appication = SwiftApplication.swiftObject(from: __swiftObject)
     
     appication?.onCreate()
 }
@@ -127,7 +127,7 @@ public func SwiftApplication_onLowMemory( _ __env: UnsafeMutablePointer<JNIEnv?>
                                        _ __this: jobject?,
                                        _ __swiftObject: jlong) -> () {
     
-    let appication = SwiftApplication.swiftObject(jniEnv: __env, javaObject: __this, swiftObject: __swiftObject)
+    let appication = SwiftApplication.swiftObject(from: __swiftObject)
     
     appication?.onLowMemory()
 }
@@ -137,7 +137,7 @@ public func SwiftApplication_onTerminate( _ __env: UnsafeMutablePointer<JNIEnv?>
                                           _ __this: jobject?,
                                           _ __swiftObject: jlong) -> () {
     
-    let appication = SwiftApplication.swiftObject(jniEnv: __env, javaObject: __this, swiftObject: __swiftObject)
+    let appication = SwiftApplication.swiftObject(from: __swiftObject)
     
     appication?.onTerminate()
 }
@@ -148,7 +148,7 @@ public func SwiftApplication_onTrimMemory( _ __env: UnsafeMutablePointer<JNIEnv?
                                           _ __swiftObject: jlong,
                                           _ __level: jint) -> () {
     
-    let appication = SwiftApplication.swiftObject(jniEnv: __env, javaObject: __this, swiftObject: __swiftObject)
+    let appication = SwiftApplication.swiftObject(from: __swiftObject)
     
     let level = Int(__level)
     
@@ -163,7 +163,7 @@ public func SwiftApplication_registerActivityLifecycleCallbacks( _ __env: Unsafe
     
     let callback = __callback != nil ? JavaObject(javaObject: __callback) : nil
     
-    let appication = SwiftApplication.swiftObject(jniEnv: __env, javaObject: __this, swiftObject: __swiftObject)
+    let appication = SwiftApplication.swiftObject(from: __swiftObject)
     
     appication?.registerActivityLifecycleCallbacks(callback: callback)
 }
@@ -176,7 +176,7 @@ public func SwiftApplication_unregisterActivityLifecycleCallbacks( _ __env: Unsa
     
     let callback = __callback != nil ? JavaObject(javaObject: __callback) : nil
     
-    let appication = SwiftApplication.swiftObject(jniEnv: __env, javaObject: __this, swiftObject: __swiftObject)
+    let appication = SwiftApplication.swiftObject(from: __swiftObject)
     
     appication?.unregisterActivityLifecycleCallbacks(callback: callback)
 }
@@ -189,7 +189,7 @@ public func SwiftApplication_registerComponentCallbacks( _ __env: UnsafeMutableP
     
     let callback = __callback != nil ? JavaObject(javaObject: __callback) : nil
     
-    let appication = SwiftApplication.swiftObject(jniEnv: __env, javaObject: __this, swiftObject: __swiftObject)
+    let appication = SwiftApplication.swiftObject(from: __swiftObject)
     
     appication?.registerComponentCallbacks(callback: callback)
 }
@@ -202,7 +202,7 @@ public func SwiftApplication_unregisterComponentCallbacks( _ __env: UnsafeMutabl
     
     let callback = __callback != nil ? JavaObject(javaObject: __callback) : nil
     
-    let appication = SwiftApplication.swiftObject(jniEnv: __env, javaObject: __this, swiftObject: __swiftObject)
+    let appication = SwiftApplication.swiftObject(from: __swiftObject)
     
     appication?.unregisterComponentCallbacks(callback: callback)
 }
@@ -215,7 +215,7 @@ public func SwiftApplication_registerOnProvideAssistDataListener( _ __env: Unsaf
     
     let callback = __callback != nil ? JavaObject(javaObject: __callback) : nil
     
-    let appication = SwiftApplication.swiftObject(jniEnv: __env, javaObject: __this, swiftObject: __swiftObject)
+    let appication = SwiftApplication.swiftObject(from: __swiftObject)
     
     appication?.registerOnProvideAssistDataListener(callback: callback)
 }
@@ -228,7 +228,7 @@ public func SwiftApplication_unregisterOnProvideAssistDataListener( _ __env: Uns
     
     let callback = __callback != nil ? JavaObject(javaObject: __callback) : nil
     
-    let appication = SwiftApplication.swiftObject(jniEnv: __env, javaObject: __this, swiftObject: __swiftObject)
+    let appication = SwiftApplication.swiftObject(from: __swiftObject)
     
     appication?.unregisterOnProvideAssistDataListener(callback: callback)
 }

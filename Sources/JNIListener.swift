@@ -51,9 +51,9 @@ internal extension JNIListener {
         }
     }
     
-    internal static func swiftObject( jniEnv: UnsafeMutablePointer<JNIEnv?>?, javaObject: jobject?, swiftObject: jlong ) -> Self? {
+    internal static func swiftObject(from pointer: jlong) -> Self? {
         
-        return unsafeBitCast( recoverPointer( swiftObject ), to: Self.self )
+        return unsafeBitCast( recoverPointer( pointer ), to: Self.self )
     }
 }
 

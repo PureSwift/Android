@@ -276,7 +276,7 @@ private func AndroidBroadcastReceiver_onReceive( _ __env: UnsafeMutablePointer<J
     let intent = __intent != nil ? Android.Content.Intent(javaObject: __intent) : nil
     
     AndroidBroadcastReceiver
-        .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )?
+        .swiftObject(from: __swiftObject)?
         .onReceive(context: context, intent: intent)
 }
 

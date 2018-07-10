@@ -961,7 +961,7 @@ public extension Android.Bluetooth.Device {
     /**
      * Get the friendly Bluetooth name of the remote device.
      */
-    public func getName() -> String {
+    public func getName() -> String? {
         
         var __locals = [jobject]()
         
@@ -976,7 +976,7 @@ public extension Android.Bluetooth.Device {
         
         defer { JNI.DeleteLocalRef(__return) }
         
-        return String(javaObject: __return)
+        return __return != nil ? String(javaObject: __return) : nil
     }
     
     /**

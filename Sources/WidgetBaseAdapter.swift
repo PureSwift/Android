@@ -164,7 +164,7 @@ private func AndroidWidgetBaseAdapter_getCount( _ __env: UnsafeMutablePointer<JN
                                             _ __swiftObject: jlong) -> jint {
     
     let result = AndroidWidgetBaseAdapter
-        .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )?
+        .swiftObject(from: __swiftObject)?
         .getCount() ?? 0
     
     return jint(result)
@@ -184,7 +184,7 @@ private func AndroidWidgetBaseAdapter_getView( _ __env: UnsafeMutablePointer<JNI
     let parentView = Android.View.ViewGroup(javaObject: __parent)
     
     let result = AndroidWidgetBaseAdapter
-        .swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )?
+        .swiftObject(from: __swiftObject)?
         .getView(position: Int(__position), convertView: convertView, parent: parentView)
     
     var __locals = [jobject]()

@@ -451,7 +451,7 @@ public func SwiftSupportAppCompatActivity_onCreate( _ __env: UnsafeMutablePointe
     
     let bundle = __savedInstanceState != nil ? Android.OS.Bundle(javaObject: __savedInstanceState) : nil
     
-    let activity = SwiftSupportAppCompatActivity.swiftObject(jniEnv: __env, javaObject: __this, swiftObject: __swiftObject)
+    let activity = SwiftSupportAppCompatActivity.swiftObject(from: __swiftObject)
     
     activity?.onCreate(savedInstanceState: bundle)
 }
@@ -461,7 +461,7 @@ public func SwiftSupportAppCompatActivity_onStart( _ __env: UnsafeMutablePointer
                                                          _ __this: jobject?,
                                                          _ __swiftObject: jlong) -> () {
 
-    let activity = SwiftSupportAppCompatActivity.swiftObject(jniEnv: __env, javaObject: __this, swiftObject: __swiftObject)
+    let activity = SwiftSupportAppCompatActivity.swiftObject(from: __swiftObject)
     
     activity?.onStart()
 }
@@ -471,7 +471,7 @@ public func SwiftSupportAppCompatActivity_onResume( _ __env: UnsafeMutablePointe
                                                         _ __this: jobject?,
                                                         _ __swiftObject: jlong) -> () {
     
-    let activity = SwiftSupportAppCompatActivity.swiftObject(jniEnv: __env, javaObject: __this, swiftObject: __swiftObject)
+    let activity = SwiftSupportAppCompatActivity.swiftObject(from: __swiftObject)
     
     activity?.onResume()
 }
@@ -481,7 +481,7 @@ public func SwiftSupportAppCompatActivity_onPause( _ __env: UnsafeMutablePointer
                                                          _ __this: jobject?,
                                                          _ __swiftObject: jlong) -> () {
     
-    let activity = SwiftSupportAppCompatActivity.swiftObject(jniEnv: __env, javaObject: __this, swiftObject: __swiftObject)
+    let activity = SwiftSupportAppCompatActivity.swiftObject(from: __swiftObject)
     
     activity?.onPause()
 }
@@ -491,7 +491,7 @@ public func SwiftSupportAppCompatActivity_onRestart( _ __env: UnsafeMutablePoint
                                                          _ __this: jobject?,
                                                          _ __swiftObject: jlong) -> () {
     
-    let activity = SwiftSupportAppCompatActivity.swiftObject(jniEnv: __env, javaObject: __this, swiftObject: __swiftObject)
+    let activity = SwiftSupportAppCompatActivity.swiftObject(from: __swiftObject)
     
     activity?.onRestart()
 }
@@ -501,7 +501,7 @@ public func SwiftSupportAppCompatActivity_onStop( _ __env: UnsafeMutablePointer<
                                                           _ __this: jobject?,
                                                           _ __swiftObject: jlong) -> () {
     
-    let activity = SwiftSupportAppCompatActivity.swiftObject(jniEnv: __env, javaObject: __this, swiftObject: __swiftObject)
+    let activity = SwiftSupportAppCompatActivity.swiftObject(from: __swiftObject)
     
     activity?.onStop()
 }
@@ -511,7 +511,7 @@ public func SwiftSupportAppCompatActivity_onDestroy( _ __env: UnsafeMutablePoint
                                                        _ __this: jobject?,
                                                        _ __swiftObject: jlong) -> () {
     
-    let activity = SwiftSupportAppCompatActivity.swiftObject(jniEnv: __env, javaObject: __this, swiftObject: __swiftObject)
+    let activity = SwiftSupportAppCompatActivity.swiftObject(from: __swiftObject)
     
     activity?.onDestroy()
 }
@@ -530,7 +530,7 @@ public func SwiftSupportAppCompatActivity_onActivityResultNative( _ __env: Unsaf
     
     let data = __data != nil ? Android.Content.Intent(javaObject: __data) : nil
     
-    let activity = SwiftSupportAppCompatActivity.swiftObject(jniEnv: __env, javaObject: __this, swiftObject: __swiftObject)
+    let activity = SwiftSupportAppCompatActivity.swiftObject(from: __swiftObject)
     
     activity?.onActivityResult(requestCode: requestCode, resultCode: resultCode, data: data)
 }
@@ -549,7 +549,7 @@ public func SwiftSupportAppCompatActivity_onRequestPermissionsResultNative( _ __
     
     let grantResults = JNIType.toSwift(type: [Int].self, from: __grantResults)!
     
-    let activity = SwiftSupportAppCompatActivity.swiftObject(jniEnv: __env, javaObject: __this, swiftObject: __swiftObject)
+    let activity = SwiftSupportAppCompatActivity.swiftObject(from: __swiftObject)
     
     activity?.onRequestPermissionsResult(requestCode: requestCode, permissions: permissions, grantResults: grantResults)
 }
