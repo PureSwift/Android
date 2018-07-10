@@ -38,22 +38,35 @@ open class AndroidWidgetRecyclerViewViewHolder: JavaObject {
     
     /// Initialize a new Java instance and bind to this Swift object.
     public func bindNewJavaObject(itemView: Android.View.View) {
-        var __locals = [jobject]()
+        let hasOldJavaObject = javaObject != nil
+        
+        var locals = [jobject]()
+        
+        var methodID: jmethodID?
         
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = self.swiftValue()
-        __args[1] = JNIType.toJava(value: itemView, locals: &__locals)
+        __args[1] = JNIType.toJava(value: itemView, locals: &locals)
         
-        let __object = JNIMethod.NewObject(
-            className: JNICache.className,
-            classCache: &JNICache.jniClass,
-            methodSig: "(JLandroid/view/View;)V",
-            methodCache: &JNICache.MethodID.init_method_1,
-            args: &__args,
-            locals: &__locals )
+        // returned objects are always local refs
+        guard let __object: jobject = JNIMethod.NewObject(className: JNICache.className,
+                                                          classObject: JNICache.jniClass,
+                                                          methodSig: "(JLandroid/view/View;)V",
+                                                          methodCache: &methodID,
+                                                          args: &__args,
+                                                          locals: &locals )
+            
+            else { fatalError("Could not initialize \(className)") }
         
         self.javaObject = __object // dereference old value, add global ref for new value
-        JNI.DeleteLocalRef( __object )
+        
+        JNI.DeleteLocalRef( __object ) // delete local ref
+        
+        /// Release old swift value.
+        if hasOldJavaObject {
+            
+            try! finalize()
+        }
     }
     
     public var adapterPosition: Int {
