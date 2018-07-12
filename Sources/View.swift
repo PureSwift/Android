@@ -9246,6 +9246,1142 @@ public extension Android.View.View {
         return Float(__return)
     }
     
+    // JavaObjects
+    
+    
+    public func setOnClickListener(l: JavaObject) {
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: l, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setOnClickListener",
+            methodSig: "(Landroid/view/View/OnClickListener;)V",
+            methodCache: &JNICache.MethodID.setOnClickListener,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    public func checkInputConnectionProxy(view: JavaObject) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: view, locals: &__locals)
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "checkInputConnectionProxy",
+            methodSig: "(Landroid/view/View;)Z",
+            methodCache: &JNICache.MethodID.checkInputConnectionProxy,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func dispatchCapturedPointerEvent(event: JavaObject) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: event, locals: &__locals)
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "dispatchCapturedPointerEvent",
+            methodSig: "(Landroid.view.MotionEvent;)Z",
+            methodCache: &JNICache.MethodID.dispatchCapturedPointerEvent,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func dispatchGenericMotionEvent(event: JavaObject) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: event, locals: &__locals)
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "dispatchGenericMotionEvent",
+            methodSig: "(Landroid.view.MotionEvent;)Z",
+            methodCache: &JNICache.MethodID.dispatchGenericMotionEvent,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func dispatchKeyEvent(event: JavaObject) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: event, locals: &__locals)
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "dispatchKeyEvent",
+            methodSig: "(Landroid/view/KeyEvent;)Z",
+            methodCache: &JNICache.MethodID.dispatchKeyEvent,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func dispatchKeyEventPreIme(event: JavaObject) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: event, locals: &__locals)
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "dispatchKeyEventPreIme",
+            methodSig: "(Landroid/view/KeyEvent;)Z",
+            methodCache: &JNICache.MethodID.dispatchKeyEventPreIme,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func dispatchKeyShortcutEvent(event: JavaObject) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: event, locals: &__locals)
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "dispatchKeyShortcutEvent",
+            methodSig: "(Landroid/view/KeyEvent;)Z",
+            methodCache: &JNICache.MethodID.dispatchKeyShortcutEvent,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func dispatchProvideAutofillStructure(structure: JavaObject, flags: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = JNIType.toJava(value: structure, locals: &__locals)
+        __args[1] = jvalue(i: jint(flags))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "dispatchProvideAutofillStructure",
+            methodSig: "(Landroid/view/ViewStructure;I)V",
+            methodCache: &JNICache.MethodID.dispatchProvideAutofillStructure,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    
+    public func dispatchProvideStructure(structure: JavaObject)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: structure, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "dispatchProvideStructure",
+            methodSig: "(Landroid/view/ViewStructure;)V",
+            methodCache: &JNICache.MethodID.dispatchProvideStructure,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func dispatchTouchEvent(event: JavaObject) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: event, locals: &__locals)
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "dispatchTouchEvent",
+            methodSig: "(Landroid.view.MotionEvent;)Z",
+            methodCache: &JNICache.MethodID.dispatchTouchEvent,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func dispatchTrackballEvent(event: JavaObject) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: event, locals: &__locals)
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "dispatchTrackballEvent",
+            methodSig: "(Landroid.view.MotionEvent;)Z",
+            methodCache: &JNICache.MethodID.dispatchTrackballEvent,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func dispatchUnhandledMove(focused: JavaObject, direction: Int) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = JNIType.toJava(value: focused, locals: &__locals)
+        __args[1] = jvalue(i: jint(direction))
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "dispatchUnhandledMove",
+            methodSig: "(Landroid/view/View;I)Z",
+            methodCache: &JNICache.MethodID.dispatchUnhandledMove,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func getClipBounds(outRect: JavaObject) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: outRect, locals: &__locals)
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "getClipBounds",
+            methodSig: "(Landroid/graphics/Rect;)Z",
+            methodCache: &JNICache.MethodID.getClipBounds,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func getDrawingRect(outRect: JavaObject)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: outRect, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "getDrawingRect",
+            methodSig: "(Landroid/graphics/Rect;)V",
+            methodCache: &JNICache.MethodID.getDrawingRect,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func getFocusedRect(r: JavaObject)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: r, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "getFocusedRect",
+            methodSig: "(Landroid/graphics/Rect;)V",
+            methodCache: &JNICache.MethodID.getFocusedRect,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func getGlobalVisibleRect(r: JavaObject) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: r, locals: &__locals)
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "getGlobalVisibleRect",
+            methodSig: "(Landroid/graphics/Rect;)Z",
+            methodCache: &JNICache.MethodID.getGlobalVisibleRect,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func getHitRect(outRect: JavaObject)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: outRect, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "getHitRect",
+            methodSig: "(Landroid/graphics/Rect;)V",
+            methodCache: &JNICache.MethodID.getHitRect,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func getLocalVisibleRect(r: JavaObject) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: r, locals: &__locals)
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "getLocalVisibleRect",
+            methodSig: "(Landroid/graphics/Rect;)Z",
+            methodCache: &JNICache.MethodID.getLocalVisibleRect,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func getWindowVisibleDisplayFrame(outRect: JavaObject)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: outRect, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "getWindowVisibleDisplayFrame",
+            methodSig: "(Landroid/graphics/Rect;)V",
+            methodCache: &JNICache.MethodID.getWindowVisibleDisplayFrame,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func invalidate(dirty: JavaObject)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: dirty, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "invalidate",
+            methodSig: "(Landroid/graphics/Rect;)V",
+            methodCache: &JNICache.MethodID.invalidate,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func invalidateDrawable(drawable: JavaObject)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: drawable, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "invalidateDrawable",
+            methodSig: "(Ljava/lang/Object;)V",
+            methodCache: &JNICache.MethodID.invalidateDrawable,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    public func onCapturedPointerEvent(event: JavaObject) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: event, locals: &__locals)
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "onCapturedPointerEvent",
+            methodSig: "(Landroid.view.MotionEvent;)Z",
+            methodCache: &JNICache.MethodID.onCapturedPointerEvent,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func onFilterTouchEventForSecurity(event: JavaObject) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: event, locals: &__locals)
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "onFilterTouchEventForSecurity",
+            methodSig: "(Landroid.view.MotionEvent;)Z",
+            methodCache: &JNICache.MethodID.onFilterTouchEventForSecurity,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+
+    public func onGenericMotionEvent(event: JavaObject) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: event, locals: &__locals)
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "onGenericMotionEvent",
+            methodSig: "(Landroid.view.MotionEvent;)Z",
+            methodCache: &JNICache.MethodID.onGenericMotionEvent,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func onHoverEvent(event: JavaObject) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: event, locals: &__locals)
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "onHoverEvent",
+            methodSig: "(Landroid.view.MotionEvent;)Z",
+            methodCache: &JNICache.MethodID.onHoverEvent,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func onKeyDown(keyCode: Int, event: JavaObject) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = jvalue(i: jint(keyCode))
+        __args[1] = JNIType.toJava(value: event, locals: &__locals)
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "onKeyDown",
+            methodSig: "(ILandroid/view/KeyEvent;)Z",
+            methodCache: &JNICache.MethodID.onKeyDown,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func onKeyLongPress(keyCode: Int, event: JavaObject) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = jvalue(i: jint(keyCode))
+        __args[1] = JNIType.toJava(value: event, locals: &__locals)
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "onKeyLongPress",
+            methodSig: "(ILandroid/view/KeyEvent;)Z",
+            methodCache: &JNICache.MethodID.onKeyLongPress,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func onKeyMultiple(keyCode: Int, repeatCount: Int, event: JavaObject) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        
+        __args[0] = jvalue(i: jint(keyCode))
+        __args[1] = jvalue(i: jint(repeatCount))
+        __args[2] = JNIType.toJava(value: event, locals: &__locals)
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "onKeyMultiple",
+            methodSig: "(IILandroid/view/KeyEvent;)Z",
+            methodCache: &JNICache.MethodID.onKeyMultiple,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func onKeyPreIme(keyCode: Int, event: JavaObject) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = jvalue(i: jint(keyCode))
+        __args[1] = JNIType.toJava(value: event, locals: &__locals)
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "onKeyPreIme",
+            methodSig: "(ILandroid/view/KeyEvent;)Z",
+            methodCache: &JNICache.MethodID.onKeyPreIme,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func onKeyShortcut(keyCode: Int, event: JavaObject) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = jvalue(i: jint(keyCode))
+        __args[1] = JNIType.toJava(value: event, locals: &__locals)
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "onKeyShortcut",
+            methodSig: "(ILandroid/view/KeyEvent;)Z",
+            methodCache: &JNICache.MethodID.onKeyShortcut,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func onKeyUp(keyCode: Int, event: JavaObject) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = jvalue(i: jint(keyCode))
+        __args[1] = JNIType.toJava(value: event, locals: &__locals)
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "onKeyUp",
+            methodSig: "(ILandroid/view/KeyEvent;)Z",
+            methodCache: &JNICache.MethodID.onKeyUp,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func onProvideAutofillStructure(structure: JavaObject, flags: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = JNIType.toJava(value: structure, locals: &__locals)
+        __args[1] = jvalue(i: jint(flags))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "onProvideAutofillStructure",
+            methodSig: "(Landroid/view/ViewStructure;I)V",
+            methodCache: &JNICache.MethodID.onProvideAutofillStructure,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func onProvideAutofillVirtualStructure(structure: JavaObject, flags: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = JNIType.toJava(value: structure, locals: &__locals)
+        __args[1] = jvalue(i: jint(flags))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "onProvideAutofillVirtualStructure",
+            methodSig: "(Landroid/view/ViewStructure;I)V",
+            methodCache: &JNICache.MethodID.onProvideAutofillVirtualStructure,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func onProvideStructure(structure: JavaObject)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: structure, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "onProvideStructure",
+            methodSig: "(Landroid/view/ViewStructure;)V",
+            methodCache: &JNICache.MethodID.onProvideStructure,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func onProvideVirtualStructure(structure: JavaObject)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: structure, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "onProvideVirtualStructure",
+            methodSig: "(Landroid/view/ViewStructure;)V",
+            methodCache: &JNICache.MethodID.onProvideVirtualStructure,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func onTouchEvent(event: JavaObject) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: event, locals: &__locals)
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "onTouchEvent",
+            methodSig: "(Landroid.view.MotionEvent;)Z",
+            methodCache: &JNICache.MethodID.onTouchEvent,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func onTrackballEvent(event: JavaObject) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: event, locals: &__locals)
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "onTrackballEvent",
+            methodSig: "(Landroid.view.MotionEvent;)Z",
+            methodCache: &JNICache.MethodID.onTrackballEvent,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func post(action: JavaObject) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: action, locals: &__locals)
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "post",
+            methodSig: "(Ljava/lang/Runnable;)Z",
+            methodCache: &JNICache.MethodID.post,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func postDelayed(action: JavaObject, delayMillis: Int64) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = JNIType.toJava(value: action, locals: &__locals)
+        __args[1] = jvalue(j: jlong(delayMillis))
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "postDelayed",
+            methodSig: "(Ljava/lang/Runnable;J)Z",
+            methodCache: &JNICache.MethodID.postDelayed,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func postOnAnimation(action: JavaObject)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: action, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "postOnAnimation",
+            methodSig: "(Ljava/lang/Runnable;)V",
+            methodCache: &JNICache.MethodID.postOnAnimation,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func postOnAnimationDelayed(action: JavaObject, delayMillis: Int64)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = JNIType.toJava(value: action, locals: &__locals)
+        __args[1] = jvalue(j: jlong(delayMillis))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "postOnAnimationDelayed",
+            methodSig: "(Ljava/lang/Runnable;J)V",
+            methodCache: &JNICache.MethodID.postOnAnimationDelayed,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func removeCallbacks(action: JavaObject) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: action, locals: &__locals)
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "removeCallbacks",
+            methodSig: "(Ljava/lang/Runnable;)Z",
+            methodCache: &JNICache.MethodID.removeCallbacks,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func requestFocus(direction: Int, previouslyFocusedRect: JavaObject) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = jvalue(i: jint(direction))
+        __args[1] = JNIType.toJava(value: previouslyFocusedRect, locals: &__locals)
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "requestFocus",
+            methodSig: "(ILandroid/graphics/Rect;)Z",
+            methodCache: &JNICache.MethodID.requestFocus,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func requestRectangleOnScreen(rectangle: JavaObject) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: rectangle, locals: &__locals)
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "requestRectangleOnScreen",
+            methodSig: "(Landroid/graphics/Rect;)Z",
+            methodCache: &JNICache.MethodID.requestRectangleOnScreen,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func requestRectangleOnScreen(rectangle: JavaObject, immediate: Bool) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = JNIType.toJava(value: rectangle, locals: &__locals)
+        __args[1] = jvalue(z: jboolean(immediate ? JNI_TRUE : JNI_FALSE))
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "requestRectangleOnScreen2",
+            methodSig: "(Landroid/graphics/Rect;Z)Z",
+            methodCache: &JNICache.MethodID.requestRectangleOnScreen2,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func requestUnbufferedDispatch(event: JavaObject)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: event, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "requestUnbufferedDispatch",
+            methodSig: "(Landroid.view.MotionEvent;)V",
+            methodCache: &JNICache.MethodID.requestUnbufferedDispatch,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func scheduleDrawable(who: JavaObject, what: JavaObject, when: Int64)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        
+        __args[0] = JNIType.toJava(value: who, locals: &__locals)
+        __args[1] = JNIType.toJava(value: what, locals: &__locals)
+        __args[2] = jvalue(j: jlong(when))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "scheduleDrawable",
+            methodSig: "(Ljava/lang/Object;Ljava/lang/Runnable;J)V",
+            methodCache: &JNICache.MethodID.scheduleDrawable,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setBackground(background: JavaObject)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: background, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setBackground",
+            methodSig: "(Ljava/lang/Object;)V",
+            methodCache: &JNICache.MethodID.setBackground,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setBackgroundDrawable(background: JavaObject)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: background, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setBackgroundDrawable",
+            methodSig: "(Ljava/lang/Object;)V",
+            methodCache: &JNICache.MethodID.setBackgroundDrawable,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setClipBounds(clipBounds: JavaObject)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: clipBounds, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setClipBounds",
+            methodSig: "(Landroid/graphics/Rect;)V",
+            methodCache: &JNICache.MethodID.setClipBounds,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setForeground(foreground: JavaObject)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: foreground, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setForeground",
+            methodSig: "(Ljava/lang/Object;)V",
+            methodCache: &JNICache.MethodID.setForeground,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func unscheduleDrawable(who: JavaObject, what: JavaObject)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = JNIType.toJava(value: who, locals: &__locals)
+        __args[1] = JNIType.toJava(value: what, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "unscheduleDrawable",
+            methodSig: "(Ljava/lang/Object;Ljava/lang/Runnable;)V",
+            methodCache: &JNICache.MethodID.unscheduleDrawable,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func unscheduleDrawable(who: JavaObject)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: who, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "unscheduleDrawable3",
+            methodSig: "(Ljava/lang/Object;)V",
+            methodCache: &JNICache.MethodID.unscheduleDrawable3,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+
+    
 }
 
 // MARK: - JNICache
@@ -9732,6 +10868,66 @@ internal extension Android.View.View {
             static var getY: jmethodID?
             static var getZ: jmethodID?
 
+            static var setOnClickListener: jmethodID?
+            
+            static var checkInputConnectionProxy: jmethodID?
+            static var dispatchCapturedPointerEvent: jmethodID?
+            static var dispatchGenericMotionEvent: jmethodID?
+            static var dispatchKeyEvent: jmethodID?
+            static var dispatchKeyEventPreIme: jmethodID?
+            static var dispatchKeyShortcutEvent: jmethodID?
+            static var dispatchProvideAutofillStructure: jmethodID?
+            static var dispatchProvideAutofillStructure2: jmethodID?
+            static var dispatchProvideStructure: jmethodID?
+            static var dispatchProvideStructure2: jmethodID?
+            static var dispatchTouchEvent: jmethodID?
+            static var dispatchTrackballEvent: jmethodID?
+            static var dispatchUnhandledMove: jmethodID?
+            static var getClipBounds: jmethodID?
+            static var getDrawingRect: jmethodID?
+            static var getFocusedRect: jmethodID?
+            static var getGlobalVisibleRect: jmethodID?
+            static var getHitRect: jmethodID?
+            static var getLocalVisibleRect: jmethodID?
+            static var getWindowVisibleDisplayFrame: jmethodID?
+            static var invalidateDrawable: jmethodID?
+            static var onCapturedPointerEvent: jmethodID?
+            static var onFilterTouchEventForSecurity: jmethodID?
+            static var onGenericMotionEvent: jmethodID?
+            static var onHoverEvent: jmethodID?
+            static var onKeyDown: jmethodID?
+            static var onKeyLongPress: jmethodID?
+            static var onKeyMultiple: jmethodID?
+            static var onKeyPreIme: jmethodID?
+            static var onKeyShortcut: jmethodID?
+            static var onKeyUp: jmethodID?
+            static var onProvideAutofillStructure: jmethodID?
+            static var onProvideAutofillStructure2: jmethodID?
+            static var onProvideAutofillVirtualStructure: jmethodID?
+            static var onProvideAutofillVirtualStructure2: jmethodID?
+            static var onProvideStructure: jmethodID?
+            static var onProvideStructure2: jmethodID?
+            static var onProvideVirtualStructure: jmethodID?
+            static var onProvideVirtualStructure2: jmethodID?
+            static var onTouchEvent: jmethodID?
+            static var onTrackballEvent: jmethodID?
+            static var post: jmethodID?
+            static var postDelayed: jmethodID?
+            static var postOnAnimation: jmethodID?
+            static var postOnAnimationDelayed: jmethodID?
+            static var removeCallbacks: jmethodID?
+            static var requestRectangleOnScreen: jmethodID?
+            static var requestRectangleOnScreen2: jmethodID?
+            static var requestUnbufferedDispatch: jmethodID?
+            static var scheduleDrawable: jmethodID?
+            static var scheduleDrawable2: jmethodID?
+            static var setBackground: jmethodID?
+            static var setBackgroundDrawable: jmethodID?
+            static var setClipBounds: jmethodID?
+            static var setForeground: jmethodID?
+            static var unscheduleDrawable: jmethodID?
+            static var unscheduleDrawable2: jmethodID?
+            static var unscheduleDrawable3: jmethodID?
 
         }
     }
