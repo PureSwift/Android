@@ -42,6 +42,26 @@ open class AndroidView: JavaObject {
         }
     }
     
+    public convenience init(context: Android.Content.Context) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava(value: context, locals: &__locals)
+        
+        let __object = JNIMethod.NewObject(
+            className: JNICache.className,
+            classCache: &JNICache.jniClass,
+            methodSig: "(Landroid/content/Context;)V",
+            methodCache: &JNICache.MethodID.init_method_1,
+            args: &__args,
+            locals: &__locals )
+        
+        self.init( javaObject: __object )
+        
+        JNI.DeleteLocalRef( __object )
+    }
+    
     open func findViewById(_ id: Int) -> Android.View.View? {
         
         var __locals = [jobject]()
@@ -87,7 +107,7 @@ open class AndroidView: JavaObject {
 
 // MARK: - Constants
 
-internal extension Android.View.View {
+public extension Android.View.View {
     
     /**
      * Live region mode specifying that accessibility services should interrupt ongoing speech to immediately announce changes to this view.
@@ -10524,13 +10544,13 @@ internal extension Android.View.View {
         
         /// JNI Method ID cache
         struct MethodID {
+            static var init_method_1: jmethodID?
             
             static var findViewById: jmethodID?
             static var findViewWithTag: jmethodID?
             static var getTag: jmethodID?
             static var setTag: jmethodID?
             static var getContext: jmethodID?
-            
             static var bringToFront: jmethodID?
             static var buildDrawingCache: jmethodID?
             static var buildDrawingCache2: jmethodID?
@@ -10867,9 +10887,7 @@ internal extension Android.View.View {
             static var getX: jmethodID?
             static var getY: jmethodID?
             static var getZ: jmethodID?
-
             static var setOnClickListener: jmethodID?
-            
             static var checkInputConnectionProxy: jmethodID?
             static var dispatchCapturedPointerEvent: jmethodID?
             static var dispatchGenericMotionEvent: jmethodID?
