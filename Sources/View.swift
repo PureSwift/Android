@@ -2345,6 +2345,6907 @@ public extension Android.View.View {
         
         return Android.Content.Context(javaObject: __return)
     }
+    
+    /**
+     * Enables or disables click events for this view.
+     */
+    public func setClickable(clickable: Bool) {
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(clickable ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setClickable",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.setClickable,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    /**
+     * Indicates whether this view reacts to click events or not.
+     */
+    public func isClickable() -> Bool {
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallBooleanMethod(
+                            object: javaObject,
+                            methodName: "isClickable",
+                            methodSig: "()Z",
+                            methodCache: &JNICache.MethodID.isClickable,
+                            args: &__args,
+                            locals: &__locals )
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Returns the enabled status for this view.
+     */
+    public func isEnabled() -> Bool {
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isEnabled",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isEnabled,
+            args: &__args,
+            locals: &__locals )
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    //////////////////////////////////////////////////////////////////////////////
+    
+    /**
+     * Change the view's z order in the tree, so it's on top of other sibling views.
+     */
+    public func bringToFront()  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "bringToFront",
+            methodSig: "()V",
+            methodCache: &JNICache.MethodID.bringToFront,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    /**
+     * Forces this view's layer to be created and this view to be rendered into its layer.
+     */
+    public func buildLayer()  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "buildLayer",
+            methodSig: "()V",
+            methodCache: &JNICache.MethodID.buildLayer,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    /**
+     * Directly call any attached OnClickListener.
+     */
+    public func callOnClick() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "callOnClick",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.callOnClick,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Check if layout direction resolution can be done.
+     */
+    public func canResolveLayoutDirection() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "canResolveLayoutDirection",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.canResolveLayoutDirection,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Check if text alignment resolution can be done.
+     */
+    public func canResolveTextAlignment() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "canResolveTextAlignment",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.canResolveTextAlignment,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Check if text direction resolution can be done.
+     */
+    public func canResolveTextDirection() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "canResolveTextDirection",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.canResolveTextDirection,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Check if this view can be scrolled horizontally in a certain direction.
+     */
+    public func canScrollHorizontally(direction: Int) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(direction))
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "canScrollHorizontally",
+            methodSig: "(I)Z",
+            methodCache: &JNICache.MethodID.canScrollHorizontally,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Check if this view can be scrolled vertically in a certain direction.
+     */
+    public func canScrollVertically(direction: Int) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(direction))
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "canScrollVertically",
+            methodSig: "(I)Z",
+            methodCache: &JNICache.MethodID.canScrollVertically,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Cancels an ongoing drag and drop operation.
+     */
+    public func cancelDragAndDrop()  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "cancelDragAndDrop",
+            methodSig: "()V",
+            methodCache: &JNICache.MethodID.cancelDragAndDrop,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    /**
+     * Cancels a pending long press.
+     */
+    public func cancelLongPress()  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "cancelLongPress",
+            methodSig: "()V",
+            methodCache: &JNICache.MethodID.cancelLongPress,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    /**
+     * Cancel any deferred high-level input events that were previously posted to the event queue.
+     */
+    public func cancelPendingInputEvents()  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "cancelPendingInputEvents",
+            methodSig: "()V",
+            methodCache: &JNICache.MethodID.cancelPendingInputEvents,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    /**
+     * Cancels any animations for this view.
+     */
+    public func clearAnimation()  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "clearAnimation",
+            methodSig: "()V",
+            methodCache: &JNICache.MethodID.clearAnimation,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    /**
+     * Called when this view wants to give up focus.
+     */
+    public func clearFocus()  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "clearFocus",
+            methodSig: "()V",
+            methodCache: &JNICache.MethodID.clearFocus,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    /**
+     * Merge two states as returned by getMeasuredState().
+     */
+    public func combineMeasuredStates(curState: Int, newState: Int) -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = jvalue(i: jint(curState))
+        __args[1] = jvalue(i: jint(newState))
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "combineMeasuredStates",
+            methodSig: "(II)I",
+            methodCache: &JNICache.MethodID.combineMeasuredStates,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Called by a parent to request that a child update its values for mScrollX and mScrollY if necessary.
+     */
+    public func computeScroll()  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "computeScroll",
+            methodSig: "()V",
+            methodCache: &JNICache.MethodID.computeScroll,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    /**
+     * Dispatch a hint about whether this view is displayed.
+     */
+    public func dispatchDisplayHint(hint: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(hint))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "dispatchDisplayHint",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.dispatchDisplayHint,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+
+    
+    //////////////////
+    
+    /**
+     * Dispatches drawableHotspotChanged to all of this View's children.
+     */
+    public func dispatchDrawableHotspotChanged(x: Float, y: Float)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = jvalue(f: jfloat(x))
+        __args[1] = jvalue(f: jfloat(y))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "dispatchDrawableHotspotChanged",
+            methodSig: "(FF)V",
+            methodCache: &JNICache.MethodID.dispatchDrawableHotspotChanged,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    /**
+     * Dispatch onFinishTemporaryDetach() to this View and its direct children if this is a container View.
+     */
+    public func dispatchFinishTemporaryDetach()  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "dispatchFinishTemporaryDetach",
+            methodSig: "()V",
+            methodCache: &JNICache.MethodID.dispatchFinishTemporaryDetach,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    /**
+     * Dispatch a fling to a nested scrolling parent.
+     */
+    public func dispatchNestedFling(velocityX: Float, velocityY: Float, consumed: Bool) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        
+        __args[0] = jvalue(f: jfloat(velocityX))
+        __args[1] = jvalue(f: jfloat(velocityY))
+        __args[2] = jvalue(z: jboolean(consumed ? JNI_TRUE : JNI_FALSE))
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "dispatchNestedFling",
+            methodSig: "(FFZ)Z",
+            methodCache: &JNICache.MethodID.dispatchNestedFling,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Dispatch a fling to a nested scrolling parent before it is processed by this view.
+     */
+    public func dispatchNestedPreFling(velocityX: Float, velocityY: Float) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = jvalue(f: jfloat(velocityX))
+        __args[1] = jvalue(f: jfloat(velocityY))
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "dispatchNestedPreFling",
+            methodSig: "(FF)Z",
+            methodCache: &JNICache.MethodID.dispatchNestedPreFling,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Dispatch one step of a nested scroll in progress before this view consumes any portion of it.
+     */
+    public func dispatchNestedPreScroll(dx: Int, dy: Int, consumed: [Int], offsetInWindow: [Int]) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 4 )
+        
+        __args[0] = jvalue(i: jint(dx))
+        __args[1] = jvalue(i: jint(dy))
+        __args[2] = JNIType.toJava(value: consumed, locals: &__locals)
+        __args[3] = JNIType.toJava(value: offsetInWindow, locals: &__locals)
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "dispatchNestedPreScroll",
+            methodSig: "(II[I[I)Z",
+            methodCache: &JNICache.MethodID.dispatchNestedPreScroll,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Dispatch one step of a nested scroll in progress.
+     */
+    public func dispatchNestedScroll(dxConsumed: Int, dyConsumed: Int, dxUnconsumed: Int, dyUnconsumed: Int, offsetInWindow: [Int]) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 5 )
+        
+        __args[0] = jvalue(i: jint(dxConsumed))
+        __args[1] = jvalue(i: jint(dyConsumed))
+        __args[2] = jvalue(i: jint(dxUnconsumed))
+        __args[3] = jvalue(i: jint(dyUnconsumed))
+        __args[4] = JNIType.toJava(value: offsetInWindow, locals: &__locals)
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "dispatchNestedScroll",
+            methodSig: "(IIII[I)Z",
+            methodCache: &JNICache.MethodID.dispatchNestedScroll,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func dispatchPointerCaptureChanged(hasCapture: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(hasCapture ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "dispatchPointerCaptureChanged",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.dispatchPointerCaptureChanged,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    /**
+     * Dispatch onStartTemporaryDetach() to this View and its direct children if this is a container View.
+     */
+    public func dispatchStartTemporaryDetach()  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "dispatchStartTemporaryDetach",
+            methodSig: "()V",
+            methodCache: &JNICache.MethodID.dispatchStartTemporaryDetach,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    /**
+     * Dispatch callbacks to setOnSystemUiVisibilityChangeListener(View.OnSystemUiVisibilityChangeListener) down the view hierarchy.
+     */
+    public func dispatchSystemUiVisibilityChanged(visibility: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(visibility))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "dispatchSystemUiVisibilityChanged",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.dispatchSystemUiVisibilityChanged,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    /**
+     * Called when the window containing this view gains or loses window focus.
+     */
+    public func dispatchWindowFocusChanged(hasFocus: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(hasFocus ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "dispatchWindowFocusChanged",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.dispatchWindowFocusChanged,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    /**
+     * Dispatch callbacks to onWindowSystemUiVisibilityChanged(int) down the view hierarchy.
+     */
+    public func dispatchWindowSystemUiVisiblityChanged(visible: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(visible))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "dispatchWindowSystemUiVisiblityChanged",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.dispatchWindowSystemUiVisiblityChanged,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+
+    ///////
+    
+    /**
+     * Dispatch a window visibility change down the view hierarchy.
+     */
+    public func dispatchWindowVisibilityChanged(visibility: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(visibility))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "dispatchWindowVisibilityChanged",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.dispatchWindowVisibilityChanged,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    /**
+     * This function is called whenever the view hotspot changes and needs to be propagated to drawables or child views managed by the view.
+     */
+    public func drawableHotspotChanged(x: Float, y: Float)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = jvalue(f: jfloat(x))
+        __args[1] = jvalue(f: jfloat(y))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "drawableHotspotChanged",
+            methodSig: "(FF)V",
+            methodCache: &JNICache.MethodID.drawableHotspotChanged,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    /**
+     * Sets the behavior for overlapping rendering for this view (see hasOverlappingRendering() for more details on this behavior).
+     */
+    public func forceHasOverlappingRendering(hasOverlappingRendering: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(hasOverlappingRendering ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "forceHasOverlappingRendering",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.forceHasOverlappingRendering,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    /**
+     * Forces this view to be laid out during the next layout pass.
+     */
+    public func forceLayout()  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "forceLayout",
+            methodSig: "()V",
+            methodCache: &JNICache.MethodID.forceLayout,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    /**
+     * Generate a value suitable for use in setId(int).
+     */
+    public func generateViewId() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "generateViewId",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.generateViewId,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Gets the live region mode for this View.
+     */
+    public func getAccessibilityLiveRegion() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getAccessibilityLiveRegion",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getAccessibilityLiveRegion,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Gets the id of a view after which this one is visited in accessibility traversal.
+     */
+    public func getAccessibilityTraversalAfter() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getAccessibilityTraversalAfter",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getAccessibilityTraversalAfter,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Gets the id of a view before which this one is visited in accessibility traversal.
+     */
+    public func getAccessibilityTraversalBefore() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getAccessibilityTraversalBefore",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getAccessibilityTraversalBefore,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Gets the hints that help an AutofillService determine how to autofill the view with the user's data.
+     */
+    public func getAutofillHints() -> [String]? {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallObjectMethod(
+            object: javaObject,
+            methodName: "getAutofillHints",
+            methodSig: "()Ljava/lang/String;",
+            methodCache: &JNICache.MethodID.getAutofillHints,
+            args: &__args,
+            locals: &__locals )
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        
+        
+        return JNIType.toSwift(type: [String].self, from: __return)
+    }
+    
+    /**
+     * Describes the autofill type of this view, so an AutofillService can create the proper AutofillValue when autofilling the view.
+     */
+    public func getAutofillType() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getAutofillType",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getAutofillType,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Return the offset of the widget's text baseline from the widget's top boundary.
+     */
+    public func getBaseline() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getBaseline",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getBaseline,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Bottom position of this view relative to its parent.
+     */
+    public func getBottom() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getBottom",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getBottom,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Returns whether the Outline should be used to clip the contents of the View.
+     */
+    public func getClipToOutline() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "getClipToOutline",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.getClipToOutline,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+
+    /**
+     *  Returns whether this View should use a default focus highlight when it gets focused but doesn't have R.attr.state_focused defined in its background.
+     */
+    public func getDefaultFocusHighlightEnabled() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "getDefaultFocusHighlightEnabled",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.getDefaultFocusHighlightEnabled,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Utility to return a default size.
+     */
+    public func getDefaultSize(size: Int, measureSpec: Int) -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = jvalue(i: jint(size))
+        __args[1] = jvalue(i: jint(measureSpec))
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getDefaultSize",
+            methodSig: "(II)I",
+            methodCache: &JNICache.MethodID.getDefaultSize,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Return an array of resource IDs of the drawable states representing the current state of the view.
+     */
+    public func getDrawableState() -> [Int]? {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallObjectMethod(
+            object: javaObject,
+            methodName: "getDrawableState",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getDrawableState,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return JNIType.toSwift(type: [Int].self, from: __return)
+    }
+    
+    /**
+     * Gets whether the framework should discard touches when the view's window is obscured by another visible window.
+     */
+    public func getFilterTouchesWhenObscured() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "getFilterTouchesWhenObscured",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.getFilterTouchesWhenObscured,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Check for state of setFitsSystemWindows(boolean).
+     */
+    public func getFitsSystemWindows() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "getFitsSystemWindows",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.getFitsSystemWindows,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Returns the focusable setting for this view.
+     */
+    public func getFocusable() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getFocusable",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getFocusable,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Describes how the foreground is positioned.
+     */
+    public func getForegroundGravity() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getForegroundGravity",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getForegroundGravity,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Returns the value for overlapping rendering that is used internally.
+     */
+    public func getHasOverlappingRendering() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "getHasOverlappingRendering",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.getHasOverlappingRendering,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Return the height of your view.
+     */
+    public func getHeight() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getHeight",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getHeight,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Returns the size of the horizontal faded edges used to indicate that more content in this view is visible.
+     */
+    public func getHorizontalFadingEdgeLength() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getHorizontalFadingEdgeLength",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getHorizontalFadingEdgeLength,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /* Already written above
+    public func getId() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getId",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getId,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+     */
+    
+    /**
+     * Gets the mode for determining whether this View is important for accessibility.
+     */
+    public func getImportantForAccessibility() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getImportantForAccessibility",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getImportantForAccessibility,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Gets the mode for determining whether this view is important for autofill.
+     */
+    public func getImportantForAutofill() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getImportantForAutofill",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getImportantForAutofill,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Returns whether the screen should remain on, corresponding to the current value of KEEP_SCREEN_ON.
+     */
+    public func getKeepScreenOn() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "getKeepScreenOn",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.getKeepScreenOn,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Gets the id of a view for which this view serves as a label for accessibility purposes.
+     */
+    public func getLabelFor() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getLabelFor",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getLabelFor,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Indicates what type of layer is currently associated with this view.
+     */
+    public func getLayerType() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getLayerType",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getLayerType,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+
+    
+    //////////////////////
+    
+    /**
+     * Returns the resolved layout direction for this view.
+     */
+    public func getLayoutDirection() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getLayoutDirection",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getLayoutDirection,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Left position of this view relative to its parent.
+     */
+    public func getLeft() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getLeft",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getLeft,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Computes the coordinates of this view in its window.
+     */
+    public func getLocationInWindow(outLocation: [Int])  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: outLocation, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "getLocationInWindow",
+            methodSig: "([I)V",
+            methodCache: &JNICache.MethodID.getLocationInWindow,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    /**
+     * Computes the coordinates of this view on the screen.
+     */
+    public func getLocationOnScreen(outLocation: [Int])  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: outLocation, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "getLocationOnScreen",
+            methodSig: "([I)V",
+            methodCache: &JNICache.MethodID.getLocationOnScreen,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    /**
+     * Like getMeasuredHeightAndState(), but only returns the raw height component (that is the result is masked by MEASURED_SIZE_MASK).
+     */
+    public func getMeasuredHeight() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getMeasuredHeight",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getMeasuredHeight,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Return the full height measurement information for this view as computed by the most recent call to measure(int, int).
+     */
+    public func getMeasuredHeightAndState() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getMeasuredHeightAndState",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getMeasuredHeightAndState,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Return only the state bits of getMeasuredWidthAndState() and getMeasuredHeightAndState(), combined into one integer.
+     */
+    public func getMeasuredState() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getMeasuredState",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getMeasuredState,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Like getMeasuredWidthAndState(), but only returns the raw width component (that is the result is masked by MEASURED_SIZE_MASK).
+     */
+    public func getMeasuredWidth() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getMeasuredWidth",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getMeasuredWidth,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Return the full width measurement information for this view as computed by the most recent call to measure(int, int).
+     */
+    public func getMeasuredWidthAndState() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getMeasuredWidthAndState",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getMeasuredWidthAndState,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Returns the minimum height of the view.
+     */
+    public func getMinimumHeight() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getMinimumHeight",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getMinimumHeight,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Returns the minimum width of the view.
+     */
+    public func getMinimumWidth() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getMinimumWidth",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getMinimumWidth,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Gets the id of the root of the next keyboard navigation cluster.
+     */
+    public func getNextClusterForwardId() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getNextClusterForwardId",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getNextClusterForwardId,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Gets the id of the view to use when the next focus is FOCUS_DOWN.
+     */
+    public func getNextFocusDownId() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getNextFocusDownId",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getNextFocusDownId,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Gets the id of the view to use when the next focus is FOCUS_FORWARD.
+     */
+    public func getNextFocusForwardId() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getNextFocusForwardId",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getNextFocusForwardId,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Gets the id of the view to use when the next focus is FOCUS_LEFT.
+     */
+    public func getNextFocusLeftId() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getNextFocusLeftId",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getNextFocusLeftId,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Gets the id of the view to use when the next focus is FOCUS_RIGHT.
+     */
+    public func getNextFocusRightId() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getNextFocusRightId",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getNextFocusRightId,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+
+    /**
+     * Gets the id of the view to use when the next focus is FOCUS_UP.
+     */
+    public func getNextFocusUpId() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getNextFocusUpId",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getNextFocusUpId,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    
+    public func getOutlineAmbientShadowColor() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getOutlineAmbientShadowColor",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getOutlineAmbientShadowColor,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    
+    public func getOutlineSpotShadowColor() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getOutlineSpotShadowColor",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getOutlineSpotShadowColor,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Returns the over-scroll mode for this view.
+     */
+    public func getOverScrollMode() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getOverScrollMode",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getOverScrollMode,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Returns the bottom padding of this view.
+     */
+    public func getPaddingBottom() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getPaddingBottom",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getPaddingBottom,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Returns the end padding of this view depending on its resolved layout direction.
+     */
+    public func getPaddingEnd() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getPaddingEnd",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getPaddingEnd,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Returns the left padding of this view.
+     */
+    public func getPaddingLeft() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getPaddingLeft",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getPaddingLeft,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Returns the right padding of this view.
+     */
+    public func getPaddingRight() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getPaddingRight",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getPaddingRight,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Returns the start padding of this view depending on its resolved layout direction.
+     */
+    public func getPaddingStart() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getPaddingStart",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getPaddingStart,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Returns the top padding of this view.
+     */
+    public func getPaddingTop() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getPaddingTop",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getPaddingTop,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Returns this view's preference for reveal behavior when it gains focus.
+     */
+    public func getRevealOnFocusHint() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "getRevealOnFocusHint",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.getRevealOnFocusHint,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Right position of this view relative to its parent.
+     */
+    public func getRight() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getRight",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getRight,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Returns the delay before scrollbars fade.
+     */
+    public func getScrollBarDefaultDelayBeforeFade() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getScrollBarDefaultDelayBeforeFade",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getScrollBarDefaultDelayBeforeFade,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Returns the scrollbar fade duration.
+     */
+    public func getScrollBarFadeDuration() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getScrollBarFadeDuration",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getScrollBarFadeDuration,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Returns the scrollbar size.
+     */
+    public func getScrollBarSize() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getScrollBarSize",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getScrollBarSize,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Returns the current scrollbar style.
+     */
+    public func getScrollBarStyle() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getScrollBarStyle",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getScrollBarStyle,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Returns a bitmask representing the enabled scroll indicators.
+     */
+    public func getScrollIndicators() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getScrollIndicators",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getScrollIndicators,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Return the scrolled left position of this view.
+     */
+    public func getScrollX() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getScrollX",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getScrollX,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Return the scrolled top position of this view.
+     */
+    public func getScrollY() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getScrollY",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getScrollY,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Override this if your view is known to always be drawn on top of a solid color background, and needs to draw fading edges.
+     */
+    public func getSolidColor() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getSolidColor",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getSolidColor,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Returns the last setSystemUiVisibility(int) that this view has requested.
+     */
+    public func getSystemUiVisibility() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getSystemUiVisibility",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getSystemUiVisibility,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Return the resolved text alignment.
+     */
+    public func getTextAlignment() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getTextAlignment",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getTextAlignment,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Return the resolved text direction.
+     */
+    public func getTextDirection() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getTextDirection",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getTextDirection,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Top position of this view relative to its parent.
+     */
+    public func getTop() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getTop",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getTop,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Returns the name of the View to be used to identify Views in Transitions.
+     */
+    public func getTransitionName() -> String {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallObjectMethod(
+            object: javaObject,
+            methodName: "getTransitionName",
+            methodSig: "()Ljava/lang/String;",
+            methodCache: &JNICache.MethodID.getTransitionName,
+            args: &__args,
+            locals: &__locals )
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        
+        
+        return String(javaObject: __return)
+    }
+    
+    /**
+     * Returns the size of the vertical faded edges used to indicate that more content in this view is visible.
+     */
+    public func getVerticalFadingEdgeLength() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getVerticalFadingEdgeLength",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getVerticalFadingEdgeLength,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    
+    public func getVerticalScrollbarPosition() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getVerticalScrollbarPosition",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getVerticalScrollbarPosition,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Returns the width of the vertical scrollbar.
+     */
+    public func getVerticalScrollbarWidth() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getVerticalScrollbarWidth",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getVerticalScrollbarWidth,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Returns the visibility status for this view.
+     */
+    public func getVisibility() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getVisibility",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getVisibility,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Return the width of your view.
+     */
+    public func getWidth() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getWidth",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getWidth,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Returns the current system UI visibility that is currently set for the entire window.
+     */
+    public func getWindowSystemUiVisibility() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getWindowSystemUiVisibility",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getWindowSystemUiVisibility,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Returns the current visibility of the window this view is attached to (either GONE, INVISIBLE, or VISIBLE).
+     */
+    public func getWindowVisibility() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getWindowVisibility",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getWindowVisibility,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Returns true if this view is focusable or if it contains a reachable View for which hasExplicitFocusable() returns true.
+     */
+    public func hasExplicitFocusable() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "hasExplicitFocusable",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.hasExplicitFocusable,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Returns true if this view has focus itself, or is the ancestor of the view that has focus.
+     */
+    public func hasFocus() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "hasFocus",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.hasFocus,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Returns true if this view is focusable or if it contains a reachable View for which hasFocusable() returns true.
+     */
+    public func hasFocusable() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "hasFocusable",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.hasFocusable,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Returns true if this view has a nested scrolling parent.
+     */
+    public func hasNestedScrollingParent() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "hasNestedScrollingParent",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.hasNestedScrollingParent,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Return whether this view has an attached OnClickListener.
+     */
+    public func hasOnClickListeners() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "hasOnClickListeners",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.hasOnClickListeners,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Returns whether this View has content which overlaps.
+     */
+    public func hasOverlappingRendering() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "hasOverlappingRendering",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.hasOverlappingRendering,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Checks pointer capture status.
+     */
+    public func hasPointerCapture() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "hasPointerCapture",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.hasPointerCapture,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Indicates whether the view is currently tracking transient state that the app should not need to concern itself with saving and restoring, but that the framework should take special note to preserve when possible.
+     */
+    public func hasTransientState() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "hasTransientState",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.hasTransientState,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Returns true if this view is in a window that currently has window focus.
+     */
+    public func hasWindowFocus() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "hasWindowFocus",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.hasWindowFocus,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Invalidate the whole view.
+     */
+    public func invalidate()  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "invalidate",
+            methodSig: "()V",
+            methodCache: &JNICache.MethodID.invalidate,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    /**
+     * Called to rebuild this View's Outline from its outline provider
+     */
+    public func invalidateOutline()  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "invalidateOutline",
+            methodSig: "()V",
+            methodCache: &JNICache.MethodID.invalidateOutline,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    /**
+     * Returns whether this View is accessibility focused.
+     */
+    public func isAccessibilityFocused() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isAccessibilityFocused",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isAccessibilityFocused,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Gets whether this view is a heading for accessibility purposes.
+     */
+    public func isAccessibilityHeading() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isAccessibilityHeading",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isAccessibilityHeading,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Indicates the activation state of this view.
+     */
+    public func isActivated() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isActivated",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isActivated,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Returns true if this view is currently attached to a window.
+     */
+    public func isAttachedToWindow() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isAttachedToWindow",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isAttachedToWindow,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Indicates whether this view reacts to context clicks or not.
+     */
+    public func isContextClickable() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isContextClickable",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isContextClickable,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * True if this view has changed since the last time being drawn.
+     */
+    public func isDirty() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isDirty",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isDirty,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Indicates whether this duplicates its drawable state from its parent.
+     */
+    public func isDuplicateParentStateEnabled() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isDuplicateParentStateEnabled",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isDuplicateParentStateEnabled,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Returns whether this View is currently able to take focus.
+     */
+    public func isFocusable() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isFocusable",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isFocusable,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * When a view is focusable, it may not want to take focus when in touch mode.
+     */
+    public func isFocusableInTouchMode() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isFocusableInTouchMode",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isFocusableInTouchMode,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Returns true if this view has focus
+     */
+    public func isFocused() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isFocused",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isFocused,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Returns whether this View should receive focus when the focus is restored for the view hierarchy containing this view.
+     */
+    public func isFocusedByDefault() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isFocusedByDefault",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isFocusedByDefault,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func isHapticFeedbackEnabled() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isHapticFeedbackEnabled",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isHapticFeedbackEnabled,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Indicates whether this view is attached to a hardware accelerated window or not.
+     */
+    public func isHardwareAccelerated() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isHardwareAccelerated",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isHardwareAccelerated,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Indicate whether the horizontal edges are faded when the view is scrolled horizontally.
+     */
+    public func isHorizontalFadingEdgeEnabled() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isHorizontalFadingEdgeEnabled",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isHorizontalFadingEdgeEnabled,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Indicate whether the horizontal scrollbar should be drawn or not.
+     */
+    public func isHorizontalScrollBarEnabled() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isHorizontalScrollBarEnabled",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isHorizontalScrollBarEnabled,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Returns true if the view is currently hovered.
+     */
+    public func isHovered() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isHovered",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isHovered,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Computes whether this view should be exposed for accessibility.
+     */
+    public func isImportantForAccessibility() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isImportantForAccessibility",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isImportantForAccessibility,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Hints the Android System whether the AssistStructure.ViewNode associated with this view is considered important for autofill purposes.
+     */
+    public func isImportantForAutofill() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isImportantForAutofill",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isImportantForAutofill,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Indicates whether this View is currently in edit mode.
+     */
+    public func isInEditMode() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isInEditMode",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isInEditMode,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Returns whether the view hierarchy is currently undergoing a layout pass.
+     */
+    public func isInLayout() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isInLayout",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isInLayout,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Returns whether the device is currently in touch mode.
+     */
+    public func isInTouchMode() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isInTouchMode",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isInTouchMode,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Returns whether this View is a root of a keyboard navigation cluster.
+     */
+    public func isKeyboardNavigationCluster() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isKeyboardNavigationCluster",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isKeyboardNavigationCluster,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Returns true if this view has been through at least one layout since it was last attached to or detached from a window.
+     */
+    public func isLaidOut() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isLaidOut",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isLaidOut,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func isLayoutDirectionResolved() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isLayoutDirectionResolved",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isLayoutDirectionResolved,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Indicates whether or not this view's layout will be requested during the next hierarchy layout pass.
+     */
+    public func isLayoutRequested() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isLayoutRequested",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isLayoutRequested,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Indicates whether this view reacts to long click events or not.
+     */
+    public func isLongClickable() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isLongClickable",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isLongClickable,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Returns true if nested scrolling is enabled for this view.
+     */
+    public func isNestedScrollingEnabled() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isNestedScrollingEnabled",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isNestedScrollingEnabled,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Indicates whether this View is opaque.
+     */
+    public func isOpaque() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isOpaque",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isOpaque,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Return if the padding has been set through relative values setPaddingRelative(int, int, int, int) or through
+     */
+    public func isPaddingRelative() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isPaddingRelative",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isPaddingRelative,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Returns whether or not a pivot has been set by a call to setPivotX(float) or setPivotY(float).
+     */
+    public func isPivotSet() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isPivotSet",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isPivotSet,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Indicates whether the view is currently in pressed state.
+     */
+    public func isPressed() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isPressed",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isPressed,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Indicates whether this view will save its state (that is, whether its onSaveInstanceState() method will be called).
+     */
+    public func isSaveEnabled() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isSaveEnabled",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isSaveEnabled,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Indicates whether the entire hierarchy under this view will save its state when a state saving traversal occurs from its parent.
+     */
+    public func isSaveFromParentEnabled() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isSaveFromParentEnabled",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isSaveFromParentEnabled,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Returns whether the view should be treated as a focusable unit by screen reader accessibility tools.
+     */
+    public func isScreenReaderFocusable() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isScreenReaderFocusable",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isScreenReaderFocusable,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Indicates whether this view is one of the set of scrollable containers in its window.
+     */
+    public func isScrollContainer() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isScrollContainer",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isScrollContainer,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Returns true if scrollbars will fade when this view is not scrolling
+     */
+    public func isScrollbarFadingEnabled() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isScrollbarFadingEnabled",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isScrollbarFadingEnabled,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Indicates the selection state of this view.
+     */
+    public func isSelected() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isSelected",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isSelected,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Returns the visibility of this view and all of its ancestors
+     */
+    public func isShown() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isShown",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isShown,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func isSoundEffectsEnabled() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isSoundEffectsEnabled",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isSoundEffectsEnabled,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Tells whether the View is in the state between onStartTemporaryDetach() and onFinishTemporaryDetach().
+     */
+    public func isTemporarilyDetached() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isTemporarilyDetached",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isTemporarilyDetached,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func isTextAlignmentResolved() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isTextAlignmentResolved",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isTextAlignmentResolved,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func isTextDirectionResolved() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isTextDirectionResolved",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isTextDirectionResolved,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Indicate whether the vertical edges are faded when the view is scrolled horizontally.
+     */
+    public func isVerticalFadingEdgeEnabled() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isVerticalFadingEdgeEnabled",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isVerticalFadingEdgeEnabled,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Indicate whether the vertical scrollbar should be drawn or not.
+     */
+    public func isVerticalScrollBarEnabled() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isVerticalScrollBarEnabled",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isVerticalScrollBarEnabled,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Computes whether this virtual autofill view is visible to the user.
+     */
+    public func isVisibleToUserForAutofill(virtualId: Int) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(virtualId))
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isVisibleToUserForAutofill",
+            methodSig: "(I)Z",
+            methodCache: &JNICache.MethodID.isVisibleToUserForAutofill,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Call Drawable.jumpToCurrentState() on all Drawable objects associated with this view.
+     */
+    public func jumpDrawablesToCurrentState()  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "jumpDrawablesToCurrentState",
+            methodSig: "()V",
+            methodCache: &JNICache.MethodID.jumpDrawablesToCurrentState,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    /**
+     * Assign a size and position to a view and all of its descendants
+     */
+    public func layout(l: Int, t: Int, r: Int, b: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 4 )
+        
+        __args[0] = jvalue(i: jint(l))
+        __args[1] = jvalue(i: jint(t))
+        __args[2] = jvalue(i: jint(r))
+        __args[3] = jvalue(i: jint(b))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "layout",
+            methodSig: "(IIII)V",
+            methodCache: &JNICache.MethodID.layout,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+
+    ///
+    
+    public func measure(widthMeasureSpec: Int, heightMeasureSpec: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = jvalue(i: jint(widthMeasureSpec))
+        __args[1] = jvalue(i: jint(heightMeasureSpec))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "measure",
+            methodSig: "(II)V",
+            methodCache: &JNICache.MethodID.measure,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func offsetLeftAndRight(offset: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(offset))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "offsetLeftAndRight",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.offsetLeftAndRight,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func offsetTopAndBottom(offset: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(offset))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "offsetTopAndBottom",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.offsetTopAndBottom,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func onCancelPendingInputEvents()  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "onCancelPendingInputEvents",
+            methodSig: "()V",
+            methodCache: &JNICache.MethodID.onCancelPendingInputEvents,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func onCheckIsTextEditor() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "onCheckIsTextEditor",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.onCheckIsTextEditor,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func onFinishTemporaryDetach()  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "onFinishTemporaryDetach",
+            methodSig: "()V",
+            methodCache: &JNICache.MethodID.onFinishTemporaryDetach,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func onHoverChanged(hovered: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(hovered ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "onHoverChanged",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.onHoverChanged,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func onPointerCaptureChange(hasCapture: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(hasCapture ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "onPointerCaptureChange",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.onPointerCaptureChange,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func onRtlPropertiesChanged(layoutDirection: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(layoutDirection))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "onRtlPropertiesChanged",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.onRtlPropertiesChanged,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func onScreenStateChanged(screenState: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(screenState))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "onScreenStateChanged",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.onScreenStateChanged,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func onStartTemporaryDetach()  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "onStartTemporaryDetach",
+            methodSig: "()V",
+            methodCache: &JNICache.MethodID.onStartTemporaryDetach,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func onVisibilityAggregated(isVisible: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(isVisible ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "onVisibilityAggregated",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.onVisibilityAggregated,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func onWindowFocusChanged(hasWindowFocus: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(hasWindowFocus ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "onWindowFocusChanged",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.onWindowFocusChanged,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func onWindowSystemUiVisibilityChanged(visible: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(visible))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "onWindowSystemUiVisibilityChanged",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.onWindowSystemUiVisibilityChanged,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func performClick() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "performClick",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.performClick,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func performContextClick(x: Float, y: Float) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = jvalue(f: jfloat(x))
+        __args[1] = jvalue(f: jfloat(y))
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "performContextClick",
+            methodSig: "(FF)Z",
+            methodCache: &JNICache.MethodID.performContextClick,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func performContextClick() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "performContextClick2",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.performContextClick2,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func performHapticFeedback(feedbackConstant: Int) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(feedbackConstant))
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "performHapticFeedback",
+            methodSig: "(I)Z",
+            methodCache: &JNICache.MethodID.performHapticFeedback,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func performHapticFeedback(feedbackConstant: Int, flags: Int) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = jvalue(i: jint(feedbackConstant))
+        __args[1] = jvalue(i: jint(flags))
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "performHapticFeedback2",
+            methodSig: "(II)Z",
+            methodCache: &JNICache.MethodID.performHapticFeedback2,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func performLongClick(x: Float, y: Float) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = jvalue(f: jfloat(x))
+        __args[1] = jvalue(f: jfloat(y))
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "performLongClick",
+            methodSig: "(FF)Z",
+            methodCache: &JNICache.MethodID.performLongClick,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func performLongClick() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "performLongClick2",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.performLongClick2,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func playSoundEffect(soundConstant: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(soundConstant))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "playSoundEffect",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.playSoundEffect,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func postInvalidate()  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "postInvalidate",
+            methodSig: "()V",
+            methodCache: &JNICache.MethodID.postInvalidate,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+
+    public func postInvalidate(left: Int, top: Int, right: Int, bottom: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 4 )
+        
+        __args[0] = jvalue(i: jint(left))
+        __args[1] = jvalue(i: jint(top))
+        __args[2] = jvalue(i: jint(right))
+        __args[3] = jvalue(i: jint(bottom))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "postInvalidate2",
+            methodSig: "(IIII)V",
+            methodCache: &JNICache.MethodID.postInvalidate2,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func postInvalidateDelayed(delayMilliseconds: Int64, left: Int, top: Int, right: Int, bottom: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 5 )
+        
+        __args[0] = jvalue(j: jlong(delayMilliseconds))
+        __args[1] = jvalue(i: jint(left))
+        __args[2] = jvalue(i: jint(top))
+        __args[3] = jvalue(i: jint(right))
+        __args[4] = jvalue(i: jint(bottom))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "postInvalidateDelayed",
+            methodSig: "(JIIII)V",
+            methodCache: &JNICache.MethodID.postInvalidateDelayed,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func postInvalidateDelayed(delayMilliseconds: Int64)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(j: jlong(delayMilliseconds))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "postInvalidateDelayed2",
+            methodSig: "(J)V",
+            methodCache: &JNICache.MethodID.postInvalidateDelayed2,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func postInvalidateOnAnimation(left: Int, top: Int, right: Int, bottom: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 4 )
+        
+        __args[0] = jvalue(i: jint(left))
+        __args[1] = jvalue(i: jint(top))
+        __args[2] = jvalue(i: jint(right))
+        __args[3] = jvalue(i: jint(bottom))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "postInvalidateOnAnimation",
+            methodSig: "(IIII)V",
+            methodCache: &JNICache.MethodID.postInvalidateOnAnimation,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func postInvalidateOnAnimation()  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "postInvalidateOnAnimation2",
+            methodSig: "()V",
+            methodCache: &JNICache.MethodID.postInvalidateOnAnimation2,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func refreshDrawableState()  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "refreshDrawableState",
+            methodSig: "()V",
+            methodCache: &JNICache.MethodID.refreshDrawableState,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func releasePointerCapture()  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "releasePointerCapture",
+            methodSig: "()V",
+            methodCache: &JNICache.MethodID.releasePointerCapture,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func requestApplyInsets()  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "requestApplyInsets",
+            methodSig: "()V",
+            methodCache: &JNICache.MethodID.requestApplyInsets,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func requestFitSystemWindows()  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "requestFitSystemWindows",
+            methodSig: "()V",
+            methodCache: &JNICache.MethodID.requestFitSystemWindows,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func requestFocus(direction: Int) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(direction))
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "requestFocus",
+            methodSig: "(I)Z",
+            methodCache: &JNICache.MethodID.requestFocus,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func requestFocus() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "requestFocus2",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.requestFocus2,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func requestFocusFromTouch() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "requestFocusFromTouch",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.requestFocusFromTouch,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func requestLayout()  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "requestLayout",
+            methodSig: "()V",
+            methodCache: &JNICache.MethodID.requestLayout,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func requestPointerCapture()  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "requestPointerCapture",
+            methodSig: "()V",
+            methodCache: &JNICache.MethodID.requestPointerCapture,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func resetPivot()  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "resetPivot",
+            methodSig: "()V",
+            methodCache: &JNICache.MethodID.resetPivot,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func resolveSize(size: Int, measureSpec: Int) -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = jvalue(i: jint(size))
+        __args[1] = jvalue(i: jint(measureSpec))
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "resolveSize",
+            methodSig: "(II)I",
+            methodCache: &JNICache.MethodID.resolveSize,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    
+    public func resolveSizeAndState(size: Int, measureSpec: Int, childMeasuredState: Int) -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        
+        __args[0] = jvalue(i: jint(size))
+        __args[1] = jvalue(i: jint(measureSpec))
+        __args[2] = jvalue(i: jint(childMeasuredState))
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "resolveSizeAndState",
+            methodSig: "(III)I",
+            methodCache: &JNICache.MethodID.resolveSizeAndState,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Int(__return)
+    }
+    
+    
+    public func restoreDefaultFocus() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "restoreDefaultFocus",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.restoreDefaultFocus,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func scrollBy(x: Int, y: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = jvalue(i: jint(x))
+        __args[1] = jvalue(i: jint(y))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "scrollBy",
+            methodSig: "(II)V",
+            methodCache: &JNICache.MethodID.scrollBy,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func scrollTo(x: Int, y: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = jvalue(i: jint(x))
+        __args[1] = jvalue(i: jint(y))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "scrollTo",
+            methodSig: "(II)V",
+            methodCache: &JNICache.MethodID.scrollTo,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func sendAccessibilityEvent(eventType: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(eventType))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "sendAccessibilityEvent",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.sendAccessibilityEvent,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setAccessibilityHeading(isHeading: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(isHeading ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setAccessibilityHeading",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.setAccessibilityHeading,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setAccessibilityLiveRegion(mode: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(mode))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setAccessibilityLiveRegion",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setAccessibilityLiveRegion,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setAccessibilityTraversalAfter(afterId: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(afterId))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setAccessibilityTraversalAfter",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setAccessibilityTraversalAfter,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setAccessibilityTraversalBefore(beforeId: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(beforeId))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setAccessibilityTraversalBefore",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setAccessibilityTraversalBefore,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setActivated(activated: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(activated ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setActivated",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.setActivated,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setAlpha(alpha: Float)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(f: jfloat(alpha))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setAlpha",
+            methodSig: "(F)V",
+            methodCache: &JNICache.MethodID.setAlpha,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setBackgroundColor(color: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(color))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setBackgroundColor",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setBackgroundColor,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setBackgroundResource(resid: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(resid))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setBackgroundResource",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setBackgroundResource,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setBottom(bottom: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(bottom))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setBottom",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setBottom,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setCameraDistance(distance: Float)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(f: jfloat(distance))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setCameraDistance",
+            methodSig: "(F)V",
+            methodCache: &JNICache.MethodID.setCameraDistance,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setClipToOutline(clipToOutline: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(clipToOutline ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setClipToOutline",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.setClipToOutline,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setContextClickable(contextClickable: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(contextClickable ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setContextClickable",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.setContextClickable,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setDefaultFocusHighlightEnabled(defaultFocusHighlightEnabled: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(defaultFocusHighlightEnabled ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setDefaultFocusHighlightEnabled",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.setDefaultFocusHighlightEnabled,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setDrawingCacheBackgroundColor(color: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(color))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setDrawingCacheBackgroundColor",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setDrawingCacheBackgroundColor,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setDrawingCacheEnabled(enabled: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(enabled ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setDrawingCacheEnabled",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.setDrawingCacheEnabled,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setDrawingCacheQuality(quality: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(quality))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setDrawingCacheQuality",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setDrawingCacheQuality,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setDuplicateParentStateEnabled(enabled: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(enabled ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setDuplicateParentStateEnabled",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.setDuplicateParentStateEnabled,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setElevation(elevation: Float)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(f: jfloat(elevation))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setElevation",
+            methodSig: "(F)V",
+            methodCache: &JNICache.MethodID.setElevation,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setEnabled(enabled: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(enabled ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setEnabled",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.setEnabled,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setFadingEdgeLength(length: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(length))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setFadingEdgeLength",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setFadingEdgeLength,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+
+    public func setFilterTouchesWhenObscured(enabled: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(enabled ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setFilterTouchesWhenObscured",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.setFilterTouchesWhenObscured,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setFitsSystemWindows(fitSystemWindows: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(fitSystemWindows ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setFitsSystemWindows",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.setFitsSystemWindows,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setFocusable(focusable: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(focusable ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setFocusable",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.setFocusable,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setFocusable(focusable: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(focusable))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setFocusable2",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setFocusable2,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setFocusableInTouchMode(focusableInTouchMode: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(focusableInTouchMode ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setFocusableInTouchMode",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.setFocusableInTouchMode,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setFocusedByDefault(isFocusedByDefault: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(isFocusedByDefault ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setFocusedByDefault",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.setFocusedByDefault,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setForegroundGravity(gravity: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(gravity))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setForegroundGravity",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setForegroundGravity,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setHapticFeedbackEnabled(hapticFeedbackEnabled: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(hapticFeedbackEnabled ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setHapticFeedbackEnabled",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.setHapticFeedbackEnabled,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setHasTransientState(hasTransientState: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(hasTransientState ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setHasTransientState",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.setHasTransientState,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setHorizontalFadingEdgeEnabled(horizontalFadingEdgeEnabled: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(horizontalFadingEdgeEnabled ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setHorizontalFadingEdgeEnabled",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.setHorizontalFadingEdgeEnabled,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setHorizontalScrollBarEnabled(horizontalScrollBarEnabled: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(horizontalScrollBarEnabled ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setHorizontalScrollBarEnabled",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.setHorizontalScrollBarEnabled,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setHovered(hovered: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(hovered ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setHovered",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.setHovered,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setId(id: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(id))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setId",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setId,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setImportantForAccessibility(mode: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(mode))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setImportantForAccessibility",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setImportantForAccessibility,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setImportantForAutofill(mode: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(mode))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setImportantForAutofill",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setImportantForAutofill,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setKeepScreenOn(keepScreenOn: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(keepScreenOn ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setKeepScreenOn",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.setKeepScreenOn,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setKeyboardNavigationCluster(isCluster: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(isCluster ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setKeyboardNavigationCluster",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.setKeyboardNavigationCluster,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setLabelFor(id: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(id))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setLabelFor",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setLabelFor,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setLayoutDirection(layoutDirection: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(layoutDirection))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setLayoutDirection",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setLayoutDirection,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setLeft(left: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(left))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setLeft",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setLeft,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setLongClickable(longClickable: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(longClickable ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setLongClickable",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.setLongClickable,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setMinimumHeight(minHeight: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(minHeight))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setMinimumHeight",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setMinimumHeight,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setMinimumWidth(minWidth: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(minWidth))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setMinimumWidth",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setMinimumWidth,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setNestedScrollingEnabled(enabled: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(enabled ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setNestedScrollingEnabled",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.setNestedScrollingEnabled,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setNextClusterForwardId(nextClusterForwardId: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(nextClusterForwardId))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setNextClusterForwardId",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setNextClusterForwardId,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setNextFocusDownId(nextFocusDownId: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(nextFocusDownId))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setNextFocusDownId",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setNextFocusDownId,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setNextFocusForwardId(nextFocusForwardId: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(nextFocusForwardId))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setNextFocusForwardId",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setNextFocusForwardId,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setNextFocusLeftId(nextFocusLeftId: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(nextFocusLeftId))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setNextFocusLeftId",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setNextFocusLeftId,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setNextFocusRightId(nextFocusRightId: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(nextFocusRightId))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setNextFocusRightId",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setNextFocusRightId,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+
+    public func setNextFocusUpId(nextFocusUpId: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(nextFocusUpId))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setNextFocusUpId",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setNextFocusUpId,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setOutlineAmbientShadowColor(color: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(color))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setOutlineAmbientShadowColor",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setOutlineAmbientShadowColor,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setOutlineSpotShadowColor(color: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(color))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setOutlineSpotShadowColor",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setOutlineSpotShadowColor,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setOverScrollMode(overScrollMode: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(overScrollMode))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setOverScrollMode",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setOverScrollMode,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setPadding(left: Int, top: Int, right: Int, bottom: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 4 )
+        
+        __args[0] = jvalue(i: jint(left))
+        __args[1] = jvalue(i: jint(top))
+        __args[2] = jvalue(i: jint(right))
+        __args[3] = jvalue(i: jint(bottom))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setPadding",
+            methodSig: "(IIII)V",
+            methodCache: &JNICache.MethodID.setPadding,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setPaddingRelative(start: Int, top: Int, end: Int, bottom: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 4 )
+        
+        __args[0] = jvalue(i: jint(start))
+        __args[1] = jvalue(i: jint(top))
+        __args[2] = jvalue(i: jint(end))
+        __args[3] = jvalue(i: jint(bottom))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setPaddingRelative",
+            methodSig: "(IIII)V",
+            methodCache: &JNICache.MethodID.setPaddingRelative,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setPivotX(pivotX: Float)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(f: jfloat(pivotX))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setPivotX",
+            methodSig: "(F)V",
+            methodCache: &JNICache.MethodID.setPivotX,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setPivotY(pivotY: Float)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(f: jfloat(pivotY))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setPivotY",
+            methodSig: "(F)V",
+            methodCache: &JNICache.MethodID.setPivotY,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setPressed(pressed: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(pressed ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setPressed",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.setPressed,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setRevealOnFocusHint(revealOnFocus: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(revealOnFocus ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setRevealOnFocusHint",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.setRevealOnFocusHint,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setRight(right: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(right))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setRight",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setRight,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setRotation(rotation: Float)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(f: jfloat(rotation))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setRotation",
+            methodSig: "(F)V",
+            methodCache: &JNICache.MethodID.setRotation,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setRotationX(rotationX: Float)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(f: jfloat(rotationX))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setRotationX",
+            methodSig: "(F)V",
+            methodCache: &JNICache.MethodID.setRotationX,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setRotationY(rotationY: Float)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(f: jfloat(rotationY))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setRotationY",
+            methodSig: "(F)V",
+            methodCache: &JNICache.MethodID.setRotationY,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setSaveEnabled(enabled: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(enabled ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setSaveEnabled",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.setSaveEnabled,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setSaveFromParentEnabled(enabled: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(enabled ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setSaveFromParentEnabled",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.setSaveFromParentEnabled,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setScaleX(scaleX: Float)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(f: jfloat(scaleX))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setScaleX",
+            methodSig: "(F)V",
+            methodCache: &JNICache.MethodID.setScaleX,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setScaleY(scaleY: Float)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(f: jfloat(scaleY))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setScaleY",
+            methodSig: "(F)V",
+            methodCache: &JNICache.MethodID.setScaleY,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setScreenReaderFocusable(screenReaderFocusable: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(screenReaderFocusable ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setScreenReaderFocusable",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.setScreenReaderFocusable,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setScrollBarDefaultDelayBeforeFade(scrollBarDefaultDelayBeforeFade: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(scrollBarDefaultDelayBeforeFade))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setScrollBarDefaultDelayBeforeFade",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setScrollBarDefaultDelayBeforeFade,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setScrollBarFadeDuration(scrollBarFadeDuration: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(scrollBarFadeDuration))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setScrollBarFadeDuration",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setScrollBarFadeDuration,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setScrollBarSize(scrollBarSize: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(scrollBarSize))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setScrollBarSize",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setScrollBarSize,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setScrollBarStyle(style: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(style))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setScrollBarStyle",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setScrollBarStyle,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setScrollContainer(isScrollContainer: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(isScrollContainer ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setScrollContainer",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.setScrollContainer,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setScrollIndicators(indicators: Int, mask: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = jvalue(i: jint(indicators))
+        __args[1] = jvalue(i: jint(mask))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setScrollIndicators",
+            methodSig: "(II)V",
+            methodCache: &JNICache.MethodID.setScrollIndicators,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setScrollIndicators(indicators: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(indicators))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setScrollIndicators2",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setScrollIndicators2,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setScrollX(value: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(value))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setScrollX",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setScrollX,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setScrollY(value: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(value))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setScrollY",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setScrollY,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setScrollbarFadingEnabled(fadeScrollbars: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(fadeScrollbars ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setScrollbarFadingEnabled",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.setScrollbarFadingEnabled,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setSelected(selected: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(selected ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setSelected",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.setSelected,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setSoundEffectsEnabled(soundEffectsEnabled: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(soundEffectsEnabled ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setSoundEffectsEnabled",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.setSoundEffectsEnabled,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setSystemUiVisibility(visibility: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(visibility))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setSystemUiVisibility",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setSystemUiVisibility,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setTextAlignment(textAlignment: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(textAlignment))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setTextAlignment",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setTextAlignment,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setTextDirection(textDirection: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(textDirection))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setTextDirection",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setTextDirection,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setTop(top: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(top))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setTop",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setTop,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setTransitionName(transitionName: String)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: transitionName, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setTransitionName",
+            methodSig: "(Ljava/lang/String;)V",
+            methodCache: &JNICache.MethodID.setTransitionName,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setTranslationX(translationX: Float)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(f: jfloat(translationX))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setTranslationX",
+            methodSig: "(F)V",
+            methodCache: &JNICache.MethodID.setTranslationX,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setTranslationY(translationY: Float)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(f: jfloat(translationY))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setTranslationY",
+            methodSig: "(F)V",
+            methodCache: &JNICache.MethodID.setTranslationY,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setTranslationZ(translationZ: Float)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(f: jfloat(translationZ))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setTranslationZ",
+            methodSig: "(F)V",
+            methodCache: &JNICache.MethodID.setTranslationZ,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setVerticalFadingEdgeEnabled(verticalFadingEdgeEnabled: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(verticalFadingEdgeEnabled ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setVerticalFadingEdgeEnabled",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.setVerticalFadingEdgeEnabled,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+
+    public func setVerticalScrollBarEnabled(verticalScrollBarEnabled: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(verticalScrollBarEnabled ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setVerticalScrollBarEnabled",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.setVerticalScrollBarEnabled,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setVerticalScrollbarPosition(position: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(position))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setVerticalScrollbarPosition",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setVerticalScrollbarPosition,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setVisibility(visibility: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(visibility))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setVisibility",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setVisibility,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setWillNotCacheDrawing(willNotCacheDrawing: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(willNotCacheDrawing ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setWillNotCacheDrawing",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.setWillNotCacheDrawing,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setWillNotDraw(willNotDraw: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(willNotDraw ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setWillNotDraw",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.setWillNotDraw,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setX(x: Float)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(f: jfloat(x))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setX",
+            methodSig: "(F)V",
+            methodCache: &JNICache.MethodID.setX,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setY(y: Float)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(f: jfloat(y))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setY",
+            methodSig: "(F)V",
+            methodCache: &JNICache.MethodID.setY,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func setZ(z: Float)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(f: jfloat(z))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setZ",
+            methodSig: "(F)V",
+            methodCache: &JNICache.MethodID.setZ,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func showContextMenu() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "showContextMenu",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.showContextMenu,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func showContextMenu(x: Float, y: Float) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = jvalue(f: jfloat(x))
+        __args[1] = jvalue(f: jfloat(y))
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "showContextMenu2",
+            methodSig: "(FF)Z",
+            methodCache: &JNICache.MethodID.showContextMenu2,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func startNestedScroll(axes: Int) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(axes))
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "startNestedScroll",
+            methodSig: "(I)Z",
+            methodCache: &JNICache.MethodID.startNestedScroll,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func stopNestedScroll()  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "stopNestedScroll",
+            methodSig: "()V",
+            methodCache: &JNICache.MethodID.stopNestedScroll,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    public func willNotCacheDrawing() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "willNotCacheDrawing",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.willNotCacheDrawing,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    public func willNotDraw() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "willNotDraw",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.willNotDraw,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+
+    
+    ////////////////////////////////////
+    
+    public func getAlpha() -> Float {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallFloatMethod(
+            object: javaObject,
+            methodName: "getAlpha",
+            methodSig: "()F",
+            methodCache: &JNICache.MethodID.getAlpha,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Float(__return)
+    }
+    
+    
+    public func getCameraDistance() -> Float {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallFloatMethod(
+            object: javaObject,
+            methodName: "getCameraDistance",
+            methodSig: "()F",
+            methodCache: &JNICache.MethodID.getCameraDistance,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Float(__return)
+    }
+    
+    
+    public func getElevation() -> Float {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallFloatMethod(
+            object: javaObject,
+            methodName: "getElevation",
+            methodSig: "()F",
+            methodCache: &JNICache.MethodID.getElevation,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Float(__return)
+    }
+    
+    
+    public func getPivotX() -> Float {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallFloatMethod(
+            object: javaObject,
+            methodName: "getPivotX",
+            methodSig: "()F",
+            methodCache: &JNICache.MethodID.getPivotX,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Float(__return)
+    }
+    
+    
+    public func getPivotY() -> Float {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallFloatMethod(
+            object: javaObject,
+            methodName: "getPivotY",
+            methodSig: "()F",
+            methodCache: &JNICache.MethodID.getPivotY,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Float(__return)
+    }
+    
+    
+    public func getRotation() -> Float {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallFloatMethod(
+            object: javaObject,
+            methodName: "getRotation",
+            methodSig: "()F",
+            methodCache: &JNICache.MethodID.getRotation,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Float(__return)
+    }
+    
+    
+    public func getRotationX() -> Float {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallFloatMethod(
+            object: javaObject,
+            methodName: "getRotationX",
+            methodSig: "()F",
+            methodCache: &JNICache.MethodID.getRotationX,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Float(__return)
+    }
+    
+    
+    public func getRotationY() -> Float {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallFloatMethod(
+            object: javaObject,
+            methodName: "getRotationY",
+            methodSig: "()F",
+            methodCache: &JNICache.MethodID.getRotationY,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Float(__return)
+    }
+    
+    
+    public func getScaleX() -> Float {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallFloatMethod(
+            object: javaObject,
+            methodName: "getScaleX",
+            methodSig: "()F",
+            methodCache: &JNICache.MethodID.getScaleX,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Float(__return)
+    }
+    
+    
+    public func getScaleY() -> Float {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallFloatMethod(
+            object: javaObject,
+            methodName: "getScaleY",
+            methodSig: "()F",
+            methodCache: &JNICache.MethodID.getScaleY,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Float(__return)
+    }
+    
+    
+    public func getTranslationX() -> Float {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallFloatMethod(
+            object: javaObject,
+            methodName: "getTranslationX",
+            methodSig: "()F",
+            methodCache: &JNICache.MethodID.getTranslationX,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Float(__return)
+    }
+    
+    
+    public func getTranslationY() -> Float {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallFloatMethod(
+            object: javaObject,
+            methodName: "getTranslationY",
+            methodSig: "()F",
+            methodCache: &JNICache.MethodID.getTranslationY,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Float(__return)
+    }
+    
+    
+    public func getTranslationZ() -> Float {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallFloatMethod(
+            object: javaObject,
+            methodName: "getTranslationZ",
+            methodSig: "()F",
+            methodCache: &JNICache.MethodID.getTranslationZ,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Float(__return)
+    }
+    
+    
+    public func getX() -> Float {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallFloatMethod(
+            object: javaObject,
+            methodName: "getX",
+            methodSig: "()F",
+            methodCache: &JNICache.MethodID.getX,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Float(__return)
+    }
+    
+    
+    public func getY() -> Float {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallFloatMethod(
+            object: javaObject,
+            methodName: "getY",
+            methodSig: "()F",
+            methodCache: &JNICache.MethodID.getY,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Float(__return)
+    }
+    
+    public func getZ() -> Float {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallFloatMethod(
+            object: javaObject,
+            methodName: "getZ",
+            methodSig: "()F",
+            methodCache: &JNICache.MethodID.getZ,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return Float(__return)
+    }
+    
 }
 
 // MARK: - JNICache
@@ -2490,11 +9391,348 @@ internal extension Android.View.View {
             
             static var findViewById: jmethodID?
             static var findViewWithTag: jmethodID?
-            static var setId: jmethodID?
-            static var getId: jmethodID?
             static var getTag: jmethodID?
             static var setTag: jmethodID?
             static var getContext: jmethodID?
+            
+            static var bringToFront: jmethodID?
+            static var buildDrawingCache: jmethodID?
+            static var buildDrawingCache2: jmethodID?
+            static var buildLayer: jmethodID?
+            static var callOnClick: jmethodID?
+            static var canResolveLayoutDirection: jmethodID?
+            static var canResolveTextAlignment: jmethodID?
+            static var canResolveTextDirection: jmethodID?
+            static var canScrollHorizontally: jmethodID?
+            static var canScrollVertically: jmethodID?
+            static var cancelDragAndDrop: jmethodID?
+            static var cancelLongPress: jmethodID?
+            static var cancelPendingInputEvents: jmethodID?
+            static var clearAnimation: jmethodID?
+            static var clearFocus: jmethodID?
+            static var combineMeasuredStates: jmethodID?
+            static var computeScroll: jmethodID?
+            static var destroyDrawingCache: jmethodID?
+            static var dispatchDisplayHint: jmethodID?
+            static var dispatchDrawableHotspotChanged: jmethodID?
+            static var dispatchFinishTemporaryDetach: jmethodID?
+            static var dispatchNestedFling: jmethodID?
+            static var dispatchNestedPreFling: jmethodID?
+            static var dispatchNestedPreScroll: jmethodID?
+            static var dispatchNestedScroll: jmethodID?
+            static var dispatchPointerCaptureChanged: jmethodID?
+            static var dispatchStartTemporaryDetach: jmethodID?
+            static var dispatchSystemUiVisibilityChanged: jmethodID?
+            static var dispatchWindowFocusChanged: jmethodID?
+            static var dispatchWindowSystemUiVisiblityChanged: jmethodID?
+            static var dispatchWindowVisibilityChanged: jmethodID?
+            static var drawableHotspotChanged: jmethodID?
+            static var forceHasOverlappingRendering: jmethodID?
+            static var forceLayout: jmethodID?
+            static var generateViewId: jmethodID?
+            static var getAccessibilityLiveRegion: jmethodID?
+            static var getAccessibilityTraversalAfter: jmethodID?
+            static var getAccessibilityTraversalBefore: jmethodID?
+            static var getAutofillHints: jmethodID?
+            static var getAutofillType: jmethodID?
+            static var getBaseline: jmethodID?
+            static var getBottom: jmethodID?
+            static var getClipToOutline: jmethodID?
+            static var getDefaultFocusHighlightEnabled: jmethodID?
+            static var getDefaultSize: jmethodID?
+            static var getDrawableState: jmethodID?
+            static var getDrawingCacheBackgroundColor: jmethodID?
+            static var getDrawingCacheQuality: jmethodID?
+            static var getFilterTouchesWhenObscured: jmethodID?
+            static var getFitsSystemWindows: jmethodID?
+            static var getFocusable: jmethodID?
+            static var getForegroundGravity: jmethodID?
+            static var getHasOverlappingRendering: jmethodID?
+            static var getHeight: jmethodID?
+            static var getHorizontalFadingEdgeLength: jmethodID?
+            static var getId: jmethodID?
+            static var getImportantForAccessibility: jmethodID?
+            static var getImportantForAutofill: jmethodID?
+            static var getKeepScreenOn: jmethodID?
+            static var getLabelFor: jmethodID?
+            static var getLayerType: jmethodID?
+            static var getLayoutDirection: jmethodID?
+            static var getLeft: jmethodID?
+            static var getLocationInWindow: jmethodID?
+            static var getLocationOnScreen: jmethodID?
+            static var getMeasuredHeight: jmethodID?
+            static var getMeasuredHeightAndState: jmethodID?
+            static var getMeasuredState: jmethodID?
+            static var getMeasuredWidth: jmethodID?
+            static var getMeasuredWidthAndState: jmethodID?
+            static var getMinimumHeight: jmethodID?
+            static var getMinimumWidth: jmethodID?
+            static var getNextClusterForwardId: jmethodID?
+            static var getNextFocusDownId: jmethodID?
+            static var getNextFocusForwardId: jmethodID?
+            static var getNextFocusLeftId: jmethodID?
+            static var getNextFocusRightId: jmethodID?
+            static var getNextFocusUpId: jmethodID?
+            static var getOutlineAmbientShadowColor: jmethodID?
+            static var getOutlineSpotShadowColor: jmethodID?
+            static var getOverScrollMode: jmethodID?
+            static var getPaddingBottom: jmethodID?
+            static var getPaddingEnd: jmethodID?
+            static var getPaddingLeft: jmethodID?
+            static var getPaddingRight: jmethodID?
+            static var getPaddingStart: jmethodID?
+            static var getPaddingTop: jmethodID?
+            static var getRevealOnFocusHint: jmethodID?
+            static var getRight: jmethodID?
+            static var getScrollBarDefaultDelayBeforeFade: jmethodID?
+            static var getScrollBarFadeDuration: jmethodID?
+            static var getScrollBarSize: jmethodID?
+            static var getScrollBarStyle: jmethodID?
+            static var getScrollIndicators: jmethodID?
+            static var getScrollX: jmethodID?
+            static var getScrollY: jmethodID?
+            static var getSolidColor: jmethodID?
+            static var getSystemUiVisibility: jmethodID?
+            static var getTextAlignment: jmethodID?
+            static var getTextDirection: jmethodID?
+            static var getTop: jmethodID?
+            static var getTransitionName: jmethodID?
+            static var getVerticalFadingEdgeLength: jmethodID?
+            static var getVerticalScrollbarPosition: jmethodID?
+            static var getVerticalScrollbarWidth: jmethodID?
+            static var getVisibility: jmethodID?
+            static var getWidth: jmethodID?
+            static var getWindowSystemUiVisibility: jmethodID?
+            static var getWindowVisibility: jmethodID?
+            static var hasExplicitFocusable: jmethodID?
+            static var hasFocus: jmethodID?
+            static var hasFocusable: jmethodID?
+            static var hasNestedScrollingParent: jmethodID?
+            static var hasOnClickListeners: jmethodID?
+            static var hasOverlappingRendering: jmethodID?
+            static var hasPointerCapture: jmethodID?
+            static var hasTransientState: jmethodID?
+            static var hasWindowFocus: jmethodID?
+            static var invalidate: jmethodID?
+            static var invalidate3: jmethodID?
+            static var invalidateOutline: jmethodID?
+            static var isAccessibilityFocused: jmethodID?
+            static var isAccessibilityHeading: jmethodID?
+            static var isActivated: jmethodID?
+            static var isAttachedToWindow: jmethodID?
+            static var isClickable: jmethodID?
+            static var isContextClickable: jmethodID?
+            static var isDirty: jmethodID?
+            static var isDrawingCacheEnabled: jmethodID?
+            static var isDuplicateParentStateEnabled: jmethodID?
+            static var isEnabled: jmethodID?
+            static var isFocusable: jmethodID?
+            static var isFocusableInTouchMode: jmethodID?
+            static var isFocused: jmethodID?
+            static var isFocusedByDefault: jmethodID?
+            static var isHapticFeedbackEnabled: jmethodID?
+            static var isHardwareAccelerated: jmethodID?
+            static var isHorizontalFadingEdgeEnabled: jmethodID?
+            static var isHorizontalScrollBarEnabled: jmethodID?
+            static var isHovered: jmethodID?
+            static var isImportantForAccessibility: jmethodID?
+            static var isImportantForAutofill: jmethodID?
+            static var isInEditMode: jmethodID?
+            static var isInLayout: jmethodID?
+            static var isInTouchMode: jmethodID?
+            static var isKeyboardNavigationCluster: jmethodID?
+            static var isLaidOut: jmethodID?
+            static var isLayoutDirectionResolved: jmethodID?
+            static var isLayoutRequested: jmethodID?
+            static var isLongClickable: jmethodID?
+            static var isNestedScrollingEnabled: jmethodID?
+            static var isOpaque: jmethodID?
+            static var isPaddingRelative: jmethodID?
+            static var isPivotSet: jmethodID?
+            static var isPressed: jmethodID?
+            static var isSaveEnabled: jmethodID?
+            static var isSaveFromParentEnabled: jmethodID?
+            static var isScreenReaderFocusable: jmethodID?
+            static var isScrollContainer: jmethodID?
+            static var isScrollbarFadingEnabled: jmethodID?
+            static var isSelected: jmethodID?
+            static var isShown: jmethodID?
+            static var isSoundEffectsEnabled: jmethodID?
+            static var isTemporarilyDetached: jmethodID?
+            static var isTextAlignmentResolved: jmethodID?
+            static var isTextDirectionResolved: jmethodID?
+            static var isVerticalFadingEdgeEnabled: jmethodID?
+            static var isVerticalScrollBarEnabled: jmethodID?
+            static var isVisibleToUserForAutofill: jmethodID?
+            static var jumpDrawablesToCurrentState: jmethodID?
+            static var layout: jmethodID?
+            static var measure: jmethodID?
+            static var offsetLeftAndRight: jmethodID?
+            static var offsetTopAndBottom: jmethodID?
+            static var onCancelPendingInputEvents: jmethodID?
+            static var onCheckIsTextEditor: jmethodID?
+            static var onFinishTemporaryDetach: jmethodID?
+            static var onHoverChanged: jmethodID?
+            static var onPointerCaptureChange: jmethodID?
+            static var onRtlPropertiesChanged: jmethodID?
+            static var onScreenStateChanged: jmethodID?
+            static var onStartTemporaryDetach: jmethodID?
+            static var onVisibilityAggregated: jmethodID?
+            static var onWindowFocusChanged: jmethodID?
+            static var onWindowSystemUiVisibilityChanged: jmethodID?
+            static var performClick: jmethodID?
+            static var performContextClick: jmethodID?
+            static var performContextClick2: jmethodID?
+            static var performHapticFeedback: jmethodID?
+            static var performHapticFeedback2: jmethodID?
+            static var performLongClick: jmethodID?
+            static var performLongClick2: jmethodID?
+            static var playSoundEffect: jmethodID?
+            static var postInvalidate: jmethodID?
+            static var postInvalidate2: jmethodID?
+            static var postInvalidateDelayed: jmethodID?
+            static var postInvalidateDelayed2: jmethodID?
+            static var postInvalidateOnAnimation: jmethodID?
+            static var postInvalidateOnAnimation2: jmethodID?
+            static var refreshDrawableState: jmethodID?
+            static var releasePointerCapture: jmethodID?
+            static var requestApplyInsets: jmethodID?
+            static var requestFitSystemWindows: jmethodID?
+            static var requestFocus: jmethodID?
+            static var requestFocus2: jmethodID?
+            static var requestFocusFromTouch: jmethodID?
+            static var requestLayout: jmethodID?
+            static var requestPointerCapture: jmethodID?
+            static var resetPivot: jmethodID?
+            static var resolveSize: jmethodID?
+            static var resolveSizeAndState: jmethodID?
+            static var restoreDefaultFocus: jmethodID?
+            static var scrollBy: jmethodID?
+            static var scrollTo: jmethodID?
+            static var sendAccessibilityEvent: jmethodID?
+            static var setAccessibilityHeading: jmethodID?
+            static var setAccessibilityLiveRegion: jmethodID?
+            static var setAccessibilityTraversalAfter: jmethodID?
+            static var setAccessibilityTraversalBefore: jmethodID?
+            static var setActivated: jmethodID?
+            static var setAlpha: jmethodID?
+            static var setBackgroundColor: jmethodID?
+            static var setBackgroundResource: jmethodID?
+            static var setBottom: jmethodID?
+            static var setCameraDistance: jmethodID?
+            static var setClickable: jmethodID?
+            static var setClipToOutline: jmethodID?
+            static var setContextClickable: jmethodID?
+            static var setDefaultFocusHighlightEnabled: jmethodID?
+            static var setDrawingCacheBackgroundColor: jmethodID?
+            static var setDrawingCacheEnabled: jmethodID?
+            static var setDrawingCacheQuality: jmethodID?
+            static var setDuplicateParentStateEnabled: jmethodID?
+            static var setElevation: jmethodID?
+            static var setEnabled: jmethodID?
+            static var setFadingEdgeLength: jmethodID?
+            static var setFilterTouchesWhenObscured: jmethodID?
+            static var setFitsSystemWindows: jmethodID?
+            static var setFocusable: jmethodID?
+            static var setFocusable2: jmethodID?
+            static var setFocusableInTouchMode: jmethodID?
+            static var setFocusedByDefault: jmethodID?
+            static var setForegroundGravity: jmethodID?
+            static var setHapticFeedbackEnabled: jmethodID?
+            static var setHasTransientState: jmethodID?
+            static var setHorizontalFadingEdgeEnabled: jmethodID?
+            static var setHorizontalScrollBarEnabled: jmethodID?
+            static var setHovered: jmethodID?
+            static var setId: jmethodID?
+            static var setImportantForAccessibility: jmethodID?
+            static var setImportantForAutofill: jmethodID?
+            static var setKeepScreenOn: jmethodID?
+            static var setKeyboardNavigationCluster: jmethodID?
+            static var setLabelFor: jmethodID?
+            static var setLayoutDirection: jmethodID?
+            static var setLeft: jmethodID?
+            static var setLongClickable: jmethodID?
+            static var setMinimumHeight: jmethodID?
+            static var setMinimumWidth: jmethodID?
+            static var setNestedScrollingEnabled: jmethodID?
+            static var setNextClusterForwardId: jmethodID?
+            static var setNextFocusDownId: jmethodID?
+            static var setNextFocusForwardId: jmethodID?
+            static var setNextFocusLeftId: jmethodID?
+            static var setNextFocusRightId: jmethodID?
+            static var setNextFocusUpId: jmethodID?
+            static var setOutlineAmbientShadowColor: jmethodID?
+            static var setOutlineSpotShadowColor: jmethodID?
+            static var setOverScrollMode: jmethodID?
+            static var setPadding: jmethodID?
+            static var setPaddingRelative: jmethodID?
+            static var setPivotX: jmethodID?
+            static var setPivotY: jmethodID?
+            static var setPressed: jmethodID?
+            static var setRevealOnFocusHint: jmethodID?
+            static var setRight: jmethodID?
+            static var setRotation: jmethodID?
+            static var setRotationX: jmethodID?
+            static var setRotationY: jmethodID?
+            static var setSaveEnabled: jmethodID?
+            static var setSaveFromParentEnabled: jmethodID?
+            static var setScaleX: jmethodID?
+            static var setScaleY: jmethodID?
+            static var setScreenReaderFocusable: jmethodID?
+            static var setScrollBarDefaultDelayBeforeFade: jmethodID?
+            static var setScrollBarFadeDuration: jmethodID?
+            static var setScrollBarSize: jmethodID?
+            static var setScrollBarStyle: jmethodID?
+            static var setScrollContainer: jmethodID?
+            static var setScrollIndicators: jmethodID?
+            static var setScrollIndicators2: jmethodID?
+            static var setScrollX: jmethodID?
+            static var setScrollY: jmethodID?
+            static var setScrollbarFadingEnabled: jmethodID?
+            static var setSelected: jmethodID?
+            static var setSoundEffectsEnabled: jmethodID?
+            static var setSystemUiVisibility: jmethodID?
+            static var setTextAlignment: jmethodID?
+            static var setTextDirection: jmethodID?
+            static var setTop: jmethodID?
+            static var setTransitionName: jmethodID?
+            static var setTranslationX: jmethodID?
+            static var setTranslationY: jmethodID?
+            static var setTranslationZ: jmethodID?
+            static var setVerticalFadingEdgeEnabled: jmethodID?
+            static var setVerticalScrollBarEnabled: jmethodID?
+            static var setVerticalScrollbarPosition: jmethodID?
+            static var setVisibility: jmethodID?
+            static var setWillNotCacheDrawing: jmethodID?
+            static var setWillNotDraw: jmethodID?
+            static var setX: jmethodID?
+            static var setY: jmethodID?
+            static var setZ: jmethodID?
+            static var showContextMenu: jmethodID?
+            static var showContextMenu2: jmethodID?
+            static var startNestedScroll: jmethodID?
+            static var stopNestedScroll: jmethodID?
+            static var toString: jmethodID?
+            static var willNotCacheDrawing: jmethodID?
+            static var willNotDraw: jmethodID?
+            static var getAlpha: jmethodID?
+            static var getCameraDistance: jmethodID?
+            static var getElevation: jmethodID?
+            static var getPivotX: jmethodID?
+            static var getPivotY: jmethodID?
+            static var getRotation: jmethodID?
+            static var getRotationX: jmethodID?
+            static var getRotationY: jmethodID?
+            static var getScaleX: jmethodID?
+            static var getScaleY: jmethodID?
+            static var getTranslationX: jmethodID?
+            static var getTranslationY: jmethodID?
+            static var getTranslationZ: jmethodID?
+            static var getX: jmethodID?
+            static var getY: jmethodID?
+            static var getZ: jmethodID?
+
+
         }
     }
 }
