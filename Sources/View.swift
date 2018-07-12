@@ -6317,7 +6317,7 @@ public extension Android.View.View {
         
         let __return = JNIMethod.CallBooleanMethod(
             object: javaObject,
-            methodName: "performContextClick2",
+            methodName: "performContextClick",
             methodSig: "()Z",
             methodCache: &JNICache.MethodID.performContextClick2,
             args: &__args,
@@ -6362,7 +6362,7 @@ public extension Android.View.View {
         
         let __return = JNIMethod.CallBooleanMethod(
             object: javaObject,
-            methodName: "performHapticFeedback2",
+            methodName: "performHapticFeedback",
             methodSig: "(II)Z",
             methodCache: &JNICache.MethodID.performHapticFeedback2,
             args: &__args,
@@ -6405,7 +6405,7 @@ public extension Android.View.View {
         
         let __return = JNIMethod.CallBooleanMethod(
             object: javaObject,
-            methodName: "performLongClick2",
+            methodName: "performLongClick",
             methodSig: "()Z",
             methodCache: &JNICache.MethodID.performLongClick2,
             args: &__args,
@@ -6467,7 +6467,7 @@ public extension Android.View.View {
         
         JNIMethod.CallVoidMethod(
             object: javaObject,
-            methodName: "postInvalidate2",
+            methodName: "postInvalidate",
             methodSig: "(IIII)V",
             methodCache: &JNICache.MethodID.postInvalidate2,
             args: &__args,
@@ -6511,7 +6511,7 @@ public extension Android.View.View {
         
         JNIMethod.CallVoidMethod(
             object: javaObject,
-            methodName: "postInvalidateDelayed2",
+            methodName: "postInvalidateDelayed",
             methodSig: "(J)V",
             methodCache: &JNICache.MethodID.postInvalidateDelayed2,
             args: &__args,
@@ -6552,7 +6552,7 @@ public extension Android.View.View {
         
         JNIMethod.CallVoidMethod(
             object: javaObject,
-            methodName: "postInvalidateOnAnimation2",
+            methodName: "postInvalidateOnAnimation",
             methodSig: "()V",
             methodCache: &JNICache.MethodID.postInvalidateOnAnimation2,
             args: &__args,
@@ -6664,7 +6664,7 @@ public extension Android.View.View {
         
         let __return = JNIMethod.CallBooleanMethod(
             object: javaObject,
-            methodName: "requestFocus2",
+            methodName: "requestFocus",
             methodSig: "()Z",
             methodCache: &JNICache.MethodID.requestFocus2,
             args: &__args,
@@ -7348,7 +7348,7 @@ public extension Android.View.View {
         
         JNIMethod.CallVoidMethod(
             object: javaObject,
-            methodName: "setFocusable2",
+            methodName: "setFocusable",
             methodSig: "(I)V",
             methodCache: &JNICache.MethodID.setFocusable2,
             args: &__args,
@@ -8374,7 +8374,7 @@ public extension Android.View.View {
         
         JNIMethod.CallVoidMethod(
             object: javaObject,
-            methodName: "setScrollIndicators2",
+            methodName: "setScrollIndicators",
             methodSig: "(I)V",
             methodCache: &JNICache.MethodID.setScrollIndicators2,
             args: &__args,
@@ -8854,7 +8854,7 @@ public extension Android.View.View {
         
         let __return = JNIMethod.CallBooleanMethod(
             object: javaObject,
-            methodName: "showContextMenu2",
+            methodName: "showContextMenu",
             methodSig: "(FF)Z",
             methodCache: &JNICache.MethodID.showContextMenu2,
             args: &__args,
@@ -10227,7 +10227,7 @@ public extension Android.View.View {
         
         let __return = JNIMethod.CallBooleanMethod(
             object: javaObject,
-            methodName: "requestRectangleOnScreen2",
+            methodName: "requestRectangleOnScreen",
             methodSig: "(Landroid/graphics/Rect;Z)Z",
             methodCache: &JNICache.MethodID.requestRectangleOnScreen2,
             args: &__args,
@@ -10392,7 +10392,7 @@ public extension Android.View.View {
         
         JNIMethod.CallVoidMethod(
             object: javaObject,
-            methodName: "unscheduleDrawable3",
+            methodName: "unscheduleDrawable",
             methodSig: "(Ljava/lang/Object;)V",
             methodCache: &JNICache.MethodID.unscheduleDrawable3,
             args: &__args,
