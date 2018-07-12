@@ -276,7 +276,7 @@ fileprivate extension AndroidWidgetRecyclerViewViewHolder {
 
 private typealias AndroidWidgetRecyclerViewViewHolder_finalize_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong) -> ()
 
-public func AndroidWidgetRecyclerViewViewHolder_finalize ( _ __env: UnsafeMutablePointer<JNIEnv?>,
+public func AndroidWidgetRecyclerViewViewHolder_finalize( _ __env: UnsafeMutablePointer<JNIEnv?>,
                                                         _ __this: jobject?,
                                                         _ __swiftObject: jlong) -> () {
     
