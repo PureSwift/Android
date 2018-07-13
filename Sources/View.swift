@@ -329,7 +329,7 @@ open class AndroidView: JavaObject {
     }
     
     
-    open func dispatchUnhandledMove(focused: JavaObject, direction: Int) -> Bool {
+    open func dispatchUnhandledMove(focused: Android.View.View, direction: Int) -> Bool {
         
         var __locals = [jobject]()
         
