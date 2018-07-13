@@ -204,6 +204,97 @@ public extension AndroidSwiftView {
             args: &__args,
             locals: &__locals )
     }
+    
+    public func addView(_ view: Android.View.SwiftView) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: view, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "addView",
+            methodSig: "(Lorg/pureswift/swiftandroidsupport/view/SwiftView;)V",
+            methodCache: &JNICache.MethodID.addView1,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    public func addView(_ view: Android.View.SwiftView, width: Int, height: Int) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        
+        __args[0] = JNIType.toJava(value: view, locals: &__locals)
+        __args[1] = jvalue(i: jint(width))
+        __args[2] = jvalue(i: jint(height))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "addView",
+            methodSig: "(Lorg/pureswift/swiftandroidsupport/view/SwiftView;II)V",
+            methodCache: &JNICache.MethodID.addView2,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    public func addView(_ view: Android.View.SwiftView, index: Int) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = JNIType.toJava(value: view, locals: &__locals)
+        __args[1] = jvalue(i: jint(index))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "addView",
+            methodSig: "(Lorg/pureswift/swiftandroidsupport/view/SwiftView;I)V",
+            methodCache: &JNICache.MethodID.addView3,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    public func addView(_ view: Android.View.SwiftView, params: Android.View.ViewParamsLayout ) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = JNIType.toJava(value: view, locals: &__locals)
+        __args[1] = JNIType.toJava(value: params, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "addView",
+            methodSig: "(Lorg/pureswift/swiftandroidsupport/view/SwiftView;Lorg/pureswift/swiftandroidsupport/view/SwiftViewLayoutParams;)V",
+            methodCache: &JNICache.MethodID.addView4,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    public func addView(_ view: Android.View.SwiftView, index: Int, params: Android.View.ViewParamsLayout ) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        
+        __args[0] = JNIType.toJava(value: view, locals: &__locals)
+        __args[1] = jvalue(i: jint(index))
+        __args[2] = JNIType.toJava(value: params, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "addView",
+            methodSig: "(Lorg/pureswift/swiftandroidsupport/view/SwiftView;ILorg/pureswift/swiftandroidsupport/view/SwiftViewLayoutParams;)V",
+            methodCache: &JNICache.MethodID.addView5,
+            args: &__args,
+            locals: &__locals )
+    }
 }
 
 // MARK: - JNICache
@@ -239,6 +330,11 @@ internal extension AndroidSwiftView {
             static var getY: jmethodID?
             static var setLayoutParams: jmethodID?
             static var getLayoutParams: jmethodID?
+            static var addView1: jmethodID?
+            static var addView2: jmethodID?
+            static var addView3: jmethodID?
+            static var addView4: jmethodID?
+            static var addView5: jmethodID?
         }
     }
 }
