@@ -9114,7 +9114,7 @@ public extension Android.View.View {
             locals: &__locals )
     }
     
-    public func checkInputConnectionProxy(view: JavaObject) -> Bool {
+    public func checkInputConnectionProxy(view: Android.View.View) -> Bool {
         
         var __locals = [jobject]()
         
@@ -9354,7 +9354,7 @@ public extension Android.View.View {
         JNIMethod.CallVoidMethod(
             object: javaObject,
             methodName: "invalidateDrawable",
-            methodSig: "(Ljava/lang/Object;)V",
+            methodSig: "(Landroid/graphics/drawable/Drawable;)V",
             methodCache: &JNICache.MethodID.invalidateDrawable,
             args: &__args,
             locals: &__locals )
@@ -9869,7 +9869,7 @@ public extension Android.View.View {
         JNIMethod.CallVoidMethod(
             object: javaObject,
             methodName: "scheduleDrawable",
-            methodSig: "(Ljava/lang/Object;Ljava/lang/Runnable;J)V",
+            methodSig: "(Landroid/graphics/drawable/Drawable;Ljava/lang/Runnable;J)V",
             methodCache: &JNICache.MethodID.scheduleDrawable,
             args: &__args,
             locals: &__locals )
@@ -9889,7 +9889,7 @@ public extension Android.View.View {
         JNIMethod.CallVoidMethod(
             object: javaObject,
             methodName: "setBackground",
-            methodSig: "(Ljava/lang/Object;)V",
+            methodSig: "(Landroid/graphics/drawable/Drawable;)V",
             methodCache: &JNICache.MethodID.setBackground,
             args: &__args,
             locals: &__locals )
@@ -9909,7 +9909,7 @@ public extension Android.View.View {
         JNIMethod.CallVoidMethod(
             object: javaObject,
             methodName: "setBackgroundDrawable",
-            methodSig: "(Ljava/lang/Object;)V",
+            methodSig: "(Landroid/graphics/drawable/Drawable;)V",
             methodCache: &JNICache.MethodID.setBackgroundDrawable,
             args: &__args,
             locals: &__locals )
@@ -9949,7 +9949,7 @@ public extension Android.View.View {
         JNIMethod.CallVoidMethod(
             object: javaObject,
             methodName: "setForeground",
-            methodSig: "(Ljava/lang/Object;)V",
+            methodSig: "(Landroid/graphics/drawable/Drawable;)V",
             methodCache: &JNICache.MethodID.setForeground,
             args: &__args,
             locals: &__locals )
@@ -9970,7 +9970,7 @@ public extension Android.View.View {
         JNIMethod.CallVoidMethod(
             object: javaObject,
             methodName: "unscheduleDrawable",
-            methodSig: "(Ljava/lang/Object;Ljava/lang/Runnable;)V",
+            methodSig: "(Landroid/graphics/drawable/Drawable;Ljava/lang/Runnable;)V",
             methodCache: &JNICache.MethodID.unscheduleDrawable,
             args: &__args,
             locals: &__locals )
@@ -9990,7 +9990,7 @@ public extension Android.View.View {
         JNIMethod.CallVoidMethod(
             object: javaObject,
             methodName: "unscheduleDrawable",
-            methodSig: "(Ljava/lang/Object;)V",
+            methodSig: "(Landroid/graphics/drawable/Drawable;)V",
             methodCache: &JNICache.MethodID.unscheduleDrawable3,
             args: &__args,
             locals: &__locals )
