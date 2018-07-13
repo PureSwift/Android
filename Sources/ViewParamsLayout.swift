@@ -40,8 +40,8 @@ open class AndroidViewParamsLayout: JavaObject {
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        __args[0] = JNIType.toJava(value: width, locals: &__locals)
-        __args[1] = JNIType.toJava(value: height, locals: &__locals)
+        __args[0] = jvalue(i: jint(width))
+        __args[1] = jvalue(i: jint(height))
         
         let __object = JNIMethod.NewObject(
             className: JNICache.className,

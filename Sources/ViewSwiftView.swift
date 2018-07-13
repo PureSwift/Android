@@ -34,6 +34,26 @@ open class AndroidSwiftView: JavaObject {
         super.init(javaObject: javaObject)
     }
     
+    public convenience init(context: Android.Content.Context){
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava(value: context, locals: &__locals)
+        
+        let __object = JNIMethod.NewObject(
+            className: JNICache.className,
+            classCache: &JNICache.jniClass,
+            methodSig: "(Landroid/content/Context;)V",
+            methodCache: &JNICache.MethodID.newMethod,
+            args: &__args,
+            locals: &__locals )
+        
+        self.init( javaObject: __object )
+        
+        JNI.DeleteLocalRef( __object )
+    }
+    
     public var x: Float {
         
         get { return getX() ?? 0.0 }
