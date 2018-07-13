@@ -155,12 +155,10 @@ open class AndroidView: JavaObject {
         let __return = JNIMethod.CallBooleanMethod(
             object: javaObject,
             methodName: "dispatchCapturedPointerEvent",
-            methodSig: "(Landroid.view.MotionEvent;)Z",
+            methodSig: "(Landroid/view/MotionEvent;)Z",
             methodCache: &JNICache.MethodID.dispatchCapturedPointerEvent,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -226,8 +224,6 @@ open class AndroidView: JavaObject {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -248,8 +244,6 @@ open class AndroidView: JavaObject {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -269,8 +263,6 @@ open class AndroidView: JavaObject {
             methodCache: &JNICache.MethodID.dispatchKeyShortcutEvent,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -328,12 +320,10 @@ open class AndroidView: JavaObject {
         let __return = JNIMethod.CallBooleanMethod(
             object: javaObject,
             methodName: "dispatchTrackballEvent",
-            methodSig: "(Landroid.view.MotionEvent;)Z",
+            methodSig: "(Landroid/view/MotionEvent;)Z",
             methodCache: &JNICache.MethodID.dispatchTrackballEvent,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -355,8 +345,6 @@ open class AndroidView: JavaObject {
             methodCache: &JNICache.MethodID.dispatchUnhandledMove,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -468,8 +456,6 @@ open class AndroidView: JavaObject {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -489,8 +475,6 @@ open class AndroidView: JavaObject {
             methodCache: &JNICache.MethodID.hasTransientState,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -556,8 +540,6 @@ open class AndroidView: JavaObject {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -574,8 +556,6 @@ open class AndroidView: JavaObject {
             methodCache: &JNICache.MethodID.restoreDefaultFocus,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -2872,12 +2852,12 @@ public extension Android.View.View {
         var __args = [jvalue]( repeating: jvalue(), count: 1)
         
         let __return = JNIMethod.CallBooleanMethod(
-                            object: javaObject,
-                            methodName: "isClickable",
-                            methodSig: "()Z",
-                            methodCache: &JNICache.MethodID.isClickable,
-                            args: &__args,
-                            locals: &__locals )
+            object: javaObject,
+            methodName: "isClickable",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isClickable,
+            args: &__args,
+            locals: &__locals )
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -2960,8 +2940,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -2981,8 +2959,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.canResolveLayoutDirection,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -3004,8 +2980,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -3025,8 +2999,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.canResolveTextDirection,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -3050,8 +3022,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -3073,8 +3043,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.canScrollVertically,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -3181,8 +3149,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Int(__return)
     }
     
@@ -3205,7 +3171,7 @@ public extension Android.View.View {
         
         
     }
-
+    
     
     /**
      * Dispatch onFinishTemporaryDetach() to this View and its direct children if this is a container View.
@@ -3248,8 +3214,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -3272,8 +3236,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.dispatchNestedPreFling,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -3300,8 +3262,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -3327,8 +3287,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.dispatchNestedScroll,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -3440,8 +3398,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Int(__return)
     }
     
@@ -3461,8 +3417,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getAccessibilityLiveRegion,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return Int(__return)
     }
@@ -3484,8 +3438,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Int(__return)
     }
     
@@ -3505,8 +3457,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getAccessibilityTraversalBefore,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return Int(__return)
     }
@@ -3552,8 +3502,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Int(__return)
     }
     
@@ -3573,8 +3521,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getBaseline,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return Int(__return)
     }
@@ -3596,8 +3542,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Int(__return)
     }
     
@@ -3618,11 +3562,9 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
-
+    
     /**
      *  Returns whether this View should use a default focus highlight when it gets focused but doesn't have R.attr.state_focused defined in its background.
      */
@@ -3639,8 +3581,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getDefaultFocusHighlightEnabled,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -3665,8 +3605,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Int(__return)
     }
     
@@ -3682,12 +3620,10 @@ public extension Android.View.View {
         let __return = JNIMethod.CallObjectMethod(
             object: javaObject,
             methodName: "getDrawableState",
-            methodSig: "()I",
+            methodSig: "()[I",
             methodCache: &JNICache.MethodID.getDrawableState,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return JNIType.toSwift(type: [Int].self, from: __return)
     }
@@ -3709,8 +3645,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -3730,8 +3664,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getFitsSystemWindows,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -3753,8 +3685,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Int(__return)
     }
     
@@ -3774,8 +3704,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getForegroundGravity,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return Int(__return)
     }
@@ -3797,8 +3725,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -3818,8 +3744,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getHeight,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return Int(__return)
     }
@@ -3841,31 +3765,8 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Int(__return)
     }
-    
-    /* Already written above
-    public func getId() -> Int {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        let __return = JNIMethod.CallIntMethod(
-            object: javaObject,
-            methodName: "getId",
-            methodSig: "()I",
-            methodCache: &JNICache.MethodID.getId,
-            args: &__args,
-            locals: &__locals )
-        
-        
-        
-        return Int(__return)
-    }
-     */
     
     /**
      * Gets the mode for determining whether this View is important for accessibility.
@@ -3883,8 +3784,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getImportantForAccessibility,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return Int(__return)
     }
@@ -3906,8 +3805,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Int(__return)
     }
     
@@ -3927,8 +3824,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getKeepScreenOn,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -3950,8 +3845,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Int(__return)
     }
     
@@ -3972,11 +3865,9 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Int(__return)
     }
-
+    
     
     //////////////////////
     
@@ -3997,8 +3888,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Int(__return)
     }
     
@@ -4018,8 +3907,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getLeft,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return Int(__return)
     }
@@ -4085,8 +3972,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Int(__return)
     }
     
@@ -4106,8 +3991,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getMeasuredHeightAndState,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return Int(__return)
     }
@@ -4129,8 +4012,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Int(__return)
     }
     
@@ -4150,8 +4031,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getMeasuredWidth,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return Int(__return)
     }
@@ -4173,8 +4052,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Int(__return)
     }
     
@@ -4194,8 +4071,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getMinimumHeight,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return Int(__return)
     }
@@ -4217,8 +4092,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Int(__return)
     }
     
@@ -4238,8 +4111,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getNextClusterForwardId,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return Int(__return)
     }
@@ -4261,8 +4132,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Int(__return)
     }
     
@@ -4282,8 +4151,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getNextFocusForwardId,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return Int(__return)
     }
@@ -4305,8 +4172,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Int(__return)
     }
     
@@ -4327,11 +4192,9 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Int(__return)
     }
-
+    
     /**
      * Gets the id of the view to use when the next focus is FOCUS_UP.
      */
@@ -4348,8 +4211,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getNextFocusUpId,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return Int(__return)
     }
@@ -4369,8 +4230,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Int(__return)
     }
     
@@ -4388,8 +4247,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getOutlineSpotShadowColor,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return Int(__return)
     }
@@ -4411,8 +4268,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Int(__return)
     }
     
@@ -4432,8 +4287,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getPaddingBottom,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return Int(__return)
     }
@@ -4455,8 +4308,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Int(__return)
     }
     
@@ -4476,8 +4327,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getPaddingLeft,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return Int(__return)
     }
@@ -4499,8 +4348,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Int(__return)
     }
     
@@ -4520,8 +4367,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getPaddingStart,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return Int(__return)
     }
@@ -4543,8 +4388,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Int(__return)
     }
     
@@ -4564,8 +4407,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getRevealOnFocusHint,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -4587,8 +4428,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Int(__return)
     }
     
@@ -4608,8 +4447,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getScrollBarDefaultDelayBeforeFade,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return Int(__return)
     }
@@ -4631,8 +4468,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Int(__return)
     }
     
@@ -4652,8 +4487,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getScrollBarSize,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return Int(__return)
     }
@@ -4675,8 +4508,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Int(__return)
     }
     
@@ -4696,8 +4527,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getScrollIndicators,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return Int(__return)
     }
@@ -4719,8 +4548,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Int(__return)
     }
     
@@ -4740,8 +4567,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getScrollY,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return Int(__return)
     }
@@ -4763,8 +4588,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Int(__return)
     }
     
@@ -4784,8 +4607,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getSystemUiVisibility,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return Int(__return)
     }
@@ -4807,8 +4628,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Int(__return)
     }
     
@@ -4829,8 +4648,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Int(__return)
     }
     
@@ -4850,8 +4667,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getTop,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return Int(__return)
     }
@@ -4897,8 +4712,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Int(__return)
     }
     
@@ -4916,8 +4729,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getVerticalScrollbarPosition,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return Int(__return)
     }
@@ -4939,8 +4750,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Int(__return)
     }
     
@@ -4960,8 +4769,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getVisibility,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return Int(__return)
     }
@@ -4983,8 +4790,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Int(__return)
     }
     
@@ -5004,8 +4809,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getWindowSystemUiVisibility,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return Int(__return)
     }
@@ -5027,8 +4830,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Int(__return)
     }
     
@@ -5048,8 +4849,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.hasExplicitFocusable,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -5073,8 +4872,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -5094,8 +4891,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.hasNestedScrollingParent,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -5117,8 +4912,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -5139,8 +4932,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -5160,8 +4951,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.hasPointerCapture,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -5184,8 +4973,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.hasWindowFocus,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -5247,8 +5034,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -5268,8 +5053,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.isAccessibilityHeading,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -5291,8 +5074,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -5312,8 +5093,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.isAttachedToWindow,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -5335,8 +5114,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -5356,8 +5133,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.isDirty,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -5379,8 +5154,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -5400,8 +5173,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.isFocusable,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -5423,8 +5194,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -5444,8 +5213,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.isFocused,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -5467,8 +5234,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -5486,8 +5251,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.isHapticFeedbackEnabled,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -5509,8 +5272,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -5530,8 +5291,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.isHorizontalFadingEdgeEnabled,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -5553,8 +5312,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -5574,8 +5331,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.isHovered,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -5597,8 +5352,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -5618,8 +5371,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.isImportantForAutofill,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -5641,8 +5392,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -5662,8 +5411,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.isInLayout,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -5685,8 +5432,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -5706,8 +5451,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.isKeyboardNavigationCluster,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -5729,8 +5472,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -5748,8 +5489,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.isLayoutDirectionResolved,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -5771,8 +5510,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -5792,8 +5529,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.isLongClickable,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -5815,8 +5550,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -5836,8 +5569,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.isOpaque,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -5859,8 +5590,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -5880,8 +5609,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.isPivotSet,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -5903,8 +5630,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -5924,8 +5649,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.isSaveEnabled,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -5947,8 +5670,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -5968,8 +5689,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.isScreenReaderFocusable,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -5991,8 +5710,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -6012,8 +5729,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.isScrollbarFadingEnabled,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -6035,8 +5750,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -6057,8 +5770,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -6076,8 +5787,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.isSoundEffectsEnabled,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -6099,8 +5808,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -6119,8 +5826,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -6138,8 +5843,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.isTextDirectionResolved,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -6161,8 +5864,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -6182,8 +5883,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.isVerticalScrollBarEnabled,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -6206,8 +5905,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.isVisibleToUserForAutofill,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -6304,8 +6001,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.onCheckIsTextEditor,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -6501,8 +6196,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -6524,8 +6217,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -6543,8 +6234,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.performContextClick2,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -6565,8 +6254,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.performHapticFeedback,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -6589,8 +6276,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -6612,8 +6297,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -6631,8 +6314,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.performLongClick2,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -6674,7 +6355,7 @@ public extension Android.View.View {
         
         
     }
-
+    
     public func postInvalidate(left: Int, top: Int, right: Int, bottom: Int)  {
         
         var __locals = [jobject]()
@@ -6871,8 +6552,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -6891,8 +6570,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -6910,8 +6587,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.requestFocusFromTouch,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -6988,8 +6663,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Int(__return)
     }
     
@@ -7011,8 +6684,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.resolveSizeAndState,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return Int(__return)
     }
@@ -7477,7 +7148,7 @@ public extension Android.View.View {
         
         
     }
-
+    
     public func setFilterTouchesWhenObscured(enabled: Bool)  {
         
         var __locals = [jobject]()
@@ -8056,7 +7727,7 @@ public extension Android.View.View {
         
         
     }
-
+    
     public func setNextFocusUpId(nextFocusUpId: Int)  {
         
         var __locals = [jobject]()
@@ -8862,7 +8533,7 @@ public extension Android.View.View {
         
         
     }
-
+    
     public func setVerticalScrollBarEnabled(verticalScrollBarEnabled: Bool)  {
         
         var __locals = [jobject]()
@@ -9037,8 +8708,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -9060,8 +8729,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -9081,8 +8748,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.startNestedScroll,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -9120,8 +8785,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -9140,11 +8803,9 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
-
+    
     
     ////////////////////////////////////
     
@@ -9161,8 +8822,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getAlpha,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return Float(__return)
     }
@@ -9182,8 +8841,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Float(__return)
     }
     
@@ -9201,8 +8858,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getElevation,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return Float(__return)
     }
@@ -9222,8 +8877,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Float(__return)
     }
     
@@ -9241,8 +8894,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getPivotY,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return Float(__return)
     }
@@ -9262,8 +8913,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Float(__return)
     }
     
@@ -9281,8 +8930,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getRotationX,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return Float(__return)
     }
@@ -9302,8 +8949,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Float(__return)
     }
     
@@ -9321,8 +8966,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getScaleX,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return Float(__return)
     }
@@ -9342,8 +8985,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Float(__return)
     }
     
@@ -9361,8 +9002,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getTranslationX,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return Float(__return)
     }
@@ -9382,8 +9021,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Float(__return)
     }
     
@@ -9401,8 +9038,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getTranslationZ,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return Float(__return)
     }
@@ -9422,8 +9057,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Float(__return)
     }
     
@@ -9442,8 +9075,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return Float(__return)
     }
     
@@ -9460,8 +9091,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getZ,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return Float(__return)
     }
@@ -9501,8 +9130,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -9521,12 +9148,10 @@ public extension Android.View.View {
         let __return = JNIMethod.CallBooleanMethod(
             object: javaObject,
             methodName: "dispatchGenericMotionEvent",
-            methodSig: "(Landroid.view.MotionEvent;)Z",
+            methodSig: "(Landroid/view/MotionEvent;)Z",
             methodCache: &JNICache.MethodID.dispatchGenericMotionEvent,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -9546,12 +9171,10 @@ public extension Android.View.View {
         let __return = JNIMethod.CallBooleanMethod(
             object: javaObject,
             methodName: "dispatchTouchEvent",
-            methodSig: "(Landroid.view.MotionEvent;)Z",
+            methodSig: "(Landroid/view/MotionEvent;)Z",
             methodCache: &JNICache.MethodID.dispatchTouchEvent,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -9575,8 +9198,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getClipBounds,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -9638,8 +9259,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -9679,8 +9298,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.getLocalVisibleRect,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -9756,12 +9373,10 @@ public extension Android.View.View {
         let __return = JNIMethod.CallBooleanMethod(
             object: javaObject,
             methodName: "onCapturedPointerEvent",
-            methodSig: "(Landroid.view.MotionEvent;)Z",
+            methodSig: "(Landroid/view/MotionEvent;)Z",
             methodCache: &JNICache.MethodID.onCapturedPointerEvent,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -9778,16 +9393,14 @@ public extension Android.View.View {
         let __return = JNIMethod.CallBooleanMethod(
             object: javaObject,
             methodName: "onFilterTouchEventForSecurity",
-            methodSig: "(Landroid.view.MotionEvent;)Z",
+            methodSig: "(Landroid/view/MotionEvent;)Z",
             methodCache: &JNICache.MethodID.onFilterTouchEventForSecurity,
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
-
+    
     public func onGenericMotionEvent(event: JavaObject) -> Bool {
         
         var __locals = [jobject]()
@@ -9799,12 +9412,10 @@ public extension Android.View.View {
         let __return = JNIMethod.CallBooleanMethod(
             object: javaObject,
             methodName: "onGenericMotionEvent",
-            methodSig: "(Landroid.view.MotionEvent;)Z",
+            methodSig: "(Landroid/view/MotionEvent;)Z",
             methodCache: &JNICache.MethodID.onGenericMotionEvent,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -9821,12 +9432,10 @@ public extension Android.View.View {
         let __return = JNIMethod.CallBooleanMethod(
             object: javaObject,
             methodName: "onHoverEvent",
-            methodSig: "(Landroid.view.MotionEvent;)Z",
+            methodSig: "(Landroid/view/MotionEvent;)Z",
             methodCache: &JNICache.MethodID.onHoverEvent,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -9849,8 +9458,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -9871,8 +9478,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.onKeyLongPress,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -9896,8 +9501,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -9918,8 +9521,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.onKeyPreIme,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -9942,8 +9543,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -9964,8 +9563,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.onKeyUp,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -10064,12 +9661,10 @@ public extension Android.View.View {
         let __return = JNIMethod.CallBooleanMethod(
             object: javaObject,
             methodName: "onTouchEvent",
-            methodSig: "(Landroid.view.MotionEvent;)Z",
+            methodSig: "(Landroid/view/MotionEvent;)Z",
             methodCache: &JNICache.MethodID.onTouchEvent,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -10086,12 +9681,10 @@ public extension Android.View.View {
         let __return = JNIMethod.CallBooleanMethod(
             object: javaObject,
             methodName: "onTrackballEvent",
-            methodSig: "(Landroid.view.MotionEvent;)Z",
+            methodSig: "(Landroid/view/MotionEvent;)Z",
             methodCache: &JNICache.MethodID.onTrackballEvent,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -10113,8 +9706,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -10135,8 +9726,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.postDelayed,
             args: &__args,
             locals: &__locals )
-        
-        
         
         return __return != jboolean(JNI_FALSE)
     }
@@ -10199,8 +9788,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -10224,8 +9811,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -10247,8 +9832,6 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        
-        
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -10264,7 +9847,7 @@ public extension Android.View.View {
         JNIMethod.CallVoidMethod(
             object: javaObject,
             methodName: "requestUnbufferedDispatch",
-            methodSig: "(Landroid.view.MotionEvent;)V",
+            methodSig: "(Landroid/view/MotionEvent;)V",
             methodCache: &JNICache.MethodID.requestUnbufferedDispatch,
             args: &__args,
             locals: &__locals )
@@ -10414,7 +9997,7 @@ public extension Android.View.View {
         
         
     }
-
+    
     
 }
 
@@ -10960,7 +10543,7 @@ internal extension Android.View.View {
             static var unscheduleDrawable: jmethodID?
             static var unscheduleDrawable2: jmethodID?
             static var unscheduleDrawable3: jmethodID?
-
+            
         }
     }
 }
