@@ -41,7 +41,7 @@ open class AndroidViewGroup: AndroidView {
         let __return = JNIMethod.CallBooleanMethod(
             object: javaObject,
             methodName: "dispatchCapturedPointerEvent",
-            methodSig: "(Landroid.view.MotionEvent;)Z",
+            methodSig: "(Landroid/view/MotionEvent;)Z",
             methodCache: &ViewGroupJNICache.MethodID.dispatchCapturedPointerEvent,
             args: &__args,
             locals: &__locals )
@@ -227,7 +227,7 @@ open class AndroidViewGroup: AndroidView {
         let __return = JNIMethod.CallBooleanMethod(
             object: javaObject,
             methodName: "dispatchTrackballEvent",
-            methodSig: "(Landroid.view.MotionEvent;)Z",
+            methodSig: "(Landroid/view/MotionEvent;)Z",
             methodCache: &ViewGroupJNICache.MethodID.dispatchTrackballEvent,
             args: &__args,
             locals: &__locals )
@@ -694,7 +694,7 @@ public extension Android.View.ViewGroup {
         let __return = JNIMethod.CallBooleanMethod(
             object: javaObject,
             methodName: "dispatchTouchEvent",
-            methodSig: "(Landroid.view.MotionEvent;)Z",
+            methodSig: "(Landroid/view/MotionEvent;)Z",
             methodCache: &ViewGroupJNICache.MethodID.dispatchTouchEvent,
             args: &__args,
             locals: &__locals )
@@ -1246,7 +1246,7 @@ public extension Android.View.ViewGroup {
         let __return = JNIMethod.CallBooleanMethod(
             object: javaObject,
             methodName: "onInterceptHoverEvent",
-            methodSig: "(Landroid.view.MotionEvent;)Z",
+            methodSig: "(Landroid/view/MotionEvent;)Z",
             methodCache: &ViewGroupJNICache.MethodID.onInterceptHoverEvent,
             args: &__args,
             locals: &__locals )
@@ -1268,7 +1268,7 @@ public extension Android.View.ViewGroup {
         let __return = JNIMethod.CallBooleanMethod(
             object: javaObject,
             methodName: "onInterceptTouchEvent",
-            methodSig: "(Landroid.view.MotionEvent;)Z",
+            methodSig: "(Landroid/view/MotionEvent;)Z",
             methodCache: &ViewGroupJNICache.MethodID.onInterceptTouchEvent,
             args: &__args,
             locals: &__locals )
