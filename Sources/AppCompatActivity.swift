@@ -327,6 +327,40 @@ open class SwiftSupportAppCompatActivity: AndroidContextWrapper {
         return __return != nil ? Android.View.View(javaObject: __return) : nil
     }
     
+    public func getDensity() -> Float {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+
+        let __return = JNIMethod.CallFloatMethod(
+            object: javaObject,
+            methodName: "getDensity",
+            methodSig: "()F",
+            methodCache: &SwiftActivityJNICache.MethodID.getDensity,
+            args: &__args,
+            locals: &__locals )
+        
+        return __return
+    }
+    
+    public func addContentView(_ view: Android.View.View, params: JavaObject) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = JNIType.toJava(value: view, locals: &__locals)
+        __args[1] = JNIType.toJava(value: params, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "addContentView",
+            methodSig: "(Lorg/pureswift/swiftandroidsupport/view/SwiftView;Lorg/pureswift/swiftandroidsupport/view/SwiftViewLayoutParams;)",
+            methodCache: &SwiftActivityJNICache.MethodID.addContentView,
+            args: &__args,
+            locals: &__locals )
+    }
 }
 
 extension SwiftSupportAppCompatActivity: JNIListener { }
@@ -431,6 +465,8 @@ fileprivate extension SwiftSupport.App.AppCompatActivity {
             static var setContentView1: jmethodID?
             static var setContentView2: jmethodID?
             static var findViewById: jmethodID?
+            static var getDensity: jmethodID?
+            static var addContentView: jmethodID?
         }
     }
 }
