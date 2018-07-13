@@ -207,7 +207,7 @@ extension Android.View.ViewParamsLayout {
             args: &__args,
             locals: &__locals )
         
-        return jboolean(__return) != JNI_FALSE
+        return jboolean(__return) != jboolean(JNI_FALSE)
     }
     
     public func resolveLayoutDirection(_ layoutDirection: Int) {
