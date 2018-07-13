@@ -306,6 +306,24 @@ open class SwiftSupportAppCompatActivity: AndroidContextWrapper {
         }
     }
     
+    public func setContentView(view: Android.View.SwiftView) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1)
+        __args[0] = JNIType.toJava( value: view, locals: &__locals )
+        
+        withJavaObject {
+            
+            JNIMethod.CallVoidMethod(object: $0,
+                                     methodName: "setContentView",
+                                     methodSig: "(Lorg/pureswift/swiftandroidsupport/view/SwiftView;)V",
+                                     methodCache: &SwiftActivityJNICache.MethodID.setContentView3,
+                                     args: &__args,
+                                     locals: &__locals)
+        }
+    }
+    
     public func findViewById(_ id: Int) -> Android.View.View? {
         
         var __locals = [jobject]()
@@ -464,6 +482,7 @@ fileprivate extension SwiftSupport.App.AppCompatActivity {
             static var getIdentifier: jmethodID?
             static var setContentView1: jmethodID?
             static var setContentView2: jmethodID?
+            static var setContentView3: jmethodID?
             static var findViewById: jmethodID?
             static var getDensity: jmethodID?
             static var addContentView: jmethodID?
