@@ -62,6 +62,24 @@ open class AndroidViewParamsLayout: JavaObject {
             setMarginStart(newValue)
         }
     }
+    
+    public var marginEnd: Int {
+        get{ return getMarginEnd() }
+        set{
+            setMarginEnd(newValue)
+        }
+    }
+    
+    public var layoutDirection: Int {
+        get{ return getLayoutDirection() }
+        set{
+            setLayoutDirection(newValue)
+        }
+    }
+    
+    public var isMarginRelative: Bool {
+        get{ return getIsMarginRelative() }
+    }
 }
 
 extension Android.View.ViewParamsLayout {
@@ -103,13 +121,13 @@ extension Android.View.ViewParamsLayout {
     }
     
     @_versioned
-    internal func setMarginEnd(_ start: Int) {
+    internal func setMarginEnd(_ end: Int) {
         
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         
-        __args[0] = jvalue(i: jint(start))
+        __args[0] = jvalue(i: jint(end))
         
         JNIMethod.CallVoidMethod(
             object: javaObject,
@@ -136,6 +154,96 @@ extension Android.View.ViewParamsLayout {
             locals: &__locals )
         
         return Int(__return)
+    }
+    
+    @_versioned
+    internal func setLayoutDirection(_ layoutDirection: Int) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(layoutDirection))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setLayoutDirection",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setLayoutDirection,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    @_versioned
+    internal func getLayoutDirection() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getLayoutDirection",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getLayoutDirection,
+            args: &__args,
+            locals: &__locals )
+        
+        return Int(__return)
+    }
+    
+    @_versioned
+    internal func getIsMarginRelative() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "isMarginRelative",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.isMarginRelative,
+            args: &__args,
+            locals: &__locals )
+        
+        return jboolean(__return) != JNI_FALSE
+    }
+    
+    public func resolveLayoutDirection(_ layoutDirection: Int) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(layoutDirection))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "resolveLayoutDirection",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.resolveLayoutDirection,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    public func setBaseAttributes(a: JavaObject, widthAttr: Int, heightAttr: Int) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        
+        __args[0] = JNIType.toJava(value: a, locals: &__locals)
+        __args[1] = jvalue(i: jint(widthAttr))
+        __args[2] = jvalue(i: jint(heightAttr))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setBaseAttributes",
+            methodSig: "(Landroid/content/res/TypedArray;II)V",
+            methodCache: &JNICache.MethodID.setBaseAttributes,
+            args: &__args,
+            locals: &__locals )
     }
 }
 
