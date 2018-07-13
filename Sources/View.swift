@@ -103,6 +103,484 @@ open class AndroidView: JavaObject {
         
         return __return != nil ? Android.View.View(javaObject: __return) : nil
     }
+    
+    // Overridable func
+    /**
+     * Called when this view wants to give up focus.
+     */
+    open func clearFocus()  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "clearFocus",
+            methodSig: "()V",
+            methodCache: &JNICache.MethodID.clearFocus,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    open func dispatchPointerCaptureChanged(hasCapture: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(hasCapture ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "dispatchPointerCaptureChanged",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.dispatchPointerCaptureChanged,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    open func dispatchCapturedPointerEvent(event: JavaObject) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: event, locals: &__locals)
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "dispatchCapturedPointerEvent",
+            methodSig: "(Landroid.view.MotionEvent;)Z",
+            methodCache: &JNICache.MethodID.dispatchCapturedPointerEvent,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Dispatch a hint about whether this view is displayed.
+     */
+    open func dispatchDisplayHint(hint: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(hint))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "dispatchDisplayHint",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.dispatchDisplayHint,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    /**
+     * Dispatches drawableHotspotChanged to all of this View's children.
+     */
+    open func dispatchDrawableHotspotChanged(x: Float, y: Float)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = jvalue(f: jfloat(x))
+        __args[1] = jvalue(f: jfloat(y))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "dispatchDrawableHotspotChanged",
+            methodSig: "(FF)V",
+            methodCache: &JNICache.MethodID.dispatchDrawableHotspotChanged,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    open func dispatchKeyEvent(event: JavaObject) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: event, locals: &__locals)
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "dispatchKeyEvent",
+            methodSig: "(Landroid/view/KeyEvent;)Z",
+            methodCache: &JNICache.MethodID.dispatchKeyEvent,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    open func dispatchKeyEventPreIme(event: JavaObject) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: event, locals: &__locals)
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "dispatchKeyEventPreIme",
+            methodSig: "(Landroid/view/KeyEvent;)Z",
+            methodCache: &JNICache.MethodID.dispatchKeyEventPreIme,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    open func dispatchKeyShortcutEvent(event: JavaObject) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: event, locals: &__locals)
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "dispatchKeyShortcutEvent",
+            methodSig: "(Landroid/view/KeyEvent;)Z",
+            methodCache: &JNICache.MethodID.dispatchKeyShortcutEvent,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    open func dispatchProvideAutofillStructure(structure: JavaObject, flags: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = JNIType.toJava(value: structure, locals: &__locals)
+        __args[1] = jvalue(i: jint(flags))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "dispatchProvideAutofillStructure",
+            methodSig: "(Landroid/view/ViewStructure;I)V",
+            methodCache: &JNICache.MethodID.dispatchProvideAutofillStructure,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    
+    open func dispatchProvideStructure(structure: JavaObject)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: structure, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "dispatchProvideStructure",
+            methodSig: "(Landroid/view/ViewStructure;)V",
+            methodCache: &JNICache.MethodID.dispatchProvideStructure,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    open func dispatchTrackballEvent(event: JavaObject) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: event, locals: &__locals)
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "dispatchTrackballEvent",
+            methodSig: "(Landroid.view.MotionEvent;)Z",
+            methodCache: &JNICache.MethodID.dispatchTrackballEvent,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    open func dispatchUnhandledMove(focused: JavaObject, direction: Int) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = JNIType.toJava(value: focused, locals: &__locals)
+        __args[1] = jvalue(i: jint(direction))
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "dispatchUnhandledMove",
+            methodSig: "(Landroid/view/View;I)Z",
+            methodCache: &JNICache.MethodID.dispatchUnhandledMove,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Called when the window containing this view gains or loses window focus.
+     */
+    open func dispatchWindowFocusChanged(hasFocus: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(hasFocus ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "dispatchWindowFocusChanged",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.dispatchWindowFocusChanged,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    /**
+     * Dispatch callbacks to setOnSystemUiVisibilityChangeListener(View.OnSystemUiVisibilityChangeListener) down the view hierarchy.
+     */
+    open func dispatchSystemUiVisibilityChanged(visibility: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(visibility))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "dispatchSystemUiVisibilityChanged",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.dispatchSystemUiVisibilityChanged,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    
+    
+    /**
+     * Dispatch callbacks to onWindowSystemUiVisibilityChanged(int) down the view hierarchy.
+     */
+    open func dispatchWindowSystemUiVisiblityChanged(visible: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(visible))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "dispatchWindowSystemUiVisiblityChanged",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.dispatchWindowSystemUiVisiblityChanged,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    /**
+     * Dispatch a window visibility change down the view hierarchy.
+     */
+    open func dispatchWindowVisibilityChanged(visibility: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(visibility))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "dispatchWindowVisibilityChanged",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.dispatchWindowVisibilityChanged,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    /**
+     * Returns true if this view has focus itself, or is the ancestor of the view that has focus.
+     */
+    open func hasFocus() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "hasFocus",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.hasFocus,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Indicates whether the view is currently tracking transient state that the app should not need to concern itself with saving and restoring, but that the framework should take special note to preserve when possible.
+     */
+    open func hasTransientState() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "hasTransientState",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.hasTransientState,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Call Drawable.jumpToCurrentState() on all Drawable objects associated with this view.
+     */
+    open func jumpDrawablesToCurrentState()  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "jumpDrawablesToCurrentState",
+            methodSig: "()V",
+            methodCache: &JNICache.MethodID.jumpDrawablesToCurrentState,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    /**
+     * Assign a size and position to a view and all of its descendants
+     */
+    open func layout(l: Int, t: Int, r: Int, b: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 4 )
+        
+        __args[0] = jvalue(i: jint(l))
+        __args[1] = jvalue(i: jint(t))
+        __args[2] = jvalue(i: jint(r))
+        __args[3] = jvalue(i: jint(b))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "layout",
+            methodSig: "(IIII)V",
+            methodCache: &JNICache.MethodID.layout,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    open func requestFocus(direction: Int, previouslyFocusedRect: JavaObject) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = jvalue(i: jint(direction))
+        __args[1] = JNIType.toJava(value: previouslyFocusedRect, locals: &__locals)
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "requestFocus",
+            methodSig: "(ILandroid/graphics/Rect;)Z",
+            methodCache: &JNICache.MethodID.requestFocus,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    open func restoreDefaultFocus() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "restoreDefaultFocus",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.restoreDefaultFocus,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
 }
 
 // MARK: - Constants
@@ -2262,7 +2740,7 @@ public extension Android.View.View {
         return findViewById(id.rawValue)
     }
     
-    private func setId(_ id: Int) {
+    public func setId(_ id: Int) {
         
         var __locals = [jobject]()
         
@@ -2279,7 +2757,7 @@ public extension Android.View.View {
             locals: &__locals )
     }
     
-    private func getId() -> Int {
+    public func getId() -> Int {
         
         var __locals = [jobject]()
         
@@ -2303,7 +2781,7 @@ public extension Android.View.View {
         set { setId(newValue) }
     }
     
-    private func getTag() -> JavaObject? {
+    public func getTag() -> JavaObject? {
         
         var __locals = [jobject]()
         
@@ -2322,7 +2800,7 @@ public extension Android.View.View {
         return __return != nil ? JavaObject(javaObject: __return) : nil
     }
     
-    private func setTag(_ tag: JavaObject?) {
+    public func setTag(_ tag: JavaObject?) {
         
         var __locals = [jobject]()
         
@@ -2681,25 +3159,7 @@ public extension Android.View.View {
         
     }
     
-    /**
-     * Called when this view wants to give up focus.
-     */
-    public func clearFocus()  {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        JNIMethod.CallVoidMethod(
-            object: javaObject,
-            methodName: "clearFocus",
-            methodSig: "()V",
-            methodCache: &JNICache.MethodID.clearFocus,
-            args: &__args,
-            locals: &__locals )
-        
-        
-    }
+    
     
     /**
      * Merge two states as returned by getMeasuredState().
@@ -2745,54 +3205,7 @@ public extension Android.View.View {
         
         
     }
-    
-    /**
-     * Dispatch a hint about whether this view is displayed.
-     */
-    public func dispatchDisplayHint(hint: Int)  {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        __args[0] = jvalue(i: jint(hint))
-        
-        JNIMethod.CallVoidMethod(
-            object: javaObject,
-            methodName: "dispatchDisplayHint",
-            methodSig: "(I)V",
-            methodCache: &JNICache.MethodID.dispatchDisplayHint,
-            args: &__args,
-            locals: &__locals )
-        
-        
-    }
 
-    
-    //////////////////
-    
-    /**
-     * Dispatches drawableHotspotChanged to all of this View's children.
-     */
-    public func dispatchDrawableHotspotChanged(x: Float, y: Float)  {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        
-        __args[0] = jvalue(f: jfloat(x))
-        __args[1] = jvalue(f: jfloat(y))
-        
-        JNIMethod.CallVoidMethod(
-            object: javaObject,
-            methodName: "dispatchDrawableHotspotChanged",
-            methodSig: "(FF)V",
-            methodCache: &JNICache.MethodID.dispatchDrawableHotspotChanged,
-            args: &__args,
-            locals: &__locals )
-        
-        
-    }
     
     /**
      * Dispatch onFinishTemporaryDetach() to this View and its direct children if this is a container View.
@@ -2921,24 +3334,7 @@ public extension Android.View.View {
     }
     
     
-    public func dispatchPointerCaptureChanged(hasCapture: Bool)  {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        __args[0] = jvalue(z: jboolean(hasCapture ? JNI_TRUE : JNI_FALSE))
-        
-        JNIMethod.CallVoidMethod(
-            object: javaObject,
-            methodName: "dispatchPointerCaptureChanged",
-            methodSig: "(Z)V",
-            methodCache: &JNICache.MethodID.dispatchPointerCaptureChanged,
-            args: &__args,
-            locals: &__locals )
-        
-        
-    }
+    
     
     /**
      * Dispatch onStartTemporaryDetach() to this View and its direct children if this is a container View.
@@ -2960,95 +3356,7 @@ public extension Android.View.View {
         
     }
     
-    /**
-     * Dispatch callbacks to setOnSystemUiVisibilityChangeListener(View.OnSystemUiVisibilityChangeListener) down the view hierarchy.
-     */
-    public func dispatchSystemUiVisibilityChanged(visibility: Int)  {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        __args[0] = jvalue(i: jint(visibility))
-        
-        JNIMethod.CallVoidMethod(
-            object: javaObject,
-            methodName: "dispatchSystemUiVisibilityChanged",
-            methodSig: "(I)V",
-            methodCache: &JNICache.MethodID.dispatchSystemUiVisibilityChanged,
-            args: &__args,
-            locals: &__locals )
-        
-        
-    }
     
-    /**
-     * Called when the window containing this view gains or loses window focus.
-     */
-    public func dispatchWindowFocusChanged(hasFocus: Bool)  {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        __args[0] = jvalue(z: jboolean(hasFocus ? JNI_TRUE : JNI_FALSE))
-        
-        JNIMethod.CallVoidMethod(
-            object: javaObject,
-            methodName: "dispatchWindowFocusChanged",
-            methodSig: "(Z)V",
-            methodCache: &JNICache.MethodID.dispatchWindowFocusChanged,
-            args: &__args,
-            locals: &__locals )
-        
-        
-    }
-    
-    /**
-     * Dispatch callbacks to onWindowSystemUiVisibilityChanged(int) down the view hierarchy.
-     */
-    public func dispatchWindowSystemUiVisiblityChanged(visible: Int)  {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        __args[0] = jvalue(i: jint(visible))
-        
-        JNIMethod.CallVoidMethod(
-            object: javaObject,
-            methodName: "dispatchWindowSystemUiVisiblityChanged",
-            methodSig: "(I)V",
-            methodCache: &JNICache.MethodID.dispatchWindowSystemUiVisiblityChanged,
-            args: &__args,
-            locals: &__locals )
-        
-        
-    }
-
-    ///////
-    
-    /**
-     * Dispatch a window visibility change down the view hierarchy.
-     */
-    public func dispatchWindowVisibilityChanged(visibility: Int)  {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        __args[0] = jvalue(i: jint(visibility))
-        
-        JNIMethod.CallVoidMethod(
-            object: javaObject,
-            methodName: "dispatchWindowVisibilityChanged",
-            methodSig: "(I)V",
-            methodCache: &JNICache.MethodID.dispatchWindowVisibilityChanged,
-            args: &__args,
-            locals: &__locals )
-        
-        
-    }
     
     /**
      * This function is called whenever the view hotspot changes and needs to be propagated to drawables or child views managed by the view.
@@ -4746,27 +5054,7 @@ public extension Android.View.View {
         return __return != jboolean(JNI_FALSE)
     }
     
-    /**
-     * Returns true if this view has focus itself, or is the ancestor of the view that has focus.
-     */
-    public func hasFocus() -> Bool {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        let __return = JNIMethod.CallBooleanMethod(
-            object: javaObject,
-            methodName: "hasFocus",
-            methodSig: "()Z",
-            methodCache: &JNICache.MethodID.hasFocus,
-            args: &__args,
-            locals: &__locals )
-        
-        
-        
-        return __return != jboolean(JNI_FALSE)
-    }
+    
     
     /**
      * Returns true if this view is focusable or if it contains a reachable View for which hasFocusable() returns true.
@@ -4878,27 +5166,7 @@ public extension Android.View.View {
         return __return != jboolean(JNI_FALSE)
     }
     
-    /**
-     * Indicates whether the view is currently tracking transient state that the app should not need to concern itself with saving and restoring, but that the framework should take special note to preserve when possible.
-     */
-    public func hasTransientState() -> Bool {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        let __return = JNIMethod.CallBooleanMethod(
-            object: javaObject,
-            methodName: "hasTransientState",
-            methodSig: "()Z",
-            methodCache: &JNICache.MethodID.hasTransientState,
-            args: &__args,
-            locals: &__locals )
-        
-        
-        
-        return __return != jboolean(JNI_FALSE)
-    }
+    
     
     /**
      * Returns true if this view is in a window that currently has window focus.
@@ -5944,53 +6212,6 @@ public extension Android.View.View {
         return __return != jboolean(JNI_FALSE)
     }
     
-    /**
-     * Call Drawable.jumpToCurrentState() on all Drawable objects associated with this view.
-     */
-    public func jumpDrawablesToCurrentState()  {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        JNIMethod.CallVoidMethod(
-            object: javaObject,
-            methodName: "jumpDrawablesToCurrentState",
-            methodSig: "()V",
-            methodCache: &JNICache.MethodID.jumpDrawablesToCurrentState,
-            args: &__args,
-            locals: &__locals )
-        
-        
-    }
-    
-    /**
-     * Assign a size and position to a view and all of its descendants
-     */
-    public func layout(l: Int, t: Int, r: Int, b: Int)  {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 4 )
-        
-        __args[0] = jvalue(i: jint(l))
-        __args[1] = jvalue(i: jint(t))
-        __args[2] = jvalue(i: jint(r))
-        __args[3] = jvalue(i: jint(b))
-        
-        JNIMethod.CallVoidMethod(
-            object: javaObject,
-            methodName: "layout",
-            methodSig: "(IIII)V",
-            methodCache: &JNICache.MethodID.layout,
-            args: &__args,
-            locals: &__locals )
-        
-        
-    }
-
-    ///
-    
     public func measure(widthMeasureSpec: Int, heightMeasureSpec: Int)  {
         
         var __locals = [jobject]()
@@ -6795,27 +7016,6 @@ public extension Android.View.View {
         
         return Int(__return)
     }
-    
-    
-    public func restoreDefaultFocus() -> Bool {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        let __return = JNIMethod.CallBooleanMethod(
-            object: javaObject,
-            methodName: "restoreDefaultFocus",
-            methodSig: "()Z",
-            methodCache: &JNICache.MethodID.restoreDefaultFocus,
-            args: &__args,
-            locals: &__locals )
-        
-        
-        
-        return __return != jboolean(JNI_FALSE)
-    }
-    
     
     public func scrollBy(x: Int, y: Int)  {
         
@@ -9307,26 +9507,7 @@ public extension Android.View.View {
     }
     
     
-    public func dispatchCapturedPointerEvent(event: JavaObject) -> Bool {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        __args[0] = JNIType.toJava(value: event, locals: &__locals)
-        
-        let __return = JNIMethod.CallBooleanMethod(
-            object: javaObject,
-            methodName: "dispatchCapturedPointerEvent",
-            methodSig: "(Landroid.view.MotionEvent;)Z",
-            methodCache: &JNICache.MethodID.dispatchCapturedPointerEvent,
-            args: &__args,
-            locals: &__locals )
-        
-        
-        
-        return __return != jboolean(JNI_FALSE)
-    }
+    
     
     
     public func dispatchGenericMotionEvent(event: JavaObject) -> Bool {
@@ -9351,112 +9532,7 @@ public extension Android.View.View {
     }
     
     
-    public func dispatchKeyEvent(event: JavaObject) -> Bool {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        __args[0] = JNIType.toJava(value: event, locals: &__locals)
-        
-        let __return = JNIMethod.CallBooleanMethod(
-            object: javaObject,
-            methodName: "dispatchKeyEvent",
-            methodSig: "(Landroid/view/KeyEvent;)Z",
-            methodCache: &JNICache.MethodID.dispatchKeyEvent,
-            args: &__args,
-            locals: &__locals )
-        
-        
-        
-        return __return != jboolean(JNI_FALSE)
-    }
     
-    
-    public func dispatchKeyEventPreIme(event: JavaObject) -> Bool {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        __args[0] = JNIType.toJava(value: event, locals: &__locals)
-        
-        let __return = JNIMethod.CallBooleanMethod(
-            object: javaObject,
-            methodName: "dispatchKeyEventPreIme",
-            methodSig: "(Landroid/view/KeyEvent;)Z",
-            methodCache: &JNICache.MethodID.dispatchKeyEventPreIme,
-            args: &__args,
-            locals: &__locals )
-        
-        
-        
-        return __return != jboolean(JNI_FALSE)
-    }
-    
-    
-    public func dispatchKeyShortcutEvent(event: JavaObject) -> Bool {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        __args[0] = JNIType.toJava(value: event, locals: &__locals)
-        
-        let __return = JNIMethod.CallBooleanMethod(
-            object: javaObject,
-            methodName: "dispatchKeyShortcutEvent",
-            methodSig: "(Landroid/view/KeyEvent;)Z",
-            methodCache: &JNICache.MethodID.dispatchKeyShortcutEvent,
-            args: &__args,
-            locals: &__locals )
-        
-        
-        
-        return __return != jboolean(JNI_FALSE)
-    }
-    
-    
-    public func dispatchProvideAutofillStructure(structure: JavaObject, flags: Int)  {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        
-        __args[0] = JNIType.toJava(value: structure, locals: &__locals)
-        __args[1] = jvalue(i: jint(flags))
-        
-        JNIMethod.CallVoidMethod(
-            object: javaObject,
-            methodName: "dispatchProvideAutofillStructure",
-            methodSig: "(Landroid/view/ViewStructure;I)V",
-            methodCache: &JNICache.MethodID.dispatchProvideAutofillStructure,
-            args: &__args,
-            locals: &__locals )
-        
-        
-    }
-    
-    
-    
-    public func dispatchProvideStructure(structure: JavaObject)  {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        __args[0] = JNIType.toJava(value: structure, locals: &__locals)
-        
-        JNIMethod.CallVoidMethod(
-            object: javaObject,
-            methodName: "dispatchProvideStructure",
-            methodSig: "(Landroid/view/ViewStructure;)V",
-            methodCache: &JNICache.MethodID.dispatchProvideStructure,
-            args: &__args,
-            locals: &__locals )
-        
-        
-    }
     
     
     public func dispatchTouchEvent(event: JavaObject) -> Bool {
@@ -9481,49 +9557,7 @@ public extension Android.View.View {
     }
     
     
-    public func dispatchTrackballEvent(event: JavaObject) -> Bool {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        __args[0] = JNIType.toJava(value: event, locals: &__locals)
-        
-        let __return = JNIMethod.CallBooleanMethod(
-            object: javaObject,
-            methodName: "dispatchTrackballEvent",
-            methodSig: "(Landroid.view.MotionEvent;)Z",
-            methodCache: &JNICache.MethodID.dispatchTrackballEvent,
-            args: &__args,
-            locals: &__locals )
-        
-        
-        
-        return __return != jboolean(JNI_FALSE)
-    }
     
-    
-    public func dispatchUnhandledMove(focused: JavaObject, direction: Int) -> Bool {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        
-        __args[0] = JNIType.toJava(value: focused, locals: &__locals)
-        __args[1] = jvalue(i: jint(direction))
-        
-        let __return = JNIMethod.CallBooleanMethod(
-            object: javaObject,
-            methodName: "dispatchUnhandledMove",
-            methodSig: "(Landroid/view/View;I)Z",
-            methodCache: &JNICache.MethodID.dispatchUnhandledMove,
-            args: &__args,
-            locals: &__locals )
-        
-        
-        
-        return __return != jboolean(JNI_FALSE)
-    }
     
     
     public func getClipBounds(outRect: JavaObject) -> Bool {
@@ -10171,27 +10205,7 @@ public extension Android.View.View {
     }
     
     
-    public func requestFocus(direction: Int, previouslyFocusedRect: JavaObject) -> Bool {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        
-        __args[0] = jvalue(i: jint(direction))
-        __args[1] = JNIType.toJava(value: previouslyFocusedRect, locals: &__locals)
-        
-        let __return = JNIMethod.CallBooleanMethod(
-            object: javaObject,
-            methodName: "requestFocus",
-            methodSig: "(ILandroid/graphics/Rect;)Z",
-            methodCache: &JNICache.MethodID.requestFocus,
-            args: &__args,
-            locals: &__locals )
-        
-        
-        
-        return __return != jboolean(JNI_FALSE)
-    }
+    
     
     
     public func requestRectangleOnScreen(rectangle: JavaObject) -> Bool {
