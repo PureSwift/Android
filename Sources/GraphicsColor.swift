@@ -201,6 +201,25 @@ public extension AndroidGraphicsColor {
     }
 }
 
+public extension AndroidGraphicsColor {
+    
+    public func valueOf(color: Int) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue(i: jint(color))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "valueOf",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.valueOf,
+            args: &__args,
+            locals: &__locals )
+    }
+}
+
 // MARK: - JNICache
 
 internal extension AndroidGraphicsColor {
@@ -232,6 +251,11 @@ internal extension AndroidGraphicsColor {
             static var CYAN: jfieldID?
             static var MAGENTA: jfieldID?
             static var TRANSPARENT: jfieldID?
+        }
+        
+        struct MethodID {
+            
+            static var valueOf: jmethodID?
         }
     }
 }
