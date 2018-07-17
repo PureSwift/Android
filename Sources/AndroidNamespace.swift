@@ -56,6 +56,11 @@ public enum Android: JavaPackage {
             public static let package: JNIPackage = Android.Bluetooth.package + ["le"]
         }
     }
+    
+    public enum Graphics: JavaPackage {
+        
+        public static let package: JNIPackage = Android.package + ["graphics"]
+    }
 }
 
 public enum SupportV7: JavaPackage {
