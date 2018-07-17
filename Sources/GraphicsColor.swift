@@ -15,7 +15,39 @@ public extension Android.Graphics {
 
 public class AndroidGraphicsColor: JavaObject {
     
+    public convenience init?( casting object: java_swift.JavaObject,
+                              _ file: StaticString = #file,
+                              _ line: Int = #line ) {
+        
+        self.init(javaObject: nil)
+        
+        object.withJavaObject {
+            self.javaObject = $0
+        }
+    }
     
+    public required init( javaObject: jobject? ) {
+        super.init(javaObject: javaObject)
+    }
+    
+    public convenience init(){
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __object = JNIMethod.NewObject(
+            className: JNICache.className,
+            classCache: &JNICache.jniClass,
+            methodSig: "()V",
+            methodCache: &JNICache.MethodID.newMethod,
+            args: &__args,
+            locals: &__locals )
+        
+        self.init( javaObject: __object )
+        
+        JNI.DeleteLocalRef( __object )
+    }
 }
 
 public extension AndroidGraphicsColor {
@@ -254,7 +286,7 @@ internal extension AndroidGraphicsColor {
         }
         
         struct MethodID {
-            
+            static var newMethod: jmethodID?
             static var valueOf: jmethodID?
         }
     }
