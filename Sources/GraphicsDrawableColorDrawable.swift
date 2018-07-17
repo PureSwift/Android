@@ -86,6 +86,10 @@ public class AndroidGraphicsDrawableColorDrawable: JavaObject {
             setAlpha(newValue)
         }
     }
+    
+    public var opacity : Int {
+        return getOpacity() ?? 0
+    }
 }
 
 public extension AndroidGraphicsDrawableColorDrawable {
@@ -158,7 +162,7 @@ public extension AndroidGraphicsDrawableColorDrawable {
             locals: &__locals )
     }
     
-    public func getOpacity() -> Int? {
+    internal func getOpacity() -> Int? {
         
         var __locals = [jobject]()
         

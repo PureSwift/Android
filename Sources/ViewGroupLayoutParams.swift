@@ -1,5 +1,5 @@
 //
-//  ViewParamsLayout.swift
+//  ViewGroupLayoutParams.swift
 //  Android
 //
 //  Created by Marco Estrella on 7/13/18.
@@ -10,13 +10,12 @@ import java_swift
 import java_lang
 import JNI
 
-public extension Android.View {
+public extension Android.View.ViewGroup {
     
-    public typealias ViewParamsLayout = AndroidViewParamsLayout
+    public typealias LayoutParams = AndroidViewGroupLayoutParams
 }
 
-/// `Android.View.View`
-open class AndroidViewParamsLayout: JavaObject {
+open class AndroidViewGroupLayoutParams: JavaObject {
     
     // MARK: - Initialization
     
@@ -35,6 +34,7 @@ open class AndroidViewParamsLayout: JavaObject {
         super.init(javaObject: javaObject)
     }
     
+    //Creates a new set of layout parameters with the specified width and height.
     public convenience init(width: Int, height: Int){
         
         var __locals = [jobject]()
@@ -44,10 +44,30 @@ open class AndroidViewParamsLayout: JavaObject {
         __args[1] = jvalue(i: jint(height))
         
         let __object = JNIMethod.NewObject(
-            className: JNICache.className,
-            classCache: &JNICache.jniClass,
+            className: ViewGroupLayoutParamsJNICache.className,
+            classCache: &ViewGroupLayoutParamsJNICache.jniClass,
             methodSig: "(II)V",
-            methodCache: &JNICache.MethodID.newMethod,
+            methodCache: &ViewGroupLayoutParamsJNICache.MethodID.newMethod,
+            args: &__args,
+            locals: &__locals )
+        
+        self.init( javaObject: __object )
+        
+        JNI.DeleteLocalRef( __object )
+    }
+    
+    public convenience init(source: Android.View.ViewGroup.LayoutParams){
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava(value: source, locals: &__locals)
+        
+        let __object = JNIMethod.NewObject(
+            className: ViewGroupLayoutParamsJNICache.className,
+            classCache: &ViewGroupLayoutParamsJNICache.jniClass,
+            methodSig: "(Landroid/view/ViewGroup$LayoutParams;)V",
+            methodCache: &ViewGroupLayoutParamsJNICache.MethodID.newMethod2,
             args: &__args,
             locals: &__locals )
         
@@ -82,7 +102,7 @@ open class AndroidViewParamsLayout: JavaObject {
     }
 }
 
-extension Android.View.ViewParamsLayout {
+extension AndroidViewGroupLayoutParams {
     
     @_versioned
     internal func setMarginStart(_ start: Int) {
@@ -97,7 +117,7 @@ extension Android.View.ViewParamsLayout {
             object: javaObject,
             methodName: "setMarginStart",
             methodSig: "(I)V",
-            methodCache: &JNICache.MethodID.setMarginStart,
+            methodCache: &ViewGroupLayoutParamsJNICache.MethodID.setMarginStart,
             args: &__args,
             locals: &__locals )
     }
@@ -113,7 +133,7 @@ extension Android.View.ViewParamsLayout {
             object: javaObject,
             methodName: "getMarginStart",
             methodSig: "()I",
-            methodCache: &JNICache.MethodID.getMarginStart,
+            methodCache: &ViewGroupLayoutParamsJNICache.MethodID.getMarginStart,
             args: &__args,
             locals: &__locals )
         
@@ -133,7 +153,7 @@ extension Android.View.ViewParamsLayout {
             object: javaObject,
             methodName: "setMarginEnd",
             methodSig: "(I)V",
-            methodCache: &JNICache.MethodID.setMarginEnd,
+            methodCache: &ViewGroupLayoutParamsJNICache.MethodID.setMarginEnd,
             args: &__args,
             locals: &__locals )
     }
@@ -149,7 +169,7 @@ extension Android.View.ViewParamsLayout {
             object: javaObject,
             methodName: "getMarginEnd",
             methodSig: "()I",
-            methodCache: &JNICache.MethodID.getMarginEnd,
+            methodCache: &ViewGroupLayoutParamsJNICache.MethodID.getMarginEnd,
             args: &__args,
             locals: &__locals )
         
@@ -169,7 +189,7 @@ extension Android.View.ViewParamsLayout {
             object: javaObject,
             methodName: "setLayoutDirection",
             methodSig: "(I)V",
-            methodCache: &JNICache.MethodID.setLayoutDirection,
+            methodCache: &ViewGroupLayoutParamsJNICache.MethodID.setLayoutDirection,
             args: &__args,
             locals: &__locals )
     }
@@ -185,7 +205,7 @@ extension Android.View.ViewParamsLayout {
             object: javaObject,
             methodName: "getLayoutDirection",
             methodSig: "()I",
-            methodCache: &JNICache.MethodID.getLayoutDirection,
+            methodCache: &ViewGroupLayoutParamsJNICache.MethodID.getLayoutDirection,
             args: &__args,
             locals: &__locals )
         
@@ -203,7 +223,7 @@ extension Android.View.ViewParamsLayout {
             object: javaObject,
             methodName: "isMarginRelative",
             methodSig: "()Z",
-            methodCache: &JNICache.MethodID.isMarginRelative,
+            methodCache: &ViewGroupLayoutParamsJNICache.MethodID.isMarginRelative,
             args: &__args,
             locals: &__locals )
         
@@ -222,7 +242,7 @@ extension Android.View.ViewParamsLayout {
             object: javaObject,
             methodName: "resolveLayoutDirection",
             methodSig: "(I)V",
-            methodCache: &JNICache.MethodID.resolveLayoutDirection,
+            methodCache: &ViewGroupLayoutParamsJNICache.MethodID.resolveLayoutDirection,
             args: &__args,
             locals: &__locals )
     }
@@ -241,7 +261,7 @@ extension Android.View.ViewParamsLayout {
             object: javaObject,
             methodName: "setBaseAttributes",
             methodSig: "(Landroid/content/res/TypedArray;II)V",
-            methodCache: &JNICache.MethodID.setBaseAttributes,
+            methodCache: &ViewGroupLayoutParamsJNICache.MethodID.setBaseAttributes,
             args: &__args,
             locals: &__locals )
     }
@@ -249,13 +269,13 @@ extension Android.View.ViewParamsLayout {
 
 // MARK: - Private
 
-internal extension Android.View.ViewParamsLayout {
+internal extension AndroidViewGroupLayoutParams {
     
     /// JNI Cache
-    struct JNICache {
+    struct ViewGroupLayoutParamsJNICache {
         
         /// JNI Java class signature
-        static let classSignature = SwiftSupport.View.className(["SwiftViewLayoutParams"])
+        static let classSignature = Android.View.className(["ViewGroup$LayoutParams"])
         
         /// JNI Java class name
         static let className = classSignature.rawValue
@@ -263,9 +283,18 @@ internal extension Android.View.ViewParamsLayout {
         /// JNI Java class
         static var jniClass: jclass?
         
+        struct FieldID {
+            static var MATCH_PARENT: jfieldID?
+            static var WRAP_CONTENT: jfieldID?
+            static var height: jfieldID?
+            static var width: jfieldID?
+            
+        }
+        
         /// JNI Method ID cache
         struct MethodID {
             static var newMethod: jmethodID?
+            static var newMethod2: jmethodID?
             static var setMargins: jmethodID?
             static var setMarginStart: jmethodID?
             static var setMarginEnd: jmethodID?
