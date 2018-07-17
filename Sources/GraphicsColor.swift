@@ -235,20 +235,22 @@ public extension AndroidGraphicsColor {
 
 public extension AndroidGraphicsColor {
     
-    public func valueOf(color: Int) {
+    public static func valueOf(color: Int) -> Android.Graphics.Color {
         
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = jvalue(i: jint(color))
         
-        JNIMethod.CallVoidMethod(
-            object: javaObject,
-            methodName: "valueOf",
-            methodSig: "(I)V",
-            methodCache: &JNICache.MethodID.valueOf,
-            args: &__args,
-            locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod(className: JNICache.className,
+                                         classCache: &JNICache.jniClass,
+                                         methodName: "valueOf",
+                                         methodSig: "(I)Landroid/graphics/Color;",
+                                         methodCache: &JNICache.MethodID.valueOf,
+                                         args: &__args,
+                                         locals: &__locals)
+        
+        return Android.Graphics.Color(javaObject: __return)
     }
 }
 
