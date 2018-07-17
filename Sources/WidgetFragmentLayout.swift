@@ -17,42 +17,7 @@ public extension Android.Widget {
 
 open class AndroidWidgetFragmentLayout: Android.View.ViewGroup {
     
-    // MARK: - Initialization
     
-    public convenience init?( casting object: java_swift.JavaObject,
-                              _ file: StaticString = #file,
-                              _ line: Int = #line ) {
-        
-        self.init(javaObject: nil)
-        
-        object.withJavaObject {
-            self.javaObject = $0
-        }
-    }
-    
-    public required init( javaObject: jobject? ) {
-        super.init(javaObject: javaObject)
-    }
-    
-    public convenience init(context: Android.Content.Context){
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        __args[0] = JNIType.toJava(value: context, locals: &__locals)
-        
-        let __object = JNIMethod.NewObject(
-            className: JNICache.className,
-            classCache: &JNICache.jniClass,
-            methodSig: "(Landroid/content/Context;)V",
-            methodCache: &FragmentLayoutJNICache.MethodID.newMethod,
-            args: &__args,
-            locals: &__locals )
-        
-        self.init( javaObject: __object )
-        
-        JNI.DeleteLocalRef( __object )
-    }
 }
 
 // MARK: - Methods
@@ -78,16 +43,16 @@ internal extension AndroidWidgetFragmentLayout {
         /// JNI Java class
         static var jniClass: jclass?
         
-        struct FieldID {
-            
-            static var INVISIBLE: jfieldID?
-            static var VISIBLE: jfieldID?
-        }
-        
         /// JNI Method ID cache
         struct MethodID {
             
-            static var newMethod: jmethodID?
+            static var generateLayoutParams: jmethodID?
+            static var getAccessibilityClassName: jmethodID?
+            static var getConsiderGoneChildrenWhenMeasuring: jmethodID?
+            static var getMeasureAllChildren: jmethodID?
+            static var setForegroundGravity: jmethodID?
+            static var setMeasureAllChildren: jmethodID?
+            static var shouldDelayChildPressedState: jmethodID?
         }
     }
 }
