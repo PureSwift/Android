@@ -56,6 +56,7 @@ open class AndroidViewGroupLayoutParams: JavaObject {
         JNI.DeleteLocalRef( __object )
     }
     
+    // Copy constructor.
     public convenience init(source: Android.View.ViewGroup.LayoutParams){
         
         var __locals = [jobject]()
@@ -76,159 +77,80 @@ open class AndroidViewGroupLayoutParams: JavaObject {
         JNI.DeleteLocalRef( __object )
     }
     
-    public var marginStart: Int {
-        get{ return getMarginStart() }
-        set{
-            setMarginStart(newValue)
+    // Creates a new set of layout parameters.
+    public convenience init(context: Android.Content.Context, attrs: JavaObject){
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = JNIType.toJava(value: context, locals: &__locals)
+        __args[1] = JNIType.toJava(value: attrs, locals: &__locals)
+        
+        let __object = JNIMethod.NewObject(
+            className: ViewGroupLayoutParamsJNICache.className,
+            classCache: &ViewGroupLayoutParamsJNICache.jniClass,
+            methodSig: "(Landroid/content/Context;Landroid/util/AttributeSet;)V",
+            methodCache: &ViewGroupLayoutParamsJNICache.MethodID.newMethod3,
+            args: &__args,
+            locals: &__locals )
+        
+        self.init( javaObject: __object )
+        
+        JNI.DeleteLocalRef( __object )
+    }
+    
+    public static var MATCH_PARENT: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "MATCH_PARENT",
+                fieldType: "I",
+                fieldCache: &ViewGroupLayoutParamsJNICache.FieldID.MATCH_PARENT,
+                className: ViewGroupLayoutParamsJNICache.className,
+                classCache: &ViewGroupLayoutParamsJNICache.jniClass )
+            
+            return Int(__value)
         }
     }
     
-    public var marginEnd: Int {
-        get{ return getMarginEnd() }
-        set{
-            setMarginEnd(newValue)
+    public static var WRAP_CONTENT: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "WRAP_CONTENT",
+                fieldType: "I",
+                fieldCache: &ViewGroupLayoutParamsJNICache.FieldID.WRAP_CONTENT,
+                className: ViewGroupLayoutParamsJNICache.className,
+                classCache: &ViewGroupLayoutParamsJNICache.jniClass )
+            
+            return Int(__value)
         }
     }
     
-    public var layoutDirection: Int {
-        get{ return getLayoutDirection() }
-        set{
-            setLayoutDirection(newValue)
+    public var height: Int {
+        get {
+            let __value = JNIField.GetIntField(fieldName: "height",
+                                               fieldType: "I",
+                                               fieldCache: &ViewGroupLayoutParamsJNICache.FieldID.height,
+                                               object: javaObject)
+            return Int(__value)
         }
     }
     
-    public var isMarginRelative: Bool {
-        get{ return getIsMarginRelative() }
+    public var width: Int {
+        get {
+            let __value = JNIField.GetIntField(fieldName: "width",
+                                               fieldType: "I",
+                                               fieldCache: &ViewGroupLayoutParamsJNICache.FieldID.width,
+                                               object: javaObject)
+            return Int(__value)
+        }
     }
 }
 
 extension AndroidViewGroupLayoutParams {
-    
-    @_versioned
-    internal func setMarginStart(_ start: Int) {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        __args[0] = jvalue(i: jint(start))
-        
-        JNIMethod.CallVoidMethod(
-            object: javaObject,
-            methodName: "setMarginStart",
-            methodSig: "(I)V",
-            methodCache: &ViewGroupLayoutParamsJNICache.MethodID.setMarginStart,
-            args: &__args,
-            locals: &__locals )
-    }
-    
-    @_versioned
-    internal func getMarginStart() -> Int {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        let __return = JNIMethod.CallIntMethod(
-            object: javaObject,
-            methodName: "getMarginStart",
-            methodSig: "()I",
-            methodCache: &ViewGroupLayoutParamsJNICache.MethodID.getMarginStart,
-            args: &__args,
-            locals: &__locals )
-        
-        return Int(__return)
-    }
-    
-    @_versioned
-    internal func setMarginEnd(_ end: Int) {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        __args[0] = jvalue(i: jint(end))
-        
-        JNIMethod.CallVoidMethod(
-            object: javaObject,
-            methodName: "setMarginEnd",
-            methodSig: "(I)V",
-            methodCache: &ViewGroupLayoutParamsJNICache.MethodID.setMarginEnd,
-            args: &__args,
-            locals: &__locals )
-    }
-    
-    @_versioned
-    internal func getMarginEnd() -> Int {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        let __return = JNIMethod.CallIntMethod(
-            object: javaObject,
-            methodName: "getMarginEnd",
-            methodSig: "()I",
-            methodCache: &ViewGroupLayoutParamsJNICache.MethodID.getMarginEnd,
-            args: &__args,
-            locals: &__locals )
-        
-        return Int(__return)
-    }
-    
-    @_versioned
-    internal func setLayoutDirection(_ layoutDirection: Int) {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        __args[0] = jvalue(i: jint(layoutDirection))
-        
-        JNIMethod.CallVoidMethod(
-            object: javaObject,
-            methodName: "setLayoutDirection",
-            methodSig: "(I)V",
-            methodCache: &ViewGroupLayoutParamsJNICache.MethodID.setLayoutDirection,
-            args: &__args,
-            locals: &__locals )
-    }
-    
-    @_versioned
-    internal func getLayoutDirection() -> Int {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        let __return = JNIMethod.CallIntMethod(
-            object: javaObject,
-            methodName: "getLayoutDirection",
-            methodSig: "()I",
-            methodCache: &ViewGroupLayoutParamsJNICache.MethodID.getLayoutDirection,
-            args: &__args,
-            locals: &__locals )
-        
-        return Int(__return)
-    }
-    
-    @_versioned
-    internal func getIsMarginRelative() -> Bool {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        let __return = JNIMethod.CallBooleanMethod(
-            object: javaObject,
-            methodName: "isMarginRelative",
-            methodSig: "()Z",
-            methodCache: &ViewGroupLayoutParamsJNICache.MethodID.isMarginRelative,
-            args: &__args,
-            locals: &__locals )
-        
-        return jboolean(__return) != jboolean(JNI_FALSE)
-    }
     
     public func resolveLayoutDirection(_ layoutDirection: Int) {
         
@@ -284,25 +206,18 @@ internal extension AndroidViewGroupLayoutParams {
         static var jniClass: jclass?
         
         struct FieldID {
+            
             static var MATCH_PARENT: jfieldID?
             static var WRAP_CONTENT: jfieldID?
             static var height: jfieldID?
             static var width: jfieldID?
-            
         }
         
         /// JNI Method ID cache
         struct MethodID {
             static var newMethod: jmethodID?
             static var newMethod2: jmethodID?
-            static var setMargins: jmethodID?
-            static var setMarginStart: jmethodID?
-            static var setMarginEnd: jmethodID?
-            static var getMarginEnd: jmethodID?
-            static var getMarginStart: jmethodID?
-            static var getLayoutDirection: jmethodID?
-            static var setLayoutDirection: jmethodID?
-            static var isMarginRelative: jmethodID?
+            static var newMethod3: jmethodID?
             static var resolveLayoutDirection: jmethodID?
             static var setBaseAttributes: jmethodID?
         }
