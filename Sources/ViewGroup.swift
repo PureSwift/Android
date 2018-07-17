@@ -490,6 +490,25 @@ public extension Android.View.ViewGroup {
         
     }
     
+    public func addView(child: Android.View.View, index: Int, params: Android.View.ViewGroup.LayoutParams)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        
+        __args[0] = JNIType.toJava(value: child, locals: &__locals)
+        __args[1] = jvalue(i: jint(index))
+        __args[0] = JNIType.toJava(value: params, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "addView",
+            methodSig: "(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V",
+            methodCache: &ViewGroupJNICache.MethodID.addView7,
+            args: &__args,
+            locals: &__locals )
+    }
+    
     
     public func addView(child: Android.View.View)  {
         
@@ -501,9 +520,29 @@ public extension Android.View.ViewGroup {
         
         JNIMethod.CallVoidMethod(
             object: javaObject,
-            methodName: "addView4",
+            methodName: "addView",
             methodSig: "(Landroid/view/View;)V",
             methodCache: &ViewGroupJNICache.MethodID.addView4,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    public func addView(child: Android.View.View, params: Android.View.ViewGroup.LayoutParams)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = JNIType.toJava(value: child, locals: &__locals)
+         __args[1] = JNIType.toJava(value: params, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "addView",
+            methodSig: "(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V",
+            methodCache: &ViewGroupJNICache.MethodID.addView6,
             args: &__args,
             locals: &__locals )
         
@@ -523,13 +562,11 @@ public extension Android.View.ViewGroup {
         
         JNIMethod.CallVoidMethod(
             object: javaObject,
-            methodName: "addView5",
+            methodName: "addView",
             methodSig: "(Landroid/view/View;II)V",
             methodCache: &ViewGroupJNICache.MethodID.addView5,
             args: &__args,
             locals: &__locals )
-        
-        
     }
     
     
@@ -548,8 +585,6 @@ public extension Android.View.ViewGroup {
             methodCache: &ViewGroupJNICache.MethodID.bringChildToFront,
             args: &__args,
             locals: &__locals )
-        
-        
     }
     
     
@@ -568,8 +603,6 @@ public extension Android.View.ViewGroup {
             methodCache: &ViewGroupJNICache.MethodID.childDrawableStateChanged,
             args: &__args,
             locals: &__locals )
-        
-        
     }
     
     
@@ -589,8 +622,6 @@ public extension Android.View.ViewGroup {
             methodCache: &ViewGroupJNICache.MethodID.childHasTransientStateChanged,
             args: &__args,
             locals: &__locals )
-        
-        
     }
     
     
@@ -609,8 +640,6 @@ public extension Android.View.ViewGroup {
             methodCache: &ViewGroupJNICache.MethodID.clearChildFocus,
             args: &__args,
             locals: &__locals )
-        
-        
     }
     
     
@@ -2134,10 +2163,16 @@ internal extension Android.View.ViewGroup {
         
         /// JNI Method ID cache
         struct MethodID {
-            static var addStatesFromChildren: jmethodID?
+            
             static var addView2: jmethodID?
             static var addView4: jmethodID?
             static var addView5: jmethodID?
+            static var addView6: jmethodID?
+            static var addView7: jmethodID?
+            static var setLayoutParams: jmethodID?
+            static var getLayoutParams: jmethodID?
+            
+            static var addStatesFromChildren: jmethodID?
             static var bringChildToFront: jmethodID?
             static var childDrawableStateChanged: jmethodID?
             static var childHasTransientStateChanged: jmethodID?
@@ -2233,10 +2268,7 @@ internal extension Android.View.ViewGroup {
             static var showContextMenuForChild2: jmethodID?
             static var startLayoutAnimation: jmethodID?
             static var startViewTransition: jmethodID?
-            static var findViewById: jmethodID?
             
-            static var setLayoutParams: jmethodID?
-            static var getLayoutParams: jmethodID?
         }
     }
 }
