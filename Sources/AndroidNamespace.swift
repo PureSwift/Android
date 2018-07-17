@@ -60,6 +60,11 @@ public enum Android: JavaPackage {
     public enum Graphics: JavaPackage {
         
         public static let package: JNIPackage = Android.package + ["graphics"]
+        
+        public enum Drawable: JavaPackage {
+            
+            public static let package: JNIPackage = Android.Graphics.package + ["drawable"]
+        }
     }
 }
 
