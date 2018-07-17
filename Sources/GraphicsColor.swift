@@ -252,6 +252,52 @@ public extension AndroidGraphicsColor {
         
         return Android.Graphics.Color(javaObject: __return)
     }
+    
+    /// Return a color-int from alpha, red, green, blue components.
+    public static func argb(alpha: Int, red: Int, green: Int, blue: Int) -> Android.Graphics.Color {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 4 )
+        __args[0] = jvalue(i: jint(alpha))
+        __args[1] = jvalue(i: jint(red))
+        __args[2] = jvalue(i: jint(green))
+        __args[3] = jvalue(i: jint(blue))
+        
+        let __return = JNIMethod.CallStaticObjectMethod(className: JNICache.className,
+                                                        classCache: &JNICache.jniClass,
+                                                        methodName: "argb",
+                                                        methodSig: "(IIII)Landroid/graphics/Color;",
+                                                        methodCache: &JNICache.MethodID.argb1,
+                                                        args: &__args,
+                                                        locals: &__locals)
+        
+        return Android.Graphics.Color(javaObject: __return)
+    }
+    
+    /**
+     * Return a color-int from alpha, red, green, blue float components in the range [0..1].
+     */
+    public static func argb(alpha: Float, red: Float, green: Float, blue: Float) -> Android.Graphics.Color {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 4 )
+        __args[0] = jvalue(f: jfloat(alpha))
+        __args[1] = jvalue(f: jfloat(red))
+        __args[2] = jvalue(f: jfloat(green))
+        __args[3] = jvalue(f: jfloat(blue))
+        
+        let __return = JNIMethod.CallStaticObjectMethod(className: JNICache.className,
+                                                        classCache: &JNICache.jniClass,
+                                                        methodName: "argb",
+                                                        methodSig: "(FFFF)Landroid/graphics/Color;",
+                                                        methodCache: &JNICache.MethodID.argb2,
+                                                        args: &__args,
+                                                        locals: &__locals)
+        
+        return Android.Graphics.Color(javaObject: __return)
+    }
 }
 
 // MARK: - JNICache
@@ -290,6 +336,8 @@ internal extension AndroidGraphicsColor {
         struct MethodID {
             static var newMethod: jmethodID?
             static var valueOf: jmethodID?
+            static var argb1: jmethodID?
+            static var argb2: jmethodID?
         }
     }
 }
