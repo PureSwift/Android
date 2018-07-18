@@ -27,10 +27,10 @@ open class AndroidFrameLayoutLayoutParams: Android.View.ViewGroup.MarginLayoutPa
         __args[2] = jvalue(i: jint(gravity))
         
         let __object = JNIMethod.NewObject(
-            className: LayoutParamsJNICache.className,
-            classCache: &LayoutParamsJNICache.jniClass,
+            className: FLayoutParamsJNICache.className,
+            classCache: &FLayoutParamsJNICache.jniClass,
             methodSig: "(III)V",
-            methodCache: &LayoutParamsJNICache.MethodID.newMethod2,
+            methodCache: &FLayoutParamsJNICache.MethodID.newMethod2,
             args: &__args,
             locals: &__locals )
         
@@ -48,10 +48,10 @@ open class AndroidFrameLayoutLayoutParams: Android.View.ViewGroup.MarginLayoutPa
         __args[0] = JNIType.toJava(value: source, locals: &__locals)
         
         let __object = JNIMethod.NewObject(
-            className: LayoutParamsJNICache.className,
-            classCache: &LayoutParamsJNICache.jniClass,
+            className: FLayoutParamsJNICache.className,
+            classCache: &FLayoutParamsJNICache.jniClass,
             methodSig: "(Landroid/widget/FrameLayout$LayoutParams;)V",
-            methodCache: &LayoutParamsJNICache.MethodID.newMethod1,
+            methodCache: &FLayoutParamsJNICache.MethodID.newMethod1,
             args: &__args,
             locals: &__locals )
         
@@ -60,6 +60,95 @@ open class AndroidFrameLayoutLayoutParams: Android.View.ViewGroup.MarginLayoutPa
         JNI.DeleteLocalRef( __object )
     }
     
+    // Copy constructor.
+    public convenience init(source: Android.View.ViewGroup.MarginLayoutParams){
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava(value: source, locals: &__locals)
+        
+        let __object = JNIMethod.NewObject(
+            className: FLayoutParamsJNICache.className,
+            classCache: &FLayoutParamsJNICache.jniClass,
+            methodSig: "(Landroid/view/ViewGroup$MarginLayoutParams;)V",
+            methodCache: &FLayoutParamsJNICache.MethodID.newMethod3,
+            args: &__args,
+            locals: &__locals )
+        
+        self.init( javaObject: __object )
+        
+        JNI.DeleteLocalRef( __object )
+    }
+    
+    //Creates a new set of layout parameters with the specified width and height.
+    public convenience init(width: Int, height: Int){
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue(i: jint(width))
+        __args[1] = jvalue(i: jint(height))
+        
+        let __object = JNIMethod.NewObject(
+            className: FLayoutParamsJNICache.className,
+            classCache: &FLayoutParamsJNICache.jniClass,
+            methodSig: "(II)V",
+            methodCache: &FLayoutParamsJNICache.MethodID.newMethod4,
+            args: &__args,
+            locals: &__locals )
+        
+        self.init( javaObject: __object )
+        
+        JNI.DeleteLocalRef( __object )
+    }
+    
+    // Copy constructor.
+    public convenience init(source: Android.View.ViewGroup.LayoutParams){
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava(value: source, locals: &__locals)
+        
+        let __object = JNIMethod.NewObject(
+            className: FLayoutParamsJNICache.className,
+            classCache: &FLayoutParamsJNICache.jniClass,
+            methodSig: "(Landroid/view/ViewGroup$LayoutParams;)V",
+            methodCache: &FLayoutParamsJNICache.MethodID.newMethod5,
+            args: &__args,
+            locals: &__locals )
+        
+        self.init( javaObject: __object )
+        
+        JNI.DeleteLocalRef( __object )
+    }
+    
+    // Creates a new set of layout parameters.
+    public convenience init(context: Android.Content.Context, attrs: JavaObject){
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = JNIType.toJava(value: context, locals: &__locals)
+        __args[1] = JNIType.toJava(value: attrs, locals: &__locals)
+        
+        let __object = JNIMethod.NewObject(
+            className: FLayoutParamsJNICache.className,
+            classCache: &FLayoutParamsJNICache.jniClass,
+            methodSig: "(Landroid/content/Context;Landroid/util/AttributeSet;)V",
+            methodCache: &FLayoutParamsJNICache.MethodID.newMethod6,
+            args: &__args,
+            locals: &__locals )
+        
+        self.init( javaObject: __object )
+        
+        JNI.DeleteLocalRef( __object )
+    }
+}
+
+public extension AndroidFrameLayoutLayoutParams {
+    
     public static var UNSPECIFIED_GRAVITY: Int {
         
         get {
@@ -67,9 +156,9 @@ open class AndroidFrameLayoutLayoutParams: Android.View.ViewGroup.MarginLayoutPa
             let __value = JNIField.GetStaticIntField(
                 fieldName: "UNSPECIFIED_GRAVITY",
                 fieldType: "I",
-                fieldCache: &LayoutParamsJNICache.FieldID.UNSPECIFIED_GRAVITY,
-                className: LayoutParamsJNICache.className,
-                classCache: &LayoutParamsJNICache.jniClass )
+                fieldCache: &FLayoutParamsJNICache.FieldID.UNSPECIFIED_GRAVITY,
+                className: FLayoutParamsJNICache.className,
+                classCache: &FLayoutParamsJNICache.jniClass )
             
             return Int(__value)
         }
@@ -79,7 +168,7 @@ open class AndroidFrameLayoutLayoutParams: Android.View.ViewGroup.MarginLayoutPa
         get {
             let __value = JNIField.GetIntField(fieldName: "gravity",
                                                fieldType: "I",
-                                               fieldCache: &LayoutParamsJNICache.FieldID.gravity,
+                                               fieldCache: &FLayoutParamsJNICache.FieldID.gravity,
                                                object: javaObject)
             return Int(__value)
         }
@@ -91,7 +180,7 @@ open class AndroidFrameLayoutLayoutParams: Android.View.ViewGroup.MarginLayoutPa
 internal extension AndroidFrameLayoutLayoutParams {
     
     /// JNI Cache
-    struct LayoutParamsJNICache {
+    struct FLayoutParamsJNICache {
         
         /// JNI Java class signature
         static let classSignature = Android.Widget.className(["FragmentLayout$LayoutParams"])
@@ -112,6 +201,10 @@ internal extension AndroidFrameLayoutLayoutParams {
             
             static var newMethod1: jmethodID?
             static var newMethod2: jmethodID?
+            static var newMethod3: jmethodID?
+            static var newMethod4: jmethodID?
+            static var newMethod5: jmethodID?
+            static var newMethod6: jmethodID?
         }
     }
 }

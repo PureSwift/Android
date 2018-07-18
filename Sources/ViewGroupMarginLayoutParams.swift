@@ -38,6 +38,74 @@ open class AndroidViewGroupMarginLayoutParams: Android.View.ViewGroup.LayoutPara
         JNI.DeleteLocalRef( __object )
     }
     
+    //Creates a new set of layout parameters with the specified width and height.
+    public convenience init(width: Int, height: Int){
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue(i: jint(width))
+        __args[1] = jvalue(i: jint(height))
+        
+        let __object = JNIMethod.NewObject(
+            className: ViewGroupMarginLayoutParamsJNICache.className,
+            classCache: &ViewGroupMarginLayoutParamsJNICache.jniClass,
+            methodSig: "(II)V",
+            methodCache: &ViewGroupMarginLayoutParamsJNICache.MethodID.newMethod1,
+            args: &__args,
+            locals: &__locals )
+        
+        self.init( javaObject: __object )
+        
+        JNI.DeleteLocalRef( __object )
+    }
+    
+    // Copy constructor.
+    public convenience init(source: Android.View.ViewGroup.LayoutParams){
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava(value: source, locals: &__locals)
+        
+        let __object = JNIMethod.NewObject(
+            className: ViewGroupMarginLayoutParamsJNICache.className,
+            classCache: &ViewGroupMarginLayoutParamsJNICache.jniClass,
+            methodSig: "(Landroid/view/ViewGroup$LayoutParams;)V",
+            methodCache: &ViewGroupMarginLayoutParamsJNICache.MethodID.newMethod2,
+            args: &__args,
+            locals: &__locals )
+        
+        self.init( javaObject: __object )
+        
+        JNI.DeleteLocalRef( __object )
+    }
+    
+    // Creates a new set of layout parameters.
+    public convenience init(context: Android.Content.Context, attrs: JavaObject){
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = JNIType.toJava(value: context, locals: &__locals)
+        __args[1] = JNIType.toJava(value: attrs, locals: &__locals)
+        
+        let __object = JNIMethod.NewObject(
+            className: ViewGroupMarginLayoutParamsJNICache.className,
+            classCache: &ViewGroupMarginLayoutParamsJNICache.jniClass,
+            methodSig: "(Landroid/content/Context;Landroid/util/AttributeSet;)V",
+            methodCache: &ViewGroupMarginLayoutParamsJNICache.MethodID.newMethod3,
+            args: &__args,
+            locals: &__locals )
+        
+        self.init( javaObject: __object )
+        
+        JNI.DeleteLocalRef( __object )
+    }
+}
+
+public extension AndroidViewGroupMarginLayoutParams {
+    
     public var bottomMargin: Int {
         get {
             let __value = JNIField.GetIntField(fieldName: "bottomMargin",
@@ -102,6 +170,9 @@ open class AndroidViewGroupMarginLayoutParams: Android.View.ViewGroup.LayoutPara
     public var isMarginRelative: Bool {
         get{ return getIsMarginRelative() }
     }
+}
+
+internal extension AndroidViewGroupMarginLayoutParams {
     
     @_versioned
     internal func setMarginStart(_ start: Int) {
@@ -276,6 +347,9 @@ internal extension AndroidViewGroupMarginLayoutParams {
         /// JNI Method ID cache
         struct MethodID {
             static var newMethod: jmethodID?
+            static var newMethod1: jmethodID?
+            static var newMethod2: jmethodID?
+            static var newMethod3: jmethodID?
             static var setMargins: jmethodID?
             static var setMarginStart: jmethodID?
             static var setMarginEnd: jmethodID?

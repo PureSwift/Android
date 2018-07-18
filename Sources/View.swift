@@ -35,20 +35,6 @@ open class AndroidView: JavaObject {
         super.init(javaObject: javaObject)
     }
     
-    public var layoutParams: Android.View.ViewGroup.LayoutParams? {
-        
-        get { return getLayoutParams() }
-        
-        set { setLayoutParams(newValue) }
-    }
-    
-    public var context: Android.Content.Context {
-        
-        get {
-            return getContext()
-        }
-    }
-    
     public convenience init(context: Android.Content.Context) {
         
         var __locals = [jobject]()
@@ -67,6 +53,20 @@ open class AndroidView: JavaObject {
         self.init( javaObject: __object )
         
         JNI.DeleteLocalRef( __object )
+    }
+    
+    public var layoutParams: Android.View.ViewGroup.LayoutParams? {
+        
+        get { return getLayoutParams() }
+        
+        set { setLayoutParams(newValue) }
+    }
+    
+    public var context: Android.Content.Context {
+        
+        get {
+            return getContext()
+        }
     }
     
     public var background: Android.Graphics.Drawable.Drawable? {

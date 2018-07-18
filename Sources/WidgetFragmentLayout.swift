@@ -17,7 +17,25 @@ public extension Android.Widget {
 
 open class AndroidWidgetFragmentLayout: Android.View.ViewGroup {
     
-    
+    public convenience init(context: Android.Content.Context) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava(value: context, locals: &__locals)
+        
+        let __object = JNIMethod.NewObject(
+            className: FragmentLayoutJNICache.className,
+            classCache: &FragmentLayoutJNICache.jniClass,
+            methodSig: "(Landroid/content/Context;)V",
+            methodCache: &FragmentLayoutJNICache.MethodID.init_method_1,
+            args: &__args,
+            locals: &__locals )
+        
+        self.init( javaObject: __object )
+        
+        JNI.DeleteLocalRef( __object )
+    }
 }
 
 // MARK: - Methods
@@ -45,7 +63,7 @@ internal extension AndroidWidgetFragmentLayout {
         
         /// JNI Method ID cache
         struct MethodID {
-            
+            static var init_method_1: jmethodID?
             static var generateLayoutParams: jmethodID?
             static var getAccessibilityClassName: jmethodID?
             static var getConsiderGoneChildrenWhenMeasuring: jmethodID?

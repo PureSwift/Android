@@ -16,6 +16,26 @@ public extension Android.View {
 /// `Android.View.View`
 open class AndroidViewGroup: AndroidView {
     
+    public convenience init(context: Android.Content.Context) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava(value: context, locals: &__locals)
+        
+        let __object = JNIMethod.NewObject(
+            className: ViewGroupJNICache.className,
+            classCache: &ViewGroupJNICache.jniClass,
+            methodSig: "(Landroid/content/Context;)V",
+            methodCache: &ViewGroupJNICache.MethodID.init_method_1,
+            args: &__args,
+            locals: &__locals )
+        
+        self.init( javaObject: __object )
+        
+        JNI.DeleteLocalRef( __object )
+    }
+    
     open override func clearFocus()  {
         
         var __locals = [jobject]()
@@ -441,8 +461,6 @@ open class AndroidViewGroup: AndroidView {
 
 public extension Android.View.ViewGroup {
     
-    
-    
     public func addStatesFromChildren() -> Bool {
         
         var __locals = [jobject]()
@@ -476,7 +494,7 @@ public extension Android.View.ViewGroup {
             object: javaObject,
             methodName: "addView",
             methodSig: "(Landroid/view/View;I)V",
-            methodCache: &ViewGroupJNICache.MethodID.addView2,
+            methodCache: &ViewGroupJNICache.MethodID.addView,
             args: &__args,
             locals: &__locals )
         
@@ -497,7 +515,7 @@ public extension Android.View.ViewGroup {
             object: javaObject,
             methodName: "addView",
             methodSig: "(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V",
-            methodCache: &ViewGroupJNICache.MethodID.addView7,
+            methodCache: &ViewGroupJNICache.MethodID.addView2,
             args: &__args,
             locals: &__locals )
     }
@@ -515,11 +533,9 @@ public extension Android.View.ViewGroup {
             object: javaObject,
             methodName: "addView",
             methodSig: "(Landroid/view/View;)V",
-            methodCache: &ViewGroupJNICache.MethodID.addView4,
+            methodCache: &ViewGroupJNICache.MethodID.addView3,
             args: &__args,
             locals: &__locals )
-        
-        
     }
     
     public func addView(_ child: Android.View.View, params: Android.View.ViewGroup.LayoutParams)  {
@@ -535,7 +551,7 @@ public extension Android.View.ViewGroup {
             object: javaObject,
             methodName: "addView",
             methodSig: "(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V",
-            methodCache: &ViewGroupJNICache.MethodID.addView6,
+            methodCache: &ViewGroupJNICache.MethodID.addView4,
             args: &__args,
             locals: &__locals )
         
@@ -2119,11 +2135,13 @@ internal extension Android.View.ViewGroup {
         /// JNI Method ID cache
         struct MethodID {
             
+            static var init_method_1: jmethodID?
+            
+            static var addView: jmethodID?
             static var addView2: jmethodID?
+            static var addView3: jmethodID?
             static var addView4: jmethodID?
             static var addView5: jmethodID?
-            static var addView6: jmethodID?
-            static var addView7: jmethodID?
             
             static var addStatesFromChildren: jmethodID?
             static var bringChildToFront: jmethodID?

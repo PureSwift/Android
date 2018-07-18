@@ -99,6 +99,52 @@ open class AndroidViewGroupLayoutParams: JavaObject {
         JNI.DeleteLocalRef( __object )
     }
     
+    
+}
+
+extension AndroidViewGroupLayoutParams {
+    
+    public func resolveLayoutDirection(_ layoutDirection: Int) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(layoutDirection))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "resolveLayoutDirection",
+            methodSig: "(I)V",
+            methodCache: &ViewGroupLayoutParamsJNICache.MethodID.resolveLayoutDirection,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    public func setBaseAttributes(a: JavaObject, widthAttr: Int, heightAttr: Int) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        
+        __args[0] = JNIType.toJava(value: a, locals: &__locals)
+        __args[1] = jvalue(i: jint(widthAttr))
+        __args[2] = jvalue(i: jint(heightAttr))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setBaseAttributes",
+            methodSig: "(Landroid/content/res/TypedArray;II)V",
+            methodCache: &ViewGroupLayoutParamsJNICache.MethodID.setBaseAttributes,
+            args: &__args,
+            locals: &__locals )
+    }
+}
+
+// MARK: - Fields
+
+public extension AndroidViewGroupLayoutParams {
+    
     public static var MATCH_PARENT: Int {
         
         get {
@@ -147,45 +193,6 @@ open class AndroidViewGroupLayoutParams: JavaObject {
                                                object: javaObject)
             return Int(__value)
         }
-    }
-}
-
-extension AndroidViewGroupLayoutParams {
-    
-    public func resolveLayoutDirection(_ layoutDirection: Int) {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        __args[0] = jvalue(i: jint(layoutDirection))
-        
-        JNIMethod.CallVoidMethod(
-            object: javaObject,
-            methodName: "resolveLayoutDirection",
-            methodSig: "(I)V",
-            methodCache: &ViewGroupLayoutParamsJNICache.MethodID.resolveLayoutDirection,
-            args: &__args,
-            locals: &__locals )
-    }
-    
-    public func setBaseAttributes(a: JavaObject, widthAttr: Int, heightAttr: Int) {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
-        
-        __args[0] = JNIType.toJava(value: a, locals: &__locals)
-        __args[1] = jvalue(i: jint(widthAttr))
-        __args[2] = jvalue(i: jint(heightAttr))
-        
-        JNIMethod.CallVoidMethod(
-            object: javaObject,
-            methodName: "setBaseAttributes",
-            methodSig: "(Landroid/content/res/TypedArray;II)V",
-            methodCache: &ViewGroupLayoutParamsJNICache.MethodID.setBaseAttributes,
-            args: &__args,
-            locals: &__locals )
     }
 }
 
