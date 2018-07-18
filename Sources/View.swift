@@ -62,6 +62,15 @@ open class AndroidView: JavaObject {
         JNI.DeleteLocalRef( __object )
     }
     
+    public var background: Android.Graphics.Drawable.Drawable? {
+        get {
+            return getBackground()
+        }
+        set {
+            setBackground(newValue!)
+        }
+    }
+    
     open func findViewById(_ id: Int) -> Android.View.View? {
         
         var __locals = [jobject]()
@@ -2713,6 +2722,42 @@ public extension Android.View.View {
 // MARK: - Methods
 
 public extension Android.View.View {
+    
+    @inline(__always)
+    internal func setBackground(_ background: Android.Graphics.Drawable.Drawable)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: background, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setBackground",
+            methodSig: "(Landroid/graphics/drawable/Drawable;)V",
+            methodCache: &JNICache.MethodID.setBackground,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    @inline(__always)
+    internal func getBackground() -> Android.Graphics.Drawable.Drawable? {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallObjectMethod(
+            object: javaObject,
+            methodName: "getBackground",
+            methodSig: "()Landroid/graphics/drawable/Drawable;",
+            methodCache: &JNICache.MethodID.getBackground,
+            args: &__args,
+            locals: &__locals )
+        
+        return __return != nil ? Android.Graphics.Drawable.Drawable(javaObject: __return) : nil
+    }
     
     @inline(__always)
     public func findViewById(_ id: Android.R.ID) -> Android.View.View? {
@@ -9876,48 +9921,7 @@ public extension Android.View.View {
         
         
     }
-    
-    
-    public func setBackground(background: JavaObject)  {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        __args[0] = JNIType.toJava(value: background, locals: &__locals)
-        
-        JNIMethod.CallVoidMethod(
-            object: javaObject,
-            methodName: "setBackground",
-            methodSig: "(Landroid/graphics/drawable/Drawable;)V",
-            methodCache: &JNICache.MethodID.setBackground,
-            args: &__args,
-            locals: &__locals )
-        
-        
-    }
-    
-    
-    public func setBackgroundDrawable(background: JavaObject)  {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        __args[0] = JNIType.toJava(value: background, locals: &__locals)
-        
-        JNIMethod.CallVoidMethod(
-            object: javaObject,
-            methodName: "setBackgroundDrawable",
-            methodSig: "(Landroid/graphics/drawable/Drawable;)V",
-            methodCache: &JNICache.MethodID.setBackgroundDrawable,
-            args: &__args,
-            locals: &__locals )
-        
-        
-    }
-    
-    
+
     public func setClipBounds(clipBounds: JavaObject)  {
         
         var __locals = [jobject]()
@@ -10143,6 +10147,7 @@ internal extension Android.View.View {
         struct MethodID {
             static var init_method_1: jmethodID?
             
+            static var getBackground: jmethodID?
             static var findViewById: jmethodID?
             static var findViewWithTag: jmethodID?
             static var getTag: jmethodID?

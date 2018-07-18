@@ -13,23 +13,29 @@ public extension Android.Graphics.Drawable {
     public typealias ColorDrawable = AndroidGraphicsDrawableColorDrawable
 }
 
-public class AndroidGraphicsDrawableColorDrawable: JavaObject {
+public class AndroidGraphicsDrawableColorDrawable: Android.Graphics.Drawable.Drawable {
     
-    public convenience init?( casting object: java_swift.JavaObject,
-                              _ file: StaticString = #file,
-                              _ line: Int = #line ) {
+    /// Creates a new black ColorDrawable.
+    public convenience init(){
         
-        self.init(javaObject: nil)
+        var __locals = [jobject]()
         
-        object.withJavaObject {
-            self.javaObject = $0
-        }
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __object = JNIMethod.NewObject(
+            className: JNICache.className,
+            classCache: &JNICache.jniClass,
+            methodSig: "()V",
+            methodCache: &JNICache.MethodID.newMethod1,
+            args: &__args,
+            locals: &__locals )
+        
+        self.init( javaObject: __object )
+        
+        JNI.DeleteLocalRef( __object )
     }
     
-    public required init( javaObject: jobject? ) {
-        super.init(javaObject: javaObject)
-    }
-    
+    /// Creates a new ColorDrawable with the specified color.
     public convenience init(color: Int){
         
         var __locals = [jobject]()
@@ -42,25 +48,6 @@ public class AndroidGraphicsDrawableColorDrawable: JavaObject {
             classCache: &JNICache.jniClass,
             methodSig: "(I)V",
             methodCache: &JNICache.MethodID.newMethod1,
-            args: &__args,
-            locals: &__locals )
-        
-        self.init( javaObject: __object )
-        
-        JNI.DeleteLocalRef( __object )
-    }
-    
-    public convenience init(){
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        let __object = JNIMethod.NewObject(
-            className: JNICache.className,
-            classCache: &JNICache.jniClass,
-            methodSig: "()V",
-            methodCache: &JNICache.MethodID.newMethod2,
             args: &__args,
             locals: &__locals )
         
