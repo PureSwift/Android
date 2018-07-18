@@ -289,7 +289,7 @@ public extension AndroidGraphicsColor {
         __args[1] = jvalue(f: jfloat(red))
         __args[2] = jvalue(f: jfloat(green))
         __args[3] = jvalue(f: jfloat(blue))
-        
+    
         let __return = JNIMethod.CallStaticIntMethod(className: JNICache.className,
                                                         classCache: &JNICache.jniClass,
                                                         methodName: "argb",
