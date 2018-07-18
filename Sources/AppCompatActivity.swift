@@ -356,7 +356,7 @@ open class SwiftSupportAppCompatActivity: AndroidContextWrapper {
         JNIMethod.CallVoidMethod(
             object: javaObject,
             methodName: "addContentView",
-            methodSig: "(Lorg/pureswift/swiftandroidsupport/view/SwiftView;Lorg/pureswift/swiftandroidsupport/view/SwiftViewLayoutParams;)",
+            methodSig: "(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V",
             methodCache: &SwiftActivityJNICache.MethodID.addContentView,
             args: &__args,
             locals: &__locals )
