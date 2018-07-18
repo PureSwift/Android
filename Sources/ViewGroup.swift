@@ -470,7 +470,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func addView(child: Android.View.View, index: Int)  {
+    public func addView(_ child: Android.View.View, index: Int)  {
         
         var __locals = [jobject]()
         
@@ -481,7 +481,7 @@ public extension Android.View.ViewGroup {
         
         JNIMethod.CallVoidMethod(
             object: javaObject,
-            methodName: "addView2",
+            methodName: "addView",
             methodSig: "(Landroid/view/View;I)V",
             methodCache: &ViewGroupJNICache.MethodID.addView2,
             args: &__args,
@@ -490,7 +490,7 @@ public extension Android.View.ViewGroup {
         
     }
     
-    public func addView(child: Android.View.View, index: Int, params: Android.View.ViewGroup.LayoutParams)  {
+    public func addView(_ child: Android.View.View, index: Int, params: Android.View.ViewGroup.LayoutParams)  {
         
         var __locals = [jobject]()
         
@@ -510,7 +510,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func addView(child: Android.View.View)  {
+    public func addView(_ child: Android.View.View)  {
         
         var __locals = [jobject]()
         
@@ -529,7 +529,7 @@ public extension Android.View.ViewGroup {
         
     }
     
-    public func addView(child: Android.View.View, params: Android.View.ViewGroup.LayoutParams)  {
+    public func addView(_ child: Android.View.View, params: Android.View.ViewGroup.LayoutParams)  {
         
         var __locals = [jobject]()
         
