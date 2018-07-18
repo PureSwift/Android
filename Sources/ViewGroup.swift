@@ -16,13 +16,6 @@ public extension Android.View {
 /// `Android.View.View`
 open class AndroidViewGroup: AndroidView {
     
-    public var layoutParams: Android.View.ViewGroup.LayoutParams? {
-        
-        get { return getLayoutParams() }
-        
-        set { setLayoutParams(newValue) }
-    }
-    
     open override func clearFocus()  {
         
         var __locals = [jobject]()
@@ -2105,44 +2098,6 @@ public extension Android.View.ViewGroup {
         
         
     }
-    
-    @inline(__always)
-    internal func getLayoutParams() -> Android.View.ViewGroup.LayoutParams? {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        let __return = JNIMethod.CallObjectMethod(
-            object: javaObject,
-            methodName: "getLayoutParams",
-            methodSig: "()Landroid/view/ViewGroup$LayoutParams;",
-            methodCache: &ViewGroupJNICache.MethodID.getLayoutParams,
-            args: &__args,
-            locals: &__locals )
-        
-        return Android.View.ViewGroup.LayoutParams.init(javaObject: __return)
-    }
-    
-    @inline(__always)
-    internal func setLayoutParams(_ layoutParams: Android.View.ViewGroup.LayoutParams?) {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        __args[0] = JNIType.toJava(value: layoutParams, locals: &__locals)
-        
-        JNIMethod.CallVoidMethod(
-            object: javaObject,
-            methodName: "setLayoutParams",
-            methodSig: "(Landroid/view/ViewGroup$LayoutParams;)V",
-            methodCache: &ViewGroupJNICache.MethodID.setLayoutParams,
-            args: &__args,
-            locals: &__locals )
-    }
-    
-
 }
 
 // MARK: - JNICache
@@ -2169,8 +2124,6 @@ internal extension Android.View.ViewGroup {
             static var addView5: jmethodID?
             static var addView6: jmethodID?
             static var addView7: jmethodID?
-            static var setLayoutParams: jmethodID?
-            static var getLayoutParams: jmethodID?
             
             static var addStatesFromChildren: jmethodID?
             static var bringChildToFront: jmethodID?

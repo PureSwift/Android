@@ -35,6 +35,13 @@ open class AndroidView: JavaObject {
         super.init(javaObject: javaObject)
     }
     
+    public var layoutParams: Android.View.ViewGroup.LayoutParams? {
+        
+        get { return getLayoutParams() }
+        
+        set { setLayoutParams(newValue) }
+    }
+    
     public var context: Android.Content.Context {
         
         get {
@@ -10002,6 +10009,42 @@ public extension Android.View.View {
         
     }
     
+    @inline(__always)
+    internal func getLayoutParams() -> Android.View.ViewGroup.LayoutParams? {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallObjectMethod(
+            object: javaObject,
+            methodName: "getLayoutParams",
+            methodSig: "()Landroid/view/ViewGroup$LayoutParams;",
+            methodCache: &JNICache.MethodID.getLayoutParams,
+            args: &__args,
+            locals: &__locals )
+        
+        return Android.View.ViewGroup.LayoutParams.init(javaObject: __return)
+    }
+    
+    @inline(__always)
+    internal func setLayoutParams(_ layoutParams: Android.View.ViewGroup.LayoutParams?) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: layoutParams, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setLayoutParams",
+            methodSig: "(Landroid/view/ViewGroup$LayoutParams;)V",
+            methodCache: &JNICache.MethodID.setLayoutParams,
+            args: &__args,
+            locals: &__locals )
+    }
+    
     
 }
 
@@ -10548,6 +10591,8 @@ internal extension Android.View.View {
             static var unscheduleDrawable: jmethodID?
             static var unscheduleDrawable2: jmethodID?
             static var unscheduleDrawable3: jmethodID?
+            static var setLayoutParams: jmethodID?
+            static var getLayoutParams: jmethodID?
             
         }
     }
