@@ -9,7 +9,7 @@ import java_swift
 import java_lang
 import JNI
 
-public extension AndroidWidgetFragmentLayout {
+public extension AndroidWidgetFrameLayout {
     
     public typealias FLayoutParams = AndroidFrameLayoutLayoutParams
 }
@@ -40,7 +40,7 @@ open class AndroidFrameLayoutLayoutParams: Android.View.ViewGroup.MarginLayoutPa
     }
     
     // Copy constructor.
-    public convenience init(source: Android.Widget.FragmentLayout.FLayoutParams){
+    public convenience init(source: Android.Widget.FrameLayout.FLayoutParams){
         
         var __locals = [jobject]()
         
@@ -183,7 +183,7 @@ internal extension AndroidFrameLayoutLayoutParams {
     struct FLayoutParamsJNICache {
         
         /// JNI Java class signature
-        static let classSignature = Android.Widget.className(["FragmentLayout$LayoutParams"])
+        static let classSignature = Android.Widget.className(["FrameLayout$LayoutParams"])
         
         /// JNI Java class name
         static let className = classSignature.rawValue

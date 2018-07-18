@@ -12,10 +12,10 @@ import JNI
 
 public extension Android.Widget {
     
-    public typealias FragmentLayout = AndroidWidgetFragmentLayout
+    public typealias FrameLayout = AndroidWidgetFrameLayout
 }
 
-open class AndroidWidgetFragmentLayout: Android.View.ViewGroup {
+open class AndroidWidgetFrameLayout: Android.View.ViewGroup {
     
     public convenience init(context: Android.Content.Context) {
         
@@ -40,20 +40,20 @@ open class AndroidWidgetFragmentLayout: Android.View.ViewGroup {
 
 // MARK: - Methods
 
-public extension AndroidWidgetFragmentLayout {
+public extension AndroidWidgetFrameLayout {
     
     
 }
 
 // MARK: - JNICache
 
-internal extension AndroidWidgetFragmentLayout {
+internal extension AndroidWidgetFrameLayout {
     
     /// JNI Cache
     struct FragmentLayoutJNICache {
         
         /// JNI Java class signature
-        static let classSignature = Android.Widget.className(["FragmentLayout"])
+        static let classSignature = Android.Widget.className(["FrameLayout"])
         
         /// JNI Java class name
         static let className = classSignature.rawValue
