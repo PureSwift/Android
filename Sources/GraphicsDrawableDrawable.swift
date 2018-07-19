@@ -19,7 +19,7 @@ public extension Android.Graphics.Drawable {
  * for dealing with an underlying visual resource that may take a variety of forms. Unlike a View, a Drawable does
  * not have any facility to receive events or otherwise interact with the user.
  */
-public class AndroidGraphicsDrawableDrawable: JavaObject {
+open class AndroidGraphicsDrawableDrawable: JavaObject {
     
     public convenience init?( casting object: java_swift.JavaObject,
                               _ file: StaticString = #file,
