@@ -255,6 +255,7 @@ public extension AndroidGraphicsColor {
         return Android.Graphics.Color(javaObject: __return)
     }
     
+    /*
     /// Return a color-int from alpha, red, green, blue components.
     public static func argb(alpha: Int, red: Int, green: Int, blue: Int) -> Int {
         
@@ -276,8 +277,10 @@ public extension AndroidGraphicsColor {
         
         return Int(__return)
     }
+    */
     
-    /**
+    /** Custom method which receive float but internaly is using the (IIII)I method.
+     * The original (FFFF)I just is supported over api 26.
      * Return a color-int from alpha, red, green, blue float components in the range [0..1].
      */
     public static func argb(alpha: Float, red: Float, green: Float, blue: Float) -> Int {
@@ -285,15 +288,15 @@ public extension AndroidGraphicsColor {
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 4 )
-        __args[0] = jvalue(f: jfloat(alpha))
-        __args[1] = jvalue(f: jfloat(red))
-        __args[2] = jvalue(f: jfloat(green))
-        __args[3] = jvalue(f: jfloat(blue))
+        __args[0] = jvalue(i: jint(Int(alpha*255)))
+        __args[1] = jvalue(i: jint(Int(red*255)))
+        __args[2] = jvalue(i: jint(Int(green*255)))
+        __args[3] = jvalue(i: jint(Int(blue*255)))
     
         let __return = JNIMethod.CallStaticIntMethod(className: JNICache.className,
                                                         classCache: &JNICache.jniClass,
                                                         methodName: "argb",
-                                                        methodSig: "(FFFF)I",
+                                                        methodSig: "(IIII)I",
                                                         methodCache: &JNICache.MethodID.argb2,
                                                         args: &__args,
                                                         locals: &__locals)
