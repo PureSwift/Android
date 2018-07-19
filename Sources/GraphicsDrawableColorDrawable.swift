@@ -35,8 +35,19 @@ public class AndroidGraphicsDrawableColorDrawable: Android.Graphics.Drawable.Dra
         JNI.DeleteLocalRef( __object )
     }
     
+    public convenience init?( casting object: java_swift.JavaObject,
+                              _ file: StaticString = #file,
+                              _ line: Int = #line ) {
+        
+        self.init(javaObject: nil)
+        
+        object.withJavaObject {
+            self.javaObject = $0
+        }
+    }
+    
     /// Creates a new ColorDrawable with the specified color.
-    public convenience init(color: Int){
+    public convenience init(color: Int) {
         
         var __locals = [jobject]()
         
@@ -56,7 +67,7 @@ public class AndroidGraphicsDrawableColorDrawable: Android.Graphics.Drawable.Dra
         JNI.DeleteLocalRef( __object )
     }
     
-    public var color : Int {
+    public var color : Int32 {
         get {
             return getColor() ?? 0
         }
@@ -81,7 +92,7 @@ public class AndroidGraphicsDrawableColorDrawable: Android.Graphics.Drawable.Dra
 
 public extension AndroidGraphicsDrawableColorDrawable {
     
-    internal func getColor() -> Int? {
+    internal func getColor() -> Int32? {
         
         var __locals = [jobject]()
         
@@ -95,10 +106,10 @@ public extension AndroidGraphicsDrawableColorDrawable {
             args: &__args,
             locals: &__locals )
         
-        return Int(__return)
+        return Int32(__return)
     }
     
-    internal func setColor(_ color: Int) {
+    internal func setColor(_ color: Int32) {
         
         var __locals = [jobject]()
         
