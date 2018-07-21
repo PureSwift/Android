@@ -74,7 +74,7 @@ open class AndroidView: JavaObject {
             return getBackground()
         }
         set {
-            setBackground(newValue!)
+            setBackground(newValue)
         }
     }
     
@@ -2731,7 +2731,7 @@ public extension Android.View.View {
 public extension Android.View.View {
     
     @inline(__always)
-    internal func setBackground(_ background: Android.Graphics.Drawable.Drawable)  {
+    internal func setBackground(_ background: Android.Graphics.Drawable.Drawable?)  {
         
         var __locals = [jobject]()
         

@@ -274,7 +274,7 @@ open class SwiftSupportAppCompatActivity: AndroidContextWrapper {
             result = __return != nil ? Android.Content.Res.Resources(javaObject: __return) : nil
         }
         
-        return result!
+        return result
     }
     
     public func setContentView(layoutResID: Int) {
