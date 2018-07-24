@@ -457,6 +457,101 @@ open class AndroidViewGroup: AndroidView {
         
         return __return != jboolean(JNI_FALSE)
     }
+    
+    open func addView(_ child: Android.View.View, index: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = JNIType.toJava(value: child, locals: &__locals)
+        __args[1] = jvalue(i: jint(index))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "addView",
+            methodSig: "(Landroid/view/View;I)V",
+            methodCache: &ViewGroupJNICache.MethodID.addView,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    open func addView(_ child: Android.View.View, index: Int, params: Android.View.ViewGroup.LayoutParams)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        
+        __args[0] = JNIType.toJava(value: child, locals: &__locals)
+        __args[1] = jvalue(i: jint(index))
+        __args[0] = JNIType.toJava(value: params, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "addView",
+            methodSig: "(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V",
+            methodCache: &ViewGroupJNICache.MethodID.addView2,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    open func addView(_ child: Android.View.View)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: child, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "addView",
+            methodSig: "(Landroid/view/View;)V",
+            methodCache: &ViewGroupJNICache.MethodID.addView3,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    open func addView(_ child: Android.View.View, params: Android.View.ViewGroup.LayoutParams)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = JNIType.toJava(value: child, locals: &__locals)
+        __args[1] = JNIType.toJava(value: params, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "addView",
+            methodSig: "(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V",
+            methodCache: &ViewGroupJNICache.MethodID.addView4,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    open func addView(child: Android.View.View, width: Int, height: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        
+        __args[0] = JNIType.toJava(value: child, locals: &__locals)
+        __args[1] = jvalue(i: jint(width))
+        __args[2] = jvalue(i: jint(height))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "addView",
+            methodSig: "(Landroid/view/View;II)V",
+            methodCache: &ViewGroupJNICache.MethodID.addView5,
+            args: &__args,
+            locals: &__locals )
+    }
 }
 
 public extension Android.View.ViewGroup {
@@ -478,104 +573,6 @@ public extension Android.View.ViewGroup {
         
         
         return __return != jboolean(JNI_FALSE)
-    }
-    
-    
-    public func addView(_ child: Android.View.View, index: Int)  {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        
-        __args[0] = JNIType.toJava(value: child, locals: &__locals)
-        __args[1] = jvalue(i: jint(index))
-        
-        JNIMethod.CallVoidMethod(
-            object: javaObject,
-            methodName: "addView",
-            methodSig: "(Landroid/view/View;I)V",
-            methodCache: &ViewGroupJNICache.MethodID.addView,
-            args: &__args,
-            locals: &__locals )
-        
-        
-    }
-    
-    public func addView(_ child: Android.View.View, index: Int, params: Android.View.ViewGroup.LayoutParams)  {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
-        
-        __args[0] = JNIType.toJava(value: child, locals: &__locals)
-        __args[1] = jvalue(i: jint(index))
-        __args[0] = JNIType.toJava(value: params, locals: &__locals)
-        
-        JNIMethod.CallVoidMethod(
-            object: javaObject,
-            methodName: "addView",
-            methodSig: "(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V",
-            methodCache: &ViewGroupJNICache.MethodID.addView2,
-            args: &__args,
-            locals: &__locals )
-    }
-    
-    
-    public func addView(_ child: Android.View.View)  {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        __args[0] = JNIType.toJava(value: child, locals: &__locals)
-        
-        JNIMethod.CallVoidMethod(
-            object: javaObject,
-            methodName: "addView",
-            methodSig: "(Landroid/view/View;)V",
-            methodCache: &ViewGroupJNICache.MethodID.addView3,
-            args: &__args,
-            locals: &__locals )
-    }
-    
-    public func addView(_ child: Android.View.View, params: Android.View.ViewGroup.LayoutParams)  {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        
-        __args[0] = JNIType.toJava(value: child, locals: &__locals)
-         __args[1] = JNIType.toJava(value: params, locals: &__locals)
-        
-        JNIMethod.CallVoidMethod(
-            object: javaObject,
-            methodName: "addView",
-            methodSig: "(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V",
-            methodCache: &ViewGroupJNICache.MethodID.addView4,
-            args: &__args,
-            locals: &__locals )
-        
-        
-    }
-    
-    
-    public func addView(child: Android.View.View, width: Int, height: Int)  {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
-        
-        __args[0] = JNIType.toJava(value: child, locals: &__locals)
-        __args[1] = jvalue(i: jint(width))
-        __args[2] = jvalue(i: jint(height))
-        
-        JNIMethod.CallVoidMethod(
-            object: javaObject,
-            methodName: "addView",
-            methodSig: "(Landroid/view/View;II)V",
-            methodCache: &ViewGroupJNICache.MethodID.addView5,
-            args: &__args,
-            locals: &__locals )
     }
     
     
