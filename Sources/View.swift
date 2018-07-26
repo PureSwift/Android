@@ -62,7 +62,7 @@ open class AndroidView: JavaObject {
         set { setLayoutParams(newValue) }
     }
     
-    public var context: Android.Content.Context {
+    public var context: Android.Content.Context? {
         
         get {
             return getContext()
@@ -2857,7 +2857,7 @@ public extension Android.View.View {
     }
     
     @inline(__always)
-    internal func getContext() -> Android.Content.Context {
+    internal func getContext() -> Android.Content.Context? {
         
         var __locals = [jobject]()
         
@@ -2873,7 +2873,7 @@ public extension Android.View.View {
         
         defer { JNI.DeleteLocalRef( __return ) }
         
-        return Android.Content.Context(javaObject: __return)
+        return __return != nil ? Android.Content.Context(javaObject: __return) : nil
     }
     
     /**
