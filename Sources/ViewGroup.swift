@@ -19,7 +19,7 @@ open class AndroidViewGroup: AndroidView {
     public convenience init?( casting object: java_swift.JavaObject,
                               _ file: StaticString = #file,
                               _ line: Int = #line ) {
-        
+        NSLog("\(type(of: self)) \(#function)")
         self.init(javaObject: nil)
         
         object.withJavaObject {
@@ -28,15 +28,18 @@ open class AndroidViewGroup: AndroidView {
     }
     
     public required init( javaObject: jobject? ) {
+        NSLog("\(type(of: self)) \(#function)")
         super.init(javaObject: javaObject)
     }
     
     public convenience init(context: Android.Content.Context) {
+        NSLog("\(type(of: self)) \(#function)")
         self.init(javaObject: nil)
         bindNewObject()
     }
     
     public func bindNewObject(){
+        NSLog("\(type(of: self)) \(#function)")
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
@@ -50,7 +53,7 @@ open class AndroidViewGroup: AndroidView {
             args: &__args,
             locals: &__locals )
         
-        self.javaObject = __object
+        super.javaObject = __object
         
         JNI.DeleteLocalRef( __object )
     }
