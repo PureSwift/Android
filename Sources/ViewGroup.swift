@@ -570,6 +570,27 @@ open class AndroidViewGroup: AndroidView {
             args: &__args,
             locals: &__locals )
     }
+    
+    open func onLayout(changed: Bool, l: Int, t: Int, r: Int, b: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 5 )
+        
+        __args[0] = jvalue(z: jboolean(changed ? JNI_TRUE : JNI_FALSE))
+        __args[1] = jvalue(i: jint(l))
+        __args[2] = jvalue(i: jint(t))
+        __args[3] = jvalue(i: jint(r))
+        __args[4] = jvalue(i: jint(b))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "onLayout",
+            methodSig: "(ZIIII)V",
+            methodCache: &ViewGroupJNICache.MethodID.onLayout,
+            args: &__args,
+            locals: &__locals )
+    }
 }
 
 public extension Android.View.ViewGroup {
@@ -926,6 +947,28 @@ public extension Android.View.ViewGroup {
         return Int(__return)
     }
     
+    /**
+     * Ask one of the children of this view to measure itself, taking into account both
+     * the MeasureSpec requirements for this view and its padding.
+     */
+    public func measureChild(child: Android.View.View, parentWidthMeasureSpec: Int, parentHeightMeasureSpec: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        
+        __args[0] = JNIType.toJava(value: child, locals: &__locals)
+        __args[1] = jvalue(i: jint(parentWidthMeasureSpec))
+        __args[2] = jvalue(i: jint(parentHeightMeasureSpec))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "measureChild",
+            methodSig: "(Landroid/view/View;II)V",
+            methodCache: &ViewGroupJNICache.MethodID.measureChild,
+            args: &__args,
+            locals: &__locals )
+    }
     
     public func getClipChildren() -> Bool {
         
@@ -2254,7 +2297,8 @@ internal extension Android.View.ViewGroup {
             static var showContextMenuForChild2: jmethodID?
             static var startLayoutAnimation: jmethodID?
             static var startViewTransition: jmethodID?
-            
+            static var onLayout: jmethodID?
+            static var measureChild: jmethodID?
         }
     }
 }
