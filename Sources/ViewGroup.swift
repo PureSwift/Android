@@ -35,7 +35,7 @@ open class AndroidViewGroup: AndroidView {
     public convenience init(context: Android.Content.Context) {
         NSLog("\(type(of: self)) \(#function)")
         self.init(javaObject: nil)
-        bindNewObject()
+        bindNewObject(context: context)
     }
     
     public func bindNewObject(context: Android.Content.Context){
