@@ -32,12 +32,10 @@ open class AndroidView: JavaObject {
     }
     
     public required init( javaObject: jobject? ) {
-        NSLog("\(type(of: self)) \(#function)")
         super.init(javaObject: javaObject)
     }
     
     public convenience init(context: Android.Content.Context) {
-        NSLog("\(type(of: self)) \(#function)")
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
