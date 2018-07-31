@@ -615,6 +615,120 @@ open class AndroidView: JavaObject {
         
         return __return != jboolean(JNI_FALSE)
     }
+    
+    open func setPadding(left: Int, top: Int, right: Int, bottom: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 4 )
+        
+        __args[0] = jvalue(i: jint(left))
+        __args[1] = jvalue(i: jint(top))
+        __args[2] = jvalue(i: jint(right))
+        __args[3] = jvalue(i: jint(bottom))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setPadding",
+            methodSig: "(IIII)V",
+            methodCache: &JNICache.MethodID.setPadding,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    
+    open func setPaddingRelative(start: Int, top: Int, end: Int, bottom: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 4 )
+        
+        __args[0] = jvalue(i: jint(start))
+        __args[1] = jvalue(i: jint(top))
+        __args[2] = jvalue(i: jint(end))
+        __args[3] = jvalue(i: jint(bottom))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setPaddingRelative",
+            methodSig: "(IIII)V",
+            methodCache: &JNICache.MethodID.setPaddingRelative,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    open func setSelected(selected: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(selected ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setSelected",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.setSelected,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    open func showContextMenu() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "showContextMenu",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.showContextMenu,
+            args: &__args,
+            locals: &__locals )
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    
+    open func showContextMenu(x: Float, y: Float) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = jvalue(f: jfloat(x))
+        __args[1] = jvalue(f: jfloat(y))
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "showContextMenu",
+            methodSig: "(FF)Z",
+            methodCache: &JNICache.MethodID.showContextMenu2,
+            args: &__args,
+            locals: &__locals )
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    /**
+     * Cancels a pending long press.
+     */
+    open func cancelLongPress()  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "cancelLongPress",
+            methodSig: "()V",
+            methodCache: &JNICache.MethodID.cancelLongPress,
+            args: &__args,
+            locals: &__locals )
+    }
 }
 
 // MARK: - Constants
@@ -3151,26 +3265,6 @@ public extension Android.View.View {
             methodName: "cancelDragAndDrop",
             methodSig: "()V",
             methodCache: &JNICache.MethodID.cancelDragAndDrop,
-            args: &__args,
-            locals: &__locals )
-        
-        
-    }
-    
-    /**
-     * Cancels a pending long press.
-     */
-    public func cancelLongPress()  {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        JNIMethod.CallVoidMethod(
-            object: javaObject,
-            methodName: "cancelLongPress",
-            methodSig: "()V",
-            methodCache: &JNICache.MethodID.cancelLongPress,
             args: &__args,
             locals: &__locals )
         
@@ -7897,53 +7991,6 @@ public extension Android.View.View {
         
     }
     
-    
-    public func setPadding(left: Int, top: Int, right: Int, bottom: Int)  {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 4 )
-        
-        __args[0] = jvalue(i: jint(left))
-        __args[1] = jvalue(i: jint(top))
-        __args[2] = jvalue(i: jint(right))
-        __args[3] = jvalue(i: jint(bottom))
-        
-        JNIMethod.CallVoidMethod(
-            object: javaObject,
-            methodName: "setPadding",
-            methodSig: "(IIII)V",
-            methodCache: &JNICache.MethodID.setPadding,
-            args: &__args,
-            locals: &__locals )
-        
-        
-    }
-    
-    
-    public func setPaddingRelative(start: Int, top: Int, end: Int, bottom: Int)  {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 4 )
-        
-        __args[0] = jvalue(i: jint(start))
-        __args[1] = jvalue(i: jint(top))
-        __args[2] = jvalue(i: jint(end))
-        __args[3] = jvalue(i: jint(bottom))
-        
-        JNIMethod.CallVoidMethod(
-            object: javaObject,
-            methodName: "setPaddingRelative",
-            methodSig: "(IIII)V",
-            methodCache: &JNICache.MethodID.setPaddingRelative,
-            args: &__args,
-            locals: &__locals )
-        
-        
-    }
-    
-    
     public func setPivotX(pivotX: Float)  {
         
         var __locals = [jobject]()
@@ -8404,27 +8451,6 @@ public extension Android.View.View {
         
     }
     
-    
-    public func setSelected(selected: Bool)  {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        __args[0] = jvalue(z: jboolean(selected ? JNI_TRUE : JNI_FALSE))
-        
-        JNIMethod.CallVoidMethod(
-            object: javaObject,
-            methodName: "setSelected",
-            methodSig: "(Z)V",
-            methodCache: &JNICache.MethodID.setSelected,
-            args: &__args,
-            locals: &__locals )
-        
-        
-    }
-    
-    
     public func setSoundEffectsEnabled(soundEffectsEnabled: Bool)  {
         
         var __locals = [jobject]()
@@ -8782,46 +8808,6 @@ public extension Android.View.View {
         
         
     }
-    
-    
-    public func showContextMenu() -> Bool {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        let __return = JNIMethod.CallBooleanMethod(
-            object: javaObject,
-            methodName: "showContextMenu",
-            methodSig: "()Z",
-            methodCache: &JNICache.MethodID.showContextMenu,
-            args: &__args,
-            locals: &__locals )
-        
-        return __return != jboolean(JNI_FALSE)
-    }
-    
-    
-    public func showContextMenu(x: Float, y: Float) -> Bool {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        
-        __args[0] = jvalue(f: jfloat(x))
-        __args[1] = jvalue(f: jfloat(y))
-        
-        let __return = JNIMethod.CallBooleanMethod(
-            object: javaObject,
-            methodName: "showContextMenu",
-            methodSig: "(FF)Z",
-            methodCache: &JNICache.MethodID.showContextMenu2,
-            args: &__args,
-            locals: &__locals )
-        
-        return __return != jboolean(JNI_FALSE)
-    }
-    
     
     public func startNestedScroll(axes: Int) -> Bool {
         

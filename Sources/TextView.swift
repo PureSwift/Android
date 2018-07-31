@@ -481,7 +481,7 @@ open class AndroidTextView: AndroidView {
     }
     
     
-    public func cancelLongPress()  {
+    open override func cancelLongPress()  {
         
         var __locals = [jobject]()
         
@@ -876,7 +876,7 @@ open class AndroidTextView: AndroidView {
     }
     
     
-    open override func setShadowLayer(radius: Float, dx: Float, dy: Float, color: Int)  {
+    public func setShadowLayer(radius: Float, dx: Float, dy: Float, color: Int)  {
         
         var __locals = [jobject]()
         
