@@ -10634,7 +10634,8 @@ internal extension Android.View.View {
             static var unscheduleDrawable3: jmethodID?
             static var setLayoutParams: jmethodID?
             static var getLayoutParams: jmethodID?
-            
+            static var onMeasure: jmethodID?
+            static var setMeasuredDimension: jmethodID?
         }
     }
 }
