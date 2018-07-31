@@ -67,13 +67,13 @@ public extension Android.Widget.Button {
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        __args[0] = JNIType.toJava(value: tag, locals: &__locals)
+        __args[0] = JNIType.toJava(value: pointerIndex, locals: &__locals)
         __args[1] = jvalue(i: jint(pointerIndex))
         
         let __return = JNIMethod.CallObjectMethod(
             object: javaObject,
-            methodName: "getTag",
-            methodSig: "()Ljava/lang/Object;",
+            methodName: "onResolvePointerIcon",
+            methodSig: "(Landroid/view/MotionEvent;I)Landroid/view/PointerIcon;",
             methodCache: &JNICacheButton.MethodID.onResolvePointerIndex,
             args: &__args,
             locals: &__locals )
