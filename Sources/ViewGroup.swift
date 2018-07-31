@@ -38,7 +38,7 @@ open class AndroidViewGroup: AndroidView {
         bindNewObject()
     }
     
-    public func bindNewObject(){
+    public func bindNewObject(context: Android.Content.Context){
         NSLog("\(type(of: self)) \(#function)")
         var __locals = [jobject]()
         
