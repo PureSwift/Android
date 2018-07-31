@@ -10027,6 +10027,29 @@ public extension Android.View.View {
         
     }
     
+    /**
+     * This method must be called by onMeasure(int, int) to store the measured width and measured height.
+     */
+    public func setMeasuredDimension(measuredWidth: Int, measuredHeight: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = jvalue(i: jint(measuredWidth))
+        __args[1] = jvalue(i: jint(measuredHeight))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setMeasuredDimension",
+            methodSig: "(II)V",
+            methodCache: &JNICache.MethodID.setMeasuredDimension,
+            args: &__args,
+            locals: &__locals )
+        
+    }
+    
+    
     @inline(__always)
     internal func getLayoutParams() -> Android.View.ViewGroup.LayoutParams? {
         
