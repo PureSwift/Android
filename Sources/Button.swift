@@ -53,13 +53,34 @@ public extension Android.Widget.Button {
             object: javaObject,
             methodName: "getAccessibilityClassName",
             methodSig: "()Ljava/lang/String;",
-            methodCache: &JNICache.MethodID.getAccessibilityClassName,
+            methodCache: &JNICacheButton.MethodID.getAccessibilityClassName,
             args: &__args,
             locals: &__locals )
         
         defer { JNI.DeleteLocalRef( __return ) }
         
         return String(javaObject: __return)
+    }
+    
+    public func onResolvePointerIcon(event: JavaObject, pointerIndex: Int) -> JavaObject? {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = JNIType.toJava(value: tag, locals: &__locals)
+        __args[1] = jvalue(i: jint(pointerIndex))
+        
+        let __return = JNIMethod.CallObjectMethod(
+            object: javaObject,
+            methodName: "getTag",
+            methodSig: "()Ljava/lang/Object;",
+            methodCache: &JNICacheButton.MethodID.onResolvePointerIndex,
+            args: &__args,
+            locals: &__locals )
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return __return != nil ? JavaObject(javaObject: __return) : nil
     }
 }
 
@@ -83,6 +104,7 @@ internal extension Android.Widget.Button {
         // JNI MethodID cache
         struct MethodID {
             static var getAccessibilityClassName: jmethodID?
+            static var onResolvePointerIndex: jmethodID?
         }
     }
 }
