@@ -65,6 +65,10 @@ open class AndroidViewOnClickListener: JavaObject {
             self.javaObject = $0
         }
     }
+    
+    open func onClick(){
+        fatalError("It must be implemented")
+    }
 }
 
 extension AndroidViewOnClickListener: JNIListener { }
@@ -128,7 +132,9 @@ public func AndroidViewOnClickListener_onclick ( _ __env: UnsafeMutablePointer<J
     
     AndroidViewOnClickListener.release(swiftObject: __swiftObject )
     
-    NSLog("native \(#function)")
+    AndroidViewOnClickListener
+        .swiftObject(from: __swiftObject)?
+        .onClick()
 }
 
 private typealias AndroidViewOnClickListener_finalize_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong) -> ()
