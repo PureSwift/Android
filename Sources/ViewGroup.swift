@@ -947,6 +947,28 @@ public extension Android.View.ViewGroup {
         return Int(__return)
     }
     
+    /**
+     * Ask one of the children of this view to measure itself, taking into account both
+     * the MeasureSpec requirements for this view and its padding.
+     */
+    public func measureChild(child: Android.View.View, parentWidthMeasureSpec: Int, parentHeightMeasureSpec: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        
+        __args[0] = JNIType.toJava(value: child, locals: &__locals)
+        __args[1] = jvalue(i: jint(parentWidthMeasureSpec))
+        __args[2] = jvalue(i: jint(parentHeightMeasureSpec))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "measureChild",
+            methodSig: "(Landroid/view/View;II)V",
+            methodCache: &ViewGroupJNICache.MethodID.measureChild,
+            args: &__args,
+            locals: &__locals )
+    }
     
     public func getClipChildren() -> Bool {
         
@@ -2276,6 +2298,7 @@ internal extension Android.View.ViewGroup {
             static var startLayoutAnimation: jmethodID?
             static var startViewTransition: jmethodID?
             static var onLayout: jmethodID?
+            static var measureChild: jmethodID?
         }
     }
 }
