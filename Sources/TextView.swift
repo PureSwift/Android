@@ -440,7 +440,7 @@ open class AndroidTextView: AndroidView {
     }
     
     
-    public func onKeyDown(keyCode: Int, event: JavaObject) -> Bool {
+    open override func onKeyDown(keyCode: Int, event: JavaObject) -> Bool {
         
         var __locals = [jobject]()
         
@@ -816,7 +816,7 @@ open class AndroidTextView: AndroidView {
     }
     
     
-    public func setPadding(left: Int, top: Int, right: Int, bottom: Int)  {
+    open override func setPadding(left: Int, top: Int, right: Int, bottom: Int)  {
         
         var __locals = [jobject]()
         
@@ -837,7 +837,7 @@ open class AndroidTextView: AndroidView {
     }
     
     
-    public func setPaddingRelative(start: Int, top: Int, end: Int, bottom: Int)  {
+    open override func setPaddingRelative(start: Int, top: Int, end: Int, bottom: Int)  {
         
         var __locals = [jobject]()
         
@@ -858,7 +858,7 @@ open class AndroidTextView: AndroidView {
     }
     
     
-    public func setSelected(selected: Bool)  {
+    open override func setSelected(selected: Bool)  {
         
         var __locals = [jobject]()
         
@@ -876,7 +876,7 @@ open class AndroidTextView: AndroidView {
     }
     
     
-    public func setShadowLayer(radius: Float, dx: Float, dy: Float, color: Int)  {
+    open override func setShadowLayer(radius: Float, dx: Float, dy: Float, color: Int)  {
         
         var __locals = [jobject]()
         
@@ -933,7 +933,7 @@ open class AndroidTextView: AndroidView {
     }
     
     
-    public func showContextMenu() -> Bool {
+    open override func showContextMenu() -> Bool {
         
         var __locals = [jobject]()
         
@@ -951,7 +951,7 @@ open class AndroidTextView: AndroidView {
     }
     
     
-    public func showContextMenu(x: Float, y: Float) -> Bool {
+    open override func showContextMenu(x: Float, y: Float) -> Bool {
         
         var __locals = [jobject]()
         

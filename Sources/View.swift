@@ -595,6 +595,26 @@ open class AndroidView: JavaObject {
             args: &__args,
             locals: &__locals )
     }
+    
+    open func onKeyDown(keyCode: Int, event: JavaObject) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = jvalue(i: jint(keyCode))
+        __args[1] = JNIType.toJava(value: event, locals: &__locals)
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "onKeyDown",
+            methodSig: "(ILandroid/view/KeyEvent;)Z",
+            methodCache: &JNICache.MethodID.onKeyDown,
+            args: &__args,
+            locals: &__locals )
+        
+        return __return != jboolean(JNI_FALSE)
+    }
 }
 
 // MARK: - Constants
@@ -9509,28 +9529,6 @@ public extension Android.View.View {
         
         return __return != jboolean(JNI_FALSE)
     }
-    
-    
-    public func onKeyDown(keyCode: Int, event: JavaObject) -> Bool {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        
-        __args[0] = jvalue(i: jint(keyCode))
-        __args[1] = JNIType.toJava(value: event, locals: &__locals)
-        
-        let __return = JNIMethod.CallBooleanMethod(
-            object: javaObject,
-            methodName: "onKeyDown",
-            methodSig: "(ILandroid/view/KeyEvent;)Z",
-            methodCache: &JNICache.MethodID.onKeyDown,
-            args: &__args,
-            locals: &__locals )
-        
-        return __return != jboolean(JNI_FALSE)
-    }
-    
     
     public func onKeyLongPress(keyCode: Int, event: JavaObject) -> Bool {
         
