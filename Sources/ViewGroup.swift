@@ -570,6 +570,27 @@ open class AndroidViewGroup: AndroidView {
             args: &__args,
             locals: &__locals )
     }
+    
+    open func onLayout(changed: Bool, l: Int, t: Int, r: Int, b: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 5 )
+        
+        __args[0] = jvalue(z: jboolean(changed ? JNI_TRUE : JNI_FALSE))
+        __args[1] = jvalue(i: jint(l))
+        __args[2] = jvalue(i: jint(t))
+        __args[3] = jvalue(i: jint(r))
+        __args[4] = jvalue(i: jint(b))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "onLayout",
+            methodSig: "(ZIIII)V",
+            methodCache: &ViewGroupJNICache.MethodID.onLayout,
+            args: &__args,
+            locals: &__locals )
+    }
 }
 
 public extension Android.View.ViewGroup {
@@ -2254,7 +2275,7 @@ internal extension Android.View.ViewGroup {
             static var showContextMenuForChild2: jmethodID?
             static var startLayoutAnimation: jmethodID?
             static var startViewTransition: jmethodID?
-            
+            static var onLayout: jmethodID?
         }
     }
 }
