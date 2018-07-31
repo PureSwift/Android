@@ -9161,7 +9161,7 @@ public extension Android.View.View {
         JNIMethod.CallVoidMethod(
             object: javaObject,
             methodName: "setOnClickListener",
-            methodSig: "(Landroid/view/View/OnClickListener;)V",
+            methodSig: "(Landroid/view/View$OnClickListener;)V",
             methodCache: &JNICache.MethodID.setOnClickListener,
             args: &__args,
             locals: &__locals )
