@@ -575,7 +575,26 @@ open class AndroidView: JavaObject {
         return __return != jboolean(JNI_FALSE)
     }
     
-    
+    /**
+     * Measure the view and its content to determine the measured width and the measured height.
+     */
+    open func onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = jvalue(i: jint(widthMeasureSpec))
+        __args[1] = jvalue(i: jint(heightMeasureSpec))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "onMeasure",
+            methodSig: "(II)V",
+            methodCache: &JNICache.MethodID.onMeasure,
+            args: &__args,
+            locals: &__locals )
+    }
 }
 
 // MARK: - Constants
