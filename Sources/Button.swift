@@ -74,7 +74,7 @@ public extension Android.Widget.Button {
             object: javaObject,
             methodName: "onResolvePointerIcon",
             methodSig: "(Landroid/view/MotionEvent;I)Landroid/view/PointerIcon;",
-            methodCache: &JNICacheButton.MethodID.onResolvePointerIndex,
+            methodCache: &JNICacheButton.MethodID.onResolvePointerIcon,
             args: &__args,
             locals: &__locals )
         
@@ -104,7 +104,7 @@ internal extension Android.Widget.Button {
         // JNI MethodID cache
         struct MethodID {
             static var getAccessibilityClassName: jmethodID?
-            static var onResolvePointerIndex: jmethodID?
+            static var onResolvePointerIcon: jmethodID?
         }
     }
 }
