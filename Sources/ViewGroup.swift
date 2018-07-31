@@ -2139,7 +2139,7 @@ internal extension Android.View.ViewGroup {
     struct ViewGroupJNICache {
         
         /// JNI Java class signature
-        static let classSignature = Android.View.className(["ViewGroup"])
+        static let classSignature = SwiftSupport.View.className(["SwiftViewGroup"])
         
         /// JNI Java class name
         static let className = classSignature.rawValue
