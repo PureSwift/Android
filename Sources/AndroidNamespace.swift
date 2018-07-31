@@ -30,6 +30,11 @@ public enum Android: JavaPackage {
             
             public static let package: JNIPackage = Android.Content.package + ["pm"]
         }
+        
+        public enum Res: JavaPackage {
+            
+            public static let package: JNIPackage = Android.Content.package + ["res"]
+        }
     }
     
     public enum Widget: JavaPackage {
@@ -54,6 +59,16 @@ public enum Android: JavaPackage {
         public enum LE: JavaPackage {
             
             public static let package: JNIPackage = Android.Bluetooth.package + ["le"]
+        }
+    }
+    
+    public enum Graphics: JavaPackage {
+        
+        public static let package: JNIPackage = Android.package + ["graphics"]
+        
+        public enum Drawable: JavaPackage {
+            
+            public static let package: JNIPackage = Android.Graphics.package + ["drawable"]
         }
     }
 }

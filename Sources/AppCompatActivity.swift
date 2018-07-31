@@ -252,6 +252,31 @@ open class SwiftSupportAppCompatActivity: AndroidContextWrapper {
         return result!
     }
     
+    public func getResources() -> Android.Content.Res.Resources? {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2)
+        
+        var result: Android.Content.Res.Resources?
+        
+        withJavaObject {
+            
+            let __return = JNIMethod.CallObjectMethod(object: $0,
+                                                   methodName: "getResources",
+                                                   methodSig: "()Landroid/content/res/Resources;",
+                                                   methodCache: &SwiftActivityJNICache.MethodID.getResources,
+                                                   args: &__args,
+                                                   locals: &__locals)
+            
+            defer { JNI.DeleteLocalRef(__return) }
+            
+            result = __return != nil ? Android.Content.Res.Resources(javaObject: __return) : nil
+        }
+        
+        return result
+    }
+    
     public func setContentView(layoutResID: Int) {
         
         var __locals = [jobject]()
@@ -356,7 +381,7 @@ open class SwiftSupportAppCompatActivity: AndroidContextWrapper {
         JNIMethod.CallVoidMethod(
             object: javaObject,
             methodName: "addContentView",
-            methodSig: "(Lorg/pureswift/swiftandroidsupport/view/SwiftView;Lorg/pureswift/swiftandroidsupport/view/SwiftViewLayoutParams;)",
+            methodSig: "(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V",
             methodCache: &SwiftActivityJNICache.MethodID.addContentView,
             args: &__args,
             locals: &__locals )
@@ -464,9 +489,11 @@ fileprivate extension SwiftSupport.App.AppCompatActivity {
             static var getIdentifier: jmethodID?
             static var setContentView1: jmethodID?
             static var setContentView2: jmethodID?
+            static var setContentView3: jmethodID?
             static var findViewById: jmethodID?
             static var getDensity: jmethodID?
             static var addContentView: jmethodID?
+            static var getResources: jmethodID?
         }
     }
 }

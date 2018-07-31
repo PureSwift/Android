@@ -14,7 +14,7 @@ public extension Android.Content {
     public typealias ContextWrapper = AndroidContextWrapper
 }
 
-open class AndroidContextWrapper: JavaObject {
+open class AndroidContextWrapper: AndroidContext {
     
     public convenience init?( casting object: java_swift.JavaObject,
                               _ file: StaticString = #file,
@@ -26,11 +26,8 @@ open class AndroidContextWrapper: JavaObject {
             self.javaObject = $0
         }
     }
-}
-
-public extension AndroidContextWrapper {
     
-    public func registerReceiver(receiver: Android.Content.BroadcastReceiver, filter: Android.Content.IntentFilter) -> Android.Content.Intent {
+    public override func registerReceiver(receiver: Android.Content.BroadcastReceiver, filter: Android.Content.IntentFilter) -> Android.Content.Intent {
         
         var __locals = [jobject]()
         
@@ -53,7 +50,7 @@ public extension AndroidContextWrapper {
         return Android.Content.Intent(javaObject: __return)
     }
     
-    public func unregisterReceiver(receiver: Android.Content.BroadcastReceiver){
+    public override func unregisterReceiver(receiver: Android.Content.BroadcastReceiver){
         
         var __locals = [jobject]()
         
@@ -117,7 +114,7 @@ public extension AndroidContextWrapper {
 
 // MARK: - Constants
 
-internal extension AndroidContextWrapper {
+private extension AndroidContextWrapper {
     
     /// JNI Cache
     struct JNICache {

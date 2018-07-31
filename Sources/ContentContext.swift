@@ -135,7 +135,7 @@ public extension AndroidContext {
 
 // MARK: - JNICache
 
-internal extension AndroidContext {
+private extension AndroidContext {
     
     /// JNI Cache
     struct JNICache {
