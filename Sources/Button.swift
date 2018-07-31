@@ -67,7 +67,7 @@ public extension Android.Widget.Button {
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        __args[0] = JNIType.toJava(value: pointerIndex, locals: &__locals)
+        __args[0] = JNIType.toJava(value: event, locals: &__locals)
         __args[1] = jvalue(i: jint(pointerIndex))
         
         let __return = JNIMethod.CallObjectMethod(
