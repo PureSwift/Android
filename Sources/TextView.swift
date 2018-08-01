@@ -79,6 +79,12 @@ open class AndroidTextView: AndroidView {
         set { setHint(newValue) }
     }
     
+    public var color: Int {
+        get { return getCurrentTextColor() }
+        
+        set { setTextColor(newValue) }
+    }
+    
     // MARK: - Accessors
     
     public var isEmpty: Bool {
@@ -241,6 +247,45 @@ open class AndroidTextView: AndroidView {
             methodName: "setGravity",
             methodSig: "(I)V",
             methodCache: &JNICacheTextView.MethodID.setGravity,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    /**
+     * Return the current color selected for normal text.
+     */
+    private func getCurrentTextColor() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getCurrentTextColor",
+            methodSig: "()I",
+            methodCache: &JNICacheTextView.MethodID.getCurrentTextColor,
+            args: &__args,
+            locals: &__locals )
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Sets the text color for all the states (normal, selected, focused) to be this color.
+     */
+    private func setTextColor(_ color: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue(i: jint(color))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setTextColor",
+            methodSig: "(I)V",
+            methodCache: &JNICacheTextView.MethodID.setTextColor,
             args: &__args,
             locals: &__locals )
     }
@@ -1081,7 +1126,7 @@ internal extension Android.Widget.TextView {
             static var setTextSize2: jmethodID?
             static var showContextMenu: jmethodID?
             static var showContextMenu2: jmethodID?
-            
+            static var getCurrentTextColor: jmethodID?
         }
     }
 }
