@@ -129,9 +129,6 @@ private typealias AndroidViewOnClickListener_onclick_type = @convention(c) ( _: 
 public func AndroidViewOnClickListener_onclick ( _ __env: UnsafeMutablePointer<JNIEnv?>,
                                                   _ __this: jobject?,
                                                   _ __swiftObject: jlong) -> () {
-    
-    AndroidViewOnClickListener.release(swiftObject: __swiftObject )
-    
     AndroidViewOnClickListener
         .swiftObject(from: __swiftObject)?
         .onClick()
