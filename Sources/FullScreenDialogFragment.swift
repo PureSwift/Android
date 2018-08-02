@@ -233,7 +233,7 @@ fileprivate extension AndroidFullScreenDialogFragment {
             
             let finalizeThunk: AndroidFullScreenDialogFragment_finalize_type = AndroidFullScreenDialogFragment_finalize
             
-            natives.append( JNINativeMethod( name: strdup("__finalize"),
+            natives.append( JNINativeMethod( name: strdup("finalizeNative"),
                                              signature: strdup("(J)V"),
                                              fnPtr: unsafeBitCast( finalizeThunk, to: UnsafeMutableRawPointer.self ) ) )
  
