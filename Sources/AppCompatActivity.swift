@@ -387,19 +387,21 @@ open class SwiftSupportAppCompatActivity: AndroidContextWrapper {
             locals: &__locals )
     }
     
-    public func getSupportFragmentManager() {
+    public func getSupportFragmentManager() -> JavaObject? {
         
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         
-        JNIMethod.CallVoidMethod(
+        let __return = JNIMethod.CallObjectMethod(
             object: javaObject,
             methodName: "getSupportFragmentManager",
             methodSig: "()Landroid/support/v4/app/FragmentManager;",
             methodCache: &SwiftActivityJNICache.MethodID.getSupportFragmentManager,
             args: &__args,
             locals: &__locals )
+        
+        return __return != nil ? JavaObject(javaObject: __return) : nil
     }
 }
 
