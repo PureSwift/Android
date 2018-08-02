@@ -186,7 +186,7 @@ fileprivate extension AndroidFullScreenDialogFragment {
             let onCreateViewThunk: AndroidFullScreenDialogFragment_onCreateViewNative_type = AndroidFullScreenDialogFragment_onCreateViewNative
             
             natives.append( JNINativeMethod( name: strdup("onCreateViewNative"),
-                                             signature: strdup("(JLandroid/view/LayoutInflater;Landroid/view/View;Landroid/os/Bundle;)Landroid/view/View;"),
+                                             signature: strdup("(JLandroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;"),
                                              fnPtr: unsafeBitCast( onCreateViewThunk, to: UnsafeMutableRawPointer.self ) ) )
             
             let onViewCreatedThunk: AndroidFullScreenDialogFragment_onViewCreatedNative_type = AndroidFullScreenDialogFragment_onViewCreatedNative
