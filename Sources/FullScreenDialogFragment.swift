@@ -92,9 +92,11 @@ open class AndroidFullScreenDialogFragment: JavaObject {
         NSLog("\(type(of: self)) \(#function)")
     }
     
-    open func onCreateView(inflater: Android.View.LayoutInflater, container: Android.View.ViewGroup?, savedInstanceState: Android.OS.Bundle?) {
+    open func onCreateView(inflater: Android.View.LayoutInflater, container: Android.View.ViewGroup?, savedInstanceState: Android.OS.Bundle?) -> Android.View.View {
         
         NSLog("\(type(of: self)) \(#function)")
+        
+        fatalError("Must be implemented")
     }
     
     open func onViewCreated(view: Android.View.View, savedInstanceState: Android.OS.Bundle?) {
@@ -184,7 +186,7 @@ fileprivate extension AndroidFullScreenDialogFragment {
             let onCreateViewThunk: AndroidFullScreenDialogFragment_onCreateViewNative_type = AndroidFullScreenDialogFragment_onCreateViewNative
             
             natives.append( JNINativeMethod( name: strdup("onCreateViewNative"),
-                                             signature: strdup("(JLandroid/view/LayoutInflater;Landroid/view/View;Landroid/os/Bundle;)V"),
+                                             signature: strdup("(JLandroid/view/LayoutInflater;Landroid/view/View;Landroid/os/Bundle;)Landroid/view/View;"),
                                              fnPtr: unsafeBitCast( onCreateViewThunk, to: UnsafeMutableRawPointer.self ) ) )
             
             let onViewCreatedThunk: AndroidFullScreenDialogFragment_onViewCreatedNative_type = AndroidFullScreenDialogFragment_onViewCreatedNative
@@ -274,20 +276,24 @@ public func AndroidFullScreenDialogFragment_onCreateNative( _ __env: UnsafeMutab
     AndroidFullScreenDialogFragment.swiftObject(from: __swiftObject)?.onCreate(savedInstanceState: bundle)
 }
 
-private typealias AndroidFullScreenDialogFragment_onCreateViewNative_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong,  _: jobject,  _: jobject?,  _: jobject?) -> ()
+private typealias AndroidFullScreenDialogFragment_onCreateViewNative_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong,  _: jobject,  _: jobject?,  _: jobject?) -> jobject?
 
 public func AndroidFullScreenDialogFragment_onCreateViewNative( _ __env: UnsafeMutablePointer<JNIEnv?>,
                                                             _ __this: jobject?,
                                                             _ __swiftObject: jlong,
                                                             _ __inflater: jobject,
                                                             _ __container: jobject?,
-                                                            _ __savedInstanceState: jobject?) -> () {
+                                                            _ __savedInstanceState: jobject?) -> jobject? {
     
     let inflater = Android.View.LayoutInflater.init(javaObject: __inflater)
     let container = __container != nil ? Android.View.ViewGroup.init(javaObject: __container) : nil
     let bundle = __savedInstanceState != nil ? Android.OS.Bundle(javaObject: __savedInstanceState) : nil
     
-    AndroidFullScreenDialogFragment.swiftObject(from: __swiftObject)?.onCreateView(inflater: inflater, container: container, savedInstanceState: bundle)
+    let result = AndroidFullScreenDialogFragment.swiftObject(from: __swiftObject)?.onCreateView(inflater: inflater, container: container, savedInstanceState: bundle)
+    
+    var __locals = [jobject]()
+    
+    return result?.localJavaObject(&__locals)
 }
 
 private typealias AndroidFullScreenDialogFragment_onViewCreatedNative_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong,  _: jobject?,  _: jobject?) -> ()
