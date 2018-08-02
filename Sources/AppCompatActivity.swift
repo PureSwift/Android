@@ -386,6 +386,21 @@ open class SwiftSupportAppCompatActivity: AndroidContextWrapper {
             args: &__args,
             locals: &__locals )
     }
+    
+    public func getSupportFragmentManager() {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "getSupportFragmentManager",
+            methodSig: "()Landroid/support/v4/app/FragmentManager;",
+            methodCache: &SwiftActivityJNICache.MethodID.getSupportFragmentManager,
+            args: &__args,
+            locals: &__locals )
+    }
 }
 
 extension SwiftSupportAppCompatActivity: JNIListener { }
@@ -494,6 +509,7 @@ fileprivate extension SwiftSupport.App.AppCompatActivity {
             static var getDensity: jmethodID?
             static var addContentView: jmethodID?
             static var getResources: jmethodID?
+            static var getSupportFragmentManager: jmethodID?
         }
     }
 }
