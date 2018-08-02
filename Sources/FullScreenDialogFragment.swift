@@ -85,6 +85,13 @@ open class AndroidFullScreenDialogFragment: JavaObject {
         }
     }
     
+    public var context: Android.Content.Context? {
+        
+        get {
+            return getContext()
+        }
+    }
+    
     // MARK: - Listener
     
     open func onCreate(savedInstanceState: Android.OS.Bundle?) {
@@ -152,9 +159,29 @@ public extension AndroidFullScreenDialogFragment {
             object: javaObject,
             methodName: "show",
             methodSig: "(Landroid/support/v4/app/FragmentManager;Ljava/lang/String;)V",
-            methodCache: &AndroidFullScreenDialogFragment.JNICache.MethodID.show,
+            methodCache: &JNICache.MethodID.show,
             args: &__args,
             locals: &__locals )
+    }
+    
+    @inline(__always)
+    internal func getContext() -> Android.Content.Context? {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallObjectMethod(
+            object: javaObject,
+            methodName: "getContext",
+            methodSig: "()Landroid/content/Context;",
+            methodCache: &JNICache.MethodID.getContext,
+            args: &__args,
+            locals: &__locals )
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return __return != nil ? Android.Content.Context(javaObject: __return) : nil
     }
 }
 
@@ -260,6 +287,7 @@ fileprivate extension AndroidFullScreenDialogFragment {
             
             static var newMethod: jmethodID?
             static var show: jmethodID?
+            static var getContext: jmethodID?
         }
     }
 }

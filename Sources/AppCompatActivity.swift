@@ -48,6 +48,12 @@ open class SwiftSupportAppCompatActivity: AndroidContextWrapper {
         #endif
     }
     
+    public var supportFragmentManager: JavaObject? {
+        get {
+            return getSupportFragmentManager()
+        }
+    }
+    
     // MARK: - Listener
     
     open func onCreate(savedInstanceState: Android.OS.Bundle?) {
@@ -387,7 +393,8 @@ open class SwiftSupportAppCompatActivity: AndroidContextWrapper {
             locals: &__locals )
     }
     
-    public func getSupportFragmentManager() -> JavaObject? {
+    @inline(__always)
+    internal func getSupportFragmentManager() -> JavaObject? {
         
         var __locals = [jobject]()
         
