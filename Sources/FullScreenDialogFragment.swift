@@ -133,11 +133,11 @@ open class AndroidFullScreenDialogFragment: JavaObject {
     }
 }
 
-extension AndroidFullScreenDialogFragment {
+public extension AndroidFullScreenDialogFragment {
     
     // MARK: - Responder
     
-    func show(manager: JavaObject, tag: String)  {
+    public func show(manager: JavaObject, tag: String)  {
         
         var __locals = [jobject]()
         
