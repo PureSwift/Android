@@ -28,7 +28,6 @@ public extension Android.Bluetooth.Gatt {
     public typealias Status = AndroidBluetoothGattStatus
 }
 
-
 /**
  * Public API for the Bluetooth GATT Profile.
  *
@@ -758,7 +757,7 @@ public extension AndroidBluetoothGatt {
         public static let optionS8 = Android.Bluetooth.Gatt.PhyOptions(rawValue: Android.Bluetooth.Device.PHY_OPTION_S8)
     }
     
-    public struct AndroidBluetoothGattStatus: RawRepresentable {
+    public struct AndroidBluetoothGattStatus: RawRepresentable, Equatable, Error {
         
         public let rawValue: Int
         

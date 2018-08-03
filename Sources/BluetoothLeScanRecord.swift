@@ -43,10 +43,10 @@ public final class AndroidBluetoothLowEnergyScanRecord: JavaObject {
     /**
      * Returns raw bytes of scan record.
      */
-    public var bytes: [Int8]? {
+    public var bytes: [UInt8] {
         
         @inline(__always)
-        get { return getBytes() }
+        get { return unsafeBitCast(getBytes(), to: [UInt8]?.self) ?? [] }
     }
     
     /**
@@ -236,7 +236,7 @@ internal extension Android.Bluetooth.LE.ScanRecord {
         
         defer { JNI.DeleteLocalRef( __return ) }
         
-        return JNIType.toSwift( type: [Int8].self, from: __return )
+        return JNIType.toSwift(type: [Int8].self, from: __return )
     }
     
     @_versioned

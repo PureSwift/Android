@@ -1064,7 +1064,7 @@ public extension Android.Bluetooth.Device {
 
 public extension Android.Bluetooth.Device {
     
-    public struct AndroidBluetoothLowEnergyDeviceType: RawRepresentable {
+    public struct AndroidBluetoothLowEnergyDeviceType: RawRepresentable, Equatable {
         
         public let rawValue: Int
         
@@ -1093,7 +1093,7 @@ public extension Android.Bluetooth.Device {
         public static let unknow = Android.Bluetooth.Device.DeviceType(rawValue: Android.Bluetooth.Device.DEVICE_TYPE_UNKNOWN)
     }
     
-    public struct AndroidBluetoothLowEnergyBondState: RawRepresentable {
+    public struct AndroidBluetoothLowEnergyBondState: RawRepresentable, Equatable {
         
         public let rawValue: Int
         
@@ -1117,7 +1117,7 @@ public extension Android.Bluetooth.Device {
         public static let bonded = Android.Bluetooth.Device.BondState(rawValue: Android.Bluetooth.Device.BOND_BONDED)
     }
     
-    public struct AndroidBluetoothLowEnergyState: RawRepresentable {
+    public struct AndroidBluetoothLowEnergyState: RawRepresentable, Equatable {
         
         public let rawValue: Int
         
