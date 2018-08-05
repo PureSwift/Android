@@ -441,17 +441,9 @@ internal extension Android.Bluetooth.LE.ScanResult {
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         
-        JNIMethod.CallVoidMethod(
-            object: javaObject,
-            methodName: "getScanRecord",
-            methodSig: "(I)android.bluetooth.le.ScanRecord;",
-            methodCache: &JNICache.MethodID.getScanRecord,
-            args: &__args,
-            locals: &__locals )
-        
         let __return = JNIMethod.CallObjectMethod(object: javaObject,
                                                   methodName: "getScanRecord",
-                                                  methodSig: "(I)android.bluetooth.le.ScanRecord;",
+                                                  methodSig: JNICache.MethodSignature.getScanRecord,
                                                   methodCache: &JNICache.MethodID.getScanRecord,
                                                   args: &__args,
                                                   locals: &__locals)
@@ -501,6 +493,14 @@ internal extension Android.Bluetooth.LE.ScanResult {
             static var getTxPower: jmethodID?
             static var isConnectable: jmethodID?
             static var isLegacy: jmethodID?
+        }
+        
+        struct MethodSignature {
+            
+            static let getScanRecord = JNIMethodSignature(
+                argumentTypes: [],
+                returnType: .object(Android.Bluetooth.LE.ScanRecord.JNICache.classSignature)
+            ).rawValue
         }
     }
 }
