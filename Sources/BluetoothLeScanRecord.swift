@@ -236,7 +236,7 @@ internal extension Android.Bluetooth.LE.ScanRecord {
         
         defer { JNI.DeleteLocalRef( __return ) }
         
-        return JNIType.toSwift(type: [Int8].self, from: __return )
+        return JNIType.toSwift(type: [Int8].self, from: __return, consume: false )
     }
     
     @_versioned
