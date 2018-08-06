@@ -79,7 +79,7 @@ open class AndroidTextView: AndroidView {
         set { setHint(newValue) }
     }
     
-    public var color: Int {
+    public var color: Int64 {
         get { return getCurrentTextColor() }
         
         set { setTextColor(newValue) }
@@ -254,7 +254,7 @@ open class AndroidTextView: AndroidView {
     /**
      * Return the current color selected for normal text.
      */
-    private func getCurrentTextColor() -> Int {
+    private func getCurrentTextColor() -> Int64 {
         
         var __locals = [jobject]()
         
@@ -268,18 +268,19 @@ open class AndroidTextView: AndroidView {
             args: &__args,
             locals: &__locals )
         
-        return Int(__return)
+        return Int64(__return)
     }
     
     /**
      * Sets the text color for all the states (normal, selected, focused) to be this color.
      */
-    private func setTextColor(_ color: Int)  {
+    private func setTextColor(_ color: Int64)  {
         
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        __args[0] = jvalue(i: jint(color))
+        //__args[0] = jvalue(i: jint(color))
+        __args[0] = jvalue(j: jlong(color))
         
         JNIMethod.CallVoidMethod(
             object: javaObject,
