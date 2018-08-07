@@ -517,7 +517,7 @@ open class AndroidTextView: AndroidView {
         JNIMethod.CallVoidMethod(
             object: javaObject,
             methodName: "append",
-            methodSig: "(Ljava/lang/String;)V",
+            methodSig: "(Ljava/lang/CharSequence;)V",
             methodCache: &JNICacheTextView.MethodID.append,
             args: &__args,
             locals: &__locals )
