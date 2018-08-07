@@ -506,7 +506,7 @@ open class AndroidTextView: AndroidView {
         return __return != jboolean(JNI_FALSE)
     }
     
-    public func append(text: JavaObject)  {
+    public func append(text: String)  {
         
         var __locals = [jobject]()
         
@@ -517,7 +517,7 @@ open class AndroidTextView: AndroidView {
         JNIMethod.CallVoidMethod(
             object: javaObject,
             methodName: "append",
-            methodSig: "(Ljava/lang/CharSequence;)V",
+            methodSig: "(Ljava/lang/String;)V",
             methodCache: &JNICacheTextView.MethodID.append,
             args: &__args,
             locals: &__locals )
