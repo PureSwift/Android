@@ -506,6 +506,23 @@ open class AndroidTextView: AndroidView {
         return __return != jboolean(JNI_FALSE)
     }
     
+    public func append(text: String)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: text, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "append",
+            methodSig: "(Ljava/lang/String;)V",
+            methodCache: &JNICacheTextView.MethodID.append,
+            args: &__args,
+            locals: &__locals )
+        
+    }
     
     public func append(text: String, start: Int, end: Int)  {
         
@@ -521,7 +538,7 @@ open class AndroidTextView: AndroidView {
             object: javaObject,
             methodName: "append",
             methodSig: "(Ljava/lang/String;II)V",
-            methodCache: &JNICacheTextView.MethodID.append,
+            methodCache: &JNICacheTextView.MethodID.append2,
             args: &__args,
             locals: &__locals )
     }
@@ -1102,6 +1119,7 @@ internal extension Android.Widget.TextView {
             static var isTextSelectable: jmethodID?
             static var onKeyDown: jmethodID?
             static var append: jmethodID?
+            static var append2: jmethodID?
             static var cancelLongPress: jmethodID?
             static var setError: jmethodID?
             static var setError2: jmethodID?
