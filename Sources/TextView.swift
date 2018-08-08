@@ -109,7 +109,7 @@ open class AndroidTextView: AndroidView {
         return Int(__return)
     }
     
-    private func getText() -> String? {
+    internal func getText() -> String? {
         
         var __locals = [jobject]()
         
@@ -128,7 +128,7 @@ open class AndroidTextView: AndroidView {
         return __return != nil ? String(javaObject: __return) : nil
     }
     
-    private func setText(_ text: String) {
+    internal func setText(_ text: String) {
         
         var __locals = [jobject]()
         
@@ -162,7 +162,7 @@ open class AndroidTextView: AndroidView {
             locals: &__locals )
     }
     
-    private func getHint() -> String? {
+    internal func getHint() -> String? {
         
         var __locals = [jobject]()
         
@@ -182,7 +182,7 @@ open class AndroidTextView: AndroidView {
     }
     
     /// Sets the text to be displayed when the text of the TextView is empty.
-    private func setHint(_ hint: String) {
+    internal func setHint(_ hint: String) {
         
         var __locals = [jobject]()
         
@@ -217,7 +217,7 @@ open class AndroidTextView: AndroidView {
             locals: &__locals )
     }
     
-    private func getGravity() -> Int? {
+    internal func getGravity() -> Int? {
         
         var __locals = [jobject]()
         
@@ -234,7 +234,7 @@ open class AndroidTextView: AndroidView {
         return Int(__return)
     }
     
-    public func setGravity(_ gravity: Int) {
+    internal func setGravity(_ gravity: Int) {
         
         var __locals = [jobject]()
         
@@ -254,7 +254,7 @@ open class AndroidTextView: AndroidView {
     /**
      * Return the current color selected for normal text.
      */
-    private func getCurrentTextColor() -> Int64 {
+    internal func getCurrentTextColor() -> Int64 {
         
         var __locals = [jobject]()
         
@@ -274,7 +274,7 @@ open class AndroidTextView: AndroidView {
     /**
      * Sets the text color for all the states (normal, selected, focused) to be this color.
      */
-    private func setTextColor(_ color: Int64)  {
+    internal func setTextColor(_ color: Int64)  {
         
         var __locals = [jobject]()
         
