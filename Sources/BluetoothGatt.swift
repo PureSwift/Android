@@ -52,6 +52,11 @@ public final class AndroidBluetoothGatt: JavaObject {
     public required init( javaObject: jobject? ) {
         super.init(javaObject: javaObject)
     }
+    
+    public var services: [AndroidBluetoothGattService] {
+        
+        get { return getServices() }
+    }
 }
 
 // Mark: - Constants
@@ -440,7 +445,8 @@ public extension AndroidBluetoothGatt {
     /**
      * Returns a list of GATT services offered by the remote device.
      */
-    public func getServices() -> List? {
+    @inline(__always)
+    internal func getServices() -> [AndroidBluetoothGattService] {
         
         var __locals = [jobject]()
         
@@ -455,7 +461,25 @@ public extension AndroidBluetoothGatt {
         
         defer { JNI.DeleteLocalRef(__return) }
         
-        return ListForward(javaObject: __return)
+        let arrayListServices = ArrayList(javaObject: __return)
+        
+        if(arrayListServices.size() == 0){
+            return []
+        }
+        
+        var swiftServices = [Android.Bluetooth.GattService]()
+        
+        let lastItemIndex = arrayListServices.size()-1
+        
+        for index in 0...lastItemIndex {
+            
+            arrayListServices.get(index).withJavaObject {
+                let service = Android.Bluetooth.GattService(javaObject: $0)
+                swiftServices.append(service)
+            }
+        }
+
+        return swiftServices
     }
     
     /**
