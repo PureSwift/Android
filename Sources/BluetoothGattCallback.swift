@@ -64,29 +64,29 @@ open class AndroidBluetoothGattCallback: JavaObject {
         }
     }
     
-    func onCharacteristicChanged(gatt: Android.Bluetooth.Gatt, characteristic: Android.Bluetooth.GattCharacteristic) {}
+    open func onCharacteristicChanged(gatt: Android.Bluetooth.Gatt, characteristic: Android.Bluetooth.GattCharacteristic) {}
     
-    func onCharacteristicRead(gatt: Android.Bluetooth.Gatt, characteristic: Android.Bluetooth.GattCharacteristic, status: Android.Bluetooth.Gatt.Status) {}
+    open func onCharacteristicRead(gatt: Android.Bluetooth.Gatt, characteristic: Android.Bluetooth.GattCharacteristic, status: Android.Bluetooth.Gatt.Status) {}
     
-    func onCharacteristicWrite(gatt: Android.Bluetooth.Gatt, characteristic: Android.Bluetooth.GattCharacteristic, status: Android.Bluetooth.Gatt.Status) {}
+    open func onCharacteristicWrite(gatt: Android.Bluetooth.Gatt, characteristic: Android.Bluetooth.GattCharacteristic, status: Android.Bluetooth.Gatt.Status) {}
     
-    func onConnectionStateChange(gatt: Android.Bluetooth.Gatt, status: Android.Bluetooth.Gatt.Status, newState: Android.Bluetooth.Device.State) {}
+    open func onConnectionStateChange(gatt: Android.Bluetooth.Gatt, status: Android.Bluetooth.Gatt.Status, newState: Android.Bluetooth.Device.State) {}
     
-    func onDescriptorRead(gatt: Android.Bluetooth.Gatt, descriptor: Android.Bluetooth.GattDescriptor, status: Android.Bluetooth.Gatt.Status) {}
+    open func onDescriptorRead(gatt: Android.Bluetooth.Gatt, descriptor: Android.Bluetooth.GattDescriptor, status: Android.Bluetooth.Gatt.Status) {}
     
-    func onDescriptorWrite(gatt: Android.Bluetooth.Gatt, descriptor: Android.Bluetooth.GattDescriptor, status: Android.Bluetooth.Gatt.Status) {}
+    open func onDescriptorWrite(gatt: Android.Bluetooth.Gatt, descriptor: Android.Bluetooth.GattDescriptor, status: Android.Bluetooth.Gatt.Status) {}
     
-    func onMtuChanged(gatt: Android.Bluetooth.Gatt, mtu: Int, status: Android.Bluetooth.Gatt.Status) {}
+    open func onMtuChanged(gatt: Android.Bluetooth.Gatt, mtu: Int, status: Android.Bluetooth.Gatt.Status) {}
     
-    func onPhyRead(gatt: Android.Bluetooth.Gatt, txPhy: Android.Bluetooth.Gatt.TxPhy, rxPhy: Android.Bluetooth.Gatt.RxPhy, status: Android.Bluetooth.Gatt.Status) {}
+    open func onPhyRead(gatt: Android.Bluetooth.Gatt, txPhy: Android.Bluetooth.Gatt.TxPhy, rxPhy: Android.Bluetooth.Gatt.RxPhy, status: Android.Bluetooth.Gatt.Status) {}
     
-    func onPhyUpdate(gatt: Android.Bluetooth.Gatt, txPhy: Android.Bluetooth.Gatt.TxPhy, rxPhy: Android.Bluetooth.Gatt.RxPhy, status: Android.Bluetooth.Gatt.Status) {}
+    open func onPhyUpdate(gatt: Android.Bluetooth.Gatt, txPhy: Android.Bluetooth.Gatt.TxPhy, rxPhy: Android.Bluetooth.Gatt.RxPhy, status: Android.Bluetooth.Gatt.Status) {}
     
-    func onReadRemoteRssi(gatt: Android.Bluetooth.Gatt, rssi: Int, status: Android.Bluetooth.Gatt.Status) {}
+    open func onReadRemoteRssi(gatt: Android.Bluetooth.Gatt, rssi: Int, status: Android.Bluetooth.Gatt.Status) {}
     
-    func onReliableWriteCompleted(gatt: Android.Bluetooth.Gatt, status: Android.Bluetooth.Gatt.Status) {}
+    open func onReliableWriteCompleted(gatt: Android.Bluetooth.Gatt, status: Android.Bluetooth.Gatt.Status) {}
     
-    func onServicesDiscovered(gatt: Android.Bluetooth.Gatt, status: Android.Bluetooth.Gatt.Status) {}
+    open func onServicesDiscovered(gatt: Android.Bluetooth.Gatt, status: Android.Bluetooth.Gatt.Status) {}
 }
 
 extension AndroidBluetoothGattCallback: JNIListener { }
