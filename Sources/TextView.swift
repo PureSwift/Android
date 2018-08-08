@@ -85,6 +85,12 @@ open class AndroidTextView: AndroidView {
         set { setTextColor(newValue) }
     }
     
+    public var letterSpacing: Float {
+        get { return getLetterSpacing() }
+        
+        set { setLetterSpacing(letterSpacing: newValue) }
+    }
+    
     // MARK: - Accessors
     
     public var isEmpty: Bool {
@@ -290,6 +296,68 @@ open class AndroidTextView: AndroidView {
             args: &__args,
             locals: &__locals )
     }
+    
+    /**
+     * Gets the text letter-space value, which determines the spacing between characters.
+     */
+    internal func getLetterSpacing() -> Float {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallFloatMethod(
+            object: javaObject,
+            methodName: "getLetterSpacing",
+            methodSig: "()F",
+            methodCache: &JNICacheTextView.MethodID.getLetterSpacing,
+            args: &__args,
+            locals: &__locals )
+        
+        return Float(__return)
+    }
+    
+    /**
+     * Return the number of lines of text, or 0 if the internal Layout has not been built.
+     */
+    internal func getLineCount() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getLineCount",
+            methodSig: "()I",
+            methodCache: &JNICacheTextView.MethodID.getLineCount,
+            args: &__args,
+            locals: &__locals )
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Gets the color of the shadow layer.
+     */
+    public func getShadowColor() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getShadowColor",
+            methodSig: "()I",
+            methodCache: &JNICacheTextView.MethodID.getShadowColor,
+            args: &__args,
+            locals: &__locals )
+        
+        return Int(__return)
+    }
+    
+
     
     /**
      * Returns the total bottom padding of the view, including the bottom Drawable if any, the extra space to keep more than maxLines from showing, and the vertical offset for gravity, if any.
@@ -1146,6 +1214,9 @@ internal extension Android.Widget.TextView {
             static var showContextMenu: jmethodID?
             static var showContextMenu2: jmethodID?
             static var getCurrentTextColor: jmethodID?
+            static var getLetterSpacing: jmethodID?
+            static var getLineCount: jmethodID?
+            static var getShadowColor: jmethodID?
         }
     }
 }
