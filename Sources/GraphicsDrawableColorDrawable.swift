@@ -47,12 +47,13 @@ public class AndroidGraphicsDrawableColorDrawable: Android.Graphics.Drawable.Dra
     }
     
     /// Creates a new ColorDrawable with the specified color.
-    public convenience init(color: Int) {
+    public convenience init(color: Int64) {
         
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        __args[0] = jvalue(i: jint(color))
+        //__args[0] = jvalue(i: jint(color))
+        __args[0] = jvalue(j: jlong(color))
         
         let __object = JNIMethod.NewObject(
             className: JNICache.className,
