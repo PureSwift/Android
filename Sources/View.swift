@@ -7934,7 +7934,7 @@ public extension Android.View.View {
     }
     
     
-    public func setOutlineAmbientShadowColor(color: Int64)  {
+    public func setOutlineAmbientShadowColor(color: Int)  {
         
         var __locals = [jobject]()
         
