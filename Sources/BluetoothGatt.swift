@@ -469,14 +469,9 @@ public extension AndroidBluetoothGatt {
         
         var swiftServices = [Android.Bluetooth.GattService]()
         
-        let lastItemIndex = arrayListServices.size()-1
-        
-        for index in 0...lastItemIndex {
-            
-            arrayListServices.get(index).withJavaObject {
-                let service = Android.Bluetooth.GattService(javaObject: $0)
-                swiftServices.append(service)
-            }
+        ArrayList(javaObject: __return).forEach { item in
+            let service = Android.Bluetooth.GattService(javaObject: item.javaObject)
+            swiftServices.append(service)
         }
 
         return swiftServices
