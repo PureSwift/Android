@@ -1007,7 +1007,7 @@ open class AndroidTextView: AndroidView {
     }
     
     
-    public func setShadowLayer(radius: Float, dx: Float, dy: Float, color: Int)  {
+    public func setShadowLayer(radius: Float, dx: Float, dy: Float, color: Int64)  {
         
         var __locals = [jobject]()
         
@@ -1016,7 +1016,7 @@ open class AndroidTextView: AndroidView {
         __args[0] = jvalue(f: jfloat(radius))
         __args[1] = jvalue(f: jfloat(dx))
         __args[2] = jvalue(f: jfloat(dy))
-        __args[3] = jvalue(i: jint(color))
+        __args[3] = jvalue(j: jlong(color))
         
         JNIMethod.CallVoidMethod(
             object: javaObject,
