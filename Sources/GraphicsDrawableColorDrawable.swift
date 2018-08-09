@@ -98,7 +98,7 @@ public extension AndroidGraphicsDrawableColorDrawable {
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         
-        let __return = JNIMethod.CallIntMethod(
+        let __return = JNIMethod.CallLongMethod(
             object: javaObject,
             methodName: "getColor",
             methodSig: "()I",
