@@ -340,7 +340,7 @@ open class AndroidTextView: AndroidView {
     /**
      * Gets the color of the shadow layer.
      */
-    public func getShadowColor() -> Int {
+    public func getShadowColor() -> Int64 {
         
         var __locals = [jobject]()
         
@@ -354,7 +354,7 @@ open class AndroidTextView: AndroidView {
             args: &__args,
             locals: &__locals )
         
-        return Int(__return)
+        return Int64(__return)
     }
     
 
@@ -671,7 +671,7 @@ open class AndroidTextView: AndroidView {
     /**
      * Sets text letter-spacing in em units.
      */
-    public func setLetterSpacing(letterSpacing: Float)  {
+    internal func setLetterSpacing(letterSpacing: Float)  {
         
         var __locals = [jobject]()
         
