@@ -52,7 +52,7 @@ public class AndroidGraphicsColor: JavaObject {
 
 public extension AndroidGraphicsColor {
     
-    public static var BLACK: Int {
+    public static var BLACK: Int64 {
         
         get {
             
@@ -63,11 +63,11 @@ public extension AndroidGraphicsColor {
                 className: JNICache.className,
                 classCache: &JNICache.jniClass )
             
-            return Int(__value)
+            return Int64(__value)
         }
     }
     
-    public static var DKGRAY: Int {
+    public static var DKGRAY: Int64 {
         
         get {
             
@@ -78,11 +78,11 @@ public extension AndroidGraphicsColor {
                 className: JNICache.className,
                 classCache: &JNICache.jniClass )
             
-            return Int(__value)
+            return Int64(__value)
         }
     }
     
-    public static var GRAY: Int {
+    public static var GRAY: Int64 {
         
         get {
             
@@ -93,11 +93,11 @@ public extension AndroidGraphicsColor {
                 className: JNICache.className,
                 classCache: &JNICache.jniClass )
             
-            return Int(__value)
+            return Int64(__value)
         }
     }
     
-    public static var LTGRAY: Int {
+    public static var LTGRAY: Int64 {
         
         get {
             
@@ -108,11 +108,11 @@ public extension AndroidGraphicsColor {
                 className: JNICache.className,
                 classCache: &JNICache.jniClass )
             
-            return Int(__value)
+            return Int64(__value)
         }
     }
     
-    public static var WHITE: Int {
+    public static var WHITE: Int64 {
         
         get {
             
@@ -123,11 +123,11 @@ public extension AndroidGraphicsColor {
                 className: JNICache.className,
                 classCache: &JNICache.jniClass )
             
-            return Int(__value)
+            return Int64(__value)
         }
     }
     
-    public static var RED: Int {
+    public static var RED: Int64 {
         
         get {
             
@@ -138,11 +138,11 @@ public extension AndroidGraphicsColor {
                 className: JNICache.className,
                 classCache: &JNICache.jniClass )
             
-            return Int(__value)
+            return Int64(__value)
         }
     }
     
-    public static var GREEN: Int {
+    public static var GREEN: Int64 {
         
         get {
             
@@ -153,11 +153,11 @@ public extension AndroidGraphicsColor {
                 className: JNICache.className,
                 classCache: &JNICache.jniClass )
             
-            return Int(__value)
+            return Int64(__value)
         }
     }
     
-    public static var BLUE: Int {
+    public static var BLUE: Int64 {
         
         get {
             
@@ -168,11 +168,11 @@ public extension AndroidGraphicsColor {
                 className: JNICache.className,
                 classCache: &JNICache.jniClass )
             
-            return Int(__value)
+            return Int64(__value)
         }
     }
     
-    public static var YELLOW: Int {
+    public static var YELLOW: Int64 {
         
         get {
             
@@ -183,11 +183,11 @@ public extension AndroidGraphicsColor {
                 className: JNICache.className,
                 classCache: &JNICache.jniClass )
             
-            return Int(__value)
+            return Int64(__value)
         }
     }
     
-    public static var CYAN: Int {
+    public static var CYAN: Int64 {
         
         get {
             
@@ -198,11 +198,11 @@ public extension AndroidGraphicsColor {
                 className: JNICache.className,
                 classCache: &JNICache.jniClass )
             
-            return Int(__value)
+            return Int64(__value)
         }
     }
     
-    public static var MAGENTA: Int {
+    public static var MAGENTA: Int64 {
         
         get {
             
@@ -213,11 +213,11 @@ public extension AndroidGraphicsColor {
                 className: JNICache.className,
                 classCache: &JNICache.jniClass )
             
-            return Int(__value)
+            return Int64(__value)
         }
     }
     
-    public static var TRANSPARENT: Int {
+    public static var TRANSPARENT: Int64 {
         
         get {
             
@@ -228,7 +228,7 @@ public extension AndroidGraphicsColor {
                 className: JNICache.className,
                 classCache: &JNICache.jniClass )
             
-            return Int(__value)
+            return Int64(__value)
         }
     }
 }

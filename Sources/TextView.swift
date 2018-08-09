@@ -79,6 +79,18 @@ open class AndroidTextView: AndroidView {
         set { setHint(newValue) }
     }
     
+    public var color: Int64 {
+        get { return getCurrentTextColor() }
+        
+        set { setTextColor(newValue) }
+    }
+    
+    public var letterSpacing: Float {
+        get { return getLetterSpacing() }
+        
+        set { setLetterSpacing(letterSpacing: newValue) }
+    }
+    
     // MARK: - Accessors
     
     public var isEmpty: Bool {
@@ -103,7 +115,7 @@ open class AndroidTextView: AndroidView {
         return Int(__return)
     }
     
-    private func getText() -> String? {
+    internal func getText() -> String? {
         
         var __locals = [jobject]()
         
@@ -122,7 +134,7 @@ open class AndroidTextView: AndroidView {
         return __return != nil ? String(javaObject: __return) : nil
     }
     
-    private func setText(_ text: String) {
+    internal func setText(_ text: String) {
         
         var __locals = [jobject]()
         
@@ -156,7 +168,7 @@ open class AndroidTextView: AndroidView {
             locals: &__locals )
     }
     
-    private func getHint() -> String? {
+    internal func getHint() -> String? {
         
         var __locals = [jobject]()
         
@@ -176,7 +188,7 @@ open class AndroidTextView: AndroidView {
     }
     
     /// Sets the text to be displayed when the text of the TextView is empty.
-    private func setHint(_ hint: String) {
+    internal func setHint(_ hint: String) {
         
         var __locals = [jobject]()
         
@@ -211,7 +223,7 @@ open class AndroidTextView: AndroidView {
             locals: &__locals )
     }
     
-    private func getGravity() -> Int? {
+    internal func getGravity() -> Int? {
         
         var __locals = [jobject]()
         
@@ -228,7 +240,7 @@ open class AndroidTextView: AndroidView {
         return Int(__return)
     }
     
-    public func setGravity(_ gravity: Int) {
+    internal func setGravity(_ gravity: Int) {
         
         var __locals = [jobject]()
         
@@ -244,6 +256,108 @@ open class AndroidTextView: AndroidView {
             args: &__args,
             locals: &__locals )
     }
+    
+    /**
+     * Return the current color selected for normal text.
+     */
+    internal func getCurrentTextColor() -> Int64 {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getCurrentTextColor",
+            methodSig: "()I",
+            methodCache: &JNICacheTextView.MethodID.getCurrentTextColor,
+            args: &__args,
+            locals: &__locals )
+        
+        return Int64(__return)
+    }
+    
+    /**
+     * Sets the text color for all the states (normal, selected, focused) to be this color.
+     */
+    internal func setTextColor(_ color: Int64)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        //__args[0] = jvalue(i: jint(color))
+        __args[0] = jvalue(j: jlong(color))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setTextColor",
+            methodSig: "(I)V",
+            methodCache: &JNICacheTextView.MethodID.setTextColor,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    /**
+     * Gets the text letter-space value, which determines the spacing between characters.
+     */
+    internal func getLetterSpacing() -> Float {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallFloatMethod(
+            object: javaObject,
+            methodName: "getLetterSpacing",
+            methodSig: "()F",
+            methodCache: &JNICacheTextView.MethodID.getLetterSpacing,
+            args: &__args,
+            locals: &__locals )
+        
+        return Float(__return)
+    }
+    
+    /**
+     * Return the number of lines of text, or 0 if the internal Layout has not been built.
+     */
+    internal func getLineCount() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getLineCount",
+            methodSig: "()I",
+            methodCache: &JNICacheTextView.MethodID.getLineCount,
+            args: &__args,
+            locals: &__locals )
+        
+        return Int(__return)
+    }
+    
+    /**
+     * Gets the color of the shadow layer.
+     */
+    public func getShadowColor() -> Int64 {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getShadowColor",
+            methodSig: "()I",
+            methodCache: &JNICacheTextView.MethodID.getShadowColor,
+            args: &__args,
+            locals: &__locals )
+        
+        return Int64(__return)
+    }
+    
+
     
     /**
      * Returns the total bottom padding of the view, including the bottom Drawable if any, the extra space to keep more than maxLines from showing, and the vertical offset for gravity, if any.
@@ -460,6 +574,23 @@ open class AndroidTextView: AndroidView {
         return __return != jboolean(JNI_FALSE)
     }
     
+    public func append(text: String)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: text, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "append",
+            methodSig: "(Ljava/lang/CharSequence;)V",
+            methodCache: &JNICacheTextView.MethodID.append,
+            args: &__args,
+            locals: &__locals )
+        
+    }
     
     public func append(text: String, start: Int, end: Int)  {
         
@@ -475,7 +606,7 @@ open class AndroidTextView: AndroidView {
             object: javaObject,
             methodName: "append",
             methodSig: "(Ljava/lang/String;II)V",
-            methodCache: &JNICacheTextView.MethodID.append,
+            methodCache: &JNICacheTextView.MethodID.append2,
             args: &__args,
             locals: &__locals )
     }
@@ -540,7 +671,7 @@ open class AndroidTextView: AndroidView {
     /**
      * Sets text letter-spacing in em units.
      */
-    public func setLetterSpacing(letterSpacing: Float)  {
+    internal func setLetterSpacing(letterSpacing: Float)  {
         
         var __locals = [jobject]()
         
@@ -876,7 +1007,7 @@ open class AndroidTextView: AndroidView {
     }
     
     
-    public func setShadowLayer(radius: Float, dx: Float, dy: Float, color: Int)  {
+    public func setShadowLayer(radius: Float, dx: Float, dy: Float, color: Int64)  {
         
         var __locals = [jobject]()
         
@@ -885,7 +1016,7 @@ open class AndroidTextView: AndroidView {
         __args[0] = jvalue(f: jfloat(radius))
         __args[1] = jvalue(f: jfloat(dx))
         __args[2] = jvalue(f: jfloat(dy))
-        __args[3] = jvalue(i: jint(color))
+        __args[3] = jvalue(j: jlong(color))
         
         JNIMethod.CallVoidMethod(
             object: javaObject,
@@ -1056,6 +1187,7 @@ internal extension Android.Widget.TextView {
             static var isTextSelectable: jmethodID?
             static var onKeyDown: jmethodID?
             static var append: jmethodID?
+            static var append2: jmethodID?
             static var cancelLongPress: jmethodID?
             static var setError: jmethodID?
             static var setError2: jmethodID?
@@ -1081,7 +1213,10 @@ internal extension Android.Widget.TextView {
             static var setTextSize2: jmethodID?
             static var showContextMenu: jmethodID?
             static var showContextMenu2: jmethodID?
-            
+            static var getCurrentTextColor: jmethodID?
+            static var getLetterSpacing: jmethodID?
+            static var getLineCount: jmethodID?
+            static var getShadowColor: jmethodID?
         }
     }
 }
