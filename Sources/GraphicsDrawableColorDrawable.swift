@@ -52,8 +52,8 @@ public class AndroidGraphicsDrawableColorDrawable: Android.Graphics.Drawable.Dra
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        //__args[0] = jvalue(i: jint(color))
-        __args[0] = jvalue(j: jlong(color))
+        __args[0] = jvalue(i: jint(color))
+        //__args[0] = jvalue(j: jlong(color))
         
         let __object = JNIMethod.NewObject(
             className: JNICache.className,
