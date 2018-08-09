@@ -52,8 +52,7 @@ public class AndroidGraphicsDrawableColorDrawable: Android.Graphics.Drawable.Dra
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        __args[0] = jvalue(i: jint(color))
-        //__args[0] = jvalue(j: jlong(color))
+        __args[0] = jvalue(j: jlong(color))
         
         let __object = JNIMethod.NewObject(
             className: JNICache.className,
@@ -68,7 +67,7 @@ public class AndroidGraphicsDrawableColorDrawable: Android.Graphics.Drawable.Dra
         JNI.DeleteLocalRef( __object )
     }
     
-    public var color : Int32 {
+    public var color : Int64 {
         get {
             return getColor() ?? 0
         }
@@ -93,7 +92,7 @@ public class AndroidGraphicsDrawableColorDrawable: Android.Graphics.Drawable.Dra
 
 public extension AndroidGraphicsDrawableColorDrawable {
     
-    internal func getColor() -> Int32? {
+    internal func getColor() -> Int64? {
         
         var __locals = [jobject]()
         
@@ -107,16 +106,17 @@ public extension AndroidGraphicsDrawableColorDrawable {
             args: &__args,
             locals: &__locals )
         
-        return Int32(__return)
+        return Int64(__return)
     }
     
-    internal func setColor(_ color: Int32) {
+    internal func setColor(_ color: Int64) {
         
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         
-        __args[0] = jvalue(i: jint(color))
+        //__args[0] = jvalue(i: jint(color))
+        __args[0] = jvalue(j: jlong(color))
         
         JNIMethod.CallVoidMethod(
             object: javaObject,
