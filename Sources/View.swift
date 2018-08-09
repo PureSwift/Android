@@ -7934,13 +7934,12 @@ public extension Android.View.View {
     }
     
     
-    public func setOutlineAmbientShadowColor(color: Int)  {
+    public func setOutlineAmbientShadowColor(color: Int64)  {
         
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        __args[0] = jvalue(i: jint(color))
+        __args[0] = jvalue(j: jlong(color))
         
         JNIMethod.CallVoidMethod(
             object: javaObject,
@@ -7954,13 +7953,12 @@ public extension Android.View.View {
     }
     
     
-    public func setOutlineSpotShadowColor(color: Int)  {
+    public func setOutlineSpotShadowColor(color: Int64)  {
         
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        __args[0] = jvalue(i: jint(color))
+        __args[0] = jvalue(j: jlong(color))
         
         JNIMethod.CallVoidMethod(
             object: javaObject,
