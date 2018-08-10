@@ -116,6 +116,100 @@ open class AndroidLinearLayout: Android.View.ViewGroup {
     }
 }
 
+// MARK: - Constants
+public extension AndroidLinearLayout {
+    
+    public static var HORIZONTAL: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "HORIZONTAL",
+                fieldType: "I",
+                fieldCache: &LinearLayoutJNICache.FieldID.HORIZONTAL,
+                className: LinearLayoutJNICache.className,
+                classCache: &LinearLayoutJNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    public static var VERTICAL: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "VERTICAL",
+                fieldType: "I",
+                fieldCache: &LinearLayoutJNICache.FieldID.VERTICAL,
+                className: LinearLayoutJNICache.className,
+                classCache: &LinearLayoutJNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    public static var SHOW_DIVIDER_BEGINNING: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "SHOW_DIVIDER_BEGINNING",
+                fieldType: "I",
+                fieldCache: &LinearLayoutJNICache.FieldID.SHOW_DIVIDER_BEGINNING,
+                className: LinearLayoutJNICache.className,
+                classCache: &LinearLayoutJNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    public static var SHOW_DIVIDER_END: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "SHOW_DIVIDER_END",
+                fieldType: "I",
+                fieldCache: &LinearLayoutJNICache.FieldID.SHOW_DIVIDER_END,
+                className: LinearLayoutJNICache.className,
+                classCache: &LinearLayoutJNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    public static var SHOW_DIVIDER_NONE: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "SHOW_DIVIDER_NONE",
+                fieldType: "I",
+                fieldCache: &LinearLayoutJNICache.FieldID.SHOW_DIVIDER_NONE,
+                className: LinearLayoutJNICache.className,
+                classCache: &LinearLayoutJNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    public static var SHOW_DIVIDER_MIDDLE: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "SHOW_DIVIDER_MIDDLE",
+                fieldType: "I",
+                fieldCache: &LinearLayoutJNICache.FieldID.SHOW_DIVIDER_MIDDLE,
+                className: LinearLayoutJNICache.className,
+                classCache: &LinearLayoutJNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+}
+
 // MARK: - Methods
 public extension AndroidLinearLayout {
     
@@ -504,6 +598,15 @@ internal extension AndroidLinearLayout {
         
         /// JNI Java class
         static var jniClass: jclass?
+        
+        struct FieldID {
+            static var HORIZONTAL: jfieldID?
+            static var VERTICAL: jfieldID?
+            static var SHOW_DIVIDER_BEGINNING: jfieldID?
+            static var SHOW_DIVIDER_END: jfieldID?
+            static var SHOW_DIVIDER_MIDDLE: jfieldID?
+            static var SHOW_DIVIDER_NONE: jfieldID?
+        }
         
         /// JNI Method ID cache
         struct MethodID {
