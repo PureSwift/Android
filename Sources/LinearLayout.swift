@@ -34,14 +34,11 @@ open class AndroidLinearLayout: Android.View.ViewGroup {
         
         JNI.DeleteLocalRef( __object )
     }
-}
-
-// MARK: - Methods
-public extension AndroidLinearLayout {
+    
     /**
      * Return the offset of the widget's text baseline from the widget's top boundary.
      */
-    public func getBaseline() -> Int {
+    open override func getBaseline() -> Int {
         
         var __locals = [jobject]()
         
@@ -58,6 +55,49 @@ public extension AndroidLinearLayout {
         return Int(__return)
     }
     
+    /**
+     * Called when any RTL property (layout direction or text direction or text alignment) has been changed.
+     */
+    open override func onRtlPropertiesChanged(layoutDirection: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(layoutDirection))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "onRtlPropertiesChanged",
+            methodSig: "(I)V",
+            methodCache: &LinearLayoutJNICache.MethodID.onRtlPropertiesChanged,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    /**
+     * Return true if the pressed state should be delayed for children or descendants of this ViewGroup.
+     */
+    open override func shouldDelayChildPressedState() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "shouldDelayChildPressedState",
+            methodSig: "()Z",
+            methodCache: &LinearLayoutJNICache.MethodID.shouldDelayChildPressedState,
+            args: &__args,
+            locals: &__locals )
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+}
+
+// MARK: - Methods
+public extension AndroidLinearLayout {
     
     public func getBaselineAlignedChildIndex() -> Int {
         
@@ -212,26 +252,6 @@ public extension AndroidLinearLayout {
             locals: &__locals )
         
         return __return != jboolean(JNI_FALSE)
-    }
-    
-    /**
-     * Called when any RTL property (layout direction or text direction or text alignment) has been changed.
-     */
-    public func onRtlPropertiesChanged(layoutDirection: Int)  {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        __args[0] = jvalue(i: jint(layoutDirection))
-        
-        JNIMethod.CallVoidMethod(
-            object: javaObject,
-            methodName: "onRtlPropertiesChanged",
-            methodSig: "(I)V",
-            methodCache: &LinearLayoutJNICache.MethodID.onRtlPropertiesChanged,
-            args: &__args,
-            locals: &__locals )
     }
     
     /**
@@ -448,27 +468,6 @@ public extension AndroidLinearLayout {
             locals: &__locals )
     }
     
-    /**
-     * Return true if the pressed state should be delayed for children or descendants of this ViewGroup.
-     */
-    public func shouldDelayChildPressedState() -> Bool {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        let __return = JNIMethod.CallBooleanMethod(
-            object: javaObject,
-            methodName: "shouldDelayChildPressedState",
-            methodSig: "()Z",
-            methodCache: &LinearLayoutJNICache.MethodID.shouldDelayChildPressedState,
-            args: &__args,
-            locals: &__locals )
-        
-        return __return != jboolean(JNI_FALSE)
-    }
-    
-
 }
 
 // MARK: - Private
