@@ -729,6 +729,43 @@ open class AndroidView: JavaObject {
             args: &__args,
             locals: &__locals )
     }
+    
+    /**
+     * Return the offset of the widget's text baseline from the widget's top boundary.
+     */
+    open func getBaseline() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getBaseline",
+            methodSig: "()I",
+            methodCache: &JNICache.MethodID.getBaseline,
+            args: &__args,
+            locals: &__locals )
+        
+        return Int(__return)
+    }
+    
+    open func onRtlPropertiesChanged(layoutDirection: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(layoutDirection))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "onRtlPropertiesChanged",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.onRtlPropertiesChanged,
+            args: &__args,
+            locals: &__locals )
+    }
 }
 
 // MARK: - Constants
@@ -3690,26 +3727,6 @@ public extension Android.View.View {
     }
     
     /**
-     * Return the offset of the widget's text baseline from the widget's top boundary.
-     */
-    public func getBaseline() -> Int {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        let __return = JNIMethod.CallIntMethod(
-            object: javaObject,
-            methodName: "getBaseline",
-            methodSig: "()I",
-            methodCache: &JNICache.MethodID.getBaseline,
-            args: &__args,
-            locals: &__locals )
-        
-        return Int(__return)
-    }
-    
-    /**
      * Bottom position of this view relative to its parent.
      */
     public func getBottom() -> Int {
@@ -6246,27 +6263,6 @@ public extension Android.View.View {
         
         
     }
-    
-    
-    public func onRtlPropertiesChanged(layoutDirection: Int)  {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        __args[0] = jvalue(i: jint(layoutDirection))
-        
-        JNIMethod.CallVoidMethod(
-            object: javaObject,
-            methodName: "onRtlPropertiesChanged",
-            methodSig: "(I)V",
-            methodCache: &JNICache.MethodID.onRtlPropertiesChanged,
-            args: &__args,
-            locals: &__locals )
-        
-        
-    }
-    
     
     public func onScreenStateChanged(screenState: Int)  {
         
