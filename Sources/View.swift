@@ -4417,7 +4417,7 @@ public extension Android.View.View {
     }
     
     
-    public func getOutlineAmbientShadowColor() -> Int {
+    public func getOutlineAmbientShadowColor() -> Int64 {
         
         var __locals = [jobject]()
         
@@ -4431,11 +4431,11 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        return Int(__return)
+        return Int64(__return)
     }
     
     
-    public func getOutlineSpotShadowColor() -> Int {
+    public func getOutlineSpotShadowColor() -> Int64 {
         
         var __locals = [jobject]()
         
@@ -4449,7 +4449,7 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        return Int(__return)
+        return Int64(__return)
     }
     
     /**
@@ -4775,7 +4775,7 @@ public extension Android.View.View {
     /**
      * Override this if your view is known to always be drawn on top of a solid color background, and needs to draw fading edges.
      */
-    public func getSolidColor() -> Int {
+    public func getSolidColor() -> Int64 {
         
         var __locals = [jobject]()
         
@@ -4789,7 +4789,7 @@ public extension Android.View.View {
             args: &__args,
             locals: &__locals )
         
-        return Int(__return)
+        return Int64(__return)
     }
     
     /**
@@ -7050,13 +7050,14 @@ public extension Android.View.View {
     }
     
     
-    public func setBackgroundColor(color: Int)  {
+    public func setBackgroundColor(color: Int64)  {
         
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         
-        __args[0] = jvalue(i: jint(color))
+        //__args[0] = jvalue(i: jint(color))
+        __args[0] = jvalue(j: jlong(color))
         
         JNIMethod.CallVoidMethod(
             object: javaObject,
@@ -7190,13 +7191,14 @@ public extension Android.View.View {
     }
     
     
-    public func setDrawingCacheBackgroundColor(color: Int)  {
+    public func setDrawingCacheBackgroundColor(color: Int64)  {
         
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         
-        __args[0] = jvalue(i: jint(color))
+        //__args[0] = jvalue(i: jint(color))
+        __args[0] = jvalue(j: jlong(color))
         
         JNIMethod.CallVoidMethod(
             object: javaObject,
@@ -7933,8 +7935,7 @@ public extension Android.View.View {
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        __args[0] = jvalue(i: jint(color))
+        __args[0] = jvalue(j: jlong(color))
         
         JNIMethod.CallVoidMethod(
             object: javaObject,
@@ -7948,13 +7949,12 @@ public extension Android.View.View {
     }
     
     
-    public func setOutlineSpotShadowColor(color: Int)  {
+    public func setOutlineSpotShadowColor(color: Int64)  {
         
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        __args[0] = jvalue(i: jint(color))
+        __args[0] = jvalue(j: jlong(color))
         
         JNIMethod.CallVoidMethod(
             object: javaObject,
