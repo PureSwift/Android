@@ -591,6 +591,25 @@ open class AndroidViewGroup: AndroidView {
             args: &__args,
             locals: &__locals )
     }
+    
+    open func shouldDelayChildPressedState() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "shouldDelayChildPressedState",
+            methodSig: "()Z",
+            methodCache: &ViewGroupJNICache.MethodID.shouldDelayChildPressedState,
+            args: &__args,
+            locals: &__locals )
+        
+        
+        
+        return __return != jboolean(JNI_FALSE)
+    }
 }
 
 public extension Android.View.ViewGroup {
@@ -2068,27 +2087,6 @@ public extension Android.View.ViewGroup {
         
         
     }
-    
-    
-    public func shouldDelayChildPressedState() -> Bool {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        let __return = JNIMethod.CallBooleanMethod(
-            object: javaObject,
-            methodName: "shouldDelayChildPressedState",
-            methodSig: "()Z",
-            methodCache: &ViewGroupJNICache.MethodID.shouldDelayChildPressedState,
-            args: &__args,
-            locals: &__locals )
-        
-        
-        
-        return __return != jboolean(JNI_FALSE)
-    }
-    
     
     public func showContextMenuForChild(originalView: Android.View.View, x: Float, y: Float) -> Bool {
         
