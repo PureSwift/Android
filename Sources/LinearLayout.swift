@@ -10,27 +10,47 @@ import java_swift
 import java_lang
 import JNI
 
-public extension AndroidViewGroup {
+public extension Android.Widget {
     public typealias LinearLayout = AndroidLinearLayout
 }
 
 open class AndroidLinearLayout: Android.View.ViewGroup {
+    
     // MARK: - Initialization
-    public convenience init(context: Android.Content.Context) {
+    public convenience init?( casting object: java_swift.JavaObject,
+                              _ file: StaticString = #file,
+                              _ line: Int = #line ) {
+        self.init(javaObject: nil)
         
+        object.withJavaObject {
+            self.javaObject = $0
+        }
+    }
+    
+    public required init( javaObject: jobject? ) {
+        super.init(javaObject: javaObject)
+    }
+    
+    public convenience init(context: Android.Content.Context) {
+        self.init(javaObject: nil)
+        bindNewObject(context: context)
+    }
+    
+    public override func bindNewObject(context: Android.Content.Context) {
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava(value: context, locals: &__locals)
         
         let __object = JNIMethod.NewObject(
             className: LinearLayoutJNICache.className,
             classCache: &LinearLayoutJNICache.jniClass,
-            methodSig: "(Landroid/content/Context;)V)",
+            methodSig: "(Landroid/content/Context;)V",
             methodCache: &LinearLayoutJNICache.MethodID.init_method_1,
             args: &__args,
-            locals: &__locals)
+            locals: &__locals )
         
-        self.init( javaObject: __object )
+        super.javaObject = __object
         
         JNI.DeleteLocalRef( __object )
     }
@@ -477,7 +497,7 @@ internal extension AndroidLinearLayout {
     struct LinearLayoutJNICache {
         
         /// JNI Java class signature
-        static let classSignature = SwiftSupport.View.className(["LinearLayout"])
+        static let classSignature = Android.Widget.className(["LinearLayout"])
         
         /// JNI Java class name
         static let className = classSignature.rawValue
