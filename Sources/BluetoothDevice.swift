@@ -21,7 +21,9 @@ public extension Android.Bluetooth.Device {
     
     public typealias BondState = AndroidBluetoothLowEnergyBondState
     
-     public typealias State = AndroidBluetoothLowEnergyState
+    public typealias State = AndroidBluetoothLowEnergyState
+    
+    public typealias Transport = AndroidBluetoothLowEnergyDeviceTransportType
 }
 
 public final class AndroidBluetoothDevice: JavaObject {
@@ -737,7 +739,7 @@ public extension Android.Bluetooth.Device {
     /**
      * Connect to GATT Server hosted by this device.
      */
-    public func connectGatt(context: Android.Content.Context, autoConnect: Bool, callback: Android.Bluetooth.GattCallback, transport: Int, phy: Int, handler: JavaObject) -> Android.Bluetooth.Gatt {
+    public func connectGatt(context: Android.Content.Context, autoConnect: Bool, callback: Android.Bluetooth.GattCallback, transport: Android.Bluetooth.Device.Transport, phy: Int, handler: JavaObject) -> Android.Bluetooth.Gatt {
         
         var __locals = [jobject]()
         
@@ -745,7 +747,7 @@ public extension Android.Bluetooth.Device {
             JNIType.toJava(value: context, locals: &__locals),
             jvalue(z: jboolean(autoConnect ? JNI_TRUE : JNI_FALSE)),
             JNIType.toJava(value: callback, locals: &__locals),
-            jvalue(i: jint(transport)),
+            jvalue(i: jint(transport.rawValue)),
             jvalue(i: jint(phy)),
             JNIType.toJava(value: handler, locals: &__locals)
         ]
@@ -765,7 +767,7 @@ public extension Android.Bluetooth.Device {
     /**
      * Connect to GATT Server hosted by this device.
      */
-    public func connectGatt(context: Android.Content.Context, autoConnect: Bool, callback: Android.Bluetooth.GattCallback, transport: Int, phy: Int) -> Android.Bluetooth.Gatt {
+    public func connectGatt(context: Android.Content.Context, autoConnect: Bool, callback: Android.Bluetooth.GattCallback, transport: Android.Bluetooth.Device.Transport, phy: Int) -> Android.Bluetooth.Gatt {
         
         var __locals = [jobject]()
         
@@ -773,7 +775,7 @@ public extension Android.Bluetooth.Device {
             JNIType.toJava(value: context, locals: &__locals),
             jvalue(z: jboolean(autoConnect ? JNI_TRUE : JNI_FALSE)),
             JNIType.toJava(value: callback, locals: &__locals),
-            jvalue(i: jint(transport)),
+            jvalue(i: jint(transport.rawValue)),
             jvalue(i: jint(phy))
         ]
         
@@ -792,7 +794,7 @@ public extension Android.Bluetooth.Device {
     /**
      * Connect to GATT Server hosted by this device.
      */
-    public func connectGatt(context: Android.Content.Context, autoConnect: Bool, callback: Android.Bluetooth.GattCallback, transport: Int) -> Android.Bluetooth.Gatt {
+    public func connectGatt(context: Android.Content.Context, autoConnect: Bool, callback: Android.Bluetooth.GattCallback, transport: Android.Bluetooth.Device.Transport) -> Android.Bluetooth.Gatt {
         
         var __locals = [jobject]()
         
@@ -800,7 +802,7 @@ public extension Android.Bluetooth.Device {
             JNIType.toJava(value: context, locals: &__locals),
             jvalue(z: jboolean(autoConnect ? JNI_TRUE : JNI_FALSE)),
             JNIType.toJava(value: callback, locals: &__locals),
-            jvalue(i: jint(transport))
+            jvalue(i: jint(transport.rawValue))
         ]
         
         let __return = JNIMethod.CallObjectMethod(object: javaObject,
@@ -1063,6 +1065,21 @@ public extension Android.Bluetooth.Device {
 // MARK: - Suporting type
 
 public extension Android.Bluetooth.Device {
+    
+    public struct AndroidBluetoothLowEnergyDeviceTransportType: RawRepresentable, Equatable {
+        
+        public let rawValue: Int
+        
+        public init(rawValue: Int) {
+            self.rawValue = rawValue
+        }
+        
+        public static let le = Android.Bluetooth.Device.Transport(rawValue: Android.Bluetooth.Device.TRANSPORT_LE)
+        
+        public static let auto = Android.Bluetooth.Device.DeviceType(rawValue: Android.Bluetooth.Device.TRANSPORT_AUTO)
+        
+        public static let bredr = Android.Bluetooth.Device.DeviceType(rawValue: Android.Bluetooth.Device.TRANSPORT_BREDR)
+    }
     
     public struct AndroidBluetoothLowEnergyDeviceType: RawRepresentable, Equatable {
         
