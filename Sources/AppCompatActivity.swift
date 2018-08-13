@@ -411,7 +411,7 @@ open class SwiftSupportAppCompatActivity: AndroidContextWrapper {
         return __return != nil ? JavaObject(javaObject: __return) : nil
     }
     
-    public func runOnMainThread(_ block: () -> ()) {
+    public func runOnMainThread(_ block: @escaping () -> ()) {
         
         let runnable = SwiftRunnable(block: block)
         

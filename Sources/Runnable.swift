@@ -20,7 +20,7 @@ public final class SwiftRunnable: JavaObject {
         self.bindNewObject()
     }
     
-    public convenience init(block: () -> ()) {
+    public convenience init(block: @escaping () -> ()) {
         
         self.init()
         self.block = block
@@ -68,7 +68,7 @@ public final class SwiftRunnable: JavaObject {
         }
     }
     
-    private func run() {
+    fileprivate func run() {
         
         // execute block
         self.block()
