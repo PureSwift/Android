@@ -9172,9 +9172,14 @@ public extension Android.View.View {
     }
     
     // JavaObjects
+    public func setOnClickListener(_ block: @escaping () -> ()) {
+        
+        let onClickListener = Android.View.View.OnClickListener(block: block)
+        
+        setOnClickListener(l: onClickListener)
+    }
     
-    
-    public func setOnClickListener(l: Android.View.View.OnClickListener) {
+    internal func setOnClickListener(l: Android.View.View.OnClickListener) {
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )

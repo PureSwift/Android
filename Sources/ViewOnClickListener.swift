@@ -17,6 +17,33 @@ public extension AndroidView {
 
 open class AndroidViewOnClickListener: JavaObject {
     
+    ///closure / block of code to execute.
+    public var block: () -> () = { _ in }
+    
+    /// Create a Swift-owned Java Object.
+    public convenience init() {
+        
+        self.init(javaObject: nil)
+        self.bindNewJavaObject()
+    }
+    
+    public required init(javaObject: jobject?) {
+        super.init(javaObject: javaObject)
+    }
+    
+    public convenience init?( casting object: JavaObject, _ file: StaticString = #file, _ line: Int = #line ) {
+        self.init( javaObject: nil )
+        object.withJavaObject {
+            self.javaObject = $0
+        }
+    }
+    
+    public convenience init(block: @escaping () -> ()) {
+        
+        self.init()
+        self.block = block
+    }
+    
     // Initialize a new Java instance and bind to this Swift object.
     public func bindNewJavaObject() {
         
@@ -48,26 +75,9 @@ open class AndroidViewOnClickListener: JavaObject {
         
     }
     
-    /// Create a Swift-owned Java Object.
-    public convenience init() {
-        
-        self.init(javaObject: nil)
-        self.bindNewJavaObject()
-    }
-    
-    public required init(javaObject: jobject?) {
-        super.init(javaObject: javaObject)
-    }
-    
-    public convenience init?( casting object: JavaObject, _ file: StaticString = #file, _ line: Int = #line ) {
-        self.init( javaObject: nil )
-        object.withJavaObject {
-            self.javaObject = $0
-        }
-    }
-    
-    open func onClick(){
-        fatalError("It must be implemented")
+    fileprivate func onClick(){
+        // execute block
+        self.block()
     }
 }
 
