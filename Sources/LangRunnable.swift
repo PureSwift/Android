@@ -17,7 +17,7 @@ open class SwiftRunnable: JavaObject {
         self.binNewObject()
     }
     
-    public func binNewObject(){
+    public func bindNewObject(){
         let hasOldJavaObject = javaObject != nil
         
         var locals = [jobject]()
