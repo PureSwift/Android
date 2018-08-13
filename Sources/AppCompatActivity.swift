@@ -410,6 +410,22 @@ open class SwiftSupportAppCompatActivity: AndroidContextWrapper {
         
         return __return != nil ? JavaObject(javaObject: __return) : nil
     }
+    
+    public func runOnMainThread(runnable: SwiftRunnable) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava(value: runnable, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "runOnMainThread",
+            methodSig: "(Ljava/lang/Runnable;)V",
+            methodCache: &SwiftActivityJNICache.MethodID.runOnMainThread,
+            args: &__args,
+            locals: &__locals )
+    }
 }
 
 extension SwiftSupportAppCompatActivity: JNIListener { }
@@ -519,6 +535,7 @@ fileprivate extension SwiftSupport.App.AppCompatActivity {
             static var addContentView: jmethodID?
             static var getResources: jmethodID?
             static var getSupportFragmentManager: jmethodID?
+            static var runOnMainThread: jmethodID?
         }
     }
 }
