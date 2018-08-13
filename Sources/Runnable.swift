@@ -8,7 +8,10 @@
 import Foundation
 import java_swift
 
-open class SwiftRunnable: JavaObject {
+public final class SwiftRunnable: JavaObject {
+    
+    /// Async closure / block of code to execute.
+    public var block: () -> () = { _ in }
 
     /// Create a Swift-owned Java Object.
     public convenience init() {
@@ -17,7 +20,14 @@ open class SwiftRunnable: JavaObject {
         self.bindNewObject()
     }
     
-    public func bindNewObject(){
+    public convenience init(block: () -> ()) {
+        
+        self.init()
+        self.block = block
+    }
+    
+    public func bindNewObject() {
+        
         let hasOldJavaObject = javaObject != nil
         
         var locals = [jobject]()
@@ -58,7 +68,11 @@ open class SwiftRunnable: JavaObject {
         }
     }
     
-    open func run() {}
+    private func run() {
+        
+        // execute block
+        self.block()
+    }
 }
 
 extension SwiftRunnable: JNIListener { }

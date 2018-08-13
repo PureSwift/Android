@@ -411,7 +411,14 @@ open class SwiftSupportAppCompatActivity: AndroidContextWrapper {
         return __return != nil ? JavaObject(javaObject: __return) : nil
     }
     
-    public func runOnMainThread(runnable: SwiftRunnable) {
+    public func runOnMainThread(_ block: () -> ()) {
+        
+        let runnable = SwiftRunnable(block: block)
+        
+        runOnMainThread(runnable: runnable)
+    }
+    
+    internal func runOnMainThread(runnable: SwiftRunnable) {
         
         var __locals = [jobject]()
         
