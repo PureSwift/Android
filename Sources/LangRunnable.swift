@@ -8,13 +8,16 @@
 import Foundation
 import java_swift
 
-public class SwiftRunnable: JavaObject {
+open class SwiftRunnable: JavaObject {
 
     /// Create a Swift-owned Java Object.
     public convenience init() {
         
         self.init(javaObject: nil)
-        
+        self.binNewObject()
+    }
+    
+    public func binNewObject(){
         let hasOldJavaObject = javaObject != nil
         
         var locals = [jobject]()
