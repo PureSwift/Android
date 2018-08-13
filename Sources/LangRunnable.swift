@@ -14,7 +14,7 @@ open class SwiftRunnable: JavaObject {
     public convenience init() {
         
         self.init(javaObject: nil)
-        self.binNewObject()
+        self.bindNewObject()
     }
     
     public func bindNewObject(){
