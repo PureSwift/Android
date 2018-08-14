@@ -461,6 +461,10 @@ public extension AndroidBluetoothGatt {
         
         defer { JNI.DeleteLocalRef(__return) }
         
+        if(__return == nil){
+            return []
+        }
+        
         let arrayListServices = ArrayList(javaObject: __return)
         
         if(arrayListServices.size() == 0){
@@ -469,7 +473,7 @@ public extension AndroidBluetoothGatt {
         
         var swiftServices = [Android.Bluetooth.GattService]()
         
-        ArrayList(javaObject: __return).forEach { item in
+        arrayListServices.forEach { item in
             let service = Android.Bluetooth.GattService(javaObject: item.javaObject)
             swiftServices.append(service)
         }

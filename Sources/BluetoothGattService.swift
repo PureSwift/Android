@@ -188,21 +188,38 @@ public extension AndroidBluetoothGattService {
         return Android.Bluetooth.GattCharacteristic(javaObject: __return)
     }
     
-    public func getCharacteristics() -> java_util.List? {
+    public func getCharacteristics() -> [Android.Bluetooth.GattCharacteristic] {
         
         var __locals = [jobject]()
         
         var __args = [jvalue](repeating: jvalue(), count: 1)
         
         let __return = JNIMethod.CallObjectMethod(object: javaObject,
-                                                  methodName: "getCharacteristic",
+                                                  methodName: "getCharacteristics",
                                                   methodSig: "()Ljava/util/List;",
                                                   methodCache: &JNICache.MethodID.getCharacteristics,
                                                   args: &__args,
                                                   locals: &__locals)
         defer { JNI.DeleteLocalRef(__return) }
         
-        return java_util.ListForward(javaObject: __return)
+        if(__return == nil){
+            return []
+        }
+        
+        let arrayListCharacteristics = ArrayList(javaObject: __return)
+        
+        if(arrayListCharacteristics.size() == 0){
+            return []
+        }
+        
+        var swiftCharacteristics = [Android.Bluetooth.GattCharacteristic]()
+        
+        arrayListCharacteristics.forEach { item in
+            let characteristic = Android.Bluetooth.GattCharacteristic(javaObject: item.javaObject)
+            swiftCharacteristics.append(characteristic)
+        }
+        
+        return swiftCharacteristics
     }
     
     public func getIncludedServices() -> java_util.List? {
