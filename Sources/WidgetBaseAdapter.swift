@@ -23,6 +23,12 @@ open class AndroidWidgetBaseAdapter: JavaObject {
         
         let hasOldJavaObject = javaObject != nil
         
+        /// Release old swift value.
+        if hasOldJavaObject {
+            
+            try! finalize()
+        }
+        
         var locals = [jobject]()
         
         var methodID: jmethodID?
@@ -42,13 +48,6 @@ open class AndroidWidgetBaseAdapter: JavaObject {
         self.javaObject = __object // dereference old value, add global ref for new value
         
         JNI.DeleteLocalRef( __object ) // delete local ref
-        
-        /// Release old swift value.
-        if hasOldJavaObject {
-            
-            try! finalize()
-        }
-        
     }
     
     /// Create a Swift-owned Java Object.

@@ -30,6 +30,12 @@ public final class SwiftRunnable: JavaObject {
         
         let hasOldJavaObject = javaObject != nil
         
+        /// Release old swift value.
+        if hasOldJavaObject {
+            
+            try! finalize()
+        }
+        
         var locals = [jobject]()
         
         var methodID: jmethodID?
@@ -49,12 +55,6 @@ public final class SwiftRunnable: JavaObject {
         self.javaObject = __object // dereference old value, add global ref for new value
         
         JNI.DeleteLocalRef( __object ) // delete local ref
-        
-        /// Release old swift value.
-        if hasOldJavaObject {
-            
-            try! finalize()
-        }
     }
     
     public required init(javaObject: jobject?) {

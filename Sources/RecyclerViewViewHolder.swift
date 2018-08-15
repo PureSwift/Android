@@ -38,7 +38,14 @@ open class AndroidWidgetRecyclerViewViewHolder: JavaObject {
     
     /// Initialize a new Java instance and bind to this Swift object.
     public func bindNewJavaObject(itemView: Android.View.View) {
+        
         let hasOldJavaObject = javaObject != nil
+        
+        /// Release old swift value.
+        if hasOldJavaObject {
+            
+            try! finalize()
+        }
         
         var locals = [jobject]()
         
@@ -61,12 +68,6 @@ open class AndroidWidgetRecyclerViewViewHolder: JavaObject {
         self.javaObject = __object // dereference old value, add global ref for new value
         
         JNI.DeleteLocalRef( __object ) // delete local ref
-        
-        /// Release old swift value.
-        if hasOldJavaObject {
-            
-            try! finalize()
-        }
     }
     
     public var adapterPosition: Int {

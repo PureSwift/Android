@@ -28,6 +28,12 @@ open class AndroidFullScreenDialogFragment: JavaObject {
         
         let hasOldJavaObject = javaObject != nil
         
+        /// Release old swift value.
+        if hasOldJavaObject {
+            
+            try! finalize()
+        }
+        
         var locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
@@ -45,12 +51,6 @@ open class AndroidFullScreenDialogFragment: JavaObject {
         self.javaObject = __object // dereference old value, add global ref for new value
         
         JNI.DeleteLocalRef( __object ) // delete local ref
-        
-        /// Release old swift value.
-        if hasOldJavaObject {
-            
-            try! finalize()
-        }
         
         guard self.javaObject != nil else { return }
         

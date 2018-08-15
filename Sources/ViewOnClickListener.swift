@@ -49,6 +49,12 @@ open class AndroidViewOnClickListener: JavaObject {
         
         let hasOldJavaObject = javaObject != nil
         
+        /// Release old swift value.
+        if hasOldJavaObject {
+            
+            try! finalize()
+        }
+        
         var locals = [jobject]()
         
         var args: [jvalue] = [self.swiftValue()]
@@ -66,13 +72,6 @@ open class AndroidViewOnClickListener: JavaObject {
         self.javaObject = __object // dereference old value, add global ref for new value
         
         JNI.DeleteLocalRef( __object ) // delete local ref
-        
-        /// Release old swift value.
-        if hasOldJavaObject {
-            
-            try! finalize()
-        }
-        
     }
     
     fileprivate func onClick(){

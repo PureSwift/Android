@@ -38,7 +38,14 @@ open class AndroidBluetoothGattCallback: JavaObject {
     
     /// Initialize a new Java instance and bind to this Swift object.
     public func bindNewJavaObject() {
+        
         let hasOldJavaObject = javaObject != nil
+        
+        /// Release old swift value.
+        if hasOldJavaObject {
+            
+            try! finalize()
+        }
         
         var locals = [jobject]()
         
@@ -56,12 +63,6 @@ open class AndroidBluetoothGattCallback: JavaObject {
         self.javaObject = __object // dereference old value, add global ref for new value
         
         JNI.DeleteLocalRef( __object ) // delete local ref
-        
-        /// Release old swift value.
-        if hasOldJavaObject {
-            
-            try! finalize()
-        }
     }
     
     open func onCharacteristicChanged(gatt: Android.Bluetooth.Gatt, characteristic: Android.Bluetooth.GattCharacteristic) {}

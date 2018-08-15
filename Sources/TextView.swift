@@ -40,6 +40,20 @@ open class AndroidTextView: AndroidView {
     
     public convenience init(context: Android.Content.Context){
         
+        self.init(javaObject: nil)
+        bindNewJavaObject(context: context)
+    }
+    
+    public func bindNewJavaObject(context: Android.Content.Context){
+        
+        let hasOldJavaObject = javaObject != nil
+        
+        /// Release old swift value.
+        if hasOldJavaObject {
+            
+            try! finalize()
+        }
+        
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
@@ -53,7 +67,7 @@ open class AndroidTextView: AndroidView {
             args: &__args,
             locals: &__locals )
         
-        self.init( javaObject: __object )
+        self.javaObject = __object
         
         JNI.DeleteLocalRef( __object )
     }
