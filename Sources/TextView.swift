@@ -79,14 +79,14 @@ open class AndroidTextView: AndroidView {
         set { setGravity(newValue) }
     }
     
-    public var text: String {
+    public var text: String? {
         
         get { return getText() ?? "" }
         
         set { setText(newValue) }
     }
     
-    public var hint: String {
+    public var hint: String? {
         
         get { return getHint() ?? "" }
         
@@ -148,7 +148,7 @@ open class AndroidTextView: AndroidView {
         return __return != nil ? String(javaObject: __return) : nil
     }
     
-    internal func setText(_ text: String) {
+    internal func setText(_ text: String?) {
         
         var __locals = [jobject]()
         
@@ -202,7 +202,7 @@ open class AndroidTextView: AndroidView {
     }
     
     /// Sets the text to be displayed when the text of the TextView is empty.
-    internal func setHint(_ hint: String) {
+    internal func setHint(_ hint: String?) {
         
         var __locals = [jobject]()
         
