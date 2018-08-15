@@ -283,7 +283,7 @@ public extension AndroidGraphicsColor {
      * The original (FFFF)I just is supported over api 26.
      * Return a color-int from alpha, red, green, blue float components in the range [0..1].
      */
-    public static func argb(alpha: Float, red: Float, green: Float, blue: Float) -> Int {
+    public static func argb(alpha: Float, red: Float, green: Float, blue: Float) -> Int64 {
         
         var __locals = [jobject]()
         
@@ -301,7 +301,7 @@ public extension AndroidGraphicsColor {
                                                         args: &__args,
                                                         locals: &__locals)
         
-        return Int(__return)
+        return Int64(__return)
     }
 }
 
