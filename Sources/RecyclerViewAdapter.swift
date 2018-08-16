@@ -7,6 +7,7 @@
 
 import Foundation
 import java_swift
+import java_util
 import JNI
 
 public extension Android.Widget.RecyclerView {
@@ -293,6 +294,11 @@ open class AndroidWidgetRecyclerViewAdapter: JavaObject {
         
         fatalError("\(#function) must be implemented in subclass")
     }
+    
+    open func onBindViewHolder(holder: Android.Widget.RecyclerView.ViewHolder, position: Int, payloads: [JavaObject]) {
+        
+        fatalError("\(#function) must be implemented in subclass")
+    }
 }
 
 extension AndroidWidgetRecyclerViewAdapter: JNIListener { }
@@ -337,6 +343,12 @@ fileprivate extension AndroidWidgetRecyclerViewAdapter {
             natives.append( JNINativeMethod(name: strdup("__onBindViewHolder"),
                                             signature: strdup("(JJI)V"),
                                             fnPtr: unsafeBitCast( onBindViewHolder, to: UnsafeMutableRawPointer.self ) ))
+            
+            let onBindViewHolderPayload: AndroidWidgetRecyclerViewAdapter_onBindViewHolder_payload_type = AndroidWidgetRecyclerViewAdapter_onBindViewHolderPayload
+            
+            natives.append( JNINativeMethod(name: strdup("__onBindViewHolder"),
+                                            signature: strdup("(JJILjava/util/List;)V"),
+                                            fnPtr: unsafeBitCast( onBindViewHolderPayload, to: UnsafeMutableRawPointer.self ) ))
             
             
             let finalizeThunk: AndroidWidgetRecyclerViewAdapter_finalize_type = AndroidWidgetRecyclerViewAdapter_finalize
@@ -441,6 +453,27 @@ private func AndroidWidgetRecyclerViewAdapter_onBindViewHolder( _ __env: UnsafeM
     AndroidWidgetRecyclerViewAdapter
         .swiftObject(from: __swiftObject)?
         .onBindViewHolder(holder: holder, position: position)
+}
+
+private typealias AndroidWidgetRecyclerViewAdapter_onBindViewHolder_payload_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jlong, _: jint, _: jobject) -> ()
+
+private func AndroidWidgetRecyclerViewAdapter_onBindViewHolderPayload( _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                                                _ __this: jobject?,
+                                                                _ __swiftObject: jlong,
+                                                                _ __holder: jlong,
+                                                                _ __position: jint,
+                                                                _ __payloads: jobject) -> () {
+    
+    let holder = Android.Widget.RecyclerView.ViewHolder
+        .swiftObject(from: __holder)!
+    
+    let position = Int(__position)
+    
+    let payloads = ArrayList(javaObject: __payloads).toArray() ?? []
+    
+    AndroidWidgetRecyclerViewAdapter
+        .swiftObject(from: __swiftObject)?
+        .onBindViewHolder(holder: holder, position: position, payloads: payloads)
 }
 
 private typealias AndroidWidgetRecyclerViewAdapter_finalize_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong) -> ()
