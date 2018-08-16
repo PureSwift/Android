@@ -18,7 +18,7 @@ public extension Android.Widget {
  * A flexible view for providing a limited window into a large data set.
  *
  */
-public final class AndroidWidgetRecyclerView: JavaObject {
+public final class AndroidWidgetRecyclerView: AndroidViewGroup {
     
     public required init(javaObject: jobject?) {
         super.init(javaObject: javaObject)
@@ -39,10 +39,10 @@ public final class AndroidWidgetRecyclerView: JavaObject {
         __args[0] = JNIType.toJava(value: context, locals: &__locals)
         
         let __object = JNIMethod.NewObject(
-            className: JNICache.className,
-            classCache: &JNICache.jniClass,
+            className: RecyclerViewJNICache.className,
+            classCache: &RecyclerViewJNICache.jniClass,
             methodSig: "(Landroid/content/Context;)V",
-            methodCache: &JNICache.MethodID.init_method_1,
+            methodCache: &RecyclerViewJNICache.MethodID.init_method_1,
             args: &__args,
             locals: &__locals )
         
@@ -78,7 +78,7 @@ public extension AndroidWidgetRecyclerView {
         let __return = JNIMethod.CallObjectMethod(object: javaObject,
                                                   methodName: "getAdapter",
                                                   methodSig: "()Landroid/support/v7/widget/RecyclerView$Adapter;",
-                                                  methodCache: &JNICache.MethodID.getAdapter,
+                                                  methodCache: &RecyclerViewJNICache.MethodID.getAdapter,
                                                   args: &__args,
                                                   locals: &__locals)
         
@@ -96,7 +96,7 @@ public extension AndroidWidgetRecyclerView {
         JNIMethod.CallVoidMethod(object: javaObject,
                                  methodName: "setAdapter",
                                  methodSig: "(Landroid/support/v7/widget/RecyclerView$Adapter;)V",
-                                 methodCache: &JNICache.MethodID.setAdapter,
+                                 methodCache: &RecyclerViewJNICache.MethodID.setAdapter,
                                  args: &__args,
                                  locals: &__locals)
     }
@@ -111,7 +111,7 @@ public extension AndroidWidgetRecyclerView {
         let __return = JNIMethod.CallObjectMethod(object: javaObject,
                                                   methodName: "getLayoutManager",
                                                   methodSig: "()Landroid/support/v7/widget/RecyclerView$LayoutManager;",
-                                                  methodCache: &JNICache.MethodID.getLayoutManager,
+                                                  methodCache: &RecyclerViewJNICache.MethodID.getLayoutManager,
                                                   args: &__args,
                                                   locals: &__locals)
         
@@ -129,7 +129,7 @@ public extension AndroidWidgetRecyclerView {
         JNIMethod.CallVoidMethod(object: javaObject,
                                  methodName: "setLayoutManager",
                                  methodSig: "(Landroid/support/v7/widget/RecyclerView$LayoutManager;)V",
-                                 methodCache: &JNICache.MethodID.setLayoutManager,
+                                 methodCache: &RecyclerViewJNICache.MethodID.setLayoutManager,
                                  args: &__args,
                                  locals: &__locals)
     }
@@ -138,7 +138,7 @@ public extension AndroidWidgetRecyclerView {
 internal extension AndroidWidgetRecyclerView {
     
     /// JNI Cache
-    struct JNICache {
+    struct RecyclerViewJNICache {
         
         static let classSignature = SupportV7.Widget.className(["RecyclerView"])
         
