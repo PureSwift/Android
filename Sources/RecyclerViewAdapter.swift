@@ -295,10 +295,7 @@ open class AndroidWidgetRecyclerViewAdapter: JavaObject {
         fatalError("\(#function) must be implemented in subclass")
     }
     
-    open func onBindViewHolder(holder: Android.Widget.RecyclerView.ViewHolder, position: Int, payloads: [JavaObject]) {
-        
-        fatalError("\(#function) must be implemented in subclass")
-    }
+    open func onBindViewHolder(holder: Android.Widget.RecyclerView.ViewHolder, position: Int, payloads: [JavaObject]) {}
 }
 
 extension AndroidWidgetRecyclerViewAdapter: JNIListener { }
