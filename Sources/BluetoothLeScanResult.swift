@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Bluetooth
 import java_swift
 import java_util
 import JNI
@@ -142,6 +143,19 @@ public final class AndroidBluetoothLowEnergyScanResult: JavaObject {
         
         @inline(__always)
         get { return getLegacy() }
+    }
+    /**
+     * Returns the advertising flags indicating the discoverable mode and capability of the device.
+     *
+     * - Returns: Returns -1 if the flag field is not set.
+     */
+    public var advertiseFlags: BitMaskOptionSet<GAPFlag>? {
+        
+        @inline(__always)
+        get {
+            let rawValue = getAdvertiseFlags()
+            return rawValue > 0 ? BitMaskOptionSet<GAPFlag>(rawValue: UInt8(rawValue)) : nil
+        }
     }
 }
 
@@ -452,6 +466,26 @@ internal extension Android.Bluetooth.LE.ScanResult {
         
         return Android.Bluetooth.LE.ScanRecord(javaObject: __return)
     }
+    
+    /**
+     Returns the advertising flags indicating the discoverable mode and capability of the device. Returns -1 if the flag field is not set.
+     */
+    @_versioned
+    internal func getAdvertiseFlags() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(object: javaObject,
+                                               methodName: "getAdvertiseFlags",
+                                               methodSig: JNICache.MethodSignature.getAdvertiseFlags,
+                                               methodCache: &JNICache.MethodID.getAdvertiseFlags,
+                                               args: &__args,
+                                               locals: &__locals)
+        
+        return Int(__return)
+    }
 }
 
 // MARK: - JNI
@@ -493,6 +527,7 @@ internal extension Android.Bluetooth.LE.ScanResult {
             static var getTxPower: jmethodID?
             static var isConnectable: jmethodID?
             static var isLegacy: jmethodID?
+            static var getAdvertiseFlags: jmethodID?
         }
         
         struct MethodSignature {
@@ -500,7 +535,12 @@ internal extension Android.Bluetooth.LE.ScanResult {
             static let getScanRecord = JNIMethodSignature(
                 argumentTypes: [],
                 returnType: .object(Android.Bluetooth.LE.ScanRecord.JNICache.classSignature)
-            ).rawValue
+                ).rawValue
+            
+            static let getAdvertiseFlags = JNIMethodSignature(
+                argumentTypes: [],
+                returnType: .boolean
+                ).rawValue
         }
     }
 }
