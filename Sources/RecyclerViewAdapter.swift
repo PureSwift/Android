@@ -343,7 +343,7 @@ fileprivate extension AndroidWidgetRecyclerViewAdapter {
             
             let onBindViewHolderPayload: AndroidWidgetRecyclerViewAdapter_onBindViewHolder_payload_type = AndroidWidgetRecyclerViewAdapter_onBindViewHolderPayload
             
-            natives.append( JNINativeMethod(name: strdup("__onBindViewHolder"),
+            natives.append( JNINativeMethod(name: strdup("__onBindViewHolderPayload"),
                                             signature: strdup("(JJILjava/util/List;)V"),
                                             fnPtr: unsafeBitCast( onBindViewHolderPayload, to: UnsafeMutableRawPointer.self ) ))
             
