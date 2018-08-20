@@ -19,7 +19,7 @@ public extension AndroidBuild.Version {
     public typealias Sdk = AndroidBuildSdk
 }
 
-public struct AndroidBuildSdk: RawRepresentable {
+public struct AndroidBuildSdk: RawRepresentable, Equatable {
     
     public let rawValue: Int
     
@@ -35,7 +35,7 @@ public struct AndroidBuildSdk: RawRepresentable {
     public static let previewSdkInt = Android.OS.Build.Version.Sdk(rawValue: AndroidBuildVersionConstants.PREVIEW_SDK_INT)
 }
 
-public struct AndroidBuildVersion: RawRepresentable {
+public struct AndroidBuildVersion: RawRepresentable, Equatable {
     
     public let rawValue: String
     
