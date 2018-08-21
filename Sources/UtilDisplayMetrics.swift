@@ -49,6 +49,7 @@ public extension AndroidUtilDisplayMetrics {
         }
     }
     
+    /// The screen density expressed as dots-per-inch.
     public var densityDpi: Int {
         get {
             let __value = JNIField.GetIntField(fieldName: "densityDpi",
@@ -59,6 +60,7 @@ public extension AndroidUtilDisplayMetrics {
         }
     }
     
+    /// The absolute height of the available display size in pixels.
     public var heightPixels: Int {
         get {
             let __value = JNIField.GetIntField(fieldName: "heightPixels",
@@ -69,6 +71,8 @@ public extension AndroidUtilDisplayMetrics {
         }
     }
     
+    /// A scaling factor for fonts displayed on the display. This is the same as density,
+    /// except that it may be adjusted in smaller increments at runtime based on a user preference for the font size.
     public var scaledDensity: Float {
         get {
             let __value = JNIField.GetFloatField(fieldName: "scaledDensity",
@@ -79,6 +83,7 @@ public extension AndroidUtilDisplayMetrics {
         }
     }
     
+    /// The absolute width of the available display size in pixels.
     public var widthPixels: Int {
         get {
             let __value = JNIField.GetIntField(fieldName: "widthPixels",
@@ -89,6 +94,7 @@ public extension AndroidUtilDisplayMetrics {
         }
     }
     
+    /// The exact physical pixels per inch of the screen in the X dimension.
     public var xdpi: Float {
         get {
             let __value = JNIField.GetFloatField(fieldName: "xdpi",
@@ -99,6 +105,7 @@ public extension AndroidUtilDisplayMetrics {
         }
     }
     
+    /// The exact physical pixels per inch of the screen in the Y dimension.
     public var ydpi: Float {
         get {
             let __value = JNIField.GetFloatField(fieldName: "ydpi",
