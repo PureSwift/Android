@@ -12,12 +12,29 @@ import JNI
 
 public extension Android.Util {
     
-    public typealias DisplayMetrics = AndroidUtilDisplayMetrics
+    public typealias DisplayMetrics = AndroidDisplayMetrics
 }
 
-public class AndroidUtilDisplayMetrics: JavaObject {
+public class AndroidDisplayMetrics: JavaObject {
     
     // MARK: - Initialization
+    public convenience init() {
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __object = JNIMethod.NewObject(
+            className: JNICache.className,
+            classCache: &JNICache.jniClass,
+            methodSig: "()V",
+            methodCache: &JNICache.MethodID.new_method,
+            args: &__args,
+            locals: &__locals )
+        
+        self.init( javaObject: __object )
+        
+        JNI.DeleteLocalRef( __object )
+    }
     
     public convenience init?( casting object: java_swift.JavaObject,
                               _ file: StaticString = #file,
@@ -37,19 +54,18 @@ public class AndroidUtilDisplayMetrics: JavaObject {
 
 // MARK: - Methods
 
-public extension AndroidUtilDisplayMetrics {
+public extension AndroidDisplayMetrics {
     
     public var density: Float {
         get {
             let __value = JNIField.GetFloatField(fieldName: "density",
-                                               fieldType: "F",
-                                               fieldCache: &JNICache.FieldID.density,
-                                               object: javaObject)
+                                                 fieldType: "F",
+                                                 fieldCache: &JNICache.FieldID.density,
+                                                 object: javaObject)
             return Float(__value)
         }
     }
     
-    /// The screen density expressed as dots-per-inch.
     public var densityDpi: Int {
         get {
             let __value = JNIField.GetIntField(fieldName: "densityDpi",
@@ -60,7 +76,6 @@ public extension AndroidUtilDisplayMetrics {
         }
     }
     
-    /// The absolute height of the available display size in pixels.
     public var heightPixels: Int {
         get {
             let __value = JNIField.GetIntField(fieldName: "heightPixels",
@@ -71,8 +86,6 @@ public extension AndroidUtilDisplayMetrics {
         }
     }
     
-    /// A scaling factor for fonts displayed on the display. This is the same as density,
-    /// except that it may be adjusted in smaller increments at runtime based on a user preference for the font size.
     public var scaledDensity: Float {
         get {
             let __value = JNIField.GetFloatField(fieldName: "scaledDensity",
@@ -83,7 +96,6 @@ public extension AndroidUtilDisplayMetrics {
         }
     }
     
-    /// The absolute width of the available display size in pixels.
     public var widthPixels: Int {
         get {
             let __value = JNIField.GetIntField(fieldName: "widthPixels",
@@ -94,7 +106,6 @@ public extension AndroidUtilDisplayMetrics {
         }
     }
     
-    /// The exact physical pixels per inch of the screen in the X dimension.
     public var xdpi: Float {
         get {
             let __value = JNIField.GetFloatField(fieldName: "xdpi",
@@ -105,7 +116,6 @@ public extension AndroidUtilDisplayMetrics {
         }
     }
     
-    /// The exact physical pixels per inch of the screen in the Y dimension.
     public var ydpi: Float {
         get {
             let __value = JNIField.GetFloatField(fieldName: "ydpi",
@@ -119,7 +129,7 @@ public extension AndroidUtilDisplayMetrics {
 
 // MARK: - JNICache
 
-internal extension AndroidUtilDisplayMetrics {
+internal extension AndroidDisplayMetrics {
     
     /// JNI Cache
     struct JNICache {
@@ -135,13 +145,20 @@ internal extension AndroidUtilDisplayMetrics {
         
         /// JNI Method ID cache
         struct FieldID {
-            static var density: jmethodID?
-            static var densityDpi: jmethodID?
-            static var heightPixels: jmethodID?
-            static var scaledDensity: jmethodID?
-            static var widthPixels: jmethodID?
-            static var xdpi: jmethodID?
-            static var ydpi: jmethodID?
+            
+            static var density: jfieldID?
+            static var densityDpi: jfieldID?
+            static var heightPixels: jfieldID?
+            static var scaledDensity: jfieldID?
+            static var widthPixels: jfieldID?
+            static var xdpi: jfieldID?
+            static var ydpi: jfieldID?
+        }
+        
+        struct MethodID {
+            
+            static var new_method: jmethodID?
         }
     }
 }
+

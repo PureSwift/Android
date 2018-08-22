@@ -54,10 +54,28 @@ open class SwiftSupportAppCompatActivity: AndroidContextWrapper {
         }
     }
     
+    public var windowManager: AndroidWindowManager? {
+        get {
+            return getWindowManager()
+        }
+    }
+    
+    public var hasNavBar: Bool {
+        get {
+            return hasNavBarJavaMethod()
+        }
+    }
+    
+    public var statusBarHeightPixels: Int {
+        get {
+            return getStatusBarHeightPixels()
+        }
+    }
+    
     // MARK: - Listener
     
     open func onCreate(savedInstanceState: Android.OS.Bundle?) {
-    
+        
         NSLog("\(type(of: self)) \(#function)")
     }
     
@@ -170,11 +188,11 @@ open class SwiftSupportAppCompatActivity: AndroidContextWrapper {
         withJavaObject {
             
             let __return = JNIMethod.CallBooleanMethod(object: $0,
-                                                   methodName: "isFinishing",
-                                                   methodSig: "()Z",
-                                                   methodCache: &SwiftActivityJNICache.MethodID.isFinishing,
-                                                   args: &__args,
-                                                   locals: &__locals)
+                                                       methodName: "isFinishing",
+                                                       methodSig: "()Z",
+                                                       methodCache: &SwiftActivityJNICache.MethodID.isFinishing,
+                                                       args: &__args,
+                                                       locals: &__locals)
             
             result = __return != jboolean(JNI_FALSE)
         }
@@ -269,11 +287,11 @@ open class SwiftSupportAppCompatActivity: AndroidContextWrapper {
         withJavaObject {
             
             let __return = JNIMethod.CallObjectMethod(object: $0,
-                                                   methodName: "getResources",
-                                                   methodSig: "()Landroid/content/res/Resources;",
-                                                   methodCache: &SwiftActivityJNICache.MethodID.getResources,
-                                                   args: &__args,
-                                                   locals: &__locals)
+                                                      methodName: "getResources",
+                                                      methodSig: "()Landroid/content/res/Resources;",
+                                                      methodCache: &SwiftActivityJNICache.MethodID.getResources,
+                                                      args: &__args,
+                                                      locals: &__locals)
             
             defer { JNI.DeleteLocalRef(__return) }
             
@@ -363,7 +381,7 @@ open class SwiftSupportAppCompatActivity: AndroidContextWrapper {
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-
+        
         let __return = JNIMethod.CallFloatMethod(
             object: javaObject,
             methodName: "getDensity",
@@ -432,6 +450,60 @@ open class SwiftSupportAppCompatActivity: AndroidContextWrapper {
             methodCache: &SwiftActivityJNICache.MethodID.runOnMainThread,
             args: &__args,
             locals: &__locals )
+    }
+    
+    @inline(__always)
+    private func getWindowManager() -> AndroidWindowManager? {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallObjectMethod(
+            object: javaObject,
+            methodName: "getWindowManager",
+            methodSig: "()Landroid/view/WindowManager;",
+            methodCache: &SwiftActivityJNICache.MethodID.getWindowManager,
+            args: &__args,
+            locals: &__locals )
+        
+        return __return != nil ? AndroidWindowManager(javaObject: __return) : nil
+    }
+    
+    @inline(__always)
+    private func getStatusBarHeightPixels() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getStatusBarHeightPixels",
+            methodSig: "()I",
+            methodCache: &SwiftActivityJNICache.MethodID.getStatusBarHeightPixels,
+            args: &__args,
+            locals: &__locals )
+        
+        return Int(__return)
+    }
+    
+    @inline(__always)
+    private func hasNavBarJavaMethod() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "hasNavBar",
+            methodSig: "()Z",
+            methodCache: &SwiftActivityJNICache.MethodID.hasNavBar,
+            args: &__args,
+            locals: &__locals )
+        
+        return jboolean(__return) != JNI_FALSE
     }
 }
 
@@ -543,6 +615,9 @@ fileprivate extension SwiftSupport.App.AppCompatActivity {
             static var getResources: jmethodID?
             static var getSupportFragmentManager: jmethodID?
             static var runOnMainThread: jmethodID?
+            static var getWindowManager: jmethodID?
+            static var getStatusBarHeightPixels: jmethodID?
+            static var hasNavBar: jmethodID?
         }
     }
 }
@@ -557,9 +632,9 @@ internal func SwiftAndroidMainActivity() -> SwiftSupportAppCompatActivity.Type
 
 @_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_onCreateNative")
 public func SwiftSupportAppCompatActivity_onCreate( _ __env: UnsafeMutablePointer<JNIEnv?>,
-                                                         _ __this: jobject?,
-                                                         _ __swiftObject: jlong,
-                                                         _ __savedInstanceState: jobject?) -> () {
+                                                    _ __this: jobject?,
+                                                    _ __swiftObject: jlong,
+                                                    _ __savedInstanceState: jobject?) -> () {
     
     let bundle = __savedInstanceState != nil ? Android.OS.Bundle(javaObject: __savedInstanceState) : nil
     
@@ -570,9 +645,9 @@ public func SwiftSupportAppCompatActivity_onCreate( _ __env: UnsafeMutablePointe
 
 @_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_onStartNative")
 public func SwiftSupportAppCompatActivity_onStart( _ __env: UnsafeMutablePointer<JNIEnv?>,
-                                                         _ __this: jobject?,
-                                                         _ __swiftObject: jlong) -> () {
-
+                                                   _ __this: jobject?,
+                                                   _ __swiftObject: jlong) -> () {
+    
     let activity = SwiftSupportAppCompatActivity.swiftObject(from: __swiftObject)
     
     activity?.onStart()
@@ -580,8 +655,8 @@ public func SwiftSupportAppCompatActivity_onStart( _ __env: UnsafeMutablePointer
 
 @_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_onResumeNative")
 public func SwiftSupportAppCompatActivity_onResume( _ __env: UnsafeMutablePointer<JNIEnv?>,
-                                                        _ __this: jobject?,
-                                                        _ __swiftObject: jlong) -> () {
+                                                    _ __this: jobject?,
+                                                    _ __swiftObject: jlong) -> () {
     
     let activity = SwiftSupportAppCompatActivity.swiftObject(from: __swiftObject)
     
@@ -590,8 +665,8 @@ public func SwiftSupportAppCompatActivity_onResume( _ __env: UnsafeMutablePointe
 
 @_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_onPauseNative")
 public func SwiftSupportAppCompatActivity_onPause( _ __env: UnsafeMutablePointer<JNIEnv?>,
-                                                         _ __this: jobject?,
-                                                         _ __swiftObject: jlong) -> () {
+                                                   _ __this: jobject?,
+                                                   _ __swiftObject: jlong) -> () {
     
     let activity = SwiftSupportAppCompatActivity.swiftObject(from: __swiftObject)
     
@@ -600,8 +675,8 @@ public func SwiftSupportAppCompatActivity_onPause( _ __env: UnsafeMutablePointer
 
 @_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_onRestartNative")
 public func SwiftSupportAppCompatActivity_onRestart( _ __env: UnsafeMutablePointer<JNIEnv?>,
-                                                         _ __this: jobject?,
-                                                         _ __swiftObject: jlong) -> () {
+                                                     _ __this: jobject?,
+                                                     _ __swiftObject: jlong) -> () {
     
     let activity = SwiftSupportAppCompatActivity.swiftObject(from: __swiftObject)
     
@@ -610,8 +685,8 @@ public func SwiftSupportAppCompatActivity_onRestart( _ __env: UnsafeMutablePoint
 
 @_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_onStopNative")
 public func SwiftSupportAppCompatActivity_onStop( _ __env: UnsafeMutablePointer<JNIEnv?>,
-                                                          _ __this: jobject?,
-                                                          _ __swiftObject: jlong) -> () {
+                                                  _ __this: jobject?,
+                                                  _ __swiftObject: jlong) -> () {
     
     let activity = SwiftSupportAppCompatActivity.swiftObject(from: __swiftObject)
     
@@ -620,8 +695,8 @@ public func SwiftSupportAppCompatActivity_onStop( _ __env: UnsafeMutablePointer<
 
 @_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_onDestroyNative")
 public func SwiftSupportAppCompatActivity_onDestroy( _ __env: UnsafeMutablePointer<JNIEnv?>,
-                                                       _ __this: jobject?,
-                                                       _ __swiftObject: jlong) -> () {
+                                                     _ __this: jobject?,
+                                                     _ __swiftObject: jlong) -> () {
     
     let activity = SwiftSupportAppCompatActivity.swiftObject(from: __swiftObject)
     
@@ -630,11 +705,11 @@ public func SwiftSupportAppCompatActivity_onDestroy( _ __env: UnsafeMutablePoint
 
 @_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_onActivityResultNative")
 public func SwiftSupportAppCompatActivity_onActivityResultNative( _ __env: UnsafeMutablePointer<JNIEnv?>,
-                                                          _ __this: jobject?,
-                                                          _ __swiftObject: jlong,
-                                                          _ __requestCode: jint,
-                                                          _ __resultCode: jint,
-                                                          _ __data: jobject?) -> () {
+                                                                  _ __this: jobject?,
+                                                                  _ __swiftObject: jlong,
+                                                                  _ __requestCode: jint,
+                                                                  _ __resultCode: jint,
+                                                                  _ __data: jobject?) -> () {
     
     let requestCode = Int(__requestCode)
     
@@ -649,11 +724,11 @@ public func SwiftSupportAppCompatActivity_onActivityResultNative( _ __env: Unsaf
 
 @_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_onRequestPermissionsResultNative")
 public func SwiftSupportAppCompatActivity_onRequestPermissionsResultNative( _ __env: UnsafeMutablePointer<JNIEnv?>,
-                                                                  _ __this: jobject?,
-                                                                  _ __swiftObject: jlong,
-                                                                  _ __requestCode: jint,
-                                                                  _ __permissions: jobject,
-                                                                  _ __grantResults: jobject) -> () {
+                                                                            _ __this: jobject?,
+                                                                            _ __swiftObject: jlong,
+                                                                            _ __requestCode: jint,
+                                                                            _ __permissions: jobject,
+                                                                            _ __grantResults: jobject) -> () {
     
     let requestCode = Int(__requestCode)
     
@@ -668,10 +743,11 @@ public func SwiftSupportAppCompatActivity_onRequestPermissionsResultNative( _ __
 
 @_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_finalizeNative")
 public func SwiftSupportAppCompatActivity_finalize( _ __env: UnsafeMutablePointer<JNIEnv?>,
-                                                           _ __this: jobject?,
-                                                           _ __swiftObject: jlong) -> () {
+                                                    _ __this: jobject?,
+                                                    _ __swiftObject: jlong) -> () {
     
     SwiftSupportAppCompatActivity.release(swiftObject: __swiftObject )
     
     NSLog("native \(#function)")
 }
+
