@@ -10656,7 +10656,7 @@ internal extension Android.View.View {
 
 public extension Android.View.View {
     
-    public struct AndroidViewVisibility: RawRepresentable {
+    public struct AndroidViewVisibility: RawRepresentable, Equatable {
         
         public let rawValue: Int
         
