@@ -10653,3 +10653,21 @@ internal extension Android.View.View {
         }
     }
 }
+
+public extension Android.View.View {
+    
+    public struct AndroidViewVisibility: RawRepresentable {
+        
+        public let rawValue: Int
+        
+        public init(rawValue: Int) {
+            self.rawValue = rawValue
+        }
+        
+        public static let visible = Android.View.View.AndroidViewVisibility(rawValue: Android.View.View.VISIBLE)
+        
+        public static let invisible = Android.View.View.AndroidViewVisibility(rawValue: Android.View.View.INVISIBLE)
+        
+        public static let gone = Android.View.View.AndroidViewVisibility(rawValue: Android.View.View.GONE)
+    }
+}
