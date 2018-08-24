@@ -17,6 +17,20 @@ public extension Android.Widget {
 
 open class AndroidWidgetFrameLayout: Android.View.ViewGroup {
     
+    public convenience init?( casting object: java_swift.JavaObject,
+                              _ file: StaticString = #file,
+                              _ line: Int = #line ) {
+        self.init(javaObject: nil)
+        
+        object.withJavaObject {
+            self.javaObject = $0
+        }
+    }
+    
+    public required init( javaObject: jobject? ) {
+        super.init(javaObject: javaObject)
+    }
+    
     public convenience init(context: Android.Content.Context) {
         
         var __locals = [jobject]()

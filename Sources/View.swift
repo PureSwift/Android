@@ -77,6 +77,12 @@ open class AndroidView: JavaObject {
         }
     }
     
+    public var parent: Android.Widget.FrameLayout? {
+        get {
+            return getParent()
+        }
+    }
+    
     open func findViewById(_ id: Int) -> Android.View.View? {
         
         var __locals = [jobject]()
@@ -10075,7 +10081,25 @@ public extension Android.View.View {
             locals: &__locals )
     }
     
-    
+    @inline(__always)
+    internal func getParent() -> Android.Widget.FrameLayout? {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallObjectMethod(
+            object: javaObject,
+            methodName: "getParent",
+            methodSig: "()Landroid/view/ViewParent;",
+            methodCache: &JNICache.MethodID.getParent,
+            args: &__args,
+            locals: &__locals )
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return __return != nil ? Android.Widget.FrameLayout(casting: JavaObject(javaObject: __return)) : nil
+    }
 }
 
 // MARK: - JNICache
@@ -10625,6 +10649,7 @@ internal extension Android.View.View {
             static var getLayoutParams: jmethodID?
             static var onMeasure: jmethodID?
             static var setMeasuredDimension: jmethodID?
+            static var getParent: jmethodID?
         }
     }
 }
