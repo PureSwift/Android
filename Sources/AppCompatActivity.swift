@@ -72,6 +72,12 @@ open class SwiftSupportAppCompatActivity: AndroidContextWrapper {
         }
     }
     
+    public var actionBarHeighPixels: Int {
+        get {
+            return getActionBarHeighPixels()
+        }
+    }
+    
     // MARK: - Listener
     
     open func onCreate(savedInstanceState: Android.OS.Bundle?) {
@@ -489,6 +495,24 @@ open class SwiftSupportAppCompatActivity: AndroidContextWrapper {
     }
     
     @inline(__always)
+    private func getActionBarHeighPixels() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getActionBarHeighPixels",
+            methodSig: "()I",
+            methodCache: &SwiftActivityJNICache.MethodID.getActionBarHeighPixels,
+            args: &__args,
+            locals: &__locals )
+        
+        return Int(__return)
+    }
+    
+    @inline(__always)
     private func hasNavBarJavaMethod() -> Bool {
         
         var __locals = [jobject]()
@@ -618,6 +642,7 @@ fileprivate extension SwiftSupport.App.AppCompatActivity {
             static var getWindowManager: jmethodID?
             static var getStatusBarHeightPixels: jmethodID?
             static var hasNavBar: jmethodID?
+            static var getActionBarHeighPixels: jmethodID?
         }
     }
 }
