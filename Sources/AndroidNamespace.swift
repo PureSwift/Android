@@ -91,6 +91,11 @@ public enum SupportV4: JavaPackage {
         
         public static let package: JNIPackage = SupportV4.package + ["view"]
     }
+    
+    public enum Content: JavaPackage {
+        
+        public static let package: JNIPackage = SupportV4.package + ["content"]
+    }
 }
 
 /// Support Library namespace.
