@@ -97,7 +97,7 @@ public extension AndroidMenuItemForward {
         let __return = JNIMethod.CallObjectMethod(
             object: javaObject,
             methodName: "setTitle",
-            methodSig: "(Ljava/lang/CharSecuence;)Landroid/view/MenuItem;",
+            methodSig: "(Ljava/lang/CharSequence;)Landroid/view/MenuItem;",
             methodCache: &MenuItemJNICache.MethodID.setTitle2,
             args: &__args,
             locals: &__locals )
@@ -114,7 +114,7 @@ public extension AndroidMenuItemForward {
         let __return = JNIMethod.CallObjectMethod(
             object: javaObject,
             methodName: "getTitle",
-            methodSig: "()Ljava/lang/CharSecuence;",
+            methodSig: "()Ljava/lang/CharSequence;",
             methodCache: &MenuItemJNICache.MethodID.getTitle,
             args: &__args,
             locals: &__locals )
@@ -134,7 +134,7 @@ public extension AndroidMenuItemForward {
         let __return = JNIMethod.CallObjectMethod(
             object: javaObject,
             methodName: "setTitleCondensed",
-            methodSig: "(Ljava/lang/CharSecuence;)Landroid/view/MenuItem;",
+            methodSig: "(Ljava/lang/CharSequence;)Landroid/view/MenuItem;",
             methodCache: &MenuItemJNICache.MethodID.setTitleCondensed,
             args: &__args,
             locals: &__locals )
@@ -151,7 +151,7 @@ public extension AndroidMenuItemForward {
         let __return = JNIMethod.CallObjectMethod(
             object: javaObject,
             methodName: "getTitleCondensed",
-            methodSig: "()Ljava/lang/CharSecuence;",
+            methodSig: "()Ljava/lang/CharSequence;",
             methodCache: &MenuItemJNICache.MethodID.getTitleCondensed,
             args: &__args,
             locals: &__locals )

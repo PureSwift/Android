@@ -148,7 +148,7 @@ public extension AndroidToolbar {
         JNIMethod.CallVoidMethod(
             object: javaObject,
             methodName: "setTitle",
-            methodSig: "(Ljava/lang/CharSecuence;)V",
+            methodSig: "(Ljava/lang/CharSequence;)V",
             methodCache: &ToolbarJNICache.MethodID.setTitle2,
             args: &__args,
             locals: &__locals )
@@ -164,7 +164,7 @@ public extension AndroidToolbar {
         let __return = JNIMethod.CallObjectMethod(
             object: javaObject,
             methodName: "getTitle",
-            methodSig: "()Ljava/lang/CharSecuence;",
+            methodSig: "()Ljava/lang/CharSequence;",
             methodCache: &ToolbarJNICache.MethodID.getTitle,
             args: &__args,
             locals: &__locals )
@@ -201,7 +201,7 @@ public extension AndroidToolbar {
         JNIMethod.CallVoidMethod(
             object: javaObject,
             methodName: "setSubtitle",
-            methodSig: "(Ljava/lang/CharSecuence;)V",
+            methodSig: "(Ljava/lang/CharSequence;)V",
             methodCache: &ToolbarJNICache.MethodID.setSubtitle2,
             args: &__args,
             locals: &__locals )
@@ -217,7 +217,7 @@ public extension AndroidToolbar {
         let __return = JNIMethod.CallObjectMethod(
             object: javaObject,
             methodName: "getSubtitle",
-            methodSig: "()Ljava/lang/CharSecuence;",
+            methodSig: "()Ljava/lang/CharSequence;",
             methodCache: &ToolbarJNICache.MethodID.getSubtitle,
             args: &__args,
             locals: &__locals )

@@ -60,7 +60,7 @@ public extension AndroidMenuForward {
         let __return = JNIMethod.CallObjectMethod(
             object: javaObject,
             methodName: "add",
-            methodSig: "(Ljava/lang/CharSecuence;)Landroid/view/MenuItem;",
+            methodSig: "(Ljava/lang/CharSequence;)Landroid/view/MenuItem;",
             methodCache: &MenuJNICache.MethodID.add2,
             args: &__args,
             locals: &__locals )
@@ -104,7 +104,7 @@ public extension AndroidMenuForward {
         let __return = JNIMethod.CallObjectMethod(
             object: javaObject,
             methodName: "add",
-            methodSig: "(IIILjava/lang/CharSecuence;)Landroid/view/MenuItem;",
+            methodSig: "(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;",
             methodCache: &MenuJNICache.MethodID.add4,
             args: &__args,
             locals: &__locals )
