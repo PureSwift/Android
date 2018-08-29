@@ -131,6 +131,23 @@ public extension AndroidContext {
         
         return __return != nil ? T( javaObject: __return ) : nil
     }
+    
+    public func setTheme(resId: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(resId))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setTheme",
+            methodSig: "(I)V",
+            methodCache: &JNICache.MethodID.setTheme,
+            args: &__args,
+            locals: &__locals )
+    }
 }
 
 // MARK: - JNICache
@@ -161,6 +178,7 @@ private extension AndroidContext {
             static var getSystemService: jmethodID?
             static var registerReceiver: jmethodID?
             static var unregisterReceiver: jmethodID?
+            static var setTheme: jmethodID?
         }
     }
 }
