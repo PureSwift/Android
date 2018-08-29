@@ -37,12 +37,12 @@ public extension AndroidViewCompat {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         
         let __return = JNIMethod.CallStaticIntMethod(className: JNICache.className,
-                                                        classCache: &JNICache.jniClass,
-                                                        methodName: "wrap",
-                                                        methodSig: "()I",
-                                                        methodCache: &JNICache.MethodID.generateViewId,
-                                                        args: &__args,
-                                                        locals: &__locals )
+                                                     classCache: &JNICache.jniClass,
+                                                     methodName: "generateViewId",
+                                                     methodSig: "()I",
+                                                     methodCache: &JNICache.MethodID.generateViewId,
+                                                     args: &__args,
+                                                     locals: &__locals )
         return Int(__return)
     }
 }
@@ -67,3 +67,4 @@ internal extension AndroidViewCompat {
         }
     }
 }
+

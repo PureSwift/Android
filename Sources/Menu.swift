@@ -99,7 +99,7 @@ public extension AndroidMenuForward {
         __args[0] = jvalue(i: jint(groupId))
         __args[1] = jvalue(i: jint(itemId))
         __args[2] = jvalue(i: jint(order))
-        __args[0] = JNIType.toJava(value: title, locals: &__locals)
+        __args[3] = JNIType.toJava(value: title, locals: &__locals)
         
         let __return = JNIMethod.CallObjectMethod(
             object: javaObject,
@@ -137,3 +137,4 @@ internal extension AndroidMenuForward {
         }
     }
 }
+

@@ -30,7 +30,7 @@ open class AndroidDrawableCompat: JavaObject {
 
 public extension AndroidDrawableCompat {
     
-    public static func wrap(drawable: AndroidGraphicsDrawableDrawable) -> AndroidGraphicsDrawableDrawable? {
+    public static func wrap(drawable: AndroidGraphicsDrawableDrawable) -> AndroidGraphicsDrawableDrawable {
         
         var __locals = [jobject]()
         
@@ -46,7 +46,45 @@ public extension AndroidDrawableCompat {
                                                         args: &__args,
                                                         locals: &__locals )
         
-        return __return != nil ? AndroidGraphicsDrawableDrawable(javaObject: __return) : nil
+        return AndroidGraphicsDrawableDrawable(javaObject: __return)
+    }
+    
+    public static func setTint(drawable: AndroidGraphicsDrawableDrawable, color: Int64){
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = JNIType.toJava(value: drawable, locals: &__locals)
+        __args[1] = jvalue(i: jint(color))
+        
+        JNIMethod.CallStaticVoidMethod(className: JNICache.className,
+                                       classCache: &JNICache.jniClass,
+                                       methodName: "setTint",
+                                       methodSig: "(Landroid/graphics/drawable/Drawable;I)V",
+                                       methodCache: &JNICache.MethodID.setTint,
+                                       args: &__args,
+                                       locals: &__locals )
+        
+    }
+    
+    public static func setTint(drawable: AndroidGraphicsDrawableDrawable, colorRes: Int){
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = JNIType.toJava(value: drawable, locals: &__locals)
+        __args[1] = jvalue(i: jint(colorRes))
+        
+        JNIMethod.CallStaticVoidMethod(className: JNICache.className,
+                                       classCache: &JNICache.jniClass,
+                                       methodName: "setTint",
+                                       methodSig: "(Landroid/graphics/drawable/Drawable;I)V",
+                                       methodCache: &JNICache.MethodID.setTint,
+                                       args: &__args,
+                                       locals: &__locals )
+        
     }
 }
 
@@ -55,7 +93,7 @@ internal extension AndroidDrawableCompat {
     /// JNI Cache
     struct JNICache {
         
-        static let classSignature = Android.Graphics.Drawable.className(["DrawableCompat"])
+        static let classSignature = SupportV4.Graphics.Drawable.className(["DrawableCompat"])
         
         /// JNI Java class name
         static let className = classSignature.rawValue
@@ -67,6 +105,8 @@ internal extension AndroidDrawableCompat {
         struct MethodID {
             
             static var wrap: jmethodID?
+            static var setTint: jmethodID?
         }
     }
 }
+

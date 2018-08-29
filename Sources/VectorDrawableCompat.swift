@@ -14,7 +14,7 @@ public extension Android.Graphics.Drawable {
     public typealias VectorDrawableCompat = AndroidVectorDrawableCompat
 }
 
-public class AndroidVectorDrawableCompat: JavaObject {
+public class AndroidVectorDrawableCompat: AndroidGraphicsDrawableDrawable {
     
     public required init(javaObject: jobject?) {
         super.init(javaObject: javaObject)
@@ -30,7 +30,7 @@ public class AndroidVectorDrawableCompat: JavaObject {
 
 public extension AndroidVectorDrawableCompat {
     
-    public static func create(res: AndroidContentResResources, resId: Int, theme: JavaObject) -> AndroidVectorDrawableCompat? {
+    public static func create(res: AndroidContentResResources, resId: Int, theme: JavaObject?) -> AndroidVectorDrawableCompat? {
         
         var __locals = [jobject]()
         
@@ -58,10 +58,8 @@ internal extension AndroidVectorDrawableCompat {
     /// JNI Cache
     struct JNICache {
         
-        static let classSignature = Android.Graphics.Drawable.className(["VectorDrawableCompat"])
-        
         /// JNI Java class name
-        static let className = classSignature.rawValue
+        static let className = "android/support/graphics/drawable/VectorDrawableCompat"
         
         /// JNI Java class
         static var jniClass: jclass?
@@ -73,3 +71,4 @@ internal extension AndroidVectorDrawableCompat {
         }
     }
 }
+

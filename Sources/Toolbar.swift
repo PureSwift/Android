@@ -338,7 +338,7 @@ public extension AndroidToolbar {
         return __return != nil ? Android.Graphics.Drawable.Drawable(javaObject: __return) : nil
     }
     
-    public func setOnMenuItemClickListener(_ block: @escaping () -> (Bool)) {
+    public func setOnMenuItemClickListener(_ block: @escaping (AndroidMenuItemForward?) -> (Bool)) {
         
         let onMenuItemClickListener = Android.Widget.Toolbar.OnMenuItemClickListener(block: block)
         
@@ -356,7 +356,7 @@ public extension AndroidToolbar {
         JNIMethod.CallVoidMethod(
             object: javaObject,
             methodName: "setOnMenuItemClickListener",
-            methodSig: "(Landroid/support/v7/widget/Toolbar$;OnMenuItemClickListener)V",
+            methodSig: "(Landroid/support/v7/widget/Toolbar$OnMenuItemClickListener;)V",
             methodCache: &ToolbarJNICache.MethodID.setOnMenuItemClickListener,
             args: &__args,
             locals: &__locals )
@@ -417,4 +417,5 @@ internal extension AndroidToolbar {
         }
     }
 }
+
 

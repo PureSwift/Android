@@ -26,7 +26,7 @@ open class AndroidMenuItemForward: JavaObject {
             self.javaObject = $0
         }
     }
-
+    
     public var title: String? {
         
         @inline(__always)
@@ -170,7 +170,7 @@ public extension AndroidMenuItemForward {
         let __return = JNIMethod.CallObjectMethod(
             object: javaObject,
             methodName: "setIcon",
-            methodSig: "(I)V",
+            methodSig: "(I)Landroid/view/MenuItem;",
             methodCache: &MenuItemJNICache.MethodID.setIcon1,
             args: &__args,
             locals: &__locals )
@@ -189,7 +189,7 @@ public extension AndroidMenuItemForward {
         let __return = JNIMethod.CallObjectMethod(
             object: javaObject,
             methodName: "setIcon",
-            methodSig: "(Landroid/graphics/drawable/Drawable;)V",
+            methodSig: "(Landroid/graphics/drawable/Drawable;)Landroid/view/MenuItem;",
             methodCache: &MenuItemJNICache.MethodID.setIcon2,
             args: &__args,
             locals: &__locals )
@@ -264,6 +264,102 @@ public extension AndroidMenuItemForward {
         
         return Int(__return)
     }
+    
+    public func setShowAsAction(action: ShowAsAction) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(action.rawValue))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setShowAsAction",
+            methodSig: "(I)V",
+            methodCache: &MenuItemJNICache.MethodID.setShowAsAction,
+            args: &__args,
+            locals: &__locals )
+    }
+}
+
+internal extension AndroidMenuItemForward {
+    
+    internal static var SHOW_AS_ACTION_NEVER: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "SHOW_AS_ACTION_NEVER",
+                fieldType: "I",
+                fieldCache: &MenuItemJNICache.FieldID.SHOW_AS_ACTION_NEVER,
+                className: MenuItemJNICache.className,
+                classCache: &MenuItemJNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    internal static var SHOW_AS_ACTION_IF_ROOM: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "SHOW_AS_ACTION_IF_ROOM",
+                fieldType: "I",
+                fieldCache: &MenuItemJNICache.FieldID.SHOW_AS_ACTION_IF_ROOM,
+                className: MenuItemJNICache.className,
+                classCache: &MenuItemJNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    internal static var SHOW_AS_ACTION_ALWAYS: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "SHOW_AS_ACTION_ALWAYS",
+                fieldType: "I",
+                fieldCache: &MenuItemJNICache.FieldID.SHOW_AS_ACTION_ALWAYS,
+                className: MenuItemJNICache.className,
+                classCache: &MenuItemJNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    internal static var SHOW_AS_ACTION_WITH_TEXT: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "SHOW_AS_ACTION_WITH_TEXT",
+                fieldType: "I",
+                fieldCache: &MenuItemJNICache.FieldID.SHOW_AS_ACTION_WITH_TEXT,
+                className: MenuItemJNICache.className,
+                classCache: &MenuItemJNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    internal static var SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW",
+                fieldType: "I",
+                fieldCache: &MenuItemJNICache.FieldID.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW,
+                className: MenuItemJNICache.className,
+                classCache: &MenuItemJNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
 }
 
 internal extension AndroidMenuItemForward {
@@ -279,6 +375,15 @@ internal extension AndroidMenuItemForward {
         /// JNI Java class
         static var jniClass: jclass?
         
+        struct FieldID {
+            
+            static var SHOW_AS_ACTION_NEVER: jfieldID?
+            static var SHOW_AS_ACTION_IF_ROOM: jfieldID?
+            static var SHOW_AS_ACTION_ALWAYS: jfieldID?
+            static var SHOW_AS_ACTION_WITH_TEXT: jfieldID?
+            static var SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW: jfieldID?
+        }
+        
         /// JNI Method ID cache
         struct MethodID {
             
@@ -293,6 +398,30 @@ internal extension AndroidMenuItemForward {
             static var getGroupId: jmethodID?
             static var setTitleCondensed: jmethodID?
             static var getTitleCondensed: jmethodID?
+            static var setShowAsAction: jmethodID?
         }
     }
 }
+
+public extension AndroidMenuItemForward {
+    
+    public struct ShowAsAction: RawRepresentable, Equatable {
+        
+        public let rawValue: Int
+        
+        public init(rawValue: Int) {
+            self.rawValue = rawValue
+        }
+        
+        public static let never = AndroidMenuItemForward.ShowAsAction(rawValue: AndroidMenuItemForward.SHOW_AS_ACTION_NEVER)
+        
+        public static let ifRoom = AndroidMenuItemForward.ShowAsAction(rawValue: AndroidMenuItemForward.SHOW_AS_ACTION_IF_ROOM)
+        
+        public static let always = AndroidMenuItemForward.ShowAsAction(rawValue: AndroidMenuItemForward.SHOW_AS_ACTION_ALWAYS)
+        
+        public static let withText = AndroidMenuItemForward.ShowAsAction(rawValue: AndroidMenuItemForward.SHOW_AS_ACTION_WITH_TEXT)
+        
+        public static let collapseActionView = AndroidMenuItemForward.ShowAsAction(rawValue: AndroidMenuItemForward.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW)
+    }
+}
+

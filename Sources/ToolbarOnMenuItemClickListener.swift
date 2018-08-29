@@ -18,7 +18,7 @@ public extension Android.Widget.Toolbar {
 open class AndroidOnMenuItemClickListener: JavaObject {
     
     ///closure / block of code to execute.
-    public var block: () -> (Bool) = { _ in false }
+    public var block: (AndroidMenuItemForward?) -> (Bool) = { _ in false }
     
     /// Create a Swift-owned Java Object.
     public convenience init() {
@@ -38,7 +38,7 @@ open class AndroidOnMenuItemClickListener: JavaObject {
         }
     }
     
-    public convenience init(block: @escaping () -> (Bool)) {
+    public convenience init(block: @escaping (AndroidMenuItemForward?) -> (Bool)) {
         
         self.init()
         self.block = block
@@ -76,7 +76,7 @@ open class AndroidOnMenuItemClickListener: JavaObject {
     
     fileprivate func onMenuItemClick(item: AndroidMenuItemForward?) -> Bool {
         // execute block
-        return self.block()
+        return self.block(item)
     }
 }
 
@@ -102,7 +102,7 @@ fileprivate extension AndroidOnMenuItemClickListener {
             let onMenuItemClickThunk: AndroidOnMenuItemClickListener_onMenuItemClick_type = AndroidOnMenuItemClickListener_onMenuItemClick
             
             natives.append( JNINativeMethod(name: strdup("__onMenuItemClick"),
-                                            signature: strdup("(JLandroid/view/MenuItem;)V"),
+                                            signature: strdup("(JLandroid/view/MenuItem;)Z"),
                                             fnPtr: unsafeBitCast( onMenuItemClickThunk, to: UnsafeMutableRawPointer.self ) ))
             
             let finalizeThunk: AndroidOnMenuItemClickListener_finalize_type = AndroidOnMenuItemClickListener_finalize
@@ -136,9 +136,9 @@ fileprivate extension AndroidOnMenuItemClickListener {
 private typealias AndroidOnMenuItemClickListener_onMenuItemClick_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject?) -> (jboolean)
 
 public func AndroidOnMenuItemClickListener_onMenuItemClick ( _ __env: UnsafeMutablePointer<JNIEnv?>,
-                                                 _ __this: jobject?,
-                                                 _ __swiftObject: jlong,
-                                                 _ __menuItem: jobject?) -> (jboolean) {
+                                                             _ __this: jobject?,
+                                                             _ __swiftObject: jlong,
+                                                             _ __menuItem: jobject?) -> (jboolean) {
     
     let menuItem = __menuItem != nil ? AndroidMenuItemForward.init(javaObject: __menuItem) : nil
     
@@ -147,7 +147,7 @@ public func AndroidOnMenuItemClickListener_onMenuItemClick ( _ __env: UnsafeMuta
         .onMenuItemClick(item: menuItem)
     
     guard let _return = __return
-    else { return jboolean(JNI_FALSE) }
+        else { return jboolean(JNI_FALSE) }
     
     return _return ? jboolean(JNI_TRUE) : jboolean(JNI_FALSE)
 }
@@ -155,11 +155,12 @@ public func AndroidOnMenuItemClickListener_onMenuItemClick ( _ __env: UnsafeMuta
 private typealias AndroidOnMenuItemClickListener_finalize_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong) -> ()
 
 public func AndroidOnMenuItemClickListener_finalize ( _ __env: UnsafeMutablePointer<JNIEnv?>,
-                                                  _ __this: jobject?,
-                                                  _ __swiftObject: jlong) -> () {
+                                                      _ __this: jobject?,
+                                                      _ __swiftObject: jlong) -> () {
     
     AndroidOnMenuItemClickListener.release(swiftObject: __swiftObject )
     
     NSLog("native \(#function)")
 }
+
 

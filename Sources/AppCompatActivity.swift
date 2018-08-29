@@ -77,6 +77,11 @@ open class SwiftSupportAppCompatActivity: AndroidContextWrapper {
             return getActionBarHeighPixels()
         }
     }
+    public var resources: AndroidContentResResources? {
+        get {
+            return getResources()
+        }
+    }
     
     // MARK: - Listener
     
@@ -282,7 +287,8 @@ open class SwiftSupportAppCompatActivity: AndroidContextWrapper {
         return result!
     }
     
-    public func getResources() -> Android.Content.Res.Resources? {
+    @inline(__always)
+    internal func getResources() -> Android.Content.Res.Resources? {
         
         var __locals = [jobject]()
         

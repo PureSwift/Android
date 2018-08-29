@@ -96,11 +96,21 @@ public enum SupportV4: JavaPackage {
         
         public static let package: JNIPackage = SupportV4.package + ["content"]
     }
+    
+    public enum Graphics: JavaPackage {
+        
+        public static let package: JNIPackage = SupportV4.package + ["graphics"]
+        
+        public enum Drawable: JavaPackage {
+            
+            public static let package: JNIPackage = SupportV4.Graphics.package + ["drawable"]
+        }
+    }
 }
 
 /// Support Library namespace.
 public enum SwiftSupport: JavaPackage {
-
+    
     public static let package: JNIPackage = ["org", "pureswift", "swiftandroidsupport"]
     
     public enum Bluetooth: JavaPackage {
@@ -112,7 +122,7 @@ public enum SwiftSupport: JavaPackage {
             public static let package: JNIPackage = SwiftSupport.Bluetooth.package + ["le"]
         }
     }
-        
+    
     public enum Widget: JavaPackage {
         
         public static let package: JNIPackage = SwiftSupport.package + ["widget"]
@@ -147,7 +157,7 @@ public protocol JavaPackage {
 public extension JavaPackage {
     
     static func className(_ metaClass: JNIMetaClass) -> JNIClassName {
-         
+        
         return (Self.package ☕️ metaClass)
     }
 }
