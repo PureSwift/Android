@@ -49,28 +49,24 @@ public final class AndroidToolbar: AndroidViewGroup {
     
     public var title: String? {
         
-        @inline(__always)
         get { return getTitle() }
         set { setTitle(newValue) }
     }
     
     public var subTitle: String? {
         
-        @inline(__always)
         get { return getSubtitle() }
         set { setSubtitle(newValue) }
     }
     
     public var navigationIcon: Android.Graphics.Drawable.Drawable? {
         
-        @inline(__always)
         get { return getNavigationIcon() }
         set { setNavigationIcon(newValue) }
     }
     
     public var logo: Android.Graphics.Drawable.Drawable? {
         
-        @inline(__always)
         get { return getLogo() }
         set { setLogo(newValue) }
     }
@@ -78,6 +74,10 @@ public final class AndroidToolbar: AndroidViewGroup {
     public var popupTheme: Int {
         get { return getPopupTheme() }
         set { setPopupTheme(resId: newValue) }
+    }
+    
+    public var menu: AndroidMenuForward {
+        get { return getMenu() }
     }
 }
 
@@ -154,7 +154,8 @@ public extension AndroidToolbar {
             locals: &__locals )
     }
     
-    public func getTitle() -> String? {
+    @inline(__always)
+    internal func getTitle() -> String? {
         
         var __locals = [jobject]()
         
@@ -206,7 +207,8 @@ public extension AndroidToolbar {
             locals: &__locals )
     }
     
-    public func getSubtitle() -> String? {
+    @inline(__always)
+    internal func getSubtitle() -> String? {
         
         var __locals = [jobject]()
         
@@ -240,7 +242,8 @@ public extension AndroidToolbar {
             locals: &__locals )
     }
     
-    public func setNavigationIcon(_ icon: Android.Graphics.Drawable.Drawable?)  {
+    @inline(__always)
+    internal func setNavigationIcon(_ icon: Android.Graphics.Drawable.Drawable?)  {
         
         var __locals = [jobject]()
         
@@ -257,7 +260,8 @@ public extension AndroidToolbar {
             locals: &__locals )
     }
     
-    public func getNavigationIcon() -> Android.Graphics.Drawable.Drawable? {
+    @inline(__always)
+    internal func getNavigationIcon() -> Android.Graphics.Drawable.Drawable? {
         
         var __locals = [jobject]()
         
@@ -298,7 +302,8 @@ public extension AndroidToolbar {
             locals: &__locals )
     }
     
-    public func setLogo(_ icon: Android.Graphics.Drawable.Drawable?)  {
+    @inline(__always)
+    internal func setLogo(_ icon: Android.Graphics.Drawable.Drawable?)  {
         
         var __locals = [jobject]()
         
@@ -315,7 +320,8 @@ public extension AndroidToolbar {
             locals: &__locals )
     }
     
-    public func getLogo() -> Android.Graphics.Drawable.Drawable? {
+    @inline(__always)
+    internal func getLogo() -> Android.Graphics.Drawable.Drawable? {
         
         var __locals = [jobject]()
         
@@ -356,7 +362,8 @@ public extension AndroidToolbar {
             locals: &__locals )
     }
     
-    public func getMenu() -> Android.View.MenuForward {
+    @inline(__always)
+    internal func getMenu() -> Android.View.MenuForward {
         
         var __locals = [jobject]()
         
