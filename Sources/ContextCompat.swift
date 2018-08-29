@@ -30,7 +30,7 @@ open class AndroidContextCompat: JavaObject {
 
 public extension AndroidContextCompat {
     
-    public static func getColor(context: AndroidContext, colorRes: Int) -> Int {
+    public static func getColor(context: AndroidContext, colorRes: Int) -> Int64 {
         
         var __locals = [jobject]()
         
@@ -46,7 +46,7 @@ public extension AndroidContextCompat {
                                                      methodCache: &JNICache.MethodID.getColor,
                                                      args: &__args,
                                                      locals: &__locals )
-        return Int(__return)
+        return Int64(__return)
     }
     
     public static func getDrawable(context: AndroidContext, drawableRes: Int) -> AndroidGraphicsDrawableDrawable? {
@@ -75,7 +75,7 @@ internal extension AndroidContextCompat {
     /// JNI Cache
     struct JNICache {
         
-        static let classSignature = SupportV4.View.className(["ContextCompat"])
+        static let classSignature = SupportV4.Content.className(["ContextCompat"])
         
         /// JNI Java class name
         static let className = classSignature.rawValue
