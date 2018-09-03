@@ -112,6 +112,20 @@ public extension AndroidMenuForward {
         return AndroidMenuItemForward(javaObject: __return)
     }
     
+    public func clear(){
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "clear",
+            methodSig: "()V",
+            methodCache: &MenuJNICache.MethodID.clear,
+            args: &__args,
+            locals: &__locals )
+    }
 }
 
 internal extension AndroidMenuForward {
@@ -134,6 +148,7 @@ internal extension AndroidMenuForward {
             static var add2: jmethodID?
             static var add3: jmethodID?
             static var add4: jmethodID?
+            static var clear: jmethodID?
         }
     }
 }
