@@ -90,7 +90,7 @@ open class AndroidAlertDialog: JavaObject {
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        __args[0] = JNIType.toJava(value: title, locals: &__locals)
+        __args[0] = JNIType.toJava(value: message, locals: &__locals)
         
         JNIMethod.CallVoidMethod(
             object: javaObject,
