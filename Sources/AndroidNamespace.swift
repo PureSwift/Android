@@ -81,6 +81,11 @@ public enum SupportV7: JavaPackage {
         
         public static let package: JNIPackage = SupportV7.package + ["widget"]
     }
+    
+    public enum App: JavaPackage {
+        
+        public static let package: JNIPackage = SupportV7.package + ["app"]
+    }
 }
 
 public enum SupportV4: JavaPackage {
