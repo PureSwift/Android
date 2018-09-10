@@ -57,7 +57,7 @@ open class AndroidToast: JavaObject {
         set { setView(newValue) }
     }
     
-    public var duration: Int {
+    public var duration: AndroidToast.Dutation {
         
         get { return getDuration() }
         set { setDuration(newValue) }
@@ -127,12 +127,12 @@ public extension AndroidToast {
     }
     
     @inline(__always)
-    internal func setDuration(_ duration: Int) {
+    internal func setDuration(_ duration: AndroidToast.Dutation) {
         
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        __args[0] = jvalue(i: jint(duration))
+        __args[0] = jvalue(i: jint(duration.rawValue))
         
         JNIMethod.CallVoidMethod(
             object: javaObject,
@@ -199,7 +199,7 @@ public extension AndroidToast {
     }
     
     @inline(__always)
-    internal func getDuration() -> Int {
+    internal func getDuration() -> AndroidToast.Dutation {
         
         var __locals = [jobject]()
         
@@ -213,7 +213,7 @@ public extension AndroidToast {
             args: &__args,
             locals: &__locals )
         
-        return Int(__return)
+        return AndroidToast.Dutation.init(rawValue: Int(__return))
     }
     
     public func show()  {
@@ -246,14 +246,14 @@ public extension AndroidToast {
             locals: &__locals )
     }
     
-    public static func makeText(context: AndroidContext, resId: Int, duration: Int) -> AndroidToast {
+    public static func makeText(context: AndroidContext, resId: Int, duration: AndroidToast.Dutation) -> AndroidToast {
     
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         __args[0] = JNIType.toJava(value: context, locals: &__locals)
         __args[1] = jvalue(i: jint(resId))
-        __args[2] = jvalue(i: jint(duration))
+        __args[2] = jvalue(i: jint(duration.rawValue))
         
         let __return = JNIMethod.CallStaticObjectMethod(className: ToastJNICache.className,
                                                         classCache: &ToastJNICache.jniClass,
@@ -265,14 +265,14 @@ public extension AndroidToast {
         return AndroidToast(javaObject: __return)
     }
     
-    public static func makeText(context: AndroidContext, text: String, duration: Int) -> AndroidToast {
+    public static func makeText(context: AndroidContext, text: String, duration: AndroidToast.Dutation) -> AndroidToast {
         
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         __args[0] = JNIType.toJava(value: context, locals: &__locals)
         __args[1] = JNIType.toJava(value: text, locals: &__locals)
-        __args[2] = jvalue(i: jint(duration))
+        __args[2] = jvalue(i: jint(duration.rawValue))
         
         let __return = JNIMethod.CallStaticObjectMethod(className: ToastJNICache.className,
                                                         classCache: &ToastJNICache.jniClass,
