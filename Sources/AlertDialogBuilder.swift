@@ -67,6 +67,10 @@ open class AndroidAlertDialogBuilder: JavaObject {
             args: &__args,
             locals: &__locals )
         
+        defer {
+            JNI.DeleteLocalRef(__return)
+        }
+        
         return AndroidAlertDialog(javaObject: __return)
     }
     
@@ -83,6 +87,10 @@ open class AndroidAlertDialogBuilder: JavaObject {
             methodCache: &JNICache.MethodID.getContext,
             args: &__args,
             locals: &__locals )
+        
+        defer {
+            JNI.DeleteLocalRef(__return)
+        }
         
         return AndroidContext(javaObject: __return)
     }
@@ -102,6 +110,10 @@ open class AndroidAlertDialogBuilder: JavaObject {
             args: &__args,
             locals: &__locals )
         
+        defer {
+            JNI.DeleteLocalRef(__return)
+        }
+        
         return AndroidAlertDialogBuilder(javaObject: __return)
     }
     
@@ -120,6 +132,10 @@ open class AndroidAlertDialogBuilder: JavaObject {
             args: &__args,
             locals: &__locals )
         
+        defer {
+            JNI.DeleteLocalRef(__return)
+        }
+        
         return AndroidAlertDialogBuilder(javaObject: __return)
     }
     
@@ -137,6 +153,10 @@ open class AndroidAlertDialogBuilder: JavaObject {
             methodCache: &JNICache.MethodID.setMessage2,
             args: &__args,
             locals: &__locals )
+        
+        defer {
+            JNI.DeleteLocalRef(__return)
+        }
         
         return AndroidAlertDialogBuilder(javaObject: __return)
     }
@@ -171,6 +191,10 @@ open class AndroidAlertDialogBuilder: JavaObject {
             args: &__args,
             locals: &__locals )
         
+        defer {
+            JNI.DeleteLocalRef(__return)
+        }
+        
         return AndroidAlertDialogBuilder(javaObject: __return)
     }
     
@@ -189,6 +213,10 @@ open class AndroidAlertDialogBuilder: JavaObject {
             methodCache: &JNICache.MethodID.setNegativeButton2,
             args: &__args,
             locals: &__locals )
+        
+        defer {
+            JNI.DeleteLocalRef(__return)
+        }
         
         return AndroidAlertDialogBuilder(javaObject: __return)
     }
@@ -223,6 +251,10 @@ open class AndroidAlertDialogBuilder: JavaObject {
             args: &__args,
             locals: &__locals )
         
+        defer {
+            JNI.DeleteLocalRef(__return)
+        }
+        
         return AndroidAlertDialogBuilder(javaObject: __return)
     }
     
@@ -241,6 +273,10 @@ open class AndroidAlertDialogBuilder: JavaObject {
             methodCache: &JNICache.MethodID.setNeutralButton2,
             args: &__args,
             locals: &__locals )
+        
+        defer {
+            JNI.DeleteLocalRef(__return)
+        }
         
         return AndroidAlertDialogBuilder(javaObject: __return)
     }
@@ -275,6 +311,10 @@ open class AndroidAlertDialogBuilder: JavaObject {
             args: &__args,
             locals: &__locals )
         
+        defer {
+            JNI.DeleteLocalRef(__return)
+        }
+        
         return AndroidAlertDialogBuilder(javaObject: __return)
     }
     
@@ -294,6 +334,10 @@ open class AndroidAlertDialogBuilder: JavaObject {
             args: &__args,
             locals: &__locals )
         
+        defer {
+            JNI.DeleteLocalRef(__return)
+        }
+        
         return AndroidAlertDialogBuilder(javaObject: __return)
     }
     
@@ -311,6 +355,10 @@ open class AndroidAlertDialogBuilder: JavaObject {
             methodCache: &JNICache.MethodID.setNeutralButtonIcon,
             args: &__args,
             locals: &__locals )
+        
+        defer {
+            JNI.DeleteLocalRef(__return)
+        }
         
         return AndroidAlertDialogBuilder(javaObject: __return)
     }
@@ -330,6 +378,10 @@ open class AndroidAlertDialogBuilder: JavaObject {
             args: &__args,
             locals: &__locals )
         
+        defer {
+            JNI.DeleteLocalRef(__return)
+        }
+        
         return AndroidAlertDialogBuilder(javaObject: __return)
     }
     
@@ -347,6 +399,10 @@ open class AndroidAlertDialogBuilder: JavaObject {
             methodCache: &JNICache.MethodID.setPositiveButtonIcon,
             args: &__args,
             locals: &__locals )
+        
+        defer {
+            JNI.DeleteLocalRef(__return)
+        }
         
         return AndroidAlertDialogBuilder(javaObject: __return)
     }
@@ -366,6 +422,10 @@ open class AndroidAlertDialogBuilder: JavaObject {
             args: &__args,
             locals: &__locals )
         
+        defer {
+            JNI.DeleteLocalRef(__return)
+        }
+        
         return AndroidAlertDialogBuilder(javaObject: __return)
     }
     
@@ -383,6 +443,10 @@ open class AndroidAlertDialogBuilder: JavaObject {
             methodCache: &JNICache.MethodID.setTitle2,
             args: &__args,
             locals: &__locals )
+        
+        defer {
+            JNI.DeleteLocalRef(__return)
+        }
         
         return AndroidAlertDialogBuilder(javaObject: __return)
     }
@@ -402,6 +466,10 @@ open class AndroidAlertDialogBuilder: JavaObject {
             args: &__args,
             locals: &__locals )
         
+        defer {
+            JNI.DeleteLocalRef(__return)
+        }
+        
         return AndroidAlertDialogBuilder(javaObject: __return)
     }
     
@@ -420,6 +488,10 @@ open class AndroidAlertDialogBuilder: JavaObject {
             args: &__args,
             locals: &__locals )
         
+        defer {
+            JNI.DeleteLocalRef(__return)
+        }
+        
         return AndroidAlertDialogBuilder(javaObject: __return)
     }
     
@@ -436,6 +508,10 @@ open class AndroidAlertDialogBuilder: JavaObject {
             methodCache: &JNICache.MethodID.show,
             args: &__args,
             locals: &__locals )
+        
+        defer {
+            JNI.DeleteLocalRef(__return)
+        }
         
         return AndroidAlertDialog(javaObject: __return)
     }

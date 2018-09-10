@@ -20,6 +20,13 @@ open class AndroidDialogInterfaceOnClickListener: JavaObject {
     ///closure / block of code to execute.
     public var block: (AndroidDialogInterfaceForward?, Int) -> () = { _ in }
     
+    /// Create a Swift-owned Java Object.
+    public convenience init() {
+        
+        self.init(javaObject: nil)
+        self.bindNewJavaObject()
+    }
+    
     public required init(javaObject: jobject?) {
         super.init(javaObject: javaObject)
     }
@@ -37,6 +44,36 @@ open class AndroidDialogInterfaceOnClickListener: JavaObject {
         self.block = block
     }
     
+    // Initialize a new Java instance and bind to this Swift object.
+    public func bindNewJavaObject() {
+        
+        let hasOldJavaObject = javaObject != nil
+        
+        /// Release old swift value.
+        if hasOldJavaObject {
+            
+            try! finalize()
+        }
+        
+        var locals = [jobject]()
+        
+        var args: [jvalue] = [self.swiftValue()]
+        
+        // returned objects are always local refs
+        guard let __object: jobject = JNIMethod.NewObject(className: JNICache.className,
+                                                          classObject: JNICache.jniClass,
+                                                          methodSig: "(J)V",
+                                                          methodCache: &JNICache.MethodID.newMethod,
+                                                          args: &args,
+                                                          locals: &locals )
+            
+            else { fatalError("Could not initialize \(className)") }
+        
+        self.javaObject = __object // dereference old value, add global ref for new value
+        
+        JNI.DeleteLocalRef( __object ) // delete local ref
+    }
+    
     fileprivate func onClick(dialog: AndroidDialogInterfaceForward?, which: Int) {
         // execute block
         self.block(dialog, which)
@@ -52,7 +89,7 @@ fileprivate extension AndroidDialogInterfaceOnClickListener {
     /// JNI Cache
     struct JNICache {
         
-        static let classSignature = SwiftSupport.View.className(["SwiftOnMenuItemClickListener"])
+        static let classSignature = SwiftSupport.App.className(["DialogInterfaceOnClickListener"])
         
         /// JNI Java class name
         static let className = classSignature.rawValue
@@ -62,11 +99,11 @@ fileprivate extension AndroidDialogInterfaceOnClickListener {
             
             var natives = [JNINativeMethod]()
             
-            let onMenuItemClickThunk: AndroidDialogInterfaceOnClickListener_onClick_type = AndroidDialogInterfaceOnClickListener_onClick
+            let onClickThunk: AndroidDialogInterfaceOnClickListener_onClick_type = AndroidDialogInterfaceOnClickListener_onClick
             
             natives.append( JNINativeMethod(name: strdup("__onClick"),
                                             signature: strdup("(JLandroid/content/DialogInterface;I)V"),
-                                            fnPtr: unsafeBitCast( onMenuItemClickThunk, to: UnsafeMutableRawPointer.self ) ))
+                                            fnPtr: unsafeBitCast( onClickThunk, to: UnsafeMutableRawPointer.self ) ))
             
             let finalizeThunk: AndroidDialogInterfaceOnClickListener_finalize_type = AndroidDialogInterfaceOnClickListener_finalize
             
@@ -118,7 +155,7 @@ public func AndroidDialogInterfaceOnClickListener_finalize ( _ __env: UnsafeMuta
                                                       _ __this: jobject?,
                                                       _ __swiftObject: jlong) -> () {
     
-    AndroidOnMenuItemClickListener.release(swiftObject: __swiftObject )
+    AndroidDialogInterfaceOnClickListener.release(swiftObject: __swiftObject )
     
     NSLog("native \(#function)")
 }

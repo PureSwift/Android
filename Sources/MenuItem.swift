@@ -82,6 +82,8 @@ public extension AndroidMenuItemForward {
             args: &__args,
             locals: &__locals )
         
+        defer { JNI.DeleteLocalRef(__return) }
+        
         return AndroidMenuItemForward(javaObject: __return)
     }
     
@@ -102,6 +104,8 @@ public extension AndroidMenuItemForward {
             args: &__args,
             locals: &__locals )
         
+        defer { JNI.DeleteLocalRef(__return) }
+        
         return AndroidMenuItemForward(javaObject: __return)
     }
     
@@ -118,6 +122,8 @@ public extension AndroidMenuItemForward {
             methodCache: &MenuItemJNICache.MethodID.getTitle,
             args: &__args,
             locals: &__locals )
+        
+        defer { JNI.DeleteLocalRef(__return) }
         
         return __return != nil ? String(javaObject: __return) : nil
     }
@@ -139,6 +145,8 @@ public extension AndroidMenuItemForward {
             args: &__args,
             locals: &__locals )
         
+        defer { JNI.DeleteLocalRef(__return) }
+        
         return AndroidMenuItemForward(javaObject: __return)
     }
     
@@ -155,6 +163,8 @@ public extension AndroidMenuItemForward {
             methodCache: &MenuItemJNICache.MethodID.getTitleCondensed,
             args: &__args,
             locals: &__locals )
+        
+        defer { JNI.DeleteLocalRef(__return) }
         
         return __return != nil ? String(javaObject: __return) : nil
     }
@@ -175,6 +185,8 @@ public extension AndroidMenuItemForward {
             args: &__args,
             locals: &__locals )
         
+        defer { JNI.DeleteLocalRef(__return) }
+        
         return AndroidMenuItemForward(javaObject: __return)
     }
     
@@ -194,6 +206,8 @@ public extension AndroidMenuItemForward {
             args: &__args,
             locals: &__locals )
         
+        defer { JNI.DeleteLocalRef(__return) }
+        
         return AndroidMenuItemForward(javaObject: __return)
     }
     
@@ -210,6 +224,8 @@ public extension AndroidMenuItemForward {
             methodCache: &MenuItemJNICache.MethodID.getIcon,
             args: &__args,
             locals: &__locals )
+        
+        defer { JNI.DeleteLocalRef(__return) }
         
         return __return != nil ? Android.Graphics.Drawable.Drawable(javaObject: __return) : nil
     }

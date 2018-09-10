@@ -46,6 +46,8 @@ public extension AndroidMenuForward {
             args: &__args,
             locals: &__locals )
         
+        defer { JNI.DeleteLocalRef(__return) }
+        
         return AndroidMenuItemForward(javaObject: __return)
     }
     
@@ -64,6 +66,8 @@ public extension AndroidMenuForward {
             methodCache: &MenuJNICache.MethodID.add2,
             args: &__args,
             locals: &__locals )
+        
+        defer { JNI.DeleteLocalRef(__return) }
         
         return AndroidMenuItemForward(javaObject: __return)
     }
@@ -87,6 +91,8 @@ public extension AndroidMenuForward {
             args: &__args,
             locals: &__locals )
         
+        defer { JNI.DeleteLocalRef(__return) }
+        
         return AndroidMenuItemForward(javaObject: __return)
     }
     
@@ -108,6 +114,8 @@ public extension AndroidMenuForward {
             methodCache: &MenuJNICache.MethodID.add4,
             args: &__args,
             locals: &__locals )
+        
+        defer { JNI.DeleteLocalRef(__return) }
         
         return AndroidMenuItemForward(javaObject: __return)
     }
