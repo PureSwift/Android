@@ -186,7 +186,7 @@ open class AndroidAlertDialogBuilder: JavaObject {
         let __return = JNIMethod.CallObjectMethod(
             object: javaObject,
             methodName: "setNegativeButton",
-            methodSig: "(Ljava/lang/String;Landroid/content/DialogInterface$OnClickListener;)Landroid/support/v7/app/AlertDialog$Builder;",
+            methodSig: "(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/support/v7/app/AlertDialog$Builder;",
             methodCache: &JNICache.MethodID.setNegativeButton1,
             args: &__args,
             locals: &__locals )
@@ -246,7 +246,7 @@ open class AndroidAlertDialogBuilder: JavaObject {
         let __return = JNIMethod.CallObjectMethod(
             object: javaObject,
             methodName: "setNeutralButton",
-            methodSig: "(Ljava/lang/String;Landroid/content/DialogInterface$OnClickListener;)Landroid/support/v7/app/AlertDialog$Builder;",
+            methodSig: "(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/support/v7/app/AlertDialog$Builder;",
             methodCache: &JNICache.MethodID.setNeutralButton1,
             args: &__args,
             locals: &__locals )
@@ -306,7 +306,7 @@ open class AndroidAlertDialogBuilder: JavaObject {
         let __return = JNIMethod.CallObjectMethod(
             object: javaObject,
             methodName: "setPositiveButton",
-            methodSig: "(Ljava/lang/String;Landroid/content/DialogInterface$OnClickListener;)Landroid/support/v7/app/AlertDialog$Builder;",
+            methodSig: "(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/support/v7/app/AlertDialog$Builder;",
             methodCache: &JNICache.MethodID.setPositiveButton1,
             args: &__args,
             locals: &__locals )
