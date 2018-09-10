@@ -172,7 +172,7 @@ public extension AndroidViewGroupMarginLayoutParams {
     }
 }
 
-internal extension AndroidViewGroupMarginLayoutParams {
+public extension AndroidViewGroupMarginLayoutParams {
     
     @_versioned
     internal func setMarginStart(_ start: Int) {
@@ -300,7 +300,7 @@ internal extension AndroidViewGroupMarginLayoutParams {
         return jboolean(__return) != jboolean(JNI_FALSE)
     }
     
-    internal func setMargins(left: Int, top: Int, right: Int, bottom: Int) {
+    public func setMargins(left: Int, top: Int, right: Int, bottom: Int) {
         
         var __locals = [jobject]()
         
