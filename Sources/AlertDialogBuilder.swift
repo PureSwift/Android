@@ -141,7 +141,21 @@ open class AndroidAlertDialogBuilder: JavaObject {
         return AndroidAlertDialogBuilder(javaObject: __return)
     }
     
-    public func setNegativeButton(text: String, listener: AndroidDialogInterfaceOnClickListener) -> AndroidAlertDialogBuilder {
+    public func setNegativeButton(text: String, _ block: @escaping (AndroidDialogInterfaceForward?, Int) -> ()) -> AndroidAlertDialogBuilder  {
+        
+        let onClickListener = AndroidDialogInterfaceOnClickListener(block: block)
+        
+        return setNegativeButton(text: text, listener: onClickListener)
+    }
+    
+    public func setNegativeButton(textId: Int, _ block: @escaping (AndroidDialogInterfaceForward?, Int) -> ()) -> AndroidAlertDialogBuilder  {
+        
+        let onClickListener = AndroidDialogInterfaceOnClickListener(block: block)
+        
+        return setNegativeButton(textId: textId, listener: onClickListener)
+    }
+    
+    internal func setNegativeButton(text: String, listener: AndroidDialogInterfaceOnClickListener) -> AndroidAlertDialogBuilder {
         
         var __locals = [jobject]()
         
@@ -160,7 +174,7 @@ open class AndroidAlertDialogBuilder: JavaObject {
         return AndroidAlertDialogBuilder(javaObject: __return)
     }
     
-    public func setNegativeButton(textId: Int, listener: AndroidDialogInterfaceOnClickListener) -> AndroidAlertDialogBuilder {
+    internal func setNegativeButton(textId: Int, listener: AndroidDialogInterfaceOnClickListener) -> AndroidAlertDialogBuilder {
         
         var __locals = [jobject]()
         
@@ -179,7 +193,21 @@ open class AndroidAlertDialogBuilder: JavaObject {
         return AndroidAlertDialogBuilder(javaObject: __return)
     }
     
-    public func setNeutralButton(text: String, listener: AndroidDialogInterfaceOnClickListener) -> AndroidAlertDialogBuilder {
+    public func setNeutralButton(text: String, _ block: @escaping (AndroidDialogInterfaceForward?, Int) -> ()) -> AndroidAlertDialogBuilder  {
+        
+        let onClickListener = AndroidDialogInterfaceOnClickListener(block: block)
+        
+        return setNeutralButton(text: text, listener: onClickListener)
+    }
+    
+    public func setNeutralButton(textId: Int, _ block: @escaping (AndroidDialogInterfaceForward?, Int) -> ()) -> AndroidAlertDialogBuilder  {
+        
+        let onClickListener = AndroidDialogInterfaceOnClickListener(block: block)
+        
+        return setNeutralButton(textId: textId, listener: onClickListener)
+    }
+    
+    internal func setNeutralButton(text: String, listener: AndroidDialogInterfaceOnClickListener) -> AndroidAlertDialogBuilder {
         
         var __locals = [jobject]()
         
@@ -198,7 +226,7 @@ open class AndroidAlertDialogBuilder: JavaObject {
         return AndroidAlertDialogBuilder(javaObject: __return)
     }
     
-    public func setNeutralButton(textId: Int, listener: AndroidDialogInterfaceOnClickListener) -> AndroidAlertDialogBuilder {
+    internal func setNeutralButton(textId: Int, listener: AndroidDialogInterfaceOnClickListener) -> AndroidAlertDialogBuilder {
         
         var __locals = [jobject]()
         
@@ -217,7 +245,21 @@ open class AndroidAlertDialogBuilder: JavaObject {
         return AndroidAlertDialogBuilder(javaObject: __return)
     }
     
-    public func setPositiveButton(text: String, listener: AndroidDialogInterfaceOnClickListener) -> AndroidAlertDialogBuilder {
+    public func setPositiveButton(text: String, _ block: @escaping (AndroidDialogInterfaceForward?, Int) -> ()) -> AndroidAlertDialogBuilder  {
+        
+        let onClickListener = AndroidDialogInterfaceOnClickListener(block: block)
+        
+        return setPositiveButton(text: text, listener: onClickListener)
+    }
+    
+    public func setPositiveButton(textId: Int, _ block: @escaping (AndroidDialogInterfaceForward?, Int) -> ()) -> AndroidAlertDialogBuilder  {
+        
+        let onClickListener = AndroidDialogInterfaceOnClickListener(block: block)
+        
+        return setPositiveButton(textId: textId, listener: onClickListener)
+    }
+    
+    internal func setPositiveButton(text: String, listener: AndroidDialogInterfaceOnClickListener) -> AndroidAlertDialogBuilder {
         
         var __locals = [jobject]()
         
@@ -236,7 +278,7 @@ open class AndroidAlertDialogBuilder: JavaObject {
         return AndroidAlertDialogBuilder(javaObject: __return)
     }
     
-    public func setPositiveButton(textId: Int, listener: AndroidDialogInterfaceOnClickListener) -> AndroidAlertDialogBuilder {
+    internal func setPositiveButton(textId: Int, listener: AndroidDialogInterfaceOnClickListener) -> AndroidAlertDialogBuilder {
         
         var __locals = [jobject]()
         
