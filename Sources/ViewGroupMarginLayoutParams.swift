@@ -313,7 +313,7 @@ public extension AndroidViewGroupMarginLayoutParams {
         
         JNIMethod.CallVoidMethod(
             object: javaObject,
-            methodName: "setMarginEnd",
+            methodName: "setMargins",
             methodSig: "(IIII)V",
             methodCache: &ViewGroupMarginLayoutParamsJNICache.MethodID.setMargins,
             args: &__args,
