@@ -179,7 +179,7 @@ open class AndroidAlertDialogBuilder: JavaObject {
         
         var __locals = [jobject]()
         
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava(value: text, locals: &__locals)
         __args[1] = JNIType.toJava(value: listener, locals: &__locals)
         
@@ -202,7 +202,7 @@ open class AndroidAlertDialogBuilder: JavaObject {
         
         var __locals = [jobject]()
         
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = jvalue(i: jint(textId))
         __args[1] = JNIType.toJava(value: listener, locals: &__locals)
         
@@ -239,7 +239,7 @@ open class AndroidAlertDialogBuilder: JavaObject {
         
         var __locals = [jobject]()
         
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava(value: text, locals: &__locals)
         __args[1] = JNIType.toJava(value: listener, locals: &__locals)
         
@@ -262,7 +262,7 @@ open class AndroidAlertDialogBuilder: JavaObject {
         
         var __locals = [jobject]()
         
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = jvalue(i: jint(textId))
         __args[1] = JNIType.toJava(value: listener, locals: &__locals)
         
@@ -299,7 +299,7 @@ open class AndroidAlertDialogBuilder: JavaObject {
         
         var __locals = [jobject]()
         
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava(value: text, locals: &__locals)
         __args[1] = JNIType.toJava(value: listener, locals: &__locals)
         
@@ -322,7 +322,7 @@ open class AndroidAlertDialogBuilder: JavaObject {
         
         var __locals = [jobject]()
         
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = jvalue(i: jint(textId))
         __args[1] = JNIType.toJava(value: listener, locals: &__locals)
         
