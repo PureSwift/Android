@@ -50,6 +50,24 @@ open class AndroidLinearLayout: Android.View.ViewGroup {
         
         JNI.DeleteLocalRef( __object )
     }
+    
+    public var weightSum: Float {
+        
+        get { return getWeightSum() }
+        set { setWeightSum(newValue) }
+    }
+    
+    public var orientation: Int {
+        
+        get { return getOrientation() }
+        set { setOrientation(newValue) }
+    }
+    
+    public var gravity: Int {
+        
+        get { return getGravity() }
+        set { setGravity(newValue) }
+    }
 }
 
 // MARK: - Constants
@@ -144,24 +162,6 @@ public extension AndroidLinearLayout {
             
             return Int(__value)
         }
-    }
-    
-    public var weightSum: Float {
-        
-        get { return getWeightSum() }
-        set { setWeightSum(newValue) }
-    }
-    
-    public var orientation: Int {
-        
-        get { return getOrientation() }
-        set { setOrientation(newValue) }
-    }
-    
-    public var gravity: Int {
-        
-        get { return getGravity() }
-        set { setGravity(newValue) }
     }
 }
 
