@@ -27,10 +27,10 @@ open class AndroidButton: AndroidTextView {
         __args[0] = JNIType.toJava(value: context, locals: &__locals)
         
         let __object = JNIMethod.NewObject(
-            className: JNICacheTextView.className,
-            classCache: &JNICacheTextView.jniClass,
+            className: JNICacheButton.className,
+            classCache: &JNICacheButton.jniClass,
             methodSig: "(Landroid/content/Context;)V",
-            methodCache: &JNICacheTextView.MethodID.newMethod,
+            methodCache: &JNICacheButton.MethodID.newMethod,
             args: &__args,
             locals: &__locals )
         
@@ -96,6 +96,9 @@ internal extension Android.Widget.Button {
         // JNI Java class
         static let className = classSignature.rawValue
         
+        /// JNI Java class
+        static var jniClass: jclass?
+        
         // JNI FieldID cache
         struct FieldID {
             
@@ -103,6 +106,7 @@ internal extension Android.Widget.Button {
         
         // JNI MethodID cache
         struct MethodID {
+            static var newMethod: jmethodID?
             static var getAccessibilityClassName: jmethodID?
             static var onResolvePointerIcon: jmethodID?
         }
