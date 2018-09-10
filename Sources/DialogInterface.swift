@@ -16,7 +16,7 @@ public extension Android.Content {
 /**
  * Interface that defines a dialog-type class that can be shown, dismissed, or canceled, and may have buttons that can be clicked.
  */
-public class AndroidDialogInterfaceForward: JavaObject {
+open class AndroidDialogInterfaceForward: JavaObject {
     
     // MARK: - Initialization
     
@@ -42,9 +42,9 @@ public class AndroidDialogInterfaceForward: JavaObject {
             let __value = JNIField.GetStaticIntField(
                 fieldName: "BUTTON_POSITIVE",
                 fieldType: "I",
-                fieldCache: &JNICache.FieldID.BUTTON_POSITIVE,
-                className: JNICache.className,
-                classCache: &JNICache.jniClass )
+                fieldCache: &DialogInterfaceJNICache.FieldID.BUTTON_POSITIVE,
+                className: DialogInterfaceJNICache.className,
+                classCache: &DialogInterfaceJNICache.jniClass )
             
             return Int(__value)
         }
@@ -57,9 +57,9 @@ public class AndroidDialogInterfaceForward: JavaObject {
             let __value = JNIField.GetStaticIntField(
                 fieldName: "BUTTON_NEUTRAL",
                 fieldType: "I",
-                fieldCache: &JNICache.FieldID.BUTTON_NEUTRAL,
-                className: JNICache.className,
-                classCache: &JNICache.jniClass )
+                fieldCache: &DialogInterfaceJNICache.FieldID.BUTTON_NEUTRAL,
+                className: DialogInterfaceJNICache.className,
+                classCache: &DialogInterfaceJNICache.jniClass )
             
             return Int(__value)
         }
@@ -72,9 +72,9 @@ public class AndroidDialogInterfaceForward: JavaObject {
             let __value = JNIField.GetStaticIntField(
                 fieldName: "BUTTON_NEGATIVE",
                 fieldType: "I",
-                fieldCache: &JNICache.FieldID.BUTTON_NEGATIVE,
-                className: JNICache.className,
-                classCache: &JNICache.jniClass )
+                fieldCache: &DialogInterfaceJNICache.FieldID.BUTTON_NEGATIVE,
+                className: DialogInterfaceJNICache.className,
+                classCache: &DialogInterfaceJNICache.jniClass )
             
             return Int(__value)
         }
@@ -90,7 +90,7 @@ public class AndroidDialogInterfaceForward: JavaObject {
             object: javaObject,
             methodName: "cancel",
             methodSig: "()V",
-            methodCache: &JNICache.MethodID.cancel,
+            methodCache: &DialogInterfaceJNICache.MethodID.cancel,
             args: &__args,
             locals: &__locals )
     }
@@ -105,7 +105,7 @@ public class AndroidDialogInterfaceForward: JavaObject {
             object: javaObject,
             methodName: "dismiss",
             methodSig: "()V",
-            methodCache: &JNICache.MethodID.dismiss,
+            methodCache: &DialogInterfaceJNICache.MethodID.dismiss,
             args: &__args,
             locals: &__locals )
     }
@@ -114,7 +114,7 @@ public class AndroidDialogInterfaceForward: JavaObject {
 internal extension AndroidDialogInterfaceForward {
     
     /// JNI Cache
-    struct JNICache {
+    struct DialogInterfaceJNICache {
         
         static let classSignature = Android.Content.className(["DialogInterface"])
         

@@ -15,7 +15,7 @@ public extension Android.App {
     public typealias AlertDialog = AndroidAlertDialog
 }
 
-open class AndroidAlertDialog: JavaObject {
+open class AndroidAlertDialog: AndroidDialogInterfaceForward {
     
     // MARK: - Initialization
     
