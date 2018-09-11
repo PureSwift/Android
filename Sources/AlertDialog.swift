@@ -53,6 +53,26 @@ open class AndroidAlertDialog: AndroidDialogInterfaceForward {
         JNI.DeleteLocalRef( __object )
     }
     
+    public convenience init(context: Android.Content.Context, themeResId: Int) {
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = JNIType.toJava(value: context, locals: &__locals)
+        __args[1] = jvalue(i: jint(themeResId))
+        
+        let __object = JNIMethod.NewObject(
+            className: JNICache.className,
+            classCache: &JNICache.jniClass,
+            methodSig: "(Landroid/content/Context;I)V",
+            methodCache: &JNICache.MethodID.init_method_2,
+            args: &__args,
+            locals: &__locals )
+        
+        self.init( javaObject: __object )
+        
+        JNI.DeleteLocalRef( __object )
+    }
+    
     public func setView(view: AndroidView) {
         
         var __locals = [jobject]()
@@ -119,6 +139,7 @@ internal extension AndroidAlertDialog {
         struct MethodID {
             
             static var init_method_1: jmethodID?
+            static var init_method_2: jmethodID?
             static var setTitle: jmethodID?
             static var setMessage: jmethodID?
             static var setView: jmethodID?
