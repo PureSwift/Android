@@ -49,7 +49,7 @@ open class AndroidArrayAdapter<Element>: AndroidWidgetRecyclerViewAdapter {
         textViewMessage.layoutParams = AndroidViewGroupLayoutParams.init(width: AndroidViewGroupLayoutParams.MATCH_PARENT, height: Int(48 * density))
         textViewMessage.setPadding(left: tvPaddingLeft, top: 0, right: tvPaddingRight, bottom: 0)
         textViewMessage.setTextSize(size: 15.0)
-        textViewMessage.gravity = AndroidGravity.CENTER_VERTICAL
+        textViewMessage.gravity = AndroidGravity.centerVertical.rawValue
         textViewMessage.color = AndroidGraphicsColor.BLACK
         
         return ViewHolder.init(itemView: textViewMessage, onClickBlock: onClickBlock)
@@ -86,3 +86,4 @@ class ViewHolder: AndroidWidgetRecyclerViewViewHolder {
         }
     }
 }
+
