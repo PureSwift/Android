@@ -115,6 +115,29 @@ open class AndroidSwipeRefreshLayout: AndroidViewGroup {
             args: &__args,
             locals: &__locals )
     }
+    
+    public func setOnRefreshListener(_ block: @escaping () -> ()) {
+        
+        let onClickListener = AndroidSwipeRefreshLayoutOnRefreshListener(block: block)
+        
+        return setOnRefreshListener(listener: onClickListener)
+    }
+    
+    public func setOnRefreshListener(listener: AndroidSwipeRefreshLayoutOnRefreshListener?) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = JNIType.toJava(value: listener, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setOnRefreshListener",
+            methodSig: "(Landroid/support/v4/widget/SwipeRefreshLayout$OnRefreshListener;)V",
+            methodCache: &SwipeRefreshLayoutJNICache.MethodID.setOnRefreshListener,
+            args: &__args,
+            locals: &__locals )
+    }
 }
 
 internal extension AndroidSwipeRefreshLayout {
@@ -137,6 +160,7 @@ internal extension AndroidSwipeRefreshLayout {
             static var isRefreshing: jmethodID?
             static var setColorSchemeColors: jmethodID?
             static var setRefreshing: jmethodID?
+            static var setOnRefreshListener: jmethodID?
         }
     }
 }
