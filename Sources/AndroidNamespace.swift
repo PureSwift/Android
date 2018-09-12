@@ -92,6 +92,11 @@ public enum SupportV4: JavaPackage {
     
     public static let package: JNIPackage = ["android", "support", "v4"]
     
+    public enum Widget: JavaPackage {
+        
+        public static let package: JNIPackage = SupportV4.package + ["widget"]
+    }
+    
     public enum View: JavaPackage {
         
         public static let package: JNIPackage = SupportV4.package + ["view"]
