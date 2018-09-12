@@ -69,7 +69,7 @@ open class AndroidSwipeRefreshLayout: AndroidViewGroup {
         
         JNIMethod.CallVoidMethod(
             object: javaObject,
-            methodName: "setMessage",
+            methodName: "setRefreshing",
             methodSig: "(Z)V",
             methodCache: &SwipeRefreshLayoutJNICache.MethodID.setRefreshing,
             args: &__args,
@@ -96,10 +96,16 @@ open class AndroidSwipeRefreshLayout: AndroidViewGroup {
     
     public func setColorSchemeColors(colors: Int64...) {
         
+        var colorsInt = [Int]()
+        
+        colors.forEach { color in
+            colorsInt.append(Int(exactly: color) ?? 0)
+        }
+        
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        __args[0] = JNIType.toJava(value: colors, locals: &__locals)
+        __args[0] = JNIType.toJava(value: colorsInt, locals: &__locals)
         
         JNIMethod.CallVoidMethod(
             object: javaObject,
