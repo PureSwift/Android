@@ -736,9 +736,29 @@ public extension AndroidBluetoothGattCharacteristic {
                                                   methodCache: &JNICache.MethodID.getValue,
                                                   args: &__args,
                                                   locals: &__locals)
-        defer { JNI.DeleteLocalRef(__return) }
         
-        return JNIType.toSwift(type: [Int8].self, from: __return)
+        if __return != nil {
+            
+            guard let from: jobject = __return
+                else { return nil }
+            
+            defer { JNI.DeleteLocalRef( from ) }
+            
+            let length: jsize = JNI.api.GetArrayLength( JNI.env, from )
+            
+            if length == 0 { return [] }
+            
+            var value = [Int8]( repeating: Int8(), count: Int(length) )
+            
+            withUnsafeMutablePointer(to: &value[0]) { valuePtr in
+                JNI.api.GetByteArrayRegion( JNI.env, from, 0, length, valuePtr )
+            }
+            
+            return value
+        } else {
+            
+            return nil
+        }
     }
     
     /**
