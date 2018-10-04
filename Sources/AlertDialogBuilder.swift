@@ -115,6 +115,7 @@ open class AndroidAlertDialogBuilder: JavaObject {
         return AndroidContext(javaObject: __return)
     }
     
+    @discardableResult
     public func setCancelable(cancelable: Bool) -> AndroidAlertDialogBuilder {
         
         var __locals = [jobject]()
@@ -137,6 +138,7 @@ open class AndroidAlertDialogBuilder: JavaObject {
         return AndroidAlertDialogBuilder(javaObject: __return)
     }
     
+    @discardableResult
     public func setMessage(message: String) -> AndroidAlertDialogBuilder {
         
         var __locals = [jobject]()
@@ -159,6 +161,7 @@ open class AndroidAlertDialogBuilder: JavaObject {
         return AndroidAlertDialogBuilder(javaObject: __return)
     }
     
+    @discardableResult
     public func setMessage(messageId: Int) -> AndroidAlertDialogBuilder {
         
         var __locals = [jobject]()
@@ -181,6 +184,7 @@ open class AndroidAlertDialogBuilder: JavaObject {
         return AndroidAlertDialogBuilder(javaObject: __return)
     }
     
+    @discardableResult
     public func setNegativeButton(text: String, _ block: @escaping (AndroidDialogInterfaceForward?, Int) -> ()) -> AndroidAlertDialogBuilder  {
         
         let onClickListener = AndroidDialogInterfaceOnClickListener(block: block)
@@ -188,6 +192,7 @@ open class AndroidAlertDialogBuilder: JavaObject {
         return setNegativeButton(text: text, listener: onClickListener)
     }
     
+    @discardableResult
     public func setNegativeButton(textId: Int, _ block: @escaping (AndroidDialogInterfaceForward?, Int) -> ()) -> AndroidAlertDialogBuilder  {
         
         let onClickListener = AndroidDialogInterfaceOnClickListener(block: block)
@@ -241,6 +246,7 @@ open class AndroidAlertDialogBuilder: JavaObject {
         return AndroidAlertDialogBuilder(javaObject: __return)
     }
     
+    @discardableResult
     public func setNeutralButton(text: String, _ block: @escaping (AndroidDialogInterfaceForward?, Int) -> ()) -> AndroidAlertDialogBuilder  {
         
         let onClickListener = AndroidDialogInterfaceOnClickListener(block: block)
@@ -255,6 +261,7 @@ open class AndroidAlertDialogBuilder: JavaObject {
         return setNeutralButton(textId: textId, listener: onClickListener)
     }
     
+    @discardableResult
     internal func setNeutralButton(text: String, listener: AndroidDialogInterfaceOnClickListener) -> AndroidAlertDialogBuilder {
         
         var __locals = [jobject]()
@@ -278,6 +285,7 @@ open class AndroidAlertDialogBuilder: JavaObject {
         return AndroidAlertDialogBuilder(javaObject: __return)
     }
     
+    @discardableResult
     internal func setNeutralButton(textId: Int, listener: AndroidDialogInterfaceOnClickListener) -> AndroidAlertDialogBuilder {
         
         var __locals = [jobject]()
@@ -301,6 +309,7 @@ open class AndroidAlertDialogBuilder: JavaObject {
         return AndroidAlertDialogBuilder(javaObject: __return)
     }
     
+    @discardableResult
     public func setPositiveButton(text: String, _ block: @escaping (AndroidDialogInterfaceForward?, Int) -> ()) -> AndroidAlertDialogBuilder  {
         
         let onClickListener = AndroidDialogInterfaceOnClickListener(block: block)
@@ -308,6 +317,7 @@ open class AndroidAlertDialogBuilder: JavaObject {
         return setPositiveButton(text: text, listener: onClickListener)
     }
     
+    @discardableResult
     public func setPositiveButton(textId: Int, _ block: @escaping (AndroidDialogInterfaceForward?, Int) -> ()) -> AndroidAlertDialogBuilder  {
         
         let onClickListener = AndroidDialogInterfaceOnClickListener(block: block)
@@ -361,6 +371,7 @@ open class AndroidAlertDialogBuilder: JavaObject {
         return AndroidAlertDialogBuilder(javaObject: __return)
     }
     
+    @discardableResult
     public func setNeutralButtonIcon(icon: AndroidGraphicsDrawableDrawable) -> AndroidAlertDialogBuilder {
         
         var __locals = [jobject]()
@@ -383,6 +394,7 @@ open class AndroidAlertDialogBuilder: JavaObject {
         return AndroidAlertDialogBuilder(javaObject: __return)
     }
     
+    @discardableResult
     public func setNegativeButtonIcon(icon: AndroidGraphicsDrawableDrawable) -> AndroidAlertDialogBuilder {
         
         var __locals = [jobject]()
@@ -405,6 +417,7 @@ open class AndroidAlertDialogBuilder: JavaObject {
         return AndroidAlertDialogBuilder(javaObject: __return)
     }
     
+    @discardableResult
     public func setPositiveButtonIcon(icon: AndroidGraphicsDrawableDrawable) -> AndroidAlertDialogBuilder {
         
         var __locals = [jobject]()
@@ -427,6 +440,7 @@ open class AndroidAlertDialogBuilder: JavaObject {
         return AndroidAlertDialogBuilder(javaObject: __return)
     }
     
+    @discardableResult
     public func setTitle(title: String) -> AndroidAlertDialogBuilder {
         
         var __locals = [jobject]()
@@ -449,6 +463,7 @@ open class AndroidAlertDialogBuilder: JavaObject {
         return AndroidAlertDialogBuilder(javaObject: __return)
     }
     
+    @discardableResult
     public func setTitle(titleId: Int) -> AndroidAlertDialogBuilder {
         
         var __locals = [jobject]()
@@ -471,6 +486,7 @@ open class AndroidAlertDialogBuilder: JavaObject {
         return AndroidAlertDialogBuilder(javaObject: __return)
     }
     
+    @discardableResult
     public func setView(layoutResId: Int) -> AndroidAlertDialogBuilder {
         
         var __locals = [jobject]()
@@ -493,6 +509,7 @@ open class AndroidAlertDialogBuilder: JavaObject {
         return AndroidAlertDialogBuilder(javaObject: __return)
     }
     
+    @discardableResult
     public func setView(view: AndroidView) -> AndroidAlertDialogBuilder {
         
         var __locals = [jobject]()
@@ -515,6 +532,7 @@ open class AndroidAlertDialogBuilder: JavaObject {
         return AndroidAlertDialogBuilder(javaObject: __return)
     }
     
+    @discardableResult
     public func show() -> AndroidAlertDialog {
         
         var __locals = [jobject]()
@@ -577,3 +595,4 @@ internal extension AndroidAlertDialogBuilder {
         }
     }
 }
+
