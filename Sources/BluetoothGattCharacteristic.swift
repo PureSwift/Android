@@ -664,9 +664,9 @@ public extension AndroidBluetoothGattCharacteristic {
         var __args = [jvalue](repeating: jvalue(), count: 1)
         
         let __return = JNIMethod.CallObjectMethod(object: javaObject,
-                                                  methodName: "getProperties",
+                                                  methodName: "getService",
                                                   methodSig: "()Landroid/bluetooth/BluetoothGattService;",
-                                                  methodCache: &JNICache.MethodID.getProperties,
+                                                  methodCache: &JNICache.MethodID.getService,
                                                   args: &__args,
                                                   locals: &__locals)
         
