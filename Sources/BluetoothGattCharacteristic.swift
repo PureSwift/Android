@@ -511,7 +511,7 @@ public extension AndroidBluetoothGattCharacteristic {
     /**
      * Returns a descriptor with a given UUID out of the list of descriptors for this characteristic.
      */
-    public func getDescriptor(uuid: java_util.UUID) -> Android.Bluetooth.GattDescriptor {
+    public func getDescriptor(uuid: java_util.UUID) -> Android.Bluetooth.GattDescriptor? {
         
         var __locals = [jobject]()
         
@@ -520,15 +520,15 @@ public extension AndroidBluetoothGattCharacteristic {
         ]
         
         let __return = JNIMethod.CallObjectMethod(object: javaObject,
-                                                   methodName: "getDescriptor",
-                                                   methodSig: "(Ljava/util/UUID;)Landroid/bluetooth/BluetoothGattDescriptor;",
-                                                   methodCache: &JNICache.MethodID.getDescriptor,
-                                                   args: &__args,
-                                                   locals: &__locals)
+                                                  methodName: "getDescriptor",
+                                                  methodSig: "(Ljava/util/UUID;)Landroid/bluetooth/BluetoothGattDescriptor;",
+                                                  methodCache: &JNICache.MethodID.getDescriptor,
+                                                  args: &__args,
+                                                  locals: &__locals)
         
         defer { JNI.DeleteLocalRef(__return) }
         
-        return Android.Bluetooth.GattDescriptor(javaObject: __return)
+        return __return != nil ? Android.Bluetooth.GattDescriptor(javaObject: __return) : nil
     }
     
     /**
@@ -565,11 +565,11 @@ public extension AndroidBluetoothGattCharacteristic {
         ]
         
         let __return = JNIMethod.CallFloatMethod(object: javaObject,
-                                                  methodName: "getFloatValue",
-                                                  methodSig: "(II)F",
-                                                  methodCache: &JNICache.MethodID.getFloatValue,
-                                                  args: &__args,
-                                                  locals: &__locals)
+                                                 methodName: "getFloatValue",
+                                                 methodSig: "(II)F",
+                                                 methodCache: &JNICache.MethodID.getFloatValue,
+                                                 args: &__args,
+                                                 locals: &__locals)
         return __return
     }
     
@@ -583,11 +583,11 @@ public extension AndroidBluetoothGattCharacteristic {
         var __args = [jvalue](repeating: jvalue(), count: 1)
         
         let __return = JNIMethod.CallIntMethod(object: javaObject,
-                                                 methodName: "getInstanceId",
-                                                 methodSig: "()I",
-                                                 methodCache: &JNICache.MethodID.getInstanceId,
-                                                 args: &__args,
-                                                 locals: &__locals)
+                                               methodName: "getInstanceId",
+                                               methodSig: "()I",
+                                               methodCache: &JNICache.MethodID.getInstanceId,
+                                               args: &__args,
+                                               locals: &__locals)
         return Int(__return)
     }
     
@@ -664,11 +664,11 @@ public extension AndroidBluetoothGattCharacteristic {
         var __args = [jvalue](repeating: jvalue(), count: 1)
         
         let __return = JNIMethod.CallObjectMethod(object: javaObject,
-                                               methodName: "getProperties",
-                                               methodSig: "()Landroid/bluetooth/BluetoothGattService;",
-                                               methodCache: &JNICache.MethodID.getProperties,
-                                               args: &__args,
-                                               locals: &__locals)
+                                                  methodName: "getProperties",
+                                                  methodSig: "()Landroid/bluetooth/BluetoothGattService;",
+                                                  methodCache: &JNICache.MethodID.getProperties,
+                                                  args: &__args,
+                                                  locals: &__locals)
         
         defer { JNI.DeleteLocalRef(__return) }
         
@@ -793,11 +793,11 @@ public extension AndroidBluetoothGattCharacteristic {
         ]
         
         let __return = JNIMethod.CallBooleanMethod(object: javaObject,
-                                               methodName: "setValue",
-                                               methodSig: "(Ljava/lang/String;)Z",
-                                               methodCache: &JNICache.MethodID.setValue,
-                                               args: &__args,
-                                               locals: &__locals)
+                                                   methodName: "setValue",
+                                                   methodSig: "(Ljava/lang/String;)Z",
+                                                   methodCache: &JNICache.MethodID.setValue,
+                                                   args: &__args,
+                                                   locals: &__locals)
         return __return != jboolean(JNI_FALSE)
     }
     
@@ -1142,3 +1142,4 @@ internal extension AndroidBluetoothGattCharacteristic {
         }
     }
 }
+

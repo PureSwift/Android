@@ -204,50 +204,56 @@ public extension AndroidBluetoothGattDescriptor {
     }
     
     /// Value used to disable notifications or indicatinos
-    internal static var DISABLE_NOTIFICATION_VALUE: Int {
+    public static var DISABLE_NOTIFICATION_VALUE: [Int8] {
         
         get {
             
-            let __value = JNIField.GetStaticIntField(
+            let __value = JNIField.GetStaticObjectField(
                 fieldName: "DISABLE_NOTIFICATION_VALUE",
-                fieldType: "I",
+                fieldType: "[B",
                 fieldCache: &JNICache.FieldID.DISABLE_NOTIFICATION_VALUE,
                 className: JNICache.className,
                 classCache: &JNICache.jniClass )
             
-            return Int(__value)
+            defer { JNI.DeleteLocalRef(__value) }
+            
+            return JNIType.toSwift(type: [Int8].self, from: __value)!
         }
     }
     
     /// Value used to enable indication for a client configuration descriptor
-    internal static var ENABLE_INDICATION_VALUE: Int {
+    public static var ENABLE_INDICATION_VALUE: [Int8] {
         
         get {
             
-            let __value = JNIField.GetStaticIntField(
+            let __value = JNIField.GetStaticObjectField(
                 fieldName: "ENABLE_INDICATION_VALUE",
-                fieldType: "I",
+                fieldType: "[B",
                 fieldCache: &JNICache.FieldID.ENABLE_INDICATION_VALUE,
                 className: JNICache.className,
                 classCache: &JNICache.jniClass )
             
-            return Int(__value)
+            defer { JNI.DeleteLocalRef(__value) }
+            
+            return JNIType.toSwift(type: [Int8].self, from: __value)!
         }
     }
     
     /// Value used to enable notification for a client configuration descriptor
-    internal static var ENABLE_NOTIFICATION_VALUE: Int {
+    public static var ENABLE_NOTIFICATION_VALUE: [Int8] {
         
         get {
             
-            let __value = JNIField.GetStaticIntField(
+            let __value = JNIField.GetStaticObjectField(
                 fieldName: "ENABLE_NOTIFICATION_VALUE",
-                fieldType: "I",
+                fieldType: "[B",
                 fieldCache: &JNICache.FieldID.ENABLE_NOTIFICATION_VALUE,
                 className: JNICache.className,
                 classCache: &JNICache.jniClass )
             
-            return Int(__value)
+            defer { JNI.DeleteLocalRef(__value) }
+            
+            return JNIType.toSwift(type: [Int8].self, from: __value)!
         }
     }
     
@@ -285,11 +291,11 @@ public extension AndroidBluetoothGattDescriptor {
         var __args = [jvalue](repeating: jvalue(), count: 1)
         
         let __return = JNIMethod.CallIntMethod(object: javaObject,
-                                                  methodName: "getPermissions",
-                                                  methodSig: "()I",
-                                                  methodCache: &JNICache.MethodID.getPermissions,
-                                                  args: &__args,
-                                                  locals: &__locals)
+                                               methodName: "getPermissions",
+                                               methodSig: "()I",
+                                               methodCache: &JNICache.MethodID.getPermissions,
+                                               args: &__args,
+                                               locals: &__locals)
         return Int(__return)
     }
     
@@ -344,11 +350,11 @@ public extension AndroidBluetoothGattDescriptor {
         ]
         
         let __return = JNIMethod.CallBooleanMethod(object: javaObject,
-                                                  methodName: "setValue",
-                                                  methodSig: "([B)Z",
-                                                  methodCache: &JNICache.MethodID.setValue,
-                                                  args: &__args,
-                                                  locals: &__locals)
+                                                   methodName: "setValue",
+                                                   methodSig: "([B)Z",
+                                                   methodCache: &JNICache.MethodID.setValue,
+                                                   args: &__args,
+                                                   locals: &__locals)
         return __return != jboolean(JNI_FALSE)
     }
 }
@@ -452,3 +458,4 @@ internal extension AndroidBluetoothGattDescriptor {
         }
     }
 }
+
