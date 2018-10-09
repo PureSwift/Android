@@ -214,9 +214,7 @@ public extension AndroidBluetoothGattDescriptor {
                 fieldCache: &JNICache.FieldID.DISABLE_NOTIFICATION_VALUE,
                 className: JNICache.className,
                 classCache: &JNICache.jniClass )
-            
-            defer { JNI.DeleteLocalRef(__value) }
-            
+
             return JNIType.toSwift(type: [Int8].self, from: __value)!
         }
     }
@@ -233,8 +231,6 @@ public extension AndroidBluetoothGattDescriptor {
                 className: JNICache.className,
                 classCache: &JNICache.jniClass )
             
-            defer { JNI.DeleteLocalRef(__value) }
-            
             return JNIType.toSwift(type: [Int8].self, from: __value)!
         }
     }
@@ -250,8 +246,6 @@ public extension AndroidBluetoothGattDescriptor {
                 fieldCache: &JNICache.FieldID.ENABLE_NOTIFICATION_VALUE,
                 className: JNICache.className,
                 classCache: &JNICache.jniClass )
-            
-            defer { JNI.DeleteLocalRef(__value) }
             
             return JNIType.toSwift(type: [Int8].self, from: __value)!
         }
