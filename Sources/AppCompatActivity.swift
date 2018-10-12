@@ -220,7 +220,7 @@ open class SwiftSupportAppCompatActivity: AndroidContextWrapper {
         
         let __return = JNIMethod.CallObjectMethod(object: javaObject,
                                                   methodName: "readJsonResource",
-                                                  methodSig: "(Ljava/lang/String)Ljava/lang/String;",
+                                                  methodSig: "(Ljava/lang/String;)Ljava/lang/String;",
                                                   methodCache: &SwiftActivityJNICache.MethodID.readJsonResource,
                                                   args: &__args,
                                                   locals: &__locals)
