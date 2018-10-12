@@ -211,6 +211,25 @@ open class SwiftSupportAppCompatActivity: AndroidContextWrapper {
         return result!
     }
     
+    public func readJsonResource(fileName: String) -> String {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        __args[0] = JNIType.toJava( value: fileName, locals: &__locals )
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "readJsonResource",
+                                                  methodSig: "(Ljava/lang/String)Ljava/lang/String;",
+                                                  methodCache: &SwiftActivityJNICache.MethodID.readJsonResource,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return String(javaObject: __return)
+    }
+    
     public func startService(service: Android.Content.Intent) -> JavaObject? {
         
         var __locals = [jobject]()
@@ -649,6 +668,7 @@ fileprivate extension SwiftSupport.App.AppCompatActivity {
             static var getStatusBarHeightPixels: jmethodID?
             static var hasNavBar: jmethodID?
             static var getActionBarHeighPixels: jmethodID?
+            static var readJsonResource: jmethodID?
         }
     }
 }
