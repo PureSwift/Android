@@ -102,7 +102,7 @@ fileprivate extension AndroidOnNavigationItemSelectedListener {
             let onNavigationItemSelectedThunk: AndroidOnNavigationItemSelectedListener_onNavigationItemSelected_type = AndroidOnNavigationItemSelectedListener_onNavigationItemSelected
             
             natives.append( JNINativeMethod(name: strdup("__onNavigationItemSelected"),
-                                            signature: strdup("(J)V"),
+                                            signature: strdup("(JLandroid/view/MenuItem;)Z"),
                                             fnPtr: unsafeBitCast( onNavigationItemSelectedThunk, to: UnsafeMutableRawPointer.self ) ))
             
             let finalizeThunk: AndroidOnNavigationItemSelectedListener_finalize_type = AndroidOnNavigationItemSelectedListener_finalize
@@ -136,9 +136,9 @@ fileprivate extension AndroidOnNavigationItemSelectedListener {
 private typealias AndroidOnNavigationItemSelectedListener_onNavigationItemSelected_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject) -> (jboolean)
 
 public func AndroidOnNavigationItemSelectedListener_onNavigationItemSelected ( _ __env: UnsafeMutablePointer<JNIEnv?>,
-                                                                   _ __this: jobject?,
-                                                                   _ __swiftObject: jlong,
-                                                                   _ __menuItem: jobject) -> (jboolean) {
+                                                                               _ __this: jobject?,
+                                                                               _ __swiftObject: jlong,
+                                                                               _ __menuItem: jobject) -> (jboolean) {
     
     let menuItem = AndroidMenuItemForward.init(javaObject: __menuItem)
     
@@ -152,12 +152,10 @@ public func AndroidOnNavigationItemSelectedListener_onNavigationItemSelected ( _
 private typealias AndroidOnNavigationItemSelectedListener_finalize_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong) -> ()
 
 public func AndroidOnNavigationItemSelectedListener_finalize ( _ __env: UnsafeMutablePointer<JNIEnv?>,
-                                                                  _ __this: jobject?,
-                                                                  _ __swiftObject: jlong) -> () {
+                                                               _ __this: jobject?,
+                                                               _ __swiftObject: jlong) -> () {
     
     AndroidOnNavigationItemSelectedListener.release(swiftObject: __swiftObject )
     
     NSLog("native \(#function)")
 }
-
-

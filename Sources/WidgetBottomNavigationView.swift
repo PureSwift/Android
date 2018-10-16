@@ -57,7 +57,7 @@ open class AndroidBottomNavigationView: AndroidWidgetFrameLayout {
         get { return getMenu() }
     }
     
-    public var popupTheme: Int {
+    public var selectedItemId: Int {
         get { return getSelectedItemId() }
         set { setSelectedItemId(itemId: newValue) }
     }
@@ -117,6 +117,30 @@ public extension AndroidBottomNavigationView {
             locals: &__locals )
         
         return Int(__return)
+    }
+    
+    public func setOnNavigationItemSelectedListener(_ block: @escaping (AndroidMenuItemForward) -> ()) {
+        
+        let onNavigationItemSelectedListener = AndroidBottomNavigationView.OnNavigationItemSelectedListener.init(block: block)
+        
+        setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
+    }
+    
+    private func setOnNavigationItemSelectedListener(_ listener: AndroidBottomNavigationView.OnNavigationItemSelectedListener){
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: listener, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setOnNavigationItemSelectedListener",
+            methodSig: "(Landroid/support/design/widget/BottomNavigationView$OnNavigationItemSelectedListener;)V",
+            methodCache: &JNICacheBottomBar.MethodID.setOnNavigationItemSelectedListener,
+            args: &__args,
+            locals: &__locals )
     }
 }
 
