@@ -118,6 +118,16 @@ public enum SupportV4: JavaPackage {
     }
 }
 
+public enum SupportDesign: JavaPackage {
+    
+    public static let package: JNIPackage = ["android", "support", "design"]
+    
+    public enum Widget: JavaPackage {
+        
+        public static let package: JNIPackage = SupportDesign.package + ["widget"]
+    }
+}
+
 /// Support Library namespace.
 public enum SwiftSupport: JavaPackage {
     
