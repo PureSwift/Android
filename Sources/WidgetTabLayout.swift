@@ -67,10 +67,335 @@ open class AndroidTabLayout: AndroidHorizontalScrollView {
         
         JNI.DeleteLocalRef( __object )
     }
+    
+    override open func addView(_ view: AndroidView){
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava(value: view, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "addView",
+            methodSig: "(L\(AndroidView.JNICache.className);)V",
+            methodCache: &JNICacheTabLayout.MethodID.addView1,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    override open func addView(_ child: Android.View.View, index: Int)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = JNIType.toJava(value: child, locals: &__locals)
+        __args[1] = jvalue(i: jint(index))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "addView",
+            methodSig: "(Landroid/view/View;I)V",
+            methodCache: &JNICacheTabLayout.MethodID.addView2,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
+    override open func addView(_ child: Android.View.View, index: Int, params: Android.View.ViewGroup.LayoutParams)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        
+        __args[0] = JNIType.toJava(value: child, locals: &__locals)
+        __args[1] = jvalue(i: jint(index))
+        __args[0] = JNIType.toJava(value: params, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "addView",
+            methodSig: "(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V",
+            methodCache: &JNICacheTabLayout.MethodID.addView3,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    override open func addView(_ child: Android.View.View, params: Android.View.ViewGroup.LayoutParams)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = JNIType.toJava(value: child, locals: &__locals)
+        __args[1] = JNIType.toJava(value: params, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "addView",
+            methodSig: "(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V",
+            methodCache: &JNICacheTabLayout.MethodID.addView4,
+            args: &__args,
+            locals: &__locals )
+    }
 }
 
 public extension AndroidTabLayout {
     
+    public func addOnTabSelectedListener(_ listener: AndroidTabLayout.OnTabSelectedListener) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava(value: listener, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "addOnTabSelectedListener",
+            methodSig: "(L\(AndroidOnTabSelectedListener.JNICache.className);)V",
+            methodCache: &JNICacheTabLayout.MethodID.addOnTabSelectedListener,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    public func addTab(_ tab: AndroidTabLayout.Tab, setSelected: Bool){
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava(value: tab, locals: &__locals)
+        __args[1] = jvalue(z: jboolean( setSelected ? JNI_TRUE : JNI_FALSE ))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "addTab",
+            methodSig: "(L\(AndroidTab.JNICacheTab.className);Z)V",
+            methodCache: &JNICacheTabLayout.MethodID.addTab1,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    public func addTab(_ tab: AndroidTabLayout.Tab, position: Int){
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava(value: tab, locals: &__locals)
+        __args[1] = jvalue(i: jint(position))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "addTab",
+            methodSig: "(L\(AndroidTab.JNICacheTab.className);I)V",
+            methodCache: &JNICacheTabLayout.MethodID.addTab2,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    public func addTab(_ tab: AndroidTabLayout.Tab){
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava(value: tab, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "addTab",
+            methodSig: "(L\(AndroidTab.JNICacheTab.className);)V",
+            methodCache: &JNICacheTabLayout.MethodID.addTab3,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    public func addTab(_ tab: AndroidTabLayout.Tab, position: Int, setSelected: Bool){
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava(value: tab, locals: &__locals)
+        __args[1] = jvalue(i: jint(position))
+        __args[2] = jvalue(z: jboolean( setSelected ? JNI_TRUE : JNI_FALSE ))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "addTab",
+            methodSig: "(L\(AndroidTab.JNICacheTab.className);IZ)V",
+            methodCache: &JNICacheTabLayout.MethodID.addTab4,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    public func clearOnTabSelectedListeners(){
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "clearOnTabSelectedListeners",
+            methodSig: "()V",
+            methodCache: &JNICacheTabLayout.MethodID.clearOnTabSelectedListeners,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    public func generateLayoutParams(_ attrs: JavaObject){
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava(value: attrs, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "generateLayoutParams",
+            methodSig: "(Landroid/util/AttributeSet;)V",
+            methodCache: &JNICacheTabLayout.MethodID.generateLayoutParams,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    public func getSelectedTabPosition() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getSelectedTabPosition",
+            methodSig: "()I",
+            methodCache: &JNICacheTabLayout.MethodID.getSelectedTabPosition,
+            args: &__args,
+            locals: &__locals )
+        
+        return Int(__return)
+    }
+    
+    public func getTabAt(index: Int) -> AndroidTab {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue(i: jint(index))
+        
+        let __return = JNIMethod.CallObjectMethod(
+            object: javaObject,
+            methodName: "getTabAt",
+            methodSig: "(I)L\(AndroidTab.JNICacheTab.className);",
+            methodCache: &JNICacheTabLayout.MethodID.getTabAt,
+            args: &__args,
+            locals: &__locals )
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return AndroidTab(javaObject: __return)
+    }
+    
+    public func getTabCount() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getTabCount",
+            methodSig: "()I",
+            methodCache: &JNICacheTabLayout.MethodID.getTabCount,
+            args: &__args,
+            locals: &__locals )
+        
+        return Int(__return)
+    }
+    
+    public func getTabGravity() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getTabGravity",
+            methodSig: "()I",
+            methodCache: &JNICacheTabLayout.MethodID.getTabGravity,
+            args: &__args,
+            locals: &__locals )
+        
+        return Int(__return)
+    }
+    
+    public func getTabMod() -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallIntMethod(
+            object: javaObject,
+            methodName: "getTabMod",
+            methodSig: "()I",
+            methodCache: &JNICacheTabLayout.MethodID.getTabMod,
+            args: &__args,
+            locals: &__locals )
+        
+        return Int(__return)
+    }
+    
+    public func newTab() -> AndroidTab {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallObjectMethod(
+            object: javaObject,
+            methodName: "newTab",
+            methodSig: "()L\(AndroidTab.JNICacheTab.className);",
+            methodCache: &JNICacheTabLayout.MethodID.newTab,
+            args: &__args,
+            locals: &__locals )
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return AndroidTab(javaObject: __return)
+    }
+    
+    public func removeAllTabs(){
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "removeAllTabs",
+            methodSig: "()V",
+            methodCache: &JNICacheTabLayout.MethodID.removeAllTabs,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    public func removeOnTabSelectedListener(_ listener: AndroidTabLayout.OnTabSelectedListener) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava(value: listener, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "removeOnTabSelectedListener",
+            methodSig: "(L\(AndroidOnTabSelectedListener.JNICache.className);)V",
+            methodCache: &JNICacheTabLayout.MethodID.removeOnTabSelectedListener,
+            args: &__args,
+            locals: &__locals )
+    }
 }
 
 internal extension AndroidTabLayout {
@@ -125,35 +450,3 @@ internal extension AndroidTabLayout {
         }
     }
 }
-
-
-// MARK: OnTabSelectedListener
-
-public extension AndroidTabLayout {
-    
-    /// Callback interface invoked when a tab's selection state changes.
-    public class OnTabSelectedListener {
-        
-    }
-}
-
-// MARK: TabLayoutOnPageChangeListener
-
-public extension AndroidTabLayout {
-    
-    /// A ViewPager.OnPageChangeListener class which contains the necessary calls back to the provided TabLayout so that the tab position is kept in sync.
-    public class TabLayoutOnPageChangeListener {
-        
-    }
-}
-
-// MARK: ViewPagerOnTabSelectedListener
-
-public extension AndroidTabLayout {
-    
-    /// A TabLayout.OnTabSelectedListener class which contains the necessary calls back to the provided ViewPager so that the tab position is kept in sync.
-    public class ViewPagerOnTabSelectedListener {
-        
-    }
-}
-
