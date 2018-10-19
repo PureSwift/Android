@@ -164,7 +164,7 @@ public extension AndroidTabLayout {
         
         var __locals = [jobject]()
         
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava(value: tab, locals: &__locals)
         __args[1] = jvalue(z: jboolean( setSelected ? JNI_TRUE : JNI_FALSE ))
         
@@ -181,7 +181,7 @@ public extension AndroidTabLayout {
         
         var __locals = [jobject]()
         
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava(value: tab, locals: &__locals)
         __args[1] = jvalue(i: jint(position))
         
@@ -214,7 +214,7 @@ public extension AndroidTabLayout {
         
         var __locals = [jobject]()
         
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         __args[0] = JNIType.toJava(value: tab, locals: &__locals)
         __args[1] = jvalue(i: jint(position))
         __args[2] = jvalue(z: jboolean( setSelected ? JNI_TRUE : JNI_FALSE ))
@@ -347,6 +347,25 @@ public extension AndroidTabLayout {
         return Int(__return)
     }
     
+    public func getTabTextColors() -> JavaObject {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallObjectMethod(
+            object: javaObject,
+            methodName: "getTabTextColors",
+            methodSig: "()Landroid/content/res/ColorStateList;",
+            methodCache: &JNICacheTabLayout.MethodID.getTabTextColors,
+            args: &__args,
+            locals: &__locals )
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return JavaObject(javaObject: __return)
+    }
+    
     public func newTab() -> AndroidTab {
         
         var __locals = [jobject]()
@@ -393,6 +412,186 @@ public extension AndroidTabLayout {
             methodName: "removeOnTabSelectedListener",
             methodSig: "(L\(AndroidOnTabSelectedListener.JNICache.className);)V",
             methodCache: &JNICacheTabLayout.MethodID.removeOnTabSelectedListener,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    public func removeTab(_ tab: AndroidTab){
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava(value: tab, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "removeTab",
+            methodSig: "(L\(AndroidTab.JNICacheTab.className);)V",
+            methodCache: &JNICacheTabLayout.MethodID.removeTab,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    public func removeTabAt(position: Int) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue(i: jint(position))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "removeTabAt",
+            methodSig: "(I)V",
+            methodCache: &JNICacheTabLayout.MethodID.removeTabAt,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    public func setScrollPosition(position: Int, positionOffset: Float, updateSelectedText: Bool) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        __args[0] = jvalue(i: jint(position))
+        __args[1] = jvalue(f: jfloat(positionOffset))
+        __args[2] = jvalue(z: jboolean(updateSelectedText ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setScrollPosition",
+            methodSig: "(IFZ)V",
+            methodCache: &JNICacheTabLayout.MethodID.setScrollPosition,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    public func setSelectedTabIndicatorColor(color: Int) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue(i: jint(color))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setSelectedTabIndicatorColor",
+            methodSig: "(I)V",
+            methodCache: &JNICacheTabLayout.MethodID.setSelectedTabIndicatorColor,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    public func setSelectedTabIndicatorHeight(height: Int) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue(i: jint(height))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setSelectedTabIndicatorHeight",
+            methodSig: "(I)V",
+            methodCache: &JNICacheTabLayout.MethodID.setSelectedTabIndicatorHeight,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    public func setTabGravity(gravity: Int) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue(i: jint(gravity))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setTabGravity",
+            methodSig: "(I)V",
+            methodCache: &JNICacheTabLayout.MethodID.setTabGravity,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    public func setTabMode(mode: Int) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue(i: jint(mode))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setTabMode",
+            methodSig: "(I)V",
+            methodCache: &JNICacheTabLayout.MethodID.setTabMode,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    public func setTabTextColors(normalColor: Int, selectedColor: Int) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue(i: jint(normalColor))
+        __args[1] = jvalue(i: jint(selectedColor))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setTabTextColors",
+            methodSig: "(II)V",
+            methodCache: &JNICacheTabLayout.MethodID.setTabTextColors1,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    public func setTabTextColors(_ textcolor: JavaObject){
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava(value: textcolor, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setTabTextColors",
+            methodSig: "(Landroid/content/res/ColorStateList;)V",
+            methodCache: &JNICacheTabLayout.MethodID.setTabTextColors2,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    public func setupWithViewPager(_ viewPager: JavaObject, autoRefresh: Bool){
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = JNIType.toJava(value: viewPager, locals: &__locals)
+        __args[1] = jvalue(z: jboolean(autoRefresh ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setupWithViewPager",
+            methodSig: "(Landroid/support/v4/view/ViewPager;Z)V",
+            methodCache: &JNICacheTabLayout.MethodID.setupWithViewPager1,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    public func setupWithViewPager(_ viewPager: JavaObject){
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = JNIType.toJava(value: viewPager, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setupWithViewPager",
+            methodSig: "(Landroid/support/v4/view/ViewPager;)V",
+            methodCache: &JNICacheTabLayout.MethodID.setupWithViewPager2,
             args: &__args,
             locals: &__locals )
     }
@@ -446,7 +645,6 @@ internal extension AndroidTabLayout {
             static var setTabTextColors2: jmethodID?
             static var setupWithViewPager1: jmethodID?
             static var setupWithViewPager2: jmethodID?
-            static var shouldDelayChildPressedState: jmethodID?
         }
     }
 }
