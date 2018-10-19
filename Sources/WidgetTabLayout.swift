@@ -154,7 +154,7 @@ public extension AndroidTabLayout {
         JNIMethod.CallVoidMethod(
             object: javaObject,
             methodName: "addOnTabSelectedListener",
-            methodSig: "(L\(AndroidOnTabSelectedListener.JNICache.className);)V",
+            methodSig: "(Landroid/support/design/widget/TabLayout$OnTabSelectedListener;)V",
             methodCache: &JNICacheTabLayout.MethodID.addOnTabSelectedListener,
             args: &__args,
             locals: &__locals )
