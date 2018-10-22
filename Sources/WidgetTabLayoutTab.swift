@@ -39,6 +39,18 @@ public class AndroidTab: JavaObject {
     }
 }
 
+extension AndroidTab: Hashable {
+    
+    public var hashValue: Int {
+        return 1
+    }
+    
+    public static func == (lhs: AndroidTab, rhs: AndroidTab) -> Bool {
+        
+        return lhs.hashValue == lhs.hashValue
+    }
+}
+
 public extension AndroidTab {
     
     internal static var INVALID_POSITION: Int {
