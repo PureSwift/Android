@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/PureSwift/Bluetooth.git",
         "state": {
           "branch": null,
-          "revision": "9c867064434a14974a348946936e337cd0ff6c1e",
-          "version": "2.3.1"
+          "revision": "8dc48df9cafe80cd97aadc5fd5dca0b18571d0f2",
+          "version": "2.5.2"
         }
       },
       {
@@ -33,8 +33,8 @@
         "repositoryURL": "https://github.com/SwiftJava/java_swift.git",
         "state": {
           "branch": null,
-          "revision": "b898d1e2a3440e4d8549ef2840f9f0e97c6289de",
-          "version": "2.3.2"
+          "revision": "f6745e8690d10ca01e983ceeb1339b0899fa8a99",
+          "version": "2.3.3"
         }
       },
       {

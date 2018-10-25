@@ -466,12 +466,12 @@ public extension AndroidTabLayout {
             locals: &__locals )
     }
     
-    public func setSelectedTabIndicatorColor(color: Int) {
+    public func setSelectedTabIndicatorColor(color: Int64) {
         
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        __args[0] = jvalue(i: jint(color))
+        __args[0] = jvalue(j: jlong(color))
         
         JNIMethod.CallVoidMethod(
             object: javaObject,
@@ -530,13 +530,13 @@ public extension AndroidTabLayout {
             locals: &__locals )
     }
     
-    public func setTabTextColors(normalColor: Int, selectedColor: Int) {
+    public func setTabTextColors(normalColor: Int64, selectedColor: Int64) {
         
         var __locals = [jobject]()
         
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        __args[0] = jvalue(i: jint(normalColor))
-        __args[1] = jvalue(i: jint(selectedColor))
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue(j: jlong(normalColor))
+        __args[1] = jvalue(j: jlong(selectedColor))
         
         JNIMethod.CallVoidMethod(
             object: javaObject,
