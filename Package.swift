@@ -1,14 +1,25 @@
+// swift-tools-version:4.1
 import PackageDescription
 
 let package = Package(
     name: "Android",
-    targets: [
-        Target(name: "Android")
+    products: [
+        .library(name: "Android", targets: ["Android"]),
+        .library(name: "AndroidBluetooth", targets: ["AndroidBluetooth"])
     ],
     dependencies: [
-        .Package(url: "https://github.com/SwiftJava/java_swift.git", versions: Version(2,1,1) ..< Version(3,0,0)),
-        .Package(url: "https://github.com/SwiftJava/java_util.git", majorVersion: 2),
-        .Package(url: "https://github.com/PureSwift/Bluetooth.git", majorVersion: 2),
-        .Package(url: "https://github.com/PureSwift/JNI.git", majorVersion: 1)
+        .package(url: "https://github.com/SwiftJava/java_util.git", .branch("master")),
+        .package(url: "https://github.com/PureSwift/JNI.git", .branch("master")),
+        .package(url: "https://github.com/PureSwift/Bluetooth.git", .branch("master"))
+    ],
+    targets: [
+        .target(
+            name: "Android",
+            dependencies: ["java_util", "JNI"]
+        ),
+        .target(
+            name: "AndroidBluetooth",
+            dependencies: ["Android", "Bluetooth"]
+        )
     ]
 )

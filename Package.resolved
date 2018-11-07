@@ -5,9 +5,9 @@
         "package": "Bluetooth",
         "repositoryURL": "https://github.com/PureSwift/Bluetooth.git",
         "state": {
-          "branch": null,
-          "revision": "8dc48df9cafe80cd97aadc5fd5dca0b18571d0f2",
-          "version": "2.5.2"
+          "branch": "master",
+          "revision": "ba4562a36d920ade281db5c74f76828cfa91864a",
+          "version": null
         }
       },
       {
@@ -41,18 +41,18 @@
         "package": "java_util",
         "repositoryURL": "https://github.com/SwiftJava/java_util.git",
         "state": {
-          "branch": null,
+          "branch": "master",
           "revision": "496b963217a7bf3b3c028db11ede5cfcbb3540e6",
-          "version": "2.3.2"
+          "version": null
         }
       },
       {
         "package": "JNI",
         "repositoryURL": "https://github.com/PureSwift/JNI.git",
         "state": {
-          "branch": null,
-          "revision": "983ece85363e1c26ad5719404502d81b0b13f2d5",
-          "version": "1.0.3"
+          "branch": "master",
+          "revision": "66ba5d594d654c4565dc7873e7daa5a60ce814ad",
+          "version": null
         }
       }
     ]
