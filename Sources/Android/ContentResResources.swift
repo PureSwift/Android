@@ -57,6 +57,26 @@ public extension AndroidContentResResources {
         
         return __return != nil ? Android.Util.DisplayMetrics(javaObject: __return) : nil
     }
+    
+    public func getIdentifier(name: String, type: String, defPackage: String) -> Int {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 3)
+        
+        __args[0] = JNIType.toJava( value: name, locals: &__locals )
+        __args[1] = JNIType.toJava( value: type, locals: &__locals )
+        __args[2] = JNIType.toJava( value: defPackage, locals: &__locals )
+        
+        let __return = JNIMethod.CallIntMethod(object: javaObject,
+                                               methodName: "getIdentifier",
+                                               methodSig: "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I",
+                                               methodCache: &JNICache.MethodID.getIdentifier,
+                                               args: &__args,
+                                               locals: &__locals)
+        
+        return Int(__return)
+    }
 }
 
 // MARK: - JNICache
