@@ -38,6 +38,30 @@ public final class AndroidLayoutInflater: JavaObject {
 extension Android.View.LayoutInflater {
     
     /// Inflate a new view hierarchy from the specified xml resource.
+    public func inflate(resource: Android.R.Layout, root: Android.View.ViewGroup? = nil) -> Android.View.View {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        
+        __args[0] = JNIType.toJava(value: resource.rawValue, locals: &__locals)
+        __args[1] = JNIType.toJava(value: root, locals: &__locals)
+        
+        let __return = JNIMethod.CallObjectMethod(
+            object: javaObject,
+            methodName: "inflate",
+            methodSig: "(ILandroid/view/ViewGroup;)Landroid/view/View;",
+            methodCache: &JNICache.MethodID.inflate0,
+            args: &__args,
+            locals: &__locals )
+        
+        guard __return != nil
+            else { fatalError("Could not deflate \(resource)") }
+        
+        return Android.View.View(javaObject: __return)
+    }
+    
+    /// Inflate a new view hierarchy from the specified xml resource.
     public func inflate(resource: Android.R.Layout, root: Android.View.ViewGroup? = nil, attachToRoot: Bool? = nil) -> Android.View.View {
         
         let attachToRoot = attachToRoot ?? (root != nil)
@@ -54,7 +78,7 @@ extension Android.View.LayoutInflater {
             object: javaObject,
             methodName: "inflate",
             methodSig: "(ILandroid/view/ViewGroup;Z)Landroid/view/View;",
-            methodCache: &JNICache.MethodID.inflate0,
+            methodCache: &JNICache.MethodID.inflate1,
             args: &__args,
             locals: &__locals )
         
@@ -107,6 +131,7 @@ fileprivate extension Android.View.LayoutInflater {
         struct MethodID {
             
             static var inflate0: jmethodID?
+            static var inflate1: jmethodID?
             static var from: jmethodID?
             
         }

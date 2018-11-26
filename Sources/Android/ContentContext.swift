@@ -148,11 +148,29 @@ public extension AndroidContext {
             args: &__args,
             locals: &__locals )
     }
+    
+    public func getExternalFilesDirs(type: String?) -> [JavaFile]? {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1)
+        
+        __args[0] = JNIType.toJava( value: type, locals: &__locals )
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "getExternalFilesDirs",
+                                                  methodSig: "(Ljava/lang/String;)[Ljava/io/File;",
+                                                  methodCache: &JNICache.MethodID.getExternalFilesDirs,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        return JNIType.toSwift( type: [JavaFile].self, from: __return )
+    }
 }
 
 // MARK: - JNICache
 
-private extension AndroidContext {
+internal extension AndroidContext {
     
     /// JNI Cache
     struct JNICache {
@@ -179,6 +197,8 @@ private extension AndroidContext {
             static var registerReceiver: jmethodID?
             static var unregisterReceiver: jmethodID?
             static var setTheme: jmethodID?
+            static var getExternalFilesDirs: jmethodID?
         }
     }
 }
+

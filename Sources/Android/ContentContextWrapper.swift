@@ -39,7 +39,7 @@ open class AndroidContextWrapper: AndroidContext {
         let __return = JNIMethod.CallObjectMethod(object: javaObject,
                                                   methodName: "registerReceiver",
                                                   methodSig: "(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;",
-                                                  methodCache: &JNICache.MethodID.registerReceiver,
+                                                  methodCache: &JNICacheContextWrapper.MethodID.registerReceiver,
                                                   args: &__args,
                                                   locals: &__locals)
         
@@ -61,7 +61,7 @@ open class AndroidContextWrapper: AndroidContext {
         JNIMethod.CallVoidMethod(object: javaObject,
                                  methodName: "unregisterReceiver",
                                  methodSig: "(Landroid/content/BroadcastReceiver;)V",
-                                 methodCache: &JNICache.MethodID.unregisterReceiver,
+                                 methodCache: &JNICacheContextWrapper.MethodID.unregisterReceiver,
                                  args: &__args,
                                  locals: &__locals)
     }
@@ -81,7 +81,7 @@ open class AndroidContextWrapper: AndroidContext {
             let __return = JNIMethod.CallIntMethod(object: $0,
                                                    methodName: "checkSelfPermission",
                                                    methodSig: "(Ljava/lang/String;)I",
-                                                   methodCache: &JNICache.MethodID.checkSelfPermission,
+                                                   methodCache: &JNICacheContextWrapper.MethodID.checkSelfPermission,
                                                    args: &__args,
                                                    locals: &__locals)
             
@@ -105,7 +105,7 @@ open class AndroidContextWrapper: AndroidContext {
             JNIMethod.CallVoidMethod(object: $0,
                                      methodName: "requestPermissions",
                                      methodSig: "([Ljava/lang/String;I)V",
-                                     methodCache: &JNICache.MethodID.requestPermissions,
+                                     methodCache: &JNICacheContextWrapper.MethodID.requestPermissions,
                                      args: &__args,
                                      locals: &__locals)
         }
@@ -117,7 +117,7 @@ open class AndroidContextWrapper: AndroidContext {
 private extension AndroidContextWrapper {
     
     /// JNI Cache
-    struct JNICache {
+    struct JNICacheContextWrapper {
         
         static let classSignature = Android.Content.className(["ContextWrapper"])
         
