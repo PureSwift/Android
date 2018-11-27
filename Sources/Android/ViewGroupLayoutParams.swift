@@ -183,6 +183,17 @@ public extension AndroidViewGroupLayoutParams {
                                                object: javaObject)
             return Int(__value)
         }
+        set {
+            
+            var __locals = [jobject]()
+            
+            JNIField.SetIntField(fieldName: "height",
+                                 fieldType: "I",
+                                 fieldCache: &ViewGroupLayoutParamsJNICache.FieldID.height,
+                                 object: javaObject,
+                                 value: jint(newValue),
+                                 locals: &__locals)
+        }
     }
     
     public var width: Int {
@@ -192,6 +203,17 @@ public extension AndroidViewGroupLayoutParams {
                                                fieldCache: &ViewGroupLayoutParamsJNICache.FieldID.width,
                                                object: javaObject)
             return Int(__value)
+        }
+        set {
+            
+            var __locals = [jobject]()
+            
+            JNIField.SetIntField(fieldName: "width",
+                                 fieldType: "I",
+                                 fieldCache: &ViewGroupLayoutParamsJNICache.FieldID.width,
+                                 object: javaObject,
+                                 value: jint(newValue),
+                                 locals: &__locals)
         }
     }
 }
@@ -230,4 +252,3 @@ internal extension AndroidViewGroupLayoutParams {
         }
     }
 }
-

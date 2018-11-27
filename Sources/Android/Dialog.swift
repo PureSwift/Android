@@ -73,6 +73,11 @@ open class AndroidDialog: JavaObject {
         JNI.DeleteLocalRef( __object )
     }
     
+    public var window: AndroidWindow {
+        get {
+            return getWindow()
+        }
+    }
 }
 
 public extension AndroidDialog {
@@ -107,7 +112,8 @@ public extension AndroidDialog {
             locals: &__locals )
     }
     
-    public func getWindow() -> AndroidWindow {
+    @inline(__always)
+    private func getWindow() -> AndroidWindow {
         
         var __locals = [jobject]()
         
@@ -216,6 +222,26 @@ public extension AndroidDialog {
             args: &__args,
             locals: &__locals )
     }
+    
+    @discardableResult
+    public func requestWindowFeature(featureId: Int) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: featureId, locals: &__locals)
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "requestWindowFeature",
+            methodSig: "(I)Z",
+            methodCache: &DialogJNICache.MethodID.requestWindowFeature,
+            args: &__args,
+            locals: &__locals )
+        
+        return __return != jboolean(JNI_FALSE)
+    }
 }
 
 internal extension AndroidDialog {
@@ -246,7 +272,7 @@ internal extension AndroidDialog {
             static var setCancelable: jmethodID?
             static var setContentView: jmethodID?
             static var show: jmethodID?
+            static var requestWindowFeature: jmethodID?
         }
     }
 }
-

@@ -59,6 +59,36 @@ public class AndroidWindow: JavaObject {
         JNI.DeleteLocalRef( __object )
     }
     
+    public var attributes: AndroidWindowManagerLayoutParams? {
+        get {
+            return getAttributes()
+        }
+        set {
+            setAttributes(newValue)
+        }
+    }
+}
+
+public extension AndroidWindow {
+    
+    public static var FEATURE_NO_TITLE: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "FEATURE_NO_TITLE",
+                fieldType: "I",
+                fieldCache: &JNICache.FieldID.FEATURE_NO_TITLE,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            return Int(__value)
+        }
+    }
+}
+
+public extension AndroidWindow {
+    
     public func setFlags(flags: Int, mask: Int) {
         
         var __locals = [jobject]()
@@ -72,6 +102,41 @@ public class AndroidWindow: JavaObject {
             methodName: "setFlags",
             methodSig: "(II)V",
             methodCache: &JNICache.MethodID.setFlags,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    @inline(__always)
+    private func getAttributes() -> AndroidWindowManagerLayoutParams? {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallObjectMethod(
+            object: javaObject,
+            methodName: "getAttributes",
+            methodSig: "()L\(AndroidWindowManagerLayoutParams.JNICacheWindowManagerLayoutParams.className);",
+            methodCache: &JNICache.MethodID.getAttributes,
+            args: &__args,
+            locals: &__locals )
+        
+        return __return != nil ? AndroidWindowManagerLayoutParams(javaObject: __return) : nil
+    }
+    
+    @inline(__always)
+    private func setAttributes(_ a: AndroidWindowManagerLayoutParams?) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava(value: a, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setAttributes",
+            methodSig: "(L\(AndroidWindowManagerLayoutParams.JNICacheWindowManagerLayoutParams.className);)V",
+            methodCache: &JNICache.MethodID.setAttributes,
             args: &__args,
             locals: &__locals )
     }
@@ -93,10 +158,18 @@ internal extension AndroidWindow {
         /// JNI Java class
         static var jniClass: jclass?
         
+        struct FieldID {
+            
+            static var FEATURE_NO_TITLE: jfieldID?
+        }
+        
         /// JNI Method ID cache
         struct MethodID {
+            
             static var init_method_1: jmethodID?
             static var setFlags: jmethodID?
+            static var getAttributes: jmethodID?
+            static var setAttributes: jmethodID?
         }
     }
 }
