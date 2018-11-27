@@ -110,6 +110,164 @@ public extension JavaFile {
         
         return String(javaObject: __return)
     }
+    
+    public func getName() -> String {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "getName",
+                                                  methodSig: "()Ljava/lang/String;",
+                                                  methodCache: &JNICache.MethodID.getName,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return String(javaObject: __return)
+    }
+    
+    public func getParent() -> String {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "getParent",
+                                                  methodSig: "()Ljava/lang/String;",
+                                                  methodCache: &JNICache.MethodID.getParent,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return String(javaObject: __return)
+    }
+    
+    public func isDirectory() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                                   methodName: "isDirectory",
+                                                   methodSig: "()Z",
+                                                   methodCache: &JNICache.MethodID.isDirectory,
+                                                   args: &__args,
+                                                   locals: &__locals)
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    public func isFile() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                                   methodName: "isFile",
+                                                   methodSig: "()Z",
+                                                   methodCache: &JNICache.MethodID.isFile,
+                                                   args: &__args,
+                                                   locals: &__locals)
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    public func list() -> [String]? {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "list",
+                                                  methodSig: "()[Ljava/lang/String;",
+                                                  methodCache: &JNICache.MethodID.list,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        return JNIType.toSwift(type: [String].self, from: __return)
+    }
+    
+    public func listFiles() -> [JavaFile]? {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "listFiles",
+                                                  methodSig: "()[L\(JavaFile.JNICache.className);",
+            methodCache: &JNICache.MethodID.listFiles,
+            args: &__args,
+            locals: &__locals)
+        
+        return JNIType.toSwift(type: [JavaFile].self, from: __return)
+    }
+    
+    public func mkdir() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                                   methodName: "mkdir",
+                                                   methodSig: "()Z",
+                                                   methodCache: &JNICache.MethodID.mkdir,
+                                                   args: &__args,
+                                                   locals: &__locals)
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    public func delete() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                                   methodName: "delete",
+                                                   methodSig: "()Z",
+                                                   methodCache: &JNICache.MethodID.delete,
+                                                   args: &__args,
+                                                   locals: &__locals)
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    public func exists() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                                   methodName: "exists",
+                                                   methodSig: "()Z",
+                                                   methodCache: &JNICache.MethodID.exists,
+                                                   args: &__args,
+                                                   locals: &__locals)
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    public func createNewFile() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                                   methodName: "createNewFile",
+                                                   methodSig: "()Z",
+                                                   methodCache: &JNICache.MethodID.createNewFile,
+                                                   args: &__args,
+                                                   locals: &__locals)
+        return __return != jboolean(JNI_FALSE)
+    }
 }
 
 // MARK: - JNICache
@@ -140,6 +298,16 @@ internal extension JavaFile {
             static var init_method_4: jmethodID?
             
             static var getPath: jmethodID?
+            static var getName: jmethodID?
+            static var getParent: jmethodID?
+            static var isDirectory: jmethodID?
+            static var isFile: jmethodID?
+            static var list: jmethodID?
+            static var listFiles: jmethodID?
+            static var mkdir: jmethodID?
+            static var delete: jmethodID?
+            static var exists: jmethodID?
+            static var createNewFile: jmethodID?
         }
     }
 }

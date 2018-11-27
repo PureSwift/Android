@@ -125,6 +125,23 @@ open class AndroidView: JavaObject {
         return __return != nil ? Android.View.View(javaObject: __return) : nil
     }
     
+    open func performClick() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "performClick",
+            methodSig: "()Z",
+            methodCache: &JNICache.MethodID.performClick,
+            args: &__args,
+            locals: &__locals )
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
     // Overridable func
     /**
      * Called when this view wants to give up focus.
@@ -6371,25 +6388,6 @@ public extension Android.View.View {
         
     }
     
-    
-    public func performClick() -> Bool {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        let __return = JNIMethod.CallBooleanMethod(
-            object: javaObject,
-            methodName: "performClick",
-            methodSig: "()Z",
-            methodCache: &JNICache.MethodID.performClick,
-            args: &__args,
-            locals: &__locals )
-        
-        return __return != jboolean(JNI_FALSE)
-    }
-    
-    
     public func performContextClick(x: Float, y: Float) -> Bool {
         
         var __locals = [jobject]()
@@ -9941,7 +9939,7 @@ public extension Android.View.View {
         
         
     }
-
+    
     public func setClipBounds(clipBounds: JavaObject)  {
         
         var __locals = [jobject]()
