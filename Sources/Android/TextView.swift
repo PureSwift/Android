@@ -371,7 +371,7 @@ open class AndroidTextView: AndroidView {
         return Int64(__return)
     }
     
-
+    
     
     /**
      * Returns the total bottom padding of the view, including the bottom Drawable if any, the extra space to keep more than maxLines from showing, and the vertical offset for gravity, if any.
@@ -1148,7 +1148,40 @@ open class AndroidTextView: AndroidView {
             args: &__args,
             locals: &__locals )
     }
-
+    
+    public func setHorizontallyScrolling(_ whether: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(whether ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setHorizontallyScrolling",
+            methodSig: "(Z)V",
+            methodCache: &JNICacheTextView.MethodID.setHorizontallyScrolling,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    public func setEllipsize(where _where: AndroidTextUtilsTruncateAt)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: _where, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setEllipsize",
+            methodSig: "(L\(AndroidTextUtilsTruncateAt.JNICache.className);)V",
+            methodCache: &JNICacheTextView.MethodID.setEllipsize,
+            args: &__args,
+            locals: &__locals )
+    }
 }
 
 // MARK: - Private
@@ -1189,6 +1222,7 @@ internal extension Android.Widget.TextView {
             static var setSingleLine: jmethodID?
             static var setSingleLine2: jmethodID?
             static var setEnabled: jmethodID?
+            static var setHorizontallyScrolling: jmethodID?
             static var getTotalPaddingBottom: jmethodID?
             static var getTotalPaddingEnd: jmethodID?
             static var getTotalPaddingLeft: jmethodID?
@@ -1231,6 +1265,7 @@ internal extension Android.Widget.TextView {
             static var getLetterSpacing: jmethodID?
             static var getLineCount: jmethodID?
             static var getShadowColor: jmethodID?
+            static var setEllipsize: jmethodID?
         }
     }
 }

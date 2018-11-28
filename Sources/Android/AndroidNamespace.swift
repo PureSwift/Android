@@ -71,6 +71,11 @@ public enum Android: JavaPackage {
             public static let package: JNIPackage = Android.Graphics.package + ["drawable"]
         }
     }
+    
+    public enum Text: JavaPackage {
+        
+        public static let package: JNIPackage = Android.package + ["text"]
+    }
 }
 
 public enum SupportV7: JavaPackage {
@@ -189,5 +194,3 @@ internal extension JNIPackage {
         return JNIPackage(elements: lhs.elements + rhs)!
     }
 }
-
-
