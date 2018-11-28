@@ -131,6 +131,30 @@ public extension Android.Widget.CompoundButton {
                                                    locals: &__locals)
         return __return != jboolean(JNI_FALSE)
     }
+    
+    public func setOnCheckedChangeListener(_ block: @escaping (AndroidCompoundButton?, Bool) -> ()) {
+        
+        let OnCheckedChangeListener = AndroidCompoundButton.OnCheckedChangeListener(block: block)
+        
+        setOnCheckedChangeListener(OnCheckedChangeListener)
+    }
+    
+    private func setOnCheckedChangeListener(_ listener: AndroidCompoundButton.OnCheckedChangeListener) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: listener, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setOnCheckedChangeListener",
+            methodSig: "(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V",
+            methodCache: &JNICacheCompoundButton.MethodID.setOnCheckedChangeListener,
+            args: &__args,
+            locals: &__locals )
+    }
 }
 
 internal extension Android.Widget.CompoundButton {
@@ -154,6 +178,7 @@ internal extension Android.Widget.CompoundButton {
             static var toggle: jmethodID?
             static var isChecked: jmethodID?
             static var performClick: jmethodID?
+            static var setOnCheckedChangeListener: jmethodID?
         }
     }
 }
