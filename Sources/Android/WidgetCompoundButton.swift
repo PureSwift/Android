@@ -139,7 +139,7 @@ public extension Android.Widget.CompoundButton {
         setOnCheckedChangeListener(OnCheckedChangeListener)
     }
     
-    private func setOnCheckedChangeListener(_ listener: AndroidCompoundButton.OnCheckedChangeListener) {
+    public func setOnCheckedChangeListener(_ listener: AndroidCompoundButton.OnCheckedChangeListener?) {
         
         var __locals = [jobject]()
         

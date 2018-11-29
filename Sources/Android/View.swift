@@ -9180,10 +9180,10 @@ public extension Android.View.View {
         
         let onClickListener = Android.View.View.OnClickListener(block: block)
         
-        setOnClickListener(l: onClickListener)
+        setOnClickListener(onClickListener)
     }
     
-    internal func setOnClickListener(l: Android.View.View.OnClickListener) {
+    public func setOnClickListener(_ l: Android.View.View.OnClickListener?) {
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
@@ -10669,3 +10669,4 @@ public extension Android.View.View {
         public static let gone = Android.View.View.AndroidViewVisibility(rawValue: Android.View.View.GONE)
     }
 }
+

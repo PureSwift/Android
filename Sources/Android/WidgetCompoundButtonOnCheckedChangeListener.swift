@@ -143,7 +143,7 @@ public func AndroidOnCheckedChangeListener_onCheckedChanged ( _ __env: UnsafeMut
     
     let isChecked = __isChecked != jboolean(JNI_FALSE)
     
-    let buttonView : AndroidCompoundButton? = __buttonView != nil ? AndroidCompoundButton.init(javaObject: __buttonView) : nil
+    let buttonView : AndroidCompoundButton? = __buttonView != nil ? AndroidCompoundButton(javaObject: __buttonView) : nil
     
     AndroidOnCheckedChangeListener
         .swiftObject(from: __swiftObject)?
