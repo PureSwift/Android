@@ -33,6 +33,7 @@ public class AndroidFileManager {
     private var currentFolder = ""
     private var navigation = [Navigation]()
     public var delegate: AndroidFileManagerDelegate?
+    public var listener: ( (String) ->() )?
     
     public init(context: SwiftSupportAppCompatActivity) {
         self.context = context
@@ -91,6 +92,7 @@ public class AndroidFileManager {
                 path = self.navigation.last?.path
             }
             
+            self.listener?(path!)
             self.delegate?.fileManagerResult(path: path!)
             
             self.dialog.dismiss()
@@ -265,12 +267,10 @@ public class AndroidFileManager {
             
             let path = internalStorage.getPath()
             
-            storages.append(Item(type: ItemType.Storage, path: path, name: "Internal storage"))
+            storages.append(Item(type: ItemType.storage, path: path, name: "Internal storage"))
         }
         
-        let _extStorages = context.getExternalFilesDirs(type: nil)
-        
-        guard var extStorages = _extStorages else {
+        guard var extStorages = context.getExternalFilesDirs(type: nil) else {
             NSLog("Not Ext Storages")
             return storages
         }
@@ -285,7 +285,7 @@ public class AndroidFileManager {
             
             if( AndroidEnvironment.isExternalStorageRemovable(path: storage) || secondaryStoragePath.contains(path)){
                 
-                storages.append(Item(type: ItemType.Storage, path: path, name: "SD Card"))
+                storages.append(Item(type: ItemType.storage, path: path, name: "SD Card"))
                 NSLog("SD Card: \(path)")
             }
         }
@@ -295,7 +295,7 @@ public class AndroidFileManager {
     
     private func getItemsFromPath(path: String) -> [Item] {
         
-        let selectedFile = JavaFile.init(pathname: path)
+        let selectedFile = JavaFile(pathname: path)
         
         let children = selectedFile.listFiles()
         
@@ -309,13 +309,13 @@ public class AndroidFileManager {
         
         files.forEach { file in
             
-            let type = file.isDirectory() ? ItemType.Folder : ItemType.File
-            itemChildren.append(Item.init(type: type, path: file.getPath(), name: file.getName()))
+            let type = file.isDirectory() ? ItemType.folder : ItemType.file
+            itemChildren.append(Item(type: type, path: file.getPath(), name: file.getName()))
         }
         
         itemChildren.sort { (lhs, rhs) in
             
-            return rhs.type != ItemType.Folder
+            return rhs.type != ItemType.folder
         }
         
         return itemChildren
@@ -323,9 +323,9 @@ public class AndroidFileManager {
 }
 
 fileprivate enum ItemType: Int {
-    case Storage
-    case Folder
-    case File
+    case storage
+    case folder
+    case file
 }
 
 fileprivate class Navigation {
@@ -464,7 +464,7 @@ fileprivate class ItemAdapter: Android.Widget.RecyclerView.Adapter {
             self.lastCheckedPosition = position
         }
         
-        if item.type == ItemType.File {
+        if item.type == ItemType.file {
             
             itemViewHolder.tvItemName?.setOnClickListener(nil)
             return
@@ -522,15 +522,15 @@ fileprivate class ItemAdapter: Android.Widget.RecyclerView.Adapter {
             var _imageId: Int? = 0
             
             switch item.type {
-            case .Storage:
+            case .storage:
                 
                 self.cbSelect?.setVisibility(visibility: AndroidView.AndroidViewVisibility.gone.rawValue)
                 _imageId = activity?.getIdentifier(name: "ic_sd_storage", type: "drawable")
-            case .Folder:
+            case .folder:
                 
                 self.cbSelect?.setVisibility(visibility: AndroidView.AndroidViewVisibility.gone.rawValue)
                 _imageId = activity?.getIdentifier(name: "ic_folder", type: "drawable")
-            case .File:
+            case .file:
                 
                 let fileExtension = item.path.split(separator: ".")[1]
                 

@@ -268,6 +268,21 @@ public extension JavaFile {
                                                    locals: &__locals)
         return __return != jboolean(JNI_FALSE)
     }
+    
+    public func length() -> Int64 {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallLongMethod(object: javaObject,
+                                                methodName: "length",
+                                                methodSig: "()J",
+                                                methodCache: &JNICache.MethodID.length,
+                                                args: &__args,
+                                                locals: &__locals)
+        return Int64(__return)
+    }
 }
 
 // MARK: - JNICache
@@ -308,6 +323,7 @@ internal extension JavaFile {
             static var delete: jmethodID?
             static var exists: jmethodID?
             static var createNewFile: jmethodID?
+            static var length: jmethodID?
         }
     }
 }
