@@ -2,15 +2,6 @@
   "object": {
     "pins": [
       {
-        "package": "Bluetooth",
-        "repositoryURL": "https://github.com/PureSwift/Bluetooth.git",
-        "state": {
-          "branch": "master",
-          "revision": "ba4562a36d920ade281db5c74f76828cfa91864a",
-          "version": null
-        }
-      },
-      {
         "package": "CJavaVM",
         "repositoryURL": "https://github.com/SwiftJava/CJavaVM.git",
         "state": {

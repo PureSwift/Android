@@ -82,11 +82,23 @@ open class AndroidCompoundButton: AndroidButton {
                                                    locals: &__locals)
         return __return != jboolean(JNI_FALSE)
     }
-}
-
-public extension Android.Widget.CompoundButton {
     
-    public func setChecked(_ checked: Bool) {
+    open func toggle(_ checked: Bool) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "toggle",
+            methodSig: "()V",
+            methodCache: &JNICacheCompoundButton.MethodID.toggle,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    open func setChecked(_ checked: Bool) {
         
         var __locals = [jobject]()
         
@@ -101,21 +113,9 @@ public extension Android.Widget.CompoundButton {
             args: &__args,
             locals: &__locals )
     }
-    
-    public func toggle(_ checked: Bool) {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        JNIMethod.CallVoidMethod(
-            object: javaObject,
-            methodName: "toggle",
-            methodSig: "()V",
-            methodCache: &JNICacheCompoundButton.MethodID.toggle,
-            args: &__args,
-            locals: &__locals )
-    }
+}
+
+public extension Android.Widget.CompoundButton {
     
     public func isChecked() -> Bool {
         
