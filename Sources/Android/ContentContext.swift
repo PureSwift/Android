@@ -65,6 +65,24 @@ open class AndroidContext: JavaObject {
                                  args: &__args,
                                  locals: &__locals)
     }
+    
+    open func getFilesDir() -> JavaFile {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "getFilesDir",
+                                                  methodSig: "()L\(JavaFile.JNICache.className);",
+                                                  methodCache: &JNICache.MethodID.getFilesDir,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return JavaFile(javaObject: __return)
+    }
 }
 
 // MARK: - Constants
@@ -198,6 +216,7 @@ internal extension AndroidContext {
             static var unregisterReceiver: jmethodID?
             static var setTheme: jmethodID?
             static var getExternalFilesDirs: jmethodID?
+            static var getFilesDir: jmethodID?
         }
     }
 }
