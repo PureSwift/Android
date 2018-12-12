@@ -289,7 +289,7 @@ public extension AndroidProgressDialog {
         
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        __args[0] = JNIType.toJava(value: max, locals: &__locals)
+        __args[0] = jvalue(i: jint(max))
         
         JNIMethod.CallVoidMethod(
             object: javaObject,
@@ -305,7 +305,7 @@ public extension AndroidProgressDialog {
         
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        __args[0] = JNIType.toJava(value: value, locals: &__locals)
+        __args[0] = jvalue(i: jint(value))
         
         JNIMethod.CallVoidMethod(
             object: javaObject,
@@ -321,7 +321,7 @@ public extension AndroidProgressDialog {
         
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        __args[0] = JNIType.toJava(value: style, locals: &__locals)
+        __args[0] = jvalue(i: jint(style))
         
         JNIMethod.CallVoidMethod(
             object: javaObject,
@@ -336,7 +336,7 @@ public extension AndroidProgressDialog {
         
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        __args[0] = JNIType.toJava(value: secondaryProgress, locals: &__locals)
+        __args[0] = jvalue(i: jint(secondaryProgress))
         
         JNIMethod.CallVoidMethod(
             object: javaObject,
@@ -348,6 +348,7 @@ public extension AndroidProgressDialog {
     }
     
     /// Creates and shows a ProgressDialog.
+    @discardableResult
     public static func show(context: AndroidContext, title: String, message: String) -> AndroidProgressDialog {
         
         var __locals = [jobject]()
@@ -370,6 +371,7 @@ public extension AndroidProgressDialog {
     }
     
     /// Creates and shows a ProgressDialog.
+    @discardableResult
     public static func show(context: AndroidContext, title: String, message: String, indeterminate: Bool, cancelable: Bool, cancelListener: JavaObject) -> AndroidProgressDialog {
         
         var __locals = [jobject]()
@@ -395,6 +397,7 @@ public extension AndroidProgressDialog {
     }
     
     /// Creates and shows a ProgressDialog.
+    @discardableResult
     public static func show(context: AndroidContext, title: String, message: String, indeterminate: Bool, cancelable: Bool) -> AndroidProgressDialog {
         
         var __locals = [jobject]()
@@ -419,6 +422,7 @@ public extension AndroidProgressDialog {
     }
     
     /// Creates and shows a ProgressDialog.
+    @discardableResult
     public static func show(context: AndroidContext, title: String, message: String, indeterminate: Bool) -> AndroidProgressDialog {
         
         var __locals = [jobject]()

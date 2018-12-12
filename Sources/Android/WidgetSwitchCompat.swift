@@ -15,7 +15,8 @@ public extension Android.Widget {
     public typealias SwitchCompat = AndroidSwitchCompat
 }
 
-/*
+/* https://developer.android.com/reference/android/support/v7/widget/SwitchCompat
+ *
  * SwitchCompat is a version of the Switch widget which on devices back to API v7.
  * It does not make any attempt to use the platform provided widget on those devices which it is available normally.
  */
@@ -194,6 +195,38 @@ public extension AndroidSwitchCompat {
         
         return String(javaObject: __return)
     }
+    
+    public func setTextOff(_ textOff: String) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava(value: textOff, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setTextOff",
+            methodSig: "(Ljava/lang/CharSequence;)V",
+            methodCache: &JNICacheSwitchCompat.MethodID.setTextOff,
+            args: &__args,
+            locals: &__locals )
+    }
+    
+    public func setTextOn(_ textOn: String) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava(value: textOn, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setTextOn",
+            methodSig: "(Ljava/lang/CharSequence;)V",
+            methodCache: &JNICacheSwitchCompat.MethodID.setTextOn,
+            args: &__args,
+            locals: &__locals )
+    }
 }
 
 internal extension AndroidSwitchCompat {
@@ -221,7 +254,8 @@ internal extension AndroidSwitchCompat {
             static var getShowText: jmethodID?
             static var getTextOff: jmethodID?
             static var getTextOn: jmethodID?
+            static var setTextOff: jmethodID?
+            static var setTextOn: jmethodID?
         }
     }
 }
-
