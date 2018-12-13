@@ -407,7 +407,7 @@ open class SwiftSupportAppCompatActivity: AndroidContextWrapper {
         return __return != nil ? Android.View.View(javaObject: __return) : nil
     }
     
-    public func getDensity() -> Float {
+    internal func getDensity() -> Float {
         
         var __locals = [jobject]()
         
@@ -422,6 +422,11 @@ open class SwiftSupportAppCompatActivity: AndroidContextWrapper {
             locals: &__locals )
         
         return __return
+    }
+    
+    public var density: Float {
+        
+        return getDensity()
     }
     
     public func addContentView(_ view: Android.View.View, params: JavaObject) {
@@ -464,10 +469,10 @@ open class SwiftSupportAppCompatActivity: AndroidContextWrapper {
         
         let runnable = SwiftRunnable(block: block)
         
-        runOnMainThread(runnable: runnable)
+        runOnMainThread(runnable)
     }
     
-    internal func runOnMainThread(runnable: SwiftRunnable) {
+    internal func runOnMainThread(_ runnable: SwiftRunnable) {
         
         var __locals = [jobject]()
         

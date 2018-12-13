@@ -25,6 +25,12 @@ public extension Android.Widget.RecyclerView {
  */
 open class AndroidWidgetRecyclerViewViewHolder: JavaObject {
     
+    public convenience init(itemView: Android.View.View) {
+        
+        self.init(javaObject: nil)
+        self.bindNewJavaObject(itemView: itemView)
+    }
+    
     public required init(javaObject: jobject?) {
         super.init(javaObject: javaObject)
     }
@@ -282,7 +288,5 @@ public func AndroidWidgetRecyclerViewViewHolder_finalize( _ __env: UnsafeMutable
                                                         _ __swiftObject: jlong) -> () {
     
     AndroidWidgetRecyclerViewViewHolder.release(swiftObject: __swiftObject )
-    
-    NSLog("native \(#function)")
 }
 

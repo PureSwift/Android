@@ -169,6 +169,7 @@ public extension AndroidMenuItemForward {
         return __return != nil ? String(javaObject: __return) : nil
     }
     
+    @discardableResult
     public func setIcon(resId: Int) -> AndroidMenuItemForward {
         
         var __locals = [jobject]()
