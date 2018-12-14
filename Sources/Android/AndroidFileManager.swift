@@ -20,6 +20,7 @@ public class AndroidFileManager {
     private var context: SwiftSupportAppCompatActivity!
     private var dialog: AndroidDialog!
     private var adapter: ItemAdapter!
+    private var mode: AndroidFileManager.Mode!
     
     private var view: AndroidView!
     private var tvCurrentFolder: Android.Widget.TextView!
@@ -32,11 +33,14 @@ public class AndroidFileManager {
     private var selectedFile: Item?
     private var currentFolder = ""
     private var navigation = [Navigation]()
+    
     public var delegate: AndroidFileManagerDelegate?
     public var listener: ( (String) ->() )?
+    public var isMultipleSelection = false
     
-    public init(context: SwiftSupportAppCompatActivity) {
+    public init(context: SwiftSupportAppCompatActivity, mode: AndroidFileManager.Mode = AndroidFileManager.Mode.import) {
         self.context = context
+        self.mode = mode
         
         let viewId = context.getIdentifier(name: "file_manager_layout", type: "layout")
         
@@ -235,8 +239,15 @@ public class AndroidFileManager {
             self.adapter.addItems(items: itemChildren)
             
             self.ivBack?.setVisibility(visibility: AndroidView.AndroidViewVisibility.visible.rawValue)
-            self.ivAddFolder?.setVisibility(visibility: AndroidView.AndroidViewVisibility.visible.rawValue)
+            
+            if self.mode == Mode.export {
+                self.ivAddFolder?.setVisibility(visibility: AndroidView.AndroidViewVisibility.visible.rawValue)
+            }
         }
+    }
+    public func dismiss() {
+        
+        dialog.dismiss()
     }
     
     public func show(){
@@ -319,6 +330,12 @@ public class AndroidFileManager {
         }
         
         return itemChildren
+    }
+    
+    public enum Mode: Int {
+        
+        case `import` = 0
+        case export = 1
     }
 }
 
