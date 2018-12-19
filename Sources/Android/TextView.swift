@@ -1182,6 +1182,24 @@ open class AndroidTextView: AndroidView {
             args: &__args,
             locals: &__locals )
     }
+    
+    /// Adds a TextWatcher to the list of those whose methods are called whenever this TextView's text changes.
+    public func addTextChangedListener(_ watcher: AndroidTextWatcher)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: watcher, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "addTextChangedListener",
+            methodSig: "(Landroid/text/TextWatcher;)V",
+            methodCache: &JNICacheTextView.MethodID.addTextChangedListener,
+            args: &__args,
+            locals: &__locals )
+    }
 }
 
 // MARK: - Private
@@ -1266,6 +1284,7 @@ internal extension Android.Widget.TextView {
             static var getLineCount: jmethodID?
             static var getShadowColor: jmethodID?
             static var setEllipsize: jmethodID?
+            static var addTextChangedListener: jmethodID?
         }
     }
 }

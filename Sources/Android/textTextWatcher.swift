@@ -92,7 +92,7 @@ fileprivate extension AndroidTextWatcher {
     /// JNI Cache
     struct JNICache {
         
-        static let classSignature = SwiftSupport.Widget.className(["SwiftTextWatcher"])
+        static let classSignature = SwiftSupport.Text.className(["SwiftTextWatcher"])
         
         /// JNI Java class name
         static let className = classSignature.rawValue
@@ -157,8 +157,13 @@ public func AndroidTextWatcher_onTextChanged( _ __env: UnsafeMutablePointer<JNIE
                                               _ __start: jint,
                                               _ __before: jint,
                                               _ __count: jint) -> () {
+    var s : String? = nil
     
-    let s : String? = __s != nil ? String(javaObject: __s) : nil
+    if __s != nil {
+        
+        let charSeq = CharSequenceForward(javaObject: __s)
+        s = charSeq.toString()
+    }
     
     AndroidTextWatcher
         .swiftObject(from: __swiftObject)?
@@ -174,8 +179,13 @@ public func AndroidTextWatcher_beforeTextChanged( _ __env: UnsafeMutablePointer<
                                                   _ __start: jint,
                                                   _ __count: jint,
                                                   _ __after: jint) -> () {
+    var s : String? = nil
     
-    let s : String? = __s != nil ? String(javaObject: __s) : nil
+    if __s != nil {
+        
+        let charSeq = CharSequenceForward(javaObject: __s)
+        s = charSeq.toString()
+    }
     
     AndroidTextWatcher
         .swiftObject(from: __swiftObject)?
@@ -188,7 +198,6 @@ public func AndroidTextWatcher_afterTextChanged( _ __env: UnsafeMutablePointer<J
                                                  _ __this: jobject?,
                                                  _ __swiftObject: jlong,
                                                  _ __s: jobject) -> () {
-    
     let s = AndroidEditableForward(javaObject: __s)
     
     AndroidTextWatcher

@@ -172,6 +172,10 @@ public enum SwiftSupport: JavaPackage {
         
         public static let package: JNIPackage = SwiftSupport.package + ["view"]
     }
+    public enum Text: JavaPackage {
+        
+        public static let package: JNIPackage = SwiftSupport.package + ["text"]
+    }
 }
 
 public protocol JavaPackage {
