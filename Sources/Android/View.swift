@@ -4963,7 +4963,7 @@ public extension Android.View.View {
     /**
      * Returns the visibility status for this view.
      */
-    public func getVisibility() -> Int {
+    private func getVisibility() -> Int {
         
         var __locals = [jobject]()
         
@@ -4978,6 +4978,13 @@ public extension Android.View.View {
             locals: &__locals )
         
         return Int(__return)
+    }
+    
+    public var visibility: Android.View.View.Visibility {
+        
+        get { return Android.View.View.Visibility(rawValue: getVisibility()) }
+        
+        set { setVisibility(newValue.rawValue) }
     }
     
     /**
@@ -5023,7 +5030,7 @@ public extension Android.View.View {
     /**
      * Returns the current visibility of the window this view is attached to (either GONE, INVISIBLE, or VISIBLE).
      */
-    public func getWindowVisibility() -> Int {
+    private func getWindowVisibility() -> Int {
         
         var __locals = [jobject]()
         
@@ -5038,6 +5045,11 @@ public extension Android.View.View {
             locals: &__locals )
         
         return Int(__return)
+    }
+    
+    public var windowVisibility: Android.View.View.Visibility {
+        
+        return Android.View.View.Visibility(rawValue: getWindowVisibility())
     }
     
     /**
@@ -8693,8 +8705,7 @@ public extension Android.View.View {
         
     }
     
-    
-    public func setVisibility(visibility: Int)  {
+    private func setVisibility(_ visibility: Int)  {
         
         var __locals = [jobject]()
         
@@ -8709,8 +8720,6 @@ public extension Android.View.View {
             methodCache: &JNICache.MethodID.setVisibility,
             args: &__args,
             locals: &__locals )
-        
-        
     }
     
     
@@ -10105,7 +10114,7 @@ public extension Android.View.View {
 internal extension Android.View.View {
     
     /// JNI Cache
-    struct JNICache {
+    enum JNICache {
         
         /// JNI Java class signature
         static let classSignature = Android.View.className(["View"])
@@ -10116,7 +10125,7 @@ internal extension Android.View.View {
         /// JNI Java class
         static var jniClass: jclass?
         
-        struct FieldID {
+        enum FieldID {
             static var ACCESSIBILITY_LIVE_REGION_ASSERTIVE: jfieldID?
             static var ACCESSIBILITY_LIVE_REGION_NONE: jfieldID?
             static var ACCESSIBILITY_LIVE_REGION_POLITE: jfieldID?
@@ -10239,7 +10248,7 @@ internal extension Android.View.View {
         }
         
         /// JNI Method ID cache
-        struct MethodID {
+        enum MethodID {
             static var init_method_1: jmethodID?
             
             static var getBackground: jmethodID?
@@ -10654,19 +10663,24 @@ internal extension Android.View.View {
 
 public extension Android.View.View {
     
-    public struct AndroidViewVisibility: RawRepresentable, Equatable {
+    /// Android View Visibility
+    public struct Visibility: RawRepresentable, Equatable, Hashable {
         
         public let rawValue: Int
         
         public init(rawValue: Int) {
+            
             self.rawValue = rawValue
         }
-        
-        public static let visible = Android.View.View.AndroidViewVisibility(rawValue: Android.View.View.VISIBLE)
-        
-        public static let invisible = Android.View.View.AndroidViewVisibility(rawValue: Android.View.View.INVISIBLE)
-        
-        public static let gone = Android.View.View.AndroidViewVisibility(rawValue: Android.View.View.GONE)
     }
+}
+
+public extension Android.View.View.Visibility {
+    
+    public static let visible = Android.View.View.Visibility(rawValue: Android.View.View.VISIBLE)
+    
+    public static let invisible = Android.View.View.Visibility(rawValue: Android.View.View.INVISIBLE)
+    
+    public static let gone = Android.View.View.Visibility(rawValue: Android.View.View.GONE)
 }
 
