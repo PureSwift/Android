@@ -379,6 +379,23 @@ public extension AndroidToolbar {
         
         return Android.View.MenuForward(javaObject: __return)
     }
+    
+    public func setTitleTextColor(color: Int64)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(color))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setTitleTextColor",
+            methodSig: "(I)V",
+            methodCache: &ToolbarJNICache.MethodID.setTitleTextColor,
+            args: &__args,
+            locals: &__locals )
+    }
 }
 
 internal extension AndroidToolbar {
@@ -414,8 +431,7 @@ internal extension AndroidToolbar {
             static var getLogo: jmethodID?
             static var getMenu: jmethodID?
             static var setOnMenuItemClickListener: jmethodID?
+            static var setTitleTextColor: jmethodID?
         }
     }
 }
-
-
