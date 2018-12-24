@@ -116,6 +116,28 @@ open class AndroidSwipeRefreshLayout: AndroidViewGroup {
             locals: &__locals )
     }
     
+    public func setColorSchemeResources(colors: Int...) {
+        
+        var colorsInt = [Int]()
+        
+        colors.forEach { color in
+            colorsInt.append(Int(exactly: color) ?? 0)
+        }
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava(value: colorsInt, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setColorSchemeResources",
+            methodSig: "([I)V",
+            methodCache: &SwipeRefreshLayoutJNICache.MethodID.setColorSchemeResources,
+            args: &__args,
+            locals: &__locals )
+    }
+    
     public func setOnRefreshListener(_ block: @escaping () -> ()) {
         
         let onClickListener = AndroidSwipeRefreshLayoutOnRefreshListener(block: block)
@@ -141,8 +163,8 @@ open class AndroidSwipeRefreshLayout: AndroidViewGroup {
 }
 
 internal extension AndroidSwipeRefreshLayout {
-        
-        /// JNI Cache
+    
+    /// JNI Cache
     struct SwipeRefreshLayoutJNICache {
         
         static let classSignature = SupportV4.Widget.className(["SwipeRefreshLayout"])
@@ -159,6 +181,7 @@ internal extension AndroidSwipeRefreshLayout {
             static var init_method_1: jmethodID?
             static var isRefreshing: jmethodID?
             static var setColorSchemeColors: jmethodID?
+            static var setColorSchemeResources: jmethodID?
             static var setRefreshing: jmethodID?
             static var setOnRefreshListener: jmethodID?
         }
