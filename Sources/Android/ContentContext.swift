@@ -75,9 +75,9 @@ open class AndroidContext: JavaObject {
         let __return = JNIMethod.CallObjectMethod(object: javaObject,
                                                   methodName: "getFilesDir",
                                                   methodSig: "()L\(JavaFile.JNICache.className);",
-                                                  methodCache: &JNICache.MethodID.getFilesDir,
-                                                  args: &__args,
-                                                  locals: &__locals)
+            methodCache: &JNICache.MethodID.getFilesDir,
+            args: &__args,
+            locals: &__locals)
         
         defer { JNI.DeleteLocalRef( __return ) }
         
@@ -184,6 +184,24 @@ public extension AndroidContext {
         
         return JNIType.toSwift( type: [JavaFile].self, from: __return )
     }
+    
+    public func getPackageName() -> String {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 1)
+        
+        let __return = JNIMethod.CallObjectMethod(object: javaObject,
+                                                  methodName: "getPackageName",
+                                                  methodSig: "()Ljava/lang/String;",
+                                                  methodCache: &JNICache.MethodID.getPackageName,
+                                                  args: &__args,
+                                                  locals: &__locals)
+        
+        defer { JNI.DeleteLocalRef(__return) }
+        
+        return String(javaObject: __return)
+    }
 }
 
 // MARK: - JNICache
@@ -217,7 +235,7 @@ internal extension AndroidContext {
             static var setTheme: jmethodID?
             static var getExternalFilesDirs: jmethodID?
             static var getFilesDir: jmethodID?
+            static var getPackageName: jmethodID?
         }
     }
 }
-
