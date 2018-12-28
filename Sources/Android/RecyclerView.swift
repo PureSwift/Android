@@ -133,6 +133,37 @@ public extension AndroidWidgetRecyclerView {
                                  args: &__args,
                                  locals: &__locals)
     }
+    
+    public func addItemDecoration(_ decor: Android.Widget.RecyclerView.ItemDecoration) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava(value: decor, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(object: javaObject,
+                                 methodName: "addItemDecoration",
+                                 methodSig: "(Landroid/support/v7/widget/RecyclerView$ItemDecoration;)V",
+                                 methodCache: &RecyclerViewJNICache.MethodID.addItemDecoration1,
+                                 args: &__args,
+                                 locals: &__locals)
+    }
+    
+    public func addItemDecoration(_ decor: Android.Widget.RecyclerView.ItemDecoration, index: Int) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = JNIType.toJava(value: decor, locals: &__locals)
+        __args[1] = jvalue(i: jint(index))
+        
+        JNIMethod.CallVoidMethod(object: javaObject,
+                                 methodName: "addItemDecoration",
+                                 methodSig: "(Landroid/support/v7/widget/RecyclerView$ItemDecoration;I)V",
+                                 methodCache: &RecyclerViewJNICache.MethodID.addItemDecoration2,
+                                 args: &__args,
+                                 locals: &__locals)
+    }
 }
 
 internal extension AndroidWidgetRecyclerView {
@@ -157,7 +188,8 @@ internal extension AndroidWidgetRecyclerView {
             static var getLayoutManager: jmethodID?
             static var setLayoutManager: jmethodID?
             static var setItemAnimator: jmethodID?
-            static var addItemDecoration: jmethodID?
+            static var addItemDecoration1: jmethodID?
+            static var addItemDecoration2: jmethodID?
             static var setHasFixedSize: jmethodID?
             static var setNestedScrollingEnabled: jmethodID?
             static var setOnFlingListener: jmethodID?
