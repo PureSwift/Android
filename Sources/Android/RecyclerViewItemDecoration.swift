@@ -14,9 +14,8 @@ public extension AndroidWidgetRecyclerView {
     public typealias ItemDecoration = AndroidRecyclerViewItemDecoration
 }
 
-/**
- * A flexible view for providing a limited window into a large data set.
- *
+/* An ItemDecoration allows the application to add a special drawing and layout offset to specific item views from the adapter's data set.
+ * This can be useful for drawing dividers between items, highlights, visual grouping boundaries and more.
  */
 open class AndroidRecyclerViewItemDecoration: JavaObject {
     

@@ -15,8 +15,7 @@ public extension Android.Widget {
 }
 
 /**
- * A flexible view for providing a limited window into a large data set.
- *
+ * DividerItemDecoration is a RecyclerView.ItemDecoration that can be used as a divider between items of a LinearLayoutManager. It supports both HORIZONTAL and VERTICAL orientations.
  */
 open class AndroidDividerItemDecoration: AndroidRecyclerViewItemDecoration {
     
@@ -35,7 +34,9 @@ open class AndroidDividerItemDecoration: AndroidRecyclerViewItemDecoration {
         
         var __locals = [jobject]()
         
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = JNIType.toJava(value: context, locals: &__locals)
+        __args[1] = jvalue(i: jint(orientation))
         
         let __object = JNIMethod.NewObject(
             className: JNICacheDividerItemDecoration.className,
@@ -106,4 +107,3 @@ internal extension AndroidDividerItemDecoration {
         }
     }
 }
-
