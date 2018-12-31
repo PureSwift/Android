@@ -164,6 +164,21 @@ public extension AndroidWidgetRecyclerView {
                                  args: &__args,
                                  locals: &__locals)
     }
+    
+    public func removeItemDecoration(_ decor: Android.Widget.RecyclerView.ItemDecoration) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1)
+        __args[0] = JNIType.toJava(value: decor, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(object: javaObject,
+                                 methodName: "removeItemDecoration",
+                                 methodSig: "(Landroid/support/v7/widget/RecyclerView$ItemDecoration;)V",
+                                 methodCache: &RecyclerViewJNICache.MethodID.removeItemDecoration,
+                                 args: &__args,
+                                 locals: &__locals)
+    }
 }
 
 internal extension AndroidWidgetRecyclerView {
@@ -193,6 +208,7 @@ internal extension AndroidWidgetRecyclerView {
             static var setHasFixedSize: jmethodID?
             static var setNestedScrollingEnabled: jmethodID?
             static var setOnFlingListener: jmethodID?
+            static var removeItemDecoration: jmethodID?
         }
     }
 }
