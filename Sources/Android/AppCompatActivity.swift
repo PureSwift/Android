@@ -130,6 +130,15 @@ open class SwiftSupportAppCompatActivity: AndroidContextWrapper {
         NSLog("\(type(of: self)) \(#function)")
     }
     
+    /* Called when the activity has detected the user's press of the back key.
+     * The default implementation simply finishes the current activity,
+     * but you can override this to do whatever you want.
+     */
+    open func onBackPressed() {
+        
+        NSLog("\(type(of: self)) \(#function)")
+    }
+    
     // MARK: - Responder
     
     public func startActivity(intent: Android.Content.Intent){
@@ -759,6 +768,16 @@ public func SwiftSupportAppCompatActivity_onDestroy( _ __env: UnsafeMutablePoint
     activity?.onDestroy()
 }
 
+@_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_onBackPressed")
+public func SwiftSupportAppCompatActivity_onBackPressed( _ __env: UnsafeMutablePointer<JNIEnv?>,
+                                                         _ __this: jobject?,
+                                                         _ __swiftObject: jlong) -> () {
+    
+    let activity = SwiftSupportAppCompatActivity.swiftObject(from: __swiftObject)
+    
+    activity?.onBackPressed()
+}
+
 @_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftAppCompatActivity_onActivityResultNative")
 public func SwiftSupportAppCompatActivity_onActivityResultNative( _ __env: UnsafeMutablePointer<JNIEnv?>,
                                                                   _ __this: jobject?,
@@ -806,4 +825,3 @@ public func SwiftSupportAppCompatActivity_finalize( _ __env: UnsafeMutablePointe
     
     NSLog("native \(#function)")
 }
-
