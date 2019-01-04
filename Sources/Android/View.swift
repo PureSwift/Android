@@ -163,6 +163,25 @@ open class AndroidView: JavaObject {
         
     }
     
+    open func onWindowFocusChanged(hasWindowFocus: Bool)  {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(hasWindowFocus ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "onWindowFocusChanged",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.onWindowFocusChanged,
+            args: &__args,
+            locals: &__locals )
+        
+        
+    }
+    
     open func dispatchPointerCaptureChanged(hasCapture: Bool)  {
         
         var __locals = [jobject]()
@@ -6359,27 +6378,6 @@ public extension Android.View.View {
         
         
     }
-    
-    
-    public func onWindowFocusChanged(hasWindowFocus: Bool)  {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        
-        __args[0] = jvalue(z: jboolean(hasWindowFocus ? JNI_TRUE : JNI_FALSE))
-        
-        JNIMethod.CallVoidMethod(
-            object: javaObject,
-            methodName: "onWindowFocusChanged",
-            methodSig: "(Z)V",
-            methodCache: &JNICache.MethodID.onWindowFocusChanged,
-            args: &__args,
-            locals: &__locals )
-        
-        
-    }
-    
     
     public func onWindowSystemUiVisibilityChanged(visible: Int)  {
         

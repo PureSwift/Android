@@ -62,9 +62,125 @@ open class AndroidMenuItemForward: JavaObject {
         @inline(__always)
         get { return getOrder() }
     }
+    
+    public var isCollapseActionView: Bool {
+        
+        get { return collapseActionView() }
+    }
+    
+    public var isExpandActionView: Bool {
+        
+        get { return expandActionView() }
+    }
+    
+    public var actionView: AndroidView? {
+        
+        get { return getActionView() }
+        
+        set { setActionView(newValue) }
+    }
 }
 
 public extension AndroidMenuItemForward {
+    
+    @inline(__always)
+    internal func collapseActionView() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "collapseActionView",
+            methodSig: "()Z",
+            methodCache: &MenuItemJNICache.MethodID.collapseActionView,
+            args: &__args,
+            locals: &__locals )
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    @inline(__always)
+    internal func expandActionView() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "expandActionView",
+            methodSig: "()Z",
+            methodCache: &MenuItemJNICache.MethodID.expandActionView,
+            args: &__args,
+            locals: &__locals )
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
+    @inline(__always)
+    internal func getActionView() -> AndroidView? {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallObjectMethod(
+            object: javaObject,
+            methodName: "getActionView",
+            methodSig: "()L\(AndroidView.JNICache.className);",
+            methodCache: &MenuItemJNICache.MethodID.getActionView,
+            args: &__args,
+            locals: &__locals )
+        
+        defer { JNI.DeleteLocalRef(__return) }
+        
+        return __return != nil ? AndroidView(javaObject: __return) : nil
+    }
+    
+    public func setActionView(resId: Int) -> AndroidMenuItemForward {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(i: jint(resId))
+        
+        let __return = JNIMethod.CallObjectMethod(
+            object: javaObject,
+            methodName: "setActionView",
+            methodSig: "(I)Landroid/view/MenuItem;",
+            methodCache: &MenuItemJNICache.MethodID.setActionView1,
+            args: &__args,
+            locals: &__locals )
+        
+        defer { JNI.DeleteLocalRef(__return) }
+        
+        return AndroidMenuItemForward(javaObject: __return)
+    }
+    
+    @inline(__always)
+    internal func setActionView(_ view: AndroidView?) -> AndroidMenuItemForward {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: view, locals: &__locals)
+        
+        let __return = JNIMethod.CallObjectMethod(
+            object: javaObject,
+            methodName: "setActionView",
+            methodSig: "(L\(AndroidView.JNICache.className);)Landroid/view/MenuItem;",
+            methodCache: &MenuItemJNICache.MethodID.setActionView2,
+            args: &__args,
+            locals: &__locals )
+        
+        defer { JNI.DeleteLocalRef(__return) }
+        
+        return AndroidMenuItemForward(javaObject: __return)
+    }
     
     public func setTitle(resId: Int) -> AndroidMenuItemForward {
         
@@ -416,6 +532,11 @@ internal extension AndroidMenuItemForward {
             static var setTitleCondensed: jmethodID?
             static var getTitleCondensed: jmethodID?
             static var setShowAsAction: jmethodID?
+            static var setActionView1: jmethodID?
+            static var setActionView2: jmethodID?
+            static var getActionView: jmethodID?
+            static var collapseActionView: jmethodID?
+            static var expandActionView: jmethodID?
         }
     }
 }
