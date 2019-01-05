@@ -77,6 +77,23 @@ open class AndroidSearchView: Android.Widget.LinearLayoutCompat {
                                  args: &__args,
                                  locals: &__locals)
     }
+    
+    open override func requestFocus(direction: Int, previouslyFocusedRect: JavaObject) -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue](repeating: jvalue(), count: 2)
+        __args[0] = jvalue(i: jint(direction))
+        __args[1] = JNIType.toJava(value: previouslyFocusedRect, locals: &__locals)
+        
+        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
+                                                   methodName: "requestFocus",
+                                                   methodSig: "(ILandroid/graphics/Rect;)Z",
+                                                   methodCache: &JNICacheSearchView.MethodID.requestFocus,
+                                                   args: &__args,
+                                                   locals: &__locals)
+        return __return != JNI_FALSE
+    }
 }
 
 public extension AndroidSearchView {
@@ -129,7 +146,14 @@ public extension AndroidSearchView {
         return Int(__return)
     }
     
-    public func setOnCloseListener(_ listener: AndroidSearchView.OnCloseListener) {
+    public func setOnCloseListener(_ block: @escaping () -> (Bool)) {
+        
+        let onClickListener = AndroidSearchView.OnCloseListener(block: block)
+        
+        setOnCloseListener(onClickListener)
+    }
+    
+    public func setOnCloseListener(_ listener: AndroidSearchView.OnCloseListener?) {
         
         var __locals = [jobject]()
         
@@ -343,24 +367,7 @@ public extension AndroidSearchView {
                                  locals: &__locals)
     }
     
-    public func requestFocu(direction: Int, previouslyFocusedRect: JavaObject) -> Bool {
-        
-        var __locals = [jobject]()
-        
-        var __args = [jvalue](repeating: jvalue(), count: 2)
-        __args[0] = jvalue(i: jint(direction))
-        __args[1] = JNIType.toJava(value: previouslyFocusedRect, locals: &__locals)
-        
-        let __return = JNIMethod.CallBooleanMethod(object: javaObject,
-                                                   methodName: "requestFocus",
-                                                   methodSig: "(ILandroid/graphics/Rect;)Z",
-                                                   methodCache: &JNICacheSearchView.MethodID.requestFocus,
-                                                   args: &__args,
-                                                   locals: &__locals)
-        return __return != JNI_FALSE
-    }
-    
-    public func setIconified(iconify: Bool) {
+    public func setIconified(_ iconify: Bool) {
         
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
@@ -396,11 +403,11 @@ public extension AndroidSearchView {
         __args[0] = jvalue(i: jint(imeOptions))
         
         JNIMethod.CallVoidMethod(object: javaObject,
-                               methodName: "setImeOptions",
-                               methodSig: "(I)V",
-                               methodCache: &JNICacheSearchView.MethodID.setImeOptions,
-                               args: &__args,
-                               locals: &__locals)
+                                 methodName: "setImeOptions",
+                                 methodSig: "(I)V",
+                                 methodCache: &JNICacheSearchView.MethodID.setImeOptions,
+                                 args: &__args,
+                                 locals: &__locals)
     }
     
     public func setInputType(inputType: Int) {

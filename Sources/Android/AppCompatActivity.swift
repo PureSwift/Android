@@ -130,6 +130,16 @@ open class SwiftSupportAppCompatActivity: AndroidContextWrapper {
         NSLog("\(type(of: self)) \(#function)")
     }
     
+    public func toast(_ message: String){
+        
+        AndroidToast.makeText(context: self, text: message, duration: AndroidToast.Dutation.short).show()
+    }
+    
+    public func longToast(_ message: String){
+        
+        AndroidToast.makeText(context: self, text: message, duration: AndroidToast.Dutation.long).show()
+    }
+    
     /* Called when the activity has detected the user's press of the back key.
      * The default implementation simply finishes the current activity,
      * but you can override this to do whatever you want.

@@ -69,7 +69,7 @@ open class AndroidSearchViewOnQueryTextListener: JavaObject {
      *
      * @return false if the SearchView should perform the default action of showing any suggestions if available, true if the action was handled by the listener.
      */
-    fileprivate func onQueryTextChange(newText: String?) -> Bool {
+    open func onQueryTextChange(newText: String?) -> Bool {
         
         return false;
     }
@@ -80,9 +80,9 @@ open class AndroidSearchViewOnQueryTextListener: JavaObject {
      *
      * @return true if the query has been handled by the listener, false to let the SearchView perform the default action.
      */
-    fileprivate func onQueryTextSubmit(query: String?) -> Bool {
+    open func onQueryTextSubmit(query: String?) -> Bool {
         
-        return true;
+        return false;
     }
 }
 
@@ -164,9 +164,9 @@ public func AndroidSearchViewOnQueryTextListener_onQueryTextSubmit( _ __env: Uns
 private typealias AndroidSearchViewOnQueryTextListener_onQueryTextChange_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject?) -> (jboolean)
 
 public func AndroidSearchViewOnQueryTextListener_onQueryTextChange( _ __env: UnsafeMutablePointer<JNIEnv?>,
-                                                       _ __this: jobject?,
-                                                       _ __swiftObject: jlong,
-                                                       _ __newText: jobject?) -> (jboolean) {
+                                                                    _ __this: jobject?,
+                                                                    _ __swiftObject: jlong,
+                                                                    _ __newText: jobject?) -> (jboolean) {
     
     let newText = __newText != nil ? String(javaObject: __newText) : nil
     
@@ -180,11 +180,10 @@ public func AndroidSearchViewOnQueryTextListener_onQueryTextChange( _ __env: Uns
 private typealias AndroidSearchViewOnQueryTextListener_finalize_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong) -> ()
 
 public func AndroidSearchViewOnQueryTextListener_finalize ( _ __env: UnsafeMutablePointer<JNIEnv?>,
-                                                        _ __this: jobject?,
-                                                        _ __swiftObject: jlong) -> () {
+                                                            _ __this: jobject?,
+                                                            _ __swiftObject: jlong) -> () {
     
     AndroidSearchViewOnQueryTextListener.release(swiftObject: __swiftObject )
     
     NSLog("native \(#function)")
 }
-

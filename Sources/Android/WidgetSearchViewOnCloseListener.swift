@@ -101,8 +101,8 @@ fileprivate extension AndroidSearchViewOnCloseListener {
             
             let onCloseThunk: AndroidSearchViewOnCloseListener_onclose_type = AndroidSearchViewOnCloseListener_onclose
             
-            natives.append( JNINativeMethod(name: strdup("__onclose"),
-                                            signature: strdup("(J)V"),
+            natives.append( JNINativeMethod(name: strdup("__onClose"),
+                                            signature: strdup("(J)Z"),
                                             fnPtr: unsafeBitCast( onCloseThunk, to: UnsafeMutableRawPointer.self ) ))
             
             let finalizeThunk: AndroidSearchViewOnCloseListener_finalize_type = AndroidSearchViewOnCloseListener_finalize
@@ -136,8 +136,8 @@ fileprivate extension AndroidSearchViewOnCloseListener {
 private typealias AndroidSearchViewOnCloseListener_onclose_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong) -> (jboolean)
 
 public func AndroidSearchViewOnCloseListener_onclose ( _ __env: UnsafeMutablePointer<JNIEnv?>,
-                                                 _ __this: jobject?,
-                                                 _ __swiftObject: jlong) -> (jboolean) {
+                                                       _ __this: jobject?,
+                                                       _ __swiftObject: jlong) -> (jboolean) {
     let result = AndroidSearchViewOnCloseListener
         .swiftObject(from: __swiftObject)?
         .onClose()
@@ -148,8 +148,8 @@ public func AndroidSearchViewOnCloseListener_onclose ( _ __env: UnsafeMutablePoi
 private typealias AndroidSearchViewOnCloseListener_finalize_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong) -> ()
 
 public func AndroidSearchViewOnCloseListener_finalize ( _ __env: UnsafeMutablePointer<JNIEnv?>,
-                                                  _ __this: jobject?,
-                                                  _ __swiftObject: jlong) -> () {
+                                                        _ __this: jobject?,
+                                                        _ __swiftObject: jlong) -> () {
     
     AndroidSearchViewOnCloseListener.release(swiftObject: __swiftObject )
     
