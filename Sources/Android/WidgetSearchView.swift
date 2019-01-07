@@ -440,7 +440,7 @@ public extension AndroidSearchView {
                                  locals: &__locals)
     }
     
-    public func setQuery(query: String, submit: Bool) {
+    public func setQuery(query: String?, submit: Bool) {
         
         var __locals = [jobject]()
         
@@ -457,7 +457,7 @@ public extension AndroidSearchView {
             locals: &__locals )
     }
     
-    public func setQueryHint(_ hint: String) {
+    public func setQueryHint(_ hint: String?) {
         
         var __locals = [jobject]()
         
