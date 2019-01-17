@@ -45,6 +45,23 @@ public extension AndroidViewCompat {
                                                      locals: &__locals )
         return Int(__return)
     }
+    
+    public static func setNestedScrollingEnabled(view: AndroidView, enabled: Bool) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = JNIType.toJava(value: view, locals: &__locals)
+        __args[1] = jvalue(z: jboolean(enabled ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallStaticVoidMethod(className: JNICache.className,
+                                       classCache: &JNICache.jniClass,
+                                       methodName: "setNestedScrollingEnabled",
+                                       methodSig: "(L\(AndroidView.JNICache.className);Z)V",
+            methodCache: &JNICache.MethodID.setNestedScrollingEnabled,
+            args: &__args,
+            locals: &__locals )
+    }
 }
 
 internal extension AndroidViewCompat {
@@ -64,7 +81,7 @@ internal extension AndroidViewCompat {
         struct MethodID {
             
             static var generateViewId: jmethodID?
+            static var setNestedScrollingEnabled: jmethodID?
         }
     }
 }
-

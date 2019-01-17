@@ -179,6 +179,22 @@ public extension AndroidWidgetRecyclerView {
                                  args: &__args,
                                  locals: &__locals)
     }
+    
+    public func setNestedScrollingEnabled(_ enabled: Bool) {
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = jvalue(z: jboolean(enabled ? JNI_TRUE : JNI_FALSE))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setNestedScrollingEnabled",
+            methodSig: "(Z)V",
+            methodCache: &JNICache.MethodID.setNestedScrollingEnabled,
+            args: &__args,
+            locals: &__locals )
+    }
 }
 
 internal extension AndroidWidgetRecyclerView {
