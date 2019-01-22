@@ -159,8 +159,6 @@ open class AndroidView: JavaObject {
             methodCache: &JNICache.MethodID.clearFocus,
             args: &__args,
             locals: &__locals )
-        
-        
     }
     
     open func onWindowFocusChanged(hasWindowFocus: Bool)  {
@@ -178,8 +176,6 @@ open class AndroidView: JavaObject {
             methodCache: &JNICache.MethodID.onWindowFocusChanged,
             args: &__args,
             locals: &__locals )
-        
-        
     }
     
     open func dispatchPointerCaptureChanged(hasCapture: Bool)  {
@@ -197,8 +193,6 @@ open class AndroidView: JavaObject {
             methodCache: &JNICache.MethodID.dispatchPointerCaptureChanged,
             args: &__args,
             locals: &__locals )
-        
-        
     }
     
     open func dispatchCapturedPointerEvent(event: JavaObject) -> Bool {

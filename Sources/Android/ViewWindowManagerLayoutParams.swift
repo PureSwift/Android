@@ -74,6 +74,171 @@ open class AndroidWindowManagerLayoutParams: Android.View.ViewGroup.LayoutParams
     }
 }
 
+extension AndroidWindowManagerLayoutParams {
+    
+    internal static var SOFT_INPUT_ADJUST_UNSPECIFIED: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "SOFT_INPUT_ADJUST_UNSPECIFIED",
+                fieldType: "I",
+                fieldCache: &JNICacheWindowManagerLayoutParams.FieldID.SOFT_INPUT_ADJUST_UNSPECIFIED,
+                className: JNICacheWindowManagerLayoutParams.className,
+                classCache: &JNICacheWindowManagerLayoutParams.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    internal static var SOFT_INPUT_ADJUST_RESIZE: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "SOFT_INPUT_ADJUST_RESIZE",
+                fieldType: "I",
+                fieldCache: &JNICacheWindowManagerLayoutParams.FieldID.SOFT_INPUT_ADJUST_RESIZE,
+                className: JNICacheWindowManagerLayoutParams.className,
+                classCache: &JNICacheWindowManagerLayoutParams.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    var x: Int {
+        
+        get {
+            
+            let __value = JNIField.GetIntField(fieldName: "x",
+                                               fieldType: "I",
+                                               fieldCache: &JNICacheWindowManagerLayoutParams.FieldID.x,
+                                               object: javaObject)
+            return Int(__value)
+        }
+    }
+    
+    var y: Int {
+        
+        get {
+            
+            let __value = JNIField.GetIntField(fieldName: "y",
+                                               fieldType: "I",
+                                               fieldCache: &JNICacheWindowManagerLayoutParams.FieldID.y,
+                                               object: javaObject)
+            return Int(__value)
+        }
+    }
+    
+    var softInputMode: Int {
+        
+        get {
+            
+            let __value = JNIField.GetIntField(fieldName: "softInputMode",
+                                               fieldType: "I",
+                                               fieldCache: &JNICacheWindowManagerLayoutParams.FieldID.softInputMode,
+                                               object: javaObject)
+            return Int(__value)
+        }
+    }
+    
+    var screenOrientation: Int {
+        
+        get {
+            
+            let __value = JNIField.GetIntField(fieldName: "screenOrientation",
+                                               fieldType: "I",
+                                               fieldCache: &JNICacheWindowManagerLayoutParams.FieldID.screenOrientation,
+                                               object: javaObject)
+            return Int(__value)
+        }
+    }
+    
+    var packageName: String {
+        
+        get {
+            
+            let __value = JNIField.GetObjectField(fieldName: "packageName",
+                                                  fieldType: "Ljava/lang/String;",
+                                                  fieldCache: &JNICacheWindowManagerLayoutParams.FieldID.packageName,
+                                                  object: javaObject)
+            return String(javaObject: __value)
+        }
+    }
+    
+    var screenBrightness: Float {
+        
+        get {
+            
+            let __value = JNIField.GetFloatField(fieldName: "screenBrightness",
+                                                  fieldType: "F",
+                                                  fieldCache: &JNICacheWindowManagerLayoutParams.FieldID.screenBrightness,
+                                                  object: javaObject)
+            return Float(__value)
+        }
+    }
+    
+    var verticalWeight: Float {
+        
+        get {
+            
+            let __value = JNIField.GetFloatField(fieldName: "verticalWeight",
+                                                 fieldType: "F",
+                                                 fieldCache: &JNICacheWindowManagerLayoutParams.FieldID.verticalWeight,
+                                                 object: javaObject)
+            return Float(__value)
+        }
+    }
+    
+    var verticalMargin: Float {
+        
+        get {
+            
+            let __value = JNIField.GetFloatField(fieldName: "verticalMargin",
+                                                 fieldType: "F",
+                                                 fieldCache: &JNICacheWindowManagerLayoutParams.FieldID.verticalMargin,
+                                                 object: javaObject)
+            return Float(__value)
+        }
+    }
+    
+    var horizontalWeight: Float {
+        
+        get {
+            
+            let __value = JNIField.GetFloatField(fieldName: "horizontalWeight",
+                                                 fieldType: "F",
+                                                 fieldCache: &JNICacheWindowManagerLayoutParams.FieldID.horizontalWeight,
+                                                 object: javaObject)
+            return Float(__value)
+        }
+    }
+    
+    var horizontalMargin: Float {
+        
+        get {
+            
+            let __value = JNIField.GetFloatField(fieldName: "horizontalMargin",
+                                                 fieldType: "F",
+                                                 fieldCache: &JNICacheWindowManagerLayoutParams.FieldID.horizontalMargin,
+                                                 object: javaObject)
+            return Float(__value)
+        }
+    }
+    
+    var alpha: Float {
+        
+        get {
+            
+            let __value = JNIField.GetFloatField(fieldName: "alpha",
+                                                 fieldType: "F",
+                                                 fieldCache: &JNICacheWindowManagerLayoutParams.FieldID.alpha,
+                                                 object: javaObject)
+            return Float(__value)
+        }
+    }
+}
+
 // MARK: - Private
 
 internal extension AndroidWindowManagerLayoutParams {
@@ -92,7 +257,21 @@ internal extension AndroidWindowManagerLayoutParams {
         
         struct FieldID {
             
-            //static var MATCH_PARENT: jfieldID?
+            static var SOFT_INPUT_ADJUST_RESIZE: jfieldID?
+            static var SOFT_INPUT_ADJUST_UNSPECIFIED: jfieldID?
+            
+            static var x: jfieldID?
+            static var y: jfieldID?
+            static var softInputMode: jfieldID?
+            static var screenOrientation: jfieldID?
+            static var packageName: jfieldID?
+            static var screenBrightness: jfieldID?
+            static var verticalWeight: jfieldID?
+            static var verticalMargin: jfieldID?
+            static var horizontalWeight: jfieldID?
+            static var horizontalMargin: jfieldID?
+            static var alpha: jfieldID?
+            
         }
         
         /// JNI Method ID cache

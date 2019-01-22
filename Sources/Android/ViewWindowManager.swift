@@ -88,6 +88,10 @@ internal extension AndroidWindowManager {
         /// JNI Java class
         static var jniClass: jclass?
         
+        struct FieldID {
+            
+        }
+        
         /// JNI Method ID cache
         struct MethodID {
             static var getDefaultDisplay: jmethodID?
