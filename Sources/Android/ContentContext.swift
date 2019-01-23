@@ -122,6 +122,23 @@ internal extension AndroidContext {
             return __value != nil ? String( javaObject: __value ) : nil
         }
     }
+    
+    internal static var inputMethodService: String? {
+        
+        get {
+            
+            let __value = JNIField.GetStaticObjectField(
+                fieldName: "INPUT_METHOD_SERVICE",
+                fieldType: "Ljava/lang/String;",
+                fieldCache: &JNICache.FieldID.INPUT_METHOD_SERVICE,
+                className: JNICache.className,
+                classCache: &JNICache.jniClass )
+            
+            defer { JNI.DeleteLocalRef( __value ) }
+            
+            return __value != nil ? String( javaObject: __value ) : nil
+        }
+    }
 }
 
 // MARK: - Constants
@@ -224,6 +241,7 @@ internal extension AndroidContext {
             
             static var BLUETOOTH_SERVICE: jfieldID?
             static var LAYOUT_INFLATER_SERVICE: jfieldID?
+            static var INPUT_METHOD_SERVICE: jfieldID?
         }
         
         /// JNI Method ID cache

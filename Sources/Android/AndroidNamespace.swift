@@ -45,6 +45,11 @@ public enum Android: JavaPackage {
     public enum View: JavaPackage {
         
         public static let package: JNIPackage = Android.package + ["view"]
+        
+        public enum Inputmethod: JavaPackage {
+            
+            public static let package: JNIPackage = Android.View.package + ["inputmethod"]
+        }
     }
     
     public enum App: JavaPackage {

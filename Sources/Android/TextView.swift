@@ -567,6 +567,23 @@ open class AndroidTextView: AndroidView {
         return __return != jboolean(JNI_FALSE)
     }
     
+    public func getShowSoftInputOnFocus() -> Bool {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallBooleanMethod(
+            object: javaObject,
+            methodName: "getShowSoftInputOnFocus",
+            methodSig: "()Z",
+            methodCache: &JNICacheTextView.MethodID.getShowSoftInputOnFocus,
+            args: &__args,
+            locals: &__locals )
+        
+        return __return != jboolean(JNI_FALSE)
+    }
+    
     
     open override func onKeyDown(keyCode: Int, event: JavaObject) -> Bool {
         
@@ -1200,6 +1217,22 @@ open class AndroidTextView: AndroidView {
             args: &__args,
             locals: &__locals )
     }
+    
+    public func setShowSoftInputOnFocus(cancelable: Bool) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue(z: jboolean( cancelable ? JNI_TRUE : JNI_FALSE ))
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setShowSoftInputOnFocus",
+            methodSig: "(Z)V",
+            methodCache: &JNICacheTextView.MethodID.setShowSoftInputOnFocus,
+            args: &__args,
+            locals: &__locals )
+    }
 }
 
 // MARK: - Private
@@ -1285,6 +1318,8 @@ internal extension Android.Widget.TextView {
             static var getShadowColor: jmethodID?
             static var setEllipsize: jmethodID?
             static var addTextChangedListener: jmethodID?
+            static var setShowSoftInputOnFocus: jmethodID?
+            static var getShowSoftInputOnFocus: jmethodID?
         }
     }
 }
