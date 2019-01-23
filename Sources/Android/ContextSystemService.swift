@@ -36,6 +36,8 @@ public struct AndroidContextSystemServiceName: RawRepresentable {
     public static let bluetooth = Android.Content.Context.SystemService.Name(rawValue: Android.Content.Context.bluetoothService!)
     
     public static let layoutInflater = Android.Content.Context.SystemService.Name(rawValue: Android.Content.Context.layoutInflaterService!)
+    
+    public static let inputMethodService = Android.Content.Context.SystemService.Name(rawValue: Android.Content.Context.inputMethodService!)
 }
 
 extension Android.Content.Context.SystemService.Name: ExpressibleByStringLiteral {

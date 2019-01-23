@@ -1218,12 +1218,12 @@ open class AndroidTextView: AndroidView {
             locals: &__locals )
     }
     
-    public func setShowSoftInputOnFocus(cancelable: Bool) {
+    public func setShowSoftInputOnFocus(_ show: Bool) {
         
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        __args[0] = jvalue(z: jboolean( cancelable ? JNI_TRUE : JNI_FALSE ))
+        __args[0] = jvalue(z: jboolean( show ? JNI_TRUE : JNI_FALSE ))
         
         JNIMethod.CallVoidMethod(
             object: javaObject,

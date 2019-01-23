@@ -9176,6 +9176,30 @@ public extension Android.View.View {
         return Float(__return)
     }
     
+    public func setOnFocusChangeListener(_ block: @escaping (AndroidView?, Bool) -> ()) {
+        
+        let onFocusChangeListener = AndroidOnFocusChangeListener(block: block)
+        
+        setOnFocusChangeListener(onFocusChangeListener)
+    }
+    
+    public func setOnFocusChangeListener(_ listener: AndroidOnFocusChangeListener) {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        __args[0] = JNIType.toJava(value: listener, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "setOnFocusChangeListener",
+            methodSig: "(Landroid/view/View$OnFocusChangeListener;)V",
+            methodCache: &JNICache.MethodID.setOnFocusChangeListener,
+            args: &__args,
+            locals: &__locals )
+    }
+    
     // JavaObjects
     public func setOnClickListener(_ block: @escaping () -> ()) {
         
@@ -10099,6 +10123,9 @@ public extension Android.View.View {
         
         return __return != nil ? Android.Widget.FrameLayout(casting: JavaObject(javaObject: __return)) : nil
     }
+    
+    
+    
 }
 
 // MARK: - JNICache
@@ -10649,6 +10676,7 @@ internal extension Android.View.View {
             static var onMeasure: jmethodID?
             static var setMeasuredDimension: jmethodID?
             static var getParent: jmethodID?
+            static var setOnFocusChangeListener: jmethodID?
         }
     }
 }
@@ -10675,4 +10703,5 @@ public extension Android.View.View.Visibility {
     
     public static let gone = Android.View.View.Visibility(rawValue: Android.View.View.GONE)
 }
+
 

@@ -31,6 +31,22 @@ open class AndroidInputMethodManager: JavaObject {
         super.init(javaObject: javaObject)
     }
     
+    public static var SHOW_IMPLICIT: Int {
+        
+        get {
+            
+            let __value = JNIField.GetStaticIntField(
+                fieldName: "SHOW_IMPLICIT",
+                fieldType: "I",
+                fieldCache: &JNIInputMethodManager.FieldID.SHOW_IMPLICIT,
+                className: JNIInputMethodManager.className,
+                classCache: &JNIInputMethodManager.jniClass )
+            
+            return Int(__value)
+        }
+    }
+    
+    @discardableResult
     public func hideSoftInputFromWindow(windowToken: JavaObject, flags: Int) -> Bool {
         
         var __locals = [jobject]()
@@ -49,6 +65,7 @@ open class AndroidInputMethodManager: JavaObject {
         return __return != jboolean(JNI_FALSE)
     }
     
+    @discardableResult
     public func showSoftInput(view: AndroidView, flags: Int) -> Bool {
         
         var __locals = [jobject]()
@@ -68,6 +85,13 @@ open class AndroidInputMethodManager: JavaObject {
     }
 }
 
+// MARK: - Android.Content.Context.SystemService
+
+extension AndroidInputMethodManager: Android.Content.Context.SystemService {
+    
+    public static var systemServiceName: Android.Content.Context.SystemService.Name { return .inputMethodService }
+}
+
 internal extension AndroidInputMethodManager {
     
     /// JNI Cache
@@ -80,6 +104,11 @@ internal extension AndroidInputMethodManager {
         
         /// JNI Java class
         static var jniClass: jclass?
+        
+        struct FieldID {
+            
+            static var SHOW_IMPLICIT: jfieldID?
+        }
         
         /// JNI Method ID cache
         struct MethodID {

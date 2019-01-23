@@ -90,7 +90,7 @@ fileprivate extension AndroidOnFocusChangeListener {
     /// JNI Cache
     struct JNICache {
         
-        static let classSignature = SwiftSupport.Widget.className(["SwiftViewOnFocusChangeListener"])
+        static let classSignature = SwiftSupport.View.className(["SwiftViewOnFocusChangeListener"])
         
         /// JNI Java class name
         static let className = classSignature.rawValue
@@ -137,10 +137,10 @@ fileprivate extension AndroidOnFocusChangeListener {
 private typealias AndroidOnFocusChangeListener_onFocusChange_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject?, _:jboolean) -> ()
 
 public func AndroidOnFocusChangeListener_onFocusChange ( _ __env: UnsafeMutablePointer<JNIEnv?>,
-                                                     _ __this: jobject?,
-                                                     _ __swiftObject: jlong,
-                                                     _ __view: jobject?,
-                                                     _ __hasFocus: jboolean) -> () {
+                                                         _ __this: jobject?,
+                                                         _ __swiftObject: jlong,
+                                                         _ __view: jobject?,
+                                                         _ __hasFocus: jboolean) -> () {
     
     let view = __view != nil ? AndroidView(javaObject: __view) : nil
     let hasFocus = __hasFocus != jboolean(JNI_FALSE)
@@ -153,12 +153,10 @@ public func AndroidOnFocusChangeListener_onFocusChange ( _ __env: UnsafeMutableP
 private typealias AndroidOnFocusChangeListener_finalize_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong) -> ()
 
 public func AndroidOnFocusChangeListener_finalize ( _ __env: UnsafeMutablePointer<JNIEnv?>,
-                                               _ __this: jobject?,
-                                               _ __swiftObject: jlong) -> () {
+                                                    _ __this: jobject?,
+                                                    _ __swiftObject: jlong) -> () {
     
     AndroidOnFocusChangeListener.release(swiftObject: __swiftObject )
     
     NSLog("native \(#function)")
 }
-
-
