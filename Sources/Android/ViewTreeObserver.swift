@@ -55,7 +55,7 @@ public class AndroidViewTreeObserver: JavaObject {
         return jboolean(__return) != JNI_FALSE
     }
     
-    func addOnGlobalLayoutListener(_ listener: AndroidOnGlobalLayoutListener)  {
+    public func addOnGlobalLayoutListener(_ listener: AndroidOnGlobalLayoutListener)  {
         
         var __locals = [jobject]()
         
@@ -72,7 +72,7 @@ public class AndroidViewTreeObserver: JavaObject {
             locals: &__locals )
     }
     
-    func removeGlobalOnLayoutListener(_ listener: AndroidOnGlobalLayoutListener)  {
+    public func removeGlobalOnLayoutListener(_ listener: AndroidOnGlobalLayoutListener)  {
         
         var __locals = [jobject]()
         
@@ -121,4 +121,3 @@ internal extension AndroidViewTreeObserver {
         }
     }
 }
-

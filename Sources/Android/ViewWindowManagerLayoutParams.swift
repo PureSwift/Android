@@ -76,7 +76,7 @@ open class AndroidWindowManagerLayoutParams: Android.View.ViewGroup.LayoutParams
 
 extension AndroidWindowManagerLayoutParams {
     
-    internal static var SOFT_INPUT_ADJUST_UNSPECIFIED: Int {
+    public static var SOFT_INPUT_ADJUST_UNSPECIFIED: Int {
         
         get {
             
@@ -91,7 +91,7 @@ extension AndroidWindowManagerLayoutParams {
         }
     }
     
-    internal static var SOFT_INPUT_ADJUST_RESIZE: Int {
+    public static var SOFT_INPUT_ADJUST_RESIZE: Int {
         
         get {
             
@@ -106,7 +106,7 @@ extension AndroidWindowManagerLayoutParams {
         }
     }
     
-    var x: Int {
+    public var x: Int {
         
         get {
             
@@ -118,7 +118,7 @@ extension AndroidWindowManagerLayoutParams {
         }
     }
     
-    var y: Int {
+    public var y: Int {
         
         get {
             
@@ -130,7 +130,7 @@ extension AndroidWindowManagerLayoutParams {
         }
     }
     
-    var softInputMode: Int {
+    public var softInputMode: Int {
         
         get {
             
@@ -142,7 +142,7 @@ extension AndroidWindowManagerLayoutParams {
         }
     }
     
-    var screenOrientation: Int {
+    public var screenOrientation: Int {
         
         get {
             
@@ -154,7 +154,7 @@ extension AndroidWindowManagerLayoutParams {
         }
     }
     
-    var packageName: String {
+    public var packageName: String {
         
         get {
             
@@ -166,19 +166,19 @@ extension AndroidWindowManagerLayoutParams {
         }
     }
     
-    var screenBrightness: Float {
+    public var screenBrightness: Float {
         
         get {
             
             let __value = JNIField.GetFloatField(fieldName: "screenBrightness",
-                                                  fieldType: "F",
-                                                  fieldCache: &JNICacheWindowManagerLayoutParams.FieldID.screenBrightness,
-                                                  object: javaObject)
+                                                 fieldType: "F",
+                                                 fieldCache: &JNICacheWindowManagerLayoutParams.FieldID.screenBrightness,
+                                                 object: javaObject)
             return Float(__value)
         }
     }
     
-    var verticalWeight: Float {
+    public var verticalWeight: Float {
         
         get {
             
@@ -190,7 +190,7 @@ extension AndroidWindowManagerLayoutParams {
         }
     }
     
-    var verticalMargin: Float {
+    public var verticalMargin: Float {
         
         get {
             
@@ -202,7 +202,7 @@ extension AndroidWindowManagerLayoutParams {
         }
     }
     
-    var horizontalWeight: Float {
+    public var horizontalWeight: Float {
         
         get {
             
@@ -214,7 +214,7 @@ extension AndroidWindowManagerLayoutParams {
         }
     }
     
-    var horizontalMargin: Float {
+    public var horizontalMargin: Float {
         
         get {
             
@@ -226,7 +226,7 @@ extension AndroidWindowManagerLayoutParams {
         }
     }
     
-    var alpha: Float {
+    public var alpha: Float {
         
         get {
             

@@ -54,6 +54,18 @@ open class AndroidView: JavaObject {
         JNI.DeleteLocalRef( __object )
     }
     
+    public var viewTreeObserver: AndroidViewTreeObserver? {
+        get {
+            return getViewTreeObserver()
+        }
+    }
+    
+    public var rootView: AndroidView? {
+        get {
+            return getRootView()
+        }
+    }
+    
     public var layoutParams: Android.View.ViewGroup.LayoutParams? {
         
         get { return getLayoutParams() }
@@ -7522,6 +7534,24 @@ public extension Android.View.View {
         
     }
     
+    @inline(__always)
+    internal func getViewTreeObserver() -> AndroidViewTreeObserver? {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallObjectMethod(
+            object: javaObject,
+            methodName: "getViewTreeObserver",
+            methodSig: "()Landroid/view/ViewTreeObserver;",
+            methodCache: &JNICache.MethodID.getViewTreeObserver,
+            args: &__args,
+            locals: &__locals )
+        
+        return __return != nil ? AndroidViewTreeObserver(javaObject: __return) : nil
+    }
+    
     
     public func setHorizontalFadingEdgeEnabled(horizontalFadingEdgeEnabled: Bool)  {
         
@@ -9413,7 +9443,7 @@ public extension Android.View.View {
     }
     
     
-    public func getWindowVisibleDisplayFrame(outRect: JavaObject)  {
+    public func getWindowVisibleDisplayFrame(_ outRect: AndroidRect)  {
         
         var __locals = [jobject]()
         
@@ -9424,12 +9454,10 @@ public extension Android.View.View {
         JNIMethod.CallVoidMethod(
             object: javaObject,
             methodName: "getWindowVisibleDisplayFrame",
-            methodSig: "(Landroid/graphics/Rect;)V",
+            methodSig: "(L\(AndroidRect.JNICache.className);)V",
             methodCache: &JNICache.MethodID.getWindowVisibleDisplayFrame,
             args: &__args,
             locals: &__locals )
-        
-        
     }
     
     
@@ -10124,7 +10152,25 @@ public extension Android.View.View {
         return __return != nil ? Android.Widget.FrameLayout(casting: JavaObject(javaObject: __return)) : nil
     }
     
-    
+    @inline(__always)
+    internal func getRootView() -> Android.View.View? {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallObjectMethod(
+            object: javaObject,
+            methodName: "getRootView",
+            methodSig: "()L\(AndroidView.JNICache.className);",
+            methodCache: &JNICache.MethodID.getRootView,
+            args: &__args,
+            locals: &__locals )
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return __return != nil ? AndroidView(casting: JavaObject(javaObject: __return)) : nil
+    }
     
 }
 
@@ -10677,6 +10723,8 @@ internal extension Android.View.View {
             static var setMeasuredDimension: jmethodID?
             static var getParent: jmethodID?
             static var setOnFocusChangeListener: jmethodID?
+            static var getViewTreeObserver: jmethodID?
+            static var getRootView: jmethodID?
         }
     }
 }
@@ -10703,5 +10751,3 @@ public extension Android.View.View.Visibility {
     
     public static let gone = Android.View.View.Visibility(rawValue: Android.View.View.GONE)
 }
-
-

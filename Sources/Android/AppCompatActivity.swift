@@ -60,6 +60,12 @@ open class SwiftSupportAppCompatActivity: AndroidContextWrapper {
         }
     }
     
+    public var window: AndroidWindow? {
+        get {
+            return getWindow()
+        }
+    }
+    
     public var hasNavBar: Bool {
         get {
             return hasNavBarJavaMethod()
@@ -508,6 +514,24 @@ open class SwiftSupportAppCompatActivity: AndroidContextWrapper {
     }
     
     @inline(__always)
+    private func getWindow() -> AndroidWindow? {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallObjectMethod(
+            object: javaObject,
+            methodName: "getWindow",
+            methodSig: "()Landroid/view/Window;",
+            methodCache: &SwiftActivityJNICache.MethodID.getWindow,
+            args: &__args,
+            locals: &__locals )
+        
+        return __return != nil ? AndroidWindow(javaObject: __return) : nil
+    }
+    
+    @inline(__always)
     private func getWindowManager() -> AndroidWindowManager? {
         
         var __locals = [jobject]()
@@ -693,6 +717,7 @@ fileprivate extension SwiftSupport.App.AppCompatActivity {
             static var hasNavBar: jmethodID?
             static var getActionBarHeighPixels: jmethodID?
             static var readJsonResource: jmethodID?
+            static var getWindow: jmethodID?
         }
     }
 }

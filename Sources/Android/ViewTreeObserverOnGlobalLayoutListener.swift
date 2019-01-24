@@ -89,7 +89,7 @@ fileprivate extension AndroidOnGlobalLayoutListener {
     /// JNI Cache
     struct JNICache {
         
-        static let classSignature = SwiftSupport.Widget.className(["SwiftViewTreeObserverOnGlobalLayoutListener"])
+        static let classSignature = SwiftSupport.View.className(["SwiftViewTreeObserverOnGlobalLayoutListener"])
         
         /// JNI Java class name
         static let className = classSignature.rawValue
@@ -136,8 +136,8 @@ fileprivate extension AndroidOnGlobalLayoutListener {
 private typealias AndroidViewTreeObserver_onGlobalLayout_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong) -> ()
 
 public func AndroidViewTreeObserver_onGlobalLayout ( _ __env: UnsafeMutablePointer<JNIEnv?>,
-                                                                   _ __this: jobject?,
-                                                                   _ __swiftObject: jlong) -> () {
+                                                     _ __this: jobject?,
+                                                     _ __swiftObject: jlong) -> () {
     
     AndroidOnGlobalLayoutListener
         .swiftObject(from: __swiftObject)?
@@ -147,12 +147,10 @@ public func AndroidViewTreeObserver_onGlobalLayout ( _ __env: UnsafeMutablePoint
 private typealias AndroidViewTreeObserver_finalize_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong) -> ()
 
 public func AndroidViewTreeObserver_finalize ( _ __env: UnsafeMutablePointer<JNIEnv?>,
-                                                                  _ __this: jobject?,
-                                                                  _ __swiftObject: jlong) -> () {
+                                               _ __this: jobject?,
+                                               _ __swiftObject: jlong) -> () {
     
     AndroidOnGlobalLayoutListener.release(swiftObject: __swiftObject )
     
     NSLog("native \(#function)")
 }
-
-
