@@ -47,7 +47,7 @@ open class AndroidInputMethodManager: JavaObject {
     }
     
     @discardableResult
-    public func hideSoftInputFromWindow(windowToken: JavaObject, flags: Int) -> Bool {
+    public func hideSoftInputFromWindow(windowToken: JavaObject?, flags: Int) -> Bool {
         
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
