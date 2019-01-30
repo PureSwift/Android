@@ -10172,6 +10172,25 @@ public extension Android.View.View {
         return __return != nil ? AndroidView(casting: JavaObject(javaObject: __return)) : nil
     }
     
+    public func getWindowToken() -> JavaObject? {
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        
+        let __return = JNIMethod.CallObjectMethod(
+            object: javaObject,
+            methodName: "getWindowToken",
+            methodSig: "()Landroid/os/IBinder;",
+            methodCache: &JNICache.MethodID.getWindowToken,
+            args: &__args,
+            locals: &__locals )
+        
+        defer { JNI.DeleteLocalRef( __return ) }
+        
+        return __return != nil ? JavaObject(javaObject: __return) : nil
+    }
+    
 }
 
 // MARK: - JNICache
@@ -10725,6 +10744,7 @@ internal extension Android.View.View {
             static var setOnFocusChangeListener: jmethodID?
             static var getViewTreeObserver: jmethodID?
             static var getRootView: jmethodID?
+            static var getWindowToken: jmethodID?
         }
     }
 }
@@ -10751,3 +10771,4 @@ public extension Android.View.View.Visibility {
     
     public static let gone = Android.View.View.Visibility(rawValue: Android.View.View.GONE)
 }
+
