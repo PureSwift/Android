@@ -158,6 +158,57 @@ public extension AndroidRect {
     }
 }
 
+public extension AndroidRect {
+    
+    public var bottom: Int {
+        
+        get {
+            
+            let __value = JNIField.GetIntField(fieldName: "bottom",
+                                               fieldType: "I",
+                                               fieldCache: &JNICache.FieldID.bottom,
+                                               object: javaObject)
+            return Int(__value)
+        }
+    }
+    
+    public var left: Int {
+        
+        get {
+            
+            let __value = JNIField.GetIntField(fieldName: "left",
+                                               fieldType: "I",
+                                               fieldCache: &JNICache.FieldID.left,
+                                               object: javaObject)
+            return Int(__value)
+        }
+    }
+    
+    public var right: Int {
+        
+        get {
+            
+            let __value = JNIField.GetIntField(fieldName: "right",
+                                               fieldType: "I",
+                                               fieldCache: &JNICache.FieldID.right,
+                                               object: javaObject)
+            return Int(__value)
+        }
+    }
+    
+    public var top: Int {
+        
+        get {
+            
+            let __value = JNIField.GetIntField(fieldName: "top",
+                                               fieldType: "I",
+                                               fieldCache: &JNICache.FieldID.top,
+                                               object: javaObject)
+            return Int(__value)
+        }
+    }
+}
+
 // MARK: - JNICache
 
 internal extension AndroidRect {
@@ -177,7 +228,10 @@ internal extension AndroidRect {
         /// JNI Method ID cache
         struct FieldID {
             
-            static var BLACK: jfieldID?
+            static var bottom: jfieldID?
+            static var left: jfieldID?
+            static var right: jfieldID?
+            static var top: jfieldID?
         }
         
         struct MethodID {

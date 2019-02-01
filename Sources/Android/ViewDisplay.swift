@@ -66,6 +66,22 @@ public class AndroidDisplay: JavaObject {
             args: &__args,
             locals: &__locals )
     }
+    
+    public func getSize(outSize: AndroidPoint){
+        
+        var __locals = [jobject]()
+        
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava(value: outSize, locals: &__locals)
+        
+        JNIMethod.CallVoidMethod(
+            object: javaObject,
+            methodName: "getSize",
+            methodSig: "(L\(AndroidPoint.JNICache.className);)V",
+            methodCache: &JNICacheDisplay.MethodID.getSize,
+            args: &__args,
+            locals: &__locals )
+    }
 }
 
 // MARK: - Private
@@ -88,8 +104,7 @@ internal extension AndroidDisplay {
         struct MethodID {
             static var getMetrics: jmethodID?
             static var getRealMetrics: jmethodID?
+            static var getSize: jmethodID?
         }
     }
 }
-
-
