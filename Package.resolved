@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/SwiftJava/CJavaVM.git",
         "state": {
           "branch": null,
-          "revision": "6240b2a563f02d98a162d4dce856b6c9a7196c90",
-          "version": "1.1.4"
+          "revision": "18c304400b1043b79529d7987ece858ed46aa232",
+          "version": "2.4.0"
         }
       },
       {
@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/SwiftJava/java_lang.git",
         "state": {
           "branch": null,
-          "revision": "3e3404bcdc29d6bc03ceed17d95e05f0254f7679",
-          "version": "2.3.2"
+          "revision": "2617a2065e53fe0a1cf1151d3ccf40a435a3eeb8",
+          "version": "2.4.0"
         }
       },
       {
@@ -24,8 +24,8 @@
         "repositoryURL": "https://github.com/SwiftJava/java_swift.git",
         "state": {
           "branch": null,
-          "revision": "f6745e8690d10ca01e983ceeb1339b0899fa8a99",
-          "version": "2.3.3"
+          "revision": "6172ff68d6fc575f3f4b9adc2bc8e1362f1b1dd9",
+          "version": "2.4.0"
         }
       },
       {
@@ -33,7 +33,7 @@
         "repositoryURL": "https://github.com/SwiftJava/java_util.git",
         "state": {
           "branch": "master",
-          "revision": "496b963217a7bf3b3c028db11ede5cfcbb3540e6",
+          "revision": "faf8e50be4ee3059d4f6da6ba7f0ec7ba2bea7e9",
           "version": null
         }
       },

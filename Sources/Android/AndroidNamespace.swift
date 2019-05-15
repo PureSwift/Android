@@ -50,6 +50,11 @@ public enum Android: JavaPackage {
             
             public static let package: JNIPackage = Android.View.package + ["inputmethod"]
         }
+        
+        public enum Animation: JavaPackage {
+            
+            public static let package: JNIPackage = Android.View.package + ["animation"]
+        }
     }
     
     public enum App: JavaPackage {
@@ -176,6 +181,11 @@ public enum SwiftSupport: JavaPackage {
     public enum View: JavaPackage {
         
         public static let package: JNIPackage = SwiftSupport.package + ["view"]
+        
+        public enum Animation: JavaPackage {
+            
+            public static let package: JNIPackage = Android.View.package + ["animation"]
+        }
     }
     public enum Text: JavaPackage {
         
