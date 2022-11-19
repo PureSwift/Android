@@ -12,7 +12,7 @@ import JNI
 
 public extension Android.Widget {
     
-    public typealias BottomNavigationView = AndroidBottomNavigationView
+    typealias BottomNavigationView = AndroidBottomNavigationView
 }
 
 open class AndroidBottomNavigationView: AndroidWidgetFrameLayout {

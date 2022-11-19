@@ -12,7 +12,7 @@ import JNI
 
 public extension Android.Widget {
     
-    public typealias CheckBox = AndroidCheckBox
+    typealias CheckBox = AndroidCheckBox
 }
 
 open class AndroidCheckBox: AndroidCompoundButton {

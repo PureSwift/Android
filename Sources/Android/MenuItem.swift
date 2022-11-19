@@ -11,7 +11,7 @@ import JNI
 
 public extension Android.View {
     
-    public typealias MenuItemForward = AndroidMenuItemForward
+    typealias MenuItemForward = AndroidMenuItemForward
 }
 
 open class AndroidMenuItemForward: JavaObject {

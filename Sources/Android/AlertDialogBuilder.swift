@@ -12,7 +12,7 @@ import JNI
 
 public extension AndroidAlertDialog {
     
-    public typealias Builder = AndroidAlertDialogBuilder
+    typealias Builder = AndroidAlertDialogBuilder
 }
 
 open class AndroidAlertDialogBuilder: JavaObject {

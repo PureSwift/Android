@@ -12,7 +12,7 @@ import JNI
 
 public extension Android.Widget {
     
-    public typealias SearchView = AndroidSearchView
+    typealias SearchView = AndroidSearchView
 }
 
 open class AndroidSearchView: Android.Widget.LinearLayoutCompat {

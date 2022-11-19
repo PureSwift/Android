@@ -11,12 +11,12 @@ import java_util
 
 public extension Android.Content.PM {
     
-    public typealias PackageManager = AndroidPackageManager
+    typealias PackageManager = AndroidPackageManager
 }
 
 public extension Android.Content.PM.PackageManager {
     
-    public typealias Permission = AndroidPackageManagerPermission
+    typealias Permission = AndroidPackageManagerPermission
 }
 
 public struct AndroidPackageManagerPermission: RawRepresentable {

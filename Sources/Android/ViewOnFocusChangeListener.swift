@@ -12,7 +12,7 @@ import JNI
 
 public extension AndroidView {
     
-    public typealias OnFocusChangeListener = AndroidOnFocusChangeListener
+    typealias OnFocusChangeListener = AndroidOnFocusChangeListener
 }
 
 /// Interface definition for a callback to be invoked when the focus state of a view changed.

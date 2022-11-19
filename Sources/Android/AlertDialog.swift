@@ -12,7 +12,7 @@ import JNI
 
 public extension Android.App {
     
-    public typealias AlertDialog = AndroidAlertDialog
+    typealias AlertDialog = AndroidAlertDialog
 }
 
 open class AndroidAlertDialog: AppCompatDialog {

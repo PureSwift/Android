@@ -12,7 +12,7 @@ import JNI
 
 public extension AndroidSearchView {
     
-    public typealias OnCloseListener = AndroidSearchViewOnCloseListener
+    typealias OnCloseListener = AndroidSearchViewOnCloseListener
 }
 
 open class AndroidSearchViewOnCloseListener: JavaObject {

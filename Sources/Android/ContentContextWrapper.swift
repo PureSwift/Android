@@ -11,7 +11,7 @@ import java_util
 
 public extension Android.Content {
     
-    public typealias ContextWrapper = AndroidContextWrapper
+    typealias ContextWrapper = AndroidContextWrapper
 }
 
 open class AndroidContextWrapper: AndroidContext {

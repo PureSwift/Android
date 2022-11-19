@@ -12,7 +12,7 @@ import JNI
 
 public extension Android.Widget {
     
-    public typealias AbsSeekBar = AndroidAbsSeekBar
+    typealias AbsSeekBar = AndroidAbsSeekBar
 }
 
 /* https://developer.android.com/reference/android/widget/AbsSeekBar

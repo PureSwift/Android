@@ -12,7 +12,7 @@ import JNI
 
 public extension AndroidDialogInterfaceForward {
     
-    public typealias OnClickListener = AndroidDialogInterfaceOnClickListener
+    typealias OnClickListener = AndroidDialogInterfaceOnClickListener
 }
 
 open class AndroidDialogInterfaceOnClickListener: JavaObject {

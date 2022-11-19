@@ -12,7 +12,7 @@ import JNI
 
 public extension Android.Widget {
     
-    public typealias ProgressBar = AndroidProgressBar
+    typealias ProgressBar = AndroidProgressBar
 }
 
 /* https://developer.android.com/reference/android/widget/ProgressBar

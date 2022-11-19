@@ -12,7 +12,7 @@ import JNI
 
 public extension Android.View {
     
-    public typealias Gravity = AndroidGravity
+    typealias Gravity = AndroidGravity
 }
 
 public struct AndroidGravity: RawRepresentable, Equatable {

@@ -11,7 +11,7 @@ import java_util
 import java_lang
 
 public extension Android.Content {
-    public typealias Intent = AndroidIntent
+    typealias Intent = AndroidIntent
 }
 
 public final class AndroidIntent: JavaObject {

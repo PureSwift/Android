@@ -12,7 +12,7 @@ import java_lang
 
 public extension Android.Graphics {
     
-    public typealias Rect = AndroidRect
+    typealias Rect = AndroidRect
 }
 
 public class AndroidRect: JavaObject {

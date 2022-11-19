@@ -12,7 +12,7 @@ import JNI
 
 public extension Android.App {
     
-    public typealias Dialog = AndroidDialog
+    typealias Dialog = AndroidDialog
 }
 
 open class AndroidDialog: JavaObject {

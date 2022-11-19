@@ -12,7 +12,7 @@ import JNI
 
 public extension Android.Text {
     
-    public typealias EditableForward = AndroidEditableForward
+    typealias EditableForward = AndroidEditableForward
 }
 
 /**

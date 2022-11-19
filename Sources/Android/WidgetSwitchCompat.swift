@@ -12,7 +12,7 @@ import JNI
 
 public extension Android.Widget {
     
-    public typealias SwitchCompat = AndroidSwitchCompat
+    typealias SwitchCompat = AndroidSwitchCompat
 }
 
 /* https://developer.android.com/reference/android/support/v7/widget/SwitchCompat

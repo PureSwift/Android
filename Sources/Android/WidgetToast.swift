@@ -12,7 +12,7 @@ import JNI
 
 public extension Android.Widget {
     
-    public typealias Toast = AndroidToast
+    typealias Toast = AndroidToast
 }
 
 open class AndroidToast: JavaObject {

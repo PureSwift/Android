@@ -11,7 +11,7 @@ import JNI
 
 public extension Android.Widget.RecyclerView {
     
-    public typealias LayoutManager = AndroidWidgetRecyclerViewLayoutManager
+    typealias LayoutManager = AndroidWidgetRecyclerViewLayoutManager
 }
 
 /**

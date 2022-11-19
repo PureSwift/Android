@@ -10,14 +10,14 @@ import java_swift
 
 public extension Android {
     
-    public typealias R = AndroidResource
+    typealias R = AndroidResource
 }
 
 public extension Android.R {
     
-    public typealias ID = AndroidResourceIdentifier
+    typealias ID = AndroidResourceIdentifier
     
-    public typealias Layout = AndroidLayoutIdentifier
+    typealias Layout = AndroidLayoutIdentifier
 }
 
 public protocol AndroidResource: RawRepresentable {

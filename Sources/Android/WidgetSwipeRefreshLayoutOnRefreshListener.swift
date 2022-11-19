@@ -12,7 +12,7 @@ import JNI
 
 public extension AndroidSwipeRefreshLayout {
     
-    public typealias OnRefreshListener = AndroidSwipeRefreshLayoutOnRefreshListener
+    typealias OnRefreshListener = AndroidSwipeRefreshLayoutOnRefreshListener
 }
 
 open class AndroidSwipeRefreshLayoutOnRefreshListener: JavaObject {

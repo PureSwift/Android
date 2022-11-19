@@ -12,7 +12,7 @@ import JNI
 
 public extension Android.View.ViewGroup {
     
-    public typealias LayoutParams = AndroidViewGroupLayoutParams
+    typealias LayoutParams = AndroidViewGroupLayoutParams
 }
 
 open class AndroidViewGroupLayoutParams: JavaObject {

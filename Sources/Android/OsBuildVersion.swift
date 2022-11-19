@@ -11,12 +11,12 @@ import java_util
 
 public extension AndroidBuild {
     
-    public typealias Version = AndroidBuildVersion
+    typealias Version = AndroidBuildVersion
 }
 
 public extension AndroidBuild.Version {
     
-    public typealias Sdk = AndroidBuildSdk
+    typealias Sdk = AndroidBuildSdk
 }
 
 public struct AndroidBuildSdk: RawRepresentable, Equatable {
@@ -101,7 +101,7 @@ fileprivate class AndroidBuildVersionConstants: JavaObject {
 
 fileprivate extension AndroidBuildVersionConstants {
     
-    fileprivate static var BASE_OS: String {
+    static var BASE_OS: String {
         
         get {
             
@@ -118,7 +118,7 @@ fileprivate extension AndroidBuildVersionConstants {
         }
     }
     
-    fileprivate static var CODENAME: String {
+    static var CODENAME: String {
         
         get {
             
@@ -135,7 +135,7 @@ fileprivate extension AndroidBuildVersionConstants {
         }
     }
     
-    fileprivate static var INCREMENTAL: String {
+    static var INCREMENTAL: String {
         
         get {
             
@@ -152,7 +152,7 @@ fileprivate extension AndroidBuildVersionConstants {
         }
     }
     
-    fileprivate static var PREVIEW_SDK_INT: Int {
+    static var PREVIEW_SDK_INT: Int {
         
         get {
             
@@ -167,7 +167,7 @@ fileprivate extension AndroidBuildVersionConstants {
         }
     }
     
-    fileprivate static var RELEASE: String {
+    static var RELEASE: String {
         
         get {
             
@@ -184,7 +184,7 @@ fileprivate extension AndroidBuildVersionConstants {
         }
     }
     
-    fileprivate static var SDK_INT: Int {
+    static var SDK_INT: Int {
         
         get {
             
@@ -199,7 +199,7 @@ fileprivate extension AndroidBuildVersionConstants {
         }
     }
     
-    fileprivate static var SECURITY_PATCH: String {
+    static var SECURITY_PATCH: String {
         
         get {
             

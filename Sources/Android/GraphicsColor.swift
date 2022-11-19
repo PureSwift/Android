@@ -10,7 +10,7 @@ import java_lang
 
 public extension Android.Graphics {
     
-    public typealias Color = AndroidGraphicsColor
+    typealias Color = AndroidGraphicsColor
 }
 
 public class AndroidGraphicsColor: JavaObject {

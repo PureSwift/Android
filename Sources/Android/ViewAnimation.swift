@@ -12,7 +12,7 @@ import JNI
 
 public extension Android.View.Animation {
     
-    public typealias Animation = AndroidAnimation
+    typealias Animation = AndroidAnimation
 }
 
 /// Abstraction for an Animation that can be applied to Views, Surfaces, or other objects. See the animation package description file.

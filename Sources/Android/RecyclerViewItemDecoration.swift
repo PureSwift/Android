@@ -11,7 +11,7 @@ import JNI
 
 public extension AndroidWidgetRecyclerView {
     
-    public typealias ItemDecoration = AndroidRecyclerViewItemDecoration
+    typealias ItemDecoration = AndroidRecyclerViewItemDecoration
 }
 
 /* An ItemDecoration allows the application to add a special drawing and layout offset to specific item views from the adapter's data set.

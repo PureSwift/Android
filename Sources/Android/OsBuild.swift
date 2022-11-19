@@ -11,7 +11,7 @@ import java_util
 
 public extension Android.OS {
     
-    public typealias Build = AndroidBuild
+    typealias Build = AndroidBuild
 }
 
 public class AndroidBuild: JavaObject {

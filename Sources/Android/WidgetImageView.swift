@@ -12,7 +12,7 @@ import JNI
 
 public extension Android.Widget {
     
-    public typealias ImageView = AndroidImageView
+    typealias ImageView = AndroidImageView
 }
 
 open class AndroidImageView: AndroidView {

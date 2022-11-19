@@ -12,7 +12,7 @@ import JNI
 
 public extension Android.Util {
     
-    public typealias DisplayMetrics = AndroidDisplayMetrics
+    typealias DisplayMetrics = AndroidDisplayMetrics
 }
 
 public class AndroidDisplayMetrics: JavaObject {

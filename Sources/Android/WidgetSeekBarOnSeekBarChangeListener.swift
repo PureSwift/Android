@@ -12,7 +12,7 @@ import JNI
 
 public extension AndroidSeekBar {
     
-    public typealias OnSeekBarChangeListener = AndroidOnSeekBarChangeListener
+    typealias OnSeekBarChangeListener = AndroidOnSeekBarChangeListener
 }
 
 /* https://developer.android.com/reference/android/widget/SeekBar.OnSeekBarChangeListener

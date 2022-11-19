@@ -12,7 +12,7 @@ import JNI
 
 public extension Android.Text {
     
-    public typealias TextWatcher = AndroidTextWatcher
+    typealias TextWatcher = AndroidTextWatcher
 }
 
 open class AndroidTextWatcher: JavaObject {

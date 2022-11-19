@@ -10,7 +10,7 @@ import java_lang
 
 public extension Android.View {
     
-    public typealias ViewGroup = AndroidViewGroup
+    typealias ViewGroup = AndroidViewGroup
 }
 
 /// `Android.View.View`

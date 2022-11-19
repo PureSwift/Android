@@ -12,7 +12,7 @@ import JNI
 
 public extension Android.Widget {
     
-    public typealias EditText = AndroidEditText
+    typealias EditText = AndroidEditText
 }
 
 open class AndroidEditText: AndroidTextView {

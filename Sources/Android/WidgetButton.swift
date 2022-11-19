@@ -9,7 +9,7 @@ import Foundation
 import java_swift
 
 public extension Android.Widget {
-    public typealias Button = AndroidButton
+    typealias Button = AndroidButton
 }
 
 open class AndroidButton: AndroidTextView {

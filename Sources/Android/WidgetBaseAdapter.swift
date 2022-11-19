@@ -11,7 +11,7 @@ import JNI
 
 public extension Android.Widget {
     
-    public typealias BaseAdapter = AndroidWidgetBaseAdapter
+    typealias BaseAdapter = AndroidWidgetBaseAdapter
 }
 
 open class AndroidWidgetBaseAdapter: JavaObject {

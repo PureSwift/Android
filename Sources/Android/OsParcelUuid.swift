@@ -11,7 +11,7 @@ import java_util
 
 public extension Android.OS {
     
-    public typealias ParcelUuid = AndroidOsParcelUuid
+    typealias ParcelUuid = AndroidOsParcelUuid
 }
 
 public final class AndroidOsParcelUuid: JavaObject {

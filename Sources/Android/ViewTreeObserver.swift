@@ -12,7 +12,7 @@ import JNI
 
 public extension Android.View {
     
-    public typealias ViewTreeObserver = AndroidViewTreeObserver
+    typealias ViewTreeObserver = AndroidViewTreeObserver
 }
 
 /** A view tree observer is used to register listeners that can be notified of global changes in the view tree.

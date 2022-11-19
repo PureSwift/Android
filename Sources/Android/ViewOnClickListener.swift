@@ -12,7 +12,7 @@ import JNI
 
 public extension AndroidView {
     
-    public typealias OnClickListener = AndroidViewOnClickListener
+    typealias OnClickListener = AndroidViewOnClickListener
 }
 
 open class AndroidViewOnClickListener: JavaObject {

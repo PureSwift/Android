@@ -11,7 +11,7 @@ import JNI
 
 public extension AndroidWidgetFrameLayout {
     
-    public typealias FLayoutParams = AndroidFrameLayoutLayoutParams
+    typealias FLayoutParams = AndroidFrameLayoutLayoutParams
 }
 
 open class AndroidFrameLayoutLayoutParams: Android.View.ViewGroup.MarginLayoutParams {

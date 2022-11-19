@@ -11,7 +11,7 @@ import JNI
 
 public extension Android.Widget {
     
-    public typealias RecyclerView = AndroidWidgetRecyclerView
+    typealias RecyclerView = AndroidWidgetRecyclerView
 }
 
 /**
@@ -68,7 +68,7 @@ public final class AndroidWidgetRecyclerView: AndroidViewGroup {
 
 public extension AndroidWidgetRecyclerView {
     
-    @_versioned
+    @usableFromInline
     internal func getAdapter() -> AndroidWidgetRecyclerViewAdapter {
         
         var __locals = [jobject]()
@@ -85,7 +85,7 @@ public extension AndroidWidgetRecyclerView {
         return Android.Widget.RecyclerView.Adapter(javaObject: __return)
     }
     
-    @_versioned
+    @usableFromInline
     internal func setAdapter(_ adapter: AndroidWidgetRecyclerViewAdapter) {
         
         var __locals = [jobject]()
@@ -101,7 +101,7 @@ public extension AndroidWidgetRecyclerView {
                                  locals: &__locals)
     }
     
-    @_versioned
+    @usableFromInline
     internal func getLayoutManager() -> Android.Widget.RecyclerView.LayoutManager {
         
         var __locals = [jobject]()
@@ -118,7 +118,7 @@ public extension AndroidWidgetRecyclerView {
         return Android.Widget.RecyclerView.LayoutManager(javaObject: __return)
     }
     
-    @_versioned
+    @usableFromInline
     internal func setLayoutManager(_ layoutManager: Android.Widget.RecyclerView.LayoutManager) {
         
         var __locals = [jobject]()

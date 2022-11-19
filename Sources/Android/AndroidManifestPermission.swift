@@ -10,7 +10,7 @@ import java_swift
 
 public extension Android {
     
-    public typealias ManifestPermission = AndroidManifestPermission
+    typealias ManifestPermission = AndroidManifestPermission
 }
 
 public struct AndroidManifestPermission {
@@ -497,7 +497,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows a calling app to continue a call which was started in another app.
      */
-    fileprivate static var ACCEPT_HANDOVER: String {
+    static var ACCEPT_HANDOVER: String {
         
         get {
             
@@ -515,7 +515,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows read/write access to the "properties" table in the checkin database, to change values that get uploaded.
      */
-    fileprivate static var ACCESS_CHECKIN_PROPERTIES: String {
+    static var ACCESS_CHECKIN_PROPERTIES: String {
         
         get {
             
@@ -533,7 +533,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an app to access approximate location.
      */
-    fileprivate static var ACCESS_COARSE_LOCATION: String {
+    static var ACCESS_COARSE_LOCATION: String {
         
         get {
             
@@ -551,7 +551,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an app to access precise location.
      */
-    fileprivate static var ACCESS_FINE_LOCATION: String {
+    static var ACCESS_FINE_LOCATION: String {
         
         get {
             
@@ -569,7 +569,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to access extra location provider commands.
      */
-    fileprivate static var ACCESS_LOCATION_EXTRA_COMMANDS: String {
+    static var ACCESS_LOCATION_EXTRA_COMMANDS: String {
         
         get {
             
@@ -587,7 +587,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows applications to access information about networks.
      */
-    fileprivate static var ACCESS_NETWORK_STATE: String {
+    static var ACCESS_NETWORK_STATE: String {
         
         get {
             
@@ -605,7 +605,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Marker permission for applications that wish to access notification policy.
      */
-    fileprivate static var ACCESS_NOTIFICATION_POLICY: String {
+    static var ACCESS_NOTIFICATION_POLICY: String {
         
         get {
             
@@ -623,7 +623,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows applications to access information about Wi-Fi networks.
      */
-    fileprivate static var ACCESS_WIFI_STATE: String {
+    static var ACCESS_WIFI_STATE: String {
         
         get {
             
@@ -641,7 +641,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows applications to call into AccountAuthenticators.
      */
-    fileprivate static var ACCOUNT_MANAGER: String {
+    static var ACCOUNT_MANAGER: String {
         
         get {
             
@@ -659,7 +659,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to add voicemails into the system.
      */
-    fileprivate static var ADD_VOICEMAIL: String {
+    static var ADD_VOICEMAIL: String {
         
         get {
             
@@ -677,7 +677,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows the app to answer an incoming phone call.
      */
-    fileprivate static var ANSWER_PHONE_CALLS: String {
+    static var ANSWER_PHONE_CALLS: String {
         
         get {
             
@@ -695,7 +695,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to collect battery statistics
      */
-    fileprivate static var BATTERY_STATS: String {
+    static var BATTERY_STATS: String {
         
         get {
             
@@ -713,7 +713,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Must be required by an AccessibilityService, to ensure that only the system can bind to it.
      */
-    fileprivate static var BIND_ACCESSIBILITY_SERVICE: String {
+    static var BIND_ACCESSIBILITY_SERVICE: String {
         
         get {
             
@@ -731,7 +731,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to tell the AppWidget service which application can access AppWidget's data.
      */
-    fileprivate static var BIND_APPWIDGET: String {
+    static var BIND_APPWIDGET: String {
         
         get {
             
@@ -749,7 +749,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Must be required by a AutofillService, to ensure that only the system can bind to it.
      */
-    fileprivate static var BIND_AUTOFILL_SERVICE: String {
+    static var BIND_AUTOFILL_SERVICE: String {
         
         get {
             
@@ -767,7 +767,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * The system process that is allowed to bind to services in carrier apps will have this permission.
      */
-    fileprivate static var BIND_CARRIER_SERVICES: String {
+    static var BIND_CARRIER_SERVICES: String {
         
         get {
             
@@ -785,7 +785,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Must be required by a ChooserTargetService, to ensure that only the system can bind to it.
      */
-    fileprivate static var BIND_CHOOSER_TARGET_SERVICE: String {
+    static var BIND_CHOOSER_TARGET_SERVICE: String {
         
         get {
             
@@ -803,7 +803,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Must be required by a ConditionProviderService, to ensure that only the system can bind to it.
      */
-    fileprivate static var BIND_CONDITION_PROVIDER_SERVICE: String {
+    static var BIND_CONDITION_PROVIDER_SERVICE: String {
         
         get {
             
@@ -821,7 +821,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Must be required by device administration receiver, to ensure that only the system can interact with it.
      */
-    fileprivate static var BIND_DEVICE_ADMIN: String {
+    static var BIND_DEVICE_ADMIN: String {
         
         get {
             
@@ -839,7 +839,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Must be required by an DreamService, to ensure that only the system can bind to it.
      */
-    fileprivate static var BIND_DREAM_SERVICE: String {
+    static var BIND_DREAM_SERVICE: String {
         
         get {
             
@@ -857,7 +857,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Must be required by a InCallService, to ensure that only the system can bind to it.
      */
-    fileprivate static var BIND_INCALL_SERVICE: String {
+    static var BIND_INCALL_SERVICE: String {
         
         get {
             
@@ -875,7 +875,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Must be required by an InputMethodService, to ensure that only the system can bind to it.
      */
-    fileprivate static var BIND_INPUT_METHOD: String {
+    static var BIND_INPUT_METHOD: String {
         
         get {
             
@@ -893,7 +893,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Must be required by an MidiDeviceService, to ensure that only the system can bind to it.
      */
-    fileprivate static var BIND_MIDI_DEVICE_SERVICE: String {
+    static var BIND_MIDI_DEVICE_SERVICE: String {
         
         get {
             
@@ -911,7 +911,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Must be required by a HostApduService or OffHostApduService to ensure that only the system can bind to it.
      */
-    fileprivate static var BIND_NFC_SERVICE: String {
+    static var BIND_NFC_SERVICE: String {
         
         get {
             
@@ -929,7 +929,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Must be required by an NotificationListenerService, to ensure that only the system can bind to it.
      */
-    fileprivate static var BIND_NOTIFICATION_LISTENER_SERVICE: String {
+    static var BIND_NOTIFICATION_LISTENER_SERVICE: String {
         
         get {
             
@@ -947,7 +947,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Must be required by a PrintService, to ensure that only the system can bind to it.
      */
-    fileprivate static var BIND_PRINT_SERVICE: String {
+    static var BIND_PRINT_SERVICE: String {
         
         get {
             
@@ -965,7 +965,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to bind to third party quick settings tiles.
      */
-    fileprivate static var BIND_QUICK_SETTINGS_TILE: String {
+    static var BIND_QUICK_SETTINGS_TILE: String {
         
         get {
             
@@ -983,7 +983,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Must be required by a RemoteViewsService, to ensure that only the system can bind to it.
      */
-    fileprivate static var BIND_REMOTEVIEWS: String {
+    static var BIND_REMOTEVIEWS: String {
         
         get {
             
@@ -1001,7 +1001,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Must be required by a CallScreeningService, to ensure that only the system can bind to it.
      */
-    fileprivate static var BIND_SCREENING_SERVICE: String {
+    static var BIND_SCREENING_SERVICE: String {
         
         get {
             
@@ -1019,7 +1019,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Must be required by a ConnectionService, to ensure that only the system can bind to it.
      */
-    fileprivate static var BIND_TELECOM_CONNECTION_SERVICE: String {
+    static var BIND_TELECOM_CONNECTION_SERVICE: String {
         
         get {
             
@@ -1037,7 +1037,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Must be required by a TextService (e.g.
      */
-    fileprivate static var BIND_TEXT_SERVICE: String {
+    static var BIND_TEXT_SERVICE: String {
         
         get {
             
@@ -1055,7 +1055,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Must be required by a TvInputService to ensure that only the system can bind to it.
      */
-    fileprivate static var BIND_TV_INPUT: String {
+    static var BIND_TV_INPUT: String {
         
         get {
             
@@ -1073,7 +1073,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Must be required by a link VisualVoicemailService to ensure that only the system can bind to it.
      */
-    fileprivate static var BIND_VISUAL_VOICEMAIL_SERVICE: String {
+    static var BIND_VISUAL_VOICEMAIL_SERVICE: String {
         
         get {
             
@@ -1091,7 +1091,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Must be required by a VoiceInteractionService, to ensure that only the system can bind to it.
      */
-    fileprivate static var BIND_VOICE_INTERACTION: String {
+    static var BIND_VOICE_INTERACTION: String {
         
         get {
             
@@ -1109,7 +1109,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Must be required by a VpnService, to ensure that only the system can bind to it.
      */
-    fileprivate static var BIND_VPN_SERVICE: String {
+    static var BIND_VPN_SERVICE: String {
         
         get {
             
@@ -1127,7 +1127,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Must be required by an VrListenerService, to ensure that only the system can bind to it.
      */
-    fileprivate static var BIND_VR_LISTENER_SERVICE: String {
+    static var BIND_VR_LISTENER_SERVICE: String {
         
         get {
             
@@ -1145,7 +1145,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Must be required by a WallpaperService, to ensure that only the system can bind to it.
      */
-    fileprivate static var BIND_WALLPAPER: String {
+    static var BIND_WALLPAPER: String {
         
         get {
             
@@ -1163,7 +1163,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows applications to connect to paired bluetooth devices.
      */
-    fileprivate static var BLUETOOTH: String {
+    static var BLUETOOTH: String {
         
         get {
             
@@ -1181,7 +1181,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows applications to discover and pair bluetooth devices.
      */
-    fileprivate static var BLUETOOTH_ADMIN: String {
+    static var BLUETOOTH_ADMIN: String {
         
         get {
             
@@ -1199,7 +1199,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows applications to pair bluetooth devices without user interaction, and to allow or disallow phonebook access or message access.
      */
-    fileprivate static var BLUETOOTH_PRIVILEGED: String {
+    static var BLUETOOTH_PRIVILEGED: String {
         
         get {
             
@@ -1217,7 +1217,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to access data from sensors that the user uses to measure what is happening inside his/her body, such as heart rate.
      */
-    fileprivate static var BODY_SENSORS: String {
+    static var BODY_SENSORS: String {
         
         get {
             
@@ -1235,7 +1235,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to broadcast a notification that an application package has been removed.
      */
-    fileprivate static var BROADCAST_PACKAGE_REMOVED: String {
+    static var BROADCAST_PACKAGE_REMOVED: String {
         
         get {
             
@@ -1253,7 +1253,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to broadcast an SMS receipt notification.
      */
-    fileprivate static var BROADCAST_SMS: String {
+    static var BROADCAST_SMS: String {
         
         get {
             
@@ -1271,7 +1271,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to broadcast sticky intents.
      */
-    fileprivate static var BROADCAST_STICKY: String {
+    static var BROADCAST_STICKY: String {
         
         get {
             
@@ -1289,7 +1289,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to broadcast a WAP PUSH receipt notification.
      */
-    fileprivate static var BROADCAST_WAP_PUSH: String {
+    static var BROADCAST_WAP_PUSH: String {
         
         get {
             
@@ -1307,7 +1307,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to initiate a phone call without going through the Dialer user interface for the user to confirm the call.
      */
-    fileprivate static var CALL_PHONE: String {
+    static var CALL_PHONE: String {
         
         get {
             
@@ -1325,7 +1325,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to call any phone number, including emergency numbers, without going through the Dialer user interface for the user to confirm the call being placed.
      */
-    fileprivate static var CALL_PRIVILEGED: String {
+    static var CALL_PRIVILEGED: String {
         
         get {
             
@@ -1343,7 +1343,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Required to be able to access the camera device.
      */
-    fileprivate static var CAMERA: String {
+    static var CAMERA: String {
         
         get {
             
@@ -1361,7 +1361,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to capture audio output.
      */
-    fileprivate static var CAPTURE_AUDIO_OUTPUT: String {
+    static var CAPTURE_AUDIO_OUTPUT: String {
         
         get {
             
@@ -1379,7 +1379,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to capture secure video output.
      */
-    fileprivate static var CAPTURE_SECURE_VIDEO_OUTPUT: String {
+    static var CAPTURE_SECURE_VIDEO_OUTPUT: String {
         
         get {
             
@@ -1397,7 +1397,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to capture video output.
      */
-    fileprivate static var CAPTURE_VIDEO_OUTPUT: String {
+    static var CAPTURE_VIDEO_OUTPUT: String {
         
         get {
             
@@ -1415,7 +1415,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to change whether an application component (other than its own) is enabled or not.
      */
-    fileprivate static var CHANGE_COMPONENT_ENABLED_STATE: String {
+    static var CHANGE_COMPONENT_ENABLED_STATE: String {
         
         get {
             
@@ -1433,7 +1433,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to modify the current configuration, such as locale.
      */
-    fileprivate static var CHANGE_CONFIGURATION: String {
+    static var CHANGE_CONFIGURATION: String {
         
         get {
             
@@ -1451,7 +1451,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows applications to change network connectivity state.
      */
-    fileprivate static var CHANGE_NETWORK_STATE: String {
+    static var CHANGE_NETWORK_STATE: String {
         
         get {
             
@@ -1469,7 +1469,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows applications to enter Wi-Fi Multicast mode.
      */
-    fileprivate static var CHANGE_WIFI_MULTICAST_STATE: String {
+    static var CHANGE_WIFI_MULTICAST_STATE: String {
         
         get {
             
@@ -1487,7 +1487,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows applications to change Wi-Fi connectivity state.
      */
-    fileprivate static var CHANGE_WIFI_STATE: String {
+    static var CHANGE_WIFI_STATE: String {
         
         get {
             
@@ -1505,7 +1505,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to clear the caches of all installed applications on the device.
      */
-    fileprivate static var CLEAR_APP_CACHE: String {
+    static var CLEAR_APP_CACHE: String {
         
         get {
             
@@ -1523,7 +1523,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows enabling/disabling location update notifications from the radio.
      */
-    fileprivate static var CONTROL_LOCATION_UPDATES: String {
+    static var CONTROL_LOCATION_UPDATES: String {
         
         get {
             
@@ -1541,7 +1541,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Old permission for deleting an app's cache files, no longer used, but signals for us to quietly ignore calls instead of throwing an exception.
      */
-    fileprivate static var DELETE_CACHE_FILES: String {
+    static var DELETE_CACHE_FILES: String {
         
         get {
             
@@ -1559,7 +1559,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to delete packages.
      */
-    fileprivate static var DELETE_PACKAGES: String {
+    static var DELETE_PACKAGES: String {
         
         get {
             
@@ -1577,7 +1577,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows applications to RW to diagnostic resources.
      */
-    fileprivate static var DIAGNOSTIC: String {
+    static var DIAGNOSTIC: String {
         
         get {
             
@@ -1595,7 +1595,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows applications to disable the keyguard if it is not secure.
      */
-    fileprivate static var DISABLE_KEYGUARD: String {
+    static var DISABLE_KEYGUARD: String {
         
         get {
             
@@ -1613,7 +1613,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to retrieve state dump information from system services.
      */
-    fileprivate static var DUMP: String {
+    static var DUMP: String {
         
         get {
             
@@ -1631,7 +1631,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to expand or collapse the status bar.
      */
-    fileprivate static var EXPAND_STATUS_BAR: String {
+    static var EXPAND_STATUS_BAR: String {
         
         get {
             
@@ -1649,7 +1649,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Run as a manufacturer test application, running as the root user.
      */
-    fileprivate static var FACTORY_TEST: String {
+    static var FACTORY_TEST: String {
         
         get {
             
@@ -1667,7 +1667,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows a regular application to use Service.startForeground.
      */
-    fileprivate static var FOREGROUND_SERVICE: String {
+    static var FOREGROUND_SERVICE: String {
         
         get {
             
@@ -1685,7 +1685,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows access to the list of accounts in the Accounts Service.
      */
-    fileprivate static var GET_ACCOUNTS: String {
+    static var GET_ACCOUNTS: String {
         
         get {
             
@@ -1703,7 +1703,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows access to the list of accounts in the Accounts Service.
      */
-    fileprivate static var GET_ACCOUNTS_PRIVILEGED: String {
+    static var GET_ACCOUNTS_PRIVILEGED: String {
         
         get {
             
@@ -1721,7 +1721,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to find out the space used by any package.
      */
-    fileprivate static var GET_PACKAGE_SIZE: String {
+    static var GET_PACKAGE_SIZE: String {
         
         get {
             
@@ -1739,7 +1739,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * This permission can be used on content providers to allow the global search system to access their data.
      */
-    fileprivate static var GLOBAL_SEARCH: String {
+    static var GLOBAL_SEARCH: String {
         
         get {
             
@@ -1757,7 +1757,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to install a location provider into the Location Manager.
      */
-    fileprivate static var INSTALL_LOCATION_PROVIDER: String {
+    static var INSTALL_LOCATION_PROVIDER: String {
         
         get {
             
@@ -1775,7 +1775,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to install packages.
      */
-    fileprivate static var INSTALL_PACKAGES: String {
+    static var INSTALL_PACKAGES: String {
         
         get {
             
@@ -1793,7 +1793,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to install a shortcut in Launcher.
      */
-    fileprivate static var INSTALL_SHORTCUT: String {
+    static var INSTALL_SHORTCUT: String {
         
         get {
             
@@ -1811,7 +1811,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an instant app to create foreground services.
      */
-    fileprivate static var INSTANT_APP_FOREGROUND_SERVICE: String {
+    static var INSTANT_APP_FOREGROUND_SERVICE: String {
         
         get {
             
@@ -1829,7 +1829,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows applications to open network sockets.
      */
-    fileprivate static var INTERNET: String {
+    static var INTERNET: String {
         
         get {
             
@@ -1847,7 +1847,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to call ActivityManager.killBackgroundProcesses(String).
      */
-    fileprivate static var KILL_BACKGROUND_PROCESSES: String {
+    static var KILL_BACKGROUND_PROCESSES: String {
         
         get {
             
@@ -1865,7 +1865,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to use location features in hardware, such as the geofencing api.
      */
-    fileprivate static var LOCATION_HARDWARE: String {
+    static var LOCATION_HARDWARE: String {
         
         get {
             
@@ -1883,7 +1883,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to manage access to documents, usually as part of a document picker.
      */
-    fileprivate static var MANAGE_DOCUMENTS: String {
+    static var MANAGE_DOCUMENTS: String {
         
         get {
             
@@ -1901,7 +1901,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows a calling application which manages it own calls through the self-managed ConnectionService APIs.
      */
-    fileprivate static var MANAGE_OWN_CALLS: String {
+    static var MANAGE_OWN_CALLS: String {
         
         get {
             
@@ -1919,7 +1919,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Not for use by third-party applications.
      */
-    fileprivate static var MASTER_CLEAR: String {
+    static var MASTER_CLEAR: String {
         
         get {
             
@@ -1937,7 +1937,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to know what content is playing and control its playback.
      */
-    fileprivate static var MEDIA_CONTENT_CONTROL: String {
+    static var MEDIA_CONTENT_CONTROL: String {
         
         get {
             
@@ -1955,7 +1955,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to modify global audio settings.
      */
-    fileprivate static var MODIFY_AUDIO_SETTINGS: String {
+    static var MODIFY_AUDIO_SETTINGS: String {
         
         get {
             
@@ -1973,7 +1973,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows modification of the telephony state - power on, mmi, etc.
      */
-    fileprivate static var MODIFY_PHONE_STATE: String {
+    static var MODIFY_PHONE_STATE: String {
         
         get {
             
@@ -1991,7 +1991,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows formatting file systems for removable storage.
      */
-    fileprivate static var MOUNT_FORMAT_FILESYSTEMS: String {
+    static var MOUNT_FORMAT_FILESYSTEMS: String {
         
         get {
             
@@ -2009,7 +2009,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows mounting and unmounting file systems for removable storage.
      */
-    fileprivate static var MOUNT_UNMOUNT_FILESYSTEMS: String {
+    static var MOUNT_UNMOUNT_FILESYSTEMS: String {
         
         get {
             
@@ -2027,7 +2027,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows applications to perform I/O operations over NFC.
      */
-    fileprivate static var NFC: String {
+    static var NFC: String {
         
         get {
             
@@ -2045,7 +2045,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows applications to receive NFC transaction events.
      */
-    fileprivate static var NFC_TRANSACTION_EVENT: String {
+    static var NFC_TRANSACTION_EVENT: String {
         
         get {
             
@@ -2066,7 +2066,7 @@ fileprivate extension AndroidManifestPermissionConstants {
      * Declaring the permission implies intention to use the API and the user of the device
      * can grant permission through the Settings application.
      */
-    fileprivate static var PACKAGE_USAGE_STATS: String {
+    static var PACKAGE_USAGE_STATS: String {
         
         get {
             
@@ -2084,7 +2084,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to see the number being dialed during an outgoing call with the option to redirect the call to a different number or abort the call altogether.
      */
-    fileprivate static var PROCESS_OUTGOING_CALLS: String {
+    static var PROCESS_OUTGOING_CALLS: String {
         
         get {
             
@@ -2102,7 +2102,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to read the user's calendar data.
      */
-    fileprivate static var READ_CALENDAR: String {
+    static var READ_CALENDAR: String {
         
         get {
             
@@ -2120,7 +2120,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to read the user's call log.
      */
-    fileprivate static var READ_CALL_LOG: String {
+    static var READ_CALL_LOG: String {
         
         get {
             
@@ -2138,7 +2138,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to read the user's contacts data.
      */
-    fileprivate static var READ_CONTACTS: String {
+    static var READ_CONTACTS: String {
         
         get {
             
@@ -2156,7 +2156,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to read from external storage.
      */
-    fileprivate static var READ_EXTERNAL_STORAGE: String {
+    static var READ_EXTERNAL_STORAGE: String {
         
         get {
             
@@ -2174,7 +2174,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to take screen shots and more generally get access to the frame buffer data.
      */
-    fileprivate static var READ_FRAME_BUFFER: String {
+    static var READ_FRAME_BUFFER: String {
         
         get {
             
@@ -2192,7 +2192,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to read the low-level system log files.
      */
-    fileprivate static var READ_LOGS: String {
+    static var READ_LOGS: String {
         
         get {
             
@@ -2210,7 +2210,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows read access to the device's phone number(s).
      */
-    fileprivate static var READ_PHONE_NUMBERS: String {
+    static var READ_PHONE_NUMBERS: String {
         
         get {
             
@@ -2228,7 +2228,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows read only access to phone state, including the phone number of the device, current cellular network information, the status of any ongoing calls, and a list of any PhoneAccounts registered on the device.
      */
-    fileprivate static var READ_PHONE_STATE: String {
+    static var READ_PHONE_STATE: String {
         
         get {
             
@@ -2246,7 +2246,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to read SMS messages.
      */
-    fileprivate static var READ_SMS: String {
+    static var READ_SMS: String {
         
         get {
             
@@ -2264,7 +2264,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows applications to read the sync settings.
      */
-    fileprivate static var READ_SYNC_SETTINGS: String {
+    static var READ_SYNC_SETTINGS: String {
         
         get {
             
@@ -2282,7 +2282,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows applications to read the sync stats.
      */
-    fileprivate static var READ_SYNC_STATS: String {
+    static var READ_SYNC_STATS: String {
         
         get {
             
@@ -2300,7 +2300,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to read voicemails in the system.
      */
-    fileprivate static var READ_VOICEMAIL: String {
+    static var READ_VOICEMAIL: String {
         
         get {
             
@@ -2318,7 +2318,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Required to be able to reboot the device.
      */
-    fileprivate static var REBOOT: String {
+    static var REBOOT: String {
         
         get {
             
@@ -2336,7 +2336,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to receive the Intent.ACTION_BOOT_COMPLETED that is broadcast after the system finishes booting.
      */
-    fileprivate static var RECEIVE_BOOT_COMPLETED: String {
+    static var RECEIVE_BOOT_COMPLETED: String {
         
         get {
             
@@ -2354,7 +2354,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to monitor incoming MMS messages.
      */
-    fileprivate static var RECEIVE_MMS: String {
+    static var RECEIVE_MMS: String {
         
         get {
             
@@ -2372,7 +2372,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to receive SMS messages.
      */
-    fileprivate static var RECEIVE_SMS: String {
+    static var RECEIVE_SMS: String {
         
         get {
             
@@ -2390,7 +2390,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to receive WAP push messages.
      */
-    fileprivate static var RECEIVE_WAP_PUSH: String {
+    static var RECEIVE_WAP_PUSH: String {
         
         get {
             
@@ -2408,7 +2408,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to record audio.
      */
-    fileprivate static var RECORD_AUDIO: String {
+    static var RECORD_AUDIO: String {
         
         get {
             
@@ -2426,7 +2426,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to change the Z-order of tasks.
      */
-    fileprivate static var REORDER_TASKS: String {
+    static var REORDER_TASKS: String {
         
         get {
             
@@ -2444,7 +2444,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows a companion app to run in the background.
      */
-    fileprivate static var REQUEST_COMPANION_RUN_IN_BACKGROUND: String {
+    static var REQUEST_COMPANION_RUN_IN_BACKGROUND: String {
         
         get {
             
@@ -2462,7 +2462,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows a companion app to use data in the background.
      */
-    fileprivate static var REQUEST_COMPANION_USE_DATA_IN_BACKGROUND: String {
+    static var REQUEST_COMPANION_USE_DATA_IN_BACKGROUND: String {
         
         get {
             
@@ -2480,7 +2480,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to request deleting packages.
      */
-    fileprivate static var REQUEST_DELETE_PACKAGES: String {
+    static var REQUEST_DELETE_PACKAGES: String {
         
         get {
             
@@ -2498,7 +2498,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Permission an application must hold in order to use Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS.
      */
-    fileprivate static var REQUEST_IGNORE_BATTERY_OPTIMIZATIONS: String {
+    static var REQUEST_IGNORE_BATTERY_OPTIMIZATIONS: String {
         
         get {
             
@@ -2516,7 +2516,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to request installing packages.
      */
-    fileprivate static var REQUEST_INSTALL_PACKAGES: String {
+    static var REQUEST_INSTALL_PACKAGES: String {
         
         get {
             
@@ -2534,7 +2534,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application (Phone) to send a request to other applications to handle the respond-via-message action during incoming calls.
      */
-    fileprivate static var SEND_RESPOND_VIA_MESSAGE: String {
+    static var SEND_RESPOND_VIA_MESSAGE: String {
         
         get {
             
@@ -2552,7 +2552,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to send SMS messages.
      */
-    fileprivate static var SEND_SMS: String {
+    static var SEND_SMS: String {
         
         get {
             
@@ -2570,7 +2570,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to broadcast an Intent to set an alarm for the user.
      */
-    fileprivate static var SET_ALARM: String {
+    static var SET_ALARM: String {
         
         get {
             
@@ -2588,7 +2588,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to control whether activities are immediately finished when put in the background.
      */
-    fileprivate static var SET_ALWAYS_FINISH: String {
+    static var SET_ALWAYS_FINISH: String {
         
         get {
             
@@ -2606,7 +2606,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Modify the global animation scaling factor.
      */
-    fileprivate static var SET_ANIMATION_SCALE: String {
+    static var SET_ANIMATION_SCALE: String {
         
         get {
             
@@ -2624,7 +2624,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Configure an application for debugging.
      */
-    fileprivate static var SET_DEBUG_APP: String {
+    static var SET_DEBUG_APP: String {
         
         get {
             
@@ -2642,7 +2642,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to set the maximum number of (not needed) application processes that can be running.
      */
-    fileprivate static var SET_PROCESS_LIMIT: String {
+    static var SET_PROCESS_LIMIT: String {
         
         get {
             
@@ -2660,7 +2660,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows applications to set the system time.
      */
-    fileprivate static var SET_TIME: String {
+    static var SET_TIME: String {
         
         get {
             
@@ -2678,7 +2678,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows applications to set the system time zone.
      */
-    fileprivate static var SET_TIME_ZONE: String {
+    static var SET_TIME_ZONE: String {
         
         get {
             
@@ -2696,7 +2696,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows applications to set the wallpaper.
      */
-    fileprivate static var SET_WALLPAPER: String {
+    static var SET_WALLPAPER: String {
         
         get {
             
@@ -2714,7 +2714,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows applications to set the wallpaper hints.
      */
-    fileprivate static var SET_WALLPAPER_HINTS: String {
+    static var SET_WALLPAPER_HINTS: String {
         
         get {
             
@@ -2732,7 +2732,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allow an application to request that a signal be sent to all persistent processes.
      */
-    fileprivate static var SIGNAL_PERSISTENT_PROCESSES: String {
+    static var SIGNAL_PERSISTENT_PROCESSES: String {
         
         get {
             
@@ -2750,7 +2750,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to open, close, or disable the status bar and its icons.
      */
-    fileprivate static var STATUS_BAR: String {
+    static var STATUS_BAR: String {
         
         get {
             
@@ -2768,7 +2768,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an app to create windows using the type WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY, shown on top of all other apps.
      */
-    fileprivate static var SYSTEM_ALERT_WINDOW: String {
+    static var SYSTEM_ALERT_WINDOW: String {
         
         get {
             
@@ -2786,7 +2786,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows using the device's IR transmitter, if available.
      */
-    fileprivate static var TRANSMIT_IR: String {
+    static var TRANSMIT_IR: String {
         
         get {
             
@@ -2804,7 +2804,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * This permission is no longer supported.
      */
-    fileprivate static var UNINSTALL_SHORTCUT: String {
+    static var UNINSTALL_SHORTCUT: String {
         
         get {
             
@@ -2822,7 +2822,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to update device statistics.
      */
-    fileprivate static var UPDATE_DEVICE_STATS: String {
+    static var UPDATE_DEVICE_STATS: String {
         
         get {
             
@@ -2840,7 +2840,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an app to use device supported biometric modalities.
      */
-    fileprivate static var USE_BIOMETRIC: String {
+    static var USE_BIOMETRIC: String {
         
         get {
             
@@ -2858,7 +2858,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to use SIP service.
      */
-    fileprivate static var USE_SIP: String {
+    static var USE_SIP: String {
         
         get {
             
@@ -2876,7 +2876,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows access to the vibrator.
      */
-    fileprivate static var VIBRATE: String {
+    static var VIBRATE: String {
         
         get {
             
@@ -2894,7 +2894,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows using PowerManager WakeLocks to keep processor from sleeping or screen from dimming.
      */
-    fileprivate static var WAKE_LOCK: String {
+    static var WAKE_LOCK: String {
         
         get {
             
@@ -2912,7 +2912,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows applications to write the apn settings.
      */
-    fileprivate static var WRITE_APN_SETTINGS: String {
+    static var WRITE_APN_SETTINGS: String {
         
         get {
             
@@ -2930,7 +2930,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to write the user's calendar data.
      */
-    fileprivate static var WRITE_CALENDAR: String {
+    static var WRITE_CALENDAR: String {
         
         get {
             
@@ -2948,7 +2948,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to write (but not read) the user's call log data.
      */
-    fileprivate static var WRITE_CALL_LOG: String {
+    static var WRITE_CALL_LOG: String {
         
         get {
             
@@ -2966,7 +2966,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to write the user's contacts data.
      */
-    fileprivate static var WRITE_CONTACTS: String {
+    static var WRITE_CONTACTS: String {
         
         get {
             
@@ -2984,7 +2984,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to write to external storage.
      */
-    fileprivate static var WRITE_EXTERNAL_STORAGE: String {
+    static var WRITE_EXTERNAL_STORAGE: String {
         
         get {
             
@@ -3002,7 +3002,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to modify the Google service map.
      */
-    fileprivate static var WRITE_GSERVICES: String {
+    static var WRITE_GSERVICES: String {
         
         get {
             
@@ -3020,7 +3020,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to read or write the secure system settings.
      */
-    fileprivate static var WRITE_SECURE_SETTINGS: String {
+    static var WRITE_SECURE_SETTINGS: String {
         
         get {
             
@@ -3038,7 +3038,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to read or write the system settings.
      */
-    fileprivate static var WRITE_SETTINGS: String {
+    static var WRITE_SETTINGS: String {
         
         get {
             
@@ -3056,7 +3056,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows applications to write the sync settings.
      */
-    fileprivate static var WRITE_SYNC_SETTINGS: String {
+    static var WRITE_SYNC_SETTINGS: String {
         
         get {
             
@@ -3074,7 +3074,7 @@ fileprivate extension AndroidManifestPermissionConstants {
     /**
      * Allows an application to modify and remove existing voicemails in the system.
      */
-    fileprivate static var WRITE_VOICEMAIL: String {
+    static var WRITE_VOICEMAIL: String {
         
         get {
             

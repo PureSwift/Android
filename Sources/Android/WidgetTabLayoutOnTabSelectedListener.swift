@@ -12,7 +12,7 @@ import JNI
 
 public extension AndroidTabLayout {
     
-    public typealias OnTabSelectedListener = AndroidOnTabSelectedListener
+    typealias OnTabSelectedListener = AndroidOnTabSelectedListener
 }
 
 open class AndroidOnTabSelectedListener: JavaObject {

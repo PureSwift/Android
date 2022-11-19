@@ -12,7 +12,7 @@ import JNI
 
 public extension Android.Widget.Toolbar {
     
-    public typealias OnMenuItemClickListener = AndroidOnMenuItemClickListener
+    typealias OnMenuItemClickListener = AndroidOnMenuItemClickListener
 }
 
 open class AndroidOnMenuItemClickListener: JavaObject {

@@ -12,7 +12,7 @@ import JNI
 
 public extension AndroidTabLayout {
     
-    public typealias Tab = AndroidTab
+    typealias Tab = AndroidTab
 }
 
 /// A tab in this layout.

@@ -12,7 +12,7 @@ import JNI
 
 public extension Android.View {
     
-    public typealias Display = AndroidDisplay
+    typealias Display = AndroidDisplay
 }
 
 /**

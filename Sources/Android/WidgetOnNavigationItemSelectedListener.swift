@@ -12,7 +12,7 @@ import JNI
 
 public extension AndroidBottomNavigationView {
     
-    public typealias OnNavigationItemSelectedListener = AndroidOnNavigationItemSelectedListener
+    typealias OnNavigationItemSelectedListener = AndroidOnNavigationItemSelectedListener
 }
 
 open class AndroidOnNavigationItemSelectedListener: JavaObject {

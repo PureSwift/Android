@@ -12,7 +12,7 @@ import JNI
 
 public extension Android.Widget {
     
-    public typealias HorizontalScrollView = AndroidHorizontalScrollView
+    typealias HorizontalScrollView = AndroidHorizontalScrollView
 }
 
 open class AndroidHorizontalScrollView: AndroidWidgetFrameLayout {

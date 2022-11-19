@@ -12,7 +12,7 @@ import JNI
 
 public extension AndroidSearchView {
     
-    public typealias OnSuggestionListener = AndroidSearchViewOnSuggestionListener
+    typealias OnSuggestionListener = AndroidSearchViewOnSuggestionListener
 }
 
 open class AndroidSearchViewOnSuggestionListener: JavaObject {

@@ -10,7 +10,7 @@ import java_lang
 
 public extension Android.Graphics {
     
-    public typealias Point = AndroidPoint
+    typealias Point = AndroidPoint
 }
 
 public class AndroidPoint: JavaObject {

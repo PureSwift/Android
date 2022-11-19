@@ -12,7 +12,7 @@ import JNI
 
 public extension Android.Widget {
     
-    public typealias ArrayAdapter = AndroidArrayAdapter
+    typealias ArrayAdapter = AndroidArrayAdapter
 }
 
 /**

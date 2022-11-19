@@ -11,7 +11,7 @@ import JNI
 
 public extension Android.Content {
     
-    public typealias ContextCompat = AndroidContextCompat
+    typealias ContextCompat = AndroidContextCompat
 }
 
 open class AndroidContextCompat: JavaObject {

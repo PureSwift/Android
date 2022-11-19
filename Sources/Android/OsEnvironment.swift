@@ -11,7 +11,7 @@ import java_util
 
 public extension Android.OS {
     
-    public typealias Environment = AndroidEnvironment
+    typealias Environment = AndroidEnvironment
 }
 
 public final class AndroidEnvironment: JavaObject {

@@ -12,7 +12,7 @@ import JNI
 
 public extension Android.Widget {
     
-    public typealias FrameLayout = AndroidWidgetFrameLayout
+    typealias FrameLayout = AndroidWidgetFrameLayout
 }
 
 open class AndroidWidgetFrameLayout: Android.View.ViewGroup {

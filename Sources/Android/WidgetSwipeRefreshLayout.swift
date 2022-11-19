@@ -12,7 +12,7 @@ import JNI
 
 public extension Android.Widget {
     
-    public typealias SwipeRefreshLayout = AndroidSwipeRefreshLayout
+    typealias SwipeRefreshLayout = AndroidSwipeRefreshLayout
 }
 
 open class AndroidSwipeRefreshLayout: AndroidViewGroup {

@@ -12,7 +12,7 @@ import JNI
 
 public extension Android.Widget {
     
-    public typealias NestedScrollView = AndroidNestedScrollView
+    typealias NestedScrollView = AndroidNestedScrollView
 }
 
 open class AndroidNestedScrollView: AndroidWidgetFrameLayout {

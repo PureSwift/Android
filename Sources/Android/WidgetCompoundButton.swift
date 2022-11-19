@@ -12,7 +12,7 @@ import JNI
 
 public extension Android.Widget {
     
-    public typealias CompoundButton = AndroidCompoundButton
+    typealias CompoundButton = AndroidCompoundButton
 }
 
 open class AndroidCompoundButton: AndroidButton {

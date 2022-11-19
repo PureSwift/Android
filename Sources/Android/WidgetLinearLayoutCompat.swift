@@ -12,7 +12,7 @@ import JNI
 
 public extension Android.Widget {
     
-    public typealias LinearLayoutCompat = AndroidLinearLayoutCompat
+    typealias LinearLayoutCompat = AndroidLinearLayoutCompat
 }
 
 open class AndroidLinearLayoutCompat: Android.View.ViewGroup {

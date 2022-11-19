@@ -12,7 +12,7 @@ import JNI
 
 public extension Android.Widget {
     
-    public typealias SeekBar = AndroidSeekBar
+    typealias SeekBar = AndroidSeekBar
 }
 
 /* https://developer.android.com/reference/android/widget/SeekBar

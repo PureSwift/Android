@@ -10,7 +10,7 @@ import java_lang
 
 public extension Android.Graphics.Drawable {
     
-    public typealias Drawable = AndroidGraphicsDrawableDrawable
+    typealias Drawable = AndroidGraphicsDrawableDrawable
 }
 
 /***

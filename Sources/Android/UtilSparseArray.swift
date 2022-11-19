@@ -11,7 +11,7 @@ import java_util
 
 public extension Android.Util {
     
-    public typealias SparseArray = AndroidSparseArray
+    typealias SparseArray = AndroidSparseArray
 }
 
 /**

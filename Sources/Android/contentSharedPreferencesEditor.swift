@@ -12,7 +12,7 @@ import JNI
 
 public extension AndroidSharedPreferences {
     
-    public typealias Editor = AndroidSharedPreferencesEditor
+    typealias Editor = AndroidSharedPreferencesEditor
 }
 
 open class AndroidSharedPreferencesEditor: JavaObject {

@@ -12,7 +12,7 @@ import JNI
 
 public extension Android.Widget.RecyclerView {
     
-    public typealias Adapter = AndroidWidgetRecyclerViewAdapter
+    typealias Adapter = AndroidWidgetRecyclerViewAdapter
 }
 
 /**

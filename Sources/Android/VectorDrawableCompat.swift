@@ -11,7 +11,7 @@ import JNI
 
 public extension Android.Graphics.Drawable {
     
-    public typealias VectorDrawableCompat = AndroidVectorDrawableCompat
+    typealias VectorDrawableCompat = AndroidVectorDrawableCompat
 }
 
 public class AndroidVectorDrawableCompat: AndroidGraphicsDrawableDrawable {

@@ -12,7 +12,7 @@ import JNI
 
 public extension AndroidViewGroup {
     
-    public typealias MarginLayoutParams = AndroidViewGroupMarginLayoutParams
+    typealias MarginLayoutParams = AndroidViewGroupMarginLayoutParams
 }
 
 open class AndroidViewGroupMarginLayoutParams: Android.View.ViewGroup.LayoutParams {
@@ -174,7 +174,7 @@ public extension AndroidViewGroupMarginLayoutParams {
 
 public extension AndroidViewGroupMarginLayoutParams {
     
-    @_versioned
+    @usableFromInline
     internal func setMarginStart(_ start: Int) {
         
         var __locals = [jobject]()
@@ -192,7 +192,7 @@ public extension AndroidViewGroupMarginLayoutParams {
             locals: &__locals )
     }
     
-    @_versioned
+    @usableFromInline
     internal func getMarginStart() -> Int {
         
         var __locals = [jobject]()
@@ -210,7 +210,7 @@ public extension AndroidViewGroupMarginLayoutParams {
         return Int(__return)
     }
     
-    @_versioned
+    @usableFromInline
     internal func setMarginEnd(_ end: Int) {
         
         var __locals = [jobject]()
@@ -228,7 +228,7 @@ public extension AndroidViewGroupMarginLayoutParams {
             locals: &__locals )
     }
     
-    @_versioned
+    @usableFromInline
     internal func getMarginEnd() -> Int {
         
         var __locals = [jobject]()
@@ -246,7 +246,7 @@ public extension AndroidViewGroupMarginLayoutParams {
         return Int(__return)
     }
     
-    @_versioned
+    @usableFromInline
     internal func setLayoutDirection(_ layoutDirection: Int) {
         
         var __locals = [jobject]()
@@ -264,7 +264,7 @@ public extension AndroidViewGroupMarginLayoutParams {
             locals: &__locals )
     }
     
-    @_versioned
+    @usableFromInline
     internal func getLayoutDirection() -> Int {
         
         var __locals = [jobject]()
@@ -282,7 +282,7 @@ public extension AndroidViewGroupMarginLayoutParams {
         return Int(__return)
     }
     
-    @_versioned
+    @usableFromInline
     internal func getIsMarginRelative() -> Bool {
         
         var __locals = [jobject]()

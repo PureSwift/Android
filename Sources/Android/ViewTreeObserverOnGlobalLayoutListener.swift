@@ -12,7 +12,7 @@ import JNI
 
 public extension AndroidViewTreeObserver {
     
-    public typealias OnGlobalLayoutListener = AndroidOnGlobalLayoutListener
+    typealias OnGlobalLayoutListener = AndroidOnGlobalLayoutListener
 }
 
 open class AndroidOnGlobalLayoutListener: JavaObject {

@@ -12,7 +12,7 @@ import JNI
 
 public extension Android.Content.Res {
     
-    public typealias Resources = AndroidContentResResources
+    typealias Resources = AndroidContentResResources
 }
 
 public class AndroidContentResResources: JavaObject {

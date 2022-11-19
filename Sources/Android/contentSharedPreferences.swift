@@ -12,7 +12,7 @@ import JNI
 
 public extension Android.Content {
     
-    public typealias SharedPreferences = AndroidSharedPreferences
+    typealias SharedPreferences = AndroidSharedPreferences
 }
 
 open class AndroidSharedPreferences: JavaObject {

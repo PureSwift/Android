@@ -11,7 +11,7 @@ import JNI
 
 public extension SwiftSupport.App {
     
-    public typealias Application = SwiftApplication
+    typealias Application = SwiftApplication
 }
 
 open class SwiftApplication: JavaObject {

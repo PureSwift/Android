@@ -11,7 +11,7 @@ import java_util
 
 public extension Android.Content {
     
-    public typealias Context = AndroidContext
+    typealias Context = AndroidContext
 }
 
 open class AndroidContext: JavaObject {

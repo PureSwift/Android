@@ -12,7 +12,7 @@ import JNI
 
 public extension Android.OS {
     
-    public typealias Handler = AndroidHandler
+    typealias Handler = AndroidHandler
 }
 
 /// `Android.View.View`

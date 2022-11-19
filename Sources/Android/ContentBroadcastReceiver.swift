@@ -11,7 +11,7 @@ import JNI
 
 public extension Android.Content {
     
-    public typealias BroadcastReceiver = AndroidBroadcastReceiver
+    typealias BroadcastReceiver = AndroidBroadcastReceiver
 }
 
 open class AndroidBroadcastReceiver: JavaObject {

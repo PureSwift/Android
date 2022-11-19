@@ -11,7 +11,7 @@ import JNI
 
 public extension Android.Graphics.Drawable {
     
-    public typealias DrawableCompat = AndroidDrawableCompat
+    typealias DrawableCompat = AndroidDrawableCompat
 }
 
 open class AndroidDrawableCompat: JavaObject {

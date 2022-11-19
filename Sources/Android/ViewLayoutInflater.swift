@@ -10,7 +10,7 @@ import java_swift
 
 public extension Android.View {
     
-    public typealias LayoutInflater = AndroidLayoutInflater
+    typealias LayoutInflater = AndroidLayoutInflater
 }
 
 public final class AndroidLayoutInflater: JavaObject {

@@ -12,7 +12,7 @@ import JNI
 
 public extension Android.View.Inputmethod {
     
-    public typealias InputMethodManager = AndroidInputMethodManager
+    typealias InputMethodManager = AndroidInputMethodManager
 }
 
 open class AndroidInputMethodManager: JavaObject {

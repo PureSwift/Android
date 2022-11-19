@@ -11,7 +11,7 @@ import java_util
 
 public extension AndroidBuild {
     
-    public typealias VersionCodes = AndroidBuildVersionCodes
+    typealias VersionCodes = AndroidBuildVersionCodes
 }
 
 public struct AndroidBuildVersionCodes: RawRepresentable, Equatable {
@@ -152,7 +152,7 @@ fileprivate class AndroidBuildVersionCodesConstants: JavaObject {
 
 fileprivate extension AndroidBuildVersionCodesConstants {
     
-    fileprivate static var BASE: Int {
+    static var BASE: Int {
         
         get {
             
@@ -167,7 +167,7 @@ fileprivate extension AndroidBuildVersionCodesConstants {
         }
     }
     
-    fileprivate static var BASE_1_1: Int {
+    static var BASE_1_1: Int {
         
         get {
             
@@ -182,7 +182,7 @@ fileprivate extension AndroidBuildVersionCodesConstants {
         }
     }
     
-    fileprivate static var CUPCAKE: Int {
+    static var CUPCAKE: Int {
         
         get {
             
@@ -197,7 +197,7 @@ fileprivate extension AndroidBuildVersionCodesConstants {
         }
     }
     
-    fileprivate static var CUR_DEVELOPMENT: Int {
+    static var CUR_DEVELOPMENT: Int {
         
         get {
             
@@ -212,7 +212,7 @@ fileprivate extension AndroidBuildVersionCodesConstants {
         }
     }
     
-    fileprivate static var DONUT: Int {
+    static var DONUT: Int {
         
         get {
             
@@ -227,7 +227,7 @@ fileprivate extension AndroidBuildVersionCodesConstants {
         }
     }
     
-    fileprivate static var ECLAIR: Int {
+    static var ECLAIR: Int {
         
         get {
             
@@ -242,7 +242,7 @@ fileprivate extension AndroidBuildVersionCodesConstants {
         }
     }
     
-    fileprivate static var ECLAIR_0_1: Int {
+    static var ECLAIR_0_1: Int {
         
         get {
             
@@ -257,7 +257,7 @@ fileprivate extension AndroidBuildVersionCodesConstants {
         }
     }
     
-    fileprivate static var ECLAIR_MR1: Int {
+    static var ECLAIR_MR1: Int {
         
         get {
             
@@ -272,7 +272,7 @@ fileprivate extension AndroidBuildVersionCodesConstants {
         }
     }
     
-    fileprivate static var FROYO: Int {
+    static var FROYO: Int {
         
         get {
             
@@ -287,7 +287,7 @@ fileprivate extension AndroidBuildVersionCodesConstants {
         }
     }
     
-    fileprivate static var GINGERBREAD: Int {
+    static var GINGERBREAD: Int {
         
         get {
             
@@ -302,7 +302,7 @@ fileprivate extension AndroidBuildVersionCodesConstants {
         }
     }
     
-    fileprivate static var GINGERBREAD_MR1: Int {
+    static var GINGERBREAD_MR1: Int {
         
         get {
             
@@ -317,7 +317,7 @@ fileprivate extension AndroidBuildVersionCodesConstants {
         }
     }
     
-    fileprivate static var HONEYCOMB: Int {
+    static var HONEYCOMB: Int {
         
         get {
             
@@ -332,7 +332,7 @@ fileprivate extension AndroidBuildVersionCodesConstants {
         }
     }
     
-    fileprivate static var HONEYCOMB_MR1: Int {
+    static var HONEYCOMB_MR1: Int {
         
         get {
             
@@ -347,7 +347,7 @@ fileprivate extension AndroidBuildVersionCodesConstants {
         }
     }
     
-    fileprivate static var HONEYCOMB_MR2: Int {
+    static var HONEYCOMB_MR2: Int {
         
         get {
             
@@ -362,7 +362,7 @@ fileprivate extension AndroidBuildVersionCodesConstants {
         }
     }
     
-    fileprivate static var ICE_CREAM_SANDWICH: Int {
+    static var ICE_CREAM_SANDWICH: Int {
         
         get {
             
@@ -377,7 +377,7 @@ fileprivate extension AndroidBuildVersionCodesConstants {
         }
     }
     
-    fileprivate static var ICE_CREAM_SANDWICH_MR1: Int {
+    static var ICE_CREAM_SANDWICH_MR1: Int {
         
         get {
             
@@ -392,7 +392,7 @@ fileprivate extension AndroidBuildVersionCodesConstants {
         }
     }
     
-    fileprivate static var JELLY_BEAN: Int {
+    static var JELLY_BEAN: Int {
         
         get {
             
@@ -407,7 +407,7 @@ fileprivate extension AndroidBuildVersionCodesConstants {
         }
     }
     
-    fileprivate static var JELLY_BEAN_MR1: Int {
+    static var JELLY_BEAN_MR1: Int {
         
         get {
             
@@ -422,7 +422,7 @@ fileprivate extension AndroidBuildVersionCodesConstants {
         }
     }
     
-    fileprivate static var JELLY_BEAN_MR2: Int {
+    static var JELLY_BEAN_MR2: Int {
         
         get {
             
@@ -437,7 +437,7 @@ fileprivate extension AndroidBuildVersionCodesConstants {
         }
     }
     
-    fileprivate static var KITKAT: Int {
+    static var KITKAT: Int {
         
         get {
             
@@ -452,7 +452,7 @@ fileprivate extension AndroidBuildVersionCodesConstants {
         }
     }
     
-    fileprivate static var KITKAT_WATCH: Int {
+    static var KITKAT_WATCH: Int {
         
         get {
             
@@ -467,7 +467,7 @@ fileprivate extension AndroidBuildVersionCodesConstants {
         }
     }
     
-    fileprivate static var LOLLIPOP: Int {
+    static var LOLLIPOP: Int {
         
         get {
             
@@ -482,7 +482,7 @@ fileprivate extension AndroidBuildVersionCodesConstants {
         }
     }
     
-    fileprivate static var LOLLIPOP_MR1: Int {
+    static var LOLLIPOP_MR1: Int {
         
         get {
             
@@ -497,7 +497,7 @@ fileprivate extension AndroidBuildVersionCodesConstants {
         }
     }
     
-    fileprivate static var M: Int {
+    static var M: Int {
         
         get {
             
@@ -513,7 +513,7 @@ fileprivate extension AndroidBuildVersionCodesConstants {
         }
     }
     
-    fileprivate static var N: Int {
+    static var N: Int {
         
         get {
             
@@ -528,7 +528,7 @@ fileprivate extension AndroidBuildVersionCodesConstants {
         }
     }
     
-    fileprivate static var N_MR1: Int {
+    static var N_MR1: Int {
         
         get {
             
@@ -543,7 +543,7 @@ fileprivate extension AndroidBuildVersionCodesConstants {
         }
     }
     
-    fileprivate static var O: Int {
+    static var O: Int {
         
         get {
             
@@ -558,7 +558,7 @@ fileprivate extension AndroidBuildVersionCodesConstants {
         }
     }
     
-    fileprivate static var O_MR1: Int {
+    static var O_MR1: Int {
         
         get {
             
@@ -573,7 +573,7 @@ fileprivate extension AndroidBuildVersionCodesConstants {
         }
     }
     
-    fileprivate static var P: Int {
+    static var P: Int {
         
         get {
             

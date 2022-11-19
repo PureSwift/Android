@@ -11,7 +11,7 @@ import JNI
 
 public extension Android.Widget.RecyclerView {
     
-    public typealias LinearLayoutManager = AndroidWidgetRecyclerViewLinearLayoutManager
+    typealias LinearLayoutManager = AndroidWidgetRecyclerViewLinearLayoutManager
 }
 
 public final class AndroidWidgetRecyclerViewLinearLayoutManager: AndroidWidgetRecyclerViewLayoutManager {

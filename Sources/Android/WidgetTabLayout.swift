@@ -12,7 +12,7 @@ import JNI
 
 public extension Android.Widget {
     
-    public typealias TabLayout = AndroidTabLayout
+    typealias TabLayout = AndroidTabLayout
 }
 
 open class AndroidTabLayout: AndroidHorizontalScrollView {

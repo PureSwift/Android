@@ -12,7 +12,7 @@ import JNI
 
 public extension Android.App {
     
-    public typealias ProgressDialog = AndroidProgressDialog
+    typealias ProgressDialog = AndroidProgressDialog
 }
 
 open class AndroidProgressDialog: AndroidAlertDialog {

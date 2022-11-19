@@ -12,7 +12,7 @@ import JNI
 
 public extension AndroidLinearLayout {
     
-    public typealias LayoutParams = AndroidLinearLayoutLayoutParams
+    typealias LayoutParams = AndroidLinearLayoutLayoutParams
 }
 
 open class AndroidLinearLayoutLayoutParams: Android.View.ViewGroup.MarginLayoutParams {

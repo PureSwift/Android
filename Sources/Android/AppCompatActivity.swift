@@ -11,7 +11,7 @@ import JNI
 
 public extension SwiftSupport.App {
     
-    public typealias AppCompatActivity = SwiftSupportAppCompatActivity
+    typealias AppCompatActivity = SwiftSupportAppCompatActivity
 }
 
 /**

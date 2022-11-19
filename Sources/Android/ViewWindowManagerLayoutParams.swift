@@ -12,7 +12,7 @@ import JNI
 
 public extension AndroidWindowManager {
     
-    public typealias LayoutParams = AndroidWindowManagerLayoutParams
+    typealias LayoutParams = AndroidWindowManagerLayoutParams
 }
 
 open class AndroidWindowManagerLayoutParams: Android.View.ViewGroup.LayoutParams {

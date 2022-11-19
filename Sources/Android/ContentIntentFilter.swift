@@ -10,7 +10,7 @@ import java_swift
 import java_util
 
 public extension Android.Content {
-    public typealias IntentFilter = AndroidIntentFilter
+    typealias IntentFilter = AndroidIntentFilter
 }
 
 /**

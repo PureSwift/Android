@@ -11,7 +11,7 @@ import java_util
 
 public extension Android.OS {
     
-    public typealias Bundle = AndroidBundle
+    typealias Bundle = AndroidBundle
 }
 
 public final class AndroidBundle: JavaObject {

@@ -10,7 +10,7 @@ import java_swift
 
 public extension Android {
     
-    public typealias ManifestPermissionGroup = AndroidManifestPermissionGroup
+    typealias ManifestPermissionGroup = AndroidManifestPermissionGroup
     
 }
 
@@ -93,7 +93,7 @@ fileprivate extension AndroidManifestPermissionGroupConstants {
     /**
      * Used for runtime permissions related to user's calendar.
      */
-    fileprivate static var CALENDAR: String {
+    static var CALENDAR: String {
         
         get {
             
@@ -111,7 +111,7 @@ fileprivate extension AndroidManifestPermissionGroupConstants {
     /**
      * Used for permissions that are associated telephony features.
      */
-    fileprivate static var CALL_LOG: String {
+    static var CALL_LOG: String {
         
         get {
             
@@ -129,7 +129,7 @@ fileprivate extension AndroidManifestPermissionGroupConstants {
     /**
      * Used for permissions that are associated with accessing camera or capturing images/video from the device.
      */
-    fileprivate static var CAMERA: String {
+    static var CAMERA: String {
         
         get {
             
@@ -147,7 +147,7 @@ fileprivate extension AndroidManifestPermissionGroupConstants {
     /**
      * Used for runtime permissions related to contacts and profiles on this device.
      */
-    fileprivate static var CONTACTS: String {
+    static var CONTACTS: String {
         
         get {
             
@@ -165,7 +165,7 @@ fileprivate extension AndroidManifestPermissionGroupConstants {
     /**
      * Used for permissions that allow accessing the device location.
      */
-    fileprivate static var LOCATION: String {
+    static var LOCATION: String {
         
         get {
             
@@ -183,7 +183,7 @@ fileprivate extension AndroidManifestPermissionGroupConstants {
     /**
      * Used for permissions that are associated with accessing microphone audio from the device.
      */
-    fileprivate static var MICROPHONE: String {
+    static var MICROPHONE: String {
         
         get {
             
@@ -201,7 +201,7 @@ fileprivate extension AndroidManifestPermissionGroupConstants {
     /**
      * Used for permissions that are associated telephony features.
      */
-    fileprivate static var PHONE: String {
+    static var PHONE: String {
         
         get {
             
@@ -219,7 +219,7 @@ fileprivate extension AndroidManifestPermissionGroupConstants {
     /**
      * Used for permissions that are associated with accessing body or environmental sensors.
      */
-    fileprivate static var SENSORS: String {
+    static var SENSORS: String {
         
         get {
             
@@ -237,7 +237,7 @@ fileprivate extension AndroidManifestPermissionGroupConstants {
     /**
      * Used for runtime permissions related to user's SMS messages.
      */
-    fileprivate static var SMS: String {
+    static var SMS: String {
         
         get {
             
@@ -255,7 +255,7 @@ fileprivate extension AndroidManifestPermissionGroupConstants {
     /**
      * Used for runtime permissions related to the shared external storage.
      */
-    fileprivate static var STORAGE: String {
+    static var STORAGE: String {
         
         get {
             

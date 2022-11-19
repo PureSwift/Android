@@ -12,7 +12,7 @@ import JNI
 
 public extension Android.View {
     
-    public typealias WindowManager = AndroidWindowManager
+    typealias WindowManager = AndroidWindowManager
 }
 
 /**

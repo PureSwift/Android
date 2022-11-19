@@ -12,7 +12,7 @@ import JNI
 
 public extension AndroidSearchView {
     
-    public typealias OnQueryTextListener = AndroidSearchViewOnQueryTextListener
+    typealias OnQueryTextListener = AndroidSearchViewOnQueryTextListener
 }
 
 open class AndroidSearchViewOnQueryTextListener: JavaObject {

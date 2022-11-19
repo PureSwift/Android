@@ -9,12 +9,12 @@ import java_swift
 
 public extension Android.Content.Context {
     
-    public typealias SystemService = AndroidContextSystemService
+    typealias SystemService = AndroidContextSystemService
 }
 
 public extension Android.Content.Context.SystemService {
     
-    public typealias Name = AndroidContextSystemServiceName
+    typealias Name = AndroidContextSystemServiceName
 }
 
 public protocol AndroidContextSystemService {

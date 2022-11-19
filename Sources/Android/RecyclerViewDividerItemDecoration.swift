@@ -11,7 +11,7 @@ import JNI
 
 public extension Android.Widget {
     
-    public typealias DividerItemDecoration = AndroidDividerItemDecoration
+    typealias DividerItemDecoration = AndroidDividerItemDecoration
 }
 
 /**

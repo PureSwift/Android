@@ -11,7 +11,7 @@ import JNI
 
 public extension Android.Widget {
     
-    public typealias Toolbar = AndroidToolbar
+    typealias Toolbar = AndroidToolbar
 }
 
 public final class AndroidToolbar: AndroidViewGroup {

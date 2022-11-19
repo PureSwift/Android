@@ -11,7 +11,7 @@ import JNI
 
 public extension Android.App {
     
-    public typealias FullScreenDialogFragment = AndroidFullScreenDialogFragment
+    typealias FullScreenDialogFragment = AndroidFullScreenDialogFragment
 }
 
 open class AndroidFullScreenDialogFragment: JavaObject {

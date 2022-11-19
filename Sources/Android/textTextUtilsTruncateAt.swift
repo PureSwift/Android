@@ -12,7 +12,7 @@ import JNI
 
 public extension Android.Text {
     
-    public typealias TruncateAt = AndroidTextUtilsTruncateAt
+    typealias TruncateAt = AndroidTextUtilsTruncateAt
 }
 
 open class AndroidTextUtilsTruncateAt: JavaObject {

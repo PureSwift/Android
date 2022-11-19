@@ -10,7 +10,7 @@ import java_swift
 
 public extension Android.Widget {
     
-    public typealias TextView = AndroidTextView
+    typealias TextView = AndroidTextView
 }
 
 /**

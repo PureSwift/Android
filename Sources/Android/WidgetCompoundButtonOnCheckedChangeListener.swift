@@ -12,7 +12,7 @@ import JNI
 
 public extension AndroidCompoundButton {
     
-    public typealias OnCheckedChangeListener = AndroidOnCheckedChangeListener
+    typealias OnCheckedChangeListener = AndroidOnCheckedChangeListener
 }
 
 open class AndroidOnCheckedChangeListener: JavaObject {

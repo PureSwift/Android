@@ -10,7 +10,7 @@ import java_swift
 
 public extension Android.Content {
     
-    public typealias DialogInterfaceForward = AndroidDialogInterfaceForward
+    typealias DialogInterfaceForward = AndroidDialogInterfaceForward
 }
 
 /**

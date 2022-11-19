@@ -11,7 +11,7 @@ import JNI
 
 public extension Android.Widget.RecyclerView {
     
-    public typealias ViewHolder = AndroidWidgetRecyclerViewViewHolder
+    typealias ViewHolder = AndroidWidgetRecyclerViewViewHolder
 }
 
 /**
@@ -112,7 +112,7 @@ open class AndroidWidgetRecyclerViewViewHolder: JavaObject {
         get { return itemIsRecyclable() }
     }
     
-    @_versioned
+    @usableFromInline
     internal func obtainAdapterPosition() -> Int {
         
         var __locals = [jobject]()
@@ -128,7 +128,7 @@ open class AndroidWidgetRecyclerViewViewHolder: JavaObject {
         return Int(__return)
     }
     
-    @_versioned
+    @usableFromInline
     internal func obtainItemViewType() -> Int {
         
         var __locals = [jobject]()
@@ -144,7 +144,7 @@ open class AndroidWidgetRecyclerViewViewHolder: JavaObject {
         return Int(__return)
     }
     
-    @_versioned
+    @usableFromInline
     internal func obtainLayoutPosition() -> Int {
         
         var __locals = [jobject]()
@@ -160,7 +160,7 @@ open class AndroidWidgetRecyclerViewViewHolder: JavaObject {
         return Int(__return)
     }
     
-    @_versioned
+    @usableFromInline
     internal func obtainOldPosition() -> Int {
         
         var __locals = [jobject]()
@@ -177,7 +177,7 @@ open class AndroidWidgetRecyclerViewViewHolder: JavaObject {
         return Int(__return)
     }
     
-    @_versioned
+    @usableFromInline
     internal func obtainItemId() -> Int64 {
         
         var __locals = [jobject]()
@@ -194,7 +194,7 @@ open class AndroidWidgetRecyclerViewViewHolder: JavaObject {
         return Int64(__return)
     }
     
-    @_versioned
+    @usableFromInline
     internal func itemIsRecyclable() -> Bool {
         
         var __locals = [jobject]()

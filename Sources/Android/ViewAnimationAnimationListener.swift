@@ -12,7 +12,7 @@ import JNI
 
 public extension AndroidAnimation {
     
-    public typealias AnimationListener = AndroidAnimationListener
+    typealias AnimationListener = AndroidAnimationListener
 }
 
 /// An animation listener receives notifications from an animation.
