@@ -87,7 +87,7 @@ public final class AndroidIntent: JavaObject {
 
 public extension Android.Content.Intent {
     
-    public static var ACTION_SEND: String {
+    static var ACTION_SEND: String {
         
         get {
             
@@ -102,7 +102,7 @@ public extension Android.Content.Intent {
         }
     }
     
-    public static var ACTION_SENDTO: String {
+    static var ACTION_SENDTO: String {
         
         get {
             
@@ -117,7 +117,7 @@ public extension Android.Content.Intent {
         }
     }
     
-    public static var EXTRA_EMAIL: String {
+    static var EXTRA_EMAIL: String {
         
         get {
             
@@ -132,7 +132,7 @@ public extension Android.Content.Intent {
         }
     }
     
-    public static var EXTRA_SUBJECT: String {
+    static var EXTRA_SUBJECT: String {
         
         get {
             
@@ -147,7 +147,7 @@ public extension Android.Content.Intent {
         }
     }
     
-    public static var EXTRA_TEXT: String {
+    static var EXTRA_TEXT: String {
         
         get {
             
@@ -168,7 +168,7 @@ public extension Android.Content.Intent {
     /**
      * Retrieve extended data from the intent. (Boolean)
      */
-    public func getBooleanExtra(name: String, defaultValue: Bool) -> Bool {
+    func getBooleanExtra(name: String, defaultValue: Bool) -> Bool {
         var __locals = [jobject]()
         
         var __args: [jvalue] = [
@@ -189,7 +189,7 @@ public extension Android.Content.Intent {
     /**
      * Retrieve extended data from the intent. (Byte array)
      */
-    public func getByteArrayExtra(name: String) -> [Int8]? {
+    func getByteArrayExtra(name: String) -> [Int8]? {
         var __locals = [jobject]()
         
         var __args: [jvalue] = [
@@ -209,7 +209,7 @@ public extension Android.Content.Intent {
     /**
      * Retrieve extended data from the intent. (Byte)
      */
-    public func getByteExtra(name: String) -> Int8 {
+    func getByteExtra(name: String) -> Int8 {
         var __locals = [jobject]()
         
         var __args: [jvalue] = [
@@ -229,7 +229,7 @@ public extension Android.Content.Intent {
     /**
      * Retrieve extended data from the intent. (Int)
      */
-    public func getIntExtra(name: String, defaultValue: Int) -> Int {
+    func getIntExtra(name: String, defaultValue: Int) -> Int {
         var __locals = [jobject]()
         
         var __args: [jvalue] = [
@@ -251,7 +251,7 @@ public extension Android.Content.Intent {
      * Add extended data to the intent. (long[])
      */
     @discardableResult
-    public func putExtra(name: String, value: [Int64]) -> Android.Content.Intent {
+    func putExtra(name: String, value: [Int64]) -> Android.Content.Intent {
         
         var __locals = [jobject]()
         
@@ -276,7 +276,7 @@ public extension Android.Content.Intent {
      * Add extended data to the intent. (byte)
      */
     @discardableResult
-    public func putExtra(name: String, value: Int8) -> Android.Content.Intent {
+    func putExtra(name: String, value: Int8) -> Android.Content.Intent {
         
         var __locals = [jobject]()
         
@@ -325,7 +325,7 @@ public extension Android.Content.Intent {
      * Add extended data to the intent. (double)
      */
     @discardableResult
-    public func putExtra(name: String, value: Double) -> Android.Content.Intent {
+    func putExtra(name: String, value: Double) -> Android.Content.Intent {
         var __locals = [jobject]()
         
         var __args: [jvalue] = [

@@ -610,7 +610,7 @@ extension SwiftSupportAppCompatActivity: JNIListener { }
 
 public extension SwiftSupportAppCompatActivity {
     
-    public static var RESULT_OK: Int {
+    static var RESULT_OK: Int {
         
         get {
             
@@ -625,7 +625,7 @@ public extension SwiftSupportAppCompatActivity {
         }
     }
     
-    public static var RESULT_FIRST_USER: Int {
+    static var RESULT_FIRST_USER: Int {
         
         get {
             
@@ -640,7 +640,7 @@ public extension SwiftSupportAppCompatActivity {
         }
     }
     
-    public static var RESULT_CANCELED: Int {
+    static var RESULT_CANCELED: Int {
         
         get {
             
@@ -654,8 +654,6 @@ public extension SwiftSupportAppCompatActivity {
             return Int(__value)
         }
     }
-    
-    
 }
 
 // MARK: - Private

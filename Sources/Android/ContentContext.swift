@@ -89,7 +89,7 @@ open class AndroidContext: JavaObject {
 
 internal extension AndroidContext {
     
-    internal static var bluetoothService: String? {
+    static var bluetoothService: String? {
         
         get {
             
@@ -106,7 +106,7 @@ internal extension AndroidContext {
         }
     }
     
-    internal static var layoutInflaterService: String? {
+    static var layoutInflaterService: String? {
         
         get {
             
@@ -123,7 +123,7 @@ internal extension AndroidContext {
         }
     }
     
-    internal static var inputMethodService: String? {
+    static var inputMethodService: String? {
         
         get {
             
@@ -145,7 +145,7 @@ internal extension AndroidContext {
 
 public extension AndroidContext {
     
-    public func systemService <T> (_ service: T.Type) -> T? where T: JavaObject, T: Android.Content.Context.SystemService {
+    func systemService <T> (_ service: T.Type) -> T? where T: JavaObject, T: Android.Content.Context.SystemService {
         
         let serviceName = service.systemServiceName.rawValue
         
@@ -167,7 +167,7 @@ public extension AndroidContext {
         return __return != nil ? T( javaObject: __return ) : nil
     }
     
-    public func setTheme(resId: Int)  {
+    func setTheme(resId: Int)  {
         
         var __locals = [jobject]()
         
@@ -184,7 +184,7 @@ public extension AndroidContext {
             locals: &__locals )
     }
     
-    public func getExternalFilesDirs(type: String?) -> [JavaFile]? {
+    func getExternalFilesDirs(type: String?) -> [JavaFile]? {
         
         var __locals = [jobject]()
         
@@ -202,7 +202,7 @@ public extension AndroidContext {
         return JNIType.toSwift( type: [JavaFile].self, from: __return )
     }
     
-    public func getPackageName() -> String {
+    func getPackageName() -> String {
         
         var __locals = [jobject]()
         

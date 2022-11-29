@@ -93,7 +93,7 @@ public class AndroidPoint: JavaObject {
 
 public extension AndroidPoint {
     
-    public var x: Int {
+    var x: Int {
         
         get {
             
@@ -105,7 +105,7 @@ public extension AndroidPoint {
         }
     }
     
-    public var y: Int {
+    var y: Int {
         
         get {
             
