@@ -146,7 +146,7 @@ public extension AndroidFullScreenDialogFragment {
     
     // MARK: - Responder
     
-    public func show(manager: JavaObject, tag: String)  {
+    func show(manager: JavaObject, tag: String)  {
         
         var __locals = [jobject]()
         

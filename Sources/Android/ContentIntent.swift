@@ -301,7 +301,7 @@ public extension Android.Content.Intent {
      * Add extended data to the intent. (int)
      */
     @discardableResult
-    public func putExtra(name: String, value: Int) -> Android.Content.Intent {
+    func putExtra(name: String, value: Int) -> Android.Content.Intent {
         var __locals = [jobject]()
         
         var __args: [jvalue] = [
@@ -349,7 +349,7 @@ public extension Android.Content.Intent {
      * Add extended data to the intent. (int[])
      */
     @discardableResult
-    public func putExtra(name: String, value: [Int]) -> Android.Content.Intent {
+    func putExtra(name: String, value: [Int]) -> Android.Content.Intent {
         
         var __locals = [jobject]()
         
@@ -374,7 +374,7 @@ public extension Android.Content.Intent {
      * Add extended data to the intent. (String)
      */
     @discardableResult
-    public func putExtra(name: String, value: String) -> Android.Content.Intent {
+    func putExtra(name: String, value: String) -> Android.Content.Intent {
         
         var __locals = [jobject]()
         
@@ -396,7 +396,7 @@ public extension Android.Content.Intent {
     }
     
     @discardableResult
-    public func putExtra(name: String, value: [String]) -> Android.Content.Intent {
+    func putExtra(name: String, value: [String]) -> Android.Content.Intent {
         
         var __locals = [jobject]()
         
@@ -418,7 +418,7 @@ public extension Android.Content.Intent {
     }
     
     @discardableResult
-    public func setType(_ type: String) -> Android.Content.Intent {
+    func setType(_ type: String) -> Android.Content.Intent {
         
         var __locals = [jobject]()
         
@@ -438,7 +438,7 @@ public extension Android.Content.Intent {
         return Android.Content.Intent(javaObject: __return)
     }
     
-    public static func createChooser(intent: AndroidIntent, title: String) throws -> AndroidIntent {
+    static func createChooser(intent: AndroidIntent, title: String) throws -> AndroidIntent {
         
         var __locals = [jobject]()
         

@@ -56,7 +56,7 @@ public class AndroidBuild: JavaObject {
 
 internal extension AndroidBuild {
     
-    internal static var UNKNOWN: String {
+    static var UNKNOWN: String {
         
         get {
             
@@ -78,7 +78,7 @@ internal extension AndroidBuild {
 
 public extension AndroidBuild {
     
-    public var BOARD: String {
+    var BOARD: String {
         
         get {
             let __value = JNIField.GetObjectField(fieldName: "BOARD",
@@ -92,7 +92,7 @@ public extension AndroidBuild {
         }
     }
     
-    public var BOOTLOADER: String {
+    var BOOTLOADER: String {
         
         get {
             let __value = JNIField.GetObjectField(fieldName: "BOOTLOADER",
@@ -106,7 +106,7 @@ public extension AndroidBuild {
         }
     }
     
-    public var BRAND: String {
+    var BRAND: String {
         
         get {
             let __value = JNIField.GetObjectField(fieldName: "BRAND",
@@ -120,7 +120,7 @@ public extension AndroidBuild {
         }
     }
     
-    public var DEVICE: String {
+    var DEVICE: String {
         
         get {
             let __value = JNIField.GetObjectField(fieldName: "DEVICE",
@@ -134,7 +134,7 @@ public extension AndroidBuild {
         }
     }
     
-    public var DISPLAY: String {
+    var DISPLAY: String {
         
         get {
             let __value = JNIField.GetObjectField(fieldName: "DISPLAY",
@@ -148,7 +148,7 @@ public extension AndroidBuild {
         }
     }
     
-    public var FINGERPRINT: String {
+    var FINGERPRINT: String {
         
         get {
             let __value = JNIField.GetObjectField(fieldName: "FINGERPRINT",
@@ -162,7 +162,7 @@ public extension AndroidBuild {
         }
     }
     
-    public var HARDWARE: String {
+    var HARDWARE: String {
         
         get {
             let __value = JNIField.GetObjectField(fieldName: "HARDWARE",
@@ -176,7 +176,7 @@ public extension AndroidBuild {
         }
     }
     
-    public var HOST: String {
+    var HOST: String {
         
         get {
             let __value = JNIField.GetObjectField(fieldName: "HOST",
@@ -190,7 +190,7 @@ public extension AndroidBuild {
         }
     }
     
-    public var ID: String {
+    var ID: String {
         
         get {
             let __value = JNIField.GetObjectField(fieldName: "ID",
@@ -204,7 +204,7 @@ public extension AndroidBuild {
         }
     }
     
-    public var MANUFACTURER: String {
+    var MANUFACTURER: String {
         
         get {
             let __value = JNIField.GetObjectField(fieldName: "MANUFACTURER",
@@ -218,7 +218,7 @@ public extension AndroidBuild {
         }
     }
     
-    public var MODEL: String {
+    var MODEL: String {
         
         get {
             let __value = JNIField.GetObjectField(fieldName: "MODEL",
@@ -232,7 +232,7 @@ public extension AndroidBuild {
         }
     }
     
-    public var PRODUCT: String {
+    var PRODUCT: String {
         
         get {
             let __value = JNIField.GetObjectField(fieldName: "PRODUCT",
@@ -246,7 +246,7 @@ public extension AndroidBuild {
         }
     }
     
-    public var SUPPORTED_32_BIT_ABIS: String {
+    var SUPPORTED_32_BIT_ABIS: String {
         
         get {
             let __value = JNIField.GetObjectField(fieldName: "SUPPORTED_32_BIT_ABIS",
@@ -260,7 +260,7 @@ public extension AndroidBuild {
         }
     }
     
-    public var SUPPORTED_64_BIT_ABIS: String {
+    var SUPPORTED_64_BIT_ABIS: String {
         
         get {
             let __value = JNIField.GetObjectField(fieldName: "SUPPORTED_64_BIT_ABIS",
@@ -274,7 +274,7 @@ public extension AndroidBuild {
         }
     }
     
-    public var SUPPORTED_ABIS: String {
+    var SUPPORTED_ABIS: String {
         
         get {
             let __value = JNIField.GetObjectField(fieldName: "SUPPORTED_ABIS",
@@ -288,7 +288,7 @@ public extension AndroidBuild {
         }
     }
     
-    public var TAGS: String {
+    var TAGS: String {
         
         get {
             let __value = JNIField.GetObjectField(fieldName: "TAGS",
@@ -302,7 +302,7 @@ public extension AndroidBuild {
         }
     }
     
-    public var TIME: String {
+    var TIME: String {
         
         get {
             let __value = JNIField.GetObjectField(fieldName: "TIME",
@@ -316,7 +316,7 @@ public extension AndroidBuild {
         }
     }
     
-    public var TYPE: String {
+    var TYPE: String {
         
         get {
             let __value = JNIField.GetObjectField(fieldName: "TYPE",
@@ -330,7 +330,7 @@ public extension AndroidBuild {
         }
     }
     
-    public var USER: String {
+    var USER: String {
         
         get {
             let __value = JNIField.GetObjectField(fieldName: "USER",

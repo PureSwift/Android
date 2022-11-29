@@ -267,7 +267,7 @@ open class SwiftSupportAppCompatActivity: AndroidContextWrapper {
         
         withJavaObject {
             
-            var __return = JNIMethod.CallObjectMethod(object: $0,
+            let __return = JNIMethod.CallObjectMethod(object: $0,
                                                       methodName: "startService",
                                                       methodSig: "(Landroid/content/Intent;)Landroid/content/ComponentName;",
                                                       methodCache: &SwiftActivityJNICache.MethodID.startService,

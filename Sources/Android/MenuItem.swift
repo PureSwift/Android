@@ -77,7 +77,7 @@ open class AndroidMenuItemForward: JavaObject {
         
         get { return getActionView() }
         
-        set { setActionView(newValue) }
+        set { let _ = setActionView(newValue) }
     }
 }
 
@@ -139,7 +139,7 @@ public extension AndroidMenuItemForward {
         return __return != nil ? AndroidView(javaObject: __return) : nil
     }
     
-    public func setActionView(resId: Int) -> AndroidMenuItemForward {
+    func setActionView(resId: Int) -> AndroidMenuItemForward {
         
         var __locals = [jobject]()
         
@@ -160,8 +160,7 @@ public extension AndroidMenuItemForward {
         return AndroidMenuItemForward(javaObject: __return)
     }
     
-    @inline(__always)
-    internal func setActionView(_ view: AndroidView?) -> AndroidMenuItemForward {
+    func setActionView(_ view: AndroidView?) -> AndroidMenuItemForward {
         
         var __locals = [jobject]()
         
@@ -182,7 +181,7 @@ public extension AndroidMenuItemForward {
         return AndroidMenuItemForward(javaObject: __return)
     }
     
-    public func setTitle(resId: Int) -> AndroidMenuItemForward {
+    func setTitle(resId: Int) -> AndroidMenuItemForward {
         
         var __locals = [jobject]()
         
@@ -225,7 +224,7 @@ public extension AndroidMenuItemForward {
         return AndroidMenuItemForward(javaObject: __return)
     }
     
-    public func getTitle() -> String? {
+    func getTitle() -> String? {
         
         var __locals = [jobject]()
         
@@ -266,7 +265,7 @@ public extension AndroidMenuItemForward {
         return AndroidMenuItemForward(javaObject: __return)
     }
     
-    public func getTitleCondensed() -> String? {
+    func getTitleCondensed() -> String? {
         
         var __locals = [jobject]()
         
@@ -286,7 +285,7 @@ public extension AndroidMenuItemForward {
     }
     
     @discardableResult
-    public func setIcon(resId: Int) -> AndroidMenuItemForward {
+    func setIcon(resId: Int) -> AndroidMenuItemForward {
         
         var __locals = [jobject]()
         
@@ -307,7 +306,7 @@ public extension AndroidMenuItemForward {
         return AndroidMenuItemForward(javaObject: __return)
     }
     
-    public func setIcon(_ icon: Android.Graphics.Drawable.Drawable?) -> AndroidMenuItemForward {
+    func setIcon(_ icon: Android.Graphics.Drawable.Drawable?) -> AndroidMenuItemForward {
         
         var __locals = [jobject]()
         
@@ -328,7 +327,7 @@ public extension AndroidMenuItemForward {
         return AndroidMenuItemForward(javaObject: __return)
     }
     
-    public func getIcon() -> Android.Graphics.Drawable.Drawable? {
+    func getIcon() -> Android.Graphics.Drawable.Drawable? {
         
         var __locals = [jobject]()
         
@@ -347,7 +346,7 @@ public extension AndroidMenuItemForward {
         return __return != nil ? Android.Graphics.Drawable.Drawable(javaObject: __return) : nil
     }
     
-    public func getOrder() -> Int {
+    func getOrder() -> Int {
         
         var __locals = [jobject]()
         
@@ -364,7 +363,7 @@ public extension AndroidMenuItemForward {
         return Int(__return)
     }
     
-    public func getItemId() -> Int {
+    func getItemId() -> Int {
         
         var __locals = [jobject]()
         
@@ -381,7 +380,7 @@ public extension AndroidMenuItemForward {
         return Int(__return)
     }
     
-    public func getGroupId() -> Int {
+    func getGroupId() -> Int {
         
         var __locals = [jobject]()
         
@@ -398,7 +397,7 @@ public extension AndroidMenuItemForward {
         return Int(__return)
     }
     
-    public func setShowAsAction(action: ShowAsAction) {
+    func setShowAsAction(action: ShowAsAction) {
         
         var __locals = [jobject]()
         
@@ -418,7 +417,7 @@ public extension AndroidMenuItemForward {
 
 internal extension AndroidMenuItemForward {
     
-    internal static var SHOW_AS_ACTION_NEVER: Int {
+    static var SHOW_AS_ACTION_NEVER: Int {
         
         get {
             
@@ -433,7 +432,7 @@ internal extension AndroidMenuItemForward {
         }
     }
     
-    internal static var SHOW_AS_ACTION_IF_ROOM: Int {
+    static var SHOW_AS_ACTION_IF_ROOM: Int {
         
         get {
             
@@ -448,7 +447,7 @@ internal extension AndroidMenuItemForward {
         }
     }
     
-    internal static var SHOW_AS_ACTION_ALWAYS: Int {
+    static var SHOW_AS_ACTION_ALWAYS: Int {
         
         get {
             
@@ -463,7 +462,7 @@ internal extension AndroidMenuItemForward {
         }
     }
     
-    internal static var SHOW_AS_ACTION_WITH_TEXT: Int {
+    static var SHOW_AS_ACTION_WITH_TEXT: Int {
         
         get {
             
@@ -478,7 +477,7 @@ internal extension AndroidMenuItemForward {
         }
     }
     
-    internal static var SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW: Int {
+    static var SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW: Int {
         
         get {
             
@@ -543,7 +542,7 @@ internal extension AndroidMenuItemForward {
 
 public extension AndroidMenuItemForward {
     
-    public struct ShowAsAction: RawRepresentable, Equatable {
+    struct ShowAsAction: RawRepresentable, Equatable {
         
         public let rawValue: Int
         

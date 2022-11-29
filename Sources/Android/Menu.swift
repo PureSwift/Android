@@ -30,7 +30,7 @@ open class AndroidMenuForward: JavaObject {
 
 public extension AndroidMenuForward {
     
-    public func add(titleRes: Int) -> Android.View.MenuItemForward {
+    func add(titleRes: Int) -> Android.View.MenuItemForward {
         
         var __locals = [jobject]()
         
@@ -51,7 +51,7 @@ public extension AndroidMenuForward {
         return AndroidMenuItemForward(javaObject: __return)
     }
     
-    public func add(_ title: String?) -> Android.View.MenuItemForward {
+    func add(_ title: String?) -> Android.View.MenuItemForward {
         
         var __locals = [jobject]()
         
@@ -72,7 +72,7 @@ public extension AndroidMenuForward {
         return AndroidMenuItemForward(javaObject: __return)
     }
     
-    public func add(groupId: Int, itemId: Int, order: Int, titleRes: Int) -> Android.View.MenuItemForward {
+    func add(groupId: Int, itemId: Int, order: Int, titleRes: Int) -> Android.View.MenuItemForward {
         
         var __locals = [jobject]()
         
@@ -96,7 +96,7 @@ public extension AndroidMenuForward {
         return AndroidMenuItemForward(javaObject: __return)
     }
     
-    public func add(groupId: Int, itemId: Int, order: Int, title: String) -> Android.View.MenuItemForward {
+    func add(groupId: Int, itemId: Int, order: Int, title: String) -> Android.View.MenuItemForward {
         
         var __locals = [jobject]()
         
@@ -120,7 +120,7 @@ public extension AndroidMenuForward {
         return AndroidMenuItemForward(javaObject: __return)
     }
     
-    public func clear(){
+    func clear(){
         
         var __locals = [jobject]()
         

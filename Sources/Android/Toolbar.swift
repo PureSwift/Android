@@ -119,7 +119,7 @@ public extension AndroidToolbar {
         return Int(__return)
     }
     
-    public func setTitle(resId: Int)  {
+    func setTitle(resId: Int)  {
         
         var __locals = [jobject]()
         
@@ -172,7 +172,7 @@ public extension AndroidToolbar {
         return __return != nil ? String(javaObject: __return) : nil
     }
     
-    public func setSubtitle(resId: Int)  {
+    func setSubtitle(resId: Int)  {
         
         var __locals = [jobject]()
         
@@ -225,7 +225,7 @@ public extension AndroidToolbar {
         return __return != nil ? String(javaObject: __return) : nil
     }
     
-    public func setNavigationIcon(resId: Int)  {
+    func setNavigationIcon(resId: Int)  {
         
         var __locals = [jobject]()
         
@@ -278,7 +278,7 @@ public extension AndroidToolbar {
         return __return != nil ? Android.Graphics.Drawable.Drawable(javaObject: __return) : nil
     }
     
-    public func setNavigationOnClickListener(_ block: @escaping () -> ()) {
+    func setNavigationOnClickListener(_ block: @escaping () -> ()) {
         
         let onClickListener = Android.View.View.OnClickListener(block: block)
         
@@ -338,7 +338,7 @@ public extension AndroidToolbar {
         return __return != nil ? Android.Graphics.Drawable.Drawable(javaObject: __return) : nil
     }
     
-    public func setOnMenuItemClickListener(_ block: @escaping (AndroidMenuItemForward?) -> (Bool)) {
+    func setOnMenuItemClickListener(_ block: @escaping (AndroidMenuItemForward?) -> (Bool)) {
         
         let onMenuItemClickListener = Android.Widget.Toolbar.OnMenuItemClickListener(block: block)
         
@@ -380,7 +380,7 @@ public extension AndroidToolbar {
         return Android.View.MenuForward(javaObject: __return)
     }
     
-    public func setTitleTextColor(color: Int64)  {
+    func setTitleTextColor(color: Int64)  {
         
         var __locals = [jobject]()
         

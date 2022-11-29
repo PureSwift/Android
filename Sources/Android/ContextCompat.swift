@@ -30,7 +30,7 @@ open class AndroidContextCompat: JavaObject {
 
 public extension AndroidContextCompat {
     
-    public static func getColor(context: AndroidContext, colorRes: Int) -> Int64 {
+    static func getColor(context: AndroidContext, colorRes: Int) -> Int64 {
         
         var __locals = [jobject]()
         
@@ -49,7 +49,7 @@ public extension AndroidContextCompat {
         return Int64(__return)
     }
     
-    public static func getDrawable(context: AndroidContext, drawableRes: Int) -> AndroidGraphicsDrawableDrawable? {
+    static func getDrawable(context: AndroidContext, drawableRes: Int) -> AndroidGraphicsDrawableDrawable? {
         
         var __locals = [jobject]()
         

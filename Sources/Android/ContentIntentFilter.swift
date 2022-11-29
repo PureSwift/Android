@@ -120,7 +120,7 @@ public extension Android.Content.IntentFilter {
     /**
      * Add a new Intent action to match against.
      */
-    public func addAction( _ action: String) {
+    func addAction( _ action: String) {
         var __locals = [jobject]()
         
         var __args: [jvalue] = [
@@ -138,7 +138,7 @@ public extension Android.Content.IntentFilter {
     /**
      * Add a new Intent action to match against.
      */
-    public func getAction(index: Int) -> String {
+    func getAction(index: Int) -> String {
         var __locals = [jobject]()
         
         var __args: [jvalue] = [

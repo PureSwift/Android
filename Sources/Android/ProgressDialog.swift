@@ -78,7 +78,7 @@ open class AndroidProgressDialog: AndroidAlertDialog {
 
 public extension AndroidProgressDialog {
     
-    public var STYLE_HORIZONTAL: Int {
+    var STYLE_HORIZONTAL: Int {
         get {
             let __value = JNIField.GetIntField(fieldName: "STYLE_HORIZONTAL",
                                                fieldType: "I",
@@ -88,7 +88,7 @@ public extension AndroidProgressDialog {
         }
     }
     
-    public var STYLE_SPINNER: Int {
+    var STYLE_SPINNER: Int {
         get {
             let __value = JNIField.GetIntField(fieldName: "STYLE_SPINNER",
                                                fieldType: "I",
@@ -103,7 +103,7 @@ public extension AndroidProgressDialog {
 public extension AndroidProgressDialog {
     
     /// Gets the maximum allowed progress value.
-    public func getMax() -> Int {
+    func getMax() -> Int {
         
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
@@ -120,7 +120,7 @@ public extension AndroidProgressDialog {
     }
     
     /// Gets the current progress.
-    public func getProgress() -> Int {
+    func getProgress() -> Int {
         
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
@@ -137,7 +137,7 @@ public extension AndroidProgressDialog {
     }
     
     /// Gets the current secondary progress.
-    public func getSecondaryProgress() -> Int {
+    func getSecondaryProgress() -> Int {
         
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
@@ -154,7 +154,7 @@ public extension AndroidProgressDialog {
     }
     
     /// Increments the current progress value.
-    public func incrementProgressBy(diff: Int) {
+    func incrementProgressBy(diff: Int) {
         
         var __locals = [jobject]()
         
@@ -171,7 +171,7 @@ public extension AndroidProgressDialog {
     }
     
     /// Increments the current secondary progress value.
-    public func incrementSecondaryProgressBy(diff: Int) {
+    func incrementSecondaryProgressBy(diff: Int) {
         
         var __locals = [jobject]()
         
@@ -188,7 +188,7 @@ public extension AndroidProgressDialog {
     }
     
     /// Whether this ProgressDialog is in indeterminate mode.
-    public func isIndeterminate() -> Bool {
+    func isIndeterminate() -> Bool {
         
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
@@ -205,7 +205,7 @@ public extension AndroidProgressDialog {
     }
     
     /// Called when the dialog is starting.
-    public func onStart() {
+    func onStart() {
         
         var __locals = [jobject]()
         
@@ -220,7 +220,7 @@ public extension AndroidProgressDialog {
             locals: &__locals )
     }
     
-    public func setIndeterminate(_ indeterminate: Bool) {
+    func setIndeterminate(_ indeterminate: Bool) {
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
@@ -236,7 +236,7 @@ public extension AndroidProgressDialog {
     }
     
     /// Sets the drawable to be used to display the progress value.
-    public func setProgressDrawable(_ drawable: AndroidGraphicsDrawableDrawable){
+    func setProgressDrawable(_ drawable: AndroidGraphicsDrawableDrawable){
         
         var __locals = [jobject]()
         
@@ -253,7 +253,7 @@ public extension AndroidProgressDialog {
     }
     
     /// Change the format of the small text showing current and maximum units of progress.
-    public func setProgressNumberFormat( _ format: String) {
+    func setProgressNumberFormat( _ format: String) {
         var __locals = [jobject]()
         
         var __args: [jvalue] = [
@@ -269,7 +269,7 @@ public extension AndroidProgressDialog {
     }
     
     /// Change the format of the small text showing current and maximum units of progress.
-    public func setProgressPercentFormat( _ format: JavaObject) {
+    func setProgressPercentFormat( _ format: JavaObject) {
         var __locals = [jobject]()
         
         var __args: [jvalue] = [
@@ -285,7 +285,7 @@ public extension AndroidProgressDialog {
     }
     
     /// Sets the maximum allowed progress value.
-    public func setMax(_ max: Int) {
+    func setMax(_ max: Int) {
         
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
@@ -301,7 +301,7 @@ public extension AndroidProgressDialog {
     }
     
     /// Sets the current progress.
-    public func setProgress(_ value: Int) {
+    func setProgress(_ value: Int) {
         
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
@@ -317,7 +317,7 @@ public extension AndroidProgressDialog {
     }
     
     /// Sets the style of this ProgressDialog, either STYLE_SPINNER or STYLE_HORIZONTAL.
-    public func setProgressStyle(style: Int) {
+    func setProgressStyle(style: Int) {
         
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
@@ -332,7 +332,7 @@ public extension AndroidProgressDialog {
             locals: &__locals )
     }
     
-    public func setSecondaryProgress(_ secondaryProgress: Int) {
+    func setSecondaryProgress(_ secondaryProgress: Int) {
         
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
@@ -349,7 +349,7 @@ public extension AndroidProgressDialog {
     
     /// Creates and shows a ProgressDialog.
     @discardableResult
-    public static func show(context: AndroidContext, title: String, message: String) -> AndroidProgressDialog {
+    static func show(context: AndroidContext, title: String, message: String) -> AndroidProgressDialog {
         
         var __locals = [jobject]()
         
@@ -372,7 +372,7 @@ public extension AndroidProgressDialog {
     
     /// Creates and shows a ProgressDialog.
     @discardableResult
-    public static func show(context: AndroidContext, title: String, message: String, indeterminate: Bool, cancelable: Bool, cancelListener: JavaObject) -> AndroidProgressDialog {
+    static func show(context: AndroidContext, title: String, message: String, indeterminate: Bool, cancelable: Bool, cancelListener: JavaObject) -> AndroidProgressDialog {
         
         var __locals = [jobject]()
         
@@ -398,7 +398,7 @@ public extension AndroidProgressDialog {
     
     /// Creates and shows a ProgressDialog.
     @discardableResult
-    public static func show(context: AndroidContext, title: String, message: String, indeterminate: Bool, cancelable: Bool) -> AndroidProgressDialog {
+    static func show(context: AndroidContext, title: String, message: String, indeterminate: Bool, cancelable: Bool) -> AndroidProgressDialog {
         
         var __locals = [jobject]()
         
@@ -423,7 +423,7 @@ public extension AndroidProgressDialog {
     
     /// Creates and shows a ProgressDialog.
     @discardableResult
-    public static func show(context: AndroidContext, title: String, message: String, indeterminate: Bool) -> AndroidProgressDialog {
+    static func show(context: AndroidContext, title: String, message: String, indeterminate: Bool) -> AndroidProgressDialog {
         
         var __locals = [jobject]()
         

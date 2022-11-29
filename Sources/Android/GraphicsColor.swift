@@ -52,7 +52,7 @@ public class AndroidGraphicsColor: JavaObject {
 
 public extension AndroidGraphicsColor {
     
-    public static var BLACK: Int64 {
+    static var BLACK: Int64 {
         
         get {
             
@@ -67,7 +67,7 @@ public extension AndroidGraphicsColor {
         }
     }
     
-    public static var DKGRAY: Int64 {
+    static var DKGRAY: Int64 {
         
         get {
             
@@ -82,7 +82,7 @@ public extension AndroidGraphicsColor {
         }
     }
     
-    public static var GRAY: Int64 {
+    static var GRAY: Int64 {
         
         get {
             
@@ -97,7 +97,7 @@ public extension AndroidGraphicsColor {
         }
     }
     
-    public static var LTGRAY: Int64 {
+    static var LTGRAY: Int64 {
         
         get {
             
@@ -112,7 +112,7 @@ public extension AndroidGraphicsColor {
         }
     }
     
-    public static var WHITE: Int64 {
+    static var WHITE: Int64 {
         
         get {
             
@@ -127,7 +127,7 @@ public extension AndroidGraphicsColor {
         }
     }
     
-    public static var RED: Int64 {
+    static var RED: Int64 {
         
         get {
             
@@ -142,7 +142,7 @@ public extension AndroidGraphicsColor {
         }
     }
     
-    public static var GREEN: Int64 {
+    static var GREEN: Int64 {
         
         get {
             
@@ -157,7 +157,7 @@ public extension AndroidGraphicsColor {
         }
     }
     
-    public static var BLUE: Int64 {
+    static var BLUE: Int64 {
         
         get {
             
@@ -172,7 +172,7 @@ public extension AndroidGraphicsColor {
         }
     }
     
-    public static var YELLOW: Int64 {
+    static var YELLOW: Int64 {
         
         get {
             
@@ -187,7 +187,7 @@ public extension AndroidGraphicsColor {
         }
     }
     
-    public static var CYAN: Int64 {
+    static var CYAN: Int64 {
         
         get {
             
@@ -202,7 +202,7 @@ public extension AndroidGraphicsColor {
         }
     }
     
-    public static var MAGENTA: Int64 {
+    static var MAGENTA: Int64 {
         
         get {
             
@@ -217,7 +217,7 @@ public extension AndroidGraphicsColor {
         }
     }
     
-    public static var TRANSPARENT: Int64 {
+    static var TRANSPARENT: Int64 {
         
         get {
             
@@ -235,7 +235,7 @@ public extension AndroidGraphicsColor {
 
 public extension AndroidGraphicsColor {
     
-    public static func valueOf(color: Int) -> Android.Graphics.Color {
+    static func valueOf(color: Int) -> Android.Graphics.Color {
         
         var __locals = [jobject]()
         
@@ -257,7 +257,7 @@ public extension AndroidGraphicsColor {
     
     /*
     /// Return a color-int from alpha, red, green, blue components.
-    public static func argb(alpha: Int, red: Int, green: Int, blue: Int) -> Int {
+    static func argb(alpha: Int, red: Int, green: Int, blue: Int) -> Int {
         
         var __locals = [jobject]()
         
@@ -283,7 +283,7 @@ public extension AndroidGraphicsColor {
      * The original (FFFF)I just is supported over api 26.
      * Return a color-int from alpha, red, green, blue float components in the range [0..1].
      */
-    public static func argb(alpha: Float, red: Float, green: Float, blue: Float) -> Int64 {
+    static func argb(alpha: Float, red: Float, green: Float, blue: Float) -> Int64 {
         
         var __locals = [jobject]()
         

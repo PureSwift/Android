@@ -97,7 +97,7 @@ public class AndroidRect: JavaObject {
 
 public extension AndroidRect {
     
-    public func height() -> Int {
+    func height() -> Int {
         
         var __locals = [jobject]()
         
@@ -112,7 +112,7 @@ public extension AndroidRect {
         return Int(__return)
     }
     
-    public func width() -> Int {
+    func width() -> Int {
         
         var __locals = [jobject]()
         
@@ -127,7 +127,7 @@ public extension AndroidRect {
         return Int(__return)
     }
     
-    public func centerX() -> Int {
+    func centerX() -> Int {
         
         var __locals = [jobject]()
         
@@ -142,7 +142,7 @@ public extension AndroidRect {
         return Int(__return)
     }
     
-    public func centerY() -> Int {
+    func centerY() -> Int {
         
         var __locals = [jobject]()
         
@@ -160,7 +160,7 @@ public extension AndroidRect {
 
 public extension AndroidRect {
     
-    public var bottom: Int {
+    var bottom: Int {
         
         get {
             
@@ -172,7 +172,7 @@ public extension AndroidRect {
         }
     }
     
-    public var left: Int {
+    var left: Int {
         
         get {
             
@@ -184,7 +184,7 @@ public extension AndroidRect {
         }
     }
     
-    public var right: Int {
+    var right: Int {
         
         get {
             
@@ -196,7 +196,7 @@ public extension AndroidRect {
         }
     }
     
-    public var top: Int {
+    var top: Int {
         
         get {
             

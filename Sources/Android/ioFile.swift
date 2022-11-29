@@ -93,7 +93,7 @@ public extension JavaFile {
     /**
      * Converts this abstract pathname into a pathname string.
      */
-    public func getPath() -> String {
+    func getPath() -> String {
         
         var __locals = [jobject]()
         
@@ -111,7 +111,7 @@ public extension JavaFile {
         return String(javaObject: __return)
     }
     
-    public func getName() -> String {
+    func getName() -> String {
         
         var __locals = [jobject]()
         
@@ -129,7 +129,7 @@ public extension JavaFile {
         return String(javaObject: __return)
     }
     
-    public func getParent() -> String {
+    func getParent() -> String {
         
         var __locals = [jobject]()
         
@@ -147,7 +147,7 @@ public extension JavaFile {
         return String(javaObject: __return)
     }
     
-    public func isDirectory() -> Bool {
+    func isDirectory() -> Bool {
         
         var __locals = [jobject]()
         
@@ -162,7 +162,7 @@ public extension JavaFile {
         return __return != jboolean(JNI_FALSE)
     }
     
-    public func isFile() -> Bool {
+    func isFile() -> Bool {
         
         var __locals = [jobject]()
         
@@ -177,7 +177,7 @@ public extension JavaFile {
         return __return != jboolean(JNI_FALSE)
     }
     
-    public func list() -> [String]? {
+    func list() -> [String]? {
         
         var __locals = [jobject]()
         
@@ -193,7 +193,7 @@ public extension JavaFile {
         return JNIType.toSwift(type: [String].self, from: __return)
     }
     
-    public func listFiles() -> [JavaFile]? {
+    func listFiles() -> [JavaFile]? {
         
         var __locals = [jobject]()
         
@@ -209,7 +209,7 @@ public extension JavaFile {
         return JNIType.toSwift(type: [JavaFile].self, from: __return)
     }
     
-    public func mkdir() -> Bool {
+    func mkdir() -> Bool {
         
         var __locals = [jobject]()
         
@@ -224,7 +224,7 @@ public extension JavaFile {
         return __return != jboolean(JNI_FALSE)
     }
     
-    public func delete() -> Bool {
+    func delete() -> Bool {
         
         var __locals = [jobject]()
         
@@ -239,7 +239,7 @@ public extension JavaFile {
         return __return != jboolean(JNI_FALSE)
     }
     
-    public func exists() -> Bool {
+    func exists() -> Bool {
         
         var __locals = [jobject]()
         
@@ -254,7 +254,7 @@ public extension JavaFile {
         return __return != jboolean(JNI_FALSE)
     }
     
-    public func createNewFile() -> Bool {
+    func createNewFile() -> Bool {
         
         var __locals = [jobject]()
         
@@ -269,7 +269,7 @@ public extension JavaFile {
         return __return != jboolean(JNI_FALSE)
     }
     
-    public func length() -> Int64 {
+    func length() -> Int64 {
         
         var __locals = [jobject]()
         

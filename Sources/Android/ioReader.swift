@@ -103,7 +103,7 @@ open class JavaReader: JavaObject {
 public extension JavaReader {
     
     /// Marks the present position in the stream.
-    public func mark(readAheadLimit: Int) {
+    func mark(readAheadLimit: Int) {
         
         var __locals = [jobject]()
         
@@ -120,7 +120,7 @@ public extension JavaReader {
     }
     
     /// Tells whether this stream supports the mark() operation.
-    public func markSupported() -> Bool {
+    func markSupported() -> Bool {
         
         var __locals = [jobject]()
         
@@ -137,7 +137,7 @@ public extension JavaReader {
     }
     
     /// Reads a single character.
-    public func read() -> Int {
+    func read() -> Int {
         
         var __locals = [jobject]()
         
@@ -154,7 +154,7 @@ public extension JavaReader {
     }
     
     /// Reads characters into an array.
-    public func read(cbuf: [Int8]) -> Int {
+    func read(cbuf: [Int8]) -> Int {
         
         var __locals = [jobject]()
         
@@ -171,7 +171,7 @@ public extension JavaReader {
     }
     
     /// Attempts to read characters into the specified character buffer.
-    public func read(target: JavaObject) -> Int {
+    func read(target: JavaObject) -> Int {
         
         var __locals = [jobject]()
         
@@ -188,7 +188,7 @@ public extension JavaReader {
     }
     
     /// Tells whether this stream is ready to be read.
-    public func ready() -> Bool {
+    func ready() -> Bool {
         
         var __locals = [jobject]()
         
@@ -205,7 +205,7 @@ public extension JavaReader {
     }
     
     /// Resets the stream.
-    public func reset() {
+    func reset() {
         
         var __locals = [jobject]()
         
@@ -221,7 +221,7 @@ public extension JavaReader {
     }
     
     /// Tells whether this stream supports the mark() operation.
-    public func skip(_ n: Int64) -> Int64 {
+    func skip(_ n: Int64) -> Int64 {
         
         var __locals = [jobject]()
         

@@ -66,7 +66,7 @@ public final class AndroidPackageManager: JavaObject {
 
 internal extension AndroidPackageManager {
     
-    internal static var PERMISSION_DENIED: Int {
+    static var PERMISSION_DENIED: Int {
         
         get {
             
@@ -81,7 +81,7 @@ internal extension AndroidPackageManager {
         }
     }
         
-    internal static var PERMISSION_GRANTED: Int {
+    static var PERMISSION_GRANTED: Int {
         
         get {
             

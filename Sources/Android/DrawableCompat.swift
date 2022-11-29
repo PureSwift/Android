@@ -30,7 +30,7 @@ open class AndroidDrawableCompat: JavaObject {
 
 public extension AndroidDrawableCompat {
     
-    public static func wrap(drawable: AndroidGraphicsDrawableDrawable) -> AndroidGraphicsDrawableDrawable {
+    static func wrap(drawable: AndroidGraphicsDrawableDrawable) -> AndroidGraphicsDrawableDrawable {
         
         var __locals = [jobject]()
         
@@ -49,7 +49,7 @@ public extension AndroidDrawableCompat {
         return AndroidGraphicsDrawableDrawable(javaObject: __return)
     }
     
-    public static func setTint(drawable: AndroidGraphicsDrawableDrawable, color: Int64){
+    static func setTint(drawable: AndroidGraphicsDrawableDrawable, color: Int64){
         
         var __locals = [jobject]()
         
@@ -68,7 +68,7 @@ public extension AndroidDrawableCompat {
         
     }
     
-    public static func setTint(drawable: AndroidGraphicsDrawableDrawable, colorRes: Int){
+    static func setTint(drawable: AndroidGraphicsDrawableDrawable, colorRes: Int){
         
         var __locals = [jobject]()
         

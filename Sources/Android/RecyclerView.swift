@@ -134,7 +134,7 @@ public extension AndroidWidgetRecyclerView {
                                  locals: &__locals)
     }
     
-    public func addItemDecoration(_ decor: Android.Widget.RecyclerView.ItemDecoration) {
+    func addItemDecoration(_ decor: Android.Widget.RecyclerView.ItemDecoration) {
         
         var __locals = [jobject]()
         
@@ -149,7 +149,7 @@ public extension AndroidWidgetRecyclerView {
                                  locals: &__locals)
     }
     
-    public func addItemDecoration(_ decor: Android.Widget.RecyclerView.ItemDecoration, index: Int) {
+    func addItemDecoration(_ decor: Android.Widget.RecyclerView.ItemDecoration, index: Int) {
         
         var __locals = [jobject]()
         
@@ -165,7 +165,7 @@ public extension AndroidWidgetRecyclerView {
                                  locals: &__locals)
     }
     
-    public func removeItemDecoration(_ decor: Android.Widget.RecyclerView.ItemDecoration) {
+    func removeItemDecoration(_ decor: Android.Widget.RecyclerView.ItemDecoration) {
         
         var __locals = [jobject]()
         
@@ -180,7 +180,7 @@ public extension AndroidWidgetRecyclerView {
                                  locals: &__locals)
     }
     
-    public func setNestedScrollingEnabled(_ enabled: Bool) {
+    func setNestedScrollingEnabled(_ enabled: Bool) {
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )

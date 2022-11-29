@@ -21,7 +21,7 @@ public final class AndroidEnvironment: JavaObject {
 
 public extension Android.OS.Environment {
     
-    public static func getExternalStorageDirectory() -> JavaFile? {
+    static func getExternalStorageDirectory() -> JavaFile? {
         
         var __locals = [jobject]()
         
@@ -43,7 +43,7 @@ public extension Android.OS.Environment {
     /*
      * Returns whether the shared/external storage media at the given path is physically removable.
      */
-    public static func isExternalStorageRemovable(path: JavaFile) -> Bool {
+    static func isExternalStorageRemovable(path: JavaFile) -> Bool {
         
         var __locals = [jobject]()
         

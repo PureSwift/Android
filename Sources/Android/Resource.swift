@@ -49,7 +49,7 @@ public struct AndroidLayoutIdentifier: AndroidResource {
 
 public extension AndroidResource {
     
-    public init(name: String, className: String) {
+    init(name: String, className: String) {
         
         var jniClass: jclass?
         

@@ -39,7 +39,7 @@ public class AndroidContentResResources: JavaObject {
 
 public extension AndroidContentResResources {
     
-    public func getDisplayMetrics() -> Android.Util.DisplayMetrics? {
+    func getDisplayMetrics() -> Android.Util.DisplayMetrics? {
         
         var __locals = [jobject]()
         
@@ -58,7 +58,7 @@ public extension AndroidContentResResources {
         return __return != nil ? Android.Util.DisplayMetrics(javaObject: __return) : nil
     }
     
-    public func getIdentifier(name: String, type: String, defPackage: String) -> Int {
+    func getIdentifier(name: String, type: String, defPackage: String) -> Int {
         
         var __locals = [jobject]()
         

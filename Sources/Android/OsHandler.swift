@@ -56,7 +56,7 @@ open class AndroidHandler: JavaObject {
 
 public extension Android.OS.Handler {
     
-    public func post(rectangle: SwiftRunnable) -> Bool {
+    func post(rectangle: SwiftRunnable) -> Bool {
         
         var __locals = [jobject]()
         

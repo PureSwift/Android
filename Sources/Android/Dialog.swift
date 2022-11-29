@@ -82,7 +82,7 @@ open class AndroidDialog: JavaObject {
 
 public extension AndroidDialog {
     
-    public func cancel() {
+    func cancel() {
         
         var __locals = [jobject]()
         
@@ -97,7 +97,7 @@ public extension AndroidDialog {
             locals: &__locals )
     }
     
-    public func dismiss() {
+    func dismiss() {
         
         var __locals = [jobject]()
         
@@ -134,7 +134,7 @@ public extension AndroidDialog {
         return AndroidWindow(javaObject: __return)
     }
     
-    public func findViewById(_ id: Int) -> Android.View.View? {
+    func findViewById(_ id: Int) -> Android.View.View? {
         
         var __locals = [jobject]()
         
@@ -155,7 +155,7 @@ public extension AndroidDialog {
         return __return != nil ? Android.View.View(javaObject: __return) : nil
     }
     
-    public func getContext() -> AndroidContext {
+    func getContext() -> AndroidContext {
         
         var __locals = [jobject]()
         
@@ -176,7 +176,7 @@ public extension AndroidDialog {
         return AndroidContext(javaObject: __return)
     }
     
-    public func setCancelable(cancelable: Bool) {
+    func setCancelable(cancelable: Bool) {
         
         var __locals = [jobject]()
         
@@ -192,7 +192,7 @@ public extension AndroidDialog {
             locals: &__locals )
     }
     
-    public func setContentView(view: AndroidView) {
+    func setContentView(view: AndroidView) {
         
         var __locals = [jobject]()
         
@@ -208,7 +208,7 @@ public extension AndroidDialog {
             locals: &__locals )
     }
     
-    public func show() {
+    func show() {
         
         var __locals = [jobject]()
         
@@ -224,7 +224,7 @@ public extension AndroidDialog {
     }
     
     @discardableResult
-    public func requestWindowFeature(featureId: Int) -> Bool {
+    func requestWindowFeature(featureId: Int) -> Bool {
         
         var __locals = [jobject]()
         
