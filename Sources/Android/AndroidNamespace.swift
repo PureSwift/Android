@@ -145,6 +145,26 @@ public enum SupportDesign: JavaPackage {
     }
 }
 
+public enum AndroidX: JavaPackage {
+    
+    public static let package: JNIPackage = ["androidx"]
+    
+    public enum Activity: JavaPackage {
+        
+        public static let package: JNIPackage = AndroidX.package + ["activity"]
+    }
+    
+    public enum AppCompat: JavaPackage {
+        
+        public static let package: JNIPackage = AndroidX.package + ["appcompat"]
+        
+        public enum App: JavaPackage {
+            
+            public static let package: JNIPackage = AndroidX.AppCompat.package + ["app"]
+        }
+    }
+}
+
 /// Support Library namespace.
 public enum SwiftSupport: JavaPackage {
     
@@ -203,7 +223,6 @@ public protocol JavaPackage {
 public extension JavaPackage {
     
     static func className(_ metaClass: JNIMetaClass) -> JNIClassName {
-        
         return (Self.package ☕️ metaClass)
     }
 }
