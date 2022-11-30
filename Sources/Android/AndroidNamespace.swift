@@ -88,6 +88,7 @@ public enum Android: JavaPackage {
     }
 }
 
+@available(*, deprecated)
 public enum SupportV7: JavaPackage {
     
     public static let package: JNIPackage = ["android", "support", "v7"]
@@ -103,6 +104,7 @@ public enum SupportV7: JavaPackage {
     }
 }
 
+@available(*, deprecated)
 public enum SupportV4: JavaPackage {
     
     public static let package: JNIPackage = ["android", "support", "v4"]
