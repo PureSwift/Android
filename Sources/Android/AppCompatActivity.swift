@@ -663,7 +663,7 @@ fileprivate extension SwiftSupport.App.AppCompatActivity {
     /// JNI Cache
     struct ActivityJNICache {
         
-        static let classSignature = Android.App.className(["Activity"])
+        static let classSignature = AndroidX.AppCompat.App.className(["AppCompatActivity"])
         
         /// JNI Java class name
         static let className = classSignature.rawValue
