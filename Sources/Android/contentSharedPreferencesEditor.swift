@@ -43,7 +43,7 @@ open class AndroidSharedPreferencesEditor: JavaObject {
             args: &__args,
             locals: &__locals )
         
-        defer { JNI.DeleteLocalRef( __return ) }
+        JNI.DeleteLocalRef( __return )
     }
     
     /// Mark in the editor to remove all values from the preferences.
