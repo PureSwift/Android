@@ -23,12 +23,8 @@ open class SwiftComponentActivity: AndroidContextWrapper {
         
         #if os(Android)
         // Ask app for main activity type.
-        let objectType = SwiftAndroidMainActivity()
-        
+        let objectType = SwiftAndroidMainApplication().runtimeConfiguration.componentActivity
         let swiftObject = objectType.init(javaObject: __this)
-        
-        //var locals = [jobject]()
-        //return swiftObject.localJavaObject( &locals )
         return swiftObject.swiftValue().j
         #else
         fatalError("Can only run on Android OS")
@@ -708,12 +704,6 @@ fileprivate extension SwiftComponentActivity {
 }
 
 // MARK: - Native Methods
-
-#if os(Android)
-/// Needs to be implemented by app.
-@_silgen_name("SwiftAndroidMainActivity")
-internal func SwiftAndroidMainActivity() -> SwiftComponentActivity.Type
-#endif
 
 @_silgen_name("Java_org_pureswift_swiftandroidsupport_app_SwiftComponentActivity_onCreateNative")
 public func SwiftComponentActivity_onCreate( _ __env: UnsafeMutablePointer<JNIEnv?>,

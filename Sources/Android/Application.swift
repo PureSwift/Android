@@ -22,15 +22,15 @@ open class SwiftApplication: JavaObject {
         #if os(Android)
         // Ask app for main activity type.
         let objectType = SwiftAndroidMainApplication()
-        
         let swiftObject = objectType.init(javaObject: __this)
-        
-        //var locals = [jobject]()
-        //return swiftObject.localJavaObject( &locals )
         return swiftObject.swiftValue().j
         #else
         fatalError("Can only run on Android OS")
         #endif
+    }
+    
+    open class var runtimeConfiguration: RuntimeConfiguration {
+        return RuntimeConfiguration.default
     }
     
     open func onConfigurationChanged(newConfig: JavaObject?) {
