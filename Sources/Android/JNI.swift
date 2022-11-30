@@ -87,8 +87,8 @@ internal extension JNIListener {
         }
     }
     
-    static func swiftObject(from pointer: jlong) -> Self? {
-        return unsafeBitCast( recoverPointer(pointer), to: Self.self )
+    static func swiftObject(from pointer: jlong, _ file: StaticString = #file, _ line: Int = #line) -> Self? {
+        return unsafeBitCast( recoverPointer(pointer, file, line), to: Self.self )
     }
 }
 
