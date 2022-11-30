@@ -133,7 +133,7 @@ open class AndroidSwitchCompat: AndroidCompoundButton {
 
 public extension AndroidSwitchCompat {
     
-    public func setShowText(_ showText: Bool) {
+    func setShowText(_ showText: Bool) {
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
@@ -148,7 +148,7 @@ public extension AndroidSwitchCompat {
             locals: &__locals )
     }
     
-    public func getShowText() -> Bool {
+    func getShowText() -> Bool {
         
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
@@ -164,7 +164,7 @@ public extension AndroidSwitchCompat {
         return __return != jboolean(JNI_FALSE)
     }
     
-    public func getTextOff() -> String {
+    func getTextOff() -> String {
         
         var __locals = [jobject]()
         var __args = [jvalue](repeating: jvalue(), count: 1)
@@ -180,7 +180,7 @@ public extension AndroidSwitchCompat {
         return String(javaObject: __return)
     }
     
-    public func getTextOn() -> String {
+    func getTextOn() -> String {
         
         var __locals = [jobject]()
         var __args = [jvalue](repeating: jvalue(), count: 1)
@@ -196,7 +196,7 @@ public extension AndroidSwitchCompat {
         return String(javaObject: __return)
     }
     
-    public func setTextOff(_ textOff: String) {
+    func setTextOff(_ textOff: String) {
         
         var __locals = [jobject]()
         
@@ -212,7 +212,7 @@ public extension AndroidSwitchCompat {
             locals: &__locals )
     }
     
-    public func setTextOn(_ textOn: String) {
+    func setTextOn(_ textOn: String) {
         
         var __locals = [jobject]()
         

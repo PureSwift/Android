@@ -74,7 +74,7 @@ open class AndroidToast: JavaObject {
 
 internal extension AndroidToast {
     
-    internal static var LENGTH_LONG: Int {
+    static var LENGTH_LONG: Int {
         
         get {
             
@@ -89,7 +89,7 @@ internal extension AndroidToast {
         }
     }
     
-    internal static var LENGTH_SHORT: Int {
+    static var LENGTH_SHORT: Int {
         
         get {
             
@@ -216,7 +216,7 @@ public extension AndroidToast {
         return AndroidToast.Dutation.init(rawValue: Int(__return))
     }
     
-    public func show()  {
+    func show()  {
         
         var __locals = [jobject]()
         
@@ -231,7 +231,7 @@ public extension AndroidToast {
             locals: &__locals )
     }
     
-    public func cancel()  {
+    func cancel()  {
         
         var __locals = [jobject]()
         
@@ -246,7 +246,7 @@ public extension AndroidToast {
             locals: &__locals )
     }
     
-    public static func makeText(context: AndroidContext, resId: Int, duration: AndroidToast.Dutation) -> AndroidToast {
+    static func makeText(context: AndroidContext, resId: Int, duration: AndroidToast.Dutation) -> AndroidToast {
     
         var __locals = [jobject]()
         
@@ -265,7 +265,7 @@ public extension AndroidToast {
         return AndroidToast(javaObject: __return)
     }
     
-    public static func makeText(context: AndroidContext, text: String, duration: AndroidToast.Dutation) -> AndroidToast {
+    static func makeText(context: AndroidContext, text: String, duration: AndroidToast.Dutation) -> AndroidToast {
         
         var __locals = [jobject]()
         
@@ -335,7 +335,7 @@ internal extension AndroidToast {
 
 public extension AndroidToast {
     
-    public struct Dutation: RawRepresentable, Equatable {
+    struct Dutation: RawRepresentable, Equatable {
         
         public let rawValue: Int
         

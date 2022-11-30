@@ -30,7 +30,7 @@ public class AndroidVectorDrawableCompat: AndroidGraphicsDrawableDrawable {
 
 public extension AndroidVectorDrawableCompat {
     
-    public static func create(res: AndroidContentResResources, resId: Int, theme: JavaObject?) -> AndroidVectorDrawableCompat? {
+    static func create(res: AndroidContentResResources, resId: Int, theme: JavaObject?) -> AndroidVectorDrawableCompat? {
         
         var __locals = [jobject]()
         

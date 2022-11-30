@@ -145,7 +145,7 @@ extension AndroidViewGroupLayoutParams {
 
 public extension AndroidViewGroupLayoutParams {
     
-    public static var MATCH_PARENT: Int {
+    static var MATCH_PARENT: Int {
         
         get {
             
@@ -160,7 +160,7 @@ public extension AndroidViewGroupLayoutParams {
         }
     }
     
-    public static var WRAP_CONTENT: Int {
+    static var WRAP_CONTENT: Int {
         
         get {
             
@@ -175,7 +175,7 @@ public extension AndroidViewGroupLayoutParams {
         }
     }
     
-    public var height: Int {
+    var height: Int {
         get {
             let __value = JNIField.GetIntField(fieldName: "height",
                                                fieldType: "I",
@@ -196,7 +196,7 @@ public extension AndroidViewGroupLayoutParams {
         }
     }
     
-    public var width: Int {
+    var width: Int {
         get {
             let __value = JNIField.GetIntField(fieldName: "width",
                                                fieldType: "I",

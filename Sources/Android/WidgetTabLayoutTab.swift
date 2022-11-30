@@ -39,18 +39,6 @@ public class AndroidTab: JavaObject {
     }
 }
 
-extension AndroidTab: Hashable {
-    
-    public var hashValue: Int {
-        return 1
-    }
-    
-    public static func == (lhs: AndroidTab, rhs: AndroidTab) -> Bool {
-        
-        return lhs.hashValue == lhs.hashValue
-    }
-}
-
 public extension AndroidTab {
     
     internal static var INVALID_POSITION: Int {
@@ -116,7 +104,7 @@ public extension AndroidTab {
     }
     
     @discardableResult
-    public func setCustomView(resId: Int) -> AndroidTab {
+    func setCustomView(resId: Int) -> AndroidTab {
         
         var __locals = [jobject]()
         
@@ -181,7 +169,7 @@ public extension AndroidTab {
     }
     
     @discardableResult
-    public func setIcon(resId: Int) -> AndroidTab {
+    func setIcon(resId: Int) -> AndroidTab {
         
         var __locals = [jobject]()
         
@@ -246,7 +234,7 @@ public extension AndroidTab {
     }
     
     @discardableResult
-    public func setText(resId: Int) -> AndroidTab {
+    func setText(resId: Int) -> AndroidTab {
         
         var __locals = [jobject]()
         
@@ -310,7 +298,7 @@ public extension AndroidTab {
         return AndroidTab(javaObject: __return)
     }
     
-    public func select()  {
+    func select()  {
         
         var __locals = [jobject]()
         
@@ -325,7 +313,7 @@ public extension AndroidTab {
             locals: &__locals )
     }
     
-    public func isSelected() -> Bool {
+    func isSelected() -> Bool {
         
         var __locals = [jobject]()
         
@@ -340,7 +328,7 @@ public extension AndroidTab {
         return __return != jboolean(JNI_FALSE)
     }
     
-    public func getPosition() -> Int {
+    func getPosition() -> Int {
         
         var __locals = [jobject]()
         

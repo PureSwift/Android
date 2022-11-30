@@ -149,7 +149,7 @@ open class AndroidFrameLayoutLayoutParams: Android.View.ViewGroup.MarginLayoutPa
 
 public extension AndroidFrameLayoutLayoutParams {
     
-    public static var UNSPECIFIED_GRAVITY: Int {
+    static var UNSPECIFIED_GRAVITY: Int {
         
         get {
             
@@ -164,7 +164,7 @@ public extension AndroidFrameLayoutLayoutParams {
         }
     }
     
-    public var gravity: Int {
+    var gravity: Int {
         get {
             let __value = JNIField.GetIntField(fieldName: "gravity",
                                                fieldType: "I",

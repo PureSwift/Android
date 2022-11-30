@@ -56,7 +56,7 @@ public class AndroidDisplayMetrics: JavaObject {
 
 public extension AndroidDisplayMetrics {
     
-    public var density: Float {
+    var density: Float {
         get {
             let __value = JNIField.GetFloatField(fieldName: "density",
                                                  fieldType: "F",
@@ -66,7 +66,7 @@ public extension AndroidDisplayMetrics {
         }
     }
     
-    public var densityDpi: Int {
+    var densityDpi: Int {
         get {
             let __value = JNIField.GetIntField(fieldName: "densityDpi",
                                                fieldType: "I",
@@ -76,7 +76,7 @@ public extension AndroidDisplayMetrics {
         }
     }
     
-    public var heightPixels: Int {
+    var heightPixels: Int {
         get {
             let __value = JNIField.GetIntField(fieldName: "heightPixels",
                                                fieldType: "I",
@@ -86,7 +86,7 @@ public extension AndroidDisplayMetrics {
         }
     }
     
-    public var scaledDensity: Float {
+    var scaledDensity: Float {
         get {
             let __value = JNIField.GetFloatField(fieldName: "scaledDensity",
                                                  fieldType: "F",
@@ -96,7 +96,7 @@ public extension AndroidDisplayMetrics {
         }
     }
     
-    public var widthPixels: Int {
+    var widthPixels: Int {
         get {
             let __value = JNIField.GetIntField(fieldName: "widthPixels",
                                                fieldType: "I",
@@ -106,7 +106,7 @@ public extension AndroidDisplayMetrics {
         }
     }
     
-    public var xdpi: Float {
+    var xdpi: Float {
         get {
             let __value = JNIField.GetFloatField(fieldName: "xdpi",
                                                  fieldType: "F",
@@ -116,7 +116,7 @@ public extension AndroidDisplayMetrics {
         }
     }
     
-    public var ydpi: Float {
+    var ydpi: Float {
         get {
             let __value = JNIField.GetFloatField(fieldName: "ydpi",
                                                  fieldType: "F",

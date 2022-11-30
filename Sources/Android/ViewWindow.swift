@@ -71,7 +71,7 @@ public class AndroidWindow: JavaObject {
 
 public extension AndroidWindow {
     
-    public static var FEATURE_NO_TITLE: Int {
+    static var FEATURE_NO_TITLE: Int {
         
         get {
             
@@ -89,7 +89,7 @@ public extension AndroidWindow {
 
 public extension AndroidWindow {
     
-    public func setFlags(flags: Int, mask: Int) {
+    func setFlags(flags: Int, mask: Int) {
         
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 2 )

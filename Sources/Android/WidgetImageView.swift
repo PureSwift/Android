@@ -71,7 +71,7 @@ open class AndroidImageView: AndroidView {
 
 public extension Android.Widget.ImageView {
     
-    public func setImageResource(_ resId: Int) {
+    func setImageResource(_ resId: Int) {
         
         var __locals = [jobject]()
         

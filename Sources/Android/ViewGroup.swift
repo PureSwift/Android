@@ -35,7 +35,7 @@ open class AndroidViewGroup: AndroidView {
         bindNewObject(context: context)
     }
     
-    public func bindNewObject(context: Android.Content.Context){
+    func bindNewObject(context: Android.Content.Context){
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
@@ -595,7 +595,7 @@ open class AndroidViewGroup: AndroidView {
 
 public extension Android.View.ViewGroup {
     
-    public func addStatesFromChildren() -> Bool {
+    func addStatesFromChildren() -> Bool {
         
         var __locals = [jobject]()
         
@@ -615,7 +615,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func bringChildToFront(child: Android.View.View)  {
+    func bringChildToFront(child: Android.View.View)  {
         
         var __locals = [jobject]()
         
@@ -633,7 +633,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func childDrawableStateChanged(child: Android.View.View)  {
+    func childDrawableStateChanged(child: Android.View.View)  {
         
         var __locals = [jobject]()
         
@@ -651,7 +651,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func childHasTransientStateChanged(child: Android.View.View, childHasTransientState: Bool)  {
+    func childHasTransientStateChanged(child: Android.View.View, childHasTransientState: Bool)  {
         
         var __locals = [jobject]()
         
@@ -670,7 +670,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func clearChildFocus(child: Android.View.View)  {
+    func clearChildFocus(child: Android.View.View)  {
         
         var __locals = [jobject]()
         
@@ -688,7 +688,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func clearDisappearingChildren()  {
+    func clearDisappearingChildren()  {
         
         var __locals = [jobject]()
         
@@ -708,7 +708,7 @@ public extension Android.View.ViewGroup {
     
     
     
-    public func dispatchSetActivated(activated: Bool)  {
+    func dispatchSetActivated(activated: Bool)  {
         
         var __locals = [jobject]()
         
@@ -728,7 +728,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func dispatchSetSelected(selected: Bool)  {
+    func dispatchSetSelected(selected: Bool)  {
         
         var __locals = [jobject]()
         
@@ -748,7 +748,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func dispatchSystemUiVisibilityChanged(visible: Int)  {
+    func dispatchSystemUiVisibilityChanged(visible: Int)  {
         
         var __locals = [jobject]()
         
@@ -768,7 +768,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func dispatchTouchEvent(ev: JavaObject) -> Bool {
+    func dispatchTouchEvent(ev: JavaObject) -> Bool {
         
         var __locals = [jobject]()
         
@@ -793,7 +793,7 @@ public extension Android.View.ViewGroup {
     
     
     
-    public func endViewTransition(view: Android.View.View)  {
+    func endViewTransition(view: Android.View.View)  {
         
         var __locals = [jobject]()
         
@@ -813,7 +813,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func findFocus() -> Android.View.View {
+    func findFocus() -> Android.View.View {
         
         var __locals = [jobject]()
         
@@ -835,7 +835,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func focusSearch(focused: Android.View.View, direction: Int) -> Android.View.View {
+    func focusSearch(focused: Android.View.View, direction: Int) -> Android.View.View {
         
         var __locals = [jobject]()
         
@@ -860,7 +860,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func focusableViewAvailable(v: Android.View.View)  {
+    func focusableViewAvailable(v: Android.View.View)  {
         
         var __locals = [jobject]()
         
@@ -880,7 +880,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func getChildAt(index: Int) -> Android.View.View {
+    func getChildAt(index: Int) -> Android.View.View {
         
         var __locals = [jobject]()
         
@@ -904,7 +904,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func getChildCount() -> Int {
+    func getChildCount() -> Int {
         
         var __locals = [jobject]()
         
@@ -924,7 +924,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func getChildMeasureSpec(spec: Int, padding: Int, childDimension: Int) -> Int {
+    func getChildMeasureSpec(spec: Int, padding: Int, childDimension: Int) -> Int {
         
         var __locals = [jobject]()
         
@@ -951,7 +951,7 @@ public extension Android.View.ViewGroup {
      * Ask one of the children of this view to measure itself, taking into account both
      * the MeasureSpec requirements for this view and its padding.
      */
-    public func measureChild(child: Android.View.View, parentWidthMeasureSpec: Int, parentHeightMeasureSpec: Int)  {
+    func measureChild(child: Android.View.View, parentWidthMeasureSpec: Int, parentHeightMeasureSpec: Int)  {
         
         var __locals = [jobject]()
         
@@ -970,7 +970,7 @@ public extension Android.View.ViewGroup {
             locals: &__locals )
     }
     
-    public func getClipChildren() -> Bool {
+    func getClipChildren() -> Bool {
         
         var __locals = [jobject]()
         
@@ -990,7 +990,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func getClipToPadding() -> Bool {
+    func getClipToPadding() -> Bool {
         
         var __locals = [jobject]()
         
@@ -1010,7 +1010,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func getDescendantFocusability() -> Int {
+    func getDescendantFocusability() -> Int {
         
         var __locals = [jobject]()
         
@@ -1030,7 +1030,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func getFocusedChild() -> Android.View.View {
+    func getFocusedChild() -> Android.View.View {
         
         var __locals = [jobject]()
         
@@ -1052,7 +1052,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func getLayoutMode() -> Int {
+    func getLayoutMode() -> Int {
         
         var __locals = [jobject]()
         
@@ -1072,7 +1072,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func getNestedScrollAxes() -> Int {
+    func getNestedScrollAxes() -> Int {
         
         var __locals = [jobject]()
         
@@ -1092,7 +1092,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func getPersistentDrawingCache() -> Int {
+    func getPersistentDrawingCache() -> Int {
         
         var __locals = [jobject]()
         
@@ -1112,7 +1112,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func getTouchscreenBlocksFocus() -> Bool {
+    func getTouchscreenBlocksFocus() -> Bool {
         
         var __locals = [jobject]()
         
@@ -1132,7 +1132,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func indexOfChild(child: Android.View.View) -> Int {
+    func indexOfChild(child: Android.View.View) -> Int {
         
         var __locals = [jobject]()
         
@@ -1154,7 +1154,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func invalidateChild(child: Android.View.View, dirty: JavaObject)  {
+    func invalidateChild(child: Android.View.View, dirty: JavaObject)  {
         
         var __locals = [jobject]()
         
@@ -1175,7 +1175,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func isAlwaysDrawnWithCacheEnabled() -> Bool {
+    func isAlwaysDrawnWithCacheEnabled() -> Bool {
         
         var __locals = [jobject]()
         
@@ -1195,7 +1195,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func isAnimationCacheEnabled() -> Bool {
+    func isAnimationCacheEnabled() -> Bool {
         
         var __locals = [jobject]()
         
@@ -1215,7 +1215,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func isMotionEventSplittingEnabled() -> Bool {
+    func isMotionEventSplittingEnabled() -> Bool {
         
         var __locals = [jobject]()
         
@@ -1235,7 +1235,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func isTransitionGroup() -> Bool {
+    func isTransitionGroup() -> Bool {
         
         var __locals = [jobject]()
         
@@ -1257,7 +1257,7 @@ public extension Android.View.ViewGroup {
     
     
     
-    public func notifySubtreeAccessibilityStateChanged(child: Android.View.View, source: Android.View.View, changeType: Int)  {
+    func notifySubtreeAccessibilityStateChanged(child: Android.View.View, source: Android.View.View, changeType: Int)  {
         
         var __locals = [jobject]()
         
@@ -1279,7 +1279,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func offsetDescendantRectToMyCoords(descendant: Android.View.View, rect: JavaObject)  {
+    func offsetDescendantRectToMyCoords(descendant: Android.View.View, rect: JavaObject)  {
         
         var __locals = [jobject]()
         
@@ -1300,7 +1300,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func offsetRectIntoDescendantCoords(descendant: Android.View.View, rect: JavaObject)  {
+    func offsetRectIntoDescendantCoords(descendant: Android.View.View, rect: JavaObject)  {
         
         var __locals = [jobject]()
         
@@ -1321,7 +1321,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func onDescendantInvalidated(child: Android.View.View, target: Android.View.View)  {
+    func onDescendantInvalidated(child: Android.View.View, target: Android.View.View)  {
         
         var __locals = [jobject]()
         
@@ -1342,7 +1342,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func onInterceptHoverEvent(event: JavaObject) -> Bool {
+    func onInterceptHoverEvent(event: JavaObject) -> Bool {
         
         var __locals = [jobject]()
         
@@ -1364,7 +1364,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func onInterceptTouchEvent(ev: JavaObject) -> Bool {
+    func onInterceptTouchEvent(ev: JavaObject) -> Bool {
         
         var __locals = [jobject]()
         
@@ -1386,7 +1386,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func onNestedFling(target: Android.View.View, velocityX: Float, velocityY: Float, consumed: Bool) -> Bool {
+    func onNestedFling(target: Android.View.View, velocityX: Float, velocityY: Float, consumed: Bool) -> Bool {
         
         var __locals = [jobject]()
         
@@ -1411,7 +1411,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func onNestedPreFling(target: Android.View.View, velocityX: Float, velocityY: Float) -> Bool {
+    func onNestedPreFling(target: Android.View.View, velocityX: Float, velocityY: Float) -> Bool {
         
         var __locals = [jobject]()
         
@@ -1435,7 +1435,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func onNestedPreScroll(target: Android.View.View, dx: Int, dy: Int, consumed: [Int])  {
+    func onNestedPreScroll(target: Android.View.View, dx: Int, dy: Int, consumed: [Int])  {
         
         var __locals = [jobject]()
         
@@ -1458,7 +1458,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func onNestedScroll(target: Android.View.View, dxConsumed: Int, dyConsumed: Int, dxUnconsumed: Int, dyUnconsumed: Int)  {
+    func onNestedScroll(target: Android.View.View, dxConsumed: Int, dyConsumed: Int, dxUnconsumed: Int, dyUnconsumed: Int)  {
         
         var __locals = [jobject]()
         
@@ -1482,7 +1482,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func onNestedScrollAccepted(child: Android.View.View, target: Android.View.View, axes: Int)  {
+    func onNestedScrollAccepted(child: Android.View.View, target: Android.View.View, axes: Int)  {
         
         var __locals = [jobject]()
         
@@ -1504,7 +1504,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func onStartNestedScroll(child: Android.View.View, target: Android.View.View, nestedScrollAxes: Int) -> Bool {
+    func onStartNestedScroll(child: Android.View.View, target: Android.View.View, nestedScrollAxes: Int) -> Bool {
         
         var __locals = [jobject]()
         
@@ -1528,7 +1528,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func onStopNestedScroll(child: Android.View.View)  {
+    func onStopNestedScroll(child: Android.View.View)  {
         
         var __locals = [jobject]()
         
@@ -1548,7 +1548,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func onViewAdded(child: Android.View.View)  {
+    func onViewAdded(child: Android.View.View)  {
         
         var __locals = [jobject]()
         
@@ -1568,7 +1568,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func onViewRemoved(child: Android.View.View)  {
+    func onViewRemoved(child: Android.View.View)  {
         
         var __locals = [jobject]()
         
@@ -1588,7 +1588,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func recomputeViewAttributes(child: Android.View.View)  {
+    func recomputeViewAttributes(child: Android.View.View)  {
         
         var __locals = [jobject]()
         
@@ -1608,7 +1608,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func removeAllViews()  {
+    func removeAllViews()  {
         
         var __locals = [jobject]()
         
@@ -1626,7 +1626,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func removeAllViewsInLayout()  {
+    func removeAllViewsInLayout()  {
         
         var __locals = [jobject]()
         
@@ -1644,7 +1644,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func removeView(view: Android.View.View)  {
+    func removeView(view: Android.View.View)  {
         
         var __locals = [jobject]()
         
@@ -1664,7 +1664,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func removeViewAt(index: Int)  {
+    func removeViewAt(index: Int)  {
         
         var __locals = [jobject]()
         
@@ -1684,7 +1684,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func removeViewInLayout(view: Android.View.View)  {
+    func removeViewInLayout(view: Android.View.View)  {
         
         var __locals = [jobject]()
         
@@ -1704,7 +1704,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func removeViews(start: Int, count: Int)  {
+    func removeViews(start: Int, count: Int)  {
         
         var __locals = [jobject]()
         
@@ -1725,7 +1725,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func removeViewsInLayout(start: Int, count: Int)  {
+    func removeViewsInLayout(start: Int, count: Int)  {
         
         var __locals = [jobject]()
         
@@ -1746,7 +1746,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func requestChildFocus(child: Android.View.View, focused: Android.View.View)  {
+    func requestChildFocus(child: Android.View.View, focused: Android.View.View)  {
         
         var __locals = [jobject]()
         
@@ -1767,7 +1767,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func requestChildRectangleOnScreen(child: Android.View.View, rectangle: JavaObject, immediate: Bool) -> Bool {
+    func requestChildRectangleOnScreen(child: Android.View.View, rectangle: JavaObject, immediate: Bool) -> Bool {
         
         var __locals = [jobject]()
         
@@ -1791,7 +1791,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func requestDisallowInterceptTouchEvent(disallowIntercept: Bool)  {
+    func requestDisallowInterceptTouchEvent(disallowIntercept: Bool)  {
         
         var __locals = [jobject]()
         
@@ -1812,7 +1812,7 @@ public extension Android.View.ViewGroup {
     
     
     
-    public func requestTransparentRegion(child: Android.View.View)  {
+    func requestTransparentRegion(child: Android.View.View)  {
         
         var __locals = [jobject]()
         
@@ -1832,7 +1832,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func scheduleLayoutAnimation()  {
+    func scheduleLayoutAnimation()  {
         
         var __locals = [jobject]()
         
@@ -1850,7 +1850,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func setAddStatesFromChildren(addsStates: Bool)  {
+    func setAddStatesFromChildren(addsStates: Bool)  {
         
         var __locals = [jobject]()
         
@@ -1870,7 +1870,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func setAlwaysDrawnWithCacheEnabled(always: Bool)  {
+    func setAlwaysDrawnWithCacheEnabled(always: Bool)  {
         
         var __locals = [jobject]()
         
@@ -1890,7 +1890,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func setAnimationCacheEnabled(enabled: Bool)  {
+    func setAnimationCacheEnabled(enabled: Bool)  {
         
         var __locals = [jobject]()
         
@@ -1910,7 +1910,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func setClipChildren(clipChildren: Bool)  {
+    func setClipChildren(clipChildren: Bool)  {
         
         var __locals = [jobject]()
         
@@ -1930,7 +1930,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func setClipToPadding(clipToPadding: Bool)  {
+    func setClipToPadding(clipToPadding: Bool)  {
         
         var __locals = [jobject]()
         
@@ -1950,7 +1950,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func setDescendantFocusability(focusability: Int)  {
+    func setDescendantFocusability(focusability: Int)  {
         
         var __locals = [jobject]()
         
@@ -1970,7 +1970,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func setLayoutMode(layoutMode: Int)  {
+    func setLayoutMode(layoutMode: Int)  {
         
         var __locals = [jobject]()
         
@@ -1990,7 +1990,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func setMotionEventSplittingEnabled(split: Bool)  {
+    func setMotionEventSplittingEnabled(split: Bool)  {
         
         var __locals = [jobject]()
         
@@ -2010,7 +2010,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func setPersistentDrawingCache(drawingCacheToKeep: Int)  {
+    func setPersistentDrawingCache(drawingCacheToKeep: Int)  {
         
         var __locals = [jobject]()
         
@@ -2030,7 +2030,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func setTouchscreenBlocksFocus(touchscreenBlocksFocus: Bool)  {
+    func setTouchscreenBlocksFocus(touchscreenBlocksFocus: Bool)  {
         
         var __locals = [jobject]()
         
@@ -2050,7 +2050,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func setTransitionGroup(isTransitionGroup: Bool)  {
+    func setTransitionGroup(isTransitionGroup: Bool)  {
         
         var __locals = [jobject]()
         
@@ -2070,7 +2070,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func shouldDelayChildPressedState() -> Bool {
+    func shouldDelayChildPressedState() -> Bool {
         
         var __locals = [jobject]()
         
@@ -2090,7 +2090,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func showContextMenuForChild(originalView: Android.View.View, x: Float, y: Float) -> Bool {
+    func showContextMenuForChild(originalView: Android.View.View, x: Float, y: Float) -> Bool {
         
         var __locals = [jobject]()
         
@@ -2114,7 +2114,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func showContextMenuForChild(originalView: Android.View.View) -> Bool {
+    func showContextMenuForChild(originalView: Android.View.View) -> Bool {
         
         var __locals = [jobject]()
         
@@ -2136,7 +2136,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func startLayoutAnimation()  {
+    func startLayoutAnimation()  {
         
         var __locals = [jobject]()
         
@@ -2154,7 +2154,7 @@ public extension Android.View.ViewGroup {
     }
     
     
-    public func startViewTransition(view: Android.View.View)  {
+    func startViewTransition(view: Android.View.View)  {
         
         var __locals = [jobject]()
         

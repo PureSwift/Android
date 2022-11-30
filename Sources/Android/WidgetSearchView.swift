@@ -98,7 +98,7 @@ open class AndroidSearchView: Android.Widget.LinearLayoutCompat {
 
 public extension AndroidSearchView {
     
-    public func getImeOptions() -> Int {
+    func getImeOptions() -> Int {
         
         var __locals = [jobject]()
         
@@ -114,7 +114,7 @@ public extension AndroidSearchView {
         return Int(__return)
     }
     
-    public func getInputType() -> Int {
+    func getInputType() -> Int {
         
         var __locals = [jobject]()
         
@@ -130,7 +130,7 @@ public extension AndroidSearchView {
         return Int(__return)
     }
     
-    public func getMaxWidth() -> Int {
+    func getMaxWidth() -> Int {
         
         var __locals = [jobject]()
         
@@ -146,14 +146,14 @@ public extension AndroidSearchView {
         return Int(__return)
     }
     
-    public func setOnCloseListener(_ block: @escaping () -> (Bool)) {
+    func setOnCloseListener(_ block: @escaping () -> (Bool)) {
         
         let onClickListener = AndroidSearchView.OnCloseListener(block: block)
         
         setOnCloseListener(onClickListener)
     }
     
-    public func setOnCloseListener(_ listener: AndroidSearchView.OnCloseListener?) {
+    func setOnCloseListener(_ listener: AndroidSearchView.OnCloseListener?) {
         
         var __locals = [jobject]()
         
@@ -170,7 +170,7 @@ public extension AndroidSearchView {
             locals: &__locals )
     }
     
-    public func setOnSearchClickListener(_ listener: AndroidView.OnClickListener) {
+    func setOnSearchClickListener(_ listener: AndroidView.OnClickListener) {
         
         var __locals = [jobject]()
         
@@ -187,7 +187,7 @@ public extension AndroidSearchView {
             locals: &__locals )
     }
     
-    public func setOnQueryTextListener(_ listener: AndroidSearchView.OnQueryTextListener) {
+    func setOnQueryTextListener(_ listener: AndroidSearchView.OnQueryTextListener) {
         
         var __locals = [jobject]()
         
@@ -204,7 +204,7 @@ public extension AndroidSearchView {
             locals: &__locals )
     }
     
-    public func setOnSuggestionListener(_ listener: AndroidSearchView.OnSuggestionListener) {
+    func setOnSuggestionListener(_ listener: AndroidSearchView.OnSuggestionListener) {
         
         var __locals = [jobject]()
         
@@ -221,7 +221,7 @@ public extension AndroidSearchView {
             locals: &__locals )
     }
     
-    public func getQuery() -> String? {
+    func getQuery() -> String? {
         
         var __locals = [jobject]()
         
@@ -240,7 +240,7 @@ public extension AndroidSearchView {
         return __return != nil ? String(javaObject: __return) : nil
     }
     
-    public func getQueryHint() -> String? {
+    func getQueryHint() -> String? {
         
         var __locals = [jobject]()
         
@@ -259,7 +259,7 @@ public extension AndroidSearchView {
         return __return != nil ? String(javaObject: __return) : nil
     }
     
-    public func getSuggestionsAdapter() -> JavaObject? {
+    func getSuggestionsAdapter() -> JavaObject? {
         
         var __locals = [jobject]()
         
@@ -278,7 +278,7 @@ public extension AndroidSearchView {
         return __return != nil ? JavaObject(javaObject: __return) : nil
     }
     
-    public func isIconfiedByDefault() -> Bool {
+    func isIconfiedByDefault() -> Bool {
         
         var __locals = [jobject]()
         
@@ -294,7 +294,7 @@ public extension AndroidSearchView {
         return __return != JNI_FALSE
     }
     
-    public func isIconified() -> Bool {
+    func isIconified() -> Bool {
         
         var __locals = [jobject]()
         
@@ -310,7 +310,7 @@ public extension AndroidSearchView {
         return __return != JNI_FALSE
     }
     
-    public func isQueryRefinementEnabled() -> Bool {
+    func isQueryRefinementEnabled() -> Bool {
         
         var __locals = [jobject]()
         
@@ -326,7 +326,7 @@ public extension AndroidSearchView {
         return __return != JNI_FALSE
     }
     
-    public func isSubmitButtonEnabled() -> Bool {
+    func isSubmitButtonEnabled() -> Bool {
         
         var __locals = [jobject]()
         
@@ -341,7 +341,7 @@ public extension AndroidSearchView {
         return __return != JNI_FALSE
     }
     
-    public func onActionViewCollapsed() {
+    func onActionViewCollapsed() {
         
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
@@ -354,7 +354,7 @@ public extension AndroidSearchView {
                                  locals: &__locals)
     }
     
-    public func onActionViewExpanded() {
+    func onActionViewExpanded() {
         
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
@@ -367,7 +367,7 @@ public extension AndroidSearchView {
                                  locals: &__locals)
     }
     
-    public func setIconified(_ iconify: Bool) {
+    func setIconified(_ iconify: Bool) {
         
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
@@ -381,7 +381,7 @@ public extension AndroidSearchView {
                                  locals: &__locals)
     }
     
-    public func setIconifiedByDefault(iconified: Bool) {
+    func setIconifiedByDefault(iconified: Bool) {
         
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
@@ -395,7 +395,7 @@ public extension AndroidSearchView {
                                  locals: &__locals)
     }
     
-    public func setImeOptions(imeOptions: Int) {
+    func setImeOptions(imeOptions: Int) {
         
         var __locals = [jobject]()
         
@@ -410,7 +410,7 @@ public extension AndroidSearchView {
                                  locals: &__locals)
     }
     
-    public func setInputType(inputType: Int) {
+    func setInputType(inputType: Int) {
         
         var __locals = [jobject]()
         
@@ -425,7 +425,7 @@ public extension AndroidSearchView {
                                  locals: &__locals)
     }
     
-    public func setMaxWidth(maxpixels: Int) {
+    func setMaxWidth(maxpixels: Int) {
         
         var __locals = [jobject]()
         
@@ -440,7 +440,7 @@ public extension AndroidSearchView {
                                  locals: &__locals)
     }
     
-    public func setQuery(query: String?, submit: Bool) {
+    func setQuery(query: String?, submit: Bool) {
         
         var __locals = [jobject]()
         
@@ -457,7 +457,7 @@ public extension AndroidSearchView {
             locals: &__locals )
     }
     
-    public func setQueryHint(_ hint: String?) {
+    func setQueryHint(_ hint: String?) {
         
         var __locals = [jobject]()
         
@@ -473,7 +473,7 @@ public extension AndroidSearchView {
             locals: &__locals )
     }
     
-    public func setSearchableInfo(_ searchable: JavaObject) {
+    func setSearchableInfo(_ searchable: JavaObject) {
         
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
@@ -487,7 +487,7 @@ public extension AndroidSearchView {
                                  locals: &__locals)
     }
     
-    public func setQueryRefinementEnabled(_ enable: Bool) {
+    func setQueryRefinementEnabled(_ enable: Bool) {
         
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
@@ -501,7 +501,7 @@ public extension AndroidSearchView {
                                  locals: &__locals)
     }
     
-    public func setSubmitButtonEnabled(_ enabled: Bool) {
+    func setSubmitButtonEnabled(_ enabled: Bool) {
         
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
@@ -515,7 +515,7 @@ public extension AndroidSearchView {
                                  locals: &__locals)
     }
     
-    public func setSuggestionsAdapter(_ adapter: JavaObject) {
+    func setSuggestionsAdapter(_ adapter: JavaObject) {
         
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )

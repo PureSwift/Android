@@ -129,7 +129,7 @@ open class AndroidSeekBar: AndroidAbsSeekBar {
 
 public extension AndroidSeekBar {
     
-    public func setOnSeekBarChangeListener(_ l: AndroidOnSeekBarChangeListener){
+    func setOnSeekBarChangeListener(_ l: AndroidOnSeekBarChangeListener){
         
         var __locals = [jobject]()
         

@@ -30,7 +30,7 @@ open class AndroidViewCompat: JavaObject {
 
 public extension AndroidViewCompat {
     
-    public static func generateViewId() -> Int {
+    static func generateViewId() -> Int {
         
         var __locals = [jobject]()
         
@@ -46,7 +46,7 @@ public extension AndroidViewCompat {
         return Int(__return)
     }
     
-    public static func setNestedScrollingEnabled(view: AndroidView, enabled: Bool) {
+    static func setNestedScrollingEnabled(view: AndroidView, enabled: Bool) {
         
         var __locals = [jobject]()
         

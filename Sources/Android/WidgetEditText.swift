@@ -71,7 +71,7 @@ open class AndroidEditText: AndroidTextView {
 
 public extension Android.Widget.EditText {
     
-    public func extendSelection(_ index: Int) {
+    func extendSelection(_ index: Int) {
         
         var __locals = [jobject]()
         
@@ -87,7 +87,7 @@ public extension Android.Widget.EditText {
             locals: &__locals )
     }
     
-    public func getAccessibilityClassName() -> String? {
+    func getAccessibilityClassName() -> String? {
         
         var __locals = [jobject]()
         
@@ -106,7 +106,7 @@ public extension Android.Widget.EditText {
         return __return != nil ? String(javaObject: __return) : nil
     }
     
-    public func getFreezesText() -> Bool {
+    func getFreezesText() -> Bool {
         
         var __locals = [jobject]()
         
@@ -123,7 +123,7 @@ public extension Android.Widget.EditText {
         return __return != jboolean(JNI_FALSE)
     }
     
-    public func getText() -> JavaObject? {
+    func getText() -> JavaObject? {
         
         var __locals = [jobject]()
         
@@ -142,7 +142,7 @@ public extension Android.Widget.EditText {
         return __return != nil ? JavaObject(javaObject: __return) : nil
     }
     
-    public func selectAll() {
+    func selectAll() {
         
         var __locals = [jobject]()
         
@@ -157,7 +157,7 @@ public extension Android.Widget.EditText {
             locals: &__locals )
     }
     
-    public func setSelection(_ index: Int) {
+    func setSelection(_ index: Int) {
         
         var __locals = [jobject]()
         

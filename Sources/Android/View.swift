@@ -2967,12 +2967,11 @@ public extension Android.View.View {
     }
     
     @inline(__always)
-    public func findViewById(_ id: Android.R.ID) -> Android.View.View? {
-        
+    func findViewById(_ id: Android.R.ID) -> Android.View.View? {
         return findViewById(id.rawValue)
     }
     
-    public func setId(_ id: Int) {
+    func setId(_ id: Int) {
         
         var __locals = [jobject]()
         
@@ -2989,7 +2988,7 @@ public extension Android.View.View {
             locals: &__locals )
     }
     
-    public func getId() -> Int {
+    func getId() -> Int {
         
         var __locals = [jobject]()
         
@@ -3006,14 +3005,14 @@ public extension Android.View.View {
         return Int(__return)
     }
     
-    public var identifier: Int {
+    var identifier: Int {
         
         get { return getId() }
         
         set { setId(newValue) }
     }
     
-    public func getTag() -> JavaObject? {
+    func getTag() -> JavaObject? {
         
         var __locals = [jobject]()
         
@@ -3032,7 +3031,7 @@ public extension Android.View.View {
         return __return != nil ? JavaObject(javaObject: __return) : nil
     }
     
-    public func setTag(_ tag: JavaObject?) {
+    func setTag(_ tag: JavaObject?) {
         
         var __locals = [jobject]()
         
@@ -3049,7 +3048,7 @@ public extension Android.View.View {
             locals: &__locals )
     }
     
-    public var tag: JavaObject? {
+    var tag: JavaObject? {
         
         get { return getTag() }
         
@@ -3079,7 +3078,7 @@ public extension Android.View.View {
     /**
      * Enables or disables click events for this view.
      */
-    public func setClickable(clickable: Bool) {
+    func setClickable(clickable: Bool) {
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
@@ -3098,7 +3097,7 @@ public extension Android.View.View {
     /**
      * Indicates whether this view reacts to click events or not.
      */
-    public func isClickable() -> Bool {
+    func isClickable() -> Bool {
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1)
@@ -3117,7 +3116,7 @@ public extension Android.View.View {
     /**
      * Returns the enabled status for this view.
      */
-    public func isEnabled() -> Bool {
+    func isEnabled() -> Bool {
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
@@ -3138,7 +3137,7 @@ public extension Android.View.View {
     /**
      * Change the view's z order in the tree, so it's on top of other sibling views.
      */
-    public func bringToFront()  {
+    func bringToFront()  {
         
         var __locals = [jobject]()
         
@@ -3158,7 +3157,7 @@ public extension Android.View.View {
     /**
      * Forces this view's layer to be created and this view to be rendered into its layer.
      */
-    public func buildLayer()  {
+    func buildLayer()  {
         
         var __locals = [jobject]()
         
@@ -3178,7 +3177,7 @@ public extension Android.View.View {
     /**
      * Directly call any attached OnClickListener.
      */
-    public func callOnClick() -> Bool {
+    func callOnClick() -> Bool {
         
         var __locals = [jobject]()
         
@@ -3198,7 +3197,7 @@ public extension Android.View.View {
     /**
      * Check if layout direction resolution can be done.
      */
-    public func canResolveLayoutDirection() -> Bool {
+    func canResolveLayoutDirection() -> Bool {
         
         var __locals = [jobject]()
         
@@ -3218,7 +3217,7 @@ public extension Android.View.View {
     /**
      * Check if text alignment resolution can be done.
      */
-    public func canResolveTextAlignment() -> Bool {
+    func canResolveTextAlignment() -> Bool {
         
         var __locals = [jobject]()
         
@@ -3238,7 +3237,7 @@ public extension Android.View.View {
     /**
      * Check if text direction resolution can be done.
      */
-    public func canResolveTextDirection() -> Bool {
+    func canResolveTextDirection() -> Bool {
         
         var __locals = [jobject]()
         
@@ -3258,7 +3257,7 @@ public extension Android.View.View {
     /**
      * Check if this view can be scrolled horizontally in a certain direction.
      */
-    public func canScrollHorizontally(direction: Int) -> Bool {
+    func canScrollHorizontally(direction: Int) -> Bool {
         
         var __locals = [jobject]()
         
@@ -3280,7 +3279,7 @@ public extension Android.View.View {
     /**
      * Check if this view can be scrolled vertically in a certain direction.
      */
-    public func canScrollVertically(direction: Int) -> Bool {
+    func canScrollVertically(direction: Int) -> Bool {
         
         var __locals = [jobject]()
         
@@ -3302,7 +3301,7 @@ public extension Android.View.View {
     /**
      * Cancels an ongoing drag and drop operation.
      */
-    public func cancelDragAndDrop()  {
+    func cancelDragAndDrop()  {
         
         var __locals = [jobject]()
         
@@ -3322,7 +3321,7 @@ public extension Android.View.View {
     /**
      * Cancel any deferred high-level input events that were previously posted to the event queue.
      */
-    public func cancelPendingInputEvents()  {
+    func cancelPendingInputEvents()  {
         
         var __locals = [jobject]()
         
@@ -3342,7 +3341,7 @@ public extension Android.View.View {
     /**
      * Cancels any animations for this view.
      */
-    public func clearAnimation()  {
+    func clearAnimation()  {
         
         var __locals = [jobject]()
         
@@ -3364,7 +3363,7 @@ public extension Android.View.View {
     /**
      * Merge two states as returned by getMeasuredState().
      */
-    public func combineMeasuredStates(curState: Int, newState: Int) -> Int {
+    func combineMeasuredStates(curState: Int, newState: Int) -> Int {
         
         var __locals = [jobject]()
         
@@ -3387,7 +3386,7 @@ public extension Android.View.View {
     /**
      * Called by a parent to request that a child update its values for mScrollX and mScrollY if necessary.
      */
-    public func computeScroll()  {
+    func computeScroll()  {
         
         var __locals = [jobject]()
         
@@ -3408,7 +3407,7 @@ public extension Android.View.View {
     /**
      * Dispatch onFinishTemporaryDetach() to this View and its direct children if this is a container View.
      */
-    public func dispatchFinishTemporaryDetach()  {
+    func dispatchFinishTemporaryDetach()  {
         
         var __locals = [jobject]()
         
@@ -3428,7 +3427,7 @@ public extension Android.View.View {
     /**
      * Dispatch a fling to a nested scrolling parent.
      */
-    public func dispatchNestedFling(velocityX: Float, velocityY: Float, consumed: Bool) -> Bool {
+    func dispatchNestedFling(velocityX: Float, velocityY: Float, consumed: Bool) -> Bool {
         
         var __locals = [jobject]()
         
@@ -3452,7 +3451,7 @@ public extension Android.View.View {
     /**
      * Dispatch a fling to a nested scrolling parent before it is processed by this view.
      */
-    public func dispatchNestedPreFling(velocityX: Float, velocityY: Float) -> Bool {
+    func dispatchNestedPreFling(velocityX: Float, velocityY: Float) -> Bool {
         
         var __locals = [jobject]()
         
@@ -3475,7 +3474,7 @@ public extension Android.View.View {
     /**
      * Dispatch one step of a nested scroll in progress before this view consumes any portion of it.
      */
-    public func dispatchNestedPreScroll(dx: Int, dy: Int, consumed: [Int], offsetInWindow: [Int]) -> Bool {
+    func dispatchNestedPreScroll(dx: Int, dy: Int, consumed: [Int], offsetInWindow: [Int]) -> Bool {
         
         var __locals = [jobject]()
         
@@ -3500,7 +3499,7 @@ public extension Android.View.View {
     /**
      * Dispatch one step of a nested scroll in progress.
      */
-    public func dispatchNestedScroll(dxConsumed: Int, dyConsumed: Int, dxUnconsumed: Int, dyUnconsumed: Int, offsetInWindow: [Int]) -> Bool {
+    func dispatchNestedScroll(dxConsumed: Int, dyConsumed: Int, dxUnconsumed: Int, dyUnconsumed: Int, offsetInWindow: [Int]) -> Bool {
         
         var __locals = [jobject]()
         
@@ -3529,7 +3528,7 @@ public extension Android.View.View {
     /**
      * Dispatch onStartTemporaryDetach() to this View and its direct children if this is a container View.
      */
-    public func dispatchStartTemporaryDetach()  {
+    func dispatchStartTemporaryDetach()  {
         
         var __locals = [jobject]()
         
@@ -3551,7 +3550,7 @@ public extension Android.View.View {
     /**
      * This function is called whenever the view hotspot changes and needs to be propagated to drawables or child views managed by the view.
      */
-    public func drawableHotspotChanged(x: Float, y: Float)  {
+    func drawableHotspotChanged(x: Float, y: Float)  {
         
         var __locals = [jobject]()
         
@@ -3574,7 +3573,7 @@ public extension Android.View.View {
     /**
      * Sets the behavior for overlapping rendering for this view (see hasOverlappingRendering() for more details on this behavior).
      */
-    public func forceHasOverlappingRendering(hasOverlappingRendering: Bool)  {
+    func forceHasOverlappingRendering(hasOverlappingRendering: Bool)  {
         
         var __locals = [jobject]()
         
@@ -3596,7 +3595,7 @@ public extension Android.View.View {
     /**
      * Forces this view to be laid out during the next layout pass.
      */
-    public func forceLayout()  {
+    func forceLayout()  {
         
         var __locals = [jobject]()
         
@@ -3616,7 +3615,7 @@ public extension Android.View.View {
     /**
      * Generate a value suitable for use in setId(int).
      */
-    public func generateViewId() -> Int {
+    func generateViewId() -> Int {
         
         var __locals = [jobject]()
         
@@ -3636,7 +3635,7 @@ public extension Android.View.View {
     /**
      * Gets the live region mode for this View.
      */
-    public func getAccessibilityLiveRegion() -> Int {
+    func getAccessibilityLiveRegion() -> Int {
         
         var __locals = [jobject]()
         
@@ -3656,7 +3655,7 @@ public extension Android.View.View {
     /**
      * Gets the id of a view after which this one is visited in accessibility traversal.
      */
-    public func getAccessibilityTraversalAfter() -> Int {
+    func getAccessibilityTraversalAfter() -> Int {
         
         var __locals = [jobject]()
         
@@ -3676,7 +3675,7 @@ public extension Android.View.View {
     /**
      * Gets the id of a view before which this one is visited in accessibility traversal.
      */
-    public func getAccessibilityTraversalBefore() -> Int {
+    func getAccessibilityTraversalBefore() -> Int {
         
         var __locals = [jobject]()
         
@@ -3696,7 +3695,7 @@ public extension Android.View.View {
     /**
      * Gets the hints that help an AutofillService determine how to autofill the view with the user's data.
      */
-    public func getAutofillHints() -> [String]? {
+    func getAutofillHints() -> [String]? {
         
         var __locals = [jobject]()
         
@@ -3720,7 +3719,7 @@ public extension Android.View.View {
     /**
      * Describes the autofill type of this view, so an AutofillService can create the proper AutofillValue when autofilling the view.
      */
-    public func getAutofillType() -> Int {
+    func getAutofillType() -> Int {
         
         var __locals = [jobject]()
         
@@ -3740,7 +3739,7 @@ public extension Android.View.View {
     /**
      * Return the offset of the widget's text baseline from the widget's top boundary.
      */
-    public func getBaseline() -> Int {
+    func getBaseline() -> Int {
         
         var __locals = [jobject]()
         
@@ -3760,7 +3759,7 @@ public extension Android.View.View {
     /**
      * Bottom position of this view relative to its parent.
      */
-    public func getBottom() -> Int {
+    func getBottom() -> Int {
         
         var __locals = [jobject]()
         
@@ -3780,7 +3779,7 @@ public extension Android.View.View {
     /**
      * Returns whether the Outline should be used to clip the contents of the View.
      */
-    public func getClipToOutline() -> Bool {
+    func getClipToOutline() -> Bool {
         
         var __locals = [jobject]()
         
@@ -3800,7 +3799,7 @@ public extension Android.View.View {
     /**
      *  Returns whether this View should use a default focus highlight when it gets focused but doesn't have R.attr.state_focused defined in its background.
      */
-    public func getDefaultFocusHighlightEnabled() -> Bool {
+    func getDefaultFocusHighlightEnabled() -> Bool {
         
         var __locals = [jobject]()
         
@@ -3820,7 +3819,7 @@ public extension Android.View.View {
     /**
      * Utility to return a default size.
      */
-    public func getDefaultSize(size: Int, measureSpec: Int) -> Int {
+    func getDefaultSize(size: Int, measureSpec: Int) -> Int {
         
         var __locals = [jobject]()
         
@@ -3843,7 +3842,7 @@ public extension Android.View.View {
     /**
      * Return an array of resource IDs of the drawable states representing the current state of the view.
      */
-    public func getDrawableState() -> [Int]? {
+    func getDrawableState() -> [Int]? {
         
         var __locals = [jobject]()
         
@@ -3863,7 +3862,7 @@ public extension Android.View.View {
     /**
      * Gets whether the framework should discard touches when the view's window is obscured by another visible window.
      */
-    public func getFilterTouchesWhenObscured() -> Bool {
+    func getFilterTouchesWhenObscured() -> Bool {
         
         var __locals = [jobject]()
         
@@ -3883,7 +3882,7 @@ public extension Android.View.View {
     /**
      * Check for state of setFitsSystemWindows(boolean).
      */
-    public func getFitsSystemWindows() -> Bool {
+    func getFitsSystemWindows() -> Bool {
         
         var __locals = [jobject]()
         
@@ -3903,7 +3902,7 @@ public extension Android.View.View {
     /**
      * Returns the focusable setting for this view.
      */
-    public func getFocusable() -> Int {
+    func getFocusable() -> Int {
         
         var __locals = [jobject]()
         
@@ -3923,7 +3922,7 @@ public extension Android.View.View {
     /**
      * Describes how the foreground is positioned.
      */
-    public func getForegroundGravity() -> Int {
+    func getForegroundGravity() -> Int {
         
         var __locals = [jobject]()
         
@@ -3943,7 +3942,7 @@ public extension Android.View.View {
     /**
      * Returns the value for overlapping rendering that is used internally.
      */
-    public func getHasOverlappingRendering() -> Bool {
+    func getHasOverlappingRendering() -> Bool {
         
         var __locals = [jobject]()
         
@@ -3963,7 +3962,7 @@ public extension Android.View.View {
     /**
      * Return the height of your view.
      */
-    public func getHeight() -> Int {
+    func getHeight() -> Int {
         
         var __locals = [jobject]()
         
@@ -3983,7 +3982,7 @@ public extension Android.View.View {
     /**
      * Returns the size of the horizontal faded edges used to indicate that more content in this view is visible.
      */
-    public func getHorizontalFadingEdgeLength() -> Int {
+    func getHorizontalFadingEdgeLength() -> Int {
         
         var __locals = [jobject]()
         
@@ -4003,7 +4002,7 @@ public extension Android.View.View {
     /**
      * Gets the mode for determining whether this View is important for accessibility.
      */
-    public func getImportantForAccessibility() -> Int {
+    func getImportantForAccessibility() -> Int {
         
         var __locals = [jobject]()
         
@@ -4023,7 +4022,7 @@ public extension Android.View.View {
     /**
      * Gets the mode for determining whether this view is important for autofill.
      */
-    public func getImportantForAutofill() -> Int {
+    func getImportantForAutofill() -> Int {
         
         var __locals = [jobject]()
         
@@ -4043,7 +4042,7 @@ public extension Android.View.View {
     /**
      * Returns whether the screen should remain on, corresponding to the current value of KEEP_SCREEN_ON.
      */
-    public func getKeepScreenOn() -> Bool {
+    func getKeepScreenOn() -> Bool {
         
         var __locals = [jobject]()
         
@@ -4063,7 +4062,7 @@ public extension Android.View.View {
     /**
      * Gets the id of a view for which this view serves as a label for accessibility purposes.
      */
-    public func getLabelFor() -> Int {
+    func getLabelFor() -> Int {
         
         var __locals = [jobject]()
         
@@ -4083,7 +4082,7 @@ public extension Android.View.View {
     /**
      * Indicates what type of layer is currently associated with this view.
      */
-    public func getLayerType() -> Int {
+    func getLayerType() -> Int {
         
         var __locals = [jobject]()
         
@@ -4106,7 +4105,7 @@ public extension Android.View.View {
     /**
      * Returns the resolved layout direction for this view.
      */
-    public func getLayoutDirection() -> Int {
+    func getLayoutDirection() -> Int {
         
         var __locals = [jobject]()
         
@@ -4126,7 +4125,7 @@ public extension Android.View.View {
     /**
      * Left position of this view relative to its parent.
      */
-    public func getLeft() -> Int {
+    func getLeft() -> Int {
         
         var __locals = [jobject]()
         
@@ -4146,7 +4145,7 @@ public extension Android.View.View {
     /**
      * Computes the coordinates of this view in its window.
      */
-    public func getLocationInWindow(outLocation: [Int])  {
+    func getLocationInWindow(outLocation: [Int])  {
         
         var __locals = [jobject]()
         
@@ -4168,7 +4167,7 @@ public extension Android.View.View {
     /**
      * Computes the coordinates of this view on the screen.
      */
-    public func getLocationOnScreen(outLocation: [Int])  {
+    func getLocationOnScreen(outLocation: [Int])  {
         
         var __locals = [jobject]()
         
@@ -4190,7 +4189,7 @@ public extension Android.View.View {
     /**
      * Like getMeasuredHeightAndState(), but only returns the raw height component (that is the result is masked by MEASURED_SIZE_MASK).
      */
-    public func getMeasuredHeight() -> Int {
+    func getMeasuredHeight() -> Int {
         
         var __locals = [jobject]()
         
@@ -4210,7 +4209,7 @@ public extension Android.View.View {
     /**
      * Return the full height measurement information for this view as computed by the most recent call to measure(int, int).
      */
-    public func getMeasuredHeightAndState() -> Int {
+    func getMeasuredHeightAndState() -> Int {
         
         var __locals = [jobject]()
         
@@ -4230,7 +4229,7 @@ public extension Android.View.View {
     /**
      * Return only the state bits of getMeasuredWidthAndState() and getMeasuredHeightAndState(), combined into one integer.
      */
-    public func getMeasuredState() -> Int {
+    func getMeasuredState() -> Int {
         
         var __locals = [jobject]()
         
@@ -4250,7 +4249,7 @@ public extension Android.View.View {
     /**
      * Like getMeasuredWidthAndState(), but only returns the raw width component (that is the result is masked by MEASURED_SIZE_MASK).
      */
-    public func getMeasuredWidth() -> Int {
+    func getMeasuredWidth() -> Int {
         
         var __locals = [jobject]()
         
@@ -4270,7 +4269,7 @@ public extension Android.View.View {
     /**
      * Return the full width measurement information for this view as computed by the most recent call to measure(int, int).
      */
-    public func getMeasuredWidthAndState() -> Int {
+    func getMeasuredWidthAndState() -> Int {
         
         var __locals = [jobject]()
         
@@ -4290,7 +4289,7 @@ public extension Android.View.View {
     /**
      * Returns the minimum height of the view.
      */
-    public func getMinimumHeight() -> Int {
+    func getMinimumHeight() -> Int {
         
         var __locals = [jobject]()
         
@@ -4310,7 +4309,7 @@ public extension Android.View.View {
     /**
      * Returns the minimum width of the view.
      */
-    public func getMinimumWidth() -> Int {
+    func getMinimumWidth() -> Int {
         
         var __locals = [jobject]()
         
@@ -4330,7 +4329,7 @@ public extension Android.View.View {
     /**
      * Gets the id of the root of the next keyboard navigation cluster.
      */
-    public func getNextClusterForwardId() -> Int {
+    func getNextClusterForwardId() -> Int {
         
         var __locals = [jobject]()
         
@@ -4350,7 +4349,7 @@ public extension Android.View.View {
     /**
      * Gets the id of the view to use when the next focus is FOCUS_DOWN.
      */
-    public func getNextFocusDownId() -> Int {
+    func getNextFocusDownId() -> Int {
         
         var __locals = [jobject]()
         
@@ -4370,7 +4369,7 @@ public extension Android.View.View {
     /**
      * Gets the id of the view to use when the next focus is FOCUS_FORWARD.
      */
-    public func getNextFocusForwardId() -> Int {
+    func getNextFocusForwardId() -> Int {
         
         var __locals = [jobject]()
         
@@ -4390,7 +4389,7 @@ public extension Android.View.View {
     /**
      * Gets the id of the view to use when the next focus is FOCUS_LEFT.
      */
-    public func getNextFocusLeftId() -> Int {
+    func getNextFocusLeftId() -> Int {
         
         var __locals = [jobject]()
         
@@ -4410,7 +4409,7 @@ public extension Android.View.View {
     /**
      * Gets the id of the view to use when the next focus is FOCUS_RIGHT.
      */
-    public func getNextFocusRightId() -> Int {
+    func getNextFocusRightId() -> Int {
         
         var __locals = [jobject]()
         
@@ -4430,7 +4429,7 @@ public extension Android.View.View {
     /**
      * Gets the id of the view to use when the next focus is FOCUS_UP.
      */
-    public func getNextFocusUpId() -> Int {
+    func getNextFocusUpId() -> Int {
         
         var __locals = [jobject]()
         
@@ -4448,7 +4447,7 @@ public extension Android.View.View {
     }
     
     
-    public func getOutlineAmbientShadowColor() -> Int64 {
+    func getOutlineAmbientShadowColor() -> Int64 {
         
         var __locals = [jobject]()
         
@@ -4466,7 +4465,7 @@ public extension Android.View.View {
     }
     
     
-    public func getOutlineSpotShadowColor() -> Int64 {
+    func getOutlineSpotShadowColor() -> Int64 {
         
         var __locals = [jobject]()
         
@@ -4486,7 +4485,7 @@ public extension Android.View.View {
     /**
      * Returns the over-scroll mode for this view.
      */
-    public func getOverScrollMode() -> Int {
+    func getOverScrollMode() -> Int {
         
         var __locals = [jobject]()
         
@@ -4506,7 +4505,7 @@ public extension Android.View.View {
     /**
      * Returns the bottom padding of this view.
      */
-    public func getPaddingBottom() -> Int {
+    func getPaddingBottom() -> Int {
         
         var __locals = [jobject]()
         
@@ -4526,7 +4525,7 @@ public extension Android.View.View {
     /**
      * Returns the end padding of this view depending on its resolved layout direction.
      */
-    public func getPaddingEnd() -> Int {
+    func getPaddingEnd() -> Int {
         
         var __locals = [jobject]()
         
@@ -4546,7 +4545,7 @@ public extension Android.View.View {
     /**
      * Returns the left padding of this view.
      */
-    public func getPaddingLeft() -> Int {
+    func getPaddingLeft() -> Int {
         
         var __locals = [jobject]()
         
@@ -4566,7 +4565,7 @@ public extension Android.View.View {
     /**
      * Returns the right padding of this view.
      */
-    public func getPaddingRight() -> Int {
+    func getPaddingRight() -> Int {
         
         var __locals = [jobject]()
         
@@ -4586,7 +4585,7 @@ public extension Android.View.View {
     /**
      * Returns the start padding of this view depending on its resolved layout direction.
      */
-    public func getPaddingStart() -> Int {
+    func getPaddingStart() -> Int {
         
         var __locals = [jobject]()
         
@@ -4606,7 +4605,7 @@ public extension Android.View.View {
     /**
      * Returns the top padding of this view.
      */
-    public func getPaddingTop() -> Int {
+    func getPaddingTop() -> Int {
         
         var __locals = [jobject]()
         
@@ -4626,7 +4625,7 @@ public extension Android.View.View {
     /**
      * Returns this view's preference for reveal behavior when it gains focus.
      */
-    public func getRevealOnFocusHint() -> Bool {
+    func getRevealOnFocusHint() -> Bool {
         
         var __locals = [jobject]()
         
@@ -4646,7 +4645,7 @@ public extension Android.View.View {
     /**
      * Right position of this view relative to its parent.
      */
-    public func getRight() -> Int {
+    func getRight() -> Int {
         
         var __locals = [jobject]()
         
@@ -4666,7 +4665,7 @@ public extension Android.View.View {
     /**
      * Returns the delay before scrollbars fade.
      */
-    public func getScrollBarDefaultDelayBeforeFade() -> Int {
+    func getScrollBarDefaultDelayBeforeFade() -> Int {
         
         var __locals = [jobject]()
         
@@ -4686,7 +4685,7 @@ public extension Android.View.View {
     /**
      * Returns the scrollbar fade duration.
      */
-    public func getScrollBarFadeDuration() -> Int {
+    func getScrollBarFadeDuration() -> Int {
         
         var __locals = [jobject]()
         
@@ -4706,7 +4705,7 @@ public extension Android.View.View {
     /**
      * Returns the scrollbar size.
      */
-    public func getScrollBarSize() -> Int {
+    func getScrollBarSize() -> Int {
         
         var __locals = [jobject]()
         
@@ -4726,7 +4725,7 @@ public extension Android.View.View {
     /**
      * Returns the current scrollbar style.
      */
-    public func getScrollBarStyle() -> Int {
+    func getScrollBarStyle() -> Int {
         
         var __locals = [jobject]()
         
@@ -4746,7 +4745,7 @@ public extension Android.View.View {
     /**
      * Returns a bitmask representing the enabled scroll indicators.
      */
-    public func getScrollIndicators() -> Int {
+    func getScrollIndicators() -> Int {
         
         var __locals = [jobject]()
         
@@ -4766,7 +4765,7 @@ public extension Android.View.View {
     /**
      * Return the scrolled left position of this view.
      */
-    public func getScrollX() -> Int {
+    func getScrollX() -> Int {
         
         var __locals = [jobject]()
         
@@ -4786,7 +4785,7 @@ public extension Android.View.View {
     /**
      * Return the scrolled top position of this view.
      */
-    public func getScrollY() -> Int {
+    func getScrollY() -> Int {
         
         var __locals = [jobject]()
         
@@ -4806,7 +4805,7 @@ public extension Android.View.View {
     /**
      * Override this if your view is known to always be drawn on top of a solid color background, and needs to draw fading edges.
      */
-    public func getSolidColor() -> Int64 {
+    func getSolidColor() -> Int64 {
         
         var __locals = [jobject]()
         
@@ -4826,7 +4825,7 @@ public extension Android.View.View {
     /**
      * Returns the last setSystemUiVisibility(int) that this view has requested.
      */
-    public func getSystemUiVisibility() -> Int {
+    func getSystemUiVisibility() -> Int {
         
         var __locals = [jobject]()
         
@@ -4846,7 +4845,7 @@ public extension Android.View.View {
     /**
      * Return the resolved text alignment.
      */
-    public func getTextAlignment() -> Int {
+    func getTextAlignment() -> Int {
         
         var __locals = [jobject]()
         
@@ -4866,7 +4865,7 @@ public extension Android.View.View {
     /**
      * Return the resolved text direction.
      */
-    public func getTextDirection() -> Int {
+    func getTextDirection() -> Int {
         
         var __locals = [jobject]()
         
@@ -4886,7 +4885,7 @@ public extension Android.View.View {
     /**
      * Top position of this view relative to its parent.
      */
-    public func getTop() -> Int {
+    func getTop() -> Int {
         
         var __locals = [jobject]()
         
@@ -4906,7 +4905,7 @@ public extension Android.View.View {
     /**
      * Returns the name of the View to be used to identify Views in Transitions.
      */
-    public func getTransitionName() -> String {
+    func getTransitionName() -> String {
         
         var __locals = [jobject]()
         
@@ -4930,7 +4929,7 @@ public extension Android.View.View {
     /**
      * Returns the size of the vertical faded edges used to indicate that more content in this view is visible.
      */
-    public func getVerticalFadingEdgeLength() -> Int {
+    func getVerticalFadingEdgeLength() -> Int {
         
         var __locals = [jobject]()
         
@@ -4948,7 +4947,7 @@ public extension Android.View.View {
     }
     
     
-    public func getVerticalScrollbarPosition() -> Int {
+    func getVerticalScrollbarPosition() -> Int {
         
         var __locals = [jobject]()
         
@@ -4968,7 +4967,7 @@ public extension Android.View.View {
     /**
      * Returns the width of the vertical scrollbar.
      */
-    public func getVerticalScrollbarWidth() -> Int {
+    func getVerticalScrollbarWidth() -> Int {
         
         var __locals = [jobject]()
         
@@ -5005,7 +5004,7 @@ public extension Android.View.View {
         return Int(__return)
     }
     
-    public var visibility: Android.View.View.Visibility {
+    var visibility: Android.View.View.Visibility {
         
         get { return Android.View.View.Visibility(rawValue: getVisibility()) }
         
@@ -5015,7 +5014,7 @@ public extension Android.View.View {
     /**
      * Return the width of your view.
      */
-    public func getWidth() -> Int {
+    func getWidth() -> Int {
         
         var __locals = [jobject]()
         
@@ -5035,7 +5034,7 @@ public extension Android.View.View {
     /**
      * Returns the current system UI visibility that is currently set for the entire window.
      */
-    public func getWindowSystemUiVisibility() -> Int {
+    func getWindowSystemUiVisibility() -> Int {
         
         var __locals = [jobject]()
         
@@ -5072,15 +5071,14 @@ public extension Android.View.View {
         return Int(__return)
     }
     
-    public var windowVisibility: Android.View.View.Visibility {
-        
+    var windowVisibility: Android.View.View.Visibility {
         return Android.View.View.Visibility(rawValue: getWindowVisibility())
     }
     
     /**
      * Returns true if this view is focusable or if it contains a reachable View for which hasExplicitFocusable() returns true.
      */
-    public func hasExplicitFocusable() -> Bool {
+    func hasExplicitFocusable() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5102,7 +5100,7 @@ public extension Android.View.View {
     /**
      * Returns true if this view is focusable or if it contains a reachable View for which hasFocusable() returns true.
      */
-    public func hasFocusable() -> Bool {
+    func hasFocusable() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5122,7 +5120,7 @@ public extension Android.View.View {
     /**
      * Returns true if this view has a nested scrolling parent.
      */
-    public func hasNestedScrollingParent() -> Bool {
+    func hasNestedScrollingParent() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5142,7 +5140,7 @@ public extension Android.View.View {
     /**
      * Return whether this view has an attached OnClickListener.
      */
-    public func hasOnClickListeners() -> Bool {
+    func hasOnClickListeners() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5162,7 +5160,7 @@ public extension Android.View.View {
     /**
      * Returns whether this View has content which overlaps.
      */
-    public func hasOverlappingRendering() -> Bool {
+    func hasOverlappingRendering() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5182,7 +5180,7 @@ public extension Android.View.View {
     /**
      * Checks pointer capture status.
      */
-    public func hasPointerCapture() -> Bool {
+    func hasPointerCapture() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5204,7 +5202,7 @@ public extension Android.View.View {
     /**
      * Returns true if this view is in a window that currently has window focus.
      */
-    public func hasWindowFocus() -> Bool {
+    func hasWindowFocus() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5224,7 +5222,7 @@ public extension Android.View.View {
     /**
      * Invalidate the whole view.
      */
-    public func invalidate()  {
+    func invalidate()  {
         
         var __locals = [jobject]()
         
@@ -5244,7 +5242,7 @@ public extension Android.View.View {
     /**
      * Called to rebuild this View's Outline from its outline provider
      */
-    public func invalidateOutline()  {
+    func invalidateOutline()  {
         
         var __locals = [jobject]()
         
@@ -5264,7 +5262,7 @@ public extension Android.View.View {
     /**
      * Returns whether this View is accessibility focused.
      */
-    public func isAccessibilityFocused() -> Bool {
+    func isAccessibilityFocused() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5284,7 +5282,7 @@ public extension Android.View.View {
     /**
      * Gets whether this view is a heading for accessibility purposes.
      */
-    public func isAccessibilityHeading() -> Bool {
+    func isAccessibilityHeading() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5304,7 +5302,7 @@ public extension Android.View.View {
     /**
      * Indicates the activation state of this view.
      */
-    public func isActivated() -> Bool {
+    func isActivated() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5324,7 +5322,7 @@ public extension Android.View.View {
     /**
      * Returns true if this view is currently attached to a window.
      */
-    public func isAttachedToWindow() -> Bool {
+    func isAttachedToWindow() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5344,7 +5342,7 @@ public extension Android.View.View {
     /**
      * Indicates whether this view reacts to context clicks or not.
      */
-    public func isContextClickable() -> Bool {
+    func isContextClickable() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5364,7 +5362,7 @@ public extension Android.View.View {
     /**
      * True if this view has changed since the last time being drawn.
      */
-    public func isDirty() -> Bool {
+    func isDirty() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5384,7 +5382,7 @@ public extension Android.View.View {
     /**
      * Indicates whether this duplicates its drawable state from its parent.
      */
-    public func isDuplicateParentStateEnabled() -> Bool {
+    func isDuplicateParentStateEnabled() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5404,7 +5402,7 @@ public extension Android.View.View {
     /**
      * Returns whether this View is currently able to take focus.
      */
-    public func isFocusable() -> Bool {
+    func isFocusable() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5424,7 +5422,7 @@ public extension Android.View.View {
     /**
      * When a view is focusable, it may not want to take focus when in touch mode.
      */
-    public func isFocusableInTouchMode() -> Bool {
+    func isFocusableInTouchMode() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5444,7 +5442,7 @@ public extension Android.View.View {
     /**
      * Returns true if this view has focus
      */
-    public func isFocused() -> Bool {
+    func isFocused() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5464,7 +5462,7 @@ public extension Android.View.View {
     /**
      * Returns whether this View should receive focus when the focus is restored for the view hierarchy containing this view.
      */
-    public func isFocusedByDefault() -> Bool {
+    func isFocusedByDefault() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5482,7 +5480,7 @@ public extension Android.View.View {
     }
     
     
-    public func isHapticFeedbackEnabled() -> Bool {
+    func isHapticFeedbackEnabled() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5502,7 +5500,7 @@ public extension Android.View.View {
     /**
      * Indicates whether this view is attached to a hardware accelerated window or not.
      */
-    public func isHardwareAccelerated() -> Bool {
+    func isHardwareAccelerated() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5522,7 +5520,7 @@ public extension Android.View.View {
     /**
      * Indicate whether the horizontal edges are faded when the view is scrolled horizontally.
      */
-    public func isHorizontalFadingEdgeEnabled() -> Bool {
+    func isHorizontalFadingEdgeEnabled() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5542,7 +5540,7 @@ public extension Android.View.View {
     /**
      * Indicate whether the horizontal scrollbar should be drawn or not.
      */
-    public func isHorizontalScrollBarEnabled() -> Bool {
+    func isHorizontalScrollBarEnabled() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5562,7 +5560,7 @@ public extension Android.View.View {
     /**
      * Returns true if the view is currently hovered.
      */
-    public func isHovered() -> Bool {
+    func isHovered() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5582,7 +5580,7 @@ public extension Android.View.View {
     /**
      * Computes whether this view should be exposed for accessibility.
      */
-    public func isImportantForAccessibility() -> Bool {
+    func isImportantForAccessibility() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5602,7 +5600,7 @@ public extension Android.View.View {
     /**
      * Hints the Android System whether the AssistStructure.ViewNode associated with this view is considered important for autofill purposes.
      */
-    public func isImportantForAutofill() -> Bool {
+    func isImportantForAutofill() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5622,7 +5620,7 @@ public extension Android.View.View {
     /**
      * Indicates whether this View is currently in edit mode.
      */
-    public func isInEditMode() -> Bool {
+    func isInEditMode() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5642,7 +5640,7 @@ public extension Android.View.View {
     /**
      * Returns whether the view hierarchy is currently undergoing a layout pass.
      */
-    public func isInLayout() -> Bool {
+    func isInLayout() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5662,7 +5660,7 @@ public extension Android.View.View {
     /**
      * Returns whether the device is currently in touch mode.
      */
-    public func isInTouchMode() -> Bool {
+    func isInTouchMode() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5682,7 +5680,7 @@ public extension Android.View.View {
     /**
      * Returns whether this View is a root of a keyboard navigation cluster.
      */
-    public func isKeyboardNavigationCluster() -> Bool {
+    func isKeyboardNavigationCluster() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5702,7 +5700,7 @@ public extension Android.View.View {
     /**
      * Returns true if this view has been through at least one layout since it was last attached to or detached from a window.
      */
-    public func isLaidOut() -> Bool {
+    func isLaidOut() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5720,7 +5718,7 @@ public extension Android.View.View {
     }
     
     
-    public func isLayoutDirectionResolved() -> Bool {
+    func isLayoutDirectionResolved() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5740,7 +5738,7 @@ public extension Android.View.View {
     /**
      * Indicates whether or not this view's layout will be requested during the next hierarchy layout pass.
      */
-    public func isLayoutRequested() -> Bool {
+    func isLayoutRequested() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5760,7 +5758,7 @@ public extension Android.View.View {
     /**
      * Indicates whether this view reacts to long click events or not.
      */
-    public func isLongClickable() -> Bool {
+    func isLongClickable() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5780,7 +5778,7 @@ public extension Android.View.View {
     /**
      * Returns true if nested scrolling is enabled for this view.
      */
-    public func isNestedScrollingEnabled() -> Bool {
+    func isNestedScrollingEnabled() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5800,7 +5798,7 @@ public extension Android.View.View {
     /**
      * Indicates whether this View is opaque.
      */
-    public func isOpaque() -> Bool {
+    func isOpaque() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5820,7 +5818,7 @@ public extension Android.View.View {
     /**
      * Return if the padding has been set through relative values setPaddingRelative(int, int, int, int) or through
      */
-    public func isPaddingRelative() -> Bool {
+    func isPaddingRelative() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5840,7 +5838,7 @@ public extension Android.View.View {
     /**
      * Returns whether or not a pivot has been set by a call to setPivotX(float) or setPivotY(float).
      */
-    public func isPivotSet() -> Bool {
+    func isPivotSet() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5860,7 +5858,7 @@ public extension Android.View.View {
     /**
      * Indicates whether the view is currently in pressed state.
      */
-    public func isPressed() -> Bool {
+    func isPressed() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5880,7 +5878,7 @@ public extension Android.View.View {
     /**
      * Indicates whether this view will save its state (that is, whether its onSaveInstanceState() method will be called).
      */
-    public func isSaveEnabled() -> Bool {
+    func isSaveEnabled() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5900,7 +5898,7 @@ public extension Android.View.View {
     /**
      * Indicates whether the entire hierarchy under this view will save its state when a state saving traversal occurs from its parent.
      */
-    public func isSaveFromParentEnabled() -> Bool {
+    func isSaveFromParentEnabled() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5920,7 +5918,7 @@ public extension Android.View.View {
     /**
      * Returns whether the view should be treated as a focusable unit by screen reader accessibility tools.
      */
-    public func isScreenReaderFocusable() -> Bool {
+    func isScreenReaderFocusable() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5940,7 +5938,7 @@ public extension Android.View.View {
     /**
      * Indicates whether this view is one of the set of scrollable containers in its window.
      */
-    public func isScrollContainer() -> Bool {
+    func isScrollContainer() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5960,7 +5958,7 @@ public extension Android.View.View {
     /**
      * Returns true if scrollbars will fade when this view is not scrolling
      */
-    public func isScrollbarFadingEnabled() -> Bool {
+    func isScrollbarFadingEnabled() -> Bool {
         
         var __locals = [jobject]()
         
@@ -5980,7 +5978,7 @@ public extension Android.View.View {
     /**
      * Indicates the selection state of this view.
      */
-    public func isSelected() -> Bool {
+    func isSelected() -> Bool {
         
         var __locals = [jobject]()
         
@@ -6000,7 +5998,7 @@ public extension Android.View.View {
     /**
      * Returns the visibility of this view and all of its ancestors
      */
-    public func isShown() -> Bool {
+    func isShown() -> Bool {
         
         var __locals = [jobject]()
         
@@ -6018,7 +6016,7 @@ public extension Android.View.View {
     }
     
     
-    public func isSoundEffectsEnabled() -> Bool {
+    func isSoundEffectsEnabled() -> Bool {
         
         var __locals = [jobject]()
         
@@ -6038,7 +6036,7 @@ public extension Android.View.View {
     /**
      * Tells whether the View is in the state between onStartTemporaryDetach() and onFinishTemporaryDetach().
      */
-    public func isTemporarilyDetached() -> Bool {
+    func isTemporarilyDetached() -> Bool {
         
         var __locals = [jobject]()
         
@@ -6056,7 +6054,7 @@ public extension Android.View.View {
     }
     
     
-    public func isTextAlignmentResolved() -> Bool {
+    func isTextAlignmentResolved() -> Bool {
         
         var __locals = [jobject]()
         
@@ -6074,7 +6072,7 @@ public extension Android.View.View {
     }
     
     
-    public func isTextDirectionResolved() -> Bool {
+    func isTextDirectionResolved() -> Bool {
         
         var __locals = [jobject]()
         
@@ -6094,7 +6092,7 @@ public extension Android.View.View {
     /**
      * Indicate whether the vertical edges are faded when the view is scrolled horizontally.
      */
-    public func isVerticalFadingEdgeEnabled() -> Bool {
+    func isVerticalFadingEdgeEnabled() -> Bool {
         
         var __locals = [jobject]()
         
@@ -6114,7 +6112,7 @@ public extension Android.View.View {
     /**
      * Indicate whether the vertical scrollbar should be drawn or not.
      */
-    public func isVerticalScrollBarEnabled() -> Bool {
+    func isVerticalScrollBarEnabled() -> Bool {
         
         var __locals = [jobject]()
         
@@ -6134,7 +6132,7 @@ public extension Android.View.View {
     /**
      * Computes whether this virtual autofill view is visible to the user.
      */
-    public func isVisibleToUserForAutofill(virtualId: Int) -> Bool {
+    func isVisibleToUserForAutofill(virtualId: Int) -> Bool {
         
         var __locals = [jobject]()
         
@@ -6153,7 +6151,7 @@ public extension Android.View.View {
         return __return != jboolean(JNI_FALSE)
     }
     
-    public func measure(widthMeasureSpec: Int, heightMeasureSpec: Int)  {
+    func measure(widthMeasureSpec: Int, heightMeasureSpec: Int)  {
         
         var __locals = [jobject]()
         
@@ -6174,7 +6172,7 @@ public extension Android.View.View {
     }
     
     
-    public func offsetLeftAndRight(offset: Int)  {
+    func offsetLeftAndRight(offset: Int)  {
         
         var __locals = [jobject]()
         
@@ -6194,7 +6192,7 @@ public extension Android.View.View {
     }
     
     
-    public func offsetTopAndBottom(offset: Int)  {
+    func offsetTopAndBottom(offset: Int)  {
         
         var __locals = [jobject]()
         
@@ -6214,7 +6212,7 @@ public extension Android.View.View {
     }
     
     
-    public func onCancelPendingInputEvents()  {
+    func onCancelPendingInputEvents()  {
         
         var __locals = [jobject]()
         
@@ -6232,7 +6230,7 @@ public extension Android.View.View {
     }
     
     
-    public func onCheckIsTextEditor() -> Bool {
+    func onCheckIsTextEditor() -> Bool {
         
         var __locals = [jobject]()
         
@@ -6250,7 +6248,7 @@ public extension Android.View.View {
     }
     
     
-    public func onFinishTemporaryDetach()  {
+    func onFinishTemporaryDetach()  {
         
         var __locals = [jobject]()
         
@@ -6268,7 +6266,7 @@ public extension Android.View.View {
     }
     
     
-    public func onHoverChanged(hovered: Bool)  {
+    func onHoverChanged(hovered: Bool)  {
         
         var __locals = [jobject]()
         
@@ -6288,7 +6286,7 @@ public extension Android.View.View {
     }
     
     
-    public func onPointerCaptureChange(hasCapture: Bool)  {
+    func onPointerCaptureChange(hasCapture: Bool)  {
         
         var __locals = [jobject]()
         
@@ -6308,7 +6306,7 @@ public extension Android.View.View {
     }
     
     
-    public func onRtlPropertiesChanged(layoutDirection: Int)  {
+    func onRtlPropertiesChanged(layoutDirection: Int)  {
         
         var __locals = [jobject]()
         
@@ -6328,7 +6326,7 @@ public extension Android.View.View {
     }
     
     
-    public func onScreenStateChanged(screenState: Int)  {
+    func onScreenStateChanged(screenState: Int)  {
         
         var __locals = [jobject]()
         
@@ -6348,7 +6346,7 @@ public extension Android.View.View {
     }
     
     
-    public func onStartTemporaryDetach()  {
+    func onStartTemporaryDetach()  {
         
         var __locals = [jobject]()
         
@@ -6366,7 +6364,7 @@ public extension Android.View.View {
     }
     
     
-    public func onVisibilityAggregated(isVisible: Bool)  {
+    func onVisibilityAggregated(isVisible: Bool)  {
         
         var __locals = [jobject]()
         
@@ -6385,7 +6383,7 @@ public extension Android.View.View {
         
     }
     
-    public func onWindowSystemUiVisibilityChanged(visible: Int)  {
+    func onWindowSystemUiVisibilityChanged(visible: Int)  {
         
         var __locals = [jobject]()
         
@@ -6404,7 +6402,7 @@ public extension Android.View.View {
         
     }
     
-    public func performContextClick(x: Float, y: Float) -> Bool {
+    func performContextClick(x: Float, y: Float) -> Bool {
         
         var __locals = [jobject]()
         
@@ -6425,7 +6423,7 @@ public extension Android.View.View {
     }
     
     
-    public func performContextClick() -> Bool {
+    func performContextClick() -> Bool {
         
         var __locals = [jobject]()
         
@@ -6443,7 +6441,7 @@ public extension Android.View.View {
     }
     
     
-    public func performHapticFeedback(feedbackConstant: Int) -> Bool {
+    func performHapticFeedback(feedbackConstant: Int) -> Bool {
         
         var __locals = [jobject]()
         
@@ -6463,7 +6461,7 @@ public extension Android.View.View {
     }
     
     
-    public func performHapticFeedback(feedbackConstant: Int, flags: Int) -> Bool {
+    func performHapticFeedback(feedbackConstant: Int, flags: Int) -> Bool {
         
         var __locals = [jobject]()
         
@@ -6484,7 +6482,7 @@ public extension Android.View.View {
     }
     
     
-    public func performLongClick(x: Float, y: Float) -> Bool {
+    func performLongClick(x: Float, y: Float) -> Bool {
         
         var __locals = [jobject]()
         
@@ -6505,7 +6503,7 @@ public extension Android.View.View {
     }
     
     
-    public func performLongClick() -> Bool {
+    func performLongClick() -> Bool {
         
         var __locals = [jobject]()
         
@@ -6523,7 +6521,7 @@ public extension Android.View.View {
     }
     
     
-    public func playSoundEffect(soundConstant: Int)  {
+    func playSoundEffect(soundConstant: Int)  {
         
         var __locals = [jobject]()
         
@@ -6543,7 +6541,7 @@ public extension Android.View.View {
     }
     
     
-    public func postInvalidate()  {
+    func postInvalidate()  {
         
         var __locals = [jobject]()
         
@@ -6560,7 +6558,7 @@ public extension Android.View.View {
         
     }
     
-    public func postInvalidate(left: Int, top: Int, right: Int, bottom: Int)  {
+    func postInvalidate(left: Int, top: Int, right: Int, bottom: Int)  {
         
         var __locals = [jobject]()
         
@@ -6583,7 +6581,7 @@ public extension Android.View.View {
     }
     
     
-    public func postInvalidateDelayed(delayMilliseconds: Int64, left: Int, top: Int, right: Int, bottom: Int)  {
+    func postInvalidateDelayed(delayMilliseconds: Int64, left: Int, top: Int, right: Int, bottom: Int)  {
         
         var __locals = [jobject]()
         
@@ -6607,7 +6605,7 @@ public extension Android.View.View {
     }
     
     
-    public func postInvalidateDelayed(delayMilliseconds: Int64)  {
+    func postInvalidateDelayed(delayMilliseconds: Int64)  {
         
         var __locals = [jobject]()
         
@@ -6627,7 +6625,7 @@ public extension Android.View.View {
     }
     
     
-    public func postInvalidateOnAnimation(left: Int, top: Int, right: Int, bottom: Int)  {
+    func postInvalidateOnAnimation(left: Int, top: Int, right: Int, bottom: Int)  {
         
         var __locals = [jobject]()
         
@@ -6650,7 +6648,7 @@ public extension Android.View.View {
     }
     
     
-    public func postInvalidateOnAnimation()  {
+    func postInvalidateOnAnimation()  {
         
         var __locals = [jobject]()
         
@@ -6668,7 +6666,7 @@ public extension Android.View.View {
     }
     
     
-    public func refreshDrawableState()  {
+    func refreshDrawableState()  {
         
         var __locals = [jobject]()
         
@@ -6686,7 +6684,7 @@ public extension Android.View.View {
     }
     
     
-    public func releasePointerCapture()  {
+    func releasePointerCapture()  {
         
         var __locals = [jobject]()
         
@@ -6704,7 +6702,7 @@ public extension Android.View.View {
     }
     
     
-    public func requestApplyInsets()  {
+    func requestApplyInsets()  {
         
         var __locals = [jobject]()
         
@@ -6722,7 +6720,7 @@ public extension Android.View.View {
     }
     
     
-    public func requestFitSystemWindows()  {
+    func requestFitSystemWindows()  {
         
         var __locals = [jobject]()
         
@@ -6740,7 +6738,7 @@ public extension Android.View.View {
     }
     
     
-    public func requestFocus(direction: Int) -> Bool {
+    func requestFocus(direction: Int) -> Bool {
         
         var __locals = [jobject]()
         
@@ -6760,7 +6758,7 @@ public extension Android.View.View {
     }
     
     
-    public func requestFocus() -> Bool {
+    func requestFocus() -> Bool {
         
         var __locals = [jobject]()
         
@@ -6778,7 +6776,7 @@ public extension Android.View.View {
     }
     
     
-    public func requestFocusFromTouch() -> Bool {
+    func requestFocusFromTouch() -> Bool {
         
         var __locals = [jobject]()
         
@@ -6796,7 +6794,7 @@ public extension Android.View.View {
     }
     
     
-    public func requestLayout()  {
+    func requestLayout()  {
         
         var __locals = [jobject]()
         
@@ -6814,7 +6812,7 @@ public extension Android.View.View {
     }
     
     
-    public func requestPointerCapture()  {
+    func requestPointerCapture()  {
         
         var __locals = [jobject]()
         
@@ -6832,7 +6830,7 @@ public extension Android.View.View {
     }
     
     
-    public func resetPivot()  {
+    func resetPivot()  {
         
         var __locals = [jobject]()
         
@@ -6850,7 +6848,7 @@ public extension Android.View.View {
     }
     
     
-    public func resolveSize(size: Int, measureSpec: Int) -> Int {
+    func resolveSize(size: Int, measureSpec: Int) -> Int {
         
         var __locals = [jobject]()
         
@@ -6871,7 +6869,7 @@ public extension Android.View.View {
     }
     
     
-    public func resolveSizeAndState(size: Int, measureSpec: Int, childMeasuredState: Int) -> Int {
+    func resolveSizeAndState(size: Int, measureSpec: Int, childMeasuredState: Int) -> Int {
         
         var __locals = [jobject]()
         
@@ -6892,7 +6890,7 @@ public extension Android.View.View {
         return Int(__return)
     }
     
-    public func scrollBy(x: Int, y: Int)  {
+    func scrollBy(x: Int, y: Int)  {
         
         var __locals = [jobject]()
         
@@ -6913,7 +6911,7 @@ public extension Android.View.View {
     }
     
     
-    public func scrollTo(x: Int, y: Int)  {
+    func scrollTo(x: Int, y: Int)  {
         
         var __locals = [jobject]()
         
@@ -6934,7 +6932,7 @@ public extension Android.View.View {
     }
     
     
-    public func sendAccessibilityEvent(eventType: Int)  {
+    func sendAccessibilityEvent(eventType: Int)  {
         
         var __locals = [jobject]()
         
@@ -6954,7 +6952,7 @@ public extension Android.View.View {
     }
     
     
-    public func setAccessibilityHeading(isHeading: Bool)  {
+    func setAccessibilityHeading(isHeading: Bool)  {
         
         var __locals = [jobject]()
         
@@ -6974,7 +6972,7 @@ public extension Android.View.View {
     }
     
     
-    public func setAccessibilityLiveRegion(mode: Int)  {
+    func setAccessibilityLiveRegion(mode: Int)  {
         
         var __locals = [jobject]()
         
@@ -6994,7 +6992,7 @@ public extension Android.View.View {
     }
     
     
-    public func setAccessibilityTraversalAfter(afterId: Int)  {
+    func setAccessibilityTraversalAfter(afterId: Int)  {
         
         var __locals = [jobject]()
         
@@ -7014,7 +7012,7 @@ public extension Android.View.View {
     }
     
     
-    public func setAccessibilityTraversalBefore(beforeId: Int)  {
+    func setAccessibilityTraversalBefore(beforeId: Int)  {
         
         var __locals = [jobject]()
         
@@ -7034,7 +7032,7 @@ public extension Android.View.View {
     }
     
     
-    public func setActivated(activated: Bool)  {
+    func setActivated(activated: Bool)  {
         
         var __locals = [jobject]()
         
@@ -7054,7 +7052,7 @@ public extension Android.View.View {
     }
     
     
-    public func setAlpha(alpha: Float)  {
+    func setAlpha(alpha: Float)  {
         
         var __locals = [jobject]()
         
@@ -7074,7 +7072,7 @@ public extension Android.View.View {
     }
     
     
-    public func setBackgroundColor(color: Int64)  {
+    func setBackgroundColor(color: Int64)  {
         
         var __locals = [jobject]()
         
@@ -7095,7 +7093,7 @@ public extension Android.View.View {
     }
     
     
-    public func setBackgroundResource(resid: Int)  {
+    func setBackgroundResource(resid: Int)  {
         
         var __locals = [jobject]()
         
@@ -7115,7 +7113,7 @@ public extension Android.View.View {
     }
     
     
-    public func setBottom(bottom: Int)  {
+    func setBottom(bottom: Int)  {
         
         var __locals = [jobject]()
         
@@ -7135,7 +7133,7 @@ public extension Android.View.View {
     }
     
     
-    public func setCameraDistance(distance: Float)  {
+    func setCameraDistance(distance: Float)  {
         
         var __locals = [jobject]()
         
@@ -7155,7 +7153,7 @@ public extension Android.View.View {
     }
     
     
-    public func setClipToOutline(clipToOutline: Bool)  {
+    func setClipToOutline(clipToOutline: Bool)  {
         
         var __locals = [jobject]()
         
@@ -7175,7 +7173,7 @@ public extension Android.View.View {
     }
     
     
-    public func setContextClickable(contextClickable: Bool)  {
+    func setContextClickable(contextClickable: Bool)  {
         
         var __locals = [jobject]()
         
@@ -7195,7 +7193,7 @@ public extension Android.View.View {
     }
     
     
-    public func setDefaultFocusHighlightEnabled(defaultFocusHighlightEnabled: Bool)  {
+    func setDefaultFocusHighlightEnabled(defaultFocusHighlightEnabled: Bool)  {
         
         var __locals = [jobject]()
         
@@ -7215,7 +7213,7 @@ public extension Android.View.View {
     }
     
     
-    public func setDrawingCacheBackgroundColor(color: Int64)  {
+    func setDrawingCacheBackgroundColor(color: Int64)  {
         
         var __locals = [jobject]()
         
@@ -7236,7 +7234,7 @@ public extension Android.View.View {
     }
     
     
-    public func setDrawingCacheEnabled(enabled: Bool)  {
+    func setDrawingCacheEnabled(enabled: Bool)  {
         
         var __locals = [jobject]()
         
@@ -7256,7 +7254,7 @@ public extension Android.View.View {
     }
     
     
-    public func setDrawingCacheQuality(quality: Int)  {
+    func setDrawingCacheQuality(quality: Int)  {
         
         var __locals = [jobject]()
         
@@ -7276,7 +7274,7 @@ public extension Android.View.View {
     }
     
     
-    public func setDuplicateParentStateEnabled(enabled: Bool)  {
+    func setDuplicateParentStateEnabled(enabled: Bool)  {
         
         var __locals = [jobject]()
         
@@ -7296,7 +7294,7 @@ public extension Android.View.View {
     }
     
     
-    public func setElevation(elevation: Float)  {
+    func setElevation(elevation: Float)  {
         
         var __locals = [jobject]()
         
@@ -7316,7 +7314,7 @@ public extension Android.View.View {
     }
     
     
-    public func setEnabled(enabled: Bool)  {
+    func setEnabled(enabled: Bool)  {
         
         var __locals = [jobject]()
         
@@ -7336,7 +7334,7 @@ public extension Android.View.View {
     }
     
     
-    public func setFadingEdgeLength(length: Int)  {
+    func setFadingEdgeLength(length: Int)  {
         
         var __locals = [jobject]()
         
@@ -7355,7 +7353,7 @@ public extension Android.View.View {
         
     }
     
-    public func setFilterTouchesWhenObscured(enabled: Bool)  {
+    func setFilterTouchesWhenObscured(enabled: Bool)  {
         
         var __locals = [jobject]()
         
@@ -7375,7 +7373,7 @@ public extension Android.View.View {
     }
     
     
-    public func setFitsSystemWindows(fitSystemWindows: Bool)  {
+    func setFitsSystemWindows(fitSystemWindows: Bool)  {
         
         var __locals = [jobject]()
         
@@ -7395,7 +7393,7 @@ public extension Android.View.View {
     }
     
     
-    public func setFocusable(focusable: Bool)  {
+    func setFocusable(focusable: Bool)  {
         
         var __locals = [jobject]()
         
@@ -7415,7 +7413,7 @@ public extension Android.View.View {
     }
     
     
-    public func setFocusable(focusable: Int)  {
+    func setFocusable(focusable: Int)  {
         
         var __locals = [jobject]()
         
@@ -7435,7 +7433,7 @@ public extension Android.View.View {
     }
     
     
-    public func setFocusableInTouchMode(focusableInTouchMode: Bool)  {
+    func setFocusableInTouchMode(focusableInTouchMode: Bool)  {
         
         var __locals = [jobject]()
         
@@ -7455,7 +7453,7 @@ public extension Android.View.View {
     }
     
     
-    public func setFocusedByDefault(isFocusedByDefault: Bool)  {
+    func setFocusedByDefault(isFocusedByDefault: Bool)  {
         
         var __locals = [jobject]()
         
@@ -7475,7 +7473,7 @@ public extension Android.View.View {
     }
     
     
-    public func setForegroundGravity(gravity: Int)  {
+    func setForegroundGravity(gravity: Int)  {
         
         var __locals = [jobject]()
         
@@ -7495,7 +7493,7 @@ public extension Android.View.View {
     }
     
     
-    public func setHapticFeedbackEnabled(hapticFeedbackEnabled: Bool)  {
+    func setHapticFeedbackEnabled(hapticFeedbackEnabled: Bool)  {
         
         var __locals = [jobject]()
         
@@ -7515,7 +7513,7 @@ public extension Android.View.View {
     }
     
     
-    public func setHasTransientState(hasTransientState: Bool)  {
+    func setHasTransientState(hasTransientState: Bool)  {
         
         var __locals = [jobject]()
         
@@ -7553,7 +7551,7 @@ public extension Android.View.View {
     }
     
     
-    public func setHorizontalFadingEdgeEnabled(horizontalFadingEdgeEnabled: Bool)  {
+    func setHorizontalFadingEdgeEnabled(horizontalFadingEdgeEnabled: Bool)  {
         
         var __locals = [jobject]()
         
@@ -7573,7 +7571,7 @@ public extension Android.View.View {
     }
     
     
-    public func setHorizontalScrollBarEnabled(horizontalScrollBarEnabled: Bool)  {
+    func setHorizontalScrollBarEnabled(horizontalScrollBarEnabled: Bool)  {
         
         var __locals = [jobject]()
         
@@ -7593,7 +7591,7 @@ public extension Android.View.View {
     }
     
     
-    public func setHovered(hovered: Bool)  {
+    func setHovered(hovered: Bool)  {
         
         var __locals = [jobject]()
         
@@ -7613,7 +7611,7 @@ public extension Android.View.View {
     }
     
     
-    public func setId(id: Int)  {
+    func setId(id: Int)  {
         
         var __locals = [jobject]()
         
@@ -7633,7 +7631,7 @@ public extension Android.View.View {
     }
     
     
-    public func setImportantForAccessibility(mode: Int)  {
+    func setImportantForAccessibility(mode: Int)  {
         
         var __locals = [jobject]()
         
@@ -7653,7 +7651,7 @@ public extension Android.View.View {
     }
     
     
-    public func setImportantForAutofill(mode: Int)  {
+    func setImportantForAutofill(mode: Int)  {
         
         var __locals = [jobject]()
         
@@ -7673,7 +7671,7 @@ public extension Android.View.View {
     }
     
     
-    public func setKeepScreenOn(keepScreenOn: Bool)  {
+    func setKeepScreenOn(keepScreenOn: Bool)  {
         
         var __locals = [jobject]()
         
@@ -7693,7 +7691,7 @@ public extension Android.View.View {
     }
     
     
-    public func setKeyboardNavigationCluster(isCluster: Bool)  {
+    func setKeyboardNavigationCluster(isCluster: Bool)  {
         
         var __locals = [jobject]()
         
@@ -7713,7 +7711,7 @@ public extension Android.View.View {
     }
     
     
-    public func setLabelFor(id: Int)  {
+    func setLabelFor(id: Int)  {
         
         var __locals = [jobject]()
         
@@ -7733,7 +7731,7 @@ public extension Android.View.View {
     }
     
     
-    public func setLayoutDirection(layoutDirection: Int)  {
+    func setLayoutDirection(layoutDirection: Int)  {
         
         var __locals = [jobject]()
         
@@ -7753,7 +7751,7 @@ public extension Android.View.View {
     }
     
     
-    public func setLeft(left: Int)  {
+    func setLeft(left: Int)  {
         
         var __locals = [jobject]()
         
@@ -7773,7 +7771,7 @@ public extension Android.View.View {
     }
     
     
-    public func setLongClickable(longClickable: Bool)  {
+    func setLongClickable(longClickable: Bool)  {
         
         var __locals = [jobject]()
         
@@ -7793,7 +7791,7 @@ public extension Android.View.View {
     }
     
     
-    public func setMinimumHeight(minHeight: Int)  {
+    func setMinimumHeight(minHeight: Int)  {
         
         var __locals = [jobject]()
         
@@ -7813,7 +7811,7 @@ public extension Android.View.View {
     }
     
     
-    public func setMinimumWidth(minWidth: Int)  {
+    func setMinimumWidth(minWidth: Int)  {
         
         var __locals = [jobject]()
         
@@ -7833,7 +7831,7 @@ public extension Android.View.View {
     }
     
     
-    public func setNestedScrollingEnabled(enabled: Bool)  {
+    func setNestedScrollingEnabled(enabled: Bool)  {
         
         var __locals = [jobject]()
         
@@ -7853,7 +7851,7 @@ public extension Android.View.View {
     }
     
     
-    public func setNextClusterForwardId(nextClusterForwardId: Int)  {
+    func setNextClusterForwardId(nextClusterForwardId: Int)  {
         
         var __locals = [jobject]()
         
@@ -7873,7 +7871,7 @@ public extension Android.View.View {
     }
     
     
-    public func setNextFocusDownId(nextFocusDownId: Int)  {
+    func setNextFocusDownId(nextFocusDownId: Int)  {
         
         var __locals = [jobject]()
         
@@ -7893,7 +7891,7 @@ public extension Android.View.View {
     }
     
     
-    public func setNextFocusForwardId(nextFocusForwardId: Int)  {
+    func setNextFocusForwardId(nextFocusForwardId: Int)  {
         
         var __locals = [jobject]()
         
@@ -7913,7 +7911,7 @@ public extension Android.View.View {
     }
     
     
-    public func setNextFocusLeftId(nextFocusLeftId: Int)  {
+    func setNextFocusLeftId(nextFocusLeftId: Int)  {
         
         var __locals = [jobject]()
         
@@ -7933,7 +7931,7 @@ public extension Android.View.View {
     }
     
     
-    public func setNextFocusRightId(nextFocusRightId: Int)  {
+    func setNextFocusRightId(nextFocusRightId: Int)  {
         
         var __locals = [jobject]()
         
@@ -7952,7 +7950,7 @@ public extension Android.View.View {
         
     }
     
-    public func setNextFocusUpId(nextFocusUpId: Int)  {
+    func setNextFocusUpId(nextFocusUpId: Int)  {
         
         var __locals = [jobject]()
         
@@ -7972,7 +7970,7 @@ public extension Android.View.View {
     }
     
     
-    public func setOutlineAmbientShadowColor(color: Int)  {
+    func setOutlineAmbientShadowColor(color: Int)  {
         
         var __locals = [jobject]()
         
@@ -7991,7 +7989,7 @@ public extension Android.View.View {
     }
     
     
-    public func setOutlineSpotShadowColor(color: Int64)  {
+    func setOutlineSpotShadowColor(color: Int64)  {
         
         var __locals = [jobject]()
         
@@ -8010,7 +8008,7 @@ public extension Android.View.View {
     }
     
     
-    public func setOverScrollMode(overScrollMode: Int)  {
+    func setOverScrollMode(overScrollMode: Int)  {
         
         var __locals = [jobject]()
         
@@ -8029,7 +8027,7 @@ public extension Android.View.View {
         
     }
     
-    public func setPivotX(pivotX: Float)  {
+    func setPivotX(pivotX: Float)  {
         
         var __locals = [jobject]()
         
@@ -8049,7 +8047,7 @@ public extension Android.View.View {
     }
     
     
-    public func setPivotY(pivotY: Float)  {
+    func setPivotY(pivotY: Float)  {
         
         var __locals = [jobject]()
         
@@ -8069,7 +8067,7 @@ public extension Android.View.View {
     }
     
     
-    public func setPressed(pressed: Bool)  {
+    func setPressed(pressed: Bool)  {
         
         var __locals = [jobject]()
         
@@ -8089,7 +8087,7 @@ public extension Android.View.View {
     }
     
     
-    public func setRevealOnFocusHint(revealOnFocus: Bool)  {
+    func setRevealOnFocusHint(revealOnFocus: Bool)  {
         
         var __locals = [jobject]()
         
@@ -8109,7 +8107,7 @@ public extension Android.View.View {
     }
     
     
-    public func setRight(right: Int)  {
+    func setRight(right: Int)  {
         
         var __locals = [jobject]()
         
@@ -8129,7 +8127,7 @@ public extension Android.View.View {
     }
     
     
-    public func setRotation(rotation: Float)  {
+    func setRotation(rotation: Float)  {
         
         var __locals = [jobject]()
         
@@ -8149,7 +8147,7 @@ public extension Android.View.View {
     }
     
     
-    public func setRotationX(rotationX: Float)  {
+    func setRotationX(rotationX: Float)  {
         
         var __locals = [jobject]()
         
@@ -8169,7 +8167,7 @@ public extension Android.View.View {
     }
     
     
-    public func setRotationY(rotationY: Float)  {
+    func setRotationY(rotationY: Float)  {
         
         var __locals = [jobject]()
         
@@ -8189,7 +8187,7 @@ public extension Android.View.View {
     }
     
     
-    public func setSaveEnabled(enabled: Bool)  {
+    func setSaveEnabled(enabled: Bool)  {
         
         var __locals = [jobject]()
         
@@ -8209,7 +8207,7 @@ public extension Android.View.View {
     }
     
     
-    public func setSaveFromParentEnabled(enabled: Bool)  {
+    func setSaveFromParentEnabled(enabled: Bool)  {
         
         var __locals = [jobject]()
         
@@ -8229,7 +8227,7 @@ public extension Android.View.View {
     }
     
     
-    public func setScaleX(scaleX: Float)  {
+    func setScaleX(scaleX: Float)  {
         
         var __locals = [jobject]()
         
@@ -8249,7 +8247,7 @@ public extension Android.View.View {
     }
     
     
-    public func setScaleY(scaleY: Float)  {
+    func setScaleY(scaleY: Float)  {
         
         var __locals = [jobject]()
         
@@ -8269,7 +8267,7 @@ public extension Android.View.View {
     }
     
     
-    public func setScreenReaderFocusable(screenReaderFocusable: Bool)  {
+    func setScreenReaderFocusable(screenReaderFocusable: Bool)  {
         
         var __locals = [jobject]()
         
@@ -8289,7 +8287,7 @@ public extension Android.View.View {
     }
     
     
-    public func setScrollBarDefaultDelayBeforeFade(scrollBarDefaultDelayBeforeFade: Int)  {
+    func setScrollBarDefaultDelayBeforeFade(scrollBarDefaultDelayBeforeFade: Int)  {
         
         var __locals = [jobject]()
         
@@ -8309,7 +8307,7 @@ public extension Android.View.View {
     }
     
     
-    public func setScrollBarFadeDuration(scrollBarFadeDuration: Int)  {
+    func setScrollBarFadeDuration(scrollBarFadeDuration: Int)  {
         
         var __locals = [jobject]()
         
@@ -8329,7 +8327,7 @@ public extension Android.View.View {
     }
     
     
-    public func setScrollBarSize(scrollBarSize: Int)  {
+    func setScrollBarSize(scrollBarSize: Int)  {
         
         var __locals = [jobject]()
         
@@ -8349,7 +8347,7 @@ public extension Android.View.View {
     }
     
     
-    public func setScrollBarStyle(style: Int)  {
+    func setScrollBarStyle(style: Int)  {
         
         var __locals = [jobject]()
         
@@ -8369,7 +8367,7 @@ public extension Android.View.View {
     }
     
     
-    public func setScrollContainer(isScrollContainer: Bool)  {
+    func setScrollContainer(isScrollContainer: Bool)  {
         
         var __locals = [jobject]()
         
@@ -8389,7 +8387,7 @@ public extension Android.View.View {
     }
     
     
-    public func setScrollIndicators(indicators: Int, mask: Int)  {
+    func setScrollIndicators(indicators: Int, mask: Int)  {
         
         var __locals = [jobject]()
         
@@ -8410,7 +8408,7 @@ public extension Android.View.View {
     }
     
     
-    public func setScrollIndicators(indicators: Int)  {
+    func setScrollIndicators(indicators: Int)  {
         
         var __locals = [jobject]()
         
@@ -8430,7 +8428,7 @@ public extension Android.View.View {
     }
     
     
-    public func setScrollX(value: Int)  {
+    func setScrollX(value: Int)  {
         
         var __locals = [jobject]()
         
@@ -8450,7 +8448,7 @@ public extension Android.View.View {
     }
     
     
-    public func setScrollY(value: Int)  {
+    func setScrollY(value: Int)  {
         
         var __locals = [jobject]()
         
@@ -8470,7 +8468,7 @@ public extension Android.View.View {
     }
     
     
-    public func setScrollbarFadingEnabled(fadeScrollbars: Bool)  {
+    func setScrollbarFadingEnabled(fadeScrollbars: Bool)  {
         
         var __locals = [jobject]()
         
@@ -8489,7 +8487,7 @@ public extension Android.View.View {
         
     }
     
-    public func setSoundEffectsEnabled(soundEffectsEnabled: Bool)  {
+    func setSoundEffectsEnabled(soundEffectsEnabled: Bool)  {
         
         var __locals = [jobject]()
         
@@ -8509,7 +8507,7 @@ public extension Android.View.View {
     }
     
     
-    public func setSystemUiVisibility(visibility: Int)  {
+    func setSystemUiVisibility(visibility: Int)  {
         
         var __locals = [jobject]()
         
@@ -8529,7 +8527,7 @@ public extension Android.View.View {
     }
     
     
-    public func setTextAlignment(textAlignment: Int)  {
+    func setTextAlignment(textAlignment: Int)  {
         
         var __locals = [jobject]()
         
@@ -8549,7 +8547,7 @@ public extension Android.View.View {
     }
     
     
-    public func setTextDirection(textDirection: Int)  {
+    func setTextDirection(textDirection: Int)  {
         
         var __locals = [jobject]()
         
@@ -8569,7 +8567,7 @@ public extension Android.View.View {
     }
     
     
-    public func setTop(top: Int)  {
+    func setTop(top: Int)  {
         
         var __locals = [jobject]()
         
@@ -8589,7 +8587,7 @@ public extension Android.View.View {
     }
     
     
-    public func setTransitionName(transitionName: String)  {
+    func setTransitionName(transitionName: String)  {
         
         var __locals = [jobject]()
         
@@ -8609,7 +8607,7 @@ public extension Android.View.View {
     }
     
     
-    public func setTranslationX(translationX: Float)  {
+    func setTranslationX(translationX: Float)  {
         
         var __locals = [jobject]()
         
@@ -8629,7 +8627,7 @@ public extension Android.View.View {
     }
     
     
-    public func setTranslationY(translationY: Float)  {
+    func setTranslationY(translationY: Float)  {
         
         var __locals = [jobject]()
         
@@ -8649,7 +8647,7 @@ public extension Android.View.View {
     }
     
     
-    public func setTranslationZ(translationZ: Float)  {
+    func setTranslationZ(translationZ: Float)  {
         
         var __locals = [jobject]()
         
@@ -8669,7 +8667,7 @@ public extension Android.View.View {
     }
     
     
-    public func setVerticalFadingEdgeEnabled(verticalFadingEdgeEnabled: Bool)  {
+    func setVerticalFadingEdgeEnabled(verticalFadingEdgeEnabled: Bool)  {
         
         var __locals = [jobject]()
         
@@ -8688,7 +8686,7 @@ public extension Android.View.View {
         
     }
     
-    public func setVerticalScrollBarEnabled(verticalScrollBarEnabled: Bool)  {
+    func setVerticalScrollBarEnabled(verticalScrollBarEnabled: Bool)  {
         
         var __locals = [jobject]()
         
@@ -8708,7 +8706,7 @@ public extension Android.View.View {
     }
     
     
-    public func setVerticalScrollbarPosition(position: Int)  {
+    func setVerticalScrollbarPosition(position: Int)  {
         
         var __locals = [jobject]()
         
@@ -8745,7 +8743,7 @@ public extension Android.View.View {
     }
     
     
-    public func setWillNotCacheDrawing(willNotCacheDrawing: Bool)  {
+    func setWillNotCacheDrawing(willNotCacheDrawing: Bool)  {
         
         var __locals = [jobject]()
         
@@ -8765,7 +8763,7 @@ public extension Android.View.View {
     }
     
     
-    public func setWillNotDraw(willNotDraw: Bool)  {
+    func setWillNotDraw(willNotDraw: Bool)  {
         
         var __locals = [jobject]()
         
@@ -8785,7 +8783,7 @@ public extension Android.View.View {
     }
     
     
-    public func setX(x: Float)  {
+    func setX(x: Float)  {
         
         var __locals = [jobject]()
         
@@ -8805,7 +8803,7 @@ public extension Android.View.View {
     }
     
     
-    public func setY(y: Float)  {
+    func setY(y: Float)  {
         
         var __locals = [jobject]()
         
@@ -8825,7 +8823,7 @@ public extension Android.View.View {
     }
     
     
-    public func setZ(z: Float)  {
+    func setZ(z: Float)  {
         
         var __locals = [jobject]()
         
@@ -8844,7 +8842,7 @@ public extension Android.View.View {
         
     }
     
-    public func startNestedScroll(axes: Int) -> Bool {
+    func startNestedScroll(axes: Int) -> Bool {
         
         var __locals = [jobject]()
         
@@ -8864,7 +8862,7 @@ public extension Android.View.View {
     }
     
     
-    public func stopNestedScroll()  {
+    func stopNestedScroll()  {
         
         var __locals = [jobject]()
         
@@ -8882,7 +8880,7 @@ public extension Android.View.View {
     }
     
     
-    public func willNotCacheDrawing() -> Bool {
+    func willNotCacheDrawing() -> Bool {
         
         var __locals = [jobject]()
         
@@ -8900,7 +8898,7 @@ public extension Android.View.View {
     }
     
     
-    public func willNotDraw() -> Bool {
+    func willNotDraw() -> Bool {
         
         var __locals = [jobject]()
         
@@ -8920,7 +8918,7 @@ public extension Android.View.View {
     
     ////////////////////////////////////
     
-    public func getAlpha() -> Float {
+    func getAlpha() -> Float {
         
         var __locals = [jobject]()
         
@@ -8938,7 +8936,7 @@ public extension Android.View.View {
     }
     
     
-    public func getCameraDistance() -> Float {
+    func getCameraDistance() -> Float {
         
         var __locals = [jobject]()
         
@@ -8956,7 +8954,7 @@ public extension Android.View.View {
     }
     
     
-    public func getElevation() -> Float {
+    func getElevation() -> Float {
         
         var __locals = [jobject]()
         
@@ -8974,7 +8972,7 @@ public extension Android.View.View {
     }
     
     
-    public func getPivotX() -> Float {
+    func getPivotX() -> Float {
         
         var __locals = [jobject]()
         
@@ -8992,7 +8990,7 @@ public extension Android.View.View {
     }
     
     
-    public func getPivotY() -> Float {
+    func getPivotY() -> Float {
         
         var __locals = [jobject]()
         
@@ -9010,7 +9008,7 @@ public extension Android.View.View {
     }
     
     
-    public func getRotation() -> Float {
+    func getRotation() -> Float {
         
         var __locals = [jobject]()
         
@@ -9028,7 +9026,7 @@ public extension Android.View.View {
     }
     
     
-    public func getRotationX() -> Float {
+    func getRotationX() -> Float {
         
         var __locals = [jobject]()
         
@@ -9046,7 +9044,7 @@ public extension Android.View.View {
     }
     
     
-    public func getRotationY() -> Float {
+    func getRotationY() -> Float {
         
         var __locals = [jobject]()
         
@@ -9064,7 +9062,7 @@ public extension Android.View.View {
     }
     
     
-    public func getScaleX() -> Float {
+    func getScaleX() -> Float {
         
         var __locals = [jobject]()
         
@@ -9082,7 +9080,7 @@ public extension Android.View.View {
     }
     
     
-    public func getScaleY() -> Float {
+    func getScaleY() -> Float {
         
         var __locals = [jobject]()
         
@@ -9100,7 +9098,7 @@ public extension Android.View.View {
     }
     
     
-    public func getTranslationX() -> Float {
+    func getTranslationX() -> Float {
         
         var __locals = [jobject]()
         
@@ -9118,7 +9116,7 @@ public extension Android.View.View {
     }
     
     
-    public func getTranslationY() -> Float {
+    func getTranslationY() -> Float {
         
         var __locals = [jobject]()
         
@@ -9136,7 +9134,7 @@ public extension Android.View.View {
     }
     
     
-    public func getTranslationZ() -> Float {
+    func getTranslationZ() -> Float {
         
         var __locals = [jobject]()
         
@@ -9154,7 +9152,7 @@ public extension Android.View.View {
     }
     
     
-    public func getX() -> Float {
+    func getX() -> Float {
         
         var __locals = [jobject]()
         
@@ -9172,7 +9170,7 @@ public extension Android.View.View {
     }
     
     
-    public func getY() -> Float {
+    func getY() -> Float {
         
         var __locals = [jobject]()
         
@@ -9189,7 +9187,7 @@ public extension Android.View.View {
         return Float(__return)
     }
     
-    public func getZ() -> Float {
+    func getZ() -> Float {
         
         var __locals = [jobject]()
         
@@ -9206,14 +9204,14 @@ public extension Android.View.View {
         return Float(__return)
     }
     
-    public func setOnFocusChangeListener(_ block: @escaping (AndroidView?, Bool) -> ()) {
+    func setOnFocusChangeListener(_ block: @escaping (AndroidView?, Bool) -> ()) {
         
         let onFocusChangeListener = AndroidOnFocusChangeListener(block: block)
         
         setOnFocusChangeListener(onFocusChangeListener)
     }
     
-    public func setOnFocusChangeListener(_ listener: AndroidOnFocusChangeListener) {
+    func setOnFocusChangeListener(_ listener: AndroidOnFocusChangeListener) {
         
         var __locals = [jobject]()
         
@@ -9231,14 +9229,14 @@ public extension Android.View.View {
     }
     
     // JavaObjects
-    public func setOnClickListener(_ block: @escaping () -> ()) {
+    func setOnClickListener(_ block: @escaping () -> ()) {
         
         let onClickListener = Android.View.View.OnClickListener(block: block)
         
         setOnClickListener(onClickListener)
     }
     
-    public func setOnClickListener(_ l: Android.View.View.OnClickListener?) {
+    func setOnClickListener(_ l: Android.View.View.OnClickListener?) {
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
@@ -9254,7 +9252,7 @@ public extension Android.View.View {
             locals: &__locals )
     }
     
-    public func checkInputConnectionProxy(view: Android.View.View) -> Bool {
+    func checkInputConnectionProxy(view: Android.View.View) -> Bool {
         
         var __locals = [jobject]()
         
@@ -9277,7 +9275,7 @@ public extension Android.View.View {
     
     
     
-    public func dispatchGenericMotionEvent(event: JavaObject) -> Bool {
+    func dispatchGenericMotionEvent(event: JavaObject) -> Bool {
         
         var __locals = [jobject]()
         
@@ -9300,7 +9298,7 @@ public extension Android.View.View {
     
     
     
-    public func dispatchTouchEvent(event: JavaObject) -> Bool {
+    func dispatchTouchEvent(event: JavaObject) -> Bool {
         
         var __locals = [jobject]()
         
@@ -9323,7 +9321,7 @@ public extension Android.View.View {
     
     
     
-    public func getClipBounds(outRect: JavaObject) -> Bool {
+    func getClipBounds(outRect: JavaObject) -> Bool {
         
         var __locals = [jobject]()
         
@@ -9343,7 +9341,7 @@ public extension Android.View.View {
     }
     
     
-    public func getDrawingRect(outRect: JavaObject)  {
+    func getDrawingRect(outRect: JavaObject)  {
         
         var __locals = [jobject]()
         
@@ -9363,7 +9361,7 @@ public extension Android.View.View {
     }
     
     
-    public func getFocusedRect(r: JavaObject)  {
+    func getFocusedRect(r: JavaObject)  {
         
         var __locals = [jobject]()
         
@@ -9383,7 +9381,7 @@ public extension Android.View.View {
     }
     
     
-    public func getGlobalVisibleRect(r: JavaObject) -> Bool {
+    func getGlobalVisibleRect(r: JavaObject) -> Bool {
         
         var __locals = [jobject]()
         
@@ -9403,7 +9401,7 @@ public extension Android.View.View {
     }
     
     
-    public func getHitRect(outRect: JavaObject)  {
+    func getHitRect(outRect: JavaObject)  {
         
         var __locals = [jobject]()
         
@@ -9423,7 +9421,7 @@ public extension Android.View.View {
     }
     
     
-    public func getLocalVisibleRect(r: JavaObject) -> Bool {
+    func getLocalVisibleRect(r: JavaObject) -> Bool {
         
         var __locals = [jobject]()
         
@@ -9443,7 +9441,7 @@ public extension Android.View.View {
     }
     
     
-    public func getWindowVisibleDisplayFrame(_ outRect: AndroidRect)  {
+    func getWindowVisibleDisplayFrame(_ outRect: AndroidRect)  {
         
         var __locals = [jobject]()
         
@@ -9461,7 +9459,7 @@ public extension Android.View.View {
     }
     
     
-    public func invalidate(dirty: JavaObject)  {
+    func invalidate(dirty: JavaObject)  {
         
         var __locals = [jobject]()
         
@@ -9481,7 +9479,7 @@ public extension Android.View.View {
     }
     
     
-    public func invalidateDrawable(drawable: JavaObject)  {
+    func invalidateDrawable(drawable: JavaObject)  {
         
         var __locals = [jobject]()
         
@@ -9500,7 +9498,7 @@ public extension Android.View.View {
         
     }
     
-    public func onCapturedPointerEvent(event: JavaObject) -> Bool {
+    func onCapturedPointerEvent(event: JavaObject) -> Bool {
         
         var __locals = [jobject]()
         
@@ -9520,7 +9518,7 @@ public extension Android.View.View {
     }
     
     
-    public func onFilterTouchEventForSecurity(event: JavaObject) -> Bool {
+    func onFilterTouchEventForSecurity(event: JavaObject) -> Bool {
         
         var __locals = [jobject]()
         
@@ -9539,7 +9537,7 @@ public extension Android.View.View {
         return __return != jboolean(JNI_FALSE)
     }
     
-    public func onGenericMotionEvent(event: JavaObject) -> Bool {
+    func onGenericMotionEvent(event: JavaObject) -> Bool {
         
         var __locals = [jobject]()
         
@@ -9559,7 +9557,7 @@ public extension Android.View.View {
     }
     
     
-    public func onHoverEvent(event: JavaObject) -> Bool {
+    func onHoverEvent(event: JavaObject) -> Bool {
         
         var __locals = [jobject]()
         
@@ -9578,7 +9576,7 @@ public extension Android.View.View {
         return __return != jboolean(JNI_FALSE)
     }
     
-    public func onKeyLongPress(keyCode: Int, event: JavaObject) -> Bool {
+    func onKeyLongPress(keyCode: Int, event: JavaObject) -> Bool {
         
         var __locals = [jobject]()
         
@@ -9599,7 +9597,7 @@ public extension Android.View.View {
     }
     
     
-    public func onKeyMultiple(keyCode: Int, repeatCount: Int, event: JavaObject) -> Bool {
+    func onKeyMultiple(keyCode: Int, repeatCount: Int, event: JavaObject) -> Bool {
         
         var __locals = [jobject]()
         
@@ -9621,7 +9619,7 @@ public extension Android.View.View {
     }
     
     
-    public func onKeyPreIme(keyCode: Int, event: JavaObject) -> Bool {
+    func onKeyPreIme(keyCode: Int, event: JavaObject) -> Bool {
         
         var __locals = [jobject]()
         
@@ -9642,7 +9640,7 @@ public extension Android.View.View {
     }
     
     
-    public func onKeyShortcut(keyCode: Int, event: JavaObject) -> Bool {
+    func onKeyShortcut(keyCode: Int, event: JavaObject) -> Bool {
         
         var __locals = [jobject]()
         
@@ -9663,7 +9661,7 @@ public extension Android.View.View {
     }
     
     
-    public func onKeyUp(keyCode: Int, event: JavaObject) -> Bool {
+    func onKeyUp(keyCode: Int, event: JavaObject) -> Bool {
         
         var __locals = [jobject]()
         
@@ -9684,7 +9682,7 @@ public extension Android.View.View {
     }
     
     
-    public func onProvideAutofillStructure(structure: JavaObject, flags: Int)  {
+    func onProvideAutofillStructure(structure: JavaObject, flags: Int)  {
         
         var __locals = [jobject]()
         
@@ -9705,7 +9703,7 @@ public extension Android.View.View {
     }
     
     
-    public func onProvideAutofillVirtualStructure(structure: JavaObject, flags: Int)  {
+    func onProvideAutofillVirtualStructure(structure: JavaObject, flags: Int)  {
         
         var __locals = [jobject]()
         
@@ -9726,7 +9724,7 @@ public extension Android.View.View {
     }
     
     
-    public func onProvideStructure(structure: JavaObject)  {
+    func onProvideStructure(structure: JavaObject)  {
         
         var __locals = [jobject]()
         
@@ -9746,7 +9744,7 @@ public extension Android.View.View {
     }
     
     
-    public func onProvideVirtualStructure(structure: JavaObject)  {
+    func onProvideVirtualStructure(structure: JavaObject)  {
         
         var __locals = [jobject]()
         
@@ -9766,7 +9764,7 @@ public extension Android.View.View {
     }
     
     
-    public func onTouchEvent(event: JavaObject) -> Bool {
+    func onTouchEvent(event: JavaObject) -> Bool {
         
         var __locals = [jobject]()
         
@@ -9786,7 +9784,7 @@ public extension Android.View.View {
     }
     
     
-    public func onTrackballEvent(event: JavaObject) -> Bool {
+    func onTrackballEvent(event: JavaObject) -> Bool {
         
         var __locals = [jobject]()
         
@@ -9806,7 +9804,7 @@ public extension Android.View.View {
     }
     
     
-    public func post(action: JavaObject) -> Bool {
+    func post(action: JavaObject) -> Bool {
         
         var __locals = [jobject]()
         
@@ -9826,7 +9824,7 @@ public extension Android.View.View {
     }
     
     
-    public func postDelayed(action: JavaObject, delayMillis: Int64) -> Bool {
+    func postDelayed(action: JavaObject, delayMillis: Int64) -> Bool {
         
         var __locals = [jobject]()
         
@@ -9847,7 +9845,7 @@ public extension Android.View.View {
     }
     
     
-    public func postOnAnimation(action: JavaObject)  {
+    func postOnAnimation(action: JavaObject)  {
         
         var __locals = [jobject]()
         
@@ -9867,7 +9865,7 @@ public extension Android.View.View {
     }
     
     
-    public func postOnAnimationDelayed(action: JavaObject, delayMillis: Int64)  {
+    func postOnAnimationDelayed(action: JavaObject, delayMillis: Int64)  {
         
         var __locals = [jobject]()
         
@@ -9888,7 +9886,7 @@ public extension Android.View.View {
     }
     
     
-    public func removeCallbacks(action: JavaObject) -> Bool {
+    func removeCallbacks(action: JavaObject) -> Bool {
         
         var __locals = [jobject]()
         
@@ -9911,7 +9909,7 @@ public extension Android.View.View {
     
     
     
-    public func requestRectangleOnScreen(rectangle: JavaObject) -> Bool {
+    func requestRectangleOnScreen(rectangle: JavaObject) -> Bool {
         
         var __locals = [jobject]()
         
@@ -9931,7 +9929,7 @@ public extension Android.View.View {
     }
     
     
-    public func requestRectangleOnScreen(rectangle: JavaObject, immediate: Bool) -> Bool {
+    func requestRectangleOnScreen(rectangle: JavaObject, immediate: Bool) -> Bool {
         
         var __locals = [jobject]()
         
@@ -9952,7 +9950,7 @@ public extension Android.View.View {
     }
     
     
-    public func requestUnbufferedDispatch(event: JavaObject)  {
+    func requestUnbufferedDispatch(event: JavaObject)  {
         
         var __locals = [jobject]()
         
@@ -9972,7 +9970,7 @@ public extension Android.View.View {
     }
     
     
-    public func scheduleDrawable(who: JavaObject, what: JavaObject, when: Int64)  {
+    func scheduleDrawable(who: JavaObject, what: JavaObject, when: Int64)  {
         
         var __locals = [jobject]()
         
@@ -9993,7 +9991,7 @@ public extension Android.View.View {
         
     }
     
-    public func setClipBounds(clipBounds: JavaObject)  {
+    func setClipBounds(clipBounds: JavaObject)  {
         
         var __locals = [jobject]()
         
@@ -10013,7 +10011,7 @@ public extension Android.View.View {
     }
     
     
-    public func setForeground(foreground: JavaObject)  {
+    func setForeground(foreground: JavaObject)  {
         
         var __locals = [jobject]()
         
@@ -10033,7 +10031,7 @@ public extension Android.View.View {
     }
     
     
-    public func unscheduleDrawable(who: JavaObject, what: JavaObject)  {
+    func unscheduleDrawable(who: JavaObject, what: JavaObject)  {
         
         var __locals = [jobject]()
         
@@ -10054,7 +10052,7 @@ public extension Android.View.View {
     }
     
     
-    public func unscheduleDrawable(who: JavaObject)  {
+    func unscheduleDrawable(who: JavaObject)  {
         
         var __locals = [jobject]()
         
@@ -10076,7 +10074,7 @@ public extension Android.View.View {
     /**
      * This method must be called by onMeasure(int, int) to store the measured width and measured height.
      */
-    public func setMeasuredDimension(measuredWidth: Int, measuredHeight: Int)  {
+    func setMeasuredDimension(measuredWidth: Int, measuredHeight: Int)  {
         
         var __locals = [jobject]()
         
@@ -10172,7 +10170,7 @@ public extension Android.View.View {
         return __return != nil ? AndroidView(casting: JavaObject(javaObject: __return)) : nil
     }
     
-    public func getWindowToken() -> JavaObject? {
+    func getWindowToken() -> JavaObject? {
         
         var __locals = [jobject]()
         
@@ -10752,7 +10750,7 @@ internal extension Android.View.View {
 public extension Android.View.View {
     
     /// Android View Visibility
-    public struct Visibility: RawRepresentable, Equatable, Hashable {
+    struct Visibility: RawRepresentable, Equatable, Hashable {
         
         public let rawValue: Int
         
@@ -10765,10 +10763,10 @@ public extension Android.View.View {
 
 public extension Android.View.View.Visibility {
     
-    public static let visible = Android.View.View.Visibility(rawValue: Android.View.View.VISIBLE)
+    static let visible = Android.View.View.Visibility(rawValue: Android.View.View.VISIBLE)
     
-    public static let invisible = Android.View.View.Visibility(rawValue: Android.View.View.INVISIBLE)
+    static let invisible = Android.View.View.Visibility(rawValue: Android.View.View.INVISIBLE)
     
-    public static let gone = Android.View.View.Visibility(rawValue: Android.View.View.GONE)
+    static let gone = Android.View.View.Visibility(rawValue: Android.View.View.GONE)
 }
 

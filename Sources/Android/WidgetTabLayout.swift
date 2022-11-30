@@ -144,7 +144,7 @@ open class AndroidTabLayout: AndroidHorizontalScrollView {
 
 public extension AndroidTabLayout {
     
-    public func addOnTabSelectedListener(_ listener: AndroidTabLayout.OnTabSelectedListener) {
+    func addOnTabSelectedListener(_ listener: AndroidTabLayout.OnTabSelectedListener) {
         
         var __locals = [jobject]()
         
@@ -160,7 +160,7 @@ public extension AndroidTabLayout {
             locals: &__locals )
     }
     
-    public func addTab(_ tab: AndroidTabLayout.Tab, setSelected: Bool){
+    func addTab(_ tab: AndroidTabLayout.Tab, setSelected: Bool){
         
         var __locals = [jobject]()
         
@@ -177,7 +177,7 @@ public extension AndroidTabLayout {
             locals: &__locals )
     }
     
-    public func addTab(_ tab: AndroidTabLayout.Tab, position: Int){
+    func addTab(_ tab: AndroidTabLayout.Tab, position: Int){
         
         var __locals = [jobject]()
         
@@ -194,7 +194,7 @@ public extension AndroidTabLayout {
             locals: &__locals )
     }
     
-    public func addTab(_ tab: AndroidTabLayout.Tab){
+    func addTab(_ tab: AndroidTabLayout.Tab){
         
         var __locals = [jobject]()
         
@@ -210,7 +210,7 @@ public extension AndroidTabLayout {
             locals: &__locals )
     }
     
-    public func addTab(_ tab: AndroidTabLayout.Tab, position: Int, setSelected: Bool){
+    func addTab(_ tab: AndroidTabLayout.Tab, position: Int, setSelected: Bool){
         
         var __locals = [jobject]()
         
@@ -228,7 +228,7 @@ public extension AndroidTabLayout {
             locals: &__locals )
     }
     
-    public func clearOnTabSelectedListeners(){
+    func clearOnTabSelectedListeners(){
         
         var __locals = [jobject]()
         
@@ -243,7 +243,7 @@ public extension AndroidTabLayout {
             locals: &__locals )
     }
     
-    public func generateLayoutParams(_ attrs: JavaObject){
+    func generateLayoutParams(_ attrs: JavaObject){
         
         var __locals = [jobject]()
         
@@ -259,7 +259,7 @@ public extension AndroidTabLayout {
             locals: &__locals )
     }
     
-    public func getSelectedTabPosition() -> Int {
+    func getSelectedTabPosition() -> Int {
         
         var __locals = [jobject]()
         
@@ -276,7 +276,7 @@ public extension AndroidTabLayout {
         return Int(__return)
     }
     
-    public func getTabAt(index: Int) -> AndroidTab {
+    func getTabAt(index: Int) -> AndroidTab {
         
         var __locals = [jobject]()
         
@@ -296,7 +296,7 @@ public extension AndroidTabLayout {
         return AndroidTab(javaObject: __return)
     }
     
-    public func getTabCount() -> Int {
+    func getTabCount() -> Int {
         
         var __locals = [jobject]()
         
@@ -313,7 +313,7 @@ public extension AndroidTabLayout {
         return Int(__return)
     }
     
-    public func getTabGravity() -> Int {
+    func getTabGravity() -> Int {
         
         var __locals = [jobject]()
         
@@ -330,7 +330,7 @@ public extension AndroidTabLayout {
         return Int(__return)
     }
     
-    public func getTabMod() -> Int {
+    func getTabMod() -> Int {
         
         var __locals = [jobject]()
         
@@ -347,7 +347,7 @@ public extension AndroidTabLayout {
         return Int(__return)
     }
     
-    public func getTabTextColors() -> JavaObject {
+    func getTabTextColors() -> JavaObject {
         
         var __locals = [jobject]()
         
@@ -366,7 +366,7 @@ public extension AndroidTabLayout {
         return JavaObject(javaObject: __return)
     }
     
-    public func newTab() -> AndroidTab {
+    func newTab() -> AndroidTab {
         
         var __locals = [jobject]()
         
@@ -385,7 +385,7 @@ public extension AndroidTabLayout {
         return AndroidTab(javaObject: __return)
     }
     
-    public func removeAllTabs(){
+    func removeAllTabs(){
         
         var __locals = [jobject]()
         
@@ -400,7 +400,7 @@ public extension AndroidTabLayout {
             locals: &__locals )
     }
     
-    public func removeOnTabSelectedListener(_ listener: AndroidTabLayout.OnTabSelectedListener) {
+    func removeOnTabSelectedListener(_ listener: AndroidTabLayout.OnTabSelectedListener) {
         
         var __locals = [jobject]()
         
@@ -416,7 +416,7 @@ public extension AndroidTabLayout {
             locals: &__locals )
     }
     
-    public func removeTab(_ tab: AndroidTab){
+    func removeTab(_ tab: AndroidTab){
         
         var __locals = [jobject]()
         
@@ -432,7 +432,7 @@ public extension AndroidTabLayout {
             locals: &__locals )
     }
     
-    public func removeTabAt(position: Int) {
+    func removeTabAt(position: Int) {
         
         var __locals = [jobject]()
         
@@ -448,7 +448,7 @@ public extension AndroidTabLayout {
             locals: &__locals )
     }
     
-    public func setScrollPosition(position: Int, positionOffset: Float, updateSelectedText: Bool) {
+    func setScrollPosition(position: Int, positionOffset: Float, updateSelectedText: Bool) {
         
         var __locals = [jobject]()
         
@@ -466,7 +466,7 @@ public extension AndroidTabLayout {
             locals: &__locals )
     }
     
-    public func setSelectedTabIndicatorColor(color: Int64) {
+    func setSelectedTabIndicatorColor(color: Int64) {
         
         var __locals = [jobject]()
         
@@ -482,7 +482,7 @@ public extension AndroidTabLayout {
             locals: &__locals )
     }
     
-    public func setSelectedTabIndicatorHeight(height: Int) {
+    func setSelectedTabIndicatorHeight(height: Int) {
         
         var __locals = [jobject]()
         
@@ -498,7 +498,7 @@ public extension AndroidTabLayout {
             locals: &__locals )
     }
     
-    public func setTabGravity(gravity: Int) {
+    func setTabGravity(gravity: Int) {
         
         var __locals = [jobject]()
         
@@ -514,7 +514,7 @@ public extension AndroidTabLayout {
             locals: &__locals )
     }
     
-    public func setTabMode(mode: Int) {
+    func setTabMode(mode: Int) {
         
         var __locals = [jobject]()
         
@@ -530,7 +530,7 @@ public extension AndroidTabLayout {
             locals: &__locals )
     }
     
-    public func setTabTextColors(normalColor: Int64, selectedColor: Int64) {
+    func setTabTextColors(normalColor: Int64, selectedColor: Int64) {
         
         var __locals = [jobject]()
         
@@ -547,7 +547,7 @@ public extension AndroidTabLayout {
             locals: &__locals )
     }
     
-    public func setTabTextColors(_ textcolor: JavaObject){
+    func setTabTextColors(_ textcolor: JavaObject){
         
         var __locals = [jobject]()
         
@@ -563,7 +563,7 @@ public extension AndroidTabLayout {
             locals: &__locals )
     }
     
-    public func setupWithViewPager(_ viewPager: JavaObject, autoRefresh: Bool){
+    func setupWithViewPager(_ viewPager: JavaObject, autoRefresh: Bool){
         
         var __locals = [jobject]()
         
@@ -580,7 +580,7 @@ public extension AndroidTabLayout {
             locals: &__locals )
     }
     
-    public func setupWithViewPager(_ viewPager: JavaObject){
+    func setupWithViewPager(_ viewPager: JavaObject){
         
         var __locals = [jobject]()
         

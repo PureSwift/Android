@@ -117,7 +117,7 @@ open class AndroidCompoundButton: AndroidButton {
 
 public extension Android.Widget.CompoundButton {
     
-    public func isChecked() -> Bool {
+    func isChecked() -> Bool {
         
         var __locals = [jobject]()
         
@@ -132,14 +132,14 @@ public extension Android.Widget.CompoundButton {
         return __return != jboolean(JNI_FALSE)
     }
     
-    public func setOnCheckedChangeListener(_ block: @escaping (AndroidCompoundButton?, Bool) -> ()) {
+    func setOnCheckedChangeListener(_ block: @escaping (AndroidCompoundButton?, Bool) -> ()) {
         
         let OnCheckedChangeListener = AndroidCompoundButton.OnCheckedChangeListener(block: block)
         
         setOnCheckedChangeListener(OnCheckedChangeListener)
     }
     
-    public func setOnCheckedChangeListener(_ listener: AndroidCompoundButton.OnCheckedChangeListener?) {
+    func setOnCheckedChangeListener(_ listener: AndroidCompoundButton.OnCheckedChangeListener?) {
         
         var __locals = [jobject]()
         

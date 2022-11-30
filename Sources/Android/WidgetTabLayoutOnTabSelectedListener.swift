@@ -88,7 +88,7 @@ extension AndroidOnTabSelectedListener: JNIListener { }
 internal extension AndroidOnTabSelectedListener {
     
     /// JNI Cache
-    internal struct JNICache {
+    struct JNICache {
         
         static let classSignature = SwiftSupport.Widget.className(["TabLayoutOnTabSelectedListener"])
         

@@ -93,7 +93,7 @@ extension AndroidOnSeekBarChangeListener: JNIListener { }
 internal extension AndroidOnSeekBarChangeListener {
     
     /// JNI Cache
-    internal struct JNICache {
+    struct JNICache {
         
         static let classSignature = SwiftSupport.Widget.className(["SeekBarOnSeekBarChangeListener"])
         

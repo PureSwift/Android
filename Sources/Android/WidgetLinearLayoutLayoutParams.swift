@@ -150,7 +150,7 @@ open class AndroidLinearLayoutLayoutParams: Android.View.ViewGroup.MarginLayoutP
 
 public extension AndroidLinearLayoutLayoutParams {
     
-    public var gravity: Int {
+    var gravity: Int {
         get {
             let __value = JNIField.GetIntField(fieldName: "gravity",
                                                fieldType: "I",
@@ -160,7 +160,7 @@ public extension AndroidLinearLayoutLayoutParams {
         }
     }
     
-    public var weight: Int {
+    var weight: Int {
         get {
             let __value = JNIField.GetIntField(fieldName: "weight",
                                                fieldType: "I",

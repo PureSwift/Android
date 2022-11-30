@@ -106,7 +106,7 @@ open class AndroidViewGroupMarginLayoutParams: Android.View.ViewGroup.LayoutPara
 
 public extension AndroidViewGroupMarginLayoutParams {
     
-    public var bottomMargin: Int {
+    var bottomMargin: Int {
         get {
             let __value = JNIField.GetIntField(fieldName: "bottomMargin",
                                                fieldType: "I",
@@ -116,7 +116,7 @@ public extension AndroidViewGroupMarginLayoutParams {
         }
     }
     
-    public var leftMargin: Int {
+    var leftMargin: Int {
         get {
             let __value = JNIField.GetIntField(fieldName: "leftMargin",
                                                fieldType: "I",
@@ -126,7 +126,7 @@ public extension AndroidViewGroupMarginLayoutParams {
         }
     }
     
-    public var rightMargin: Int {
+    var rightMargin: Int {
         get {
             let __value = JNIField.GetIntField(fieldName: "rightMargin",
                                                fieldType: "I",
@@ -136,7 +136,7 @@ public extension AndroidViewGroupMarginLayoutParams {
         }
     }
     
-    public var topMargin: Int {
+    var topMargin: Int {
         get {
             let __value = JNIField.GetIntField(fieldName: "topMargin",
                                                fieldType: "I",
@@ -146,28 +146,24 @@ public extension AndroidViewGroupMarginLayoutParams {
         }
     }
     
-    public var marginStart: Int {
+    var marginStart: Int {
         get{ return getMarginStart() }
         set{
             setMarginStart(newValue)
         }
     }
     
-    public var marginEnd: Int {
+    var marginEnd: Int {
         get{ return getMarginEnd() }
-        set{
-            setMarginEnd(newValue)
-        }
+        set { setMarginEnd(newValue) }
     }
     
-    public var layoutDirection: Int {
-        get{ return getLayoutDirection() }
-        set{
-            setLayoutDirection(newValue)
-        }
+    var layoutDirection: Int {
+        get { return getLayoutDirection() }
+        set { setLayoutDirection(newValue) }
     }
     
-    public var isMarginRelative: Bool {
+    var isMarginRelative: Bool {
         get{ return getIsMarginRelative() }
     }
 }
@@ -300,7 +296,7 @@ public extension AndroidViewGroupMarginLayoutParams {
         return jboolean(__return) != jboolean(JNI_FALSE)
     }
     
-    public func setMargins(left: Int, top: Int, right: Int, bottom: Int) {
+    func setMargins(left: Int, top: Int, right: Int, bottom: Int) {
         
         var __locals = [jobject]()
         

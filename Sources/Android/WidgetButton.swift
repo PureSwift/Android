@@ -43,7 +43,7 @@ open class AndroidButton: AndroidTextView {
 public extension Android.Widget.Button {
     
     // MARK: - Methods
-    public func getAccessibilityClassName() -> String {
+    func getAccessibilityClassName() -> String {
         
         var __locals = [jobject]()
         
@@ -62,7 +62,7 @@ public extension Android.Widget.Button {
         return String(javaObject: __return)
     }
     
-    public func onResolvePointerIcon(event: JavaObject, pointerIndex: Int) -> JavaObject? {
+    func onResolvePointerIcon(event: JavaObject, pointerIndex: Int) -> JavaObject? {
         
         var __locals = [jobject]()
         

@@ -74,7 +74,7 @@ open class AndroidLinearLayout: Android.View.ViewGroup {
 
 public extension AndroidLinearLayout {
     
-    public static var HORIZONTAL: Int {
+    static var HORIZONTAL: Int {
         
         get {
             
@@ -89,7 +89,7 @@ public extension AndroidLinearLayout {
         }
     }
     
-    public static var SHOW_DIVIDER_BEGINNING: Int {
+    static var SHOW_DIVIDER_BEGINNING: Int {
         
         get {
             
@@ -104,7 +104,7 @@ public extension AndroidLinearLayout {
         }
     }
     
-    public static var SHOW_DIVIDER_END: Int {
+    static var SHOW_DIVIDER_END: Int {
         
         get {
             
@@ -119,7 +119,7 @@ public extension AndroidLinearLayout {
         }
     }
     
-    public static var SHOW_DIVIDER_MIDDLE: Int {
+    static var SHOW_DIVIDER_MIDDLE: Int {
         
         get {
             
@@ -134,7 +134,7 @@ public extension AndroidLinearLayout {
         }
     }
     
-    public static var SHOW_DIVIDER_NONE: Int {
+    static var SHOW_DIVIDER_NONE: Int {
         
         get {
             
@@ -149,7 +149,7 @@ public extension AndroidLinearLayout {
         }
     }
     
-    public static var VERTICAL: Int {
+    static var VERTICAL: Int {
         
         get {
             
@@ -170,7 +170,7 @@ public extension AndroidLinearLayout {
 internal extension AndroidLinearLayout {
     
     @inline(__always)
-    internal func setWeightSum(_ weightSum: Float) {
+    func setWeightSum(_ weightSum: Float) {
         
         var __locals = [jobject]()
         
@@ -187,7 +187,7 @@ internal extension AndroidLinearLayout {
     }
     
     @inline(__always)
-    internal func setOrientation(_ orientation: Int) {
+    func setOrientation(_ orientation: Int) {
         
         var __locals = [jobject]()
         
@@ -204,7 +204,7 @@ internal extension AndroidLinearLayout {
     }
     
     @inline(__always)
-    internal func setGravity(_ gravity: Int) {
+    func setGravity(_ gravity: Int) {
         
         var __locals = [jobject]()
         
@@ -221,7 +221,7 @@ internal extension AndroidLinearLayout {
     }
     
     @inline(__always)
-    internal func getGravity() -> Int {
+    func getGravity() -> Int {
         
         var __locals = [jobject]()
         
@@ -239,7 +239,7 @@ internal extension AndroidLinearLayout {
     }
     
     @inline(__always)
-    internal func getOrientation() -> Int {
+    func getOrientation() -> Int {
         
         var __locals = [jobject]()
         
@@ -257,7 +257,7 @@ internal extension AndroidLinearLayout {
     }
     
     @inline(__always)
-    internal func getWeightSum() -> Float {
+    func getWeightSum() -> Float {
         
         var __locals = [jobject]()
         

@@ -158,7 +158,7 @@ open class AndroidProgressBar: AndroidView {
 public extension AndroidProgressBar {
     
     /// Return the upper limit of this progress bar's range.
-    public func getMax() -> Int {
+    func getMax() -> Int {
         
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
@@ -175,7 +175,7 @@ public extension AndroidProgressBar {
     }
     
     /// Return the lower limit of this progress bar's range.
-    public func getMin() -> Int {
+    func getMin() -> Int {
         
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
@@ -192,7 +192,7 @@ public extension AndroidProgressBar {
     }
     
     /// Get the progress bar's current level of progress.
-    public func getProgress() -> Int {
+    func getProgress() -> Int {
         
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
@@ -208,7 +208,7 @@ public extension AndroidProgressBar {
         return Int(__return)
     }
     
-    public func isIndeterminate() -> Bool {
+    func isIndeterminate() -> Bool {
         
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
@@ -224,7 +224,7 @@ public extension AndroidProgressBar {
         return __return != jboolean(JNI_FALSE)
     }
     
-    public func setIndeterminate(_ indeterminate: Bool) {
+    func setIndeterminate(_ indeterminate: Bool) {
         var __locals = [jobject]()
         
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
@@ -239,7 +239,7 @@ public extension AndroidProgressBar {
             locals: &__locals )
     }
     
-    public func setProgress(_ value: Int) {
+    func setProgress(_ value: Int) {
         
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
@@ -254,7 +254,7 @@ public extension AndroidProgressBar {
             locals: &__locals )
     }
     
-    public func setProgress(progress: Int, animate: Bool) {
+    func setProgress(progress: Int, animate: Bool) {
         
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 2 )

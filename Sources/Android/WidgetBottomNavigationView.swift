@@ -119,7 +119,7 @@ public extension AndroidBottomNavigationView {
         return Int(__return)
     }
     
-    public func setOnNavigationItemSelectedListener(_ block: @escaping (AndroidMenuItemForward) -> ()) {
+    func setOnNavigationItemSelectedListener(_ block: @escaping (AndroidMenuItemForward) -> ()) {
         
         let onNavigationItemSelectedListener = AndroidBottomNavigationView.OnNavigationItemSelectedListener.init(block: block)
         

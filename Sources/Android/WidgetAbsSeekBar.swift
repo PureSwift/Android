@@ -154,7 +154,7 @@ open class AndroidAbsSeekBar: AndroidProgressBar {
 
 public extension AndroidAbsSeekBar {
     
-    public func setKeyProgressIncrement(_ increment: Int) {
+    func setKeyProgressIncrement(_ increment: Int) {
         
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
