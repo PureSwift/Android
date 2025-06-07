@@ -6,6 +6,6 @@
 //
 
 import JavaKit
+import JavaKitNet
+import JavaKitIO
 import AndroidJavaIO
-import AndroidJavaLang
-import AndroidJavaAWT
