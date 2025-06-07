@@ -95,7 +95,15 @@ let package = Package(
                     package: "swift-java"
                 ),
                 .product(
+                    name: "JavaKitNetwork",
+                    package: "swift-java"
+                ),
+                .product(
                     name: "JavaKitFunction",
+                    package: "swift-java"
+                ),
+                .product(
+                    name: "JavaKitReflection",
                     package: "swift-java"
                 ),
                 "AndroidJava",
@@ -116,18 +124,7 @@ let package = Package(
         .target(
             name: "AndroidApp",
             dependencies: [
-                .product(
-                    name: "JavaKit",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitCollection",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitIO",
-                    package: "swift-java"
-                ),
+                "AndroidJava",
                 "AndroidContent",
                 "AndroidGraphics",
                 "AndroidNet",
@@ -145,20 +142,7 @@ let package = Package(
         .target(
             name: "AndroidOS",
             dependencies: [
-                .product(
-                    name: "JavaKit",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitCollection",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitIO",
-                    package: "swift-java"
-                ),
                 "AndroidJava",
-                "AndroidUtil"
             ],
             exclude: ["swift-java.config"],
             swiftSettings: [
@@ -172,18 +156,7 @@ let package = Package(
         .target(
             name: "AndroidView",
             dependencies: [
-                .product(
-                    name: "JavaKit",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitCollection",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitIO",
-                    package: "swift-java"
-                ),
+                "AndroidJava",
                 "AndroidOS"
             ],
             exclude: ["swift-java.config"],
@@ -198,18 +171,7 @@ let package = Package(
         .target(
             name: "AndroidContent",
             dependencies: [
-                .product(
-                    name: "JavaKit",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitCollection",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitIO",
-                    package: "swift-java"
-                ),
+                "AndroidJava",
                 "AndroidOS",
                 "AndroidView"
             ],
@@ -225,18 +187,7 @@ let package = Package(
         .target(
             name: "AndroidGraphics",
             dependencies: [
-                .product(
-                    name: "JavaKit",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitCollection",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitIO",
-                    package: "swift-java"
-                )
+                "AndroidJava"
             ],
             exclude: ["swift-java.config"],
             swiftSettings: [
@@ -250,18 +201,6 @@ let package = Package(
         .target(
             name: "AndroidNet",
             dependencies: [
-                .product(
-                    name: "JavaKit",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitCollection",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitIO",
-                    package: "swift-java"
-                ),
                 "AndroidJava",
                 "AndroidOS"
             ],
@@ -277,18 +216,7 @@ let package = Package(
         .target(
             name: "AndroidWidget",
             dependencies: [
-                .product(
-                    name: "JavaKit",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitCollection",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitIO",
-                    package: "swift-java"
-                ),
+                "AndroidJava",
                 "AndroidUtil"
             ],
             exclude: ["swift-java.config"],
@@ -303,18 +231,7 @@ let package = Package(
         .target(
             name: "AndroidX",
             dependencies: [
-                .product(
-                    name: "JavaKit",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitCollection",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitIO",
-                    package: "swift-java"
-                ),
+                "AndroidJava"
             ],
             exclude: ["swift-java.config"],
             swiftSettings: [
@@ -328,19 +245,8 @@ let package = Package(
         .target(
             name: "AndroidUtil",
             dependencies: [
-                .product(
-                    name: "JavaKit",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitCollection",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitIO",
-                    package: "swift-java"
-                ),
-                "AndroidJava"
+                "AndroidJava",
+                "AndroidOS"
             ],
             exclude: ["swift-java.config"],
             swiftSettings: [
@@ -372,6 +278,10 @@ let package = Package(
                 ),
                 .product(
                     name: "JavaKitFunction",
+                    package: "swift-java"
+                ),
+                .product(
+                    name: "JavaKitReflection",
                     package: "swift-java"
                 )
             ],
