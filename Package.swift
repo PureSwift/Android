@@ -297,9 +297,6 @@ let package = Package(
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
-            ],
-            plugins: [
-              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
             ]
         ),
         .target(
