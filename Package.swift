@@ -423,6 +423,50 @@ let package = Package(
             ]
         ),
         .target(
+            name: "AndroidContent",
+            dependencies: [
+                "AndroidJava",
+                "AndroidUtil",
+                "AndroidOS",
+            ],
+            exclude: ["swift-java.config"],
+            swiftSettings: [
+              .swiftLanguageMode(.v5),
+            ]
+        ),
+        .target(
+            name: "AndroidGraphics",
+            dependencies: [
+                "AndroidJava",
+                "AndroidUtil",
+                "AndroidOS",
+                "AndroidContent"
+            ],
+            exclude: ["swift-java.config"],
+            swiftSettings: [
+              .swiftLanguageMode(.v5),
+            ],
+            plugins: [
+              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
+            ]
+        ),
+        .target(
+            name: "AndroidView",
+            dependencies: [
+                "AndroidJava",
+                "AndroidUtil",
+                "AndroidOS",
+                "AndroidGraphics"
+            ],
+            exclude: ["swift-java.config"],
+            swiftSettings: [
+              .swiftLanguageMode(.v5),
+            ],
+            plugins: [
+              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
+            ]
+        ),
+        .target(
             name: "AndroidWidget",
             dependencies: [
                 "AndroidJava",
