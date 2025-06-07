@@ -206,7 +206,8 @@ let package = Package(
                 .product(
                     name: "JavaKitJar",
                     package: "swift-java"
-                )
+                ),
+                "AndroidJavaIO"
             ],
             exclude: ["swift-java.config"],
             swiftSettings: [
@@ -215,6 +216,27 @@ let package = Package(
             ],
             plugins: [
               .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
+            ]
+        ),
+        .target(
+            name: "AndroidJavaIO",
+            dependencies: [
+                .product(
+                    name: "JavaKit",
+                    package: "swift-java"
+                ),
+                .product(
+                    name: "JavaKitCollection",
+                    package: "swift-java"
+                ),
+                .product(
+                    name: "JavaKitIO",
+                    package: "swift-java"
+                ),
+            ],
+            exclude: ["swift-java.config"],
+            swiftSettings: [
+              .swiftLanguageMode(.v5),
             ]
         )
     ],
