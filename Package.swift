@@ -212,10 +212,6 @@ let package = Package(
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
-              .unsafeFlags(["-I\(javaIncludePath)", "-I\(javaPlatformIncludePath)"]),
-            ],
-            plugins: [
-              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
             ]
         ),
         .target(
@@ -430,7 +426,20 @@ let package = Package(
             swiftSettings: [
               .swiftLanguageMode(.v5),
             ]
-        )
+        ),
+        .target(
+            name: "AndroidManifest",
+            dependencies: [
+                "AndroidJava"
+            ],
+            exclude: ["swift-java.config"],
+            swiftSettings: [
+              .swiftLanguageMode(.v5),
+            ],
+            plugins: [
+              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
+            ]
+        ),
     ],
     swiftLanguageModes: [.v5]
 )

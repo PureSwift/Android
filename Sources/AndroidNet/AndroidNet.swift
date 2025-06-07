@@ -1,5 +1,5 @@
 //
-//  AndroidWidget.swift
+//  AndroidNet.swift
 //  SwiftAndroid
 //
 //  Created by Alsey Coleman Miller on 6/7/25.
