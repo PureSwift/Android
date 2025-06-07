@@ -53,32 +53,9 @@ let package = Package(
         .package(
             url: "https://github.com/swiftlang/swift-java.git",
             branch: "main"
-        ),
-        // Deprecated
-        .package(
-            url: "https://github.com/PureSwift/JNI.git",
-            branch: "master"
-        ),
-        .package(
-            url: "https://github.com/PureSwift/java_util.git",
-            branch: "master"
         )
     ],
     targets: [
-        .target(
-            name: "SwiftAndroidDeprecated",
-            dependencies: [
-                .product(
-                    name: "JNI",
-                    package: "JNI"
-                ),
-                .product(
-                    name: "java_util",
-                    package: "java_util"
-                )
-            ],
-            path: "Sources/Android"
-        ),
         .target(
             name: "AndroidKit",
             dependencies: [
@@ -107,7 +84,12 @@ let package = Package(
                     package: "swift-java"
                 ),
                 "AndroidJava",
+                "AndroidManifest",
+                "AndroidR",
+                "AndroidAnimation",
+                "AndroidOS",
                 "AndroidApp",
+                "AndroidUtil",
                 "AndroidX",
                 "AndroidWidget",
                 "AndroidWebKit"
@@ -115,61 +97,6 @@ let package = Package(
             swiftSettings: [
               .swiftLanguageMode(.v5),
               .unsafeFlags(["-I\(javaIncludePath)", "-I\(javaPlatformIncludePath)"]),
-            ]
-        ),
-        .target(
-            name: "AndroidApp",
-            dependencies: [
-                "AndroidJava",
-            ],
-            exclude: ["swift-java.config"],
-            swiftSettings: [
-              .swiftLanguageMode(.v5),
-            ],
-            plugins: [
-              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
-            ]
-        ),
-        .target(
-            name: "AndroidWidget",
-            dependencies: [
-                "AndroidJava",
-                "AndroidApp"
-            ],
-            exclude: ["swift-java.config"],
-            swiftSettings: [
-              .swiftLanguageMode(.v5),
-            ],
-            plugins: [
-              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
-            ]
-        ),
-        .target(
-            name: "AndroidX",
-            dependencies: [
-                "AndroidJava"
-            ],
-            exclude: ["swift-java.config"],
-            swiftSettings: [
-              .swiftLanguageMode(.v5),
-            ],
-            plugins: [
-              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
-            ]
-        ),
-        .target(
-            name: "AndroidWebKit",
-            dependencies: [
-                "AndroidJava",
-                "AndroidWidget",
-                "AndroidApp"
-            ],
-            exclude: ["swift-java.config"],
-            swiftSettings: [
-              .swiftLanguageMode(.v5),
-            ],
-            plugins: [
-              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
             ]
         ),
         .target(
@@ -443,6 +370,97 @@ let package = Package(
             name: "AndroidR",
             dependencies: [
                 "AndroidJava"
+            ],
+            exclude: ["swift-java.config"],
+            swiftSettings: [
+              .swiftLanguageMode(.v5),
+            ],
+            plugins: [
+              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
+            ]
+        ),
+        .target(
+            name: "AndroidAnimation",
+            dependencies: [
+                "AndroidJava"
+            ],
+            exclude: ["swift-java.config"],
+            swiftSettings: [
+              .swiftLanguageMode(.v5),
+            ]
+        ),
+        .target(
+            name: "AndroidUtil",
+            dependencies: [
+                "AndroidJava",
+            ],
+            exclude: ["swift-java.config"],
+            swiftSettings: [
+              .swiftLanguageMode(.v5),
+            ],
+            plugins: [
+              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
+            ]
+        ),
+        .target(
+            name: "AndroidOS",
+            dependencies: [
+                "AndroidJava"
+            ],
+            exclude: ["swift-java.config"],
+            swiftSettings: [
+              .swiftLanguageMode(.v5),
+            ],
+            plugins: [
+              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
+            ]
+        ),
+        .target(
+            name: "AndroidApp",
+            dependencies: [
+                "AndroidJava",
+            ],
+            exclude: ["swift-java.config"],
+            swiftSettings: [
+              .swiftLanguageMode(.v5),
+            ],
+            plugins: [
+              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
+            ]
+        ),
+        .target(
+            name: "AndroidWidget",
+            dependencies: [
+                "AndroidJava",
+                "AndroidApp"
+            ],
+            exclude: ["swift-java.config"],
+            swiftSettings: [
+              .swiftLanguageMode(.v5),
+            ],
+            plugins: [
+              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
+            ]
+        ),
+        .target(
+            name: "AndroidX",
+            dependencies: [
+                "AndroidJava"
+            ],
+            exclude: ["swift-java.config"],
+            swiftSettings: [
+              .swiftLanguageMode(.v5),
+            ],
+            plugins: [
+              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
+            ]
+        ),
+        .target(
+            name: "AndroidWebKit",
+            dependencies: [
+                "AndroidJava",
+                "AndroidWidget",
+                "AndroidApp"
             ],
             exclude: ["swift-java.config"],
             swiftSettings: [
