@@ -49,7 +49,7 @@ public struct Map<K: AnyJavaObject, V: AnyJavaObject> {
   public func merge(_ arg0: JavaObject?, _ arg1: JavaObject?, _ arg2: JavaBiFunction<JavaObject, JavaObject, JavaObject>?) -> JavaObject!
 
   @JavaMethod
-  public func entrySet() -> JavaSet<Map.Entry<JavaObject, JavaObject>>!
+  public func entrySet() -> JavaSet<Map<JavaObject, JavaObject>.Entry>!
 
   @JavaMethod
   public func putAll(_ arg0: Map<JavaObject, JavaObject>?)

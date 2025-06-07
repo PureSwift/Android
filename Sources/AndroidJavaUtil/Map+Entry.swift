@@ -4,7 +4,7 @@ import JavaRuntime
 
 extension Map {
   @JavaInterface("java.util.Map$Entry")
-  public struct Entry<K: AnyJavaObject, V: AnyJavaObject> {
+  public struct Entry {
   @JavaMethod
   public func equals(_ arg0: JavaObject?) -> Bool
 
