@@ -238,6 +238,35 @@ let package = Package(
             swiftSettings: [
               .swiftLanguageMode(.v5),
             ]
+        ),
+        .target(
+            name: "AndroidJavaLang",
+            dependencies: [
+                .product(
+                    name: "JavaKit",
+                    package: "swift-java"
+                ),
+                .product(
+                    name: "JavaKitCollection",
+                    package: "swift-java"
+                ),
+                .product(
+                    name: "JavaKitReflection",
+                    package: "swift-java"
+                ),
+                .product(
+                    name: "JavaKitIO",
+                    package: "swift-java"
+                ),
+                "AndroidJavaIO"
+            ],
+            exclude: ["swift-java.config"],
+            swiftSettings: [
+              .swiftLanguageMode(.v5),
+            ],
+            plugins: [
+              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
+            ]
         )
     ],
     swiftLanguageModes: [.v5]
