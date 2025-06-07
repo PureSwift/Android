@@ -8,7 +8,7 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "SwiftAndroid", targets: ["SwiftAndroid"]
+            name: "AndroidKit", targets: ["AndroidKit"]
         )
     ],
     dependencies: [
@@ -28,12 +28,8 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "SwiftAndroid",
+            name: "SwiftAndroidDeprecated",
             dependencies: [
-                .product(
-                    name: "JavaKit",
-                    package: "swift-java"
-                ),
                 .product(
                     name: "JNI",
                     package: "JNI"
@@ -44,6 +40,243 @@ let package = Package(
                 )
             ],
             path: "Sources/Android"
+        ),
+        .target(
+            name: "AndroidKit",
+            dependencies: [
+                .product(
+                    name: "JavaKit",
+                    package: "swift-java"
+                ),
+                .product(
+                    name: "JavaKitCollection",
+                    package: "swift-java"
+                ),
+                .product(
+                    name: "JavaKitIO",
+                    package: "swift-java"
+                ),/*
+                "AndroidApp",
+                "AndroidOS",
+                "AndroidContent",
+                "AndroidView"*/
+            ],
+            swiftSettings: [
+              .swiftLanguageMode(.v5)
+            ]
+        ),
+        .target(
+            name: "AndroidApp",
+            dependencies: [
+                .product(
+                    name: "JavaKit",
+                    package: "swift-java"
+                ),
+                .product(
+                    name: "JavaKitCollection",
+                    package: "swift-java"
+                ),
+                .product(
+                    name: "JavaKitIO",
+                    package: "swift-java"
+                ),
+                "AndroidContent",
+                "AndroidGraphics",
+                "AndroidNet",
+                "AndroidWidget"
+            ],
+            swiftSettings: [
+              .swiftLanguageMode(.v5)
+            ],
+            plugins: [
+              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
+            ]
+        ),
+        .target(
+            name: "AndroidOS",
+            dependencies: [
+                .product(
+                    name: "JavaKit",
+                    package: "swift-java"
+                ),
+                .product(
+                    name: "JavaKitCollection",
+                    package: "swift-java"
+                ),
+                .product(
+                    name: "JavaKitIO",
+                    package: "swift-java"
+                ),
+            ],
+            swiftSettings: [
+              .swiftLanguageMode(.v5)
+            ],
+            plugins: [
+              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
+            ]
+        ),
+        .target(
+            name: "AndroidView",
+            dependencies: [
+                .product(
+                    name: "JavaKit",
+                    package: "swift-java"
+                ),
+                .product(
+                    name: "JavaKitCollection",
+                    package: "swift-java"
+                ),
+                .product(
+                    name: "JavaKitIO",
+                    package: "swift-java"
+                ),
+            ],
+            swiftSettings: [
+              .swiftLanguageMode(.v5)
+            ],
+            plugins: [
+              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
+            ]
+        ),
+        .target(
+            name: "AndroidContent",
+            dependencies: [
+                .product(
+                    name: "JavaKit",
+                    package: "swift-java"
+                ),
+                .product(
+                    name: "JavaKitCollection",
+                    package: "swift-java"
+                ),
+                .product(
+                    name: "JavaKitIO",
+                    package: "swift-java"
+                ),
+                "AndroidOS",
+                "AndroidView"
+            ],
+            swiftSettings: [
+              .swiftLanguageMode(.v5)
+            ],
+            plugins: [
+              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
+            ]
+        ),
+        .target(
+            name: "AndroidGraphics",
+            dependencies: [
+                .product(
+                    name: "JavaKit",
+                    package: "swift-java"
+                ),
+                .product(
+                    name: "JavaKitCollection",
+                    package: "swift-java"
+                ),
+                .product(
+                    name: "JavaKitIO",
+                    package: "swift-java"
+                )
+            ],
+            swiftSettings: [
+              .swiftLanguageMode(.v5)
+            ],
+            plugins: [
+              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
+            ]
+        ),
+        .target(
+            name: "AndroidNet",
+            dependencies: [
+                .product(
+                    name: "JavaKit",
+                    package: "swift-java"
+                ),
+                .product(
+                    name: "JavaKitCollection",
+                    package: "swift-java"
+                ),
+                .product(
+                    name: "JavaKitIO",
+                    package: "swift-java"
+                )
+            ],
+            swiftSettings: [
+              .swiftLanguageMode(.v5)
+            ],
+            plugins: [
+              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
+            ]
+        ),
+        .target(
+            name: "AndroidWidget",
+            dependencies: [
+                .product(
+                    name: "JavaKit",
+                    package: "swift-java"
+                ),
+                .product(
+                    name: "JavaKitCollection",
+                    package: "swift-java"
+                ),
+                .product(
+                    name: "JavaKitIO",
+                    package: "swift-java"
+                )
+            ],
+            swiftSettings: [
+              .swiftLanguageMode(.v5)
+            ],
+            plugins: [
+              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
+            ]
+        ),
+        .target(
+            name: "AndroidX",
+            dependencies: [
+                .product(
+                    name: "JavaKit",
+                    package: "swift-java"
+                ),
+                .product(
+                    name: "JavaKitCollection",
+                    package: "swift-java"
+                ),
+                .product(
+                    name: "JavaKitIO",
+                    package: "swift-java"
+                ),
+            ],
+            swiftSettings: [
+              .swiftLanguageMode(.v5)
+            ],
+            plugins: [
+              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
+            ]
+        ),
+        .target(
+            name: "AndroidUtil",
+            dependencies: [
+                .product(
+                    name: "JavaKit",
+                    package: "swift-java"
+                ),
+                .product(
+                    name: "JavaKitCollection",
+                    package: "swift-java"
+                ),
+                .product(
+                    name: "JavaKitIO",
+                    package: "swift-java"
+                )
+            ],
+            swiftSettings: [
+              .swiftLanguageMode(.v5)
+            ],
+            plugins: [
+              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
+            ]
         )
     ],
     swiftLanguageModes: [.v5]
