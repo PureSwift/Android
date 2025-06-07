@@ -43,7 +43,7 @@ open class HijrahChronology: AbstractChronology {
   open func eraOf(_ arg0: Int32) -> HijrahEra!
 
   @JavaMethod
-  open func localDateTime(_ arg0: TemporalAccessor?) -> ChronoLocalDateTime<HijrahDate>!
+  open func localDateTime(_ arg0: TemporalAccessor?) -> ChronoLocalDateTime!
 
   @JavaMethod
   open func getCalendarType() -> String
@@ -88,10 +88,10 @@ open class HijrahChronology: AbstractChronology {
   open func dateYearDay(_ arg0: Era?, _ arg1: Int32, _ arg2: Int32) -> HijrahDate!
 
   @JavaMethod
-  open func zonedDateTime(_ arg0: Instant?, _ arg1: ZoneId?) -> ChronoZonedDateTime<HijrahDate>!
+  open func zonedDateTime(_ arg0: Instant?, _ arg1: ZoneId?) -> ChronoZonedDateTime!
 
   @JavaMethod
-  open func zonedDateTime(_ arg0: TemporalAccessor?) -> ChronoZonedDateTime<HijrahDate>!
+  open func zonedDateTime(_ arg0: TemporalAccessor?) -> ChronoZonedDateTime!
 }
 extension JavaClass<HijrahChronology> {
   @JavaStaticField(isFinal: true)

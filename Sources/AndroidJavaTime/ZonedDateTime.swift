@@ -3,7 +3,7 @@ import AndroidJavaIO
 import JavaKit
 import JavaRuntime
 
-@JavaClass("java.time.ZonedDateTime", implements: Temporal.self, ChronoZonedDateTime<LocalDate>.self, Serializable.self)
+@JavaClass("java.time.ZonedDateTime", implements: Temporal.self, ChronoZonedDateTime.self, Serializable.self)
 open class ZonedDateTime: JavaObject {
   @JavaMethod
   open func withZoneSameInstant(_ arg0: ZoneId?) -> ZonedDateTime!

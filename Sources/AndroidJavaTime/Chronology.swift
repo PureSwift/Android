@@ -52,7 +52,7 @@ public struct Chronology {
   public func eraOf(_ arg0: Int32) -> Era!
 
   @JavaMethod
-  public func localDateTime(_ arg0: TemporalAccessor?) -> ChronoLocalDateTime<ChronoLocalDate>!
+  public func localDateTime(_ arg0: TemporalAccessor?) -> ChronoLocalDateTime!
 
   @JavaMethod
   public func getCalendarType() -> String
@@ -79,10 +79,10 @@ public struct Chronology {
   public func dateYearDay(_ arg0: Era?, _ arg1: Int32, _ arg2: Int32) -> ChronoLocalDate!
 
   @JavaMethod
-  public func zonedDateTime(_ arg0: Instant?, _ arg1: ZoneId?) -> ChronoZonedDateTime<ChronoLocalDate>!
+  public func zonedDateTime(_ arg0: Instant?, _ arg1: ZoneId?) -> ChronoZonedDateTime!
 
   @JavaMethod
-  public func zonedDateTime(_ arg0: TemporalAccessor?) -> ChronoZonedDateTime<ChronoLocalDate>!
+  public func zonedDateTime(_ arg0: TemporalAccessor?) -> ChronoZonedDateTime!
 
   @JavaMethod
   public func period(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32) -> ChronoPeriod!

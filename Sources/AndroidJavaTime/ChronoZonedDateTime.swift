@@ -4,18 +4,18 @@ import JavaKit
 import JavaRuntime
 
 @JavaInterface("java.time.chrono.ChronoZonedDateTime", extends: Temporal.self, Comparable.self)
-public struct ChronoZonedDateTime<D: AnyJavaObject> {
+public struct ChronoZonedDateTime {
   @JavaMethod
-  public func withZoneSameInstant(_ arg0: ZoneId?) -> ChronoZonedDateTime<ChronoLocalDate>!
+  public func withZoneSameInstant(_ arg0: ZoneId?) -> ChronoZonedDateTime!
 
   @JavaMethod
-  public func withZoneSameLocal(_ arg0: ZoneId?) -> ChronoZonedDateTime<ChronoLocalDate>!
+  public func withZoneSameLocal(_ arg0: ZoneId?) -> ChronoZonedDateTime!
 
   @JavaMethod
-  public func withLaterOffsetAtOverlap() -> ChronoZonedDateTime<ChronoLocalDate>!
+  public func withLaterOffsetAtOverlap() -> ChronoZonedDateTime!
 
   @JavaMethod
-  public func withEarlierOffsetAtOverlap() -> ChronoZonedDateTime<ChronoLocalDate>!
+  public func withEarlierOffsetAtOverlap() -> ChronoZonedDateTime!
 
   @JavaMethod
   public func get(_ arg0: TemporalField?) -> Int32
@@ -30,7 +30,7 @@ public struct ChronoZonedDateTime<D: AnyJavaObject> {
   public func hashCode() -> Int32
 
   @JavaMethod
-  public func compareTo(_ arg0: ChronoZonedDateTime<JavaObject>?) -> Int32
+  public func compareTo(_ arg0: ChronoZonedDateTime?) -> Int32
 
   @JavaMethod
   public func compareTo(_ arg0: JavaObject?) -> Int32
@@ -51,10 +51,10 @@ public struct ChronoZonedDateTime<D: AnyJavaObject> {
   public func with(_ arg0: TemporalAdjuster?) -> Temporal!
 
   @JavaMethod
-  public func with(_ arg0: TemporalAdjuster?) -> ChronoZonedDateTime<ChronoLocalDate>!
+  public func with(_ arg0: TemporalAdjuster?) -> ChronoZonedDateTime!
 
   @JavaMethod
-  public func with(_ arg0: TemporalField?, _ arg1: Int64) -> ChronoZonedDateTime<ChronoLocalDate>!
+  public func with(_ arg0: TemporalField?, _ arg1: Int64) -> ChronoZonedDateTime!
 
   @JavaMethod
   public func with(_ arg0: TemporalField?, _ arg1: Int64) -> Temporal!
@@ -69,7 +69,7 @@ public struct ChronoZonedDateTime<D: AnyJavaObject> {
   public func range(_ arg0: TemporalField?) -> ValueRange!
 
   @JavaMethod
-  public func isEqual(_ arg0: ChronoZonedDateTime<JavaObject>?) -> Bool
+  public func isEqual(_ arg0: ChronoZonedDateTime?) -> Bool
 
   @JavaMethod
   public func toInstant() -> Instant!
@@ -78,13 +78,13 @@ public struct ChronoZonedDateTime<D: AnyJavaObject> {
   public func minus(_ arg0: Int64, _ arg1: TemporalUnit?) -> Temporal!
 
   @JavaMethod
-  public func minus(_ arg0: Int64, _ arg1: TemporalUnit?) -> ChronoZonedDateTime<ChronoLocalDate>!
+  public func minus(_ arg0: Int64, _ arg1: TemporalUnit?) -> ChronoZonedDateTime!
 
   @JavaMethod
   public func minus(_ arg0: TemporalAmount?) -> Temporal!
 
   @JavaMethod
-  public func minus(_ arg0: TemporalAmount?) -> ChronoZonedDateTime<ChronoLocalDate>!
+  public func minus(_ arg0: TemporalAmount?) -> ChronoZonedDateTime!
 
   @JavaMethod
   public func getZone() -> ZoneId!
@@ -93,19 +93,19 @@ public struct ChronoZonedDateTime<D: AnyJavaObject> {
   public func plus(_ arg0: Int64, _ arg1: TemporalUnit?) -> Temporal!
 
   @JavaMethod
-  public func plus(_ arg0: Int64, _ arg1: TemporalUnit?) -> ChronoZonedDateTime<ChronoLocalDate>!
+  public func plus(_ arg0: Int64, _ arg1: TemporalUnit?) -> ChronoZonedDateTime!
 
   @JavaMethod
-  public func plus(_ arg0: TemporalAmount?) -> ChronoZonedDateTime<ChronoLocalDate>!
+  public func plus(_ arg0: TemporalAmount?) -> ChronoZonedDateTime!
 
   @JavaMethod
   public func plus(_ arg0: TemporalAmount?) -> Temporal!
 
   @JavaMethod
-  public func isAfter(_ arg0: ChronoZonedDateTime<JavaObject>?) -> Bool
+  public func isAfter(_ arg0: ChronoZonedDateTime?) -> Bool
 
   @JavaMethod
-  public func isBefore(_ arg0: ChronoZonedDateTime<JavaObject>?) -> Bool
+  public func isBefore(_ arg0: ChronoZonedDateTime?) -> Bool
 
   @JavaMethod
   public func toLocalTime() -> LocalTime!
@@ -117,7 +117,7 @@ public struct ChronoZonedDateTime<D: AnyJavaObject> {
   public func toEpochSecond() -> Int64
 
   @JavaMethod
-  public func toLocalDateTime() -> ChronoLocalDateTime<ChronoLocalDate>!
+  public func toLocalDateTime() -> ChronoLocalDateTime!
 
   @JavaMethod
   public func toLocalDate() -> ChronoLocalDate!
@@ -127,5 +127,5 @@ public struct ChronoZonedDateTime<D: AnyJavaObject> {
 }
 extension JavaClass {
   @JavaStaticMethod
-  public func from<D: AnyJavaObject>(_ arg0: TemporalAccessor?) -> ChronoZonedDateTime<JavaObject>! where ObjectType == ChronoZonedDateTime<D>
+  public func from(_ arg0: TemporalAccessor?) -> ChronoZonedDateTime!
 }

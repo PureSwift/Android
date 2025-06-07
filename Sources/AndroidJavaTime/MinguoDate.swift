@@ -87,7 +87,7 @@ open class MinguoDate: JavaObject {
   open func toEpochDay() -> Int64
 
   @JavaMethod
-  open func atTime(_ arg0: LocalTime?) -> ChronoLocalDateTime<MinguoDate>!
+  open func atTime(_ arg0: LocalTime?) -> ChronoLocalDateTime!
 
   @JavaMethod
   open func getEra() -> Era!

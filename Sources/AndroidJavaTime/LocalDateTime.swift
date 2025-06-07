@@ -18,7 +18,7 @@ open class LocalDateTime: JavaObject {
   open override func hashCode() -> Int32
 
   @JavaMethod
-  open func compareTo(_ arg0: ChronoLocalDateTime<JavaObject>?) -> Int32
+  open func compareTo(_ arg0: ChronoLocalDateTime?) -> Int32
 
   @JavaMethod
   open func compareTo(_ arg0: JavaObject?) -> Int32
@@ -60,7 +60,7 @@ open class LocalDateTime: JavaObject {
   open func range(_ arg0: TemporalField?) -> ValueRange!
 
   @JavaMethod
-  open func isEqual(_ arg0: ChronoLocalDateTime<JavaObject>?) -> Bool
+  open func isEqual(_ arg0: ChronoLocalDateTime?) -> Bool
 
   @JavaMethod
   open func getNano() -> Int32
@@ -168,10 +168,10 @@ open class LocalDateTime: JavaObject {
   open func atZone(_ arg0: ZoneId?) -> ChronoZonedDateTime!
 
   @JavaMethod
-  open func isAfter(_ arg0: ChronoLocalDateTime<JavaObject>?) -> Bool
+  open func isAfter(_ arg0: ChronoLocalDateTime?) -> Bool
 
   @JavaMethod
-  open func isBefore(_ arg0: ChronoLocalDateTime<JavaObject>?) -> Bool
+  open func isBefore(_ arg0: ChronoLocalDateTime?) -> Bool
 
   @JavaMethod
   open func getMonth() -> Month!

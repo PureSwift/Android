@@ -43,7 +43,7 @@ open class ThaiBuddhistChronology: AbstractChronology {
   open func eraOf(_ arg0: Int32) -> Era!
 
   @JavaMethod
-  open func localDateTime(_ arg0: TemporalAccessor?) -> ChronoLocalDateTime<ThaiBuddhistDate>!
+  open func localDateTime(_ arg0: TemporalAccessor?) -> ChronoLocalDateTime!
 
   @JavaMethod
   open func getCalendarType() -> String
@@ -88,10 +88,10 @@ open class ThaiBuddhistChronology: AbstractChronology {
   open func dateYearDay(_ arg0: Era?, _ arg1: Int32, _ arg2: Int32) -> ThaiBuddhistDate!
 
   @JavaMethod
-  open func zonedDateTime(_ arg0: TemporalAccessor?) -> ChronoZonedDateTime<ThaiBuddhistDate>!
+  open func zonedDateTime(_ arg0: TemporalAccessor?) -> ChronoZonedDateTime!
 
   @JavaMethod
-  open func zonedDateTime(_ arg0: Instant?, _ arg1: ZoneId?) -> ChronoZonedDateTime<ThaiBuddhistDate>!
+  open func zonedDateTime(_ arg0: Instant?, _ arg1: ZoneId?) -> ChronoZonedDateTime!
 
   @JavaMethod
   open func isIsoBased() -> Bool

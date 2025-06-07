@@ -43,7 +43,7 @@ open class JapaneseChronology: AbstractChronology {
   open func eraOf(_ arg0: Int32) -> JapaneseEra!
 
   @JavaMethod
-  open func localDateTime(_ arg0: TemporalAccessor?) -> ChronoLocalDateTime<JapaneseDate>!
+  open func localDateTime(_ arg0: TemporalAccessor?) -> ChronoLocalDateTime!
 
   @JavaMethod
   open func getCalendarType() -> String
@@ -88,10 +88,10 @@ open class JapaneseChronology: AbstractChronology {
   open func dateYearDay(_ arg0: Int32, _ arg1: Int32) -> JapaneseDate!
 
   @JavaMethod
-  open func zonedDateTime(_ arg0: TemporalAccessor?) -> ChronoZonedDateTime<JapaneseDate>!
+  open func zonedDateTime(_ arg0: TemporalAccessor?) -> ChronoZonedDateTime!
 
   @JavaMethod
-  open func zonedDateTime(_ arg0: Instant?, _ arg1: ZoneId?) -> ChronoZonedDateTime<JapaneseDate>!
+  open func zonedDateTime(_ arg0: Instant?, _ arg1: ZoneId?) -> ChronoZonedDateTime!
 
   @JavaMethod
   open func isIsoBased() -> Bool

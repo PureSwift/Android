@@ -96,7 +96,7 @@ open class HijrahDate: JavaObject {
   open func toEpochDay() -> Int64
 
   @JavaMethod
-  open func atTime(_ arg0: LocalTime?) -> ChronoLocalDateTime<HijrahDate>!
+  open func atTime(_ arg0: LocalTime?) -> ChronoLocalDateTime!
 
   @JavaMethod
   open func getEra() -> HijrahEra!

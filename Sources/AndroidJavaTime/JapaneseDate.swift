@@ -93,7 +93,7 @@ open class JapaneseDate: JavaObject {
   open func toEpochDay() -> Int64
 
   @JavaMethod
-  open func atTime(_ arg0: LocalTime?) -> ChronoLocalDateTime<JapaneseDate>!
+  open func atTime(_ arg0: LocalTime?) -> ChronoLocalDateTime!
 
   @JavaMethod
   open func getEra() -> JapaneseEra!
