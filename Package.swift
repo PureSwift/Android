@@ -209,7 +209,6 @@ let package = Package(
                 "AndroidJavaAWT",
                 "AndroidJavaUtil"
             ],
-            exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
             ]
@@ -429,6 +428,19 @@ let package = Package(
         ),
         .target(
             name: "AndroidManifest",
+            dependencies: [
+                "AndroidJava"
+            ],
+            exclude: ["swift-java.config"],
+            swiftSettings: [
+              .swiftLanguageMode(.v5),
+            ],
+            plugins: [
+              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
+            ]
+        ),
+        .target(
+            name: "AndroidR",
             dependencies: [
                 "AndroidJava"
             ],

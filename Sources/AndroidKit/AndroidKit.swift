@@ -7,6 +7,8 @@
 
 import JavaKit
 import AndroidJava
+import AndroidManifest
+import AndroidR
 import AndroidApp
 import AndroidX
 import AndroidWidget
