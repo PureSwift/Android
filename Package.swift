@@ -108,13 +108,8 @@ let package = Package(
                 ),
                 "AndroidJava",
                 "AndroidApp",
-                "AndroidOS",
-                "AndroidContent",
-                "AndroidView",
                 "AndroidX",
-                "AndroidUtil",
-                "AndroidGraphics",
-                "AndroidNet"
+                "AndroidWidget"
             ],
             swiftSettings: [
               .swiftLanguageMode(.v5),
@@ -125,84 +120,6 @@ let package = Package(
             name: "AndroidApp",
             dependencies: [
                 "AndroidJava",
-                "AndroidContent",
-                "AndroidGraphics",
-                "AndroidNet",
-                "AndroidWidget"
-            ],
-            exclude: ["swift-java.config"],
-            swiftSettings: [
-              .swiftLanguageMode(.v5),
-              .unsafeFlags(["-I\(javaIncludePath)", "-I\(javaPlatformIncludePath)"]),
-            ],
-            plugins: [
-              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
-            ]
-        ),
-        .target(
-            name: "AndroidOS",
-            dependencies: [
-                "AndroidJava",
-            ],
-            exclude: ["swift-java.config"],
-            swiftSettings: [
-              .swiftLanguageMode(.v5),
-              .unsafeFlags(["-I\(javaIncludePath)", "-I\(javaPlatformIncludePath)"]),
-            ],
-            plugins: [
-              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
-            ]
-        ),
-        .target(
-            name: "AndroidView",
-            dependencies: [
-                "AndroidJava",
-                "AndroidOS"
-            ],
-            exclude: ["swift-java.config"],
-            swiftSettings: [
-              .swiftLanguageMode(.v5),
-              .unsafeFlags(["-I\(javaIncludePath)", "-I\(javaPlatformIncludePath)"]),
-            ],
-            plugins: [
-              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
-            ]
-        ),
-        .target(
-            name: "AndroidContent",
-            dependencies: [
-                "AndroidJava",
-                "AndroidOS",
-                "AndroidView"
-            ],
-            exclude: ["swift-java.config"],
-            swiftSettings: [
-              .swiftLanguageMode(.v5),
-              .unsafeFlags(["-I\(javaIncludePath)", "-I\(javaPlatformIncludePath)"]),
-            ],
-            plugins: [
-              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
-            ]
-        ),
-        .target(
-            name: "AndroidGraphics",
-            dependencies: [
-                "AndroidJava"
-            ],
-            exclude: ["swift-java.config"],
-            swiftSettings: [
-              .swiftLanguageMode(.v5),
-              .unsafeFlags(["-I\(javaIncludePath)", "-I\(javaPlatformIncludePath)"]),
-            ],
-            plugins: [
-              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
-            ]
-        ),
-        .target(
-            name: "AndroidNet",
-            dependencies: [
-                "AndroidJava",
-                "AndroidOS"
             ],
             exclude: ["swift-java.config"],
             swiftSettings: [
@@ -217,7 +134,6 @@ let package = Package(
             name: "AndroidWidget",
             dependencies: [
                 "AndroidJava",
-                "AndroidUtil"
             ],
             exclude: ["swift-java.config"],
             swiftSettings: [
@@ -232,21 +148,6 @@ let package = Package(
             name: "AndroidX",
             dependencies: [
                 "AndroidJava"
-            ],
-            exclude: ["swift-java.config"],
-            swiftSettings: [
-              .swiftLanguageMode(.v5),
-              .unsafeFlags(["-I\(javaIncludePath)", "-I\(javaPlatformIncludePath)"]),
-            ],
-            plugins: [
-              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
-            ]
-        ),
-        .target(
-            name: "AndroidUtil",
-            dependencies: [
-                "AndroidJava",
-                "AndroidOS"
             ],
             exclude: ["swift-java.config"],
             swiftSettings: [
@@ -282,6 +183,10 @@ let package = Package(
                 ),
                 .product(
                     name: "JavaKitReflection",
+                    package: "swift-java"
+                ),
+                .product(
+                    name: "JavaKitJar",
                     package: "swift-java"
                 )
             ],
