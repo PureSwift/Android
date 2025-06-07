@@ -94,6 +94,11 @@ let package = Package(
                     name: "JavaKitIO",
                     package: "swift-java"
                 ),
+                .product(
+                    name: "JavaKitFunction",
+                    package: "swift-java"
+                ),
+                "AndroidJava",
                 "AndroidApp",
                 "AndroidOS",
                 "AndroidContent",
@@ -152,6 +157,8 @@ let package = Package(
                     name: "JavaKitIO",
                     package: "swift-java"
                 ),
+                "AndroidJava",
+                "AndroidUtil"
             ],
             exclude: ["swift-java.config"],
             swiftSettings: [
@@ -254,7 +261,9 @@ let package = Package(
                 .product(
                     name: "JavaKitIO",
                     package: "swift-java"
-                )
+                ),
+                "AndroidJava",
+                "AndroidOS"
             ],
             exclude: ["swift-java.config"],
             swiftSettings: [
@@ -329,6 +338,40 @@ let package = Package(
                 ),
                 .product(
                     name: "JavaKitIO",
+                    package: "swift-java"
+                ),
+                "AndroidJava"
+            ],
+            exclude: ["swift-java.config"],
+            swiftSettings: [
+              .swiftLanguageMode(.v5),
+              .unsafeFlags(["-I\(javaIncludePath)", "-I\(javaPlatformIncludePath)"]),
+            ],
+            plugins: [
+              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
+            ]
+        ),
+        .target(
+            name: "AndroidJava",
+            dependencies: [
+                .product(
+                    name: "JavaKit",
+                    package: "swift-java"
+                ),
+                .product(
+                    name: "JavaKitCollection",
+                    package: "swift-java"
+                ),
+                .product(
+                    name: "JavaKitIO",
+                    package: "swift-java"
+                ),
+                .product(
+                    name: "JavaKitNetwork",
+                    package: "swift-java"
+                ),
+                .product(
+                    name: "JavaKitFunction",
                     package: "swift-java"
                 )
             ],
