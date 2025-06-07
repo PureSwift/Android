@@ -125,7 +125,6 @@ let package = Package(
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
-              .unsafeFlags(["-I\(javaIncludePath)", "-I\(javaPlatformIncludePath)"]),
             ],
             plugins: [
               .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
@@ -140,7 +139,6 @@ let package = Package(
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
-              .unsafeFlags(["-I\(javaIncludePath)", "-I\(javaPlatformIncludePath)"]),
             ],
             plugins: [
               .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
@@ -154,7 +152,6 @@ let package = Package(
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
-              .unsafeFlags(["-I\(javaIncludePath)", "-I\(javaPlatformIncludePath)"]),
             ],
             plugins: [
               .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
@@ -170,7 +167,6 @@ let package = Package(
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
-              .unsafeFlags(["-I\(javaIncludePath)", "-I\(javaPlatformIncludePath)"]),
             ],
             plugins: [
               .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
@@ -210,7 +206,8 @@ let package = Package(
                 "AndroidJavaLang",
                 "AndroidJavaIO",
                 "AndroidJavaTime",
-                "AndroidJavaAWT"
+                "AndroidJavaAWT",
+                "AndroidJavaUtil"
             ],
             exclude: ["swift-java.config"],
             swiftSettings: [
@@ -383,6 +380,8 @@ let package = Package(
                     package: "swift-java"
                 ),
                 "AndroidJavaIO",
+                "AndroidJavaLang",
+                "AndroidJavaTime"
             ],
             exclude: ["swift-java.config"],
             swiftSettings: [

@@ -118,9 +118,4 @@ extension JavaClass {
   @JavaStaticMethod
   public func of<K: AnyJavaObject, V: AnyJavaObject>(_ arg0: JavaObject?, _ arg1: JavaObject?, _ arg2: JavaObject?, _ arg3: JavaObject?, _ arg4: JavaObject?, _ arg5: JavaObject?, _ arg6: JavaObject?, _ arg7: JavaObject?, _ arg8: JavaObject?, _ arg9: JavaObject?) -> Map<JavaObject, JavaObject>! where ObjectType == Map<K, V>
 
-  @JavaStaticMethod
-  public func entry<K: AnyJavaObject, V: AnyJavaObject>(_ arg0: JavaObject?, _ arg1: JavaObject?) -> Map.Entry<JavaObject, JavaObject>! where ObjectType == Map<K, V>
-
-  @JavaStaticMethod
-  public func ofEntries<K: AnyJavaObject, V: AnyJavaObject>(_ arg0: [Map.Entry<JavaObject, JavaObject>?]) -> Map<JavaObject, JavaObject>! where ObjectType == Map<K, V>
 }

@@ -3,7 +3,7 @@ import AndroidJavaIO
 import JavaKit
 import JavaRuntime
 
-@JavaClass("java.util.Random", implements: RandomGenerator.self, Serializable.self)
+@JavaClass("java.util.Random", implements: Serializable.self)
 open class Random: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Int64, environment: JNIEnvironment? = nil)
@@ -27,43 +27,7 @@ open class Random: JavaObject {
   open func nextBytes(_ arg0: [Int8])
 
   @JavaMethod
-  open func longs(_ arg0: Int64) -> LongStream!
-
-  @JavaMethod
-  open func longs(_ arg0: Int64, _ arg1: Int64, _ arg2: Int64) -> LongStream!
-
-  @JavaMethod
-  open func longs(_ arg0: Int64, _ arg1: Int64) -> LongStream!
-
-  @JavaMethod
-  open func longs() -> LongStream!
-
-  @JavaMethod
   open func setSeed(_ arg0: Int64)
-
-  @JavaMethod
-  open func ints(_ arg0: Int64, _ arg1: Int32, _ arg2: Int32) -> IntStream!
-
-  @JavaMethod
-  open func ints(_ arg0: Int32, _ arg1: Int32) -> IntStream!
-
-  @JavaMethod
-  open func ints(_ arg0: Int64) -> IntStream!
-
-  @JavaMethod
-  open func ints() -> IntStream!
-
-  @JavaMethod
-  open func doubles(_ arg0: Int64) -> DoubleStream!
-
-  @JavaMethod
-  open func doubles() -> DoubleStream!
-
-  @JavaMethod
-  open func doubles(_ arg0: Int64, _ arg1: Double, _ arg2: Double) -> DoubleStream!
-
-  @JavaMethod
-  open func doubles(_ arg0: Double, _ arg1: Double) -> DoubleStream!
 
   @JavaMethod
   open func nextLong() -> Int64
@@ -79,5 +43,5 @@ open class Random: JavaObject {
 }
 extension JavaClass<Random> {
   @JavaStaticMethod
-  public func from(_ arg0: RandomGenerator?) -> Random!
+  public func from(_ arg0: Random.Generator?) -> Random!
 }
