@@ -109,7 +109,8 @@ let package = Package(
                 "AndroidJava",
                 "AndroidApp",
                 "AndroidX",
-                "AndroidWidget"
+                "AndroidWidget",
+                "AndroidWebKit"
             ],
             swiftSettings: [
               .swiftLanguageMode(.v5),
@@ -134,6 +135,7 @@ let package = Package(
             name: "AndroidWidget",
             dependencies: [
                 "AndroidJava",
+                "AndroidApp"
             ],
             exclude: ["swift-java.config"],
             swiftSettings: [
@@ -148,6 +150,22 @@ let package = Package(
             name: "AndroidX",
             dependencies: [
                 "AndroidJava"
+            ],
+            exclude: ["swift-java.config"],
+            swiftSettings: [
+              .swiftLanguageMode(.v5),
+              .unsafeFlags(["-I\(javaIncludePath)", "-I\(javaPlatformIncludePath)"]),
+            ],
+            plugins: [
+              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
+            ]
+        ),
+        .target(
+            name: "AndroidWebKit",
+            dependencies: [
+                "AndroidJava",
+                "AndroidWidget",
+                "AndroidApp"
             ],
             exclude: ["swift-java.config"],
             swiftSettings: [
