@@ -14,20 +14,38 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.pureswift.swiftandroid.ui.theme.SwiftAndroidTheme
 
 class MainActivity : ComponentActivity() {
+
+    init {
+        loadNativeLibrary()
+    }
+
+    private fun loadNativeLibrary() {
+        System.loadLibrary("icuuc")
+        System.loadLibrary("icui18n")
+        System.loadLibrary("Foundation")
+        System.loadLibrary("SwiftAndroidApp")
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val hello = MainActivityHello()
         enableEdgeToEdge()
         setContent {
             SwiftAndroidTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
-                        name = "Android",
+                        name = hello.sayHelloName(),
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
             }
         }
     }
+}
+
+class MainActivityHello {
+
+    external fun sayHelloName(): String
 }
 
 @Composable
