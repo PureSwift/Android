@@ -86,6 +86,7 @@ let package = Package(
                 "AndroidJava",
                 "AndroidManifest",
                 "AndroidR",
+                "AndroidGraphics",
                 "AndroidAnimation",
                 "AndroidOS",
                 "AndroidApp",
@@ -461,9 +462,6 @@ let package = Package(
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
-            ],
-            plugins: [
-              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
             ]
         ),
         .target(
@@ -475,9 +473,6 @@ let package = Package(
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
-            ],
-            plugins: [
-              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
             ]
         ),
         .target(
@@ -497,15 +492,13 @@ let package = Package(
             name: "AndroidWebKit",
             dependencies: [
                 "AndroidJava",
+                "AndroidView",
                 "AndroidWidget",
                 "AndroidApp"
             ],
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
-            ],
-            plugins: [
-              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
             ]
         ),
     ],
