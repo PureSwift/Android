@@ -14,7 +14,10 @@ android {
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
-
+        ndk {
+            //noinspection ChromeOsAbiSupport
+            abiFilters += listOf("arm64-v8a")
+        }
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -37,6 +40,30 @@ android {
     buildFeatures {
         compose = true
     }
+    packaging {
+        resources {
+            excludes += listOf("/META-INF/{AL2.0,LGPL2.1}")
+        }
+        jniLibs {
+            keepDebugSymbols += listOf(
+                "*/arm64-v8a/*.so",
+                "*/armeabi-v7a/*.so",
+                "*/x86_64/*.so"
+            )
+        }
+    }
+/*
+    // Custom Swift build task
+    val buildSwift by tasks.registering(Exec::class) {
+        group = "build"
+        description = "Build Swift sources"
+        workingDir("$projectDir")
+        commandLine("bash", "build-swift.sh")
+    }
+
+    tasks.withType<JavaCompile> {
+        dependsOn(buildSwift)
+    }*/
 }
 
 dependencies {
