@@ -60,8 +60,8 @@ let package = Package(
             path: "../../"
         ),
         .package(
-            url: "https://github.com/swiftlang/swift-java.git",
-            branch: "main"
+            url: "https://github.com/PureSwift/swift-java.git",
+            branch: "feature/android"
         )
     ],
     targets: [
