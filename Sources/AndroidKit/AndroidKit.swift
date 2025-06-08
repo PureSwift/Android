@@ -8,6 +8,7 @@
 import JavaKit
 import AndroidJava
 import AndroidOS
+import AndroidContent
 import AndroidUtil
 import AndroidManifest
 import AndroidR

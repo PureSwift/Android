@@ -475,7 +475,9 @@ let package = Package(
             name: "AndroidWidget",
             dependencies: [
                 "AndroidJava",
-                "AndroidApp"
+                "AndroidUtil",
+                "AndroidApp",
+                "AndroidView"
             ],
             exclude: ["swift-java.config"],
             swiftSettings: [
