@@ -7,7 +7,10 @@ import JavaRuntime
 @JavaClass("android.view.GestureDetector")
 open class GestureDetector: JavaObject {
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: GestureDetector.OnGestureListener?, _ arg2: Handler?, _ arg3: Bool, environment: JNIEnvironment? = nil)
+  @_nonoverride public convenience init(_ arg0: GestureDetector.OnGestureListener?, _ arg1: Handler?, environment: JNIEnvironment? = nil)
+
+  @JavaMethod
+  @_nonoverride public convenience init(_ arg0: GestureDetector.OnGestureListener?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Context?, _ arg1: GestureDetector.OnGestureListener?, _ arg2: Handler?, environment: JNIEnvironment? = nil)
@@ -16,10 +19,13 @@ open class GestureDetector: JavaObject {
   @_nonoverride public convenience init(_ arg0: Context?, _ arg1: GestureDetector.OnGestureListener?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: GestureDetector.OnGestureListener?, environment: JNIEnvironment? = nil)
+  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: GestureDetector.OnGestureListener?, _ arg2: Handler?, _ arg3: Bool, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: GestureDetector.OnGestureListener?, _ arg1: Handler?, environment: JNIEnvironment? = nil)
+  open func onGenericMotionEvent(_ arg0: MotionEvent?) -> Bool
+
+  @JavaMethod
+  open func onTouchEvent(_ arg0: MotionEvent?) -> Bool
 
   @JavaMethod
   open func setOnDoubleTapListener(_ arg0: GestureDetector.OnDoubleTapListener?)
@@ -31,11 +37,5 @@ open class GestureDetector: JavaObject {
   open func setIsLongpressEnabled(_ arg0: Bool)
 
   @JavaMethod
-  open func onGenericMotionEvent(_ arg0: MotionEvent?) -> Bool
-
-  @JavaMethod
   open func isLongpressEnabled() -> Bool
-
-  @JavaMethod
-  open func onTouchEvent(_ arg0: MotionEvent?) -> Bool
 }

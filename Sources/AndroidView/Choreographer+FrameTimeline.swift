@@ -6,10 +6,10 @@ extension Choreographer {
   @JavaClass("android.view.Choreographer$FrameTimeline")
   open class FrameTimeline: JavaObject {
   @JavaMethod
-  open func getExpectedPresentationTimeNanos() -> Int64
+  open func getVsyncId() -> Int64
 
   @JavaMethod
-  open func getVsyncId() -> Int64
+  open func getExpectedPresentationTimeNanos() -> Int64
 
   @JavaMethod
   open func getDeadlineNanos() -> Int64

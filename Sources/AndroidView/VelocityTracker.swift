@@ -5,10 +5,10 @@ import JavaRuntime
 @JavaClass("android.view.VelocityTracker")
 open class VelocityTracker: JavaObject {
   @JavaMethod
-  open override func finalize() throws
+  open func recycle()
 
   @JavaMethod
-  open func clear()
+  open func addMovement(_ arg0: MotionEvent?)
 
   @JavaMethod
   open func computeCurrentVelocity(_ arg0: Int32, _ arg1: Float)
@@ -17,22 +17,22 @@ open class VelocityTracker: JavaObject {
   open func computeCurrentVelocity(_ arg0: Int32)
 
   @JavaMethod
-  open func recycle()
-
-  @JavaMethod
-  open func addMovement(_ arg0: JavaObject?)
+  open func getXVelocity() -> Float
 
   @JavaMethod
   open func getXVelocity(_ arg0: Int32) -> Float
-
-  @JavaMethod
-  open func getXVelocity() -> Float
 
   @JavaMethod
   open func getYVelocity() -> Float
 
   @JavaMethod
   open func getYVelocity(_ arg0: Int32) -> Float
+
+  @JavaMethod
+  open override func finalize() throws
+
+  @JavaMethod
+  open func clear()
 }
 extension JavaClass<VelocityTracker> {
   @JavaStaticMethod

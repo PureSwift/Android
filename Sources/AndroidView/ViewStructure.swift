@@ -10,40 +10,7 @@ open class ViewStructure: JavaObject {
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func setOpaque(_ arg0: Bool)
-
-  @JavaMethod
-  open func getText() -> CharSequence!
-
-  @JavaMethod
-  open func getChildCount() -> Int32
-
-  @JavaMethod
-  open func setImportantForAutofill(_ arg0: Int32)
-
-  @JavaMethod
-  open func setContentDescription(_ arg0: CharSequence?)
-
-  @JavaMethod
-  open func setContextClickable(_ arg0: Bool)
-
-  @JavaMethod
-  open func setAccessibilityFocused(_ arg0: Bool)
-
-  @JavaMethod
-  open func getTextSelectionStart() -> Int32
-
-  @JavaMethod
-  open func getTextSelectionEnd() -> Int32
-
-  @JavaMethod
-  open func setReceiveContentMimeTypes(_ arg0: [String])
-
-  @JavaMethod
-  open func getExtras() -> Bundle!
-
-  @JavaMethod
-  open func setAlpha(_ arg0: Float)
+  open func setVisibility(_ arg0: Int32)
 
   @JavaMethod
   open func getAutofillId() -> AutofillId!
@@ -55,7 +22,10 @@ open class ViewStructure: JavaObject {
   open func setAutofillId(_ arg0: AutofillId?)
 
   @JavaMethod
-  open func setVisibility(_ arg0: Int32)
+  open func setImportantForAutofill(_ arg0: Int32)
+
+  @JavaMethod
+  open func setContentDescription(_ arg0: CharSequence?)
 
   @JavaMethod
   open func setEnabled(_ arg0: Bool)
@@ -73,6 +43,12 @@ open class ViewStructure: JavaObject {
   open func setLongClickable(_ arg0: Bool)
 
   @JavaMethod
+  open func setContextClickable(_ arg0: Bool)
+
+  @JavaMethod
+  open func setAlpha(_ arg0: Float)
+
+  @JavaMethod
   open func setElevation(_ arg0: Float)
 
   @JavaMethod
@@ -85,7 +61,7 @@ open class ViewStructure: JavaObject {
   open func setId(_ arg0: Int32, _ arg1: String, _ arg2: String, _ arg3: String)
 
   @JavaMethod
-  open func getHint() -> CharSequence!
+  open func getExtras() -> Bundle!
 
   @JavaMethod
   open func setDimens(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32, _ arg5: Int32)
@@ -94,22 +70,13 @@ open class ViewStructure: JavaObject {
   open func setTransformation(_ arg0: Matrix?)
 
   @JavaMethod
-  open func setFocused(_ arg0: Bool)
-
-  @JavaMethod
-  open func setCheckable(_ arg0: Bool)
-
-  @JavaMethod
-  open func setChecked(_ arg0: Bool)
-
-  @JavaMethod
   open func setClassName(_ arg0: String)
 
   @JavaMethod
-  open func setText(_ arg0: CharSequence?)
+  open func setText(_ arg0: CharSequence?, _ arg1: Int32, _ arg2: Int32)
 
   @JavaMethod
-  open func setText(_ arg0: CharSequence?, _ arg1: Int32, _ arg2: Int32)
+  open func setText(_ arg0: CharSequence?)
 
   @JavaMethod
   open func setTextStyle(_ arg0: Float, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
@@ -125,6 +92,27 @@ open class ViewStructure: JavaObject {
 
   @JavaMethod
   open func setHintIdEntry(_ arg0: String)
+
+  @JavaMethod
+  open func getTextSelectionStart() -> Int32
+
+  @JavaMethod
+  open func getTextSelectionEnd() -> Int32
+
+  @JavaMethod
+  open func getHint() -> CharSequence!
+
+  @JavaMethod
+  open func setFocused(_ arg0: Bool)
+
+  @JavaMethod
+  open func setAccessibilityFocused(_ arg0: Bool)
+
+  @JavaMethod
+  open func setCheckable(_ arg0: Bool)
+
+  @JavaMethod
+  open func setChecked(_ arg0: Bool)
 
   @JavaMethod
   open func hasExtras() -> Bool
@@ -149,6 +137,9 @@ open class ViewStructure: JavaObject {
 
   @JavaMethod
   open func setAutofillOptions(_ arg0: [CharSequence?])
+
+  @JavaMethod
+  open func setReceiveContentMimeTypes(_ arg0: [String])
 
   @JavaMethod
   open func setInputType(_ arg0: Int32)
@@ -179,4 +170,13 @@ open class ViewStructure: JavaObject {
 
   @JavaMethod
   open func setHtmlInfo(_ arg0: ViewStructure.HtmlInfo?)
+
+  @JavaMethod
+  open func setOpaque(_ arg0: Bool)
+
+  @JavaMethod
+  open func getText() -> CharSequence!
+
+  @JavaMethod
+  open func getChildCount() -> Int32
 }

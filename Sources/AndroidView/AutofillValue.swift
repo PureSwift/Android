@@ -6,16 +6,10 @@ import JavaRuntime
 @JavaClass("android.view.autofill.AutofillValue", implements: Parcelable.self)
 open class AutofillValue: JavaObject {
   @JavaMethod
-  open override func equals(_ arg0: JavaObject?) -> Bool
+  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
   @JavaMethod
-  open override func toString() -> String
-
-  @JavaMethod
-  open override func hashCode() -> Int32
-
-  @JavaMethod
-  open func isText() -> Bool
+  open func describeContents() -> Int32
 
   @JavaMethod
   open func getTextValue() -> CharSequence!
@@ -39,10 +33,16 @@ open class AutofillValue: JavaObject {
   open func isDate() -> Bool
 
   @JavaMethod
-  open func describeContents() -> Int32
+  open override func equals(_ arg0: JavaObject?) -> Bool
 
   @JavaMethod
-  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
+  open override func toString() -> String
+
+  @JavaMethod
+  open override func hashCode() -> Int32
+
+  @JavaMethod
+  open func isText() -> Bool
 }
 extension JavaClass<AutofillValue> {
   @JavaStaticField(isFinal: true)

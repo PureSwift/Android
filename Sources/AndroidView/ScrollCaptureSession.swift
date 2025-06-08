@@ -9,11 +9,11 @@ open class ScrollCaptureSession: JavaObject {
   @_nonoverride public convenience init(_ arg0: Surface?, _ arg1: Rect?, _ arg2: Point?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func getPositionInWindow() -> Point!
-
-  @JavaMethod
   open func getSurface() -> Surface!
 
   @JavaMethod
   open func getScrollBounds() -> Rect!
+
+  @JavaMethod
+  open func getPositionInWindow() -> Point!
 }

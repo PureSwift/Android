@@ -10,10 +10,16 @@ extension DisplayCutout {
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func build() -> DisplayCutout!
+  open func setSafeInsets(_ arg0: Insets?) -> DisplayCutout.Builder!
+
+  @JavaMethod
+  open func setWaterfallInsets(_ arg0: Insets?) -> DisplayCutout.Builder!
 
   @JavaMethod
   open func setBoundingRectLeft(_ arg0: Rect?) -> DisplayCutout.Builder!
+
+  @JavaMethod
+  open func setBoundingRectTop(_ arg0: Rect?) -> DisplayCutout.Builder!
 
   @JavaMethod
   open func setBoundingRectRight(_ arg0: Rect?) -> DisplayCutout.Builder!
@@ -22,15 +28,9 @@ extension DisplayCutout {
   open func setBoundingRectBottom(_ arg0: Rect?) -> DisplayCutout.Builder!
 
   @JavaMethod
-  open func setSafeInsets(_ arg0: Insets?) -> DisplayCutout.Builder!
-
-  @JavaMethod
-  open func setWaterfallInsets(_ arg0: Insets?) -> DisplayCutout.Builder!
-
-  @JavaMethod
-  open func setBoundingRectTop(_ arg0: Rect?) -> DisplayCutout.Builder!
-
-  @JavaMethod
   open func setCutoutPath(_ arg0: Path?) -> DisplayCutout.Builder!
+
+  @JavaMethod
+  open func build() -> DisplayCutout!
   }
 }

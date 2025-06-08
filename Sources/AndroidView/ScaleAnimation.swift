@@ -19,10 +19,10 @@ open class ScaleAnimation: Animation {
   @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open override func initialize(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
+  open override func applyTransformation(_ arg0: Float, _ arg1: Transformation?)
 
   @JavaMethod
-  open override func applyTransformation(_ arg0: Float, _ arg1: Transformation?)
+  open override func initialize(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
 }
 extension JavaClass<ScaleAnimation> {
   @JavaStaticField(isFinal: true)

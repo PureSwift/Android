@@ -6,25 +6,19 @@ import JavaRuntime
 @JavaInterface("android.view.WindowInsetsAnimationController")
 public struct WindowInsetsAnimationController {
   @JavaMethod
-  public func finish(_ arg0: Bool)
-
-  @JavaMethod
-  public func isCancelled() -> Bool
-
-  @JavaMethod
   public func getHiddenStateInsets() -> Insets!
 
   @JavaMethod
   public func getShownStateInsets() -> Insets!
 
   @JavaMethod
-  public func getCurrentAlpha() -> Float
+  public func getCurrentInsets() -> Insets!
 
   @JavaMethod
   public func getCurrentFraction() -> Float
 
   @JavaMethod
-  public func getCurrentInsets() -> Insets!
+  public func getCurrentAlpha() -> Float
 
   @JavaMethod
   public func getTypes() -> Int32
@@ -37,4 +31,10 @@ public struct WindowInsetsAnimationController {
 
   @JavaMethod
   public func isFinished() -> Bool
+
+  @JavaMethod
+  public func finish(_ arg0: Bool)
+
+  @JavaMethod
+  public func isCancelled() -> Bool
 }

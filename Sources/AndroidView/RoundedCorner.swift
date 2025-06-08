@@ -10,19 +10,10 @@ open class RoundedCorner: JavaObject {
   @_nonoverride public convenience init(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open override func equals(_ arg0: JavaObject?) -> Bool
-
-  @JavaMethod
-  open override func toString() -> String
-
-  @JavaMethod
-  open override func hashCode() -> Int32
+  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
   @JavaMethod
   open func describeContents() -> Int32
-
-  @JavaMethod
-  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
   @JavaMethod
   open func getPosition() -> Int32
@@ -32,6 +23,15 @@ open class RoundedCorner: JavaObject {
 
   @JavaMethod
   open func getCenter() -> Point!
+
+  @JavaMethod
+  open override func equals(_ arg0: JavaObject?) -> Bool
+
+  @JavaMethod
+  open override func toString() -> String
+
+  @JavaMethod
+  open override func hashCode() -> Int32
 }
 extension JavaClass<RoundedCorner> {
   @JavaStaticField(isFinal: true)

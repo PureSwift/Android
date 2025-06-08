@@ -9,6 +9,12 @@ extension SurfaceControl {
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
   @JavaMethod
+  open func setBufferSize(_ arg0: Int32, _ arg1: Int32) -> SurfaceControl.Builder!
+
+  @JavaMethod
+  open func setHidden(_ arg0: Bool) -> SurfaceControl.Builder!
+
+  @JavaMethod
   open func setName(_ arg0: String) -> SurfaceControl.Builder!
 
   @JavaMethod
@@ -22,11 +28,5 @@ extension SurfaceControl {
 
   @JavaMethod
   open func setFormat(_ arg0: Int32) -> SurfaceControl.Builder!
-
-  @JavaMethod
-  open func setBufferSize(_ arg0: Int32, _ arg1: Int32) -> SurfaceControl.Builder!
-
-  @JavaMethod
-  open func setHidden(_ arg0: Bool) -> SurfaceControl.Builder!
   }
 }

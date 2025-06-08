@@ -15,6 +15,15 @@ open class ViewConfiguration: JavaObject {
   open func getScaledFadingEdgeLength() -> Int32
 
   @JavaMethod
+  open func getScaledEdgeSlop() -> Int32
+
+  @JavaMethod
+  open func getScaledTouchSlop() -> Int32
+
+  @JavaMethod
+  open func getScaledHoverSlop() -> Int32
+
+  @JavaMethod
   open func getScaledPagingTouchSlop() -> Int32
 
   @JavaMethod
@@ -45,29 +54,20 @@ open class ViewConfiguration: JavaObject {
   open func getScaledOverflingDistance() -> Int32
 
   @JavaMethod
+  open func getScaledAmbiguousGestureMultiplier() -> Float
+
+  @JavaMethod
   open func hasPermanentMenuKey() -> Bool
-
-  @JavaMethod
-  open func getScaledMinimumScalingSpan() -> Int32
-
-  @JavaMethod
-  open func getScaledEdgeSlop() -> Int32
-
-  @JavaMethod
-  open func getScaledTouchSlop() -> Int32
-
-  @JavaMethod
-  open func getScaledHoverSlop() -> Int32
 
   @JavaMethod
   open func shouldShowMenuShortcutsWhenKeyboardPresent() -> Bool
 
   @JavaMethod
-  open func getScaledAmbiguousGestureMultiplier() -> Float
+  open func getScaledMinimumScalingSpan() -> Int32
 }
 extension JavaClass<ViewConfiguration> {
   @JavaStaticMethod
-  public func get(_ arg0: Context?) -> ViewConfiguration!
+  public func getScrollBarSize() -> Int32
 
   @JavaStaticMethod
   public func getScrollBarFadeDuration() -> Int32
@@ -88,10 +88,28 @@ extension JavaClass<ViewConfiguration> {
   public func getMultiPressTimeout() -> Int32
 
   @JavaStaticMethod
+  public func getKeyRepeatDelay() -> Int32
+
+  @JavaStaticMethod
   public func getKeyRepeatTimeout() -> Int32
 
   @JavaStaticMethod
+  public func getTapTimeout() -> Int32
+
+  @JavaStaticMethod
+  public func getJumpTapTimeout() -> Int32
+
+  @JavaStaticMethod
   public func getDoubleTapTimeout() -> Int32
+
+  @JavaStaticMethod
+  public func getEdgeSlop() -> Int32
+
+  @JavaStaticMethod
+  public func getTouchSlop() -> Int32
+
+  @JavaStaticMethod
+  public func getWindowTouchSlop() -> Int32
 
   @JavaStaticMethod
   public func getMinimumFlingVelocity() -> Int32
@@ -109,32 +127,14 @@ extension JavaClass<ViewConfiguration> {
   public func getGlobalActionKeyTimeout() -> Int64
 
   @JavaStaticMethod
+  public func getScrollFriction() -> Float
+
+  @JavaStaticMethod
   public func getDefaultActionModeHideDuration() -> Int64
 
   @JavaStaticMethod
   public func getAmbiguousGestureMultiplier() -> Float
 
   @JavaStaticMethod
-  public func getScrollBarSize() -> Int32
-
-  @JavaStaticMethod
-  public func getKeyRepeatDelay() -> Int32
-
-  @JavaStaticMethod
-  public func getTapTimeout() -> Int32
-
-  @JavaStaticMethod
-  public func getJumpTapTimeout() -> Int32
-
-  @JavaStaticMethod
-  public func getEdgeSlop() -> Int32
-
-  @JavaStaticMethod
-  public func getTouchSlop() -> Int32
-
-  @JavaStaticMethod
-  public func getWindowTouchSlop() -> Int32
-
-  @JavaStaticMethod
-  public func getScrollFriction() -> Float
+  public func get(_ arg0: Context?) -> ViewConfiguration!
 }

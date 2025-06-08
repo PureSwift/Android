@@ -6,13 +6,13 @@ import JavaRuntime
 @JavaClass("android.view.DragAndDropPermissions", implements: Parcelable.self)
 open class DragAndDropPermissions: JavaObject {
   @JavaMethod
-  open func release()
+  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
   @JavaMethod
   open func describeContents() -> Int32
 
   @JavaMethod
-  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
+  open func release()
 }
 extension JavaClass<DragAndDropPermissions> {
   @JavaStaticField(isFinal: true)

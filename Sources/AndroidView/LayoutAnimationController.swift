@@ -7,28 +7,22 @@ import JavaRuntime
 @JavaClass("android.view.animation.LayoutAnimationController")
 open class LayoutAnimationController: JavaObject {
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Animation?, _ arg1: Float, environment: JNIEnvironment? = nil)
-
-  @JavaMethod
   @_nonoverride public convenience init(_ arg0: Animation?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func start()
+  @_nonoverride public convenience init(_ arg0: Animation?, _ arg1: Float, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func isDone() -> Bool
+  open func getAnimation() -> Animation!
 
   @JavaMethod
-  open func getAnimationForView(_ arg0: View?) -> Animation!
+  open func setAnimation(_ arg0: Context?, _ arg1: Int32)
 
   @JavaMethod
-  open func getTransformedIndex(_ arg0: LayoutAnimationController.AnimationParameters?) -> Int32
-
-  @JavaMethod
-  open func getInterpolator() -> Interpolator!
+  open func setAnimation(_ arg0: Animation?)
 
   @JavaMethod
   open func setInterpolator(_ arg0: Interpolator?)
@@ -37,13 +31,7 @@ open class LayoutAnimationController: JavaObject {
   open func setInterpolator(_ arg0: Context?, _ arg1: Int32)
 
   @JavaMethod
-  open func getAnimation() -> Animation!
-
-  @JavaMethod
-  open func setAnimation(_ arg0: Animation?)
-
-  @JavaMethod
-  open func setAnimation(_ arg0: Context?, _ arg1: Int32)
+  open func getInterpolator() -> Interpolator!
 
   @JavaMethod
   open func willOverlap() -> Bool
@@ -62,6 +50,18 @@ open class LayoutAnimationController: JavaObject {
 
   @JavaMethod
   open func setDelay(_ arg0: Float)
+
+  @JavaMethod
+  open func getAnimationForView(_ arg0: View?) -> Animation!
+
+  @JavaMethod
+  open func getTransformedIndex(_ arg0: LayoutAnimationController.AnimationParameters?) -> Int32
+
+  @JavaMethod
+  open func start()
+
+  @JavaMethod
+  open func isDone() -> Bool
 }
 extension JavaClass<LayoutAnimationController> {
   @JavaStaticField(isFinal: true)

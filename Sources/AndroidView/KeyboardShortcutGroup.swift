@@ -13,19 +13,19 @@ open class KeyboardShortcutGroup: JavaObject {
   @_nonoverride public convenience init(_ arg0: CharSequence?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func getLabel() -> CharSequence!
+  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
   @JavaMethod
   open func describeContents() -> Int32
-
-  @JavaMethod
-  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
   @JavaMethod
   open func getItems() -> List<KeyboardShortcutInfo>!
 
   @JavaMethod
   open func addItem(_ arg0: KeyboardShortcutInfo?)
+
+  @JavaMethod
+  open func getLabel() -> CharSequence!
 }
 extension JavaClass<KeyboardShortcutGroup> {
   @JavaStaticField(isFinal: true)

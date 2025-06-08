@@ -9,16 +9,16 @@ open class WindowInsets: JavaObject {
   @_nonoverride public convenience init(_ arg0: WindowInsets?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open override func equals(_ arg0: JavaObject?) -> Bool
+  open func isVisible(_ arg0: Int32) -> Bool
 
   @JavaMethod
-  open override func toString() -> String
-
-  @JavaMethod
-  open override func hashCode() -> Int32
+  open func getRoundedCorner(_ arg0: Int32) -> RoundedCorner!
 
   @JavaMethod
   open func getSystemWindowInsets() -> Insets!
+
+  @JavaMethod
+  open func getInsets(_ arg0: Int32) -> Insets!
 
   @JavaMethod
   open func getInsetsIgnoringVisibility(_ arg0: Int32) -> Insets!
@@ -39,25 +39,49 @@ open class WindowInsets: JavaObject {
   open func hasSystemWindowInsets() -> Bool
 
   @JavaMethod
+  open func hasInsets() -> Bool
+
+  @JavaMethod
+  open func getDisplayCutout() -> DisplayCutout!
+
+  @JavaMethod
   open func getPrivacyIndicatorBounds() -> Rect!
 
   @JavaMethod
   open func consumeDisplayCutout() -> WindowInsets!
 
   @JavaMethod
+  open func isConsumed() -> Bool
+
+  @JavaMethod
+  open func isRound() -> Bool
+
+  @JavaMethod
   open func consumeSystemWindowInsets() -> WindowInsets!
+
+  @JavaMethod
+  open func replaceSystemWindowInsets(_ arg0: Rect?) -> WindowInsets!
 
   @JavaMethod
   open func replaceSystemWindowInsets(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32) -> WindowInsets!
 
   @JavaMethod
-  open func replaceSystemWindowInsets(_ arg0: Rect?) -> WindowInsets!
+  open func getStableInsets() -> Insets!
+
+  @JavaMethod
+  open func getStableInsetTop() -> Int32
+
+  @JavaMethod
+  open func getStableInsetLeft() -> Int32
 
   @JavaMethod
   open func getStableInsetRight() -> Int32
 
   @JavaMethod
   open func getStableInsetBottom() -> Int32
+
+  @JavaMethod
+  open func hasStableInsets() -> Bool
 
   @JavaMethod
   open func getSystemGestureInsets() -> Insets!
@@ -72,43 +96,19 @@ open class WindowInsets: JavaObject {
   open func consumeStableInsets() -> WindowInsets!
 
   @JavaMethod
-  open func isVisible(_ arg0: Int32) -> Bool
+  open func inset(_ arg0: Insets?) -> WindowInsets!
 
   @JavaMethod
   open func inset(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32) -> WindowInsets!
 
   @JavaMethod
-  open func inset(_ arg0: Insets?) -> WindowInsets!
+  open override func equals(_ arg0: JavaObject?) -> Bool
 
   @JavaMethod
-  open func getInsets(_ arg0: Int32) -> Insets!
+  open override func toString() -> String
 
   @JavaMethod
-  open func hasInsets() -> Bool
-
-  @JavaMethod
-  open func getDisplayCutout() -> DisplayCutout!
-
-  @JavaMethod
-  open func isConsumed() -> Bool
-
-  @JavaMethod
-  open func isRound() -> Bool
-
-  @JavaMethod
-  open func getStableInsets() -> Insets!
-
-  @JavaMethod
-  open func getStableInsetTop() -> Int32
-
-  @JavaMethod
-  open func getStableInsetLeft() -> Int32
-
-  @JavaMethod
-  open func hasStableInsets() -> Bool
-
-  @JavaMethod
-  open func getRoundedCorner(_ arg0: Int32) -> RoundedCorner!
+  open override func hashCode() -> Int32
 }
 extension JavaClass<WindowInsets> {
   @JavaStaticField(isFinal: true)

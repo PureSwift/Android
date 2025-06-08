@@ -6,30 +6,6 @@ import JavaRuntime
 @JavaClass("android.view.ViewPropertyAnimator")
 open class ViewPropertyAnimator: JavaObject {
   @JavaMethod
-  open func x(_ arg0: Float) -> ViewPropertyAnimator!
-
-  @JavaMethod
-  open func start()
-
-  @JavaMethod
-  open func cancel()
-
-  @JavaMethod
-  open func z(_ arg0: Float) -> ViewPropertyAnimator!
-
-  @JavaMethod
-  open func y(_ arg0: Float) -> ViewPropertyAnimator!
-
-  @JavaMethod
-  open func getDuration() -> Int64
-
-  @JavaMethod
-  open func alpha(_ arg0: Float) -> ViewPropertyAnimator!
-
-  @JavaMethod
-  open func setDuration(_ arg0: Int64) -> ViewPropertyAnimator!
-
-  @JavaMethod
   open func rotation(_ arg0: Float) -> ViewPropertyAnimator!
 
   @JavaMethod
@@ -45,6 +21,9 @@ open class ViewPropertyAnimator: JavaObject {
   open func scaleY(_ arg0: Float) -> ViewPropertyAnimator!
 
   @JavaMethod
+  open func alpha(_ arg0: Float) -> ViewPropertyAnimator!
+
+  @JavaMethod
   open func translationX(_ arg0: Float) -> ViewPropertyAnimator!
 
   @JavaMethod
@@ -52,6 +31,9 @@ open class ViewPropertyAnimator: JavaObject {
 
   @JavaMethod
   open func translationZ(_ arg0: Float) -> ViewPropertyAnimator!
+
+  @JavaMethod
+  open func setDuration(_ arg0: Int64) -> ViewPropertyAnimator!
 
   @JavaMethod
   open func getStartDelay() -> Int64
@@ -103,4 +85,22 @@ open class ViewPropertyAnimator: JavaObject {
 
   @JavaMethod
   open func withEndAction(_ arg0: Runnable?) -> ViewPropertyAnimator!
+
+  @JavaMethod
+  open func x(_ arg0: Float) -> ViewPropertyAnimator!
+
+  @JavaMethod
+  open func start()
+
+  @JavaMethod
+  open func cancel()
+
+  @JavaMethod
+  open func z(_ arg0: Float) -> ViewPropertyAnimator!
+
+  @JavaMethod
+  open func y(_ arg0: Float) -> ViewPropertyAnimator!
+
+  @JavaMethod
+  open func getDuration() -> Int64
 }

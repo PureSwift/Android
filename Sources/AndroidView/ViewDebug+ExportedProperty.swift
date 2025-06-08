@@ -7,15 +7,6 @@ extension ViewDebug {
   @JavaInterface("android.view.ViewDebug$ExportedProperty", extends: Annotation.self)
   public struct ExportedProperty {
   @JavaMethod
-  public func prefix() -> String
-
-  @JavaMethod
-  public func mapping() -> [ViewDebug.IntToString?]
-
-  @JavaMethod
-  public func category() -> String
-
-  @JavaMethod
   public func flagMapping() -> [ViewDebug.FlagToString?]
 
   @JavaMethod
@@ -32,6 +23,15 @@ extension ViewDebug {
 
   @JavaMethod
   public func hasAdjacentMapping() -> Bool
+
+  @JavaMethod
+  public func prefix() -> String
+
+  @JavaMethod
+  public func mapping() -> [ViewDebug.IntToString?]
+
+  @JavaMethod
+  public func category() -> String
 
   @JavaMethod
   public func equals(_ arg0: JavaObject?) -> Bool

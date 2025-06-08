@@ -7,6 +7,33 @@ import JavaRuntime
 @JavaClass("android.view.LayoutInflater")
 open class LayoutInflater: JavaObject {
   @JavaMethod
+  open func cloneInContext(_ arg0: Context?) -> LayoutInflater!
+
+  @JavaMethod
+  open func getFactory2() -> LayoutInflater.Factory2!
+
+  @JavaMethod
+  open func setFactory(_ arg0: LayoutInflater.Factory?)
+
+  @JavaMethod
+  open func setFactory2(_ arg0: LayoutInflater.Factory2?)
+
+  @JavaMethod
+  open func createView(_ arg0: String, _ arg1: String, _ arg2: AttributeSet?) throws -> View!
+
+  @JavaMethod
+  open func createView(_ arg0: Context?, _ arg1: String, _ arg2: String, _ arg3: AttributeSet?) throws -> View!
+
+  @JavaMethod
+  open func onCreateView(_ arg0: View?, _ arg1: String, _ arg2: AttributeSet?) throws -> View!
+
+  @JavaMethod
+  open func onCreateView(_ arg0: String, _ arg1: AttributeSet?) throws -> View!
+
+  @JavaMethod
+  open func onCreateView(_ arg0: Context?, _ arg1: View?, _ arg2: String, _ arg3: AttributeSet?) throws -> View!
+
+  @JavaMethod
   open func inflate(_ arg0: Int32, _ arg1: ViewGroup?) -> View!
 
   @JavaMethod
@@ -23,33 +50,6 @@ open class LayoutInflater: JavaObject {
 
   @JavaMethod
   open func setFilter(_ arg0: LayoutInflater.Filter?)
-
-  @JavaMethod
-  open func cloneInContext(_ arg0: Context?) -> LayoutInflater!
-
-  @JavaMethod
-  open func getFactory2() -> LayoutInflater.Factory2!
-
-  @JavaMethod
-  open func setFactory(_ arg0: LayoutInflater.Factory?)
-
-  @JavaMethod
-  open func setFactory2(_ arg0: LayoutInflater.Factory2?)
-
-  @JavaMethod
-  open func createView(_ arg0: Context?, _ arg1: String, _ arg2: String, _ arg3: AttributeSet?) throws -> View!
-
-  @JavaMethod
-  open func createView(_ arg0: String, _ arg1: String, _ arg2: AttributeSet?) throws -> View!
-
-  @JavaMethod
-  open func onCreateView(_ arg0: Context?, _ arg1: View?, _ arg2: String, _ arg3: AttributeSet?) throws -> View!
-
-  @JavaMethod
-  open func onCreateView(_ arg0: View?, _ arg1: String, _ arg2: AttributeSet?) throws -> View!
-
-  @JavaMethod
-  open func onCreateView(_ arg0: String, _ arg1: AttributeSet?) throws -> View!
 }
 extension JavaClass<LayoutInflater> {
   @JavaStaticMethod

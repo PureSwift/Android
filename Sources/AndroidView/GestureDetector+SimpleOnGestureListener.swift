@@ -9,7 +9,7 @@ extension GestureDetector {
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func onSingleTapConfirmed(_ arg0: MotionEvent?) -> Bool
+  open func onContextClick(_ arg0: MotionEvent?) -> Bool
 
   @JavaMethod
   open func onSingleTapUp(_ arg0: MotionEvent?) -> Bool
@@ -36,6 +36,6 @@ extension GestureDetector {
   open func onDoubleTapEvent(_ arg0: MotionEvent?) -> Bool
 
   @JavaMethod
-  open func onContextClick(_ arg0: MotionEvent?) -> Bool
+  open func onSingleTapConfirmed(_ arg0: MotionEvent?) -> Bool
   }
 }

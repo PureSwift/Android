@@ -9,22 +9,31 @@ import JavaRuntime
 @JavaClass("android.view.SurfaceView")
 open class SurfaceView: View {
   @JavaMethod
+  @_nonoverride public convenience init(_ arg0: Context?, environment: JNIEnvironment? = nil)
+
+  @JavaMethod
+  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, environment: JNIEnvironment? = nil)
+
+  @JavaMethod
   @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, _ arg2: Int32, _ arg3: Int32, environment: JNIEnvironment? = nil)
 
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, _ arg2: Int32, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, environment: JNIEnvironment? = nil)
+  open override func onMeasure(_ arg0: Int32, _ arg1: Int32)
 
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Context?, environment: JNIEnvironment? = nil)
+  open override func draw(_ arg0: Canvas?)
 
   @JavaMethod
-  open func setZOrderMediaOverlay(_ arg0: Bool)
+  open override func dispatchDraw(_ arg0: Canvas?)
 
   @JavaMethod
-  open func setChildSurfacePackage(_ arg0: SurfaceControlViewHost.SurfacePackage?)
+  open override func setVisibility(_ arg0: Int32)
+
+  @JavaMethod
+  open override func onFocusChanged(_ arg0: Bool, _ arg1: Int32, _ arg2: Rect?)
 
   @JavaMethod
   open override func getImportantForAccessibility() -> Int32
@@ -33,37 +42,22 @@ open class SurfaceView: View {
   open override func onWindowVisibilityChanged(_ arg0: Int32)
 
   @JavaMethod
-  open override func onDetachedFromWindow()
-
-  @JavaMethod
-  open override func gatherTransparentRegion(_ arg0: Region?) -> Bool
-
-  @JavaMethod
   open override func setAlpha(_ arg0: Float)
-
-  @JavaMethod
-  open override func onFocusChanged(_ arg0: Bool, _ arg1: Int32, _ arg2: Rect?)
-
-  @JavaMethod
-  open override func setVisibility(_ arg0: Int32)
-
-  @JavaMethod
-  open override func dispatchDraw(_ arg0: Canvas?)
 
   @JavaMethod
   open override func onAttachedToWindow()
 
   @JavaMethod
+  open override func onDetachedFromWindow()
+
+  @JavaMethod
   open override func setClipBounds(_ arg0: Rect?)
 
   @JavaMethod
-  open override func draw(_ arg0: Canvas?)
+  open override func gatherTransparentRegion(_ arg0: Region?) -> Bool
 
   @JavaMethod
-  open override func onMeasure(_ arg0: Int32, _ arg1: Int32)
-
-  @JavaMethod
-  open func getHolder() -> SurfaceHolder!
+  open func setZOrderMediaOverlay(_ arg0: Bool)
 
   @JavaMethod
   open func setZOrderOnTop(_ arg0: Bool)
@@ -76,6 +70,12 @@ open class SurfaceView: View {
 
   @JavaMethod
   open func getHostToken() -> IBinder!
+
+  @JavaMethod
+  open func setChildSurfacePackage(_ arg0: SurfaceControlViewHost.SurfacePackage?)
+
+  @JavaMethod
+  open func getHolder() -> SurfaceHolder!
 }
 extension JavaClass<SurfaceView> {
   @JavaStaticField(isFinal: true)

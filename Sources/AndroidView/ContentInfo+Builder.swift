@@ -8,24 +8,24 @@ extension ContentInfo {
   @JavaClass("android.view.ContentInfo$Builder")
   open class Builder: JavaObject {
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: ContentInfo?, environment: JNIEnvironment? = nil)
-
-  @JavaMethod
   @_nonoverride public convenience init(_ arg0: ClipData?, _ arg1: Int32, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func build() -> ContentInfo!
-
-  @JavaMethod
-  open func setFlags(_ arg0: Int32) -> ContentInfo.Builder!
-
-  @JavaMethod
-  open func setSource(_ arg0: Int32) -> ContentInfo.Builder!
+  @_nonoverride public convenience init(_ arg0: ContentInfo?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
   open func setClip(_ arg0: ClipData?) -> ContentInfo.Builder!
 
   @JavaMethod
   open func setExtras(_ arg0: Bundle?) -> ContentInfo.Builder!
+
+  @JavaMethod
+  open func setSource(_ arg0: Int32) -> ContentInfo.Builder!
+
+  @JavaMethod
+  open func build() -> ContentInfo!
+
+  @JavaMethod
+  open func setFlags(_ arg0: Int32) -> ContentInfo.Builder!
   }
 }

@@ -6,12 +6,12 @@ extension Choreographer {
   @JavaClass("android.view.Choreographer$FrameData")
   open class FrameData: JavaObject {
   @JavaMethod
-  open func getPreferredFrameTimeline() -> Choreographer.FrameTimeline!
-
-  @JavaMethod
   open func getFrameTimeNanos() -> Int64
 
   @JavaMethod
   open func getFrameTimelines() -> [Choreographer.FrameTimeline?]
+
+  @JavaMethod
+  open func getPreferredFrameTimeline() -> Choreographer.FrameTimeline!
   }
 }

@@ -13,28 +13,22 @@ open class Surface: JavaObject {
   @_nonoverride public convenience init(_ arg0: SurfaceTexture?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open override func finalize() throws
-
-  @JavaMethod
-  open override func toString() -> String
-
-  @JavaMethod
-  open func release()
-
-  @JavaMethod
-  open func isValid() -> Bool
-
-  @JavaMethod
-  open func unlockCanvasAndPost(_ arg0: Canvas?)
+  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
   @JavaMethod
   open func describeContents() -> Int32
 
   @JavaMethod
-  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
+  open func setFrameRate(_ arg0: Float, _ arg1: Int32, _ arg2: Int32)
+
+  @JavaMethod
+  open func setFrameRate(_ arg0: Float, _ arg1: Int32)
 
   @JavaMethod
   open func lockCanvas(_ arg0: Rect?) throws -> Canvas!
+
+  @JavaMethod
+  open func unlockCanvasAndPost(_ arg0: Canvas?)
 
   @JavaMethod
   open func lockHardwareCanvas() -> Canvas!
@@ -46,10 +40,16 @@ open class Surface: JavaObject {
   open func readFromParcel(_ arg0: Parcel?)
 
   @JavaMethod
-  open func setFrameRate(_ arg0: Float, _ arg1: Int32, _ arg2: Int32)
+  open override func finalize() throws
 
   @JavaMethod
-  open func setFrameRate(_ arg0: Float, _ arg1: Int32)
+  open override func toString() -> String
+
+  @JavaMethod
+  open func release()
+
+  @JavaMethod
+  open func isValid() -> Bool
 }
 extension JavaClass<Surface> {
   @JavaStaticField(isFinal: true)

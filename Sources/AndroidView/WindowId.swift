@@ -6,13 +6,13 @@ import JavaRuntime
 @JavaClass("android.view.WindowId", implements: Parcelable.self)
 open class WindowId: JavaObject {
   @JavaMethod
-  open override func equals(_ arg0: JavaObject?) -> Bool
+  open func isFocused() -> Bool
 
   @JavaMethod
-  open override func toString() -> String
+  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
   @JavaMethod
-  open override func hashCode() -> Int32
+  open func describeContents() -> Int32
 
   @JavaMethod
   open func registerFocusObserver(_ arg0: WindowId.FocusObserver?)
@@ -21,13 +21,13 @@ open class WindowId: JavaObject {
   open func unregisterFocusObserver(_ arg0: WindowId.FocusObserver?)
 
   @JavaMethod
-  open func describeContents() -> Int32
+  open override func equals(_ arg0: JavaObject?) -> Bool
 
   @JavaMethod
-  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
+  open override func toString() -> String
 
   @JavaMethod
-  open func isFocused() -> Bool
+  open override func hashCode() -> Int32
 }
 extension JavaClass<WindowId> {
   @JavaStaticField(isFinal: true)

@@ -9,13 +9,13 @@ public struct AttachedSurfaceControl {
   public func buildReparentTransaction(_ arg0: SurfaceControl?) -> SurfaceControl.Transaction!
 
   @JavaMethod
+  public func setTouchableRegion(_ arg0: Region?)
+
+  @JavaMethod
   public func applyTransactionOnDraw(_ arg0: SurfaceControl.Transaction?) -> Bool
 
   @JavaMethod
   public func getBufferTransformHint() -> Int32
-
-  @JavaMethod
-  public func setTouchableRegion(_ arg0: Region?)
 
   @JavaMethod
   public func addOnBufferTransformHintChangedListener(_ arg0: AttachedSurfaceControl.OnBufferTransformHintChangedListener?)

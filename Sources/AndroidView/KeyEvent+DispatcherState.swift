@@ -9,21 +9,21 @@ extension KeyEvent {
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func reset(_ arg0: JavaObject?)
-
-  @JavaMethod
-  open func reset()
+  open func isTracking(_ arg0: KeyEvent?) -> Bool
 
   @JavaMethod
   open func startTracking(_ arg0: KeyEvent?, _ arg1: JavaObject?)
-
-  @JavaMethod
-  open func isTracking(_ arg0: KeyEvent?) -> Bool
 
   @JavaMethod
   open func performedLongPress(_ arg0: KeyEvent?)
 
   @JavaMethod
   open func handleUpEvent(_ arg0: KeyEvent?)
+
+  @JavaMethod
+  open func reset()
+
+  @JavaMethod
+  open func reset(_ arg0: JavaObject?)
   }
 }

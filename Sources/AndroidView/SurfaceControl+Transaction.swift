@@ -12,31 +12,16 @@ extension SurfaceControl {
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func apply()
-
-  @JavaMethod
-  open func merge(_ arg0: SurfaceControl.Transaction?) -> SurfaceControl.Transaction!
-
-  @JavaMethod
-  open func close()
-
-  @JavaMethod
-  open func setOpaque(_ arg0: SurfaceControl?, _ arg1: Bool) -> SurfaceControl.Transaction!
-
-  @JavaMethod
-  open func setScale(_ arg0: SurfaceControl?, _ arg1: Float, _ arg2: Float) -> SurfaceControl.Transaction!
-
-  @JavaMethod
-  open func describeContents() -> Int32
-
-  @JavaMethod
-  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
+  open func setVisibility(_ arg0: SurfaceControl?, _ arg1: Bool) -> SurfaceControl.Transaction!
 
   @JavaMethod
   open func setAlpha(_ arg0: SurfaceControl?, _ arg1: Float) -> SurfaceControl.Transaction!
 
   @JavaMethod
-  open func setVisibility(_ arg0: SurfaceControl?, _ arg1: Bool) -> SurfaceControl.Transaction!
+  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
+
+  @JavaMethod
+  open func describeContents() -> Int32
 
   @JavaMethod
   open func setPosition(_ arg0: SurfaceControl?, _ arg1: Float, _ arg2: Float) -> SurfaceControl.Transaction!
@@ -57,10 +42,10 @@ extension SurfaceControl {
   open func reparent(_ arg0: SurfaceControl?, _ arg1: SurfaceControl?) -> SurfaceControl.Transaction!
 
   @JavaMethod
-  open func setFrameRate(_ arg0: SurfaceControl?, _ arg1: Float, _ arg2: Int32) -> SurfaceControl.Transaction!
+  open func setFrameRate(_ arg0: SurfaceControl?, _ arg1: Float, _ arg2: Int32, _ arg3: Int32) -> SurfaceControl.Transaction!
 
   @JavaMethod
-  open func setFrameRate(_ arg0: SurfaceControl?, _ arg1: Float, _ arg2: Int32, _ arg3: Int32) -> SurfaceControl.Transaction!
+  open func setFrameRate(_ arg0: SurfaceControl?, _ arg1: Float, _ arg2: Int32) -> SurfaceControl.Transaction!
 
   @JavaMethod
   open func setBufferTransform(_ arg0: SurfaceControl?, _ arg1: Int32) -> SurfaceControl.Transaction!
@@ -70,6 +55,21 @@ extension SurfaceControl {
 
   @JavaMethod
   open func setDataSpace(_ arg0: SurfaceControl?, _ arg1: Int32) -> SurfaceControl.Transaction!
+
+  @JavaMethod
+  open func apply()
+
+  @JavaMethod
+  open func merge(_ arg0: SurfaceControl.Transaction?) -> SurfaceControl.Transaction!
+
+  @JavaMethod
+  open func close()
+
+  @JavaMethod
+  open func setOpaque(_ arg0: SurfaceControl?, _ arg1: Bool) -> SurfaceControl.Transaction!
+
+  @JavaMethod
+  open func setScale(_ arg0: SurfaceControl?, _ arg1: Float, _ arg2: Float) -> SurfaceControl.Transaction!
   }
 }
 extension JavaClass<SurfaceControl.Transaction> {

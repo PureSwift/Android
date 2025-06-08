@@ -6,43 +6,16 @@ import JavaRuntime
 @JavaInterface("android.view.Menu")
 public struct Menu {
   @JavaMethod
-  public func size() -> Int32
-
-  @JavaMethod
-  public func clear()
-
-  @JavaMethod
-  public func add(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32) -> MenuItem!
-
-  @JavaMethod
-  public func add(_ arg0: CharSequence?) -> MenuItem!
-
-  @JavaMethod
-  public func add(_ arg0: Int32) -> MenuItem!
-
-  @JavaMethod
-  public func add(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: CharSequence?) -> MenuItem!
-
-  @JavaMethod
-  public func close()
-
-  @JavaMethod
-  public func performIdentifierAction(_ arg0: Int32, _ arg1: Int32) -> Bool
-
-  @JavaMethod
-  public func setGroupDividerEnabled(_ arg0: Bool)
-
-  @JavaMethod
   public func getItem(_ arg0: Int32) -> MenuItem!
 
   @JavaMethod
   public func addSubMenu(_ arg0: Int32) -> SubMenu!
 
   @JavaMethod
-  public func addSubMenu(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32) -> SubMenu!
+  public func addSubMenu(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: CharSequence?) -> SubMenu!
 
   @JavaMethod
-  public func addSubMenu(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: CharSequence?) -> SubMenu!
+  public func addSubMenu(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32) -> SubMenu!
 
   @JavaMethod
   public func addSubMenu(_ arg0: CharSequence?) -> SubMenu!
@@ -75,10 +48,37 @@ public struct Menu {
   public func performShortcut(_ arg0: Int32, _ arg1: KeyEvent?, _ arg2: Int32) -> Bool
 
   @JavaMethod
+  public func isShortcutKey(_ arg0: Int32, _ arg1: KeyEvent?) -> Bool
+
+  @JavaMethod
+  public func performIdentifierAction(_ arg0: Int32, _ arg1: Int32) -> Bool
+
+  @JavaMethod
   public func setQwertyMode(_ arg0: Bool)
 
   @JavaMethod
-  public func isShortcutKey(_ arg0: Int32, _ arg1: KeyEvent?) -> Bool
+  public func setGroupDividerEnabled(_ arg0: Bool)
+
+  @JavaMethod
+  public func size() -> Int32
+
+  @JavaMethod
+  public func clear()
+
+  @JavaMethod
+  public func add(_ arg0: CharSequence?) -> MenuItem!
+
+  @JavaMethod
+  public func add(_ arg0: Int32) -> MenuItem!
+
+  @JavaMethod
+  public func add(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: CharSequence?) -> MenuItem!
+
+  @JavaMethod
+  public func add(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32) -> MenuItem!
+
+  @JavaMethod
+  public func close()
 }
 extension JavaClass<Menu> {
   @JavaStaticField(isFinal: true)

@@ -6,6 +6,6 @@ extension LayoutInflater {
   @JavaInterface("android.view.LayoutInflater$Filter")
   public struct Filter {
   @JavaMethod
-  public func onLoadClass(_ arg0: JavaClass<JavaObject>?) -> Bool
+  public func onLoadClass(_ arg0: JavaClass<LayoutInflater>?) -> Bool
   }
 }

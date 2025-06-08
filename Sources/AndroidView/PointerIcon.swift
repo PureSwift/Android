@@ -8,13 +8,13 @@ import JavaRuntime
 @JavaClass("android.view.PointerIcon", implements: Parcelable.self)
 open class PointerIcon: JavaObject {
   @JavaMethod
-  open override func equals(_ arg0: JavaObject?) -> Bool
+  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
   @JavaMethod
   open func describeContents() -> Int32
 
   @JavaMethod
-  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
+  open override func equals(_ arg0: JavaObject?) -> Bool
 }
 extension JavaClass<PointerIcon> {
   @JavaStaticField(isFinal: true)
@@ -96,11 +96,11 @@ extension JavaClass<PointerIcon> {
   public var PARCELABLE_WRITE_RETURN_VALUE: Int32
 
   @JavaStaticMethod
+  public func getSystemIcon(_ arg0: Context?, _ arg1: Int32) -> PointerIcon!
+
+  @JavaStaticMethod
   public func load(_ arg0: Resources?, _ arg1: Int32) -> PointerIcon!
 
   @JavaStaticMethod
   public func create(_ arg0: Bitmap?, _ arg1: Float, _ arg2: Float) -> PointerIcon!
-
-  @JavaStaticMethod
-  public func getSystemIcon(_ arg0: Context?, _ arg1: Int32) -> PointerIcon!
 }

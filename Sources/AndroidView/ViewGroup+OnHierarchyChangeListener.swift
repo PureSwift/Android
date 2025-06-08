@@ -6,9 +6,9 @@ extension ViewGroup {
   @JavaInterface("android.view.ViewGroup$OnHierarchyChangeListener")
   public struct OnHierarchyChangeListener {
   @JavaMethod
-  public func onChildViewAdded(_ arg0: View?, _ arg1: View?)
+  public func onChildViewRemoved(_ arg0: View?, _ arg1: View?)
 
   @JavaMethod
-  public func onChildViewRemoved(_ arg0: View?, _ arg1: View?)
+  public func onChildViewAdded(_ arg0: View?, _ arg1: View?)
   }
 }

@@ -7,46 +7,25 @@ import JavaRuntime
 @JavaInterface("android.view.MenuItem")
 public struct MenuItem {
   @JavaMethod
-  public func isEnabled() -> Bool
-
-  @JavaMethod
   public func getContentDescription() -> CharSequence!
 
   @JavaMethod
   public func setContentDescription(_ arg0: CharSequence?) -> MenuItem!
 
   @JavaMethod
-  public func setIconTintBlendMode(_ arg0: BlendMode?) -> MenuItem!
+  public func setEnabled(_ arg0: Bool) -> MenuItem!
 
   @JavaMethod
-  public func getIconTintBlendMode() -> BlendMode!
+  public func isVisible() -> Bool
 
   @JavaMethod
-  public func getNumericModifiers() -> Int32
+  public func setTooltipText(_ arg0: CharSequence?) -> MenuItem!
 
   @JavaMethod
-  public func setAlphabeticShortcut(_ arg0: UInt16) -> MenuItem!
+  public func getTooltipText() -> CharSequence!
 
   @JavaMethod
-  public func setAlphabeticShortcut(_ arg0: UInt16, _ arg1: Int32) -> MenuItem!
-
-  @JavaMethod
-  public func getAlphabeticShortcut() -> UInt16
-
-  @JavaMethod
-  public func getAlphabeticModifiers() -> Int32
-
-  @JavaMethod
-  public func setOnMenuItemClickListener(_ arg0: MenuItem.OnMenuItemClickListener?) -> MenuItem!
-
-  @JavaMethod
-  public func setShowAsActionFlags(_ arg0: Int32) -> MenuItem!
-
-  @JavaMethod
-  public func isActionViewExpanded() -> Bool
-
-  @JavaMethod
-  public func setOnActionExpandListener(_ arg0: MenuItem.OnActionExpandListener?) -> MenuItem!
+  public func hasSubMenu() -> Bool
 
   @JavaMethod
   public func setTitle(_ arg0: Int32) -> MenuItem!
@@ -85,7 +64,13 @@ public struct MenuItem {
   public func setIconTintMode(_ arg0: PorterDuff.Mode?) -> MenuItem!
 
   @JavaMethod
+  public func setIconTintBlendMode(_ arg0: BlendMode?) -> MenuItem!
+
+  @JavaMethod
   public func getIconTintMode() -> PorterDuff.Mode!
+
+  @JavaMethod
+  public func getIconTintBlendMode() -> BlendMode!
 
   @JavaMethod
   public func setIntent(_ arg0: Intent?) -> MenuItem!
@@ -94,19 +79,34 @@ public struct MenuItem {
   public func getIntent() -> Intent!
 
   @JavaMethod
-  public func setShortcut(_ arg0: UInt16, _ arg1: UInt16, _ arg2: Int32, _ arg3: Int32) -> MenuItem!
-
-  @JavaMethod
   public func setShortcut(_ arg0: UInt16, _ arg1: UInt16) -> MenuItem!
 
   @JavaMethod
-  public func setNumericShortcut(_ arg0: UInt16, _ arg1: Int32) -> MenuItem!
+  public func setShortcut(_ arg0: UInt16, _ arg1: UInt16, _ arg2: Int32, _ arg3: Int32) -> MenuItem!
 
   @JavaMethod
   public func setNumericShortcut(_ arg0: UInt16) -> MenuItem!
 
   @JavaMethod
+  public func setNumericShortcut(_ arg0: UInt16, _ arg1: Int32) -> MenuItem!
+
+  @JavaMethod
   public func getNumericShortcut() -> UInt16
+
+  @JavaMethod
+  public func getNumericModifiers() -> Int32
+
+  @JavaMethod
+  public func setAlphabeticShortcut(_ arg0: UInt16, _ arg1: Int32) -> MenuItem!
+
+  @JavaMethod
+  public func setAlphabeticShortcut(_ arg0: UInt16) -> MenuItem!
+
+  @JavaMethod
+  public func getAlphabeticShortcut() -> UInt16
+
+  @JavaMethod
+  public func getAlphabeticModifiers() -> Int32
 
   @JavaMethod
   public func isCheckable() -> Bool
@@ -118,10 +118,16 @@ public struct MenuItem {
   public func getSubMenu() -> SubMenu!
 
   @JavaMethod
+  public func setOnMenuItemClickListener(_ arg0: MenuItem.OnMenuItemClickListener?) -> MenuItem!
+
+  @JavaMethod
   public func getMenuInfo() -> ContextMenu.ContextMenuInfo!
 
   @JavaMethod
   public func setShowAsAction(_ arg0: Int32)
+
+  @JavaMethod
+  public func setShowAsActionFlags(_ arg0: Int32) -> MenuItem!
 
   @JavaMethod
   public func setActionView(_ arg0: View?) -> MenuItem!
@@ -145,10 +151,16 @@ public struct MenuItem {
   public func collapseActionView() -> Bool
 
   @JavaMethod
-  public func setEnabled(_ arg0: Bool) -> MenuItem!
+  public func isActionViewExpanded() -> Bool
 
   @JavaMethod
-  public func isVisible() -> Bool
+  public func setOnActionExpandListener(_ arg0: MenuItem.OnActionExpandListener?) -> MenuItem!
+
+  @JavaMethod
+  public func setIcon(_ arg0: Drawable?) -> MenuItem!
+
+  @JavaMethod
+  public func setIcon(_ arg0: Int32) -> MenuItem!
 
   @JavaMethod
   public func setCheckable(_ arg0: Bool) -> MenuItem!
@@ -157,22 +169,10 @@ public struct MenuItem {
   public func setChecked(_ arg0: Bool) -> MenuItem!
 
   @JavaMethod
-  public func hasSubMenu() -> Bool
-
-  @JavaMethod
   public func getOrder() -> Int32
 
   @JavaMethod
-  public func setTooltipText(_ arg0: CharSequence?) -> MenuItem!
-
-  @JavaMethod
-  public func getTooltipText() -> CharSequence!
-
-  @JavaMethod
-  public func setIcon(_ arg0: Int32) -> MenuItem!
-
-  @JavaMethod
-  public func setIcon(_ arg0: Drawable?) -> MenuItem!
+  public func isEnabled() -> Bool
 }
 extension JavaClass<MenuItem> {
   @JavaStaticField(isFinal: true)

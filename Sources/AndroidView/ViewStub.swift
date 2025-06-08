@@ -8,12 +8,6 @@ import JavaRuntime
 @JavaClass("android.view.ViewStub")
 open class ViewStub: View {
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, _ arg2: Int32, _ arg3: Int32, environment: JNIEnvironment? = nil)
-
-  @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, _ arg2: Int32, environment: JNIEnvironment? = nil)
-
-  @JavaMethod
   @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
@@ -23,22 +17,10 @@ open class ViewStub: View {
   @_nonoverride public convenience init(_ arg0: Context?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func inflate() -> View!
+  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, _ arg2: Int32, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func setOnInflateListener(_ arg0: ViewStub.OnInflateListener?)
-
-  @JavaMethod
-  open override func setVisibility(_ arg0: Int32)
-
-  @JavaMethod
-  open override func dispatchDraw(_ arg0: Canvas?)
-
-  @JavaMethod
-  open override func draw(_ arg0: Canvas?)
-
-  @JavaMethod
-  open override func onMeasure(_ arg0: Int32, _ arg1: Int32)
+  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, _ arg2: Int32, _ arg3: Int32, environment: JNIEnvironment? = nil)
 
   @JavaMethod
   open func getInflatedId() -> Int32
@@ -57,6 +39,24 @@ open class ViewStub: View {
 
   @JavaMethod
   open func getLayoutInflater() -> LayoutInflater!
+
+  @JavaMethod
+  open override func onMeasure(_ arg0: Int32, _ arg1: Int32)
+
+  @JavaMethod
+  open override func draw(_ arg0: Canvas?)
+
+  @JavaMethod
+  open override func dispatchDraw(_ arg0: Canvas?)
+
+  @JavaMethod
+  open override func setVisibility(_ arg0: Int32)
+
+  @JavaMethod
+  open func setOnInflateListener(_ arg0: ViewStub.OnInflateListener?)
+
+  @JavaMethod
+  open func inflate() -> View!
 }
 extension JavaClass<ViewStub> {
   @JavaStaticField(isFinal: true)

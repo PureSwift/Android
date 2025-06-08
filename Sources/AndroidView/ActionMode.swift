@@ -8,28 +8,16 @@ open class ActionMode: JavaObject {
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func getType() -> Int32
-
-  @JavaMethod
-  open func finish()
-
-  @JavaMethod
-  open func setTitleOptionalHint(_ arg0: Bool)
-
-  @JavaMethod
-  open func getTitleOptionalHint() -> Bool
-
-  @JavaMethod
-  open func invalidateContentRect()
-
-  @JavaMethod
   open func onWindowFocusChanged(_ arg0: Bool)
 
   @JavaMethod
-  open func setTag(_ arg0: JavaObject?)
+  open func invalidate()
 
   @JavaMethod
   open func getTag() -> JavaObject!
+
+  @JavaMethod
+  open func setTag(_ arg0: JavaObject?)
 
   @JavaMethod
   open func setTitle(_ arg0: Int32)
@@ -38,10 +26,22 @@ open class ActionMode: JavaObject {
   open func setTitle(_ arg0: CharSequence?)
 
   @JavaMethod
+  open func getTitle() -> CharSequence!
+
+  @JavaMethod
+  open func hide(_ arg0: Int64)
+
+  @JavaMethod
   open func setSubtitle(_ arg0: Int32)
 
   @JavaMethod
   open func setSubtitle(_ arg0: CharSequence?)
+
+  @JavaMethod
+  open func setTitleOptionalHint(_ arg0: Bool)
+
+  @JavaMethod
+  open func getTitleOptionalHint() -> Bool
 
   @JavaMethod
   open func isTitleOptional() -> Bool
@@ -50,16 +50,10 @@ open class ActionMode: JavaObject {
   open func setCustomView(_ arg0: View?)
 
   @JavaMethod
-  open func invalidate()
-
-  @JavaMethod
-  open func hide(_ arg0: Int64)
+  open func invalidateContentRect()
 
   @JavaMethod
   open func getMenu() -> Menu!
-
-  @JavaMethod
-  open func getTitle() -> CharSequence!
 
   @JavaMethod
   open func getSubtitle() -> CharSequence!
@@ -72,6 +66,12 @@ open class ActionMode: JavaObject {
 
   @JavaMethod
   open func setType(_ arg0: Int32)
+
+  @JavaMethod
+  open func getType() -> Int32
+
+  @JavaMethod
+  open func finish()
 }
 extension JavaClass<ActionMode> {
   @JavaStaticField(isFinal: true)

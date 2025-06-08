@@ -7,6 +7,9 @@ extension ViewDebug {
   @JavaInterface("android.view.ViewDebug$FlagToString", extends: Annotation.self)
   public struct FlagToString {
   @JavaMethod
+  public func outputIf() -> Bool
+
+  @JavaMethod
   public func name() -> String
 
   @JavaMethod
@@ -14,9 +17,6 @@ extension ViewDebug {
 
   @JavaMethod
   public func mask() -> Int32
-
-  @JavaMethod
-  public func outputIf() -> Bool
 
   @JavaMethod
   public func equals(_ arg0: JavaObject?) -> Bool

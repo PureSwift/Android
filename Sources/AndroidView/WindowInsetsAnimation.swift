@@ -8,7 +8,10 @@ open class WindowInsetsAnimation: JavaObject {
   @_nonoverride public convenience init(_ arg0: Int32, _ arg1: Interpolator?, _ arg2: Int64, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func getInterpolatedFraction() -> Float
+  open func getAlpha() -> Float
+
+  @JavaMethod
+  open func setAlpha(_ arg0: Float)
 
   @JavaMethod
   open func getTypeMask() -> Int32
@@ -17,7 +20,7 @@ open class WindowInsetsAnimation: JavaObject {
   open func getFraction() -> Float
 
   @JavaMethod
-  open func getInterpolator() -> Interpolator!
+  open func getInterpolatedFraction() -> Float
 
   @JavaMethod
   open func getDurationMillis() -> Int64
@@ -26,8 +29,5 @@ open class WindowInsetsAnimation: JavaObject {
   open func setFraction(_ arg0: Float)
 
   @JavaMethod
-  open func getAlpha() -> Float
-
-  @JavaMethod
-  open func setAlpha(_ arg0: Float)
+  open func getInterpolator() -> Interpolator!
 }

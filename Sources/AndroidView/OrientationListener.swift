@@ -12,7 +12,7 @@ open class OrientationListener: JavaObject {
   @_nonoverride public convenience init(_ arg0: Context?, _ arg1: Int32, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func enable()
+  open func disable()
 
   @JavaMethod
   open func onOrientationChanged(_ arg0: Int32)
@@ -24,7 +24,7 @@ open class OrientationListener: JavaObject {
   open func onSensorChanged(_ arg0: Int32, _ arg1: [Float])
 
   @JavaMethod
-  open func disable()
+  open func enable()
 }
 extension JavaClass<OrientationListener> {
   @JavaStaticField(isFinal: true)

@@ -6,7 +6,10 @@ import JavaRuntime
 @JavaClass("android.view.WindowContentFrameStats", implements: Parcelable.self)
 open class WindowContentFrameStats: FrameStats {
   @JavaMethod
-  open override func toString() -> String
+  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
+
+  @JavaMethod
+  open func describeContents() -> Int32
 
   @JavaMethod
   open func getFramePostedTimeNano(_ arg0: Int32) -> Int64
@@ -15,10 +18,7 @@ open class WindowContentFrameStats: FrameStats {
   open func getFrameReadyTimeNano(_ arg0: Int32) -> Int64
 
   @JavaMethod
-  open func describeContents() -> Int32
-
-  @JavaMethod
-  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
+  open override func toString() -> String
 }
 extension JavaClass<WindowContentFrameStats> {
   @JavaStaticField(isFinal: true)

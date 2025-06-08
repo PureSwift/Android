@@ -11,7 +11,10 @@ extension SurfaceControlViewHost {
   @_nonoverride public convenience init(_ arg0: SurfaceControlViewHost.SurfacePackage?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func release()
+  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
+
+  @JavaMethod
+  open func describeContents() -> Int32
 
   @JavaMethod
   open func notifyConfigurationChanged(_ arg0: Configuration?)
@@ -20,10 +23,7 @@ extension SurfaceControlViewHost {
   open func notifyDetachedFromWindow()
 
   @JavaMethod
-  open func describeContents() -> Int32
-
-  @JavaMethod
-  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
+  open func release()
   }
 }
 extension JavaClass<SurfaceControlViewHost.SurfacePackage> {

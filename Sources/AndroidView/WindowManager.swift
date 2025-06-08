@@ -6,6 +6,9 @@ import JavaRuntime
 @JavaInterface("android.view.WindowManager", extends: ViewManager.self)
 public struct WindowManager {
   @JavaMethod
+  public func getDefaultDisplay() -> Display!
+
+  @JavaMethod
   public func removeViewImmediate(_ arg0: View?)
 
   @JavaMethod
@@ -19,9 +22,6 @@ public struct WindowManager {
 
   @JavaMethod
   public func addCrossWindowBlurEnabledListener(_ arg0: JavaConsumer<JavaBoolean>?)
-
-  @JavaMethod
-  public func getDefaultDisplay() -> Display!
 
   @JavaMethod
   public func removeCrossWindowBlurEnabledListener(_ arg0: JavaConsumer<JavaBoolean>?)

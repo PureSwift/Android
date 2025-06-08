@@ -15,12 +15,6 @@ extension JavaClass<ViewDebug> {
   public var TRACE_RECYCLER: Bool
 
   @JavaStaticMethod
-  public func trace(_ arg0: View?, _ arg1: ViewDebug.HierarchyTraceType?)
-
-  @JavaStaticMethod
-  public func trace(_ arg0: View?, _ arg1: ViewDebug.RecyclerTraceType?, _ arg2: [Int32])
-
-  @JavaStaticMethod
   public func startRecyclerTracing(_ arg0: String, _ arg1: View?)
 
   @JavaStaticMethod
@@ -34,4 +28,10 @@ extension JavaClass<ViewDebug> {
 
   @JavaStaticMethod
   public func dumpCapturedView(_ arg0: String, _ arg1: JavaObject?)
+
+  @JavaStaticMethod
+  public func trace(_ arg0: View?, _ arg1: ViewDebug.RecyclerTraceType?, _ arg2: [Int32])
+
+  @JavaStaticMethod
+  public func trace(_ arg0: View?, _ arg1: ViewDebug.HierarchyTraceType?)
 }

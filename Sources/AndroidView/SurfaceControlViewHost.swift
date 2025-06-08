@@ -7,13 +7,7 @@ import JavaRuntime
 @JavaClass("android.view.SurfaceControlViewHost")
 open class SurfaceControlViewHost: JavaObject {
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: Display?, _ arg2: IBinder?, environment: JNIEnvironment? = nil)
-
-  @JavaMethod
-  open override func finalize() throws
-
-  @JavaMethod
-  open func release()
+  @_nonoverride public convenience init(_ arg0: AndroidContent.Context?, _ arg1: Display?, _ arg2: IBinder?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
   open func getSurfacePackage() -> SurfaceControlViewHost.SurfacePackage!
@@ -26,4 +20,10 @@ open class SurfaceControlViewHost: JavaObject {
 
   @JavaMethod
   open func relayout(_ arg0: Int32, _ arg1: Int32)
+
+  @JavaMethod
+  open override func finalize() throws
+
+  @JavaMethod
+  open func release()
 }

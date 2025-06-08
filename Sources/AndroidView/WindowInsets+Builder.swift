@@ -13,9 +13,6 @@ extension WindowInsets {
   @_nonoverride public convenience init(_ arg0: WindowInsets?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func build() -> WindowInsets!
-
-  @JavaMethod
   open func setSystemWindowInsets(_ arg0: Insets?) -> WindowInsets.Builder!
 
   @JavaMethod
@@ -28,13 +25,10 @@ extension WindowInsets {
   open func setTappableElementInsets(_ arg0: Insets?) -> WindowInsets.Builder!
 
   @JavaMethod
-  open func setInsetsIgnoringVisibility(_ arg0: Int32, _ arg1: Insets?) throws -> WindowInsets.Builder!
-
-  @JavaMethod
-  open func setPrivacyIndicatorBounds(_ arg0: Rect?) -> WindowInsets.Builder!
-
-  @JavaMethod
   open func setInsets(_ arg0: Int32, _ arg1: Insets?) -> WindowInsets.Builder!
+
+  @JavaMethod
+  open func setInsetsIgnoringVisibility(_ arg0: Int32, _ arg1: Insets?) throws -> WindowInsets.Builder!
 
   @JavaMethod
   open func setVisible(_ arg0: Int32, _ arg1: Bool) -> WindowInsets.Builder!
@@ -47,5 +41,11 @@ extension WindowInsets {
 
   @JavaMethod
   open func setRoundedCorner(_ arg0: Int32, _ arg1: RoundedCorner?) -> WindowInsets.Builder!
+
+  @JavaMethod
+  open func setPrivacyIndicatorBounds(_ arg0: Rect?) -> WindowInsets.Builder!
+
+  @JavaMethod
+  open func build() -> WindowInsets!
   }
 }

@@ -7,22 +7,13 @@ extension Display {
   @JavaClass("android.view.Display$Mode", implements: Parcelable.self)
   open class Mode: JavaObject {
   @JavaMethod
-  open override func equals(_ arg0: JavaObject?) -> Bool
-
-  @JavaMethod
-  open override func toString() -> String
-
-  @JavaMethod
-  open override func hashCode() -> Int32
-
-  @JavaMethod
-  open func getAlternativeRefreshRates() -> [Float]
+  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
   @JavaMethod
   open func describeContents() -> Int32
 
   @JavaMethod
-  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
+  open func getRefreshRate() -> Float
 
   @JavaMethod
   open func getModeId() -> Int32
@@ -34,7 +25,16 @@ extension Display {
   open func getPhysicalHeight() -> Int32
 
   @JavaMethod
-  open func getRefreshRate() -> Float
+  open func getAlternativeRefreshRates() -> [Float]
+
+  @JavaMethod
+  open override func equals(_ arg0: JavaObject?) -> Bool
+
+  @JavaMethod
+  open override func toString() -> String
+
+  @JavaMethod
+  open override func hashCode() -> Int32
   }
 }
 extension JavaClass<Display.Mode> {

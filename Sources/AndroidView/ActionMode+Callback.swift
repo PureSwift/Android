@@ -6,6 +6,9 @@ extension ActionMode {
   @JavaInterface("android.view.ActionMode$Callback")
   public struct Callback {
   @JavaMethod
+  public func onCreateActionMode(_ arg0: ActionMode?, _ arg1: Menu?) -> Bool
+
+  @JavaMethod
   public func onPrepareActionMode(_ arg0: ActionMode?, _ arg1: Menu?) -> Bool
 
   @JavaMethod
@@ -13,8 +16,5 @@ extension ActionMode {
 
   @JavaMethod
   public func onDestroyActionMode(_ arg0: ActionMode?)
-
-  @JavaMethod
-  public func onCreateActionMode(_ arg0: ActionMode?, _ arg1: Menu?) -> Bool
   }
 }

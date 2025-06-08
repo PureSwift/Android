@@ -14,25 +14,10 @@ open class AnimationSet: Animation {
   @_nonoverride public convenience init(_ arg0: Bool, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open override func reset()
+  open func addAnimation(_ arg0: Animation?)
 
   @JavaMethod
-  open override func clone() throws -> AnimationSet!
-
-  @JavaMethod
-  open override func initialize(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
-
-  @JavaMethod
-  open override func getDuration() -> Int64
-
-  @JavaMethod
-  open override func scaleCurrentDuration(_ arg0: Float)
-
-  @JavaMethod
-  open override func willChangeTransformationMatrix() -> Bool
-
-  @JavaMethod
-  open override func computeDurationHint() -> Int64
+  open func getAnimations() -> List<Animation>!
 
   @JavaMethod
   open override func setStartOffset(_ arg0: Int64)
@@ -42,6 +27,9 @@ open class AnimationSet: Animation {
 
   @JavaMethod
   open override func restrictDuration(_ arg0: Int64)
+
+  @JavaMethod
+  open override func scaleCurrentDuration(_ arg0: Float)
 
   @JavaMethod
   open override func setStartTime(_ arg0: Int64)
@@ -59,16 +47,28 @@ open class AnimationSet: Animation {
   open override func getStartTime() -> Int64
 
   @JavaMethod
+  open override func willChangeTransformationMatrix() -> Bool
+
+  @JavaMethod
   open override func willChangeBounds() -> Bool
+
+  @JavaMethod
+  open override func computeDurationHint() -> Int64
 
   @JavaMethod
   open override func getTransformation(_ arg0: Int64, _ arg1: Transformation?) -> Bool
 
   @JavaMethod
-  open func addAnimation(_ arg0: Animation?)
+  open override func reset()
 
   @JavaMethod
-  open func getAnimations() -> List<Animation>!
+  open override func clone() throws -> AnimationSet!
+
+  @JavaMethod
+  open override func initialize(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
+
+  @JavaMethod
+  open override func getDuration() -> Int64
 }
 extension JavaClass<AnimationSet> {
   @JavaStaticField(isFinal: true)

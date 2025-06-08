@@ -7,10 +7,10 @@ import JavaRuntime
 @JavaClass("android.view.animation.AlphaAnimation")
 open class AlphaAnimation: Animation {
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, environment: JNIEnvironment? = nil)
+  @_nonoverride public convenience init(_ arg0: Float, _ arg1: Float, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Float, _ arg1: Float, environment: JNIEnvironment? = nil)
+  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
   open override func applyTransformation(_ arg0: Float, _ arg1: Transformation?)

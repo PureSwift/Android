@@ -12,22 +12,7 @@ open class Window: JavaObject {
   @_nonoverride public convenience init(_ arg0: Context?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func getAttributes() -> WindowManager.LayoutParams!
-
-  @JavaMethod
-  open func isActive() -> Bool
-
-  @JavaMethod
-  open func isFloating() -> Bool
-
-  @JavaMethod
-  open func setFlags(_ arg0: Int32, _ arg1: Int32)
-
-  @JavaMethod
-  open func getContext() -> Context!
-
-  @JavaMethod
-  open func setFormat(_ arg0: Int32)
+  open func getLayoutInflater() -> LayoutInflater!
 
   @JavaMethod
   open func setSystemGestureExclusionRects(_ arg0: List<Rect>?)
@@ -36,7 +21,76 @@ open class Window: JavaObject {
   open func getSystemGestureExclusionRects() -> List<Rect>!
 
   @JavaMethod
+  open func onConfigurationChanged(_ arg0: Configuration?)
+
+  @JavaMethod
+  open func setElevation(_ arg0: Float)
+
+  @JavaMethod
+  open func setClipToOutline(_ arg0: Bool)
+
+  @JavaMethod
+  open func saveHierarchyState() -> Bundle!
+
+  @JavaMethod
+  open func restoreHierarchyState(_ arg0: Bundle?)
+
+  @JavaMethod
+  open func setBackgroundDrawable(_ arg0: Drawable?)
+
+  @JavaMethod
+  open func findViewById(_ arg0: Int32) -> View!
+
+  @JavaMethod
+  open func requireViewById(_ arg0: Int32) -> View!
+
+  @JavaMethod
+  open func getRootSurfaceControl() -> AttachedSurfaceControl!
+
+  @JavaMethod
+  open func setTitle(_ arg0: CharSequence?)
+
+  @JavaMethod
+  open func setColorMode(_ arg0: Int32)
+
+  @JavaMethod
+  open func getColorMode() -> Int32
+
+  @JavaMethod
+  open func isWideColorGamut() -> Bool
+
+  @JavaMethod
+  open func getWindowStyle() -> TypedArray!
+
+  @JavaMethod
+  open func setContainer(_ arg0: Window?)
+
+  @JavaMethod
+  open func getContainer() -> Window!
+
+  @JavaMethod
+  open func hasChildren() -> Bool
+
+  @JavaMethod
+  open func setWindowManager(_ arg0: WindowManager?, _ arg1: IBinder?, _ arg2: String, _ arg3: Bool)
+
+  @JavaMethod
+  open func setWindowManager(_ arg0: WindowManager?, _ arg1: IBinder?, _ arg2: String)
+
+  @JavaMethod
+  open func getWindowManager() -> WindowManager!
+
+  @JavaMethod
+  open func setCallback(_ arg0: Window.Callback?)
+
+  @JavaMethod
+  open func getCallback() -> Window.Callback!
+
+  @JavaMethod
   open func addOnFrameMetricsAvailableListener(_ arg0: Window.OnFrameMetricsAvailableListener?, _ arg1: Handler?)
+
+  @JavaMethod
+  open func removeOnFrameMetricsAvailableListener(_ arg0: Window.OnFrameMetricsAvailableListener?)
 
   @JavaMethod
   open func setRestrictedCaptionAreaListener(_ arg0: Window.OnRestrictedCaptionAreaChangedListener?)
@@ -45,19 +99,82 @@ open class Window: JavaObject {
   open func setHideOverlayWindows(_ arg0: Bool)
 
   @JavaMethod
+  open func takeSurface(_ arg0: SurfaceHolder.Callback2?)
+
+  @JavaMethod
+  open func takeInputQueue(_ arg0: InputQueue.Callback?)
+
+  @JavaMethod
+  open func setLayout(_ arg0: Int32, _ arg1: Int32)
+
+  @JavaMethod
+  open func setGravity(_ arg0: Int32)
+
+  @JavaMethod
   open func setWindowAnimations(_ arg0: Int32)
+
+  @JavaMethod
+  open func setSoftInputMode(_ arg0: Int32)
+
+  @JavaMethod
+  open func addFlags(_ arg0: Int32)
+
+  @JavaMethod
+  open func clearFlags(_ arg0: Int32)
 
   @JavaMethod
   open func setPreferMinimalPostProcessing(_ arg0: Bool)
 
   @JavaMethod
+  open func setDimAmount(_ arg0: Float)
+
+  @JavaMethod
   open func setDecorFitsSystemWindows(_ arg0: Bool)
+
+  @JavaMethod
+  open func setAttributes(_ arg0: WindowManager.LayoutParams?)
 
   @JavaMethod
   open func getForcedWindowFlags() -> Int32
 
   @JavaMethod
+  open func hasSoftInputMode() -> Bool
+
+  @JavaMethod
   open func setSustainedPerformanceMode(_ arg0: Bool)
+
+  @JavaMethod
+  open func requestFeature(_ arg0: Int32) -> Bool
+
+  @JavaMethod
+  open func makeActive()
+
+  @JavaMethod
+  open func setContentView(_ arg0: View?, _ arg1: ViewGroup.LayoutParams?)
+
+  @JavaMethod
+  open func setContentView(_ arg0: Int32)
+
+  @JavaMethod
+  open func setContentView(_ arg0: View?)
+
+  @JavaMethod
+  open func addContentView(_ arg0: View?, _ arg1: ViewGroup.LayoutParams?)
+
+  @JavaMethod
+  open func getCurrentFocus() -> View!
+
+  @JavaMethod
+  open func setTitleColor(_ arg0: Int32)
+
+  @JavaMethod
+  open func openPanel(_ arg0: Int32, _ arg1: KeyEvent?)
+
+  @JavaMethod
+  open func closePanel(_ arg0: Int32)
+
+  @JavaMethod
+  open func togglePanel(_ arg0: Int32, _ arg1: KeyEvent?)
 
   @JavaMethod
   open func invalidatePanelMenu(_ arg0: Int32)
@@ -67,6 +184,9 @@ open class Window: JavaObject {
 
   @JavaMethod
   open func performPanelIdentifierAction(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32) -> Bool
+
+  @JavaMethod
+  open func closeAllPanels()
 
   @JavaMethod
   open func performContextMenuIdentifierAction(_ arg0: Int32, _ arg1: Int32) -> Bool
@@ -81,7 +201,16 @@ open class Window: JavaObject {
   open func setFeatureDrawableResource(_ arg0: Int32, _ arg1: Int32)
 
   @JavaMethod
+  open func setFeatureDrawable(_ arg0: Int32, _ arg1: Drawable?)
+
+  @JavaMethod
   open func setFeatureDrawableAlpha(_ arg0: Int32, _ arg1: Int32)
+
+  @JavaMethod
+  open func setFeatureInt(_ arg0: Int32, _ arg1: Int32)
+
+  @JavaMethod
+  open func takeKeyEvents(_ arg0: Bool)
 
   @JavaMethod
   open func superDispatchKeyEvent(_ arg0: KeyEvent?) -> Bool
@@ -99,13 +228,52 @@ open class Window: JavaObject {
   open func superDispatchGenericMotionEvent(_ arg0: MotionEvent?) -> Bool
 
   @JavaMethod
+  open func getDecorView() -> View!
+
+  @JavaMethod
+  open func peekDecorView() -> View!
+
+  @JavaMethod
+  open func onActive()
+
+  @JavaMethod
+  open func getFeatures() -> Int32
+
+  @JavaMethod
+  open func hasFeature(_ arg0: Int32) -> Bool
+
+  @JavaMethod
+  open func getLocalFeatures() -> Int32
+
+  @JavaMethod
   open func setDefaultWindowFormat(_ arg0: Int32)
+
+  @JavaMethod
+  open func setChildDrawable(_ arg0: Int32, _ arg1: Drawable?)
+
+  @JavaMethod
+  open func setChildInt(_ arg0: Int32, _ arg1: Int32)
 
   @JavaMethod
   open func setVolumeControlStream(_ arg0: Int32)
 
   @JavaMethod
   open func getVolumeControlStream() -> Int32
+
+  @JavaMethod
+  open func setUiOptions(_ arg0: Int32)
+
+  @JavaMethod
+  open func setUiOptions(_ arg0: Int32, _ arg1: Int32)
+
+  @JavaMethod
+  open func setLogo(_ arg0: Int32)
+
+  @JavaMethod
+  open func setLocalFocus(_ arg0: Bool, _ arg1: Bool)
+
+  @JavaMethod
+  open func injectInputEvent(_ arg0: InputEvent?)
 
   @JavaMethod
   open func setAllowEnterTransitionOverlap(_ arg0: Bool)
@@ -120,10 +288,22 @@ open class Window: JavaObject {
   open func getAllowReturnTransitionOverlap() -> Bool
 
   @JavaMethod
+  open func getTransitionBackgroundFadeDuration() -> Int64
+
+  @JavaMethod
+  open func setTransitionBackgroundFadeDuration(_ arg0: Int64)
+
+  @JavaMethod
   open func getSharedElementsUseOverlay() -> Bool
 
   @JavaMethod
   open func setSharedElementsUseOverlay(_ arg0: Bool)
+
+  @JavaMethod
+  open func getStatusBarColor() -> Int32
+
+  @JavaMethod
+  open func setStatusBarColor(_ arg0: Int32)
 
   @JavaMethod
   open func getNavigationBarColor() -> Int32
@@ -165,211 +345,31 @@ open class Window: JavaObject {
   open func getInsetsController() -> WindowInsetsController!
 
   @JavaMethod
-  open func onConfigurationChanged(_ arg0: Configuration?)
-
-  @JavaMethod
-  open func restoreHierarchyState(_ arg0: Bundle?)
-
-  @JavaMethod
-  open func setBackgroundDrawable(_ arg0: Drawable?)
-
-  @JavaMethod
-  open func getRootSurfaceControl() -> AttachedSurfaceControl!
-
-  @JavaMethod
-  open func setTitle(_ arg0: CharSequence?)
-
-  @JavaMethod
-  open func setType(_ arg0: Int32)
-
-  @JavaMethod
-  open func setElevation(_ arg0: Float)
-
-  @JavaMethod
-  open func setClipToOutline(_ arg0: Bool)
-
-  @JavaMethod
-  open func saveHierarchyState() -> Bundle!
-
-  @JavaMethod
-  open func findViewById(_ arg0: Int32) -> View!
-
-  @JavaMethod
-  open func requireViewById(_ arg0: Int32) -> View!
-
-  @JavaMethod
-  open func getWindowStyle() -> TypedArray!
-
-  @JavaMethod
-  open func setContainer(_ arg0: Window?)
-
-  @JavaMethod
-  open func getContainer() -> Window!
-
-  @JavaMethod
-  open func hasChildren() -> Bool
-
-  @JavaMethod
-  open func setWindowManager(_ arg0: WindowManager?, _ arg1: IBinder?, _ arg2: String)
-
-  @JavaMethod
-  open func setWindowManager(_ arg0: WindowManager?, _ arg1: IBinder?, _ arg2: String, _ arg3: Bool)
-
-  @JavaMethod
-  open func getWindowManager() -> WindowManager!
-
-  @JavaMethod
-  open func setCallback(_ arg0: Window.Callback?)
-
-  @JavaMethod
-  open func getCallback() -> Window.Callback!
-
-  @JavaMethod
-  open func takeSurface(_ arg0: SurfaceHolder.Callback2?)
-
-  @JavaMethod
-  open func takeInputQueue(_ arg0: InputQueue.Callback?)
-
-  @JavaMethod
-  open func setLayout(_ arg0: Int32, _ arg1: Int32)
-
-  @JavaMethod
-  open func setGravity(_ arg0: Int32)
-
-  @JavaMethod
-  open func setSoftInputMode(_ arg0: Int32)
-
-  @JavaMethod
-  open func addFlags(_ arg0: Int32)
-
-  @JavaMethod
-  open func clearFlags(_ arg0: Int32)
-
-  @JavaMethod
-  open func setColorMode(_ arg0: Int32)
-
-  @JavaMethod
-  open func getColorMode() -> Int32
-
-  @JavaMethod
-  open func isWideColorGamut() -> Bool
-
-  @JavaMethod
-  open func setDimAmount(_ arg0: Float)
-
-  @JavaMethod
-  open func setAttributes(_ arg0: WindowManager.LayoutParams?)
-
-  @JavaMethod
-  open func hasSoftInputMode() -> Bool
-
-  @JavaMethod
-  open func requestFeature(_ arg0: Int32) -> Bool
-
-  @JavaMethod
-  open func makeActive()
-
-  @JavaMethod
-  open func setContentView(_ arg0: View?, _ arg1: ViewGroup.LayoutParams?)
-
-  @JavaMethod
-  open func setContentView(_ arg0: Int32)
-
-  @JavaMethod
-  open func setContentView(_ arg0: View?)
-
-  @JavaMethod
-  open func addContentView(_ arg0: View?, _ arg1: ViewGroup.LayoutParams?)
-
-  @JavaMethod
-  open func getCurrentFocus() -> View!
-
-  @JavaMethod
-  open func getLayoutInflater() -> LayoutInflater!
-
-  @JavaMethod
-  open func setTitleColor(_ arg0: Int32)
-
-  @JavaMethod
-  open func openPanel(_ arg0: Int32, _ arg1: KeyEvent?)
-
-  @JavaMethod
-  open func closePanel(_ arg0: Int32)
-
-  @JavaMethod
-  open func togglePanel(_ arg0: Int32, _ arg1: KeyEvent?)
-
-  @JavaMethod
-  open func closeAllPanels()
-
-  @JavaMethod
-  open func setFeatureDrawable(_ arg0: Int32, _ arg1: Drawable?)
-
-  @JavaMethod
-  open func setFeatureInt(_ arg0: Int32, _ arg1: Int32)
-
-  @JavaMethod
-  open func takeKeyEvents(_ arg0: Bool)
-
-  @JavaMethod
-  open func getDecorView() -> View!
-
-  @JavaMethod
-  open func peekDecorView() -> View!
-
-  @JavaMethod
-  open func onActive()
-
-  @JavaMethod
-  open func getFeatures() -> Int32
-
-  @JavaMethod
-  open func hasFeature(_ arg0: Int32) -> Bool
-
-  @JavaMethod
-  open func getLocalFeatures() -> Int32
-
-  @JavaMethod
-  open func setChildDrawable(_ arg0: Int32, _ arg1: Drawable?)
-
-  @JavaMethod
-  open func setChildInt(_ arg0: Int32, _ arg1: Int32)
+  open func setIcon(_ arg0: Int32)
 
   @JavaMethod
   open func isShortcutKey(_ arg0: Int32, _ arg1: KeyEvent?) -> Bool
 
   @JavaMethod
-  open func setUiOptions(_ arg0: Int32, _ arg1: Int32)
+  open func setType(_ arg0: Int32)
 
   @JavaMethod
-  open func setUiOptions(_ arg0: Int32)
+  open func getAttributes() -> WindowManager.LayoutParams!
 
   @JavaMethod
-  open func setIcon(_ arg0: Int32)
+  open func isActive() -> Bool
 
   @JavaMethod
-  open func setLogo(_ arg0: Int32)
+  open func isFloating() -> Bool
 
   @JavaMethod
-  open func setLocalFocus(_ arg0: Bool, _ arg1: Bool)
+  open func setFlags(_ arg0: Int32, _ arg1: Int32)
 
   @JavaMethod
-  open func injectInputEvent(_ arg0: InputEvent?)
+  open func getContext() -> Context!
 
   @JavaMethod
-  open func getStatusBarColor() -> Int32
-
-  @JavaMethod
-  open func setStatusBarColor(_ arg0: Int32)
-
-  @JavaMethod
-  open func removeOnFrameMetricsAvailableListener(_ arg0: Window.OnFrameMetricsAvailableListener?)
-
-  @JavaMethod
-  open func getTransitionBackgroundFadeDuration() -> Int64
-
-  @JavaMethod
-  open func setTransitionBackgroundFadeDuration(_ arg0: Int64)
+  open func setFormat(_ arg0: Int32)
 }
 extension JavaClass<Window> {
   @JavaStaticField(isFinal: true)

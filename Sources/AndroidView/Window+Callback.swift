@@ -7,10 +7,58 @@ extension Window {
   @JavaInterface("android.view.Window$Callback")
   public struct Callback {
   @JavaMethod
+  public func dispatchKeyEvent(_ arg0: KeyEvent?) -> Bool
+
+  @JavaMethod
+  public func dispatchKeyShortcutEvent(_ arg0: KeyEvent?) -> Bool
+
+  @JavaMethod
+  public func dispatchTouchEvent(_ arg0: MotionEvent?) -> Bool
+
+  @JavaMethod
+  public func dispatchTrackballEvent(_ arg0: MotionEvent?) -> Bool
+
+  @JavaMethod
+  public func dispatchGenericMotionEvent(_ arg0: MotionEvent?) -> Bool
+
+  @JavaMethod
   public func onWindowFocusChanged(_ arg0: Bool)
 
   @JavaMethod
+  public func onAttachedToWindow()
+
+  @JavaMethod
+  public func onDetachedFromWindow()
+
+  @JavaMethod
+  public func onCreatePanelView(_ arg0: Int32) -> View!
+
+  @JavaMethod
+  public func onCreatePanelMenu(_ arg0: Int32, _ arg1: Menu?) -> Bool
+
+  @JavaMethod
+  public func onPreparePanel(_ arg0: Int32, _ arg1: View?, _ arg2: Menu?) -> Bool
+
+  @JavaMethod
+  public func onMenuOpened(_ arg0: Int32, _ arg1: Menu?) -> Bool
+
+  @JavaMethod
+  public func onMenuItemSelected(_ arg0: Int32, _ arg1: MenuItem?) -> Bool
+
+  @JavaMethod
   public func onWindowAttributesChanged(_ arg0: WindowManager.LayoutParams?)
+
+  @JavaMethod
+  public func onContentChanged()
+
+  @JavaMethod
+  public func onPanelClosed(_ arg0: Int32, _ arg1: Menu?)
+
+  @JavaMethod
+  public func onSearchRequested(_ arg0: SearchEvent?) -> Bool
+
+  @JavaMethod
+  public func onSearchRequested() -> Bool
 
   @JavaMethod
   public func onWindowStartingActionMode(_ arg0: ActionMode.Callback?, _ arg1: Int32) -> ActionMode!
@@ -29,53 +77,5 @@ extension Window {
 
   @JavaMethod
   public func onPointerCaptureChanged(_ arg0: Bool)
-
-  @JavaMethod
-  public func dispatchKeyShortcutEvent(_ arg0: KeyEvent?) -> Bool
-
-  @JavaMethod
-  public func dispatchTrackballEvent(_ arg0: MotionEvent?) -> Bool
-
-  @JavaMethod
-  public func dispatchGenericMotionEvent(_ arg0: MotionEvent?) -> Bool
-
-  @JavaMethod
-  public func onDetachedFromWindow()
-
-  @JavaMethod
-  public func dispatchKeyEvent(_ arg0: KeyEvent?) -> Bool
-
-  @JavaMethod
-  public func dispatchTouchEvent(_ arg0: MotionEvent?) -> Bool
-
-  @JavaMethod
-  public func onAttachedToWindow()
-
-  @JavaMethod
-  public func onCreatePanelView(_ arg0: Int32) -> View!
-
-  @JavaMethod
-  public func onCreatePanelMenu(_ arg0: Int32, _ arg1: Menu?) -> Bool
-
-  @JavaMethod
-  public func onPreparePanel(_ arg0: Int32, _ arg1: View?, _ arg2: Menu?) -> Bool
-
-  @JavaMethod
-  public func onMenuOpened(_ arg0: Int32, _ arg1: Menu?) -> Bool
-
-  @JavaMethod
-  public func onMenuItemSelected(_ arg0: Int32, _ arg1: MenuItem?) -> Bool
-
-  @JavaMethod
-  public func onContentChanged()
-
-  @JavaMethod
-  public func onPanelClosed(_ arg0: Int32, _ arg1: Menu?)
-
-  @JavaMethod
-  public func onSearchRequested() -> Bool
-
-  @JavaMethod
-  public func onSearchRequested(_ arg0: SearchEvent?) -> Bool
   }
 }

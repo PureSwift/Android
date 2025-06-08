@@ -2,25 +2,23 @@
 import JavaKit
 import JavaRuntime
 
-extension WindowInsets {
-  @JavaClass("android.view.WindowInsets$Type")
-  open class `Type`: JavaObject {
+@JavaClass("android.view.WindowInsets$Type")
+open class WindowInsetsType: JavaObject {
 
-  }
 }
-extension JavaClass<WindowInsets.`Type`> {
-    
+
+extension JavaClass<WindowInsetsType> {
   @JavaStaticMethod
-  public func mandatorySystemGestures() -> Int32
+  public func displayCutout() -> Int32
 
   @JavaStaticMethod
-  public func captionBar() -> Int32
+  public func statusBars() -> Int32
 
   @JavaStaticMethod
   public func navigationBars() -> Int32
 
   @JavaStaticMethod
-  public func statusBars() -> Int32
+  public func captionBar() -> Int32
 
   @JavaStaticMethod
   public func ime() -> Int32
@@ -29,10 +27,10 @@ extension JavaClass<WindowInsets.`Type`> {
   public func systemGestures() -> Int32
 
   @JavaStaticMethod
-  public func tappableElement() -> Int32
+  public func mandatorySystemGestures() -> Int32
 
   @JavaStaticMethod
-  public func displayCutout() -> Int32
+  public func tappableElement() -> Int32
 
   @JavaStaticMethod
   public func systemBars() -> Int32

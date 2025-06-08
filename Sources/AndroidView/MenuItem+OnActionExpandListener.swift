@@ -6,9 +6,9 @@ extension MenuItem {
   @JavaInterface("android.view.MenuItem$OnActionExpandListener")
   public struct OnActionExpandListener {
   @JavaMethod
-  public func onMenuItemActionExpand(_ arg0: MenuItem?) -> Bool
+  public func onMenuItemActionCollapse(_ arg0: MenuItem?) -> Bool
 
   @JavaMethod
-  public func onMenuItemActionCollapse(_ arg0: MenuItem?) -> Bool
+  public func onMenuItemActionExpand(_ arg0: MenuItem?) -> Bool
   }
 }

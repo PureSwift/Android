@@ -9,29 +9,29 @@ open class ScrollCaptureTarget: JavaObject {
   @_nonoverride public convenience init(_ arg0: View?, _ arg1: Rect?, _ arg2: Point?, _ arg3: ScrollCaptureCallback?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open override func toString() -> String
-
-  @JavaMethod
-  open func getPositionInWindow() -> Point!
-
-  @JavaMethod
-  open func updatePositionInWindow()
-
-  @JavaMethod
   open func getLocalVisibleRect() -> Rect!
-
-  @JavaMethod
-  open func getHint() -> Int32
-
-  @JavaMethod
-  open func getContainingView() -> View!
 
   @JavaMethod
   open func getScrollBounds() -> Rect!
 
   @JavaMethod
+  open func getPositionInWindow() -> Point!
+
+  @JavaMethod
+  open func getContainingView() -> View!
+
+  @JavaMethod
   open func setScrollBounds(_ arg0: Rect?)
 
   @JavaMethod
+  open func updatePositionInWindow()
+
+  @JavaMethod
   open func getCallback() -> ScrollCaptureCallback!
+
+  @JavaMethod
+  open func getHint() -> Int32
+
+  @JavaMethod
+  open override func toString() -> String
 }

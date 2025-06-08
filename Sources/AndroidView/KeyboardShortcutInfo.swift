@@ -12,22 +12,22 @@ open class KeyboardShortcutInfo: JavaObject {
   @_nonoverride public convenience init(_ arg0: CharSequence?, _ arg1: UInt16, _ arg2: Int32, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func getModifiers() -> Int32
-
-  @JavaMethod
-  open func getLabel() -> CharSequence!
+  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
   @JavaMethod
   open func describeContents() -> Int32
-
-  @JavaMethod
-  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
   @JavaMethod
   open func getKeycode() -> Int32
 
   @JavaMethod
   open func getBaseCharacter() -> UInt16
+
+  @JavaMethod
+  open func getModifiers() -> Int32
+
+  @JavaMethod
+  open func getLabel() -> CharSequence!
 }
 extension JavaClass<KeyboardShortcutInfo> {
   @JavaStaticField(isFinal: true)

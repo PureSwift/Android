@@ -91,22 +91,10 @@ extension JavaClass<Gravity> {
   public var VERTICAL_GRAVITY_MASK: Int32
 
   @JavaStaticMethod
-  public func apply(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Rect?, _ arg4: Int32, _ arg5: Int32, _ arg6: Rect?, _ arg7: Int32)
-
-  @JavaStaticMethod
-  public func apply(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Rect?, _ arg4: Int32, _ arg5: Int32, _ arg6: Rect?)
-
-  @JavaStaticMethod
-  public func apply(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Rect?, _ arg4: Rect?, _ arg5: Int32)
-
-  @JavaStaticMethod
-  public func apply(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Rect?, _ arg4: Rect?)
+  public func applyDisplay(_ arg0: Int32, _ arg1: Rect?, _ arg2: Rect?)
 
   @JavaStaticMethod
   public func applyDisplay(_ arg0: Int32, _ arg1: Rect?, _ arg2: Rect?, _ arg3: Int32)
-
-  @JavaStaticMethod
-  public func applyDisplay(_ arg0: Int32, _ arg1: Rect?, _ arg2: Rect?)
 
   @JavaStaticMethod
   public func isVertical(_ arg0: Int32) -> Bool
@@ -116,4 +104,16 @@ extension JavaClass<Gravity> {
 
   @JavaStaticMethod
   public func getAbsoluteGravity(_ arg0: Int32, _ arg1: Int32) -> Int32
+
+  @JavaStaticMethod
+  public func apply(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Rect?, _ arg4: Int32, _ arg5: Int32, _ arg6: Rect?, _ arg7: Int32)
+
+  @JavaStaticMethod
+  public func apply(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Rect?, _ arg4: Rect?)
+
+  @JavaStaticMethod
+  public func apply(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Rect?, _ arg4: Rect?, _ arg5: Int32)
+
+  @JavaStaticMethod
+  public func apply(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Rect?, _ arg4: Int32, _ arg5: Int32, _ arg6: Rect?)
 }

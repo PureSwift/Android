@@ -6,6 +6,36 @@ import JavaRuntime
 @JavaClass("android.view.KeyCharacterMap", implements: Parcelable.self)
 open class KeyCharacterMap: JavaObject {
   @JavaMethod
+  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
+
+  @JavaMethod
+  open func describeContents() -> Int32
+
+  @JavaMethod
+  open func getKeyboardType() -> Int32
+
+  @JavaMethod
+  open func getMatch(_ arg0: Int32, _ arg1: [UInt16], _ arg2: Int32) -> UInt16
+
+  @JavaMethod
+  open func getMatch(_ arg0: Int32, _ arg1: [UInt16]) -> UInt16
+
+  @JavaMethod
+  open func getDisplayLabel(_ arg0: Int32) -> UInt16
+
+  @JavaMethod
+  open func getKeyData(_ arg0: Int32, _ arg1: KeyCharacterMap.KeyData?) -> Bool
+
+  @JavaMethod
+  open func getEvents(_ arg0: [UInt16]) -> [KeyEvent?]
+
+  @JavaMethod
+  open func isPrintingKey(_ arg0: Int32) -> Bool
+
+  @JavaMethod
+  open func getModifierBehavior() -> Int32
+
+  @JavaMethod
   open override func finalize() throws
 
   @JavaMethod
@@ -16,36 +46,6 @@ open class KeyCharacterMap: JavaObject {
 
   @JavaMethod
   open func getNumber(_ arg0: Int32) -> UInt16
-
-  @JavaMethod
-  open func getModifierBehavior() -> Int32
-
-  @JavaMethod
-  open func describeContents() -> Int32
-
-  @JavaMethod
-  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
-
-  @JavaMethod
-  open func getDisplayLabel(_ arg0: Int32) -> UInt16
-
-  @JavaMethod
-  open func getKeyData(_ arg0: Int32, _ arg1: KeyCharacterMap.KeyData?) -> Bool
-
-  @JavaMethod
-  open func getMatch(_ arg0: Int32, _ arg1: [UInt16]) -> UInt16
-
-  @JavaMethod
-  open func getMatch(_ arg0: Int32, _ arg1: [UInt16], _ arg2: Int32) -> UInt16
-
-  @JavaMethod
-  open func isPrintingKey(_ arg0: Int32) -> Bool
-
-  @JavaMethod
-  open func getEvents(_ arg0: [UInt16]) -> [KeyEvent?]
-
-  @JavaMethod
-  open func getKeyboardType() -> Int32
 }
 extension JavaClass<KeyCharacterMap> {
   @JavaStaticField(isFinal: true)
@@ -97,9 +97,6 @@ extension JavaClass<KeyCharacterMap> {
   public var PARCELABLE_WRITE_RETURN_VALUE: Int32
 
   @JavaStaticMethod
-  public func load(_ arg0: Int32) -> KeyCharacterMap!
-
-  @JavaStaticMethod
   public func getDeadChar(_ arg0: Int32, _ arg1: Int32) -> Int32
 
   @JavaStaticMethod
@@ -107,4 +104,7 @@ extension JavaClass<KeyCharacterMap> {
 
   @JavaStaticMethod
   public func deviceHasKeys(_ arg0: [Int32]) -> [Bool]
+
+  @JavaStaticMethod
+  public func load(_ arg0: Int32) -> KeyCharacterMap!
 }

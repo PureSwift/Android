@@ -9,9 +9,6 @@ import JavaRuntime
 @JavaClass("android.view.ViewTreeObserver")
 open class ViewTreeObserver: JavaObject {
   @JavaMethod
-  open func isAlive() -> Bool
-
-  @JavaMethod
   open func addOnWindowAttachListener(_ arg0: ViewTreeObserver.OnWindowAttachListener?)
 
   @JavaMethod
@@ -45,6 +42,9 @@ open class ViewTreeObserver: JavaObject {
   open func removeOnPreDrawListener(_ arg0: ViewTreeObserver.OnPreDrawListener?)
 
   @JavaMethod
+  open func addOnDrawListener(_ arg0: ViewTreeObserver.OnDrawListener?)
+
+  @JavaMethod
   open func removeOnDrawListener(_ arg0: ViewTreeObserver.OnDrawListener?)
 
   @JavaMethod
@@ -66,10 +66,13 @@ open class ViewTreeObserver: JavaObject {
   open func removeOnTouchModeChangeListener(_ arg0: ViewTreeObserver.OnTouchModeChangeListener?)
 
   @JavaMethod
-  open func dispatchOnGlobalLayout()
+  open func addOnSystemGestureExclusionRectsChangedListener(_ arg0: JavaConsumer<List<Rect>>?)
 
   @JavaMethod
-  open func addOnDrawListener(_ arg0: ViewTreeObserver.OnDrawListener?)
+  open func removeOnSystemGestureExclusionRectsChangedListener(_ arg0: JavaConsumer<List<Rect>>?)
+
+  @JavaMethod
+  open func dispatchOnGlobalLayout()
 
   @JavaMethod
   open func dispatchOnPreDraw() -> Bool
@@ -78,8 +81,5 @@ open class ViewTreeObserver: JavaObject {
   open func dispatchOnDraw()
 
   @JavaMethod
-  open func addOnSystemGestureExclusionRectsChangedListener(_ arg0: JavaConsumer<List<Rect>>?)
-
-  @JavaMethod
-  open func removeOnSystemGestureExclusionRectsChangedListener(_ arg0: JavaConsumer<List<Rect>>?)
+  open func isAlive() -> Bool
 }

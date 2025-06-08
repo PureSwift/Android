@@ -6,28 +6,28 @@ import JavaRuntime
 @JavaClass("android.view.VerifiedInputEvent", implements: Parcelable.self)
 open class VerifiedInputEvent: JavaObject {
   @JavaMethod
-  open override func equals(_ arg0: JavaObject?) -> Bool
-
-  @JavaMethod
-  open override func hashCode() -> Int32
-
-  @JavaMethod
-  open func getSource() -> Int32
+  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
   @JavaMethod
   open func describeContents() -> Int32
 
   @JavaMethod
-  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
+  open func getDeviceId() -> Int32
 
   @JavaMethod
-  open func getDeviceId() -> Int32
+  open func getEventTimeNanos() -> Int64
 
   @JavaMethod
   open func getDisplayId() -> Int32
 
   @JavaMethod
-  open func getEventTimeNanos() -> Int64
+  open func getSource() -> Int32
+
+  @JavaMethod
+  open override func equals(_ arg0: JavaObject?) -> Bool
+
+  @JavaMethod
+  open override func hashCode() -> Int32
 }
 extension JavaClass<VerifiedInputEvent> {
   @JavaStaticField(isFinal: true)

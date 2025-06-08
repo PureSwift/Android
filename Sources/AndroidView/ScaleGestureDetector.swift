@@ -7,10 +7,16 @@ import JavaRuntime
 @JavaClass("android.view.ScaleGestureDetector")
 open class ScaleGestureDetector: JavaObject {
   @JavaMethod
+  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: ScaleGestureDetector.OnScaleGestureListener?, _ arg2: Handler?, environment: JNIEnvironment? = nil)
+
+  @JavaMethod
   @_nonoverride public convenience init(_ arg0: Context?, _ arg1: ScaleGestureDetector.OnScaleGestureListener?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: ScaleGestureDetector.OnScaleGestureListener?, _ arg2: Handler?, environment: JNIEnvironment? = nil)
+  open func onTouchEvent(_ arg0: MotionEvent?) -> Bool
+
+  @JavaMethod
+  open func getScaleFactor() -> Float
 
   @JavaMethod
   open func setQuickScaleEnabled(_ arg0: Bool)
@@ -19,19 +25,13 @@ open class ScaleGestureDetector: JavaObject {
   open func isQuickScaleEnabled() -> Bool
 
   @JavaMethod
+  open func isInProgress() -> Bool
+
+  @JavaMethod
   open func setStylusScaleEnabled(_ arg0: Bool)
 
   @JavaMethod
   open func isStylusScaleEnabled() -> Bool
-
-  @JavaMethod
-  open func getEventTime() -> Int64
-
-  @JavaMethod
-  open func getScaleFactor() -> Float
-
-  @JavaMethod
-  open func isInProgress() -> Bool
 
   @JavaMethod
   open func getFocusX() -> Float
@@ -61,5 +61,5 @@ open class ScaleGestureDetector: JavaObject {
   open func getTimeDelta() -> Int64
 
   @JavaMethod
-  open func onTouchEvent(_ arg0: JavaObject?) -> Bool
+  open func getEventTime() -> Int64
 }

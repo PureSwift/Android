@@ -9,29 +9,29 @@ open class ActionProvider: JavaObject {
   @_nonoverride public convenience init(_ arg0: Context?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func overridesItemVisibility() -> Bool
-
-  @JavaMethod
-  open func onPerformDefaultAction() -> Bool
-
-  @JavaMethod
-  open func setVisibilityListener(_ arg0: ActionProvider.VisibilityListener?)
-
-  @JavaMethod
   open func isVisible() -> Bool
-
-  @JavaMethod
-  open func onCreateActionView() -> View!
 
   @JavaMethod
   open func onCreateActionView(_ arg0: MenuItem?) -> View!
 
   @JavaMethod
+  open func onCreateActionView() -> View!
+
+  @JavaMethod
+  open func overridesItemVisibility() -> Bool
+
+  @JavaMethod
   open func refreshVisibility()
+
+  @JavaMethod
+  open func onPerformDefaultAction() -> Bool
 
   @JavaMethod
   open func hasSubMenu() -> Bool
 
   @JavaMethod
   open func onPrepareSubMenu(_ arg0: SubMenu?)
+
+  @JavaMethod
+  open func setVisibilityListener(_ arg0: ActionProvider.VisibilityListener?)
 }

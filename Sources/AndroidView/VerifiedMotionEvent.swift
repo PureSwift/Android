@@ -6,10 +6,19 @@ import JavaRuntime
 @JavaClass("android.view.VerifiedMotionEvent", implements: Parcelable.self)
 open class VerifiedMotionEvent: VerifiedInputEvent {
   @JavaMethod
-  open override func equals(_ arg0: JavaObject?) -> Bool
+  open func getFlag(_ arg0: Int32) -> JavaBoolean!
 
   @JavaMethod
-  open override func hashCode() -> Int32
+  open func getDownTimeNanos() -> Int64
+
+  @JavaMethod
+  open func getMetaState() -> Int32
+
+  @JavaMethod
+  open override func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
+
+  @JavaMethod
+  open override func describeContents() -> Int32
 
   @JavaMethod
   open func getActionMasked() -> Int32
@@ -24,19 +33,10 @@ open class VerifiedMotionEvent: VerifiedInputEvent {
   open func getRawY() -> Float
 
   @JavaMethod
-  open override func describeContents() -> Int32
+  open override func equals(_ arg0: JavaObject?) -> Bool
 
   @JavaMethod
-  open override func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
-
-  @JavaMethod
-  open func getMetaState() -> Int32
-
-  @JavaMethod
-  open func getFlag(_ arg0: Int32) -> JavaBoolean!
-
-  @JavaMethod
-  open func getDownTimeNanos() -> Int64
+  open override func hashCode() -> Int32
 }
 extension JavaClass<VerifiedMotionEvent> {
   @JavaStaticField(isFinal: true)
@@ -47,4 +47,5 @@ extension JavaClass<VerifiedMotionEvent> {
 
   @JavaStaticField(isFinal: true)
   public var PARCELABLE_WRITE_RETURN_VALUE: Int32
+
 }

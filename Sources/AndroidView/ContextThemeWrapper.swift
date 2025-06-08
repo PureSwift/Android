@@ -6,25 +6,19 @@ import JavaRuntime
 @JavaClass("android.view.ContextThemeWrapper")
 open class ContextThemeWrapper: ContextWrapper {
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: Resources.Theme?, environment: JNIEnvironment? = nil)
+  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: Int32, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: Int32, environment: JNIEnvironment? = nil)
+  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: Resources.Theme?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open override func getResources() -> Resources!
+  open override func attachBaseContext(_ arg0: Context?)
 
   @JavaMethod
   open func applyOverrideConfiguration(_ arg0: Configuration?)
-
-  @JavaMethod
-  open func onApplyThemeResource(_ arg0: Resources.Theme?, _ arg1: Int32, _ arg2: Bool)
-
-  @JavaMethod
-  open override func attachBaseContext(_ arg0: Context?)
 
   @JavaMethod
   open override func getAssets() -> AssetManager!
@@ -40,6 +34,12 @@ open class ContextThemeWrapper: ContextWrapper {
 
   @JavaMethod
   open override func getSystemService(_ arg0: String) -> JavaObject!
+
+  @JavaMethod
+  open func onApplyThemeResource(_ arg0: Resources.Theme?, _ arg1: Int32, _ arg2: Bool)
+
+  @JavaMethod
+  open override func getResources() -> Resources!
 }
 extension JavaClass<ContextThemeWrapper> {
   @JavaStaticField(isFinal: true)

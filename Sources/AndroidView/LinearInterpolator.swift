@@ -7,10 +7,10 @@ import JavaRuntime
 @JavaClass("android.view.animation.LinearInterpolator")
 open class LinearInterpolator: BaseInterpolator {
   @JavaMethod
-  @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
+  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, environment: JNIEnvironment? = nil)
+  @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
   @JavaMethod
   open func getInterpolation(_ arg0: Float) -> Float

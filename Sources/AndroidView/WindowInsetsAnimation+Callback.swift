@@ -10,9 +10,6 @@ extension WindowInsetsAnimation {
   @_nonoverride public convenience init(_ arg0: Int32, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func onStart(_ arg0: WindowInsetsAnimation?, _ arg1: WindowInsetsAnimation.Bounds?) -> WindowInsetsAnimation.Bounds!
-
-  @JavaMethod
   open func getDispatchMode() -> Int32
 
   @JavaMethod
@@ -23,6 +20,9 @@ extension WindowInsetsAnimation {
 
   @JavaMethod
   open func onEnd(_ arg0: WindowInsetsAnimation?)
+
+  @JavaMethod
+  open func onStart(_ arg0: WindowInsetsAnimation?, _ arg1: WindowInsetsAnimation.Bounds?) -> WindowInsetsAnimation.Bounds!
   }
 }
 extension JavaClass<WindowInsetsAnimation.Callback> {

@@ -8,46 +8,22 @@ import JavaRuntime
 @JavaClass("android.view.TextureView")
 open class TextureView: View {
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, _ arg2: Int32, _ arg3: Int32, environment: JNIEnvironment? = nil)
-
-  @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, _ arg2: Int32, environment: JNIEnvironment? = nil)
-
-  @JavaMethod
   @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Context?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func setOpaque(_ arg0: Bool)
+  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, _ arg2: Int32, _ arg3: Int32, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open override func isOpaque() -> Bool
+  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, _ arg2: Int32, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func unlockCanvasAndPost(_ arg0: Canvas?)
-
-  @JavaMethod
-  open func getSurfaceTextureListener() -> TextureView.SurfaceTextureListener!
-
-  @JavaMethod
-  open func setSurfaceTextureListener(_ arg0: TextureView.SurfaceTextureListener?)
+  open override func draw(_ arg0: Canvas?)
 
   @JavaMethod
   open override func onVisibilityChanged(_ arg0: View?, _ arg1: Int32)
-
-  @JavaMethod
-  open override func setBackgroundDrawable(_ arg0: Drawable?)
-
-  @JavaMethod
-  open func lockCanvas() -> Canvas!
-
-  @JavaMethod
-  open func lockCanvas(_ arg0: Rect?) -> Canvas!
-
-  @JavaMethod
-  open override func onDraw(_ arg0: Canvas?)
 
   @JavaMethod
   open override func onSizeChanged(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
@@ -68,10 +44,13 @@ open class TextureView: View {
   open override func buildLayer()
 
   @JavaMethod
-  open override func draw(_ arg0: Canvas?)
+  open override func setBackgroundDrawable(_ arg0: Drawable?)
 
   @JavaMethod
   open override func setForeground(_ arg0: Drawable?)
+
+  @JavaMethod
+  open override func onDraw(_ arg0: Canvas?)
 
   @JavaMethod
   open func setTransform(_ arg0: Matrix?)
@@ -80,13 +59,13 @@ open class TextureView: View {
   open func getTransform(_ arg0: Matrix?) -> Matrix!
 
   @JavaMethod
+  open func getBitmap() -> Bitmap!
+
+  @JavaMethod
   open func getBitmap(_ arg0: Int32, _ arg1: Int32) -> Bitmap!
 
   @JavaMethod
   open func getBitmap(_ arg0: Bitmap?) -> Bitmap!
-
-  @JavaMethod
-  open func getBitmap() -> Bitmap!
 
   @JavaMethod
   open func isAvailable() -> Bool
@@ -96,6 +75,27 @@ open class TextureView: View {
 
   @JavaMethod
   open func setSurfaceTexture(_ arg0: SurfaceTexture?)
+
+  @JavaMethod
+  open func getSurfaceTextureListener() -> TextureView.SurfaceTextureListener!
+
+  @JavaMethod
+  open func setSurfaceTextureListener(_ arg0: TextureView.SurfaceTextureListener?)
+
+  @JavaMethod
+  open func lockCanvas() -> Canvas!
+
+  @JavaMethod
+  open func lockCanvas(_ arg0: Rect?) -> Canvas!
+
+  @JavaMethod
+  open func unlockCanvasAndPost(_ arg0: Canvas?)
+
+  @JavaMethod
+  open func setOpaque(_ arg0: Bool)
+
+  @JavaMethod
+  open override func isOpaque() -> Bool
 }
 extension JavaClass<TextureView> {
   @JavaStaticField(isFinal: true)

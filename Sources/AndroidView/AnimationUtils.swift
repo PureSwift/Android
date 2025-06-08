@@ -13,19 +13,19 @@ extension JavaClass<AnimationUtils> {
   public func currentAnimationTimeMillis() -> Int64
 
   @JavaStaticMethod
-  public func loadLayoutAnimation(_ arg0: Context?, _ arg1: Int32) throws -> LayoutAnimationController!
-
-  @JavaStaticMethod
-  public func makeInChildBottomAnimation(_ arg0: Context?) -> Animation!
-
-  @JavaStaticMethod
   public func loadAnimation(_ arg0: Context?, _ arg1: Int32) throws -> Animation!
+
+  @JavaStaticMethod
+  public func loadLayoutAnimation(_ arg0: Context?, _ arg1: Int32) throws -> LayoutAnimationController!
 
   @JavaStaticMethod
   public func makeInAnimation(_ arg0: Context?, _ arg1: Bool) -> Animation!
 
   @JavaStaticMethod
   public func makeOutAnimation(_ arg0: Context?, _ arg1: Bool) -> Animation!
+
+  @JavaStaticMethod
+  public func makeInChildBottomAnimation(_ arg0: Context?) -> Animation!
 
   @JavaStaticMethod
   public func loadInterpolator(_ arg0: Context?, _ arg1: Int32) throws -> Interpolator!

@@ -20,14 +20,14 @@ extension JavaClass<View.MeasureSpec> {
   public var UNSPECIFIED: Int32
 
   @JavaStaticMethod
-  public func toString(_ arg0: Int32) -> String
-
-  @JavaStaticMethod
-  public func getSize(_ arg0: Int32) -> Int32
+  public func getMode(_ arg0: Int32) -> Int32
 
   @JavaStaticMethod
   public func makeMeasureSpec(_ arg0: Int32, _ arg1: Int32) -> Int32
 
   @JavaStaticMethod
-  public func getMode(_ arg0: Int32) -> Int32
+  public func toString(_ arg0: Int32) -> String
+
+  @JavaStaticMethod
+  public func getSize(_ arg0: Int32) -> Int32
 }

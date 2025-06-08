@@ -85,25 +85,67 @@ extension WindowManager {
   public var y: Int32
 
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, environment: JNIEnvironment? = nil)
-
-  @JavaMethod
   @_nonoverride public convenience init(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32, _ arg5: Int32, _ arg6: Int32, environment: JNIEnvironment? = nil)
+  @_nonoverride public convenience init(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Parcel?, environment: JNIEnvironment? = nil)
-
-  @JavaMethod
-  @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
+  @_nonoverride public convenience init(_ arg0: Int32, _ arg1: Int32, environment: JNIEnvironment? = nil)
 
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Int32, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Int32, _ arg1: Int32, environment: JNIEnvironment? = nil)
+  @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
+
+  @JavaMethod
+  @_nonoverride public convenience init(_ arg0: Parcel?, environment: JNIEnvironment? = nil)
+
+  @JavaMethod
+  @_nonoverride public convenience init(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32, _ arg5: Int32, _ arg6: Int32, environment: JNIEnvironment? = nil)
+
+  @JavaMethod
+  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
+
+  @JavaMethod
+  open func describeContents() -> Int32
+
+  @JavaMethod
+  open func setFitInsetsTypes(_ arg0: Int32)
+
+  @JavaMethod
+  open func setFitInsetsSides(_ arg0: Int32)
+
+  @JavaMethod
+  open func setFitInsetsIgnoringVisibility(_ arg0: Bool)
+
+  @JavaMethod
+  open func getFitInsetsTypes() -> Int32
+
+  @JavaMethod
+  open func getFitInsetsSides() -> Int32
+
+  @JavaMethod
+  open func isFitInsetsIgnoringVisibility() -> Bool
+
+  @JavaMethod
+  open func setTitle(_ arg0: CharSequence?)
+
+  @JavaMethod
+  open func getTitle() -> CharSequence!
+
+  @JavaMethod
+  open func setColorMode(_ arg0: Int32)
+
+  @JavaMethod
+  open func getColorMode() -> Int32
+
+  @JavaMethod
+  open func setBlurBehindRadius(_ arg0: Int32)
+
+  @JavaMethod
+  open func getBlurBehindRadius() -> Int32
 
   @JavaMethod
   open override func toString() -> String
@@ -113,48 +155,6 @@ extension WindowManager {
 
   @JavaMethod
   open func copyFrom(_ arg0: WindowManager.LayoutParams?) -> Int32
-
-  @JavaMethod
-  open func setFitInsetsIgnoringVisibility(_ arg0: Bool)
-
-  @JavaMethod
-  open func isFitInsetsIgnoringVisibility() -> Bool
-
-  @JavaMethod
-  open func setBlurBehindRadius(_ arg0: Int32)
-
-  @JavaMethod
-  open func getBlurBehindRadius() -> Int32
-
-  @JavaMethod
-  open func setTitle(_ arg0: CharSequence?)
-
-  @JavaMethod
-  open func getTitle() -> CharSequence!
-
-  @JavaMethod
-  open func describeContents() -> Int32
-
-  @JavaMethod
-  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
-
-  @JavaMethod
-  open func setFitInsetsTypes(_ arg0: Int32)
-
-  @JavaMethod
-  open func setFitInsetsSides(_ arg0: Int32)
-
-  @JavaMethod
-  open func getFitInsetsTypes() -> Int32
-
-  @JavaMethod
-  open func getFitInsetsSides() -> Int32
-
-  @JavaMethod
-  open func setColorMode(_ arg0: Int32)
-
-  @JavaMethod
-  open func getColorMode() -> Int32
   }
 }
 extension JavaClass<WindowManager.LayoutParams> {

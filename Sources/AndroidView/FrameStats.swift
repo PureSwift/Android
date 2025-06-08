@@ -8,19 +8,19 @@ open class FrameStats: JavaObject {
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func getRefreshPeriodNano() -> Int64
-
-  @JavaMethod
-  open func getFramePresentedTimeNano(_ arg0: Int32) -> Int64
-
-  @JavaMethod
   open func getFrameCount() -> Int32
+
+  @JavaMethod
+  open func getRefreshPeriodNano() -> Int64
 
   @JavaMethod
   open func getStartTimeNano() -> Int64
 
   @JavaMethod
   open func getEndTimeNano() -> Int64
+
+  @JavaMethod
+  open func getFramePresentedTimeNano(_ arg0: Int32) -> Int64
 }
 extension JavaClass<FrameStats> {
   @JavaStaticField(isFinal: true)

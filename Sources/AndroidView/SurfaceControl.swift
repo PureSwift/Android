@@ -6,6 +6,15 @@ import JavaRuntime
 @JavaClass("android.view.SurfaceControl", implements: Parcelable.self)
 open class SurfaceControl: JavaObject {
   @JavaMethod
+  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
+
+  @JavaMethod
+  open func describeContents() -> Int32
+
+  @JavaMethod
+  open func readFromParcel(_ arg0: Parcel?)
+
+  @JavaMethod
   open override func finalize() throws
 
   @JavaMethod
@@ -16,15 +25,6 @@ open class SurfaceControl: JavaObject {
 
   @JavaMethod
   open func isValid() -> Bool
-
-  @JavaMethod
-  open func describeContents() -> Int32
-
-  @JavaMethod
-  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
-
-  @JavaMethod
-  open func readFromParcel(_ arg0: Parcel?)
 }
 extension JavaClass<SurfaceControl> {
   @JavaStaticField(isFinal: true)

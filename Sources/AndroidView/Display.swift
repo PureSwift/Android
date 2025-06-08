@@ -7,6 +7,78 @@ import JavaRuntime
 @JavaClass("android.view.Display")
 open class Display: JavaObject {
   @JavaMethod
+  open func getDisplayId() -> Int32
+
+  @JavaMethod
+  open func getRectSize(_ arg0: Rect?)
+
+  @JavaMethod
+  open func getCurrentSizeRange(_ arg0: Point?, _ arg1: Point?)
+
+  @JavaMethod
+  open func getWidth() -> Int32
+
+  @JavaMethod
+  open func getHeight() -> Int32
+
+  @JavaMethod
+  open func getRotation() -> Int32
+
+  @JavaMethod
+  open func getOrientation() -> Int32
+
+  @JavaMethod
+  open func getCutout() -> DisplayCutout!
+
+  @JavaMethod
+  open func getRoundedCorner(_ arg0: Int32) -> RoundedCorner!
+
+  @JavaMethod
+  open func getPixelFormat() -> Int32
+
+  @JavaMethod
+  open func getRefreshRate() -> Float
+
+  @JavaMethod
+  open func getSupportedRefreshRates() -> [Float]
+
+  @JavaMethod
+  open func getMode() -> Display.Mode!
+
+  @JavaMethod
+  open func getSupportedModes() -> [Display.Mode?]
+
+  @JavaMethod
+  open func isMinimalPostProcessingSupported() -> Bool
+
+  @JavaMethod
+  open func getHdrCapabilities() -> Display.HdrCapabilities!
+
+  @JavaMethod
+  open func isHdr() -> Bool
+
+  @JavaMethod
+  open func isWideColorGamut() -> Bool
+
+  @JavaMethod
+  open func getPreferredWideGamutColorSpace() -> ColorSpace!
+
+  @JavaMethod
+  open func getAppVsyncOffsetNanos() -> Int64
+
+  @JavaMethod
+  open func getPresentationDeadlineNanos() -> Int64
+
+  @JavaMethod
+  open func getMetrics(_ arg0: DisplayMetrics?)
+
+  @JavaMethod
+  open func getRealSize(_ arg0: Point?)
+
+  @JavaMethod
+  open func getRealMetrics(_ arg0: DisplayMetrics?)
+
+  @JavaMethod
   open func getName() -> String
 
   @JavaMethod
@@ -23,78 +95,6 @@ open class Display: JavaObject {
 
   @JavaMethod
   open func getFlags() -> Int32
-
-  @JavaMethod
-  open func getCurrentSizeRange(_ arg0: Point?, _ arg1: Point?)
-
-  @JavaMethod
-  open func getSupportedRefreshRates() -> [Float]
-
-  @JavaMethod
-  open func isMinimalPostProcessingSupported() -> Bool
-
-  @JavaMethod
-  open func getPreferredWideGamutColorSpace() -> ColorSpace!
-
-  @JavaMethod
-  open func getAppVsyncOffsetNanos() -> Int64
-
-  @JavaMethod
-  open func getPresentationDeadlineNanos() -> Int64
-
-  @JavaMethod
-  open func getWidth() -> Int32
-
-  @JavaMethod
-  open func getHeight() -> Int32
-
-  @JavaMethod
-  open func getRotation() -> Int32
-
-  @JavaMethod
-  open func getDisplayId() -> Int32
-
-  @JavaMethod
-  open func getRectSize(_ arg0: Rect?)
-
-  @JavaMethod
-  open func getOrientation() -> Int32
-
-  @JavaMethod
-  open func getCutout() -> DisplayCutout!
-
-  @JavaMethod
-  open func getRoundedCorner(_ arg0: Int32) -> RoundedCorner!
-
-  @JavaMethod
-  open func getPixelFormat() -> Int32
-
-  @JavaMethod
-  open func getMode() -> Display.Mode!
-
-  @JavaMethod
-  open func getSupportedModes() -> [Display.Mode?]
-
-  @JavaMethod
-  open func getHdrCapabilities() -> Display.HdrCapabilities!
-
-  @JavaMethod
-  open func isHdr() -> Bool
-
-  @JavaMethod
-  open func getMetrics(_ arg0: DisplayMetrics?)
-
-  @JavaMethod
-  open func getRealSize(_ arg0: Point?)
-
-  @JavaMethod
-  open func getRealMetrics(_ arg0: DisplayMetrics?)
-
-  @JavaMethod
-  open func getRefreshRate() -> Float
-
-  @JavaMethod
-  open func isWideColorGamut() -> Bool
 }
 extension JavaClass<Display> {
   @JavaStaticField(isFinal: true)

@@ -17,19 +17,19 @@ extension ViewGroup {
   public var width: Int32
 
   @JavaMethod
+  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, environment: JNIEnvironment? = nil)
+
+  @JavaMethod
   @_nonoverride public convenience init(_ arg0: ViewGroup.LayoutParams?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Int32, _ arg1: Int32, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, environment: JNIEnvironment? = nil)
+  open func setBaseAttributes(_ arg0: TypedArray?, _ arg1: Int32, _ arg2: Int32)
 
   @JavaMethod
   open func resolveLayoutDirection(_ arg0: Int32)
-
-  @JavaMethod
-  open func setBaseAttributes(_ arg0: TypedArray?, _ arg1: Int32, _ arg2: Int32)
   }
 }
 extension JavaClass<ViewGroup.LayoutParams> {

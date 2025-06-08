@@ -6,6 +6,6 @@ extension View {
   @JavaInterface("android.view.View$OnCapturedPointerListener")
   public struct OnCapturedPointerListener {
   @JavaMethod
-  public func onCapturedPointer(_ arg0: View?, _ arg1: JavaObject?) -> Bool
+  public func onCapturedPointer(_ arg0: View?, _ arg1: MotionEvent?) -> Bool
   }
 }

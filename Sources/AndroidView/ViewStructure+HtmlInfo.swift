@@ -11,9 +11,9 @@ extension ViewStructure {
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func getAttributes() -> List<Pair<JavaString, JavaString>>!
+  open func getTag() -> String
 
   @JavaMethod
-  open func getTag() -> String
+  open func getAttributes() -> List<Pair<JavaString, JavaString>>!
   }
 }

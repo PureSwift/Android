@@ -9,10 +9,10 @@ open class TouchDelegate: JavaObject {
   @_nonoverride public convenience init(_ arg0: Rect?, _ arg1: View?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func onTouchExplorationHoverEvent(_ arg0: JavaObject?) -> Bool
+  open func onTouchEvent(_ arg0: MotionEvent?) -> Bool
 
   @JavaMethod
-  open func onTouchEvent(_ arg0: JavaObject?) -> Bool
+  open func onTouchExplorationHoverEvent(_ arg0: MotionEvent?) -> Bool
 }
 extension JavaClass<TouchDelegate> {
   @JavaStaticField(isFinal: true)

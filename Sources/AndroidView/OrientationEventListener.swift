@@ -6,13 +6,13 @@ import JavaRuntime
 @JavaClass("android.view.OrientationEventListener")
 open class OrientationEventListener: JavaObject {
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Context?, environment: JNIEnvironment? = nil)
-
-  @JavaMethod
   @_nonoverride public convenience init(_ arg0: Context?, _ arg1: Int32, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func enable()
+  @_nonoverride public convenience init(_ arg0: Context?, environment: JNIEnvironment? = nil)
+
+  @JavaMethod
+  open func disable()
 
   @JavaMethod
   open func canDetectOrientation() -> Bool
@@ -21,7 +21,7 @@ open class OrientationEventListener: JavaObject {
   open func onOrientationChanged(_ arg0: Int32)
 
   @JavaMethod
-  open func disable()
+  open func enable()
 }
 extension JavaClass<OrientationEventListener> {
   @JavaStaticField(isFinal: true)

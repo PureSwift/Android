@@ -6,10 +6,22 @@ import JavaRuntime
 @JavaInterface("android.view.SurfaceHolder")
 public struct SurfaceHolder {
   @JavaMethod
-  public func setFormat(_ arg0: Int32)
+  public func setKeepScreenOn(_ arg0: Bool)
+
+  @JavaMethod
+  public func getSurface() -> Surface!
+
+  @JavaMethod
+  public func lockCanvas() -> Canvas!
+
+  @JavaMethod
+  public func lockCanvas(_ arg0: Rect?) -> Canvas!
 
   @JavaMethod
   public func unlockCanvasAndPost(_ arg0: Canvas?)
+
+  @JavaMethod
+  public func lockHardwareCanvas() -> Canvas!
 
   @JavaMethod
   public func addCallback(_ arg0: SurfaceHolder.Callback?)
@@ -30,22 +42,10 @@ public struct SurfaceHolder {
   public func setSizeFromLayout()
 
   @JavaMethod
-  public func setKeepScreenOn(_ arg0: Bool)
-
-  @JavaMethod
-  public func lockCanvas() -> Canvas!
-
-  @JavaMethod
-  public func lockCanvas(_ arg0: Rect?) -> Canvas!
-
-  @JavaMethod
-  public func lockHardwareCanvas() -> Canvas!
-
-  @JavaMethod
   public func getSurfaceFrame() -> Rect!
 
   @JavaMethod
-  public func getSurface() -> Surface!
+  public func setFormat(_ arg0: Int32)
 }
 extension JavaClass<SurfaceHolder> {
   @JavaStaticField(isFinal: true)

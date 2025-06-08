@@ -9,8 +9,8 @@ open class WindowMetrics: JavaObject {
   @_nonoverride public convenience init(_ arg0: Rect?, _ arg1: WindowInsets?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func getBounds() -> Rect!
+  open func getWindowInsets() -> WindowInsets!
 
   @JavaMethod
-  open func getWindowInsets() -> WindowInsets!
+  open func getBounds() -> Rect!
 }

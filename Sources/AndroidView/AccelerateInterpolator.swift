@@ -7,13 +7,13 @@ import JavaRuntime
 @JavaClass("android.view.animation.AccelerateInterpolator")
 open class AccelerateInterpolator: BaseInterpolator {
   @JavaMethod
+  @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
+
+  @JavaMethod
   @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Float, environment: JNIEnvironment? = nil)
-
-  @JavaMethod
-  @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
   @JavaMethod
   open func getInterpolation(_ arg0: Float) -> Float

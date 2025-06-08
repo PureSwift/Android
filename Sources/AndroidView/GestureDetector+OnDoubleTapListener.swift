@@ -6,12 +6,12 @@ extension GestureDetector {
   @JavaInterface("android.view.GestureDetector$OnDoubleTapListener")
   public struct OnDoubleTapListener {
   @JavaMethod
-  public func onSingleTapConfirmed(_ arg0: MotionEvent?) -> Bool
-
-  @JavaMethod
   public func onDoubleTap(_ arg0: MotionEvent?) -> Bool
 
   @JavaMethod
   public func onDoubleTapEvent(_ arg0: MotionEvent?) -> Bool
+
+  @JavaMethod
+  public func onSingleTapConfirmed(_ arg0: MotionEvent?) -> Bool
   }
 }

@@ -8,6 +8,9 @@ import JavaRuntime
 @JavaClass("android.view.animation.PathInterpolator")
 open class PathInterpolator: BaseInterpolator {
   @JavaMethod
+  @_nonoverride public convenience init(_ arg0: Path?, environment: JNIEnvironment? = nil)
+
+  @JavaMethod
   @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
@@ -15,9 +18,6 @@ open class PathInterpolator: BaseInterpolator {
 
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Float, _ arg1: Float, environment: JNIEnvironment? = nil)
-
-  @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Path?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
   open func getInterpolation(_ arg0: Float) -> Float

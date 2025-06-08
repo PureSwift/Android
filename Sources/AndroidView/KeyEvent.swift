@@ -6,19 +6,19 @@ import JavaRuntime
 @JavaClass("android.view.KeyEvent", implements: Parcelable.self)
 open class KeyEvent: InputEvent {
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Int64, _ arg1: Int64, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32, _ arg5: Int32, _ arg6: Int32, _ arg7: Int32, _ arg8: Int32, environment: JNIEnvironment? = nil)
-
-  @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Int64, _ arg1: Int64, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32, _ arg5: Int32, _ arg6: Int32, _ arg7: Int32, _ arg8: Int32, _ arg9: Int32, environment: JNIEnvironment? = nil)
-
-  @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Int64, _ arg1: String, _ arg2: Int32, _ arg3: Int32, environment: JNIEnvironment? = nil)
+  @_nonoverride public convenience init(_ arg0: KeyEvent?, _ arg1: Int64, _ arg2: Int32, environment: JNIEnvironment? = nil)
 
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: KeyEvent?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: KeyEvent?, _ arg1: Int64, _ arg2: Int32, environment: JNIEnvironment? = nil)
+  @_nonoverride public convenience init(_ arg0: Int64, _ arg1: String, _ arg2: Int32, _ arg3: Int32, environment: JNIEnvironment? = nil)
+
+  @JavaMethod
+  @_nonoverride public convenience init(_ arg0: Int64, _ arg1: Int64, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32, _ arg5: Int32, _ arg6: Int32, _ arg7: Int32, _ arg8: Int32, _ arg9: Int32, environment: JNIEnvironment? = nil)
+
+  @JavaMethod
+  @_nonoverride public convenience init(_ arg0: Int64, _ arg1: Int64, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32, _ arg5: Int32, _ arg6: Int32, _ arg7: Int32, _ arg8: Int32, environment: JNIEnvironment? = nil)
 
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Int32, _ arg1: Int32, environment: JNIEnvironment? = nil)
@@ -33,28 +33,16 @@ open class KeyEvent: InputEvent {
   @_nonoverride public convenience init(_ arg0: Int64, _ arg1: Int64, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32, _ arg5: Int32, _ arg6: Int32, _ arg7: Int32, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func dispatch(_ arg0: KeyEvent.Callback?, _ arg1: KeyEvent.DispatcherState?, _ arg2: JavaObject?) -> Bool
+  open func getAction() -> Int32
 
   @JavaMethod
-  open func dispatch(_ arg0: KeyEvent.Callback?) -> Bool
+  open func getKeyCode() -> Int32
 
   @JavaMethod
-  open override func toString() -> String
+  open func getScanCode() -> Int32
 
   @JavaMethod
-  open func getModifiers() -> Int32
-
-  @JavaMethod
-  open func getNumber() -> UInt16
-
-  @JavaMethod
-  open func isSystem() -> Bool
-
-  @JavaMethod
-  open func getFlags() -> Int32
-
-  @JavaMethod
-  open override func getSource() -> Int32
+  open func getMetaState() -> Int32
 
   @JavaMethod
   open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
@@ -63,10 +51,13 @@ open class KeyEvent: InputEvent {
   open override func getDeviceId() -> Int32
 
   @JavaMethod
-  open func setSource(_ arg0: Int32)
+  open func getKeyCharacterMap() -> KeyCharacterMap!
 
   @JavaMethod
-  open func getMetaState() -> Int32
+  open func isTracking() -> Bool
+
+  @JavaMethod
+  open func startTracking()
 
   @JavaMethod
   open func hasNoModifiers() -> Bool
@@ -102,43 +93,13 @@ open class KeyEvent: InputEvent {
   open func isScrollLockOn() -> Bool
 
   @JavaMethod
-  open func getAction() -> Int32
-
-  @JavaMethod
   open func isCanceled() -> Bool
-
-  @JavaMethod
-  open func startTracking()
-
-  @JavaMethod
-  open func isTracking() -> Bool
 
   @JavaMethod
   open func isLongPress() -> Bool
 
   @JavaMethod
-  open func getKeyCode() -> Int32
-
-  @JavaMethod
   open func getCharacters() -> String
-
-  @JavaMethod
-  open func getScanCode() -> Int32
-
-  @JavaMethod
-  open func getRepeatCount() -> Int32
-
-  @JavaMethod
-  open func getDownTime() -> Int64
-
-  @JavaMethod
-  open override func getEventTime() -> Int64
-
-  @JavaMethod
-  open func getKeyCharacterMap() -> KeyCharacterMap!
-
-  @JavaMethod
-  open func getDisplayLabel() -> UInt16
 
   @JavaMethod
   open func getUnicodeChar(_ arg0: Int32) -> Int32
@@ -147,7 +108,10 @@ open class KeyEvent: InputEvent {
   open func getUnicodeChar() -> Int32
 
   @JavaMethod
-  open func getKeyData(_ arg0: KeyCharacterMap.KeyData?) -> Bool
+  open override func getSource() -> Int32
+
+  @JavaMethod
+  open func getRepeatCount() -> Int32
 
   @JavaMethod
   open func getMatch(_ arg0: [UInt16]) -> UInt16
@@ -156,7 +120,43 @@ open class KeyEvent: InputEvent {
   open func getMatch(_ arg0: [UInt16], _ arg1: Int32) -> UInt16
 
   @JavaMethod
+  open func getDisplayLabel() -> UInt16
+
+  @JavaMethod
+  open func getKeyData(_ arg0: KeyCharacterMap.KeyData?) -> Bool
+
+  @JavaMethod
   open func isPrintingKey() -> Bool
+
+  @JavaMethod
+  open func setSource(_ arg0: Int32)
+
+  @JavaMethod
+  open func getDownTime() -> Int64
+
+  @JavaMethod
+  open override func getEventTime() -> Int64
+
+  @JavaMethod
+  open func dispatch(_ arg0: KeyEvent.Callback?, _ arg1: KeyEvent.DispatcherState?, _ arg2: JavaObject?) -> Bool
+
+  @JavaMethod
+  open func dispatch(_ arg0: KeyEvent.Callback?) -> Bool
+
+  @JavaMethod
+  open override func toString() -> String
+
+  @JavaMethod
+  open func getModifiers() -> Int32
+
+  @JavaMethod
+  open func getNumber() -> UInt16
+
+  @JavaMethod
+  open func isSystem() -> Bool
+
+  @JavaMethod
+  open func getFlags() -> Int32
 }
 extension JavaClass<KeyEvent> {
   @JavaStaticField(isFinal: true)
@@ -1192,19 +1192,7 @@ extension JavaClass<KeyEvent> {
   public var PARCELABLE_WRITE_RETURN_VALUE: Int32
 
   @JavaStaticMethod
-  public func getModifierMetaStateMask() -> Int32
-
-  @JavaStaticMethod
-  public func metaStateHasNoModifiers(_ arg0: Int32) -> Bool
-
-  @JavaStaticMethod
-  public func metaStateHasModifiers(_ arg0: Int32, _ arg1: Int32) -> Bool
-
-  @JavaStaticMethod
   public func getMaxKeyCode() -> Int32
-
-  @JavaStaticMethod
-  public func getDeadChar(_ arg0: Int32, _ arg1: Int32) -> Int32
 
   @JavaStaticMethod
   public func changeTimeRepeat(_ arg0: KeyEvent?, _ arg1: Int64, _ arg2: Int32, _ arg3: Int32) -> KeyEvent!
@@ -1225,14 +1213,26 @@ extension JavaClass<KeyEvent> {
   public func isMediaSessionKey(_ arg0: Int32) -> Bool
 
   @JavaStaticMethod
+  public func getModifierMetaStateMask() -> Int32
+
+  @JavaStaticMethod
   public func isModifierKey(_ arg0: Int32) -> Bool
 
   @JavaStaticMethod
   public func normalizeMetaState(_ arg0: Int32) -> Int32
 
   @JavaStaticMethod
+  public func metaStateHasNoModifiers(_ arg0: Int32) -> Bool
+
+  @JavaStaticMethod
+  public func metaStateHasModifiers(_ arg0: Int32, _ arg1: Int32) -> Bool
+
+  @JavaStaticMethod
   public func keyCodeToString(_ arg0: Int32) -> String
 
   @JavaStaticMethod
   public func keyCodeFromString(_ arg0: String) -> Int32
+
+  @JavaStaticMethod
+  public func getDeadChar(_ arg0: Int32, _ arg1: Int32) -> Int32
 }

@@ -20,25 +20,25 @@ extension ViewGroup {
   public var topMargin: Int32
 
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: ViewGroup.LayoutParams?, environment: JNIEnvironment? = nil)
-
-  @JavaMethod
-  @_nonoverride public convenience init(_ arg0: ViewGroup.MarginLayoutParams?, environment: JNIEnvironment? = nil)
+  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Int32, _ arg1: Int32, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, environment: JNIEnvironment? = nil)
+  @_nonoverride public convenience init(_ arg0: ViewGroup.MarginLayoutParams?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open override func resolveLayoutDirection(_ arg0: Int32)
+  @_nonoverride public convenience init(_ arg0: ViewGroup.LayoutParams?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
   open func setLayoutDirection(_ arg0: Int32)
 
   @JavaMethod
   open func getLayoutDirection() -> Int32
+
+  @JavaMethod
+  open override func resolveLayoutDirection(_ arg0: Int32)
 
   @JavaMethod
   open func setMargins(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)

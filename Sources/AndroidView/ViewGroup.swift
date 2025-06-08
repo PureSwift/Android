@@ -12,43 +12,265 @@ import JavaRuntime
 @JavaClass("android.view.ViewGroup", implements: ViewParent.self, ViewManager.self)
 open class ViewGroup: View {
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, _ arg2: Int32, _ arg3: Int32, environment: JNIEnvironment? = nil)
-
-  @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, _ arg2: Int32, environment: JNIEnvironment? = nil)
+  @_nonoverride public convenience init(_ arg0: Context?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Context?, environment: JNIEnvironment? = nil)
+  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, _ arg2: Int32, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func debug(_ arg0: Int32)
+  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, _ arg2: Int32, _ arg3: Int32, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func getChildCount() -> Int32
+  open override func dispatchDraw(_ arg0: Canvas?)
 
   @JavaMethod
-  open func getDescendantFocusability() -> Int32
+  open override func clearFocus()
 
   @JavaMethod
-  open func setDescendantFocusability(_ arg0: Int32)
+  open override func hasFocus() -> Bool
+
+  @JavaMethod
+  open override func getAccessibilityClassName() -> CharSequence!
+
+  @JavaMethod
+  open override func dispatchProvideStructure(_ arg0: ViewStructure?)
+
+  @JavaMethod
+  open override func dispatchProvideAutofillStructure(_ arg0: ViewStructure?, _ arg1: Int32)
+
+  @JavaMethod
+  open override func findFocus() -> View!
+
+  @JavaMethod
+  open override func dispatchApplyWindowInsets(_ arg0: WindowInsets?) -> WindowInsets!
+
+  @JavaMethod
+  open override func setWindowInsetsAnimationCallback(_ arg0: WindowInsetsAnimation.Callback?)
+
+  @JavaMethod
+  open override func dispatchWindowInsetsAnimationPrepare(_ arg0: WindowInsetsAnimation?)
+
+  @JavaMethod
+  open override func dispatchWindowInsetsAnimationStart(_ arg0: WindowInsetsAnimation?, _ arg1: WindowInsetsAnimation.Bounds?) -> WindowInsetsAnimation.Bounds!
+
+  @JavaMethod
+  open override func dispatchWindowInsetsAnimationProgress(_ arg0: WindowInsets?, _ arg1: List<WindowInsetsAnimation>?) -> WindowInsets!
+
+  @JavaMethod
+  open override func dispatchWindowInsetsAnimationEnd(_ arg0: WindowInsetsAnimation?)
+
+  @JavaMethod
+  open override func layout(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
+
+  @JavaMethod
+  open override func hasTransientState() -> Bool
+
+  @JavaMethod
+  open override func dispatchSetPressed(_ arg0: Bool)
+
+  @JavaMethod
+  open func focusSearch(_ arg0: View?, _ arg1: Int32) -> View!
+
+  @JavaMethod
+  open override func dispatchUnhandledMove(_ arg0: View?, _ arg1: Int32) -> Bool
+
+  @JavaMethod
+  open override func addFocusables(_ arg0: ArrayList<View>?, _ arg1: Int32, _ arg2: Int32)
+
+  @JavaMethod
+  open override func addKeyboardNavigationClusters(_ arg0: JavaCollection<View>?, _ arg1: Int32)
+
+  @JavaMethod
+  open override func findViewsWithText(_ arg0: ArrayList<View>?, _ arg1: CharSequence?, _ arg2: Int32)
+
+  @JavaMethod
+  open override func addTouchables(_ arg0: ArrayList<View>?)
+
+  @JavaMethod
+  open override func requestFocus(_ arg0: Int32, _ arg1: Rect?) -> Bool
+
+  @JavaMethod
+  open override func restoreDefaultFocus() -> Bool
+
+  @JavaMethod
+  open override func addChildrenForAccessibility(_ arg0: ArrayList<View>?)
+
+  @JavaMethod
+  open override func dispatchStartTemporaryDetach()
+
+  @JavaMethod
+  open override func dispatchFinishTemporaryDetach()
+
+  @JavaMethod
+  open override func dispatchKeyEventPreIme(_ arg0: KeyEvent?) -> Bool
+
+  @JavaMethod
+  open override func dispatchKeyEvent(_ arg0: KeyEvent?) -> Bool
+
+  @JavaMethod
+  open override func dispatchKeyShortcutEvent(_ arg0: KeyEvent?) -> Bool
+
+  @JavaMethod
+  open override func dispatchTouchEvent(_ arg0: MotionEvent?) -> Bool
+
+  @JavaMethod
+  open override func dispatchTrackballEvent(_ arg0: MotionEvent?) -> Bool
+
+  @JavaMethod
+  open override func dispatchCapturedPointerEvent(_ arg0: MotionEvent?) -> Bool
+
+  @JavaMethod
+  open override func dispatchHoverEvent(_ arg0: MotionEvent?) -> Bool
+
+  @JavaMethod
+  open override func dispatchGenericPointerEvent(_ arg0: MotionEvent?) -> Bool
+
+  @JavaMethod
+  open override func dispatchGenericFocusedEvent(_ arg0: MotionEvent?) -> Bool
+
+  @JavaMethod
+  open override func dispatchWindowFocusChanged(_ arg0: Bool)
+
+  @JavaMethod
+  open override func dispatchVisibilityChanged(_ arg0: View?, _ arg1: Int32)
+
+  @JavaMethod
+  open override func dispatchDisplayHint(_ arg0: Int32)
+
+  @JavaMethod
+  open override func dispatchWindowVisibilityChanged(_ arg0: Int32)
+
+  @JavaMethod
+  open override func dispatchConfigurationChanged(_ arg0: Configuration?)
+
+  @JavaMethod
+  open override func onAttachedToWindow()
+
+  @JavaMethod
+  open override func onDetachedFromWindow()
+
+  @JavaMethod
+  open override func dispatchSaveInstanceState(_ arg0: SparseArray<Parcelable>?)
+
+  @JavaMethod
+  open override func dispatchRestoreInstanceState(_ arg0: SparseArray<Parcelable>?)
+
+  @JavaMethod
+  open override func getOverlay() -> ViewGroupOverlay!
+
+  @JavaMethod
+  open override func onLayout(_ arg0: Bool, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32)
+
+  @JavaMethod
+  open override func drawableStateChanged()
+
+  @JavaMethod
+  open override func dispatchDrawableHotspotChanged(_ arg0: Float, _ arg1: Float)
+
+  @JavaMethod
+  open override func onCreateDrawableState(_ arg0: Int32) -> [Int32]
+
+  @JavaMethod
+  open override func jumpDrawablesToCurrentState()
+
+  @JavaMethod
+  open override func dispatchSetSelected(_ arg0: Bool)
+
+  @JavaMethod
+  open override func dispatchSetActivated(_ arg0: Bool)
+
+  @JavaMethod
+  open override func gatherTransparentRegion(_ arg0: Region?) -> Bool
+
+  @JavaMethod
+  open override func dispatchWindowSystemUiVisiblityChanged(_ arg0: Int32)
+
+  @JavaMethod
+  open override func dispatchSystemUiVisibilityChanged(_ arg0: Int32)
+
+  @JavaMethod
+  open override func dispatchDragEvent(_ arg0: DragEvent?) -> Bool
+
+  @JavaMethod
+  open override func onResolvePointerIcon(_ arg0: MotionEvent?, _ arg1: Int32) -> PointerIcon!
+
+  @JavaMethod
+  open override func dispatchPointerCaptureChanged(_ arg0: Bool)
+
+  @JavaMethod
+  open override func dispatchScrollCaptureSearch(_ arg0: Rect?, _ arg1: Point?, _ arg2: JavaConsumer<ScrollCaptureTarget>?)
+
+  @JavaMethod
+  open func addView(_ arg0: View?, _ arg1: ViewGroup.LayoutParams?)
+
+  @JavaMethod
+  open func addView(_ arg0: View?, _ arg1: Int32, _ arg2: Int32)
+
+  @JavaMethod
+  open func addView(_ arg0: View?)
+
+  @JavaMethod
+  open func addView(_ arg0: View?, _ arg1: Int32, _ arg2: ViewGroup.LayoutParams?)
+
+  @JavaMethod
+  open func addView(_ arg0: View?, _ arg1: Int32)
+
+  @JavaMethod
+  open func updateViewLayout(_ arg0: View?, _ arg1: ViewGroup.LayoutParams?)
+
+  @JavaMethod
+  open func removeView(_ arg0: View?)
+
+  @JavaMethod
+  open func requestTransparentRegion(_ arg0: View?)
+
+  @JavaMethod
+  open func onDescendantInvalidated(_ arg0: View?, _ arg1: View?)
+
+  @JavaMethod
+  open func invalidateChild(_ arg0: View?, _ arg1: Rect?)
+
+  @JavaMethod
+  open func invalidateChildInParent(_ arg0: [Int32], _ arg1: Rect?) -> ViewParent!
+
+  @JavaMethod
+  open func requestChildFocus(_ arg0: View?, _ arg1: View?)
+
+  @JavaMethod
+  open func recomputeViewAttributes(_ arg0: View?)
+
+  @JavaMethod
+  open func clearChildFocus(_ arg0: View?)
+
+  @JavaMethod
+  open func getChildVisibleRect(_ arg0: View?, _ arg1: Rect?, _ arg2: Point?) -> Bool
+
+  @JavaMethod
+  open func bringChildToFront(_ arg0: View?)
 
   @JavaMethod
   open func focusableViewAvailable(_ arg0: View?)
 
   @JavaMethod
+  open func showContextMenuForChild(_ arg0: View?) -> Bool
+
+  @JavaMethod
   open func showContextMenuForChild(_ arg0: View?, _ arg1: Float, _ arg2: Float) -> Bool
 
   @JavaMethod
-  open func showContextMenuForChild(_ arg0: View?) -> Bool
+  open func startActionModeForChild(_ arg0: View?, _ arg1: ActionMode.Callback?) -> ActionMode!
 
   @JavaMethod
   open func startActionModeForChild(_ arg0: View?, _ arg1: ActionMode.Callback?, _ arg2: Int32) -> ActionMode!
 
   @JavaMethod
-  open func startActionModeForChild(_ arg0: View?, _ arg1: ActionMode.Callback?) -> ActionMode!
+  open func childDrawableStateChanged(_ arg0: View?)
+
+  @JavaMethod
+  open func requestDisallowInterceptTouchEvent(_ arg0: Bool)
 
   @JavaMethod
   open func requestChildRectangleOnScreen(_ arg0: View?, _ arg1: Rect?, _ arg2: Bool) -> Bool
@@ -57,13 +279,46 @@ open class ViewGroup: View {
   open func childHasTransientStateChanged(_ arg0: View?, _ arg1: Bool)
 
   @JavaMethod
+  open func notifySubtreeAccessibilityStateChanged(_ arg0: View?, _ arg1: View?, _ arg2: Int32)
+
+  @JavaMethod
+  open func onStartNestedScroll(_ arg0: View?, _ arg1: View?, _ arg2: Int32) -> Bool
+
+  @JavaMethod
+  open func onNestedScrollAccepted(_ arg0: View?, _ arg1: View?, _ arg2: Int32)
+
+  @JavaMethod
+  open func onStopNestedScroll(_ arg0: View?)
+
+  @JavaMethod
+  open func onNestedScroll(_ arg0: View?, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32)
+
+  @JavaMethod
+  open func onNestedPreScroll(_ arg0: View?, _ arg1: Int32, _ arg2: Int32, _ arg3: [Int32])
+
+  @JavaMethod
+  open func onNestedFling(_ arg0: View?, _ arg1: Float, _ arg2: Float, _ arg3: Bool) -> Bool
+
+  @JavaMethod
+  open func onNestedPreFling(_ arg0: View?, _ arg1: Float, _ arg2: Float) -> Bool
+
+  @JavaMethod
+  open func onNestedPrePerformAccessibilityAction(_ arg0: View?, _ arg1: Int32, _ arg2: Bundle?) -> Bool
+
+  @JavaMethod
+  open func getDescendantFocusability() -> Int32
+
+  @JavaMethod
+  open func setDescendantFocusability(_ arg0: Int32)
+
+  @JavaMethod
+  open func getFocusedChild() -> View!
+
+  @JavaMethod
   open func setTouchscreenBlocksFocus(_ arg0: Bool)
 
   @JavaMethod
   open func getTouchscreenBlocksFocus() -> Bool
-
-  @JavaMethod
-  open func recomputeViewAttributes(_ arg0: View?)
 
   @JavaMethod
   open func onInterceptHoverEvent(_ arg0: MotionEvent?) -> Bool
@@ -75,7 +330,10 @@ open class ViewGroup: View {
   open func isMotionEventSplittingEnabled() -> Bool
 
   @JavaMethod
-  open func requestDisallowInterceptTouchEvent(_ arg0: Bool)
+  open func isTransitionGroup() -> Bool
+
+  @JavaMethod
+  open func setTransitionGroup(_ arg0: Bool)
 
   @JavaMethod
   open func onInterceptTouchEvent(_ arg0: MotionEvent?) -> Bool
@@ -93,10 +351,25 @@ open class ViewGroup: View {
   open func setChildrenDrawingCacheEnabled(_ arg0: Bool)
 
   @JavaMethod
+  open func getChildDrawingOrder(_ arg0: Int32) -> Int32
+
+  @JavaMethod
   open func getChildDrawingOrder(_ arg0: Int32, _ arg1: Int32) -> Int32
 
   @JavaMethod
-  open func getChildDrawingOrder(_ arg0: Int32) -> Int32
+  open func drawChild(_ arg0: Canvas?, _ arg1: View?, _ arg2: Int64) -> Bool
+
+  @JavaMethod
+  open func getClipChildren() -> Bool
+
+  @JavaMethod
+  open func setClipChildren(_ arg0: Bool)
+
+  @JavaMethod
+  open func setClipToPadding(_ arg0: Bool)
+
+  @JavaMethod
+  open func getClipToPadding() -> Bool
 
   @JavaMethod
   open func setStaticTransformationsEnabled(_ arg0: Bool)
@@ -105,16 +378,52 @@ open class ViewGroup: View {
   open func getChildStaticTransformation(_ arg0: View?, _ arg1: Transformation?) -> Bool
 
   @JavaMethod
+  open func checkLayoutParams(_ arg0: ViewGroup.LayoutParams?) -> Bool
+
+  @JavaMethod
   open func setOnHierarchyChangeListener(_ arg0: ViewGroup.OnHierarchyChangeListener?)
+
+  @JavaMethod
+  open func onViewAdded(_ arg0: View?)
+
+  @JavaMethod
+  open func onViewRemoved(_ arg0: View?)
+
+  @JavaMethod
+  open func addViewInLayout(_ arg0: View?, _ arg1: Int32, _ arg2: ViewGroup.LayoutParams?, _ arg3: Bool) -> Bool
+
+  @JavaMethod
+  open func addViewInLayout(_ arg0: View?, _ arg1: Int32, _ arg2: ViewGroup.LayoutParams?) -> Bool
+
+  @JavaMethod
+  open func cleanupLayoutState(_ arg0: View?)
 
   @JavaMethod
   open func attachLayoutAnimationParameters(_ arg0: View?, _ arg1: ViewGroup.LayoutParams?, _ arg2: Int32, _ arg3: Int32)
 
   @JavaMethod
+  open func removeViewInLayout(_ arg0: View?)
+
+  @JavaMethod
   open func removeViewsInLayout(_ arg0: Int32, _ arg1: Int32)
 
   @JavaMethod
+  open func removeViewAt(_ arg0: Int32)
+
+  @JavaMethod
+  open func removeViews(_ arg0: Int32, _ arg1: Int32)
+
+  @JavaMethod
+  open func removeAllViews()
+
+  @JavaMethod
   open func removeAllViewsInLayout()
+
+  @JavaMethod
+  open func removeDetachedView(_ arg0: View?, _ arg1: Bool)
+
+  @JavaMethod
+  open func attachViewToParent(_ arg0: View?, _ arg1: Int32, _ arg2: ViewGroup.LayoutParams?)
 
   @JavaMethod
   open func detachViewFromParent(_ arg0: Int32)
@@ -129,25 +438,25 @@ open class ViewGroup: View {
   open func detachAllViewsFromParent()
 
   @JavaMethod
-  open func onDescendantInvalidated(_ arg0: View?, _ arg1: View?)
-
-  @JavaMethod
-  open func invalidateChildInParent(_ arg0: [Int32], _ arg1: Rect?) -> ViewParent!
-
-  @JavaMethod
   open func offsetDescendantRectToMyCoords(_ arg0: View?, _ arg1: Rect?)
 
   @JavaMethod
   open func offsetRectIntoDescendantCoords(_ arg0: View?, _ arg1: Rect?)
 
   @JavaMethod
-  open func getChildVisibleRect(_ arg0: View?, _ arg1: Rect?, _ arg2: Point?) -> Bool
+  open func canAnimate() -> Bool
 
   @JavaMethod
   open func startLayoutAnimation()
 
   @JavaMethod
   open func scheduleLayoutAnimation()
+
+  @JavaMethod
+  open func setLayoutAnimation(_ arg0: LayoutAnimationController?)
+
+  @JavaMethod
+  open func getLayoutAnimation() -> LayoutAnimationController!
 
   @JavaMethod
   open func isAnimationCacheEnabled() -> Bool
@@ -180,6 +489,12 @@ open class ViewGroup: View {
   open func setPersistentDrawingCache(_ arg0: Int32)
 
   @JavaMethod
+  open func getLayoutMode() -> Int32
+
+  @JavaMethod
+  open func setLayoutMode(_ arg0: Int32)
+
+  @JavaMethod
   open func generateLayoutParams(_ arg0: ViewGroup.LayoutParams?) -> ViewGroup.LayoutParams!
 
   @JavaMethod
@@ -187,246 +502,6 @@ open class ViewGroup: View {
 
   @JavaMethod
   open func generateDefaultLayoutParams() -> ViewGroup.LayoutParams!
-
-  @JavaMethod
-  open func measureChildWithMargins(_ arg0: View?, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32)
-
-  @JavaMethod
-  open func clearDisappearingChildren()
-
-  @JavaMethod
-  open func startViewTransition(_ arg0: View?)
-
-  @JavaMethod
-  open func requestTransparentRegion(_ arg0: View?)
-
-  @JavaMethod
-  open func getLayoutAnimationListener() -> Animation.AnimationListener!
-
-  @JavaMethod
-  open func setAddStatesFromChildren(_ arg0: Bool)
-
-  @JavaMethod
-  open func addStatesFromChildren() -> Bool
-
-  @JavaMethod
-  open func childDrawableStateChanged(_ arg0: View?)
-
-  @JavaMethod
-  open func setLayoutAnimationListener(_ arg0: Animation.AnimationListener?)
-
-  @JavaMethod
-  open func shouldDelayChildPressedState() -> Bool
-
-  @JavaMethod
-  open func onStartNestedScroll(_ arg0: View?, _ arg1: View?, _ arg2: Int32) -> Bool
-
-  @JavaMethod
-  open func onNestedScrollAccepted(_ arg0: View?, _ arg1: View?, _ arg2: Int32)
-
-  @JavaMethod
-  open func getNestedScrollAxes() -> Int32
-
-  @JavaMethod
-  open override func getAccessibilityClassName() -> CharSequence!
-
-  @JavaMethod
-  open override func dispatchProvideStructure(_ arg0: ViewStructure?)
-
-  @JavaMethod
-  open override func dispatchProvideAutofillStructure(_ arg0: ViewStructure?, _ arg1: Int32)
-
-  @JavaMethod
-  open override func dispatchApplyWindowInsets(_ arg0: WindowInsets?) -> WindowInsets!
-
-  @JavaMethod
-  open override func setWindowInsetsAnimationCallback(_ arg0: WindowInsetsAnimation.Callback?)
-
-  @JavaMethod
-  open override func dispatchWindowInsetsAnimationStart(_ arg0: WindowInsetsAnimation?, _ arg1: WindowInsetsAnimation.Bounds?) -> WindowInsetsAnimation.Bounds!
-
-  @JavaMethod
-  open override func dispatchWindowInsetsAnimationEnd(_ arg0: WindowInsetsAnimation?)
-
-  @JavaMethod
-  open override func dispatchUnhandledMove(_ arg0: View?, _ arg1: Int32) -> Bool
-
-  @JavaMethod
-  open override func addKeyboardNavigationClusters(_ arg0: JavaCollection<View>?, _ arg1: Int32)
-
-  @JavaMethod
-  open override func restoreDefaultFocus() -> Bool
-
-  @JavaMethod
-  open override func addChildrenForAccessibility(_ arg0: ArrayList<View>?)
-
-  @JavaMethod
-  open override func dispatchStartTemporaryDetach()
-
-  @JavaMethod
-  open override func dispatchFinishTemporaryDetach()
-
-  @JavaMethod
-  open override func dispatchKeyEventPreIme(_ arg0: KeyEvent?) -> Bool
-
-  @JavaMethod
-  open override func dispatchKeyShortcutEvent(_ arg0: KeyEvent?) -> Bool
-
-  @JavaMethod
-  open override func dispatchTrackballEvent(_ arg0: MotionEvent?) -> Bool
-
-  @JavaMethod
-  open override func dispatchCapturedPointerEvent(_ arg0: MotionEvent?) -> Bool
-
-  @JavaMethod
-  open override func dispatchGenericPointerEvent(_ arg0: MotionEvent?) -> Bool
-
-  @JavaMethod
-  open override func dispatchGenericFocusedEvent(_ arg0: MotionEvent?) -> Bool
-
-  @JavaMethod
-  open override func dispatchWindowFocusChanged(_ arg0: Bool)
-
-  @JavaMethod
-  open override func dispatchVisibilityChanged(_ arg0: View?, _ arg1: Int32)
-
-  @JavaMethod
-  open override func dispatchDisplayHint(_ arg0: Int32)
-
-  @JavaMethod
-  open override func dispatchWindowVisibilityChanged(_ arg0: Int32)
-
-  @JavaMethod
-  open override func dispatchConfigurationChanged(_ arg0: Configuration?)
-
-  @JavaMethod
-  open override func onDetachedFromWindow()
-
-  @JavaMethod
-  open override func dispatchSaveInstanceState(_ arg0: SparseArray<Parcelable>?)
-
-  @JavaMethod
-  open override func dispatchRestoreInstanceState(_ arg0: SparseArray<Parcelable>?)
-
-  @JavaMethod
-  open override func drawableStateChanged()
-
-  @JavaMethod
-  open override func dispatchDrawableHotspotChanged(_ arg0: Float, _ arg1: Float)
-
-  @JavaMethod
-  open override func onCreateDrawableState(_ arg0: Int32) -> [Int32]
-
-  @JavaMethod
-  open override func jumpDrawablesToCurrentState()
-
-  @JavaMethod
-  open override func dispatchSetSelected(_ arg0: Bool)
-
-  @JavaMethod
-  open override func dispatchSetActivated(_ arg0: Bool)
-
-  @JavaMethod
-  open override func gatherTransparentRegion(_ arg0: Region?) -> Bool
-
-  @JavaMethod
-  open override func dispatchSystemUiVisibilityChanged(_ arg0: Int32)
-
-  @JavaMethod
-  open override func onResolvePointerIcon(_ arg0: MotionEvent?, _ arg1: Int32) -> PointerIcon!
-
-  @JavaMethod
-  open override func dispatchPointerCaptureChanged(_ arg0: Bool)
-
-  @JavaMethod
-  open override func dispatchScrollCaptureSearch(_ arg0: Rect?, _ arg1: Point?, _ arg2: JavaConsumer<ScrollCaptureTarget>?)
-
-  @JavaMethod
-  open func requestChildFocus(_ arg0: View?, _ arg1: View?)
-
-  @JavaMethod
-  open func clearChildFocus(_ arg0: View?)
-
-  @JavaMethod
-  open func getFocusedChild() -> View!
-
-  @JavaMethod
-  open func bringChildToFront(_ arg0: View?)
-
-  @JavaMethod
-  open func isTransitionGroup() -> Bool
-
-  @JavaMethod
-  open func setTransitionGroup(_ arg0: Bool)
-
-  @JavaMethod
-  open func drawChild(_ arg0: Canvas?, _ arg1: View?, _ arg2: Int64) -> Bool
-
-  @JavaMethod
-  open func getClipChildren() -> Bool
-
-  @JavaMethod
-  open func setClipChildren(_ arg0: Bool)
-
-  @JavaMethod
-  open func setClipToPadding(_ arg0: Bool)
-
-  @JavaMethod
-  open func getClipToPadding() -> Bool
-
-  @JavaMethod
-  open func checkLayoutParams(_ arg0: ViewGroup.LayoutParams?) -> Bool
-
-  @JavaMethod
-  open func onViewAdded(_ arg0: View?)
-
-  @JavaMethod
-  open func onViewRemoved(_ arg0: View?)
-
-  @JavaMethod
-  open func addViewInLayout(_ arg0: View?, _ arg1: Int32, _ arg2: ViewGroup.LayoutParams?, _ arg3: Bool) -> Bool
-
-  @JavaMethod
-  open func addViewInLayout(_ arg0: View?, _ arg1: Int32, _ arg2: ViewGroup.LayoutParams?) -> Bool
-
-  @JavaMethod
-  open func cleanupLayoutState(_ arg0: View?)
-
-  @JavaMethod
-  open func removeViewInLayout(_ arg0: View?)
-
-  @JavaMethod
-  open func removeViewAt(_ arg0: Int32)
-
-  @JavaMethod
-  open func removeViews(_ arg0: Int32, _ arg1: Int32)
-
-  @JavaMethod
-  open func removeAllViews()
-
-  @JavaMethod
-  open func removeDetachedView(_ arg0: View?, _ arg1: Bool)
-
-  @JavaMethod
-  open func attachViewToParent(_ arg0: View?, _ arg1: Int32, _ arg2: ViewGroup.LayoutParams?)
-
-  @JavaMethod
-  open func invalidateChild(_ arg0: View?, _ arg1: Rect?)
-
-  @JavaMethod
-  open func canAnimate() -> Bool
-
-  @JavaMethod
-  open func setLayoutAnimation(_ arg0: LayoutAnimationController?)
-
-  @JavaMethod
-  open func getLayoutAnimation() -> LayoutAnimationController!
-
-  @JavaMethod
-  open func getLayoutMode() -> Int32
-
-  @JavaMethod
-  open func setLayoutMode(_ arg0: Int32)
 
   @JavaMethod
   open func indexOfChild(_ arg0: View?) -> Int32
@@ -441,6 +516,15 @@ open class ViewGroup: View {
   open func measureChild(_ arg0: View?, _ arg1: Int32, _ arg2: Int32)
 
   @JavaMethod
+  open func measureChildWithMargins(_ arg0: View?, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32)
+
+  @JavaMethod
+  open func clearDisappearingChildren()
+
+  @JavaMethod
+  open func startViewTransition(_ arg0: View?)
+
+  @JavaMethod
   open func endViewTransition(_ arg0: View?)
 
   @JavaMethod
@@ -450,112 +534,28 @@ open class ViewGroup: View {
   open func isLayoutSuppressed() -> Bool
 
   @JavaMethod
-  open func onStopNestedScroll(_ arg0: View?)
+  open func getLayoutAnimationListener() -> Animation.AnimationListener!
 
   @JavaMethod
-  open func onNestedScroll(_ arg0: View?, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32)
+  open func setAddStatesFromChildren(_ arg0: Bool)
 
   @JavaMethod
-  open func onNestedPreScroll(_ arg0: View?, _ arg1: Int32, _ arg2: Int32, _ arg3: [Int32])
+  open func addStatesFromChildren() -> Bool
 
   @JavaMethod
-  open func onNestedFling(_ arg0: View?, _ arg1: Float, _ arg2: Float, _ arg3: Bool) -> Bool
+  open func setLayoutAnimationListener(_ arg0: Animation.AnimationListener?)
 
   @JavaMethod
-  open func onNestedPreFling(_ arg0: View?, _ arg1: Float, _ arg2: Float) -> Bool
+  open func shouldDelayChildPressedState() -> Bool
 
   @JavaMethod
-  open func addView(_ arg0: View?, _ arg1: Int32, _ arg2: Int32)
+  open func getNestedScrollAxes() -> Int32
 
   @JavaMethod
-  open func addView(_ arg0: View?, _ arg1: Int32)
+  open func debug(_ arg0: Int32)
 
   @JavaMethod
-  open func addView(_ arg0: View?, _ arg1: ViewGroup.LayoutParams?)
-
-  @JavaMethod
-  open func addView(_ arg0: View?, _ arg1: Int32, _ arg2: ViewGroup.LayoutParams?)
-
-  @JavaMethod
-  open func addView(_ arg0: View?)
-
-  @JavaMethod
-  open func updateViewLayout(_ arg0: View?, _ arg1: ViewGroup.LayoutParams?)
-
-  @JavaMethod
-  open func removeView(_ arg0: View?)
-
-  @JavaMethod
-  open override func clearFocus()
-
-  @JavaMethod
-  open override func hasFocus() -> Bool
-
-  @JavaMethod
-  open override func findFocus() -> View!
-
-  @JavaMethod
-  open override func layout(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
-
-  @JavaMethod
-  open override func hasTransientState() -> Bool
-
-  @JavaMethod
-  open override func dispatchSetPressed(_ arg0: Bool)
-
-  @JavaMethod
-  open func focusSearch(_ arg0: View?, _ arg1: Int32) -> View!
-
-  @JavaMethod
-  open override func addFocusables(_ arg0: ArrayList<View>?, _ arg1: Int32, _ arg2: Int32)
-
-  @JavaMethod
-  open override func findViewsWithText(_ arg0: ArrayList<View>?, _ arg1: CharSequence?, _ arg2: Int32)
-
-  @JavaMethod
-  open override func addTouchables(_ arg0: ArrayList<View>?)
-
-  @JavaMethod
-  open override func requestFocus(_ arg0: Int32, _ arg1: Rect?) -> Bool
-
-  @JavaMethod
-  open override func dispatchKeyEvent(_ arg0: KeyEvent?) -> Bool
-
-  @JavaMethod
-  open override func dispatchTouchEvent(_ arg0: MotionEvent?) -> Bool
-
-  @JavaMethod
-  open override func dispatchHoverEvent(_ arg0: MotionEvent?) -> Bool
-
-  @JavaMethod
-  open override func dispatchDraw(_ arg0: Canvas?)
-
-  @JavaMethod
-  open override func onAttachedToWindow()
-
-  @JavaMethod
-  open override func getOverlay() -> ViewGroupOverlay!
-
-  @JavaMethod
-  open override func onLayout(_ arg0: Bool, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32)
-
-  @JavaMethod
-  open override func dispatchDragEvent(_ arg0: DragEvent?) -> Bool
-
-  @JavaMethod
-  open override func dispatchWindowInsetsAnimationPrepare(_ arg0: WindowInsetsAnimation?)
-
-  @JavaMethod
-  open override func dispatchWindowInsetsAnimationProgress(_ arg0: WindowInsets?, _ arg1: List<WindowInsetsAnimation>?) -> WindowInsets!
-
-  @JavaMethod
-  open override func dispatchWindowSystemUiVisiblityChanged(_ arg0: Int32)
-
-  @JavaMethod
-  open func notifySubtreeAccessibilityStateChanged(_ arg0: View?, _ arg1: View?, _ arg2: Int32)
-
-  @JavaMethod
-  open func onNestedPrePerformAccessibilityAction(_ arg0: View?, _ arg1: Int32, _ arg2: Bundle?) -> Bool
+  open func getChildCount() -> Int32
 }
 extension JavaClass<ViewGroup> {
   @JavaStaticField(isFinal: true)

@@ -8,19 +8,40 @@ import JavaRuntime
 @JavaClass("android.view.autofill.AutofillManager")
 open class AutofillManager: JavaObject {
   @JavaMethod
-  open func commit()
+  open func requestAutofill(_ arg0: View?, _ arg1: Int32, _ arg2: Rect?)
 
   @JavaMethod
-  open func isEnabled() -> Bool
+  open func requestAutofill(_ arg0: View?)
 
   @JavaMethod
-  open func cancel()
+  open func notifyViewEntered(_ arg0: View?, _ arg1: Int32, _ arg2: Rect?)
+
+  @JavaMethod
+  open func notifyViewEntered(_ arg0: View?)
+
+  @JavaMethod
+  open func notifyViewExited(_ arg0: View?)
+
+  @JavaMethod
+  open func notifyViewExited(_ arg0: View?, _ arg1: Int32)
+
+  @JavaMethod
+  open func notifyViewVisibilityChanged(_ arg0: View?, _ arg1: Int32, _ arg2: Bool)
 
   @JavaMethod
   open func notifyViewVisibilityChanged(_ arg0: View?, _ arg1: Bool)
 
   @JavaMethod
-  open func notifyViewVisibilityChanged(_ arg0: View?, _ arg1: Int32, _ arg2: Bool)
+  open func notifyValueChanged(_ arg0: View?)
+
+  @JavaMethod
+  open func notifyValueChanged(_ arg0: View?, _ arg1: Int32, _ arg2: AutofillValue?)
+
+  @JavaMethod
+  open func notifyViewClicked(_ arg0: View?)
+
+  @JavaMethod
+  open func notifyViewClicked(_ arg0: View?, _ arg1: Int32)
 
   @JavaMethod
   open func disableAutofillServices()
@@ -32,43 +53,19 @@ open class AutofillManager: JavaObject {
   open func getAutofillServiceComponentName() -> ComponentName!
 
   @JavaMethod
+  open func getUserDataId() -> String
+
+  @JavaMethod
   open func isFieldClassificationEnabled() -> Bool
 
   @JavaMethod
+  open func getDefaultFieldClassificationAlgorithm() -> String
+
+  @JavaMethod
+  open func getAvailableFieldClassificationAlgorithms() -> List<JavaString>!
+
+  @JavaMethod
   open func isAutofillSupported() -> Bool
-
-  @JavaMethod
-  open func requestAutofill(_ arg0: View?)
-
-  @JavaMethod
-  open func requestAutofill(_ arg0: View?, _ arg1: Int32, _ arg2: Rect?)
-
-  @JavaMethod
-  open func notifyViewEntered(_ arg0: View?)
-
-  @JavaMethod
-  open func notifyViewEntered(_ arg0: View?, _ arg1: Int32, _ arg2: Rect?)
-
-  @JavaMethod
-  open func notifyViewExited(_ arg0: View?, _ arg1: Int32)
-
-  @JavaMethod
-  open func notifyViewExited(_ arg0: View?)
-
-  @JavaMethod
-  open func notifyValueChanged(_ arg0: View?)
-
-  @JavaMethod
-  open func notifyValueChanged(_ arg0: View?, _ arg1: Int32, _ arg2: AutofillValue?)
-
-  @JavaMethod
-  open func notifyViewClicked(_ arg0: View?, _ arg1: Int32)
-
-  @JavaMethod
-  open func notifyViewClicked(_ arg0: View?)
-
-  @JavaMethod
-  open func getUserDataId() -> String
 
   @JavaMethod
   open func getNextAutofillId() -> AutofillId!
@@ -86,10 +83,13 @@ open class AutofillManager: JavaObject {
   open func showAutofillDialog(_ arg0: View?, _ arg1: Int32) -> Bool
 
   @JavaMethod
-  open func getDefaultFieldClassificationAlgorithm() -> String
+  open func commit()
 
   @JavaMethod
-  open func getAvailableFieldClassificationAlgorithms() -> List<JavaString>!
+  open func isEnabled() -> Bool
+
+  @JavaMethod
+  open func cancel()
 }
 extension JavaClass<AutofillManager> {
   @JavaStaticField(isFinal: true)

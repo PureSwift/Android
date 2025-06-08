@@ -10,15 +10,15 @@ extension WindowInsetsAnimation {
   @_nonoverride public convenience init(_ arg0: Insets?, _ arg1: Insets?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open override func toString() -> String
+  open func getUpperBound() -> Insets!
 
   @JavaMethod
   open func getLowerBound() -> Insets!
 
   @JavaMethod
-  open func getUpperBound() -> Insets!
+  open func inset(_ arg0: Insets?) -> WindowInsetsAnimation.Bounds!
 
   @JavaMethod
-  open func inset(_ arg0: Insets?) -> WindowInsetsAnimation.Bounds!
+  open override func toString() -> String
   }
 }

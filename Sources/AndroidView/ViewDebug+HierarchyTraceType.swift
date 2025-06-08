@@ -100,6 +100,13 @@ extension ViewDebug {
   }
   }
 }
+extension ViewDebug.HierarchyTraceType {
+  @JavaClass("java.lang.Enum$EnumDesc")
+  open class EnumDesc<E: AnyJavaObject>: JavaObject {
+  @JavaMethod
+  open override func toString() -> String
+  }
+}
 extension JavaClass<ViewDebug.HierarchyTraceType> {
   @JavaStaticField(isFinal: true)
   public var INVALIDATE: ViewDebug.HierarchyTraceType!

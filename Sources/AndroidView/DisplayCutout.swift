@@ -7,31 +7,13 @@ import JavaRuntime
 @JavaClass("android.view.DisplayCutout")
 open class DisplayCutout: JavaObject {
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Rect?, _ arg1: List<Rect>?, environment: JNIEnvironment? = nil)
-
-  @JavaMethod
   @_nonoverride public convenience init(_ arg0: Insets?, _ arg1: Rect?, _ arg2: Rect?, _ arg3: Rect?, _ arg4: Rect?, _ arg5: Insets?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
+  @_nonoverride public convenience init(_ arg0: Rect?, _ arg1: List<Rect>?, environment: JNIEnvironment? = nil)
+
+  @JavaMethod
   @_nonoverride public convenience init(_ arg0: Insets?, _ arg1: Rect?, _ arg2: Rect?, _ arg3: Rect?, _ arg4: Rect?, environment: JNIEnvironment? = nil)
-
-  @JavaMethod
-  open override func equals(_ arg0: JavaObject?) -> Bool
-
-  @JavaMethod
-  open override func toString() -> String
-
-  @JavaMethod
-  open override func hashCode() -> Int32
-
-  @JavaMethod
-  open func getBoundingRectLeft() -> Rect!
-
-  @JavaMethod
-  open func getBoundingRectRight() -> Rect!
-
-  @JavaMethod
-  open func getBoundingRectBottom() -> Rect!
 
   @JavaMethod
   open func getWaterfallInsets() -> Insets!
@@ -52,8 +34,26 @@ open class DisplayCutout: JavaObject {
   open func getBoundingRects() -> List<Rect>!
 
   @JavaMethod
+  open func getBoundingRectLeft() -> Rect!
+
+  @JavaMethod
   open func getBoundingRectTop() -> Rect!
 
   @JavaMethod
+  open func getBoundingRectRight() -> Rect!
+
+  @JavaMethod
+  open func getBoundingRectBottom() -> Rect!
+
+  @JavaMethod
   open func getCutoutPath() -> Path!
+
+  @JavaMethod
+  open override func equals(_ arg0: JavaObject?) -> Bool
+
+  @JavaMethod
+  open override func toString() -> String
+
+  @JavaMethod
+  open override func hashCode() -> Int32
 }

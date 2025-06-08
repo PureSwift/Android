@@ -8,52 +8,13 @@ import JavaRuntime
 @JavaClass("android.view.animation.Animation", implements: Cloneable.self)
 open class Animation: JavaObject {
   @JavaMethod
-  @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
-
-  @JavaMethod
   @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open override func finalize() throws
-
-  @JavaMethod
-  open func reset()
-
-  @JavaMethod
-  open override func clone() throws -> Animation!
-
-  @JavaMethod
-  open func initialize(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
-
-  @JavaMethod
-  open func start()
-
-  @JavaMethod
-  open func cancel()
-
-  @JavaMethod
-  open func getDuration() -> Int64
+  @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
   @JavaMethod
   open func applyTransformation(_ arg0: Float, _ arg1: Transformation?)
-
-  @JavaMethod
-  open func scaleCurrentDuration(_ arg0: Float)
-
-  @JavaMethod
-  open func willChangeTransformationMatrix() -> Bool
-
-  @JavaMethod
-  open func setAnimationListener(_ arg0: Animation.AnimationListener?)
-
-  @JavaMethod
-  open func computeDurationHint() -> Int64
-
-  @JavaMethod
-  open func getInterpolator() -> Interpolator!
-
-  @JavaMethod
-  open func getRepeatCount() -> Int32
 
   @JavaMethod
   open func isInitialized() -> Bool
@@ -72,6 +33,9 @@ open class Animation: JavaObject {
 
   @JavaMethod
   open func restrictDuration(_ arg0: Int64)
+
+  @JavaMethod
+  open func scaleCurrentDuration(_ arg0: Float)
 
   @JavaMethod
   open func setStartTime(_ arg0: Int64)
@@ -116,6 +80,9 @@ open class Animation: JavaObject {
   open func setBackdropColor(_ arg0: Int32)
 
   @JavaMethod
+  open func getInterpolator() -> Interpolator!
+
+  @JavaMethod
   open func getStartTime() -> Int64
 
   @JavaMethod
@@ -123,6 +90,9 @@ open class Animation: JavaObject {
 
   @JavaMethod
   open func getRepeatMode() -> Int32
+
+  @JavaMethod
+  open func getRepeatCount() -> Int32
 
   @JavaMethod
   open func getFillBefore() -> Bool
@@ -146,10 +116,19 @@ open class Animation: JavaObject {
   open func getBackdropColor() -> Int32
 
   @JavaMethod
+  open func willChangeTransformationMatrix() -> Bool
+
+  @JavaMethod
   open func willChangeBounds() -> Bool
 
   @JavaMethod
+  open func setAnimationListener(_ arg0: Animation.AnimationListener?)
+
+  @JavaMethod
   open func ensureInterpolator()
+
+  @JavaMethod
+  open func computeDurationHint() -> Int64
 
   @JavaMethod
   open func getTransformation(_ arg0: Int64, _ arg1: Transformation?, _ arg2: Float) -> Bool
@@ -165,6 +144,27 @@ open class Animation: JavaObject {
 
   @JavaMethod
   open func resolveSize(_ arg0: Int32, _ arg1: Float, _ arg2: Int32, _ arg3: Int32) -> Float
+
+  @JavaMethod
+  open override func finalize() throws
+
+  @JavaMethod
+  open func reset()
+
+  @JavaMethod
+  open override func clone() throws -> Animation!
+
+  @JavaMethod
+  open func initialize(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
+
+  @JavaMethod
+  open func start()
+
+  @JavaMethod
+  open func cancel()
+
+  @JavaMethod
+  open func getDuration() -> Int64
 }
 extension JavaClass<Animation> {
   @JavaStaticField(isFinal: true)

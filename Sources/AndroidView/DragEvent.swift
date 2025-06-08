@@ -7,10 +7,19 @@ import JavaRuntime
 @JavaClass("android.view.DragEvent", implements: Parcelable.self)
 open class DragEvent: JavaObject {
   @JavaMethod
-  open override func toString() -> String
+  open func getX() -> Float
 
   @JavaMethod
-  open func getResult() -> Bool
+  open func getY() -> Float
+
+  @JavaMethod
+  open func getAction() -> Int32
+
+  @JavaMethod
+  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
+
+  @JavaMethod
+  open func describeContents() -> Int32
 
   @JavaMethod
   open func getClipData() -> ClipData!
@@ -22,19 +31,10 @@ open class DragEvent: JavaObject {
   open func getLocalState() -> JavaObject!
 
   @JavaMethod
-  open func describeContents() -> Int32
+  open override func toString() -> String
 
   @JavaMethod
-  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
-
-  @JavaMethod
-  open func getAction() -> Int32
-
-  @JavaMethod
-  open func getX() -> Float
-
-  @JavaMethod
-  open func getY() -> Float
+  open func getResult() -> Bool
 }
 extension JavaClass<DragEvent> {
   @JavaStaticField(isFinal: true)

@@ -6,22 +6,13 @@ import JavaRuntime
 @JavaClass("android.view.VerifiedKeyEvent", implements: Parcelable.self)
 open class VerifiedKeyEvent: VerifiedInputEvent {
   @JavaMethod
-  open override func equals(_ arg0: JavaObject?) -> Bool
-
-  @JavaMethod
-  open override func hashCode() -> Int32
-
-  @JavaMethod
-  open override func describeContents() -> Int32
-
-  @JavaMethod
-  open override func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
-
-  @JavaMethod
-  open func getMetaState() -> Int32
+  open func getFlag(_ arg0: Int32) -> JavaBoolean!
 
   @JavaMethod
   open func getAction() -> Int32
+
+  @JavaMethod
+  open func getDownTimeNanos() -> Int64
 
   @JavaMethod
   open func getKeyCode() -> Int32
@@ -30,13 +21,22 @@ open class VerifiedKeyEvent: VerifiedInputEvent {
   open func getScanCode() -> Int32
 
   @JavaMethod
+  open func getMetaState() -> Int32
+
+  @JavaMethod
+  open override func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
+
+  @JavaMethod
+  open override func describeContents() -> Int32
+
+  @JavaMethod
   open func getRepeatCount() -> Int32
 
   @JavaMethod
-  open func getFlag(_ arg0: Int32) -> JavaBoolean!
+  open override func equals(_ arg0: JavaObject?) -> Bool
 
   @JavaMethod
-  open func getDownTimeNanos() -> Int64
+  open override func hashCode() -> Int32
 }
 extension JavaClass<VerifiedKeyEvent> {
   @JavaStaticField(isFinal: true)

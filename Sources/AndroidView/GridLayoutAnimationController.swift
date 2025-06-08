@@ -7,19 +7,13 @@ import JavaRuntime
 @JavaClass("android.view.animation.GridLayoutAnimationController")
 open class GridLayoutAnimationController: LayoutAnimationController {
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Animation?, _ arg1: Float, _ arg2: Float, environment: JNIEnvironment? = nil)
+  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Animation?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, environment: JNIEnvironment? = nil)
-
-  @JavaMethod
-  open func getDirectionPriority() -> Int32
-
-  @JavaMethod
-  open func setDirectionPriority(_ arg0: Int32)
+  @_nonoverride public convenience init(_ arg0: Animation?, _ arg1: Float, _ arg2: Float, environment: JNIEnvironment? = nil)
 
   @JavaMethod
   open func getColumnDelay() -> Float
@@ -38,6 +32,12 @@ open class GridLayoutAnimationController: LayoutAnimationController {
 
   @JavaMethod
   open func setDirection(_ arg0: Int32)
+
+  @JavaMethod
+  open func getDirectionPriority() -> Int32
+
+  @JavaMethod
+  open func setDirectionPriority(_ arg0: Int32)
 
   @JavaMethod
   open override func willOverlap() -> Bool

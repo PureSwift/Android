@@ -6,6 +6,12 @@ import JavaRuntime
 @JavaClass("android.view.autofill.AutofillId", implements: Parcelable.self)
 open class AutofillId: JavaObject {
   @JavaMethod
+  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
+
+  @JavaMethod
+  open func describeContents() -> Int32
+
+  @JavaMethod
   open override func equals(_ arg0: JavaObject?) -> Bool
 
   @JavaMethod
@@ -13,12 +19,6 @@ open class AutofillId: JavaObject {
 
   @JavaMethod
   open override func hashCode() -> Int32
-
-  @JavaMethod
-  open func describeContents() -> Int32
-
-  @JavaMethod
-  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 }
 extension JavaClass<AutofillId> {
   @JavaStaticField(isFinal: true)

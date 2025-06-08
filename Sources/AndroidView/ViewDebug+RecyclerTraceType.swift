@@ -82,13 +82,6 @@ extension ViewDebug {
   }
   }
 }
-extension ViewDebug.RecyclerTraceType {
-  @JavaClass("java.lang.Enum$EnumDesc")
-  open class EnumDesc<E: AnyJavaObject>: JavaObject {
-  @JavaMethod
-  open override func toString() -> String
-  }
-}
 extension JavaClass<ViewDebug.RecyclerTraceType> {
   @JavaStaticField(isFinal: true)
   public var NEW_VIEW: ViewDebug.RecyclerTraceType!

@@ -6,6 +6,9 @@ import JavaRuntime
 @JavaClass("android.view.FocusFinder")
 open class FocusFinder: JavaObject {
   @JavaMethod
+  open func findNextFocus(_ arg0: ViewGroup?, _ arg1: View?, _ arg2: Int32) -> View!
+
+  @JavaMethod
   open func findNextFocusFromRect(_ arg0: ViewGroup?, _ arg1: Rect?, _ arg2: Int32) -> View!
 
   @JavaMethod
@@ -13,9 +16,6 @@ open class FocusFinder: JavaObject {
 
   @JavaMethod
   open func findNearestTouchable(_ arg0: ViewGroup?, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: [Int32]) -> View!
-
-  @JavaMethod
-  open func findNextFocus(_ arg0: ViewGroup?, _ arg1: View?, _ arg2: Int32) -> View!
 }
 extension JavaClass<FocusFinder> {
   @JavaStaticMethod

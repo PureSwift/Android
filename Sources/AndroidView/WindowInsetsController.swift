@@ -6,6 +6,12 @@ import JavaRuntime
 @JavaInterface("android.view.WindowInsetsController")
 public struct WindowInsetsController {
   @JavaMethod
+  public func show(_ arg0: Int32)
+
+  @JavaMethod
+  public func hide(_ arg0: Int32)
+
+  @JavaMethod
   public func controlWindowInsetsAnimation(_ arg0: Int32, _ arg1: Int64, _ arg2: Interpolator?, _ arg3: CancellationSignal?, _ arg4: WindowInsetsAnimationControlListener?)
 
   @JavaMethod
@@ -19,12 +25,6 @@ public struct WindowInsetsController {
 
   @JavaMethod
   public func getSystemBarsBehavior() -> Int32
-
-  @JavaMethod
-  public func hide(_ arg0: Int32)
-
-  @JavaMethod
-  public func show(_ arg0: Int32)
 
   @JavaMethod
   public func addOnControllableInsetsChangedListener(_ arg0: WindowInsetsController.OnControllableInsetsChangedListener?)

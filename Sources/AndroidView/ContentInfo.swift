@@ -7,25 +7,25 @@ import JavaRuntime
 @JavaClass("android.view.ContentInfo", implements: Parcelable.self)
 open class ContentInfo: JavaObject {
   @JavaMethod
-  open override func toString() -> String
-
-  @JavaMethod
-  open func getFlags() -> Int32
-
-  @JavaMethod
-  open func getClip() -> ClipData!
-
-  @JavaMethod
-  open func getSource() -> Int32
-
-  @JavaMethod
-  open func getExtras() -> Bundle!
+  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
   @JavaMethod
   open func describeContents() -> Int32
 
   @JavaMethod
-  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
+  open func getClip() -> ClipData!
+
+  @JavaMethod
+  open func getExtras() -> Bundle!
+
+  @JavaMethod
+  open func getSource() -> Int32
+
+  @JavaMethod
+  open override func toString() -> String
+
+  @JavaMethod
+  open func getFlags() -> Int32
 }
 extension JavaClass<ContentInfo> {
   @JavaStaticField(isFinal: true)

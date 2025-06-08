@@ -13,7 +13,7 @@ import JavaRuntime
 @JavaClass("android.view.View", implements: Drawable.Callback.self, KeyEvent.Callback.self)
 open class View: JavaObject {
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, _ arg2: Int32, _ arg3: Int32, environment: JNIEnvironment? = nil)
+  @_nonoverride public convenience init(_ arg0: Context?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, _ arg2: Int32, environment: JNIEnvironment? = nil)
@@ -22,49 +22,28 @@ open class View: JavaObject {
   @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Context?, environment: JNIEnvironment? = nil)
+  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, _ arg2: Int32, _ arg3: Int32, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open override func toString() -> String
+  open func onMeasure(_ arg0: Int32, _ arg1: Int32)
 
   @JavaMethod
-  open func getResources() -> Resources!
+  open func draw(_ arg0: Canvas?)
 
   @JavaMethod
-  open func getParent() -> ViewParent!
+  open func dispatchDraw(_ arg0: Canvas?)
 
   @JavaMethod
-  open func isEnabled() -> Bool
-
-  @JavaMethod
-  open func getId() -> Int32
-
-  @JavaMethod
-  open func isOpaque() -> Bool
-
-  @JavaMethod
-  open func getHandler() -> Handler!
-
-  @JavaMethod
-  open func getContext() -> Context!
-
-  @JavaMethod
-  open func isDirty() -> Bool
-
-  @JavaMethod
-  open func post(_ arg0: Runnable?) -> Bool
-
-  @JavaMethod
-  open func getScrollBarFadeDuration() -> Int32
-
-  @JavaMethod
-  open func onGenericMotionEvent(_ arg0: MotionEvent?) -> Bool
+  open func setVisibility(_ arg0: Int32)
 
   @JavaMethod
   open func getAttributeResolutionStack(_ arg0: Int32) -> [Int32]
 
   @JavaMethod
   open func getAttributeSourceResourceMap() -> Map<JavaInteger, JavaInteger>!
+
+  @JavaMethod
+  open func getExplicitStyle() -> Int32
 
   @JavaMethod
   open func isShowingLayoutBounds() -> Bool
@@ -94,10 +73,22 @@ open class View: JavaObject {
   open func setVerticalScrollbarTrackDrawable(_ arg0: Drawable?)
 
   @JavaMethod
+  open func setHorizontalScrollbarThumbDrawable(_ arg0: Drawable?)
+
+  @JavaMethod
+  open func setHorizontalScrollbarTrackDrawable(_ arg0: Drawable?)
+
+  @JavaMethod
   open func getVerticalScrollbarThumbDrawable() -> Drawable!
 
   @JavaMethod
   open func getVerticalScrollbarTrackDrawable() -> Drawable!
+
+  @JavaMethod
+  open func getHorizontalScrollbarThumbDrawable() -> Drawable!
+
+  @JavaMethod
+  open func getHorizontalScrollbarTrackDrawable() -> Drawable!
 
   @JavaMethod
   open func setVerticalScrollbarPosition(_ arg0: Int32)
@@ -106,10 +97,10 @@ open class View: JavaObject {
   open func getVerticalScrollbarPosition() -> Int32
 
   @JavaMethod
-  open func setScrollIndicators(_ arg0: Int32)
+  open func setScrollIndicators(_ arg0: Int32, _ arg1: Int32)
 
   @JavaMethod
-  open func setScrollIndicators(_ arg0: Int32, _ arg1: Int32)
+  open func setScrollIndicators(_ arg0: Int32)
 
   @JavaMethod
   open func getScrollIndicators() -> Int32
@@ -136,6 +127,9 @@ open class View: JavaObject {
   open func getOnFocusChangeListener() -> View.OnFocusChangeListener!
 
   @JavaMethod
+  open func setOnClickListener(_ arg0: View.OnClickListener?)
+
+  @JavaMethod
   open func hasOnClickListeners() -> Bool
 
   @JavaMethod
@@ -151,13 +145,49 @@ open class View: JavaObject {
   open func setOnCreateContextMenuListener(_ arg0: View.OnCreateContextMenuListener?)
 
   @JavaMethod
-  open func performContextClick() -> Bool
+  open func performClick() -> Bool
+
+  @JavaMethod
+  open func callOnClick() -> Bool
+
+  @JavaMethod
+  open func performLongClick(_ arg0: Float, _ arg1: Float) -> Bool
+
+  @JavaMethod
+  open func performLongClick() -> Bool
 
   @JavaMethod
   open func performContextClick(_ arg0: Float, _ arg1: Float) -> Bool
 
   @JavaMethod
+  open func performContextClick() -> Bool
+
+  @JavaMethod
+  open func showContextMenu() -> Bool
+
+  @JavaMethod
+  open func showContextMenu(_ arg0: Float, _ arg1: Float) -> Bool
+
+  @JavaMethod
+  open func startActionMode(_ arg0: ActionMode.Callback?, _ arg1: Int32) -> ActionMode!
+
+  @JavaMethod
+  open func startActionMode(_ arg0: ActionMode.Callback?) -> ActionMode!
+
+  @JavaMethod
+  open func setOnKeyListener(_ arg0: View.OnKeyListener?)
+
+  @JavaMethod
+  open func setOnTouchListener(_ arg0: View.OnTouchListener?)
+
+  @JavaMethod
   open func setOnGenericMotionListener(_ arg0: View.OnGenericMotionListener?)
+
+  @JavaMethod
+  open func setOnHoverListener(_ arg0: View.OnHoverListener?)
+
+  @JavaMethod
+  open func setOnDragListener(_ arg0: View.OnDragListener?)
 
   @JavaMethod
   open func setRevealOnFocusHint(_ arg0: Bool)
@@ -166,13 +196,25 @@ open class View: JavaObject {
   open func getRevealOnFocusHint() -> Bool
 
   @JavaMethod
-  open func requestRectangleOnScreen(_ arg0: Rect?) -> Bool
-
-  @JavaMethod
   open func requestRectangleOnScreen(_ arg0: Rect?, _ arg1: Bool) -> Bool
 
   @JavaMethod
+  open func requestRectangleOnScreen(_ arg0: Rect?) -> Bool
+
+  @JavaMethod
+  open func clearFocus()
+
+  @JavaMethod
+  open func hasFocus() -> Bool
+
+  @JavaMethod
+  open func hasFocusable() -> Bool
+
+  @JavaMethod
   open func hasExplicitFocusable() -> Bool
+
+  @JavaMethod
+  open func onFocusChanged(_ arg0: Bool, _ arg1: Int32, _ arg2: Rect?)
 
   @JavaMethod
   open func setAccessibilityPaneTitle(_ arg0: CharSequence?)
@@ -188,6 +230,9 @@ open class View: JavaObject {
 
   @JavaMethod
   open func getAccessibilityClassName() -> CharSequence!
+
+  @JavaMethod
+  open func onProvideStructure(_ arg0: ViewStructure?)
 
   @JavaMethod
   open func onProvideAutofillStructure(_ arg0: ViewStructure?, _ arg1: Int32)
@@ -208,7 +253,31 @@ open class View: JavaObject {
   open func performReceiveContent(_ arg0: ContentInfo?) -> ContentInfo!
 
   @JavaMethod
+  open func onReceiveContent(_ arg0: ContentInfo?) -> ContentInfo!
+
+  @JavaMethod
   open func getReceiveContentMimeTypes() -> [String]
+
+  @JavaMethod
+  open func autofill(_ arg0: AutofillValue?)
+
+  @JavaMethod
+  open func autofill(_ arg0: SparseArray<AutofillValue>?)
+
+  @JavaMethod
+  open func getAutofillId() -> AutofillId!
+
+  @JavaMethod
+  open func setAutofillId(_ arg0: AutofillId?)
+
+  @JavaMethod
+  open func getAutofillType() -> Int32
+
+  @JavaMethod
+  open func getAutofillHints() -> [String]
+
+  @JavaMethod
+  open func getAutofillValue() -> AutofillValue!
 
   @JavaMethod
   open func getImportantForAutofill() -> Int32
@@ -268,16 +337,58 @@ open class View: JavaObject {
   open func getAccessibilityTraversalAfter() -> Int32
 
   @JavaMethod
+  open func getLabelFor() -> Int32
+
+  @JavaMethod
+  open func setLabelFor(_ arg0: Int32)
+
+  @JavaMethod
+  open func isFocused() -> Bool
+
+  @JavaMethod
+  open func findFocus() -> View!
+
+  @JavaMethod
+  open func isScrollContainer() -> Bool
+
+  @JavaMethod
+  open func setScrollContainer(_ arg0: Bool)
+
+  @JavaMethod
   open func getDrawingCacheQuality() -> Int32
 
   @JavaMethod
   open func setDrawingCacheQuality(_ arg0: Int32)
 
   @JavaMethod
+  open func getKeepScreenOn() -> Bool
+
+  @JavaMethod
+  open func setKeepScreenOn(_ arg0: Bool)
+
+  @JavaMethod
+  open func getNextFocusLeftId() -> Int32
+
+  @JavaMethod
+  open func setNextFocusLeftId(_ arg0: Int32)
+
+  @JavaMethod
   open func getNextFocusRightId() -> Int32
 
   @JavaMethod
   open func setNextFocusRightId(_ arg0: Int32)
+
+  @JavaMethod
+  open func getNextFocusUpId() -> Int32
+
+  @JavaMethod
+  open func setNextFocusUpId(_ arg0: Int32)
+
+  @JavaMethod
+  open func getNextFocusDownId() -> Int32
+
+  @JavaMethod
+  open func setNextFocusDownId(_ arg0: Int32)
 
   @JavaMethod
   open func getNextFocusForwardId() -> Int32
@@ -292,6 +403,12 @@ open class View: JavaObject {
   open func setNextClusterForwardId(_ arg0: Int32)
 
   @JavaMethod
+  open func isShown() -> Bool
+
+  @JavaMethod
+  open func fitSystemWindows(_ arg0: Rect?) -> Bool
+
+  @JavaMethod
   open func onApplyWindowInsets(_ arg0: WindowInsets?) -> WindowInsets!
 
   @JavaMethod
@@ -304,7 +421,13 @@ open class View: JavaObject {
   open func setWindowInsetsAnimationCallback(_ arg0: WindowInsetsAnimation.Callback?)
 
   @JavaMethod
+  open func dispatchWindowInsetsAnimationPrepare(_ arg0: WindowInsetsAnimation?)
+
+  @JavaMethod
   open func dispatchWindowInsetsAnimationStart(_ arg0: WindowInsetsAnimation?, _ arg1: WindowInsetsAnimation.Bounds?) -> WindowInsetsAnimation.Bounds!
+
+  @JavaMethod
+  open func dispatchWindowInsetsAnimationProgress(_ arg0: WindowInsets?, _ arg1: List<WindowInsetsAnimation>?) -> WindowInsets!
 
   @JavaMethod
   open func dispatchWindowInsetsAnimationEnd(_ arg0: WindowInsetsAnimation?)
@@ -314,6 +437,12 @@ open class View: JavaObject {
 
   @JavaMethod
   open func getSystemGestureExclusionRects() -> List<Rect>!
+
+  @JavaMethod
+  open func setPreferKeepClear(_ arg0: Bool)
+
+  @JavaMethod
+  open func isPreferKeepClear() -> Bool
 
   @JavaMethod
   open func setPreferKeepClearRects(_ arg0: List<Rect>?)
@@ -343,7 +472,25 @@ open class View: JavaObject {
   open func requestFitSystemWindows()
 
   @JavaMethod
+  open func requestApplyInsets()
+
+  @JavaMethod
+  open func getVisibility() -> Int32
+
+  @JavaMethod
+  open func setEnabled(_ arg0: Bool)
+
+  @JavaMethod
+  open func setFocusable(_ arg0: Bool)
+
+  @JavaMethod
+  open func setFocusable(_ arg0: Int32)
+
+  @JavaMethod
   open func setFocusableInTouchMode(_ arg0: Bool)
+
+  @JavaMethod
+  open func setAutofillHints(_ arg0: [String])
 
   @JavaMethod
   open func setSoundEffectsEnabled(_ arg0: Bool)
@@ -358,7 +505,31 @@ open class View: JavaObject {
   open func isHapticFeedbackEnabled() -> Bool
 
   @JavaMethod
+  open func setLayoutDirection(_ arg0: Int32)
+
+  @JavaMethod
+  open func getLayoutDirection() -> Int32
+
+  @JavaMethod
+  open func layout(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
+
+  @JavaMethod
+  open func hasTransientState() -> Bool
+
+  @JavaMethod
   open func setHasTransientState(_ arg0: Bool)
+
+  @JavaMethod
+  open func isAttachedToWindow() -> Bool
+
+  @JavaMethod
+  open func isLaidOut() -> Bool
+
+  @JavaMethod
+  open func setWillNotDraw(_ arg0: Bool)
+
+  @JavaMethod
+  open func willNotDraw() -> Bool
 
   @JavaMethod
   open func setWillNotCacheDrawing(_ arg0: Bool)
@@ -367,10 +538,40 @@ open class View: JavaObject {
   open func willNotCacheDrawing() -> Bool
 
   @JavaMethod
+  open func isClickable() -> Bool
+
+  @JavaMethod
+  open func setClickable(_ arg0: Bool)
+
+  @JavaMethod
   open func setAllowClickWhenDisabled(_ arg0: Bool)
 
   @JavaMethod
+  open func isLongClickable() -> Bool
+
+  @JavaMethod
+  open func setLongClickable(_ arg0: Bool)
+
+  @JavaMethod
+  open func isContextClickable() -> Bool
+
+  @JavaMethod
   open func setContextClickable(_ arg0: Bool)
+
+  @JavaMethod
+  open func setPressed(_ arg0: Bool)
+
+  @JavaMethod
+  open func dispatchSetPressed(_ arg0: Bool)
+
+  @JavaMethod
+  open func isPressed() -> Bool
+
+  @JavaMethod
+  open func isSaveEnabled() -> Bool
+
+  @JavaMethod
+  open func setSaveEnabled(_ arg0: Bool)
 
   @JavaMethod
   open func getFilterTouchesWhenObscured() -> Bool
@@ -383,6 +584,12 @@ open class View: JavaObject {
 
   @JavaMethod
   open func setSaveFromParentEnabled(_ arg0: Bool)
+
+  @JavaMethod
+  open func isFocusable() -> Bool
+
+  @JavaMethod
+  open func getFocusable() -> Int32
 
   @JavaMethod
   open func isFocusableInTouchMode() -> Bool
@@ -400,10 +607,16 @@ open class View: JavaObject {
   open func setAccessibilityHeading(_ arg0: Bool)
 
   @JavaMethod
+  open func focusSearch(_ arg0: Int32) -> View!
+
+  @JavaMethod
   open func isKeyboardNavigationCluster() -> Bool
 
   @JavaMethod
   open func setKeyboardNavigationCluster(_ arg0: Bool)
+
+  @JavaMethod
+  open func isFocusedByDefault() -> Bool
 
   @JavaMethod
   open func setFocusedByDefault(_ arg0: Bool)
@@ -415,19 +628,43 @@ open class View: JavaObject {
   open func dispatchUnhandledMove(_ arg0: View?, _ arg1: Int32) -> Bool
 
   @JavaMethod
-  open func onWindowFocusChanged(_ arg0: Bool)
-
-  @JavaMethod
   open func setDefaultFocusHighlightEnabled(_ arg0: Bool)
 
   @JavaMethod
   open func getDefaultFocusHighlightEnabled() -> Bool
 
   @JavaMethod
+  open func getFocusables(_ arg0: Int32) -> ArrayList<View>!
+
+  @JavaMethod
+  open func addFocusables(_ arg0: ArrayList<View>?, _ arg1: Int32)
+
+  @JavaMethod
+  open func addFocusables(_ arg0: ArrayList<View>?, _ arg1: Int32, _ arg2: Int32)
+
+  @JavaMethod
   open func addKeyboardNavigationClusters(_ arg0: JavaCollection<View>?, _ arg1: Int32)
 
   @JavaMethod
+  open func findViewsWithText(_ arg0: ArrayList<View>?, _ arg1: CharSequence?, _ arg2: Int32)
+
+  @JavaMethod
+  open func getTouchables() -> ArrayList<View>!
+
+  @JavaMethod
+  open func addTouchables(_ arg0: ArrayList<View>?)
+
+  @JavaMethod
   open func isAccessibilityFocused() -> Bool
+
+  @JavaMethod
+  open func requestFocus(_ arg0: Int32, _ arg1: Rect?) -> Bool
+
+  @JavaMethod
+  open func requestFocus(_ arg0: Int32) -> Bool
+
+  @JavaMethod
+  open func requestFocus() -> Bool
 
   @JavaMethod
   open func restoreDefaultFocus() -> Bool
@@ -460,6 +697,9 @@ open class View: JavaObject {
   open func setTransitionVisibility(_ arg0: Int32)
 
   @JavaMethod
+  open func dispatchNestedPrePerformAccessibilityAction(_ arg0: Int32, _ arg1: Bundle?) -> Bool
+
+  @JavaMethod
   open func performAccessibilityAction(_ arg0: Int32, _ arg1: Bundle?) -> Bool
 
   @JavaMethod
@@ -484,7 +724,13 @@ open class View: JavaObject {
   open func dispatchKeyEventPreIme(_ arg0: KeyEvent?) -> Bool
 
   @JavaMethod
+  open func dispatchKeyEvent(_ arg0: KeyEvent?) -> Bool
+
+  @JavaMethod
   open func dispatchKeyShortcutEvent(_ arg0: KeyEvent?) -> Bool
+
+  @JavaMethod
+  open func dispatchTouchEvent(_ arg0: MotionEvent?) -> Bool
 
   @JavaMethod
   open func onFilterTouchEventForSecurity(_ arg0: MotionEvent?) -> Bool
@@ -499,6 +745,9 @@ open class View: JavaObject {
   open func dispatchGenericMotionEvent(_ arg0: MotionEvent?) -> Bool
 
   @JavaMethod
+  open func dispatchHoverEvent(_ arg0: MotionEvent?) -> Bool
+
+  @JavaMethod
   open func dispatchGenericPointerEvent(_ arg0: MotionEvent?) -> Bool
 
   @JavaMethod
@@ -508,6 +757,12 @@ open class View: JavaObject {
   open func dispatchWindowFocusChanged(_ arg0: Bool)
 
   @JavaMethod
+  open func onWindowFocusChanged(_ arg0: Bool)
+
+  @JavaMethod
+  open func hasWindowFocus() -> Bool
+
+  @JavaMethod
   open func dispatchVisibilityChanged(_ arg0: View?, _ arg1: Int32)
 
   @JavaMethod
@@ -515,6 +770,9 @@ open class View: JavaObject {
 
   @JavaMethod
   open func dispatchDisplayHint(_ arg0: Int32)
+
+  @JavaMethod
+  open func onDisplayHint(_ arg0: Int32)
 
   @JavaMethod
   open func dispatchWindowVisibilityChanged(_ arg0: Int32)
@@ -538,487 +796,10 @@ open class View: JavaObject {
   open func onConfigurationChanged(_ arg0: Configuration?)
 
   @JavaMethod
-  open func onCheckIsTextEditor() -> Bool
+  open func isInTouchMode() -> Bool
 
   @JavaMethod
-  open func checkInputConnectionProxy(_ arg0: View?) -> Bool
-
-  @JavaMethod
-  open func onCreateContextMenu(_ arg0: ContextMenu?)
-
-  @JavaMethod
-  open func requestUnbufferedDispatch(_ arg0: Int32)
-
-  @JavaMethod
-  open func requestUnbufferedDispatch(_ arg0: MotionEvent?)
-
-  @JavaMethod
-  open func getMeasuredWidthAndState() -> Int32
-
-  @JavaMethod
-  open func getMeasuredHeightAndState() -> Int32
-
-  @JavaMethod
-  open func forceHasOverlappingRendering(_ arg0: Bool)
-
-  @JavaMethod
-  open func hasOverlappingRendering() -> Bool
-
-  @JavaMethod
-  open func getHasOverlappingRendering() -> Bool
-
-  @JavaMethod
-  open func setForceDarkAllowed(_ arg0: Bool)
-
-  @JavaMethod
-  open func setOutlineSpotShadowColor(_ arg0: Int32)
-
-  @JavaMethod
-  open func getOutlineSpotShadowColor() -> Int32
-
-  @JavaMethod
-  open func setOutlineAmbientShadowColor(_ arg0: Int32)
-
-  @JavaMethod
-  open func getOutlineAmbientShadowColor() -> Int32
-
-  @JavaMethod
-  open func getGlobalVisibleRect(_ arg0: Rect?, _ arg1: Point?) -> Bool
-
-  @JavaMethod
-  open func getGlobalVisibleRect(_ arg0: Rect?) -> Bool
-
-  @JavaMethod
-  open func getLocalVisibleRect(_ arg0: Rect?) -> Bool
-
-  @JavaMethod
-  open func postOnAnimationDelayed(_ arg0: Runnable?, _ arg1: Int64)
-
-  @JavaMethod
-  open func postInvalidateDelayed(_ arg0: Int64)
-
-  @JavaMethod
-  open func postInvalidateDelayed(_ arg0: Int64, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32)
-
-  @JavaMethod
-  open func postInvalidateOnAnimation(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
-
-  @JavaMethod
-  open func postInvalidateOnAnimation()
-
-  @JavaMethod
-  open func isHorizontalFadingEdgeEnabled() -> Bool
-
-  @JavaMethod
-  open func setHorizontalFadingEdgeEnabled(_ arg0: Bool)
-
-  @JavaMethod
-  open func isVerticalFadingEdgeEnabled() -> Bool
-
-  @JavaMethod
-  open func setVerticalFadingEdgeEnabled(_ arg0: Bool)
-
-  @JavaMethod
-  open func getTopFadingEdgeStrength() -> Float
-
-  @JavaMethod
-  open func getBottomFadingEdgeStrength() -> Float
-
-  @JavaMethod
-  open func getLeftFadingEdgeStrength() -> Float
-
-  @JavaMethod
-  open func getRightFadingEdgeStrength() -> Float
-
-  @JavaMethod
-  open func isHorizontalScrollBarEnabled() -> Bool
-
-  @JavaMethod
-  open func setHorizontalScrollBarEnabled(_ arg0: Bool)
-
-  @JavaMethod
-  open func isVerticalScrollBarEnabled() -> Bool
-
-  @JavaMethod
-  open func setVerticalScrollBarEnabled(_ arg0: Bool)
-
-  @JavaMethod
-  open func setScrollbarFadingEnabled(_ arg0: Bool)
-
-  @JavaMethod
-  open func isScrollbarFadingEnabled() -> Bool
-
-  @JavaMethod
-  open func getScrollBarDefaultDelayBeforeFade() -> Int32
-
-  @JavaMethod
-  open func setScrollBarDefaultDelayBeforeFade(_ arg0: Int32)
-
-  @JavaMethod
-  open func setScrollBarFadeDuration(_ arg0: Int32)
-
-  @JavaMethod
-  open func computeHorizontalScrollRange() -> Int32
-
-  @JavaMethod
-  open func computeHorizontalScrollOffset() -> Int32
-
-  @JavaMethod
-  open func computeHorizontalScrollExtent() -> Int32
-
-  @JavaMethod
-  open func computeVerticalScrollRange() -> Int32
-
-  @JavaMethod
-  open func computeVerticalScrollOffset() -> Int32
-
-  @JavaMethod
-  open func computeVerticalScrollExtent() -> Int32
-
-  @JavaMethod
-  open func canScrollHorizontally(_ arg0: Int32) -> Bool
-
-  @JavaMethod
-  open func canScrollVertically(_ arg0: Int32) -> Bool
-
-  @JavaMethod
-  open func onScreenStateChanged(_ arg0: Int32)
-
-  @JavaMethod
-  open func onRtlPropertiesChanged(_ arg0: Int32)
-
-  @JavaMethod
-  open func canResolveLayoutDirection() -> Bool
-
-  @JavaMethod
-  open func isLayoutDirectionResolved() -> Bool
-
-  @JavaMethod
-  open func onDetachedFromWindow()
-
-  @JavaMethod
-  open func getWindowAttachCount() -> Int32
-
-  @JavaMethod
-  open func getApplicationWindowToken() -> IBinder!
-
-  @JavaMethod
-  open func cancelPendingInputEvents()
-
-  @JavaMethod
-  open func onCancelPendingInputEvents()
-
-  @JavaMethod
-  open func dispatchSaveInstanceState(_ arg0: SparseArray<Parcelable>?)
-
-  @JavaMethod
-  open func onSaveInstanceState() -> Parcelable!
-
-  @JavaMethod
-  open func restoreHierarchyState(_ arg0: SparseArray<Parcelable>?)
-
-  @JavaMethod
-  open func dispatchRestoreInstanceState(_ arg0: SparseArray<Parcelable>?)
-
-  @JavaMethod
-  open func onRestoreInstanceState(_ arg0: Parcelable?)
-
-  @JavaMethod
-  open func setDuplicateParentStateEnabled(_ arg0: Bool)
-
-  @JavaMethod
-  open func isDuplicateParentStateEnabled() -> Bool
-
-  @JavaMethod
-  open func setDrawingCacheEnabled(_ arg0: Bool)
-
-  @JavaMethod
-  open func isDrawingCacheEnabled() -> Bool
-
-  @JavaMethod
-  open func destroyDrawingCache()
-
-  @JavaMethod
-  open func setDrawingCacheBackgroundColor(_ arg0: Int32)
-
-  @JavaMethod
-  open func getDrawingCacheBackgroundColor() -> Int32
-
-  @JavaMethod
-  open func isPaddingOffsetRequired() -> Bool
-
-  @JavaMethod
-  open func getLeftPaddingOffset() -> Int32
-
-  @JavaMethod
-  open func getRightPaddingOffset() -> Int32
-
-  @JavaMethod
-  open func getTopPaddingOffset() -> Int32
-
-  @JavaMethod
-  open func getBottomPaddingOffset() -> Int32
-
-  @JavaMethod
-  open func isHardwareAccelerated() -> Bool
-
-  @JavaMethod
-  open func setLeftTopRightBottom(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
-
-  @JavaMethod
-  open func drawableStateChanged()
-
-  @JavaMethod
-  open func drawableHotspotChanged(_ arg0: Float, _ arg1: Float)
-
-  @JavaMethod
-  open func dispatchDrawableHotspotChanged(_ arg0: Float, _ arg1: Float)
-
-  @JavaMethod
-  open func refreshDrawableState()
-
-  @JavaMethod
-  open func onCreateDrawableState(_ arg0: Int32) -> [Int32]
-
-  @JavaMethod
-  open func jumpDrawablesToCurrentState()
-
-  @JavaMethod
-  open func setBackgroundResource(_ arg0: Int32)
-
-  @JavaMethod
-  open func setBackgroundDrawable(_ arg0: Drawable?)
-
-  @JavaMethod
-  open func setBackgroundTintList(_ arg0: ColorStateList?)
-
-  @JavaMethod
-  open func getBackgroundTintList() -> ColorStateList!
-
-  @JavaMethod
-  open func setBackgroundTintMode(_ arg0: PorterDuff.Mode?)
-
-  @JavaMethod
-  open func setBackgroundTintBlendMode(_ arg0: BlendMode?)
-
-  @JavaMethod
-  open func getBackgroundTintMode() -> PorterDuff.Mode!
-
-  @JavaMethod
-  open func getBackgroundTintBlendMode() -> BlendMode!
-
-  @JavaMethod
-  open func getForegroundGravity() -> Int32
-
-  @JavaMethod
-  open func setForegroundGravity(_ arg0: Int32)
-
-  @JavaMethod
-  open func setForegroundTintList(_ arg0: ColorStateList?)
-
-  @JavaMethod
-  open func getForegroundTintList() -> ColorStateList!
-
-  @JavaMethod
-  open func setForegroundTintMode(_ arg0: PorterDuff.Mode?)
-
-  @JavaMethod
-  open func setForegroundTintBlendMode(_ arg0: BlendMode?)
-
-  @JavaMethod
-  open func getForegroundTintMode() -> PorterDuff.Mode!
-
-  @JavaMethod
-  open func getForegroundTintBlendMode() -> BlendMode!
-
-  @JavaMethod
-  open func getSourceLayoutResId() -> Int32
-
-  @JavaMethod
-  open func dispatchSetSelected(_ arg0: Bool)
-
-  @JavaMethod
-  open func dispatchSetActivated(_ arg0: Bool)
-
-  @JavaMethod
-  open func getViewTreeObserver() -> ViewTreeObserver!
-
-  @JavaMethod
-  open func transformMatrixToGlobal(_ arg0: Matrix?)
-
-  @JavaMethod
-  open func transformMatrixToLocal(_ arg0: Matrix?)
-
-  @JavaMethod
-  open func getLocationOnScreen(_ arg0: [Int32])
-
-  @JavaMethod
-  open func getLocationInWindow(_ arg0: [Int32])
-
-  @JavaMethod
-  open func setMeasuredDimension(_ arg0: Int32, _ arg1: Int32)
-
-  @JavaMethod
-  open func getSuggestedMinimumHeight() -> Int32
-
-  @JavaMethod
-  open func getSuggestedMinimumWidth() -> Int32
-
-  @JavaMethod
-  open func gatherTransparentRegion(_ arg0: Region?) -> Bool
-
-  @JavaMethod
-  open func performHapticFeedback(_ arg0: Int32, _ arg1: Int32) -> Bool
-
-  @JavaMethod
-  open func performHapticFeedback(_ arg0: Int32) -> Bool
-
-  @JavaMethod
-  open func setSystemUiVisibility(_ arg0: Int32)
-
-  @JavaMethod
-  open func getSystemUiVisibility() -> Int32
-
-  @JavaMethod
-  open func getWindowSystemUiVisibility() -> Int32
-
-  @JavaMethod
-  open func onWindowSystemUiVisibilityChanged(_ arg0: Int32)
-
-  @JavaMethod
-  open func dispatchSystemUiVisibilityChanged(_ arg0: Int32)
-
-  @JavaMethod
-  open func setNestedScrollingEnabled(_ arg0: Bool)
-
-  @JavaMethod
-  open func isNestedScrollingEnabled() -> Bool
-
-  @JavaMethod
-  open func hasNestedScrollingParent() -> Bool
-
-  @JavaMethod
-  open func dispatchNestedScroll(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: [Int32]) -> Bool
-
-  @JavaMethod
-  open func dispatchNestedPreScroll(_ arg0: Int32, _ arg1: Int32, _ arg2: [Int32], _ arg3: [Int32]) -> Bool
-
-  @JavaMethod
-  open func dispatchNestedFling(_ arg0: Float, _ arg1: Float, _ arg2: Bool) -> Bool
-
-  @JavaMethod
-  open func dispatchNestedPreFling(_ arg0: Float, _ arg1: Float) -> Bool
-
-  @JavaMethod
-  open func canResolveTextDirection() -> Bool
-
-  @JavaMethod
-  open func isTextDirectionResolved() -> Bool
-
-  @JavaMethod
-  open func canResolveTextAlignment() -> Bool
-
-  @JavaMethod
-  open func isTextAlignmentResolved() -> Bool
-
-  @JavaMethod
-  open func onResolvePointerIcon(_ arg0: MotionEvent?, _ arg1: Int32) -> PointerIcon!
-
-  @JavaMethod
-  open func requestPointerCapture()
-
-  @JavaMethod
-  open func releasePointerCapture()
-
-  @JavaMethod
-  open func onPointerCaptureChange(_ arg0: Bool)
-
-  @JavaMethod
-  open func dispatchPointerCaptureChanged(_ arg0: Bool)
-
-  @JavaMethod
-  open func onCapturedPointerEvent(_ arg0: MotionEvent?) -> Bool
-
-  @JavaMethod
-  open func setOnCapturedPointerListener(_ arg0: View.OnCapturedPointerListener?)
-
-  @JavaMethod
-  open func getScrollCaptureHint() -> Int32
-
-  @JavaMethod
-  open func setScrollCaptureHint(_ arg0: Int32)
-
-  @JavaMethod
-  open func setScrollCaptureCallback(_ arg0: ScrollCaptureCallback?)
-
-  @JavaMethod
-  open func dispatchScrollCaptureSearch(_ arg0: Rect?, _ arg1: Point?, _ arg2: JavaConsumer<ScrollCaptureTarget>?)
-
-  @JavaMethod
-  open func onScrollCaptureSearch(_ arg0: Rect?, _ arg1: Point?, _ arg2: JavaConsumer<ScrollCaptureTarget>?)
-
-  @JavaMethod
-  open func addOnUnhandledKeyEventListener(_ arg0: View.OnUnhandledKeyEventListener?)
-
-  @JavaMethod
-  open func removeOnUnhandledKeyEventListener(_ arg0: View.OnUnhandledKeyEventListener?)
-
-  @JavaMethod
-  open func setAutoHandwritingEnabled(_ arg0: Bool)
-
-  @JavaMethod
-  open func isAutoHandwritingEnabled() -> Bool
-
-  @JavaMethod
-  open func clearViewTranslationCallback()
-
-  @JavaMethod
-  open func getRootSurfaceControl() -> AttachedSurfaceControl!
-
-  @JavaMethod
-  open func setTag(_ arg0: JavaObject?)
-
-  @JavaMethod
-  open func setTag(_ arg0: Int32, _ arg1: JavaObject?)
-
-  @JavaMethod
-  open func getTag(_ arg0: Int32) -> JavaObject!
-
-  @JavaMethod
-  open func getTag() -> JavaObject!
-
-  @JavaMethod
-  open func invalidate(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
-
-  @JavaMethod
-  open func invalidate(_ arg0: Rect?)
-
-  @JavaMethod
-  open func invalidate()
-
-  @JavaMethod
-  open func hasWindowFocus() -> Bool
-
-  @JavaMethod
-  open func getAlpha() -> Float
-
-  @JavaMethod
-  open func setAlpha(_ arg0: Float)
-
-  @JavaMethod
-  open func getScrollBarSize() -> Int32
-
-  @JavaMethod
-  open func setKeepScreenOn(_ arg0: Bool)
-
-  @JavaMethod
-  open func onScrollChanged(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
-
-  @JavaMethod
-  open func onDraw(_ arg0: Canvas?)
-
-  @JavaMethod
-  open func setBackgroundColor(_ arg0: Int32)
+  open func onKeyPreIme(_ arg0: Int32, _ arg1: KeyEvent?) -> Bool
 
   @JavaMethod
   open func onKeyDown(_ arg0: Int32, _ arg1: KeyEvent?) -> Bool
@@ -1033,274 +814,13 @@ open class View: JavaObject {
   open func onKeyMultiple(_ arg0: Int32, _ arg1: Int32, _ arg2: KeyEvent?) -> Bool
 
   @JavaMethod
-  open func onTouchEvent(_ arg0: MotionEvent?) -> Bool
-
-  @JavaMethod
-  open func getExplicitStyle() -> Int32
-
-  @JavaMethod
-  open func setOnClickListener(_ arg0: View.OnClickListener?)
-
-  @JavaMethod
-  open func performClick() -> Bool
-
-  @JavaMethod
-  open func callOnClick() -> Bool
-
-  @JavaMethod
-  open func performLongClick() -> Bool
-
-  @JavaMethod
-  open func performLongClick(_ arg0: Float, _ arg1: Float) -> Bool
-
-  @JavaMethod
-  open func showContextMenu(_ arg0: Float, _ arg1: Float) -> Bool
-
-  @JavaMethod
-  open func showContextMenu() -> Bool
-
-  @JavaMethod
-  open func startActionMode(_ arg0: ActionMode.Callback?) -> ActionMode!
-
-  @JavaMethod
-  open func startActionMode(_ arg0: ActionMode.Callback?, _ arg1: Int32) -> ActionMode!
-
-  @JavaMethod
-  open func setOnKeyListener(_ arg0: View.OnKeyListener?)
-
-  @JavaMethod
-  open func setOnTouchListener(_ arg0: View.OnTouchListener?)
-
-  @JavaMethod
-  open func setOnHoverListener(_ arg0: View.OnHoverListener?)
-
-  @JavaMethod
-  open func setOnDragListener(_ arg0: View.OnDragListener?)
-
-  @JavaMethod
-  open func clearFocus()
-
-  @JavaMethod
-  open func hasFocus() -> Bool
-
-  @JavaMethod
-  open func hasFocusable() -> Bool
-
-  @JavaMethod
-  open func onFocusChanged(_ arg0: Bool, _ arg1: Int32, _ arg2: Rect?)
-
-  @JavaMethod
-  open func onProvideStructure(_ arg0: ViewStructure?)
-
-  @JavaMethod
-  open func onReceiveContent(_ arg0: ContentInfo?) -> ContentInfo!
-
-  @JavaMethod
-  open func autofill(_ arg0: AutofillValue?)
-
-  @JavaMethod
-  open func autofill(_ arg0: SparseArray<AutofillValue>?)
-
-  @JavaMethod
-  open func getAutofillId() -> AutofillId!
-
-  @JavaMethod
-  open func setAutofillId(_ arg0: AutofillId?)
-
-  @JavaMethod
-  open func getAutofillType() -> Int32
-
-  @JavaMethod
-  open func getAutofillHints() -> [String]
-
-  @JavaMethod
-  open func getAutofillValue() -> AutofillValue!
-
-  @JavaMethod
-  open func getLabelFor() -> Int32
-
-  @JavaMethod
-  open func setLabelFor(_ arg0: Int32)
-
-  @JavaMethod
-  open func isFocused() -> Bool
-
-  @JavaMethod
-  open func findFocus() -> View!
-
-  @JavaMethod
-  open func isScrollContainer() -> Bool
-
-  @JavaMethod
-  open func setScrollContainer(_ arg0: Bool)
-
-  @JavaMethod
-  open func getKeepScreenOn() -> Bool
-
-  @JavaMethod
-  open func getNextFocusLeftId() -> Int32
-
-  @JavaMethod
-  open func setNextFocusLeftId(_ arg0: Int32)
-
-  @JavaMethod
-  open func getNextFocusUpId() -> Int32
-
-  @JavaMethod
-  open func setNextFocusUpId(_ arg0: Int32)
-
-  @JavaMethod
-  open func getNextFocusDownId() -> Int32
-
-  @JavaMethod
-  open func setNextFocusDownId(_ arg0: Int32)
-
-  @JavaMethod
-  open func isShown() -> Bool
-
-  @JavaMethod
-  open func fitSystemWindows(_ arg0: Rect?) -> Bool
-
-  @JavaMethod
-  open func setPreferKeepClear(_ arg0: Bool)
-
-  @JavaMethod
-  open func isPreferKeepClear() -> Bool
-
-  @JavaMethod
-  open func requestApplyInsets()
-
-  @JavaMethod
-  open func getVisibility() -> Int32
-
-  @JavaMethod
-  open func setVisibility(_ arg0: Int32)
-
-  @JavaMethod
-  open func setEnabled(_ arg0: Bool)
-
-  @JavaMethod
-  open func setFocusable(_ arg0: Bool)
-
-  @JavaMethod
-  open func setFocusable(_ arg0: Int32)
-
-  @JavaMethod
-  open func setAutofillHints(_ arg0: [String])
-
-  @JavaMethod
-  open func setLayoutDirection(_ arg0: Int32)
-
-  @JavaMethod
-  open func getLayoutDirection() -> Int32
-
-  @JavaMethod
-  open func layout(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
-
-  @JavaMethod
-  open func hasTransientState() -> Bool
-
-  @JavaMethod
-  open func isAttachedToWindow() -> Bool
-
-  @JavaMethod
-  open func isLaidOut() -> Bool
-
-  @JavaMethod
-  open func setWillNotDraw(_ arg0: Bool)
-
-  @JavaMethod
-  open func willNotDraw() -> Bool
-
-  @JavaMethod
-  open func isClickable() -> Bool
-
-  @JavaMethod
-  open func setClickable(_ arg0: Bool)
-
-  @JavaMethod
-  open func isLongClickable() -> Bool
-
-  @JavaMethod
-  open func setLongClickable(_ arg0: Bool)
-
-  @JavaMethod
-  open func isContextClickable() -> Bool
-
-  @JavaMethod
-  open func setPressed(_ arg0: Bool)
-
-  @JavaMethod
-  open func dispatchSetPressed(_ arg0: Bool)
-
-  @JavaMethod
-  open func isPressed() -> Bool
-
-  @JavaMethod
-  open func isSaveEnabled() -> Bool
-
-  @JavaMethod
-  open func setSaveEnabled(_ arg0: Bool)
-
-  @JavaMethod
-  open func isFocusable() -> Bool
-
-  @JavaMethod
-  open func getFocusable() -> Int32
-
-  @JavaMethod
-  open func focusSearch(_ arg0: Int32) -> View!
-
-  @JavaMethod
-  open func isFocusedByDefault() -> Bool
-
-  @JavaMethod
-  open func getFocusables(_ arg0: Int32) -> ArrayList<View>!
-
-  @JavaMethod
-  open func addFocusables(_ arg0: ArrayList<View>?, _ arg1: Int32, _ arg2: Int32)
-
-  @JavaMethod
-  open func addFocusables(_ arg0: ArrayList<View>?, _ arg1: Int32)
-
-  @JavaMethod
-  open func findViewsWithText(_ arg0: ArrayList<View>?, _ arg1: CharSequence?, _ arg2: Int32)
-
-  @JavaMethod
-  open func getTouchables() -> ArrayList<View>!
-
-  @JavaMethod
-  open func addTouchables(_ arg0: ArrayList<View>?)
-
-  @JavaMethod
-  open func requestFocus(_ arg0: Int32) -> Bool
-
-  @JavaMethod
-  open func requestFocus(_ arg0: Int32, _ arg1: Rect?) -> Bool
-
-  @JavaMethod
-  open func requestFocus() -> Bool
-
-  @JavaMethod
-  open func dispatchKeyEvent(_ arg0: KeyEvent?) -> Bool
-
-  @JavaMethod
-  open func dispatchTouchEvent(_ arg0: MotionEvent?) -> Bool
-
-  @JavaMethod
-  open func dispatchHoverEvent(_ arg0: MotionEvent?) -> Bool
-
-  @JavaMethod
-  open func onDisplayHint(_ arg0: Int32)
-
-  @JavaMethod
-  open func isInTouchMode() -> Bool
-
-  @JavaMethod
-  open func onKeyPreIme(_ arg0: Int32, _ arg1: KeyEvent?) -> Bool
-
-  @JavaMethod
   open func onKeyShortcut(_ arg0: Int32, _ arg1: KeyEvent?) -> Bool
+
+  @JavaMethod
+  open func onCheckIsTextEditor() -> Bool
+
+  @JavaMethod
+  open func checkInputConnectionProxy(_ arg0: View?) -> Bool
 
   @JavaMethod
   open func createContextMenu(_ arg0: ContextMenu?)
@@ -1309,7 +829,13 @@ open class View: JavaObject {
   open func getContextMenuInfo() -> ContextMenu.ContextMenuInfo!
 
   @JavaMethod
+  open func onCreateContextMenu(_ arg0: ContextMenu?)
+
+  @JavaMethod
   open func onTrackballEvent(_ arg0: MotionEvent?) -> Bool
+
+  @JavaMethod
+  open func onGenericMotionEvent(_ arg0: MotionEvent?) -> Bool
 
   @JavaMethod
   open func onHoverEvent(_ arg0: MotionEvent?) -> Bool
@@ -1324,6 +850,9 @@ open class View: JavaObject {
   open func onHoverChanged(_ arg0: Bool)
 
   @JavaMethod
+  open func onTouchEvent(_ arg0: MotionEvent?) -> Bool
+
+  @JavaMethod
   open func cancelLongPress()
 
   @JavaMethod
@@ -1333,13 +862,19 @@ open class View: JavaObject {
   open func getTouchDelegate() -> TouchDelegate!
 
   @JavaMethod
+  open func requestUnbufferedDispatch(_ arg0: MotionEvent?)
+
+  @JavaMethod
+  open func requestUnbufferedDispatch(_ arg0: Int32)
+
+  @JavaMethod
   open func bringToFront()
 
   @JavaMethod
-  open func onSizeChanged(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
+  open func onScrollChanged(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
 
   @JavaMethod
-  open func dispatchDraw(_ arg0: Canvas?)
+  open func onSizeChanged(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
 
   @JavaMethod
   open func setScrollX(_ arg0: Int32)
@@ -1354,19 +889,19 @@ open class View: JavaObject {
   open func getScrollY() -> Int32
 
   @JavaMethod
-  open func getWidth() -> Int32
-
-  @JavaMethod
-  open func getHeight() -> Int32
-
-  @JavaMethod
   open func getDrawingRect(_ arg0: Rect?)
 
   @JavaMethod
   open func getMeasuredWidth() -> Int32
 
   @JavaMethod
+  open func getMeasuredWidthAndState() -> Int32
+
+  @JavaMethod
   open func getMeasuredHeight() -> Int32
+
+  @JavaMethod
+  open func getMeasuredHeightAndState() -> Int32
 
   @JavaMethod
   open func getMeasuredState() -> Int32
@@ -1379,9 +914,6 @@ open class View: JavaObject {
 
   @JavaMethod
   open func setCameraDistance(_ arg0: Float)
-
-  @JavaMethod
-  open func getRotation() -> Float
 
   @JavaMethod
   open func setRotation(_ arg0: Float)
@@ -1429,10 +961,28 @@ open class View: JavaObject {
   open func resetPivot()
 
   @JavaMethod
+  open func getAlpha() -> Float
+
+  @JavaMethod
+  open func forceHasOverlappingRendering(_ arg0: Bool)
+
+  @JavaMethod
+  open func hasOverlappingRendering() -> Bool
+
+  @JavaMethod
+  open func getHasOverlappingRendering() -> Bool
+
+  @JavaMethod
+  open func setAlpha(_ arg0: Float)
+
+  @JavaMethod
   open func setTransitionAlpha(_ arg0: Float)
 
   @JavaMethod
   open func getTransitionAlpha() -> Float
+
+  @JavaMethod
+  open func setForceDarkAllowed(_ arg0: Bool)
 
   @JavaMethod
   open func isForceDarkAllowed() -> Bool
@@ -1525,10 +1075,31 @@ open class View: JavaObject {
   open func invalidateOutline()
 
   @JavaMethod
+  open func setOutlineSpotShadowColor(_ arg0: Int32)
+
+  @JavaMethod
+  open func getOutlineSpotShadowColor() -> Int32
+
+  @JavaMethod
+  open func setOutlineAmbientShadowColor(_ arg0: Int32)
+
+  @JavaMethod
+  open func getOutlineAmbientShadowColor() -> Int32
+
+  @JavaMethod
   open func getHitRect(_ arg0: Rect?)
 
   @JavaMethod
   open func getFocusedRect(_ arg0: Rect?)
+
+  @JavaMethod
+  open func getGlobalVisibleRect(_ arg0: Rect?, _ arg1: Point?) -> Bool
+
+  @JavaMethod
+  open func getGlobalVisibleRect(_ arg0: Rect?) -> Bool
+
+  @JavaMethod
+  open func getLocalVisibleRect(_ arg0: Rect?) -> Bool
 
   @JavaMethod
   open func offsetTopAndBottom(_ arg0: Int32)
@@ -1558,22 +1129,97 @@ open class View: JavaObject {
   open func awakenScrollBars() -> Bool
 
   @JavaMethod
+  open func invalidate()
+
+  @JavaMethod
+  open func invalidate(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
+
+  @JavaMethod
+  open func invalidate(_ arg0: Rect?)
+
+  @JavaMethod
   open func postDelayed(_ arg0: Runnable?, _ arg1: Int64) -> Bool
 
   @JavaMethod
   open func postOnAnimation(_ arg0: Runnable?)
 
   @JavaMethod
-  open func removeCallbacks(_ arg0: Runnable?) -> Bool
+  open func postOnAnimationDelayed(_ arg0: Runnable?, _ arg1: Int64)
 
   @JavaMethod
-  open func postInvalidate()
+  open func removeCallbacks(_ arg0: Runnable?) -> Bool
 
   @JavaMethod
   open func postInvalidate(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
 
   @JavaMethod
+  open func postInvalidate()
+
+  @JavaMethod
+  open func postInvalidateDelayed(_ arg0: Int64)
+
+  @JavaMethod
+  open func postInvalidateDelayed(_ arg0: Int64, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32)
+
+  @JavaMethod
+  open func postInvalidateOnAnimation(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
+
+  @JavaMethod
+  open func postInvalidateOnAnimation()
+
+  @JavaMethod
   open func computeScroll()
+
+  @JavaMethod
+  open func isHorizontalFadingEdgeEnabled() -> Bool
+
+  @JavaMethod
+  open func setHorizontalFadingEdgeEnabled(_ arg0: Bool)
+
+  @JavaMethod
+  open func isVerticalFadingEdgeEnabled() -> Bool
+
+  @JavaMethod
+  open func setVerticalFadingEdgeEnabled(_ arg0: Bool)
+
+  @JavaMethod
+  open func getTopFadingEdgeStrength() -> Float
+
+  @JavaMethod
+  open func getBottomFadingEdgeStrength() -> Float
+
+  @JavaMethod
+  open func getLeftFadingEdgeStrength() -> Float
+
+  @JavaMethod
+  open func getRightFadingEdgeStrength() -> Float
+
+  @JavaMethod
+  open func isHorizontalScrollBarEnabled() -> Bool
+
+  @JavaMethod
+  open func setHorizontalScrollBarEnabled(_ arg0: Bool)
+
+  @JavaMethod
+  open func isVerticalScrollBarEnabled() -> Bool
+
+  @JavaMethod
+  open func setVerticalScrollBarEnabled(_ arg0: Bool)
+
+  @JavaMethod
+  open func setScrollbarFadingEnabled(_ arg0: Bool)
+
+  @JavaMethod
+  open func isScrollbarFadingEnabled() -> Bool
+
+  @JavaMethod
+  open func getScrollBarDefaultDelayBeforeFade() -> Int32
+
+  @JavaMethod
+  open func setScrollBarDefaultDelayBeforeFade(_ arg0: Int32)
+
+  @JavaMethod
+  open func setScrollBarFadeDuration(_ arg0: Int32)
 
   @JavaMethod
   open func setScrollBarSize(_ arg0: Int32)
@@ -1585,10 +1231,52 @@ open class View: JavaObject {
   open func getScrollBarStyle() -> Int32
 
   @JavaMethod
+  open func computeHorizontalScrollRange() -> Int32
+
+  @JavaMethod
+  open func computeHorizontalScrollOffset() -> Int32
+
+  @JavaMethod
+  open func computeHorizontalScrollExtent() -> Int32
+
+  @JavaMethod
+  open func computeVerticalScrollRange() -> Int32
+
+  @JavaMethod
+  open func computeVerticalScrollOffset() -> Int32
+
+  @JavaMethod
+  open func computeVerticalScrollExtent() -> Int32
+
+  @JavaMethod
+  open func canScrollHorizontally(_ arg0: Int32) -> Bool
+
+  @JavaMethod
+  open func canScrollVertically(_ arg0: Int32) -> Bool
+
+  @JavaMethod
   open func onDrawScrollBars(_ arg0: Canvas?)
 
   @JavaMethod
   open func onAttachedToWindow()
+
+  @JavaMethod
+  open func onScreenStateChanged(_ arg0: Int32)
+
+  @JavaMethod
+  open func onRtlPropertiesChanged(_ arg0: Int32)
+
+  @JavaMethod
+  open func canResolveLayoutDirection() -> Bool
+
+  @JavaMethod
+  open func isLayoutDirectionResolved() -> Bool
+
+  @JavaMethod
+  open func onDetachedFromWindow()
+
+  @JavaMethod
+  open func getWindowAttachCount() -> Int32
 
   @JavaMethod
   open func getWindowToken() -> IBinder!
@@ -1597,13 +1285,43 @@ open class View: JavaObject {
   open func getWindowId() -> WindowId!
 
   @JavaMethod
+  open func getApplicationWindowToken() -> IBinder!
+
+  @JavaMethod
   open func getDisplay() -> Display!
+
+  @JavaMethod
+  open func cancelPendingInputEvents()
+
+  @JavaMethod
+  open func onCancelPendingInputEvents()
 
   @JavaMethod
   open func saveHierarchyState(_ arg0: SparseArray<Parcelable>?)
 
   @JavaMethod
+  open func dispatchSaveInstanceState(_ arg0: SparseArray<Parcelable>?)
+
+  @JavaMethod
+  open func onSaveInstanceState() -> Parcelable!
+
+  @JavaMethod
+  open func restoreHierarchyState(_ arg0: SparseArray<Parcelable>?)
+
+  @JavaMethod
+  open func dispatchRestoreInstanceState(_ arg0: SparseArray<Parcelable>?)
+
+  @JavaMethod
+  open func onRestoreInstanceState(_ arg0: Parcelable?)
+
+  @JavaMethod
   open func getDrawingTime() -> Int64
+
+  @JavaMethod
+  open func setDuplicateParentStateEnabled(_ arg0: Bool)
+
+  @JavaMethod
+  open func isDuplicateParentStateEnabled() -> Bool
 
   @JavaMethod
   open func setLayerType(_ arg0: Int32, _ arg1: Paint?)
@@ -1621,10 +1339,25 @@ open class View: JavaObject {
   open func buildLayer()
 
   @JavaMethod
-  open func getDrawingCache(_ arg0: Bool) -> Bitmap!
+  open func setDrawingCacheEnabled(_ arg0: Bool)
+
+  @JavaMethod
+  open func isDrawingCacheEnabled() -> Bool
 
   @JavaMethod
   open func getDrawingCache() -> Bitmap!
+
+  @JavaMethod
+  open func getDrawingCache(_ arg0: Bool) -> Bitmap!
+
+  @JavaMethod
+  open func destroyDrawingCache()
+
+  @JavaMethod
+  open func setDrawingCacheBackgroundColor(_ arg0: Int32)
+
+  @JavaMethod
+  open func getDrawingCacheBackgroundColor() -> Int32
 
   @JavaMethod
   open func buildDrawingCache(_ arg0: Bool)
@@ -1636,16 +1369,31 @@ open class View: JavaObject {
   open func isInEditMode() -> Bool
 
   @JavaMethod
-  open func setClipBounds(_ arg0: Rect?)
+  open func isPaddingOffsetRequired() -> Bool
 
   @JavaMethod
-  open func getClipBounds() -> Rect!
+  open func getLeftPaddingOffset() -> Int32
+
+  @JavaMethod
+  open func getRightPaddingOffset() -> Int32
+
+  @JavaMethod
+  open func getTopPaddingOffset() -> Int32
+
+  @JavaMethod
+  open func getBottomPaddingOffset() -> Int32
+
+  @JavaMethod
+  open func isHardwareAccelerated() -> Bool
+
+  @JavaMethod
+  open func setClipBounds(_ arg0: Rect?)
 
   @JavaMethod
   open func getClipBounds(_ arg0: Rect?) -> Bool
 
   @JavaMethod
-  open func draw(_ arg0: Canvas?)
+  open func getClipBounds() -> Rect!
 
   @JavaMethod
   open func getOverlay() -> ViewOverlay!
@@ -1660,6 +1408,9 @@ open class View: JavaObject {
   open func onLayout(_ arg0: Bool, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32)
 
   @JavaMethod
+  open func setLeftTopRightBottom(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
+
+  @JavaMethod
   open func onFinishInflate()
 
   @JavaMethod
@@ -1669,28 +1420,94 @@ open class View: JavaObject {
   open func scheduleDrawable(_ arg0: Drawable?, _ arg1: Runnable?, _ arg2: Int64)
 
   @JavaMethod
-  open func unscheduleDrawable(_ arg0: Drawable?, _ arg1: Runnable?)
+  open func unscheduleDrawable(_ arg0: Drawable?)
 
   @JavaMethod
-  open func unscheduleDrawable(_ arg0: Drawable?)
+  open func unscheduleDrawable(_ arg0: Drawable?, _ arg1: Runnable?)
 
   @JavaMethod
   open func verifyDrawable(_ arg0: Drawable?) -> Bool
 
   @JavaMethod
+  open func drawableStateChanged()
+
+  @JavaMethod
+  open func drawableHotspotChanged(_ arg0: Float, _ arg1: Float)
+
+  @JavaMethod
+  open func dispatchDrawableHotspotChanged(_ arg0: Float, _ arg1: Float)
+
+  @JavaMethod
+  open func refreshDrawableState()
+
+  @JavaMethod
   open func getDrawableState() -> [Int32]
+
+  @JavaMethod
+  open func onCreateDrawableState(_ arg0: Int32) -> [Int32]
+
+  @JavaMethod
+  open func jumpDrawablesToCurrentState()
+
+  @JavaMethod
+  open func setBackgroundResource(_ arg0: Int32)
 
   @JavaMethod
   open func setBackground(_ arg0: Drawable?)
 
   @JavaMethod
+  open func setBackgroundDrawable(_ arg0: Drawable?)
+
+  @JavaMethod
   open func getBackground() -> Drawable!
+
+  @JavaMethod
+  open func setBackgroundTintList(_ arg0: ColorStateList?)
+
+  @JavaMethod
+  open func getBackgroundTintList() -> ColorStateList!
+
+  @JavaMethod
+  open func setBackgroundTintMode(_ arg0: PorterDuff.Mode?)
+
+  @JavaMethod
+  open func setBackgroundTintBlendMode(_ arg0: BlendMode?)
+
+  @JavaMethod
+  open func getBackgroundTintMode() -> PorterDuff.Mode!
+
+  @JavaMethod
+  open func getBackgroundTintBlendMode() -> BlendMode!
 
   @JavaMethod
   open func getForeground() -> Drawable!
 
   @JavaMethod
   open func setForeground(_ arg0: Drawable?)
+
+  @JavaMethod
+  open func getForegroundGravity() -> Int32
+
+  @JavaMethod
+  open func setForegroundGravity(_ arg0: Int32)
+
+  @JavaMethod
+  open func setForegroundTintList(_ arg0: ColorStateList?)
+
+  @JavaMethod
+  open func getForegroundTintList() -> ColorStateList!
+
+  @JavaMethod
+  open func setForegroundTintMode(_ arg0: PorterDuff.Mode?)
+
+  @JavaMethod
+  open func setForegroundTintBlendMode(_ arg0: BlendMode?)
+
+  @JavaMethod
+  open func getForegroundTintMode() -> PorterDuff.Mode!
+
+  @JavaMethod
+  open func getForegroundTintBlendMode() -> BlendMode!
 
   @JavaMethod
   open func onDrawForeground(_ arg0: Canvas?)
@@ -1700,6 +1517,9 @@ open class View: JavaObject {
 
   @JavaMethod
   open func setPaddingRelative(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
+
+  @JavaMethod
+  open func getSourceLayoutResId() -> Int32
 
   @JavaMethod
   open func getPaddingTop() -> Int32
@@ -1726,16 +1546,37 @@ open class View: JavaObject {
   open func setSelected(_ arg0: Bool)
 
   @JavaMethod
+  open func dispatchSetSelected(_ arg0: Bool)
+
+  @JavaMethod
   open func isSelected() -> Bool
 
   @JavaMethod
   open func setActivated(_ arg0: Bool)
 
   @JavaMethod
+  open func dispatchSetActivated(_ arg0: Bool)
+
+  @JavaMethod
   open func isActivated() -> Bool
 
   @JavaMethod
+  open func getViewTreeObserver() -> ViewTreeObserver!
+
+  @JavaMethod
   open func getRootView() -> View!
+
+  @JavaMethod
+  open func transformMatrixToGlobal(_ arg0: Matrix?)
+
+  @JavaMethod
+  open func transformMatrixToLocal(_ arg0: Matrix?)
+
+  @JavaMethod
+  open func getLocationOnScreen(_ arg0: [Int32])
+
+  @JavaMethod
+  open func getLocationInWindow(_ arg0: [Int32])
 
   @JavaMethod
   open func findViewById(_ arg0: Int32) -> View!
@@ -1753,6 +1594,18 @@ open class View: JavaObject {
   open func getUniqueDrawingId() -> Int64
 
   @JavaMethod
+  open func getTag(_ arg0: Int32) -> JavaObject!
+
+  @JavaMethod
+  open func getTag() -> JavaObject!
+
+  @JavaMethod
+  open func setTag(_ arg0: Int32, _ arg1: JavaObject?)
+
+  @JavaMethod
+  open func setTag(_ arg0: JavaObject?)
+
+  @JavaMethod
   open func getBaseline() -> Int32
 
   @JavaMethod
@@ -1768,7 +1621,13 @@ open class View: JavaObject {
   open func measure(_ arg0: Int32, _ arg1: Int32)
 
   @JavaMethod
-  open func onMeasure(_ arg0: Int32, _ arg1: Int32)
+  open func setMeasuredDimension(_ arg0: Int32, _ arg1: Int32)
+
+  @JavaMethod
+  open func getSuggestedMinimumHeight() -> Int32
+
+  @JavaMethod
+  open func getSuggestedMinimumWidth() -> Int32
 
   @JavaMethod
   open func getMinimumHeight() -> Int32
@@ -1804,7 +1663,37 @@ open class View: JavaObject {
   open func onSetAlpha(_ arg0: Int32) -> Bool
 
   @JavaMethod
+  open func gatherTransparentRegion(_ arg0: Region?) -> Bool
+
+  @JavaMethod
   open func playSoundEffect(_ arg0: Int32)
+
+  @JavaMethod
+  open func performHapticFeedback(_ arg0: Int32, _ arg1: Int32) -> Bool
+
+  @JavaMethod
+  open func performHapticFeedback(_ arg0: Int32) -> Bool
+
+  @JavaMethod
+  open func setSystemUiVisibility(_ arg0: Int32)
+
+  @JavaMethod
+  open func getSystemUiVisibility() -> Int32
+
+  @JavaMethod
+  open func getWindowSystemUiVisibility() -> Int32
+
+  @JavaMethod
+  open func onWindowSystemUiVisibilityChanged(_ arg0: Int32)
+
+  @JavaMethod
+  open func dispatchWindowSystemUiVisiblityChanged(_ arg0: Int32)
+
+  @JavaMethod
+  open func setOnSystemUiVisibilityChangeListener(_ arg0: View.OnSystemUiVisibilityChangeListener?)
+
+  @JavaMethod
+  open func dispatchSystemUiVisibilityChanged(_ arg0: Int32)
 
   @JavaMethod
   open func startDrag(_ arg0: ClipData?, _ arg1: View.DragShadowBuilder?, _ arg2: JavaObject?, _ arg3: Int32) -> Bool
@@ -1837,10 +1726,31 @@ open class View: JavaObject {
   open func setOverScrollMode(_ arg0: Int32)
 
   @JavaMethod
+  open func setNestedScrollingEnabled(_ arg0: Bool)
+
+  @JavaMethod
+  open func isNestedScrollingEnabled() -> Bool
+
+  @JavaMethod
   open func startNestedScroll(_ arg0: Int32) -> Bool
 
   @JavaMethod
   open func stopNestedScroll()
+
+  @JavaMethod
+  open func hasNestedScrollingParent() -> Bool
+
+  @JavaMethod
+  open func dispatchNestedScroll(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: [Int32]) -> Bool
+
+  @JavaMethod
+  open func dispatchNestedPreScroll(_ arg0: Int32, _ arg1: Int32, _ arg2: [Int32], _ arg3: [Int32]) -> Bool
+
+  @JavaMethod
+  open func dispatchNestedFling(_ arg0: Float, _ arg1: Float, _ arg2: Bool) -> Bool
+
+  @JavaMethod
+  open func dispatchNestedPreFling(_ arg0: Float, _ arg1: Float) -> Bool
 
   @JavaMethod
   open func setTextDirection(_ arg0: Int32)
@@ -1849,10 +1759,25 @@ open class View: JavaObject {
   open func getTextDirection() -> Int32
 
   @JavaMethod
+  open func canResolveTextDirection() -> Bool
+
+  @JavaMethod
+  open func isTextDirectionResolved() -> Bool
+
+  @JavaMethod
   open func setTextAlignment(_ arg0: Int32)
 
   @JavaMethod
   open func getTextAlignment() -> Int32
+
+  @JavaMethod
+  open func canResolveTextAlignment() -> Bool
+
+  @JavaMethod
+  open func isTextAlignmentResolved() -> Bool
+
+  @JavaMethod
+  open func onResolvePointerIcon(_ arg0: MotionEvent?, _ arg1: Int32) -> PointerIcon!
 
   @JavaMethod
   open func setPointerIcon(_ arg0: PointerIcon?)
@@ -1864,6 +1789,24 @@ open class View: JavaObject {
   open func hasPointerCapture() -> Bool
 
   @JavaMethod
+  open func requestPointerCapture()
+
+  @JavaMethod
+  open func releasePointerCapture()
+
+  @JavaMethod
+  open func onPointerCaptureChange(_ arg0: Bool)
+
+  @JavaMethod
+  open func dispatchPointerCaptureChanged(_ arg0: Bool)
+
+  @JavaMethod
+  open func onCapturedPointerEvent(_ arg0: MotionEvent?) -> Bool
+
+  @JavaMethod
+  open func setOnCapturedPointerListener(_ arg0: View.OnCapturedPointerListener?)
+
+  @JavaMethod
   open func animate() -> ViewPropertyAnimator!
 
   @JavaMethod
@@ -1873,37 +1816,94 @@ open class View: JavaObject {
   open func getTransitionName() -> String
 
   @JavaMethod
+  open func getScrollCaptureHint() -> Int32
+
+  @JavaMethod
+  open func setScrollCaptureHint(_ arg0: Int32)
+
+  @JavaMethod
+  open func setScrollCaptureCallback(_ arg0: ScrollCaptureCallback?)
+
+  @JavaMethod
+  open func dispatchScrollCaptureSearch(_ arg0: Rect?, _ arg1: Point?, _ arg2: JavaConsumer<ScrollCaptureTarget>?)
+
+  @JavaMethod
+  open func onScrollCaptureSearch(_ arg0: Rect?, _ arg1: Point?, _ arg2: JavaConsumer<ScrollCaptureTarget>?)
+
+  @JavaMethod
   open func setTooltipText(_ arg0: CharSequence?)
 
   @JavaMethod
   open func getTooltipText() -> CharSequence!
 
   @JavaMethod
-  open func setHorizontalScrollbarThumbDrawable(_ arg0: Drawable?)
+  open func addOnUnhandledKeyEventListener(_ arg0: View.OnUnhandledKeyEventListener?)
 
   @JavaMethod
-  open func setHorizontalScrollbarTrackDrawable(_ arg0: Drawable?)
+  open func removeOnUnhandledKeyEventListener(_ arg0: View.OnUnhandledKeyEventListener?)
 
   @JavaMethod
-  open func getHorizontalScrollbarThumbDrawable() -> Drawable!
+  open func setAutoHandwritingEnabled(_ arg0: Bool)
 
   @JavaMethod
-  open func getHorizontalScrollbarTrackDrawable() -> Drawable!
+  open func isAutoHandwritingEnabled() -> Bool
 
   @JavaMethod
-  open func dispatchWindowInsetsAnimationPrepare(_ arg0: WindowInsetsAnimation?)
+  open func clearViewTranslationCallback()
 
   @JavaMethod
-  open func dispatchWindowInsetsAnimationProgress(_ arg0: WindowInsets?, _ arg1: List<WindowInsetsAnimation>?) -> WindowInsets!
+  open func getRootSurfaceControl() -> AttachedSurfaceControl!
 
   @JavaMethod
-  open func dispatchNestedPrePerformAccessibilityAction(_ arg0: Int32, _ arg1: Bundle?) -> Bool
+  open func getWidth() -> Int32
 
   @JavaMethod
-  open func dispatchWindowSystemUiVisiblityChanged(_ arg0: Int32)
+  open func getHeight() -> Int32
 
   @JavaMethod
-  open func setOnSystemUiVisibilityChangeListener(_ arg0: View.OnSystemUiVisibilityChangeListener?)
+  open func getRotation() -> Float
+
+  @JavaMethod
+  open func getScrollBarSize() -> Int32
+
+  @JavaMethod
+  open func getScrollBarFadeDuration() -> Int32
+
+  @JavaMethod
+  open func onDraw(_ arg0: Canvas?)
+
+  @JavaMethod
+  open func setBackgroundColor(_ arg0: Int32)
+
+  @JavaMethod
+  open override func toString() -> String
+
+  @JavaMethod
+  open func getResources() -> Resources!
+
+  @JavaMethod
+  open func getParent() -> ViewParent!
+
+  @JavaMethod
+  open func isEnabled() -> Bool
+
+  @JavaMethod
+  open func getId() -> Int32
+
+  @JavaMethod
+  open func isOpaque() -> Bool
+
+  @JavaMethod
+  open func getHandler() -> Handler!
+
+  @JavaMethod
+  open func getContext() -> Context!
+
+  @JavaMethod
+  open func isDirty() -> Bool
+
+  @JavaMethod
+  open func post(_ arg0: Runnable?) -> Bool
 }
 extension JavaClass<View> {
   @JavaStaticField(isFinal: true)
@@ -2300,9 +2300,6 @@ extension JavaClass<View> {
   public var VISIBLE: Int32
 
   @JavaStaticMethod
-  public func inflate(_ arg0: Context?, _ arg1: Int32, _ arg2: ViewGroup?) -> View!
-
-  @JavaStaticMethod
   public func mergeDrawableStates(_ arg0: [Int32], _ arg1: [Int32]) -> [Int32]
 
   @JavaStaticMethod
@@ -2312,11 +2309,14 @@ extension JavaClass<View> {
   public func resolveSizeAndState(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32) -> Int32
 
   @JavaStaticMethod
-  public func resolveSize(_ arg0: Int32, _ arg1: Int32) -> Int32
-
-  @JavaStaticMethod
   public func getDefaultSize(_ arg0: Int32, _ arg1: Int32) -> Int32
 
   @JavaStaticMethod
   public func generateViewId() -> Int32
+
+  @JavaStaticMethod
+  public func resolveSize(_ arg0: Int32, _ arg1: Int32) -> Int32
+
+  @JavaStaticMethod
+  public func inflate(_ arg0: Context?, _ arg1: Int32, _ arg2: ViewGroup?) -> View!
 }

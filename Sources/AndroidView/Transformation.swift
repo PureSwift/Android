@@ -9,6 +9,21 @@ open class Transformation: JavaObject {
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
   @JavaMethod
+  open func getMatrix() -> Matrix!
+
+  @JavaMethod
+  open func getAlpha() -> Float
+
+  @JavaMethod
+  open func setAlpha(_ arg0: Float)
+
+  @JavaMethod
+  open func getTransformationType() -> Int32
+
+  @JavaMethod
+  open func setTransformationType(_ arg0: Int32)
+
+  @JavaMethod
   open override func toString() -> String
 
   @JavaMethod
@@ -22,21 +37,6 @@ open class Transformation: JavaObject {
 
   @JavaMethod
   open func compose(_ arg0: Transformation?)
-
-  @JavaMethod
-  open func getTransformationType() -> Int32
-
-  @JavaMethod
-  open func setTransformationType(_ arg0: Int32)
-
-  @JavaMethod
-  open func getAlpha() -> Float
-
-  @JavaMethod
-  open func setAlpha(_ arg0: Float)
-
-  @JavaMethod
-  open func getMatrix() -> Matrix!
 }
 extension JavaClass<Transformation> {
   @JavaStaticField(isFinal: true)
