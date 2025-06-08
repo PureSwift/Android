@@ -20,8 +20,6 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun loadNativeLibrary() {
-        System.loadLibrary("icuuc")
-        System.loadLibrary("icui18n")
         System.loadLibrary("Foundation")
         System.loadLibrary("SwiftAndroidApp")
     }
@@ -45,6 +43,14 @@ class MainActivity : ComponentActivity() {
 
 class MainActivityHello {
 
+    init {
+        loadNativeLibrary()
+    }
+
+    private fun loadNativeLibrary() {
+        System.loadLibrary("SwiftAndroidApp")
+    }
+
     external fun sayHelloName(): String
 }
 
@@ -60,6 +66,6 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     SwiftAndroidTheme {
-        Greeting("Android")
+        Greeting(MainActivityHello().sayHelloName())
     }
 }
