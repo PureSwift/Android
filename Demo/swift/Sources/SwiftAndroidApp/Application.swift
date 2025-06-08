@@ -8,7 +8,7 @@
 import AndroidKit
 
 @JavaClass("com.pureswift.swiftandroid.Application")
-public class Application: JavaObject {
+public class Application: AndroidApp.Application {
     
     @JavaMethod
     public func sayHello()
@@ -18,8 +18,7 @@ public class Application: JavaObject {
 public extension Application {
     
     @JavaMethod
-    public func onCreate() {
-        //super.onCreate()
+    public func onCreateSwift() {
         
         print("\(#function)")
         
@@ -27,8 +26,7 @@ public extension Application {
     }
     
     @JavaMethod
-    public func onTerminate() {
-        //super.onTerminate()
+    public func onTerminateSwift() {
         
         print("\(#function)")
     }

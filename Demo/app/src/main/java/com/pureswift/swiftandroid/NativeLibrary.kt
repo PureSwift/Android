@@ -27,6 +27,8 @@ class NativeLibrary private constructor() {
             System.loadLibrary("SwiftAndroidApp")
         } catch (error: UnsatisfiedLinkError) {
             Log.e("NativeLibrary", "Unable to load native libraries: $error")
+            return
         }
+        Log.d("NativeLibrary", "Loaded Swift library")
     }
 }
