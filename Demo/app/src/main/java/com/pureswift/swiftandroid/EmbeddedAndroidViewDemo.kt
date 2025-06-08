@@ -28,7 +28,7 @@ fun EmbeddedAndroidViewDemo() {
         //widget.ImageView
         AndroidView(factory = { ctx ->
             ImageView(ctx).apply {
-                val drawable = ContextCompat.getDrawable(ctx, R.drawable.ic_launcher_background)
+                val drawable = ContextCompat.getDrawable(ctx, R.drawable.ic_launcher_foreground)
                 setImageDrawable(drawable)
             }
         })

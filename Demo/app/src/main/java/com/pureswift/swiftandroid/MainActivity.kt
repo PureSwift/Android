@@ -16,12 +16,7 @@ import com.pureswift.swiftandroid.ui.theme.SwiftAndroidTheme
 class MainActivity : ComponentActivity() {
 
     init {
-        loadNativeLibrary()
-    }
-
-    private fun loadNativeLibrary() {
-        System.loadLibrary("Foundation")
-        System.loadLibrary("SwiftAndroidApp")
+        NativeLibrary.shared()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,11 +39,7 @@ class MainActivity : ComponentActivity() {
 class MainActivityHello {
 
     init {
-        loadNativeLibrary()
-    }
-
-    private fun loadNativeLibrary() {
-        System.loadLibrary("SwiftAndroidApp")
+        NativeLibrary.shared()
     }
 
     external fun sayHelloName(): String
