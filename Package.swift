@@ -133,7 +133,7 @@ let package = Package(
                 ),
                 "AndroidJavaLang",
                 "AndroidJavaIO",
-                "AndroidJavaNIO",
+                //"AndroidJavaNIO",
                 "AndroidJavaNet",
                 "AndroidJavaTime",
                 "AndroidJavaAWT",
@@ -163,7 +163,7 @@ let package = Package(
             swiftSettings: [
               .swiftLanguageMode(.v5),
             ]
-        ),
+        ),/*
         .target(
             name: "AndroidJavaNIO",
             dependencies: [
@@ -186,7 +186,7 @@ let package = Package(
             swiftSettings: [
               .swiftLanguageMode(.v5),
             ]
-        ),
+        ),*/
         .target(
             name: "AndroidJavaLang",
             dependencies: [
