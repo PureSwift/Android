@@ -1,0 +1,6 @@
+.build
+.swiftpm
+.idea
+.gradle
+*.so
+*.jar
