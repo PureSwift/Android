@@ -8,14 +8,18 @@
 import AndroidKit
 
 @JavaClass("com.pureswift.swiftandroid.Application")
-class Application: AndroidApp.Application {
+public class Application: JavaObject {
     
     @JavaMethod
-    func sayHello()
+    public func sayHello()
+}
+
+@JavaImplementation("com.pureswift.swiftandroid.Application")
+public extension Application {
     
     @JavaMethod
-    override func onCreate() {
-        super.onCreate()
+    public func onCreate() {
+        //super.onCreate()
         
         print("\(#function)")
         
@@ -23,15 +27,12 @@ class Application: AndroidApp.Application {
     }
     
     @JavaMethod
-    override func onTerminate() {
-        super.onTerminate()
+    public func onTerminate() {
+        //super.onTerminate()
         
         print("\(#function)")
     }
 }
-
-@JavaImplementation("com.pureswift.swiftandroid.Application")
-extension Application { }
 
 internal extension Application {
     
