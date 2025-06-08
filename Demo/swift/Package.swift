@@ -76,11 +76,6 @@ let package = Package(
             swiftSettings: [
               .swiftLanguageMode(.v5),
               .unsafeFlags(["-I\(javaIncludePath)", "-I\(javaPlatformIncludePath)"])
-            ],
-            plugins: [
-              .plugin(name: "JavaCompilerPlugin", package: "swift-java"),
-              .plugin(name: "JExtractSwiftPlugin", package: "swift-java"),
-              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
             ]
         ),
     ]
