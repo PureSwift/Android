@@ -2,8 +2,13 @@ package com.pureswift.swiftandroid;
 
 import android.annotation.SuppressLint;
 import com.example.swift.HelloSubclass;
+import com.pureswift.swiftandroid.NativeLibrary;
 
 public class Application extends android.app.Application {
+
+    static {
+        System.loadLibrary("SwiftAndroidApp");
+    }
 
     @SuppressLint("MissingSuperCall")
     @Override
