@@ -3,7 +3,7 @@ set -e
 source swift-define
 
 # Build with SwiftPM
-swift build \
+xcrun --toolchain swift swift build -c debug \
     --swift-sdk aarch64-unknown-linux-android24 \
     --toolchain $XCTOOLCHAIN \
     --package-path $SWIFT_PACKAGE_SRC
