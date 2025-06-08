@@ -21,23 +21,23 @@ public extension Permission {
 
 public extension Permission.Group {
     
-    public static let calendar = Permission.Group(rawValue: AndroidManifest.Permission.Group.CALENDAR)
+    static let calendar = Permission.Group(rawValue: try! JavaClass<AndroidManifest.Manifest.Permission.Group>().CALENDAR)
     
-    public static let callLog = Permission.Group(rawValue: AndroidManifest.Permission.Group.CALL_LOG)
+    static let callLog = Permission.Group(rawValue: try! JavaClass<AndroidManifest.Manifest.Permission.Group>().CALL_LOG)
     
-    public static let camera = Permission.Group(rawValue: AndroidManifest.Permission.Group.CAMERA)
+    static let camera = Permission.Group(rawValue: try! JavaClass<AndroidManifest.Manifest.Permission.Group>().CAMERA)
     
-    public static let contacts = Permission.Group(rawValue: AndroidManifest.Permission.Group.CONTACTS)
+    static let contacts = Permission.Group(rawValue: try! JavaClass<AndroidManifest.Manifest.Permission.Group>().CONTACTS)
     
-    public static let location = Permission.Group(rawValue: AndroidManifest.Permission.Group.LOCATION)
+    static let location = Permission.Group(rawValue: try! JavaClass<AndroidManifest.Manifest.Permission.Group>().LOCATION)
     
-    public static let microphone = Permission.Group(rawValue: AndroidManifest.Permission.Group.MICROPHONE)
+    static let microphone = Permission.Group(rawValue: try! JavaClass<AndroidManifest.Manifest.Permission.Group>().MICROPHONE)
     
-    public static let phone = Permission.Group(rawValue: AndroidManifest.Permission.Group.PHONE)
+    static let phone = Permission.Group(rawValue: try! JavaClass<AndroidManifest.Manifest.Permission.Group>().PHONE)
     
-    public static let sensors = Permission.Group(rawValue: AndroidManifest.Permission.Group.SENSORS)
+    static let sensors = Permission.Group(rawValue: try! JavaClass<AndroidManifest.Manifest.Permission.Group>().SENSORS)
     
-    public static let sms = Permission.Group(rawValue: AndroidManifest.Permission.Group.SMS)
+    static let sms = Permission.Group(rawValue: try! JavaClass<AndroidManifest.Manifest.Permission.Group>().SMS)
     
-    public static let storage = Permission.Group(rawValue: AndroidManifest.Permission.Group.STORAGE)
+    static let storage = Permission.Group(rawValue: try! JavaClass<AndroidManifest.Manifest.Permission.Group>().STORAGE)
 }

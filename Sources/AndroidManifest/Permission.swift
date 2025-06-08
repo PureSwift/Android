@@ -7,6 +7,7 @@
 
 import JavaKit
 
+/// Android Manifest Permission
 public struct Permission: RawRepresentable, Equatable, Hashable, Codable, Sendable {
     
     public let rawValue: String
@@ -18,291 +19,291 @@ public struct Permission: RawRepresentable, Equatable, Hashable, Codable, Sendab
 
 public extension Permission {
     
-    public static let acceptHandover = Permission(rawValue: AndroidManifest.Permission.ACCEPT_HANDOVER)
+    static let acceptHandover = Permission(rawValue: try! JavaClass<Manifest.Permission>().ACCEPT_HANDOVER)
     
-    public static let accessCheckinProperties = Permission(rawValue: AndroidManifest.Permission.ACCESS_CHECKIN_PROPERTIES)
+    static let accessCheckinProperties = Permission(rawValue: try! JavaClass<Manifest.Permission>().ACCESS_CHECKIN_PROPERTIES)
     
-    public static let accessCoarseLocation = Permission(rawValue: AndroidManifest.Permission.ACCESS_COARSE_LOCATION)
+    static let accessCoarseLocation = Permission(rawValue: try! JavaClass<Manifest.Permission>().ACCESS_COARSE_LOCATION)
     
-    public static let accessFineLocation = Permission(rawValue: AndroidManifest.Permission.ACCESS_FINE_LOCATION)
+    static let accessFineLocation = Permission(rawValue: try! JavaClass<Manifest.Permission>().ACCESS_FINE_LOCATION)
     
-    public static let accessLocationExtraCommands = Permission(rawValue: AndroidManifest.Permission.ACCESS_LOCATION_EXTRA_COMMANDS)
+    static let accessLocationExtraCommands = Permission(rawValue: try! JavaClass<Manifest.Permission>().ACCESS_LOCATION_EXTRA_COMMANDS)
     
-    public static let accessNetworkState = Permission(rawValue: AndroidManifest.Permission.ACCESS_NETWORK_STATE)
+    static let accessNetworkState = Permission(rawValue: try! JavaClass<Manifest.Permission>().ACCESS_NETWORK_STATE)
     
-    public static let accessNotificationPolicy = Permission(rawValue: AndroidManifest.Permission.ACCESS_NOTIFICATION_POLICY)
+    static let accessNotificationPolicy = Permission(rawValue: try! JavaClass<Manifest.Permission>().ACCESS_NOTIFICATION_POLICY)
     
-    public static let accessWifiState = Permission(rawValue: AndroidManifest.Permission.ACCESS_WIFI_STATE)
+    static let accessWifiState = Permission(rawValue: try! JavaClass<Manifest.Permission>().ACCESS_WIFI_STATE)
     
-    public static let accountManager = Permission(rawValue: AndroidManifest.Permission.ACCOUNT_MANAGER)
+    static let accountManager = Permission(rawValue: try! JavaClass<Manifest.Permission>().ACCOUNT_MANAGER)
     
-    public static let addVoicemail = Permission(rawValue: AndroidManifest.Permission.ADD_VOICEMAIL)
+    static let addVoicemail = Permission(rawValue: try! JavaClass<Manifest.Permission>().ADD_VOICEMAIL)
     
-    public static let answerPhoneCalls = Permission(rawValue: AndroidManifest.Permission.ANSWER_PHONE_CALLS)
+    static let answerPhoneCalls = Permission(rawValue: try! JavaClass<Manifest.Permission>().ANSWER_PHONE_CALLS)
     
-    public static let batteryStats = Permission(rawValue: AndroidManifest.Permission.BATTERY_STATS)
+    static let batteryStats = Permission(rawValue: try! JavaClass<Manifest.Permission>().BATTERY_STATS)
     
-    public static let bindAccessibilityService = Permission(rawValue: AndroidManifest.Permission.BIND_ACCESSIBILITY_SERVICE)
+    static let bindAccessibilityService = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_ACCESSIBILITY_SERVICE)
     
-    public static let bindAppwidget = Permission(rawValue: AndroidManifest.Permission.BIND_APPWIDGET)
+    static let bindAppwidget = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_APPWIDGET)
     
-    public static let bindAutofillService = Permission(rawValue: AndroidManifest.Permission.BIND_AUTOFILL_SERVICE)
+    static let bindAutofillService = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_AUTOFILL_SERVICE)
     
-    public static let bindCarrierServices = Permission(rawValue: AndroidManifest.Permission.BIND_CARRIER_SERVICES)
+    static let bindCarrierServices = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_CARRIER_SERVICES)
     
-    public static let bindChooserTargetService = Permission(rawValue: AndroidManifest.Permission.BIND_CHOOSER_TARGET_SERVICE)
+    static let bindChooserTargetService = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_CHOOSER_TARGET_SERVICE)
     
-    public static let bindConditionProviderService = Permission(rawValue: AndroidManifest.Permission.BIND_CONDITION_PROVIDER_SERVICE)
+    static let bindConditionProviderService = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_CONDITION_PROVIDER_SERVICE)
     
-    public static let bindDeviceAdmin = Permission(rawValue: AndroidManifest.Permission.BIND_DEVICE_ADMIN)
+    static let bindDeviceAdmin = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_DEVICE_ADMIN)
     
-    public static let bindDreamService = Permission(rawValue: AndroidManifest.Permission.BIND_DREAM_SERVICE)
+    static let bindDreamService = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_DREAM_SERVICE)
     
-    public static let bindIncallService = Permission(rawValue: AndroidManifest.Permission.BIND_INCALL_SERVICE)
+    static let bindIncallService = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_INCALL_SERVICE)
     
-    public static let bindInputMethod = Permission(rawValue: AndroidManifest.Permission.BIND_INPUT_METHOD)
+    static let bindInputMethod = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_INPUT_METHOD)
     
-    public static let bindMidiDeviceService = Permission(rawValue: AndroidManifest.Permission.BIND_MIDI_DEVICE_SERVICE)
+    static let bindMidiDeviceService = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_MIDI_DEVICE_SERVICE)
     
-    public static let bindNfcService = Permission(rawValue: AndroidManifest.Permission.BIND_NFC_SERVICE)
+    static let bindNfcService = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_NFC_SERVICE)
     
-    public static let bindNotificationListenerService = Permission(rawValue: AndroidManifest.Permission.BIND_NOTIFICATION_LISTENER_SERVICE)
+    static let bindNotificationListenerService = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_NOTIFICATION_LISTENER_SERVICE)
     
-    public static let bindPrintService = Permission(rawValue: AndroidManifest.Permission.BIND_PRINT_SERVICE)
+    static let bindPrintService = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_PRINT_SERVICE)
     
-    public static let bindQuickSettingsTile = Permission(rawValue: AndroidManifest.Permission.BIND_QUICK_SETTINGS_TILE)
+    static let bindQuickSettingsTile = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_QUICK_SETTINGS_TILE)
     
-    public static let bindRemoteviews = Permission(rawValue: AndroidManifest.Permission.BIND_REMOTEVIEWS)
+    static let bindRemoteviews = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_REMOTEVIEWS)
     
-    public static let bindScreeningService = Permission(rawValue: AndroidManifest.Permission.BIND_SCREENING_SERVICE)
+    static let bindScreeningService = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_SCREENING_SERVICE)
     
-    public static let bindTelecomConnectionService = Permission(rawValue: AndroidManifest.Permission.BIND_TELECOM_CONNECTION_SERVICE)
+    static let bindTelecomConnectionService = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_TELECOM_CONNECTION_SERVICE)
     
-    public static let bindTextService = Permission(rawValue: AndroidManifest.Permission.BIND_TEXT_SERVICE)
+    static let bindTextService = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_TEXT_SERVICE)
     
-    public static let bindTvInput = Permission(rawValue: AndroidManifest.Permission.BIND_TV_INPUT)
+    static let bindTvInput = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_TV_INPUT)
     
-    public static let bindVisualVoicemailService = Permission(rawValue: AndroidManifest.Permission.BIND_VISUAL_VOICEMAIL_SERVICE)
+    static let bindVisualVoicemailService = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_VISUAL_VOICEMAIL_SERVICE)
     
-    public static let bindVoiceInteraction = Permission(rawValue: AndroidManifest.Permission.BIND_VOICE_INTERACTION)
+    static let bindVoiceInteraction = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_VOICE_INTERACTION)
     
-    public static let bindVpnService = Permission(rawValue: AndroidManifest.Permission.BIND_VPN_SERVICE)
+    static let bindVpnService = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_VPN_SERVICE)
     
-    public static let bindVrListenerService = Permission(rawValue: AndroidManifest.Permission.BIND_VR_LISTENER_SERVICE)
+    static let bindVrListenerService = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_VR_LISTENER_SERVICE)
     
-    public static let bindWallpaper = Permission(rawValue: AndroidManifest.Permission.BIND_WALLPAPER)
+    static let bindWallpaper = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_WALLPAPER)
     
-    public static let bluetooth = Permission(rawValue: AndroidManifest.Permission.BLUETOOTH)
+    static let bluetooth = Permission(rawValue: try! JavaClass<Manifest.Permission>().BLUETOOTH)
     
-    public static let bluetoothAdmin = Permission(rawValue: AndroidManifest.Permission.BLUETOOTH_ADMIN)
+    static let bluetoothAdmin = Permission(rawValue: try! JavaClass<Manifest.Permission>().BLUETOOTH_ADMIN)
     
-    public static let bluetoothPrivileged = Permission(rawValue: AndroidManifest.Permission.BLUETOOTH_PRIVILEGED)
+    static let bluetoothPrivileged = Permission(rawValue: try! JavaClass<Manifest.Permission>().BLUETOOTH_PRIVILEGED)
     
-    public static let bodySensors = Permission(rawValue: AndroidManifest.Permission.BODY_SENSORS)
+    static let bodySensors = Permission(rawValue: try! JavaClass<Manifest.Permission>().BODY_SENSORS)
     
-    public static let broadcastPackageRemoved = Permission(rawValue: AndroidManifest.Permission.BROADCAST_PACKAGE_REMOVED)
+    static let broadcastPackageRemoved = Permission(rawValue: try! JavaClass<Manifest.Permission>().BROADCAST_PACKAGE_REMOVED)
     
-    public static let broadcastSms = Permission(rawValue: AndroidManifest.Permission.BROADCAST_SMS)
+    static let broadcastSms = Permission(rawValue: try! JavaClass<Manifest.Permission>().BROADCAST_SMS)
     
-    public static let broadcastSticky = Permission(rawValue: AndroidManifest.Permission.BROADCAST_STICKY)
+    static let broadcastSticky = Permission(rawValue: try! JavaClass<Manifest.Permission>().BROADCAST_STICKY)
     
-    public static let broadcastWapPush = Permission(rawValue: AndroidManifest.Permission.BROADCAST_WAP_PUSH)
+    static let broadcastWapPush = Permission(rawValue: try! JavaClass<Manifest.Permission>().BROADCAST_WAP_PUSH)
     
-    public static let callPhone = Permission(rawValue: AndroidManifest.Permission.CALL_PHONE)
+    static let callPhone = Permission(rawValue: try! JavaClass<Manifest.Permission>().CALL_PHONE)
     
-    public static let callPrivileged = Permission(rawValue: AndroidManifest.Permission.CALL_PRIVILEGED)
+    static let callPrivileged = Permission(rawValue: try! JavaClass<Manifest.Permission>().CALL_PRIVILEGED)
     
-    public static let camera = Permission(rawValue: AndroidManifest.Permission.CAMERA)
+    static let camera = Permission(rawValue: try! JavaClass<Manifest.Permission>().CAMERA)
     
-    public static let captureAudioOutput = Permission(rawValue: AndroidManifest.Permission.CAPTURE_AUDIO_OUTPUT)
+    static let captureAudioOutput = Permission(rawValue: try! JavaClass<Manifest.Permission>().CAPTURE_AUDIO_OUTPUT)
     
-    public static let captureSecureVideoOutput = Permission(rawValue: AndroidManifest.Permission.CAPTURE_SECURE_VIDEO_OUTPUT)
+    //static let captureSecureVideoOutput = Permission(rawValue: try! JavaClass<Manifest.Permission>().CAPTURE_SECURE_VIDEO_OUTPUT)
     
-    public static let captureVideoOutput = Permission(rawValue: AndroidManifest.Permission.CAPTURE_VIDEO_OUTPUT)
+    //static let captureVideoOutput = Permission(rawValue: try! JavaClass<Manifest.Permission>().CAPTURE_VIDEO_OUTPUT)
     
-    public static let changeComponentEnabledState = Permission(rawValue: AndroidManifest.Permission.CHANGE_COMPONENT_ENABLED_STATE)
+    static let changeComponentEnabledState = Permission(rawValue: try! JavaClass<Manifest.Permission>().CHANGE_COMPONENT_ENABLED_STATE)
     
-    public static let changeConfiguration = Permission(rawValue: AndroidManifest.Permission.CHANGE_CONFIGURATION)
+    static let changeConfiguration = Permission(rawValue: try! JavaClass<Manifest.Permission>().CHANGE_CONFIGURATION)
     
-    public static let changeNetworkState = Permission(rawValue: AndroidManifest.Permission.CHANGE_NETWORK_STATE)
+    static let changeNetworkState = Permission(rawValue: try! JavaClass<Manifest.Permission>().CHANGE_NETWORK_STATE)
     
-    public static let changeWifiMulticastState = Permission(rawValue: AndroidManifest.Permission.CHANGE_WIFI_MULTICAST_STATE)
+    static let changeWifiMulticastState = Permission(rawValue: try! JavaClass<Manifest.Permission>().CHANGE_WIFI_MULTICAST_STATE)
     
-    public static let changeWifiState = Permission(rawValue: AndroidManifest.Permission.CHANGE_WIFI_STATE)
+    static let changeWifiState = Permission(rawValue: try! JavaClass<Manifest.Permission>().CHANGE_WIFI_STATE)
     
-    public static let clearAppCache = Permission(rawValue: AndroidManifest.Permission.CLEAR_APP_CACHE)
+    static let clearAppCache = Permission(rawValue: try! JavaClass<Manifest.Permission>().CLEAR_APP_CACHE)
     
-    public static let controlLocationUpdates = Permission(rawValue: AndroidManifest.Permission.CONTROL_LOCATION_UPDATES)
+    static let controlLocationUpdates = Permission(rawValue: try! JavaClass<Manifest.Permission>().CONTROL_LOCATION_UPDATES)
     
-    public static let deleteCacheFiles = Permission(rawValue: AndroidManifest.Permission.DELETE_CACHE_FILES)
+    static let deleteCacheFiles = Permission(rawValue: try! JavaClass<Manifest.Permission>().DELETE_CACHE_FILES)
     
-    public static let deletePackages = Permission(rawValue: AndroidManifest.Permission.DELETE_PACKAGES)
+    static let deletePackages = Permission(rawValue: try! JavaClass<Manifest.Permission>().DELETE_PACKAGES)
     
-    public static let diagnostic = Permission(rawValue: AndroidManifest.Permission.DIAGNOSTIC)
+    static let diagnostic = Permission(rawValue: try! JavaClass<Manifest.Permission>().DIAGNOSTIC)
     
-    public static let disableKeyguard = Permission(rawValue: AndroidManifest.Permission.DISABLE_KEYGUARD)
+    static let disableKeyguard = Permission(rawValue: try! JavaClass<Manifest.Permission>().DISABLE_KEYGUARD)
     
-    public static let dump = Permission(rawValue: AndroidManifest.Permission.DUMP)
+    static let dump = Permission(rawValue: try! JavaClass<Manifest.Permission>().DUMP)
     
-    public static let expandStatusBar = Permission(rawValue: AndroidManifest.Permission.EXPAND_STATUS_BAR)
+    static let expandStatusBar = Permission(rawValue: try! JavaClass<Manifest.Permission>().EXPAND_STATUS_BAR)
     
-    public static let factoryTest = Permission(rawValue: AndroidManifest.Permission.FACTORY_TEST)
+    static let factoryTest = Permission(rawValue: try! JavaClass<Manifest.Permission>().FACTORY_TEST)
     
-    public static let foregroundService = Permission(rawValue: AndroidManifest.Permission.FOREGROUND_SERVICE)
+    static let foregroundService = Permission(rawValue: try! JavaClass<Manifest.Permission>().FOREGROUND_SERVICE)
     
-    public static let getAccounts = Permission(rawValue: AndroidManifest.Permission.GET_ACCOUNTS)
+    static let getAccounts = Permission(rawValue: try! JavaClass<Manifest.Permission>().GET_ACCOUNTS)
     
-    public static let getAccountsPrivileged = Permission(rawValue: AndroidManifest.Permission.GET_ACCOUNTS_PRIVILEGED)
+    static let getAccountsPrivileged = Permission(rawValue: try! JavaClass<Manifest.Permission>().GET_ACCOUNTS_PRIVILEGED)
     
-    public static let getPackageSize = Permission(rawValue: AndroidManifest.Permission.GET_PACKAGE_SIZE)
+    static let getPackageSize = Permission(rawValue: try! JavaClass<Manifest.Permission>().GET_PACKAGE_SIZE)
     
-    public static let globalSearch = Permission(rawValue: AndroidManifest.Permission.GLOBAL_SEARCH)
+    static let globalSearch = Permission(rawValue: try! JavaClass<Manifest.Permission>().GLOBAL_SEARCH)
     
-    public static let installLocationProvider = Permission(rawValue: AndroidManifest.Permission.INSTALL_LOCATION_PROVIDER)
+    static let installLocationProvider = Permission(rawValue: try! JavaClass<Manifest.Permission>().INSTALL_LOCATION_PROVIDER)
     
-    public static let installPackages = Permission(rawValue: AndroidManifest.Permission.INSTALL_PACKAGES)
+    static let installPackages = Permission(rawValue: try! JavaClass<Manifest.Permission>().INSTALL_PACKAGES)
     
-    public static let installShortcut = Permission(rawValue: AndroidManifest.Permission.INSTALL_SHORTCUT)
+    static let installShortcut = Permission(rawValue: try! JavaClass<Manifest.Permission>().INSTALL_SHORTCUT)
     
-    public static let instantAppForegroundService = Permission(rawValue: AndroidManifest.Permission.INSTANT_APP_FOREGROUND_SERVICE)
+    static let instantAppForegroundService = Permission(rawValue: try! JavaClass<Manifest.Permission>().INSTANT_APP_FOREGROUND_SERVICE)
     
-    public static let internet = Permission(rawValue: AndroidManifest.Permission.INTERNET)
+    static let internet = Permission(rawValue: try! JavaClass<Manifest.Permission>().INTERNET)
     
-    public static let killBackgroundProcesses = Permission(rawValue: AndroidManifest.Permission.KILL_BACKGROUND_PROCESSES)
+    static let killBackgroundProcesses = Permission(rawValue: try! JavaClass<Manifest.Permission>().KILL_BACKGROUND_PROCESSES)
     
-    public static let locationHardware = Permission(rawValue: AndroidManifest.Permission.LOCATION_HARDWARE)
+    static let locationHardware = Permission(rawValue: try! JavaClass<Manifest.Permission>().LOCATION_HARDWARE)
     
-    public static let manageDocuments = Permission(rawValue: AndroidManifest.Permission.MANAGE_DOCUMENTS)
+    static let manageDocuments = Permission(rawValue: try! JavaClass<Manifest.Permission>().MANAGE_DOCUMENTS)
     
-    public static let manageOwnCalls = Permission(rawValue: AndroidManifest.Permission.MANAGE_OWN_CALLS)
+    static let manageOwnCalls = Permission(rawValue: try! JavaClass<Manifest.Permission>().MANAGE_OWN_CALLS)
     
-    public static let masterClear = Permission(rawValue: AndroidManifest.Permission.MASTER_CLEAR)
+    static let masterClear = Permission(rawValue: try! JavaClass<Manifest.Permission>().MASTER_CLEAR)
     
-    public static let mediaContentControl = Permission(rawValue: AndroidManifest.Permission.MEDIA_CONTENT_CONTROL)
+    static let mediaContentControl = Permission(rawValue: try! JavaClass<Manifest.Permission>().MEDIA_CONTENT_CONTROL)
     
-    public static let modifyAudioSettings = Permission(rawValue: AndroidManifest.Permission.MODIFY_AUDIO_SETTINGS)
+    static let modifyAudioSettings = Permission(rawValue: try! JavaClass<Manifest.Permission>().MODIFY_AUDIO_SETTINGS)
     
-    public static let modifyPhoneState = Permission(rawValue: AndroidManifest.Permission.MODIFY_PHONE_STATE)
+    static let modifyPhoneState = Permission(rawValue: try! JavaClass<Manifest.Permission>().MODIFY_PHONE_STATE)
     
-    public static let mountFormatFilesystems = Permission(rawValue: AndroidManifest.Permission.MOUNT_FORMAT_FILESYSTEMS)
+    static let mountFormatFilesystems = Permission(rawValue: try! JavaClass<Manifest.Permission>().MOUNT_FORMAT_FILESYSTEMS)
     
-    public static let mountUnmountFilesystems = Permission(rawValue: AndroidManifest.Permission.MOUNT_UNMOUNT_FILESYSTEMS)
+    static let mountUnmountFilesystems = Permission(rawValue: try! JavaClass<Manifest.Permission>().MOUNT_UNMOUNT_FILESYSTEMS)
     
-    public static let nfc = Permission(rawValue: AndroidManifest.Permission.NFC)
+    static let nfc = Permission(rawValue: try! JavaClass<Manifest.Permission>().NFC)
     
-    public static let nfcTransactionEvent = Permission(rawValue: AndroidManifest.Permission.NFC_TRANSACTION_EVENT)
+    static let nfcTransactionEvent = Permission(rawValue: try! JavaClass<Manifest.Permission>().NFC_TRANSACTION_EVENT)
     
-    public static let packageUsageStats = Permission(rawValue: AndroidManifest.Permission.PACKAGE_USAGE_STATS)
+    static let packageUsageStats = Permission(rawValue: try! JavaClass<Manifest.Permission>().PACKAGE_USAGE_STATS)
     
-    public static let processOutgoingCalls = Permission(rawValue: AndroidManifest.Permission.PROCESS_OUTGOING_CALLS)
+    static let processOutgoingCalls = Permission(rawValue: try! JavaClass<Manifest.Permission>().PROCESS_OUTGOING_CALLS)
     
-    public static let readCalendar = Permission(rawValue: AndroidManifest.Permission.READ_CALENDAR)
+    static let readCalendar = Permission(rawValue: try! JavaClass<Manifest.Permission>().READ_CALENDAR)
     
-    public static let readCallLog = Permission(rawValue: AndroidManifest.Permission.READ_CALL_LOG)
+    static let readCallLog = Permission(rawValue: try! JavaClass<Manifest.Permission>().READ_CALL_LOG)
     
-    public static let readContacts = Permission(rawValue: AndroidManifest.Permission.READ_CONTACTS)
+    static let readContacts = Permission(rawValue: try! JavaClass<Manifest.Permission>().READ_CONTACTS)
     
-    public static let readExternalStorage = Permission(rawValue: AndroidManifest.Permission.READ_EXTERNAL_STORAGE)
+    static let readExternalStorage = Permission(rawValue: try! JavaClass<Manifest.Permission>().READ_EXTERNAL_STORAGE)
     
-    public static let readFrameBuffer = Permission(rawValue: AndroidManifest.Permission.READ_FRAME_BUFFER)
+    //static let readFrameBuffer = Permission(rawValue: try! JavaClass<Manifest.Permission>().READ_FRAME_BUFFER)
     
-    public static let readLogs = Permission(rawValue: AndroidManifest.Permission.READ_LOGS)
+    static let readLogs = Permission(rawValue: try! JavaClass<Manifest.Permission>().READ_LOGS)
     
-    public static let readPhoneNumbers = Permission(rawValue: AndroidManifest.Permission.READ_PHONE_NUMBERS)
+    static let readPhoneNumbers = Permission(rawValue: try! JavaClass<Manifest.Permission>().READ_PHONE_NUMBERS)
     
-    public static let readPhoneState = Permission(rawValue: AndroidManifest.Permission.READ_PHONE_STATE)
+    static let readPhoneState = Permission(rawValue: try! JavaClass<Manifest.Permission>().READ_PHONE_STATE)
     
-    public static let readSms = Permission(rawValue: AndroidManifest.Permission.READ_SMS)
+    static let readSms = Permission(rawValue: try! JavaClass<Manifest.Permission>().READ_SMS)
     
-    public static let readSyncSettings = Permission(rawValue: AndroidManifest.Permission.READ_SYNC_SETTINGS)
+    static let readSyncSettings = Permission(rawValue: try! JavaClass<Manifest.Permission>().READ_SYNC_SETTINGS)
     
-    public static let readSyncStats = Permission(rawValue: AndroidManifest.Permission.READ_SYNC_STATS)
+    static let readSyncStats = Permission(rawValue: try! JavaClass<Manifest.Permission>().READ_SYNC_STATS)
     
-    public static let readVoicemail = Permission(rawValue: AndroidManifest.Permission.READ_VOICEMAIL)
+    static let readVoicemail = Permission(rawValue: try! JavaClass<Manifest.Permission>().READ_VOICEMAIL)
     
-    public static let reboot = Permission(rawValue: AndroidManifest.Permission.REBOOT)
+    static let reboot = Permission(rawValue: try! JavaClass<Manifest.Permission>().REBOOT)
     
-    public static let receiveBootCompleted = Permission(rawValue: AndroidManifest.Permission.RECEIVE_BOOT_COMPLETED)
+    static let receiveBootCompleted = Permission(rawValue: try! JavaClass<Manifest.Permission>().RECEIVE_BOOT_COMPLETED)
     
-    public static let receiveMms = Permission(rawValue: AndroidManifest.Permission.RECEIVE_MMS)
+    static let receiveMms = Permission(rawValue: try! JavaClass<Manifest.Permission>().RECEIVE_MMS)
     
-    public static let receiveSms = Permission(rawValue: AndroidManifest.Permission.RECEIVE_SMS)
+    static let receiveSms = Permission(rawValue: try! JavaClass<Manifest.Permission>().RECEIVE_SMS)
     
-    public static let receiveWapPush = Permission(rawValue: AndroidManifest.Permission.RECEIVE_WAP_PUSH)
+    static let receiveWapPush = Permission(rawValue: try! JavaClass<Manifest.Permission>().RECEIVE_WAP_PUSH)
     
-    public static let recordAudio = Permission(rawValue: AndroidManifest.Permission.RECORD_AUDIO)
+    static let recordAudio = Permission(rawValue: try! JavaClass<Manifest.Permission>().RECORD_AUDIO)
     
-    public static let reorderTasks = Permission(rawValue: AndroidManifest.Permission.REORDER_TASKS)
+    static let reorderTasks = Permission(rawValue: try! JavaClass<Manifest.Permission>().REORDER_TASKS)
     
-    public static let requestCompanionRunInBackground = Permission(rawValue: AndroidManifest.Permission.REQUEST_COMPANION_RUN_IN_BACKGROUND)
+    static let requestCompanionRunInBackground = Permission(rawValue: try! JavaClass<Manifest.Permission>().REQUEST_COMPANION_RUN_IN_BACKGROUND)
     
-    public static let requestCompanionUseDataInBackground = Permission(rawValue: AndroidManifest.Permission.REQUEST_COMPANION_USE_DATA_IN_BACKGROUND)
+    static let requestCompanionUseDataInBackground = Permission(rawValue: try! JavaClass<Manifest.Permission>().REQUEST_COMPANION_USE_DATA_IN_BACKGROUND)
     
-    public static let requestDeletePackages = Permission(rawValue: AndroidManifest.Permission.REQUEST_DELETE_PACKAGES)
+    static let requestDeletePackages = Permission(rawValue: try! JavaClass<Manifest.Permission>().REQUEST_DELETE_PACKAGES)
     
-    public static let requestIgnoreBatteryOptimizations = Permission(rawValue: AndroidManifest.Permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS)
+    static let requestIgnoreBatteryOptimizations = Permission(rawValue: try! JavaClass<Manifest.Permission>().REQUEST_IGNORE_BATTERY_OPTIMIZATIONS)
     
-    public static let requestInstallPackages = Permission(rawValue: AndroidManifest.Permission.REQUEST_INSTALL_PACKAGES)
+    static let requestInstallPackages = Permission(rawValue: try! JavaClass<Manifest.Permission>().REQUEST_INSTALL_PACKAGES)
     
-    public static let sendRespondViaMessage = Permission(rawValue: AndroidManifest.Permission.SEND_RESPOND_VIA_MESSAGE)
+    static let sendRespondViaMessage = Permission(rawValue: try! JavaClass<Manifest.Permission>().SEND_RESPOND_VIA_MESSAGE)
     
-    public static let sendSms = Permission(rawValue: AndroidManifest.Permission.SEND_SMS)
+    static let sendSms = Permission(rawValue: try! JavaClass<Manifest.Permission>().SEND_SMS)
     
-    public static let setAlarm = Permission(rawValue: AndroidManifest.Permission.SET_ALARM)
+    static let setAlarm = Permission(rawValue: try! JavaClass<Manifest.Permission>().SET_ALARM)
     
-    public static let setAlwaysFinish = Permission(rawValue: AndroidManifest.Permission.SET_ALWAYS_FINISH)
+    static let setAlwaysFinish = Permission(rawValue: try! JavaClass<Manifest.Permission>().SET_ALWAYS_FINISH)
     
-    public static let setAnimationScale = Permission(rawValue: AndroidManifest.Permission.SET_ANIMATION_SCALE)
+    static let setAnimationScale = Permission(rawValue: try! JavaClass<Manifest.Permission>().SET_ANIMATION_SCALE)
     
-    public static let setDebugApp = Permission(rawValue: AndroidManifest.Permission.SET_DEBUG_APP)
+    static let setDebugApp = Permission(rawValue: try! JavaClass<Manifest.Permission>().SET_DEBUG_APP)
     
-    public static let setProcessLimit = Permission(rawValue: AndroidManifest.Permission.SET_PROCESS_LIMIT)
+    static let setProcessLimit = Permission(rawValue: try! JavaClass<Manifest.Permission>().SET_PROCESS_LIMIT)
     
-    public static let setTime = Permission(rawValue: AndroidManifest.Permission.SET_TIME)
+    static let setTime = Permission(rawValue: try! JavaClass<Manifest.Permission>().SET_TIME)
     
-    public static let setTimeZone = Permission(rawValue: AndroidManifest.Permission.SET_TIME_ZONE)
+    static let setTimeZone = Permission(rawValue: try! JavaClass<Manifest.Permission>().SET_TIME_ZONE)
     
-    public static let setWallpaper = Permission(rawValue: AndroidManifest.Permission.SET_WALLPAPER)
+    static let setWallpaper = Permission(rawValue: try! JavaClass<Manifest.Permission>().SET_WALLPAPER)
     
-    public static let setWallpaperHints = Permission(rawValue: AndroidManifest.Permission.SET_WALLPAPER_HINTS)
+    static let setWallpaperHints = Permission(rawValue: try! JavaClass<Manifest.Permission>().SET_WALLPAPER_HINTS)
     
-    public static let signalPersistentProcesses = Permission(rawValue: AndroidManifest.Permission.SIGNAL_PERSISTENT_PROCESSES)
+    static let signalPersistentProcesses = Permission(rawValue: try! JavaClass<Manifest.Permission>().SIGNAL_PERSISTENT_PROCESSES)
     
-    public static let statusBar = Permission(rawValue: AndroidManifest.Permission.STATUS_BAR)
+    static let statusBar = Permission(rawValue: try! JavaClass<Manifest.Permission>().STATUS_BAR)
     
-    public static let systemAlertWindow = Permission(rawValue: AndroidManifest.Permission.SYSTEM_ALERT_WINDOW)
+    static let systemAlertWindow = Permission(rawValue: try! JavaClass<Manifest.Permission>().SYSTEM_ALERT_WINDOW)
     
-    public static let transmitIr = Permission(rawValue: AndroidManifest.Permission.TRANSMIT_IR)
+    static let transmitIr = Permission(rawValue: try! JavaClass<Manifest.Permission>().TRANSMIT_IR)
     
-    public static let uninstallShortcut = Permission(rawValue: AndroidManifest.Permission.UNINSTALL_SHORTCUT)
+    static let uninstallShortcut = Permission(rawValue: try! JavaClass<Manifest.Permission>().UNINSTALL_SHORTCUT)
     
-    public static let updateDeviceStats = Permission(rawValue: AndroidManifest.Permission.UPDATE_DEVICE_STATS)
+    static let updateDeviceStats = Permission(rawValue: try! JavaClass<Manifest.Permission>().UPDATE_DEVICE_STATS)
     
-    public static let useBiometric = Permission(rawValue: AndroidManifest.Permission.USE_BIOMETRIC)
+    static let useBiometric = Permission(rawValue: try! JavaClass<Manifest.Permission>().USE_BIOMETRIC)
     
-    public static let useSip = Permission(rawValue: AndroidManifest.Permission.USE_SIP)
+    static let useSip = Permission(rawValue: try! JavaClass<Manifest.Permission>().USE_SIP)
     
-    public static let vibrate = Permission(rawValue: AndroidManifest.Permission.VIBRATE)
+    static let vibrate = Permission(rawValue: try! JavaClass<Manifest.Permission>().VIBRATE)
     
-    public static let wakeLock = Permission(rawValue: AndroidManifest.Permission.WAKE_LOCK)
+    static let wakeLock = Permission(rawValue: try! JavaClass<Manifest.Permission>().WAKE_LOCK)
     
-    public static let writeApnSettings = Permission(rawValue: AndroidManifest.Permission.WRITE_APN_SETTINGS)
+    static let writeApnSettings = Permission(rawValue: try! JavaClass<Manifest.Permission>().WRITE_APN_SETTINGS)
     
-    public static let writeCalendar = Permission(rawValue: AndroidManifest.Permission.WRITE_CALENDAR)
+    static let writeCalendar = Permission(rawValue: try! JavaClass<Manifest.Permission>().WRITE_CALENDAR)
     
-    public static let writeCallLog = Permission(rawValue: AndroidManifest.Permission.WRITE_CALL_LOG)
+    static let writeCallLog = Permission(rawValue: try! JavaClass<Manifest.Permission>().WRITE_CALL_LOG)
     
-    public static let writeContacts = Permission(rawValue: AndroidManifest.Permission.WRITE_CONTACTS)
+    static let writeContacts = Permission(rawValue: try! JavaClass<Manifest.Permission>().WRITE_CONTACTS)
     
-    public static let writeExternalStorage = Permission(rawValue: AndroidManifest.Permission.WRITE_EXTERNAL_STORAGE)
+    static let writeExternalStorage = Permission(rawValue: try! JavaClass<Manifest.Permission>().WRITE_EXTERNAL_STORAGE)
     
-    public static let writeGservices = Permission(rawValue: AndroidManifest.Permission.WRITE_GSERVICES)
+    static let writeGservices = Permission(rawValue: try! JavaClass<Manifest.Permission>().WRITE_GSERVICES)
     
-    public static let writeSecureSettings = Permission(rawValue: AndroidManifest.Permission.WRITE_SECURE_SETTINGS)
+    static let writeSecureSettings = Permission(rawValue: try! JavaClass<Manifest.Permission>().WRITE_SECURE_SETTINGS)
     
-    public static let writeSettings = Permission(rawValue: AndroidManifest.Permission.WRITE_SETTINGS)
+    static let writeSettings = Permission(rawValue: try! JavaClass<Manifest.Permission>().WRITE_SETTINGS)
     
-    public static let writeSyncSettings = Permission(rawValue: AndroidManifest.Permission.WRITE_SYNC_SETTINGS)
+    static let writeSyncSettings = Permission(rawValue: try! JavaClass<Manifest.Permission>().WRITE_SYNC_SETTINGS)
     
-    public static let writeVoicemail = Permission(rawValue: AndroidManifest.Permission.WRITE_VOICEMAIL)
+    static let writeVoicemail = Permission(rawValue: try! JavaClass<Manifest.Permission>().WRITE_VOICEMAIL)
 }
