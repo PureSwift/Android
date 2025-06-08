@@ -6,6 +6,6 @@
 //
 
 import JavaKit
-import JavaKitNet
+import JavaKitNetwork
 import JavaKitIO
 import AndroidJavaIO

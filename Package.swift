@@ -133,6 +133,8 @@ let package = Package(
                 ),
                 "AndroidJavaLang",
                 "AndroidJavaIO",
+                "AndroidJavaNIO",
+                "AndroidJavaNet",
                 "AndroidJavaTime",
                 "AndroidJavaAWT",
                 "AndroidJavaUtil"
@@ -156,6 +158,29 @@ let package = Package(
                     name: "JavaKitIO",
                     package: "swift-java"
                 ),
+            ],
+            exclude: ["swift-java.config"],
+            swiftSettings: [
+              .swiftLanguageMode(.v5),
+            ]
+        ),
+        .target(
+            name: "AndroidJavaNIO",
+            dependencies: [
+                .product(
+                    name: "JavaKit",
+                    package: "swift-java"
+                ),
+                .product(
+                    name: "JavaKitCollection",
+                    package: "swift-java"
+                ),
+                .product(
+                    name: "JavaKitIO",
+                    package: "swift-java"
+                ),
+                "AndroidJavaLang",
+                "AndroidJavaIO"
             ],
             exclude: ["swift-java.config"],
             swiftSettings: [
@@ -274,9 +299,6 @@ let package = Package(
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
-            ],
-            plugins: [
-              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
             ]
         ),
         .target(
@@ -339,9 +361,6 @@ let package = Package(
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
-            ],
-            plugins: [
-              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
             ]
         ),
         .target(
@@ -362,9 +381,6 @@ let package = Package(
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
-            ],
-            plugins: [
-              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
             ]
         ),
         .target(
@@ -375,9 +391,6 @@ let package = Package(
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
-            ],
-            plugins: [
-              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
             ]
         ),
         .target(
@@ -418,9 +431,6 @@ let package = Package(
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
-            ],
-            plugins: [
-              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
             ]
         ),
         .target(
@@ -446,9 +456,6 @@ let package = Package(
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
-            ],
-            plugins: [
-              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
             ]
         ),
         .target(
@@ -483,9 +490,6 @@ let package = Package(
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
-            ],
-            plugins: [
-              .plugin(name: "Java2SwiftPlugin", package: "swift-java"),
             ]
         ),
         .target(

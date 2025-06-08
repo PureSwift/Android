@@ -7,8 +7,8 @@ import JavaRuntime
 @JavaInterface("java.lang.Iterable")
 public struct Iterable<T: AnyJavaObject> {
   @JavaMethod
-  public func iterator() -> JavaIterator<JavaObject>!
+  public func iterator() -> JavaIterator<T>!
 
   @JavaMethod
-  public func forEach(_ arg0: JavaConsumer<JavaObject>?)
+  public func forEach(_ arg0: JavaConsumer<T>?)
 }
