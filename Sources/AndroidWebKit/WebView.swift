@@ -151,10 +151,10 @@ open class WebView: AbsoluteLayout {
   open func savePassword(_ arg0: String, _ arg1: String, _ arg2: String)
 
   @JavaMethod
-  open func loadUrl(_ arg0: String)
+  open func loadUrl(_ url: String)
 
   @JavaMethod
-  open func loadUrl(_ arg0: String, _ arg1: Map<JavaString, JavaString>?)
+  open func loadUrl(_ url: String, _ additionalHttpHeaders: Map<JavaString, JavaString>?)
 
   @JavaMethod
   open func postUrl(_ arg0: String, _ arg1: [Int8])
