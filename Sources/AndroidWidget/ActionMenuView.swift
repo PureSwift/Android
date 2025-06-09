@@ -5,7 +5,7 @@ import JavaRuntime
 @JavaClass("android.widget.ActionMenuView")
 open class ActionMenuView: LinearLayout {
   @JavaMethod
-  open func onDetachedFromWindow()
+  open override func onDetachedFromWindow()
 
   @JavaMethod
   open override func generateDefaultLayoutParams() -> ActionMenuView.LayoutParams!

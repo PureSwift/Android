@@ -5,7 +5,7 @@ import JavaRuntime
 @JavaClass("android.widget.TabWidget", implements: ViewSwitcher.OnFocusChangeListener.self)
 open class TabWidget: LinearLayout {
   @JavaMethod
-  open func getChildDrawingOrder(_ arg0: Int32, _ arg1: Int32) -> Int32
+  open override func getChildDrawingOrder(_ arg0: Int32, _ arg1: Int32) -> Int32
 
   @JavaMethod
   open override func getAccessibilityClassName() -> CharSequence!
@@ -29,10 +29,10 @@ open class TabWidget: LinearLayout {
   open func focusCurrentTab(_ arg0: Int32)
 
   @JavaMethod
-  open func setEnabled(_ arg0: Bool)
+  open override func setEnabled(_ arg0: Bool)
 
   @JavaMethod
-  open func onSizeChanged(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
+  open override func onSizeChanged(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
 
   @JavaMethod
   open func setCurrentTab(_ arg0: Int32)
@@ -41,7 +41,7 @@ open class TabWidget: LinearLayout {
   open func setDividerDrawable(_ arg0: Int32)
 
   @JavaMethod
-  open func removeAllViews()
+  open override func removeAllViews()
 }
 extension JavaClass<TabWidget> {
   @JavaStaticField(isFinal: true)

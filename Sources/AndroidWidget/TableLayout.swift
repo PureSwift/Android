@@ -47,7 +47,7 @@ open class TableLayout: LinearLayout {
   open func isColumnShrinkable(_ arg0: Int32) -> Bool
 
   @JavaMethod
-  open func requestLayout()
+  open override func requestLayout()
 
   @JavaMethod
   open override func onMeasure(_ arg0: Int32, _ arg1: Int32)

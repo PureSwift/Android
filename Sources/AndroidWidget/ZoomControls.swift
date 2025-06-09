@@ -20,7 +20,7 @@ open class ZoomControls: LinearLayout {
   open func setZoomSpeed(_ arg0: Int64)
 
   @JavaMethod
-  open func hasFocus() -> Bool
+  open override func hasFocus() -> Bool
 
   @JavaMethod
   open func show()

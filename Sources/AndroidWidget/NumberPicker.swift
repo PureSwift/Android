@@ -14,28 +14,28 @@ open class NumberPicker: LinearLayout {
   open func setFormatter(_ arg0: NumberPicker.Formatter?)
 
   @JavaMethod
-  open func getTopFadingEdgeStrength() -> Float
+  open override func getTopFadingEdgeStrength() -> Float
 
   @JavaMethod
-  open func getBottomFadingEdgeStrength() -> Float
+  open override func getBottomFadingEdgeStrength() -> Float
 
   @JavaMethod
-  open func computeVerticalScrollRange() -> Int32
+  open override func computeVerticalScrollRange() -> Int32
 
   @JavaMethod
-  open func computeVerticalScrollOffset() -> Int32
+  open override func computeVerticalScrollOffset() -> Int32
 
   @JavaMethod
-  open func computeVerticalScrollExtent() -> Int32
+  open override func computeVerticalScrollExtent() -> Int32
 
   @JavaMethod
-  open func onDetachedFromWindow()
+  open override func onDetachedFromWindow()
 
   @JavaMethod
-  open func drawableStateChanged()
+  open override func drawableStateChanged()
 
   @JavaMethod
-  open func jumpDrawablesToCurrentState()
+  open override func jumpDrawablesToCurrentState()
 
   @JavaMethod
   open func setOnScrollListener(_ arg0: NumberPicker.OnScrollListener?)
@@ -59,13 +59,13 @@ open class NumberPicker: LinearLayout {
   open func getSelectionDividerHeight() -> Int32
 
   @JavaMethod
-  open func performClick() -> Bool
+  open override func performClick() -> Bool
 
   @JavaMethod
-  open func performLongClick() -> Bool
+  open override func performLongClick() -> Bool
 
   @JavaMethod
-  open func setEnabled(_ arg0: Bool)
+  open override func setEnabled(_ arg0: Bool)
 
   @JavaMethod
   open func getTextSize() -> Float
@@ -77,13 +77,13 @@ open class NumberPicker: LinearLayout {
   open func setTextColor(_ arg0: Int32)
 
   @JavaMethod
-  open func scrollBy(_ arg0: Int32, _ arg1: Int32)
+  open override func scrollBy(_ arg0: Int32, _ arg1: Int32)
 
   @JavaMethod
-  open func computeScroll()
+  open override func computeScroll()
 
   @JavaMethod
-  open func getSolidColor() -> Int32
+  open override func getSolidColor() -> Int32
 
   @JavaMethod
   open func getMinValue() -> Int32

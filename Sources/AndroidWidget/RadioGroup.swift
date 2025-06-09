@@ -23,10 +23,10 @@ open class RadioGroup: LinearLayout {
   open override func generateDefaultLayoutParams() -> LinearLayout.LayoutParams!
 
   @JavaMethod
-  open func getAutofillType() -> Int32
+  open override func getAutofillType() -> Int32
 
   @JavaMethod
-  open func onFinishInflate()
+  open override func onFinishInflate()
 
   @JavaMethod
   open func clearCheck()

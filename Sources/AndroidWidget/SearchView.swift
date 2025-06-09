@@ -9,10 +9,10 @@ open class SearchView: LinearLayout {
   open func getQuery() -> CharSequence!
 
   @JavaMethod
-  open func onWindowFocusChanged(_ arg0: Bool)
+  open override func onWindowFocusChanged(_ arg0: Bool)
 
   @JavaMethod
-  open func onDetachedFromWindow()
+  open override func onDetachedFromWindow()
 
   @JavaMethod
   open override func getAccessibilityClassName() -> CharSequence!
@@ -63,7 +63,7 @@ open class SearchView: LinearLayout {
   open func onActionViewExpanded()
 
   @JavaMethod
-  open func clearFocus()
+  open override func clearFocus()
 
   @JavaMethod
   open func setMaxWidth(_ arg0: Int32)

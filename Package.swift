@@ -478,7 +478,8 @@ let package = Package(
                 "AndroidJava",
                 "AndroidUtil",
                 "AndroidApp",
-                "AndroidView"
+                "AndroidView",
+                "AndroidContent"
             ],
             exclude: ["swift-java.config"],
             swiftSettings: [
