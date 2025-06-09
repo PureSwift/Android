@@ -29,7 +29,7 @@ open class ToggleButton: CompoundButton {
   open func getDisabledAlpha() -> Float
 
   @JavaMethod
-  open func onFinishInflate()
+  open override func onFinishInflate()
 }
 extension JavaClass<ToggleButton> {
   @JavaStaticField(isFinal: true)

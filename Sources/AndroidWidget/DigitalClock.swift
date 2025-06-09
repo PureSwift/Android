@@ -5,7 +5,7 @@ import JavaRuntime
 @JavaClass("android.widget.DigitalClock")
 open class DigitalClock: TextView {
   @JavaMethod
-  open func onDetachedFromWindow()
+  open override func onDetachedFromWindow()
 
   @JavaMethod
   open override func getAccessibilityClassName() -> CharSequence!

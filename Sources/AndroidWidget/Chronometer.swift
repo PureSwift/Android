@@ -20,13 +20,13 @@ open class Chronometer: TextView {
   open func getBase() -> Int64
 
   @JavaMethod
-  open func onWindowVisibilityChanged(_ arg0: Int32)
+  open override func onWindowVisibilityChanged(_ arg0: Int32)
 
   @JavaMethod
-  open func onDetachedFromWindow()
+  open override func onDetachedFromWindow()
 
   @JavaMethod
-  open func getContentDescription() -> CharSequence!
+  open override func getContentDescription() -> CharSequence!
 
   @JavaMethod
   open override func getAccessibilityClassName() -> CharSequence!

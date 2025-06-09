@@ -14,7 +14,7 @@ open class TextClock: TextView {
   open override func onVisibilityAggregated(_ arg0: Bool)
 
   @JavaMethod
-  open func onDetachedFromWindow()
+  open override func onDetachedFromWindow()
 
   @JavaMethod
   open func is24HourModeEnabled() -> Bool

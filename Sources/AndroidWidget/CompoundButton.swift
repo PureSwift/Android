@@ -26,7 +26,7 @@ open class CompoundButton: Button {
   open override func getCompoundPaddingRight() -> Int32
 
   @JavaMethod
-  open func setStateDescription(_ arg0: CharSequence?)
+  open override func setStateDescription(_ arg0: CharSequence?)
 
   @JavaMethod
   open override func getAccessibilityClassName() -> CharSequence!
@@ -41,7 +41,7 @@ open class CompoundButton: Button {
   open func setButtonDrawable(_ arg0: Int32)
 
   @JavaMethod
-  open func performClick() -> Bool
+  open override func performClick() -> Bool
 
   @JavaMethod
   open override func getAutofillType() -> Int32

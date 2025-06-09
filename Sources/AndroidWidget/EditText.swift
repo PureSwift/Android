@@ -17,7 +17,7 @@ open class EditText: TextView {
   open func extendSelection(_ arg0: Int32)
 
   @JavaMethod
-  open func onSizeChanged(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
+    open override func onSizeChanged(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
 
   @JavaMethod
   open func setSelection(_ arg0: Int32, _ arg1: Int32)

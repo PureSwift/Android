@@ -4,9 +4,10 @@ import JavaKit
 import JavaKitCollection
 import JavaKitFunction
 import JavaRuntime
+import AndroidView
 
 @JavaClass("android.widget.TextView")
-open class TextView: JavaObject {
+open class TextView: AndroidView.View {
   @JavaMethod
   open func length() -> Int32
 
@@ -26,64 +27,64 @@ open class TextView: JavaObject {
   open func getText() -> CharSequence!
 
   @JavaMethod
-  open func onWindowFocusChanged(_ arg0: Bool)
+  open override func onWindowFocusChanged(_ arg0: Bool)
 
   @JavaMethod
-  open func onVisibilityAggregated(_ arg0: Bool)
+  open override func onVisibilityAggregated(_ arg0: Bool)
 
   @JavaMethod
-  open func onCheckIsTextEditor() -> Bool
+  open override func onCheckIsTextEditor() -> Bool
 
   @JavaMethod
-  open func hasOverlappingRendering() -> Bool
+  open override func hasOverlappingRendering() -> Bool
 
   @JavaMethod
-  open func getLeftFadingEdgeStrength() -> Float
+  open override func getLeftFadingEdgeStrength() -> Float
 
   @JavaMethod
-  open func getRightFadingEdgeStrength() -> Float
+  open override func getRightFadingEdgeStrength() -> Float
 
   @JavaMethod
-  open func computeHorizontalScrollRange() -> Int32
+  open override func computeHorizontalScrollRange() -> Int32
 
   @JavaMethod
-  open func computeVerticalScrollRange() -> Int32
+  open override func computeVerticalScrollRange() -> Int32
 
   @JavaMethod
-  open func computeVerticalScrollExtent() -> Int32
+  open override func computeVerticalScrollExtent() -> Int32
 
   @JavaMethod
-  open func onScreenStateChanged(_ arg0: Int32)
+  open override func onScreenStateChanged(_ arg0: Int32)
 
   @JavaMethod
-  open func onRtlPropertiesChanged(_ arg0: Int32)
+  open override func onRtlPropertiesChanged(_ arg0: Int32)
 
   @JavaMethod
-  open func isPaddingOffsetRequired() -> Bool
+  open override func isPaddingOffsetRequired() -> Bool
 
   @JavaMethod
-  open func getLeftPaddingOffset() -> Int32
+  open override func getLeftPaddingOffset() -> Int32
 
   @JavaMethod
-  open func getRightPaddingOffset() -> Int32
+  open override func getRightPaddingOffset() -> Int32
 
   @JavaMethod
-  open func getTopPaddingOffset() -> Int32
+  open override func getTopPaddingOffset() -> Int32
 
   @JavaMethod
-  open func getBottomPaddingOffset() -> Int32
+  open override func getBottomPaddingOffset() -> Int32
 
   @JavaMethod
-  open func drawableHotspotChanged(_ arg0: Float, _ arg1: Float)
+  open override func drawableHotspotChanged(_ arg0: Float, _ arg1: Float)
 
   @JavaMethod
-  open func drawableStateChanged()
+  open override func drawableStateChanged()
 
   @JavaMethod
-  open func jumpDrawablesToCurrentState()
+  open override func jumpDrawablesToCurrentState()
 
   @JavaMethod
-  open func onCreateDrawableState(_ arg0: Int32) -> [Int32]
+  open override func onCreateDrawableState(_ arg0: Int32) -> [Int32]
 
   @JavaMethod
   open func setAutoSizeTextTypeWithDefaults(_ arg0: Int32)
@@ -281,34 +282,34 @@ open class TextView: JavaObject {
   open func getOffsetForPosition(_ arg0: Float, _ arg1: Float) -> Int32
 
   @JavaMethod
-  open func getAccessibilityClassName() -> CharSequence!
+  open override func getAccessibilityClassName() -> CharSequence!
 
   @JavaMethod
-  open func performLongClick() -> Bool
+  open override func performLongClick() -> Bool
 
   @JavaMethod
-  open func showContextMenu() -> Bool
+  open override func showContextMenu() -> Bool
 
   @JavaMethod
-  open func showContextMenu(_ arg0: Float, _ arg1: Float) -> Bool
+  open override func showContextMenu(_ arg0: Float, _ arg1: Float) -> Bool
 
   @JavaMethod
-  open func getAutofillType() -> Int32
+  open override func getAutofillType() -> Int32
 
   @JavaMethod
-  open func getAutofillHints() -> [String]
+  open override func getAutofillHints() -> [String]
 
   @JavaMethod
-  open func setEnabled(_ arg0: Bool)
+  open override func setEnabled(_ arg0: Bool)
 
   @JavaMethod
-  open func cancelLongPress()
+  open override func cancelLongPress()
 
   @JavaMethod
-  open func onScrollChanged(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
+  open override func onScrollChanged(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
 
   @JavaMethod
-  open func onAttachedToWindow()
+  open override func onAttachedToWindow()
 
   @JavaMethod
   open func getDefaultEditable() -> Bool
@@ -626,25 +627,25 @@ open class TextView: JavaObject {
   open func setScroller(_ arg0: Scroller?)
 
   @JavaMethod
-  open func computeScroll()
+  open override func computeScroll()
 
   @JavaMethod
-  open func setPadding(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
+  open override func setPadding(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
 
   @JavaMethod
-  open func setPaddingRelative(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
+  open override func setPaddingRelative(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
 
   @JavaMethod
-  open func setSelected(_ arg0: Bool)
+  open override func setSelected(_ arg0: Bool)
 
   @JavaMethod
-  open func getBaseline() -> Int32
+  open override func getBaseline() -> Int32
 
   @JavaMethod
-  open func onMeasure(_ arg0: Int32, _ arg1: Int32)
+  open override func onMeasure(_ arg0: Int32, _ arg1: Int32)
 
   @JavaMethod
-  open func onLayout(_ arg0: Bool, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32)
+  open override func onLayout(_ arg0: Bool, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32)
 
   @JavaMethod
   open func setAutoSizeTextTypeUniformWithConfiguration(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)

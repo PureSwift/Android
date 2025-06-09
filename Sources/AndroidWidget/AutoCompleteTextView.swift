@@ -17,7 +17,7 @@ open class AutoCompleteTextView: EditText {
   open override func onWindowFocusChanged(_ arg0: Bool)
 
   @JavaMethod
-  open func onDetachedFromWindow()
+  open override func onDetachedFromWindow()
 
   @JavaMethod
   open func setOnItemClickListener(_ arg0: AdapterView.OnItemClickListener?)
@@ -131,7 +131,7 @@ open class AutoCompleteTextView: EditText {
   open func setOnClickListener(_ arg0: ViewSwitcher.OnClickListener?)
 
   @JavaMethod
-  open func onDisplayHint(_ arg0: Int32)
+  open override func onDisplayHint(_ arg0: Int32)
 
   @JavaMethod
   open override func onAttachedToWindow()

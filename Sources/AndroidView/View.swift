@@ -13,17 +13,17 @@ import JavaRuntime
 @JavaClass("android.view.View", implements: Drawable.Callback.self, KeyEvent.Callback.self)
 open class View: JavaObject {
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Context?, environment: JNIEnvironment? = nil)
+  @_nonoverride public convenience init(_ arg0: AndroidContent.Context?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, _ arg2: Int32, environment: JNIEnvironment? = nil)
+  @_nonoverride public convenience init(_ arg0: AndroidContent.Context?, _ arg1: AttributeSet?, _ arg2: Int32, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, environment: JNIEnvironment? = nil)
+  @_nonoverride public convenience init(_ arg0: AndroidContent.Context?, _ arg1: AttributeSet?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, _ arg2: Int32, _ arg3: Int32, environment: JNIEnvironment? = nil)
-
+  @_nonoverride public convenience init(_ arg0: AndroidContent.Context?, _ arg1: AttributeSet?, _ arg2: Int32, _ arg3: Int32, environment: JNIEnvironment? = nil)
+  
   @JavaMethod
   open func onMeasure(_ arg0: Int32, _ arg1: Int32)
 

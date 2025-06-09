@@ -32,7 +32,7 @@ open class CheckedTextView: TextView {
   open func isChecked() -> Bool
 
   @JavaMethod
-  open func setVisibility(_ arg0: Int32)
+  open override func setVisibility(_ arg0: Int32)
 
   @JavaMethod
   open func toggle()
