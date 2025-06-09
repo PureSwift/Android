@@ -427,6 +427,7 @@ let package = Package(
             name: "AndroidApp",
             dependencies: [
                 "AndroidJava",
+                "AndroidContent",
             ],
             exclude: ["swift-java.config"],
             swiftSettings: [
