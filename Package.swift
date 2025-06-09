@@ -52,7 +52,7 @@ let package = Package(
     dependencies: [
         .package(
             url: "https://github.com/PureSwift/swift-java.git",
-            branch: "feature/android"
+            branch: "feature/android-shim"
         )
     ],
     targets: [
