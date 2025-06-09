@@ -32,6 +32,15 @@ public extension ResourceID {
         self.init(rawValue: rawValue)
     }
     
+    /// Return a resource identifier for the given resource name.
+    init?(name: String, type: String, in context: Context) {
+        let packageName = context.getPackageName()
+        guard let resources = context.getResources() else {
+            return nil
+        }
+        self.init(name: name, type: type, package: packageName, in: resources)
+    }
+    
     /// Return the full name for a given resource identifier. This name is a single string of the form "package:type/entry".
     func name(in resources: Resources) throws -> String {
         try resources.getResourceName(rawValue)
