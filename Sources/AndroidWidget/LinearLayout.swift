@@ -531,12 +531,12 @@ extension JavaClass<LinearLayout> {
 
 public extension LinearLayout {
     
-    var gravity: Int32 {
+    var gravity: ViewGravity {
         get {
-            getGravity()
+            .init(rawValue: getGravity())
         }
         set {
-            setGravity(newValue)
+            setGravity(newValue.rawValue)
         }
     }
 }
