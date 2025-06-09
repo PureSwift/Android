@@ -2,6 +2,7 @@
 import JavaKit
 import JavaRuntime
 import AndroidView
+import AndroidContent
 
 @JavaClass("android.widget.ImageView")
 open class ImageView: AndroidView.View {
@@ -510,4 +511,11 @@ extension JavaClass<ImageView> {
 
   @JavaStaticField(isFinal: true)
   public var VISIBLE: Int32
+}
+
+public extension ImageView {
+    
+    func setImageResource(_ resource: ResourceID) {
+        setImageResource(resource.rawValue)
+    }
 }
