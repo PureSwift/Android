@@ -31,9 +31,14 @@ public extension LinearLayout {
     }
 }
 
+internal extension LinearLayout.Orientation {
+    
+    static let javaClass = try! JavaClass<LinearLayout>()
+}
+
 public extension LinearLayout.Orientation {
     
-    static let vertical = LinearLayout.Orientation(rawValue: try! JavaClass<LinearLayout>().VERTICAL)
+    static let vertical = LinearLayout.Orientation(rawValue: javaClass.VERTICAL)
     
-    static var horizontal = LinearLayout.Orientation(rawValue: try! JavaClass<LinearLayout>().HORIZONTAL)
+    static let horizontal = LinearLayout.Orientation(rawValue: javaClass.HORIZONTAL)
 }
