@@ -11,7 +11,7 @@ open class ZoomButton: ImageButton {
   open func setZoomSpeed(_ arg0: Int64)
 
   @JavaMethod
-  open func setEnabled(_ arg0: Bool)
+  open override func setEnabled(_ arg0: Bool)
 }
 extension JavaClass<ZoomButton> {
   @JavaStaticField(isFinal: true)

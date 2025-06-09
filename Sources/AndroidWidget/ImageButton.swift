@@ -8,7 +8,7 @@ open class ImageButton: ImageView {
   open override func getAccessibilityClassName() -> CharSequence!
 
   @JavaMethod
-  open func onSetAlpha(_ arg0: Int32) -> Bool
+  open override func onSetAlpha(_ arg0: Int32) -> Bool
 }
 extension JavaClass<ImageButton> {
   @JavaStaticField(isFinal: true)
