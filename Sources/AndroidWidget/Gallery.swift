@@ -11,19 +11,19 @@ open class Gallery: AbsSpinner {
   open func setAnimationDuration(_ arg0: Int32)
 
   @JavaMethod
-  open func computeHorizontalScrollRange() -> Int32
+  open override func computeHorizontalScrollRange() -> Int32
 
   @JavaMethod
-  open func computeHorizontalScrollOffset() -> Int32
+  open override func computeHorizontalScrollOffset() -> Int32
 
   @JavaMethod
-  open func computeHorizontalScrollExtent() -> Int32
+  open override func computeHorizontalScrollExtent() -> Int32
 
   @JavaMethod
-  open func getChildDrawingOrder(_ arg0: Int32, _ arg1: Int32) -> Int32
+  open override func getChildDrawingOrder(_ arg0: Int32, _ arg1: Int32) -> Int32
 
   @JavaMethod
-  open func dispatchSetSelected(_ arg0: Bool)
+  open override func dispatchSetSelected(_ arg0: Bool)
 
   @JavaMethod
   open override func getAccessibilityClassName() -> CharSequence!
@@ -35,16 +35,16 @@ open class Gallery: AbsSpinner {
   open func generateLayoutParams(_ arg0: ViewSwitcher.LayoutParams?) -> ViewSwitcher.LayoutParams!
 
   @JavaMethod
-  open func showContextMenu(_ arg0: Float, _ arg1: Float) -> Bool
+  open override func showContextMenu(_ arg0: Float, _ arg1: Float) -> Bool
 
   @JavaMethod
-  open func showContextMenu() -> Bool
+  open override func showContextMenu() -> Bool
 
   @JavaMethod
-  open func dispatchSetPressed(_ arg0: Bool)
+  open override func dispatchSetPressed(_ arg0: Bool)
 
   @JavaMethod
-  open func onAttachedToWindow()
+  open override func onAttachedToWindow()
 
   @JavaMethod
   open func setGravity(_ arg0: Int32)

@@ -47,10 +47,10 @@ open class AdapterViewAnimator: AdapterView {
   open func showPrevious()
 
   @JavaMethod
-  open func getBaseline() -> Int32
+  open override func getBaseline() -> Int32
 
   @JavaMethod
-  open func onMeasure(_ arg0: Int32, _ arg1: Int32)
+  open override func onMeasure(_ arg0: Int32, _ arg1: Int32)
 
   @JavaMethod
   open override func onLayout(_ arg0: Bool, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32)

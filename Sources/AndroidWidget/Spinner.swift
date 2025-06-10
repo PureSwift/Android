@@ -44,10 +44,10 @@ open class Spinner: AbsSpinner {
   open func getPrompt() -> CharSequence!
 
   @JavaMethod
-  open func performClick() -> Bool
+  open override func performClick() -> Bool
 
   @JavaMethod
-  open func setEnabled(_ arg0: Bool)
+  open override func setEnabled(_ arg0: Bool)
 
   @JavaMethod
   open override func setAdapter(_ arg0: SpinnerAdapter?)
@@ -62,7 +62,7 @@ open class Spinner: AbsSpinner {
   open func getGravity() -> Int32
 
   @JavaMethod
-  open func getBaseline() -> Int32
+  open override func getBaseline() -> Int32
 
   @JavaMethod
   open override func onMeasure(_ arg0: Int32, _ arg1: Int32)

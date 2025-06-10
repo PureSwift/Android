@@ -6,58 +6,58 @@ import JavaRuntime
 @JavaClass("android.widget.AbsListView", implements: Filter.FilterListener.self)
 open class AbsListView: AdapterView {
   @JavaMethod
-  open func onWindowFocusChanged(_ arg0: Bool)
+  open override  func onWindowFocusChanged(_ arg0: Bool)
 
   @JavaMethod
-  open func getTopFadingEdgeStrength() -> Float
+  open override func getTopFadingEdgeStrength() -> Float
 
   @JavaMethod
-  open func getBottomFadingEdgeStrength() -> Float
+  open override func getBottomFadingEdgeStrength() -> Float
 
   @JavaMethod
-  open func computeVerticalScrollRange() -> Int32
+  open override func computeVerticalScrollRange() -> Int32
 
   @JavaMethod
-  open func computeVerticalScrollOffset() -> Int32
+  open override func computeVerticalScrollOffset() -> Int32
 
   @JavaMethod
-  open func computeVerticalScrollExtent() -> Int32
+  open override func computeVerticalScrollExtent() -> Int32
 
   @JavaMethod
-  open func onRtlPropertiesChanged(_ arg0: Int32)
+  open override func onRtlPropertiesChanged(_ arg0: Int32)
 
   @JavaMethod
-  open func onCancelPendingInputEvents()
+  open override func onCancelPendingInputEvents()
 
   @JavaMethod
-  open func isPaddingOffsetRequired() -> Bool
+  open override func isPaddingOffsetRequired() -> Bool
 
   @JavaMethod
-  open func getLeftPaddingOffset() -> Int32
+  open override func getLeftPaddingOffset() -> Int32
 
   @JavaMethod
-  open func getRightPaddingOffset() -> Int32
+  open override func getRightPaddingOffset() -> Int32
 
   @JavaMethod
-  open func getTopPaddingOffset() -> Int32
+  open override func getTopPaddingOffset() -> Int32
 
   @JavaMethod
-  open func getBottomPaddingOffset() -> Int32
+  open override func getBottomPaddingOffset() -> Int32
 
   @JavaMethod
-  open func requestDisallowInterceptTouchEvent(_ arg0: Bool)
+  open override func requestDisallowInterceptTouchEvent(_ arg0: Bool)
 
   @JavaMethod
-  open func dispatchDrawableHotspotChanged(_ arg0: Float, _ arg1: Float)
+  open override func dispatchDrawableHotspotChanged(_ arg0: Float, _ arg1: Float)
 
   @JavaMethod
   open override func onDetachedFromWindow()
 
   @JavaMethod
-  open func drawableStateChanged()
+  open override func drawableStateChanged()
 
   @JavaMethod
-  open func jumpDrawablesToCurrentState()
+  open override func jumpDrawablesToCurrentState()
 
   @JavaMethod
   open func deferNotifyDataSetChanged()
@@ -69,10 +69,10 @@ open class AbsListView: AdapterView {
   open func onRemoteAdapterDisconnected()
 
   @JavaMethod
-  open func getVerticalScrollbarWidth() -> Int32
+  open override func getVerticalScrollbarWidth() -> Int32
 
   @JavaMethod
-  open func setVerticalScrollbarPosition(_ arg0: Int32)
+  open override func setVerticalScrollbarPosition(_ arg0: Int32)
 
   @JavaMethod
   open override func getAccessibilityClassName() -> CharSequence!
@@ -279,25 +279,25 @@ open class AbsListView: AdapterView {
   open func setEdgeEffectColor(_ arg0: Int32)
 
   @JavaMethod
-  open func requestLayout()
+  open override func requestLayout()
 
   @JavaMethod
-  open func showContextMenu(_ arg0: Float, _ arg1: Float) -> Bool
+  open override func showContextMenu(_ arg0: Float, _ arg1: Float) -> Bool
 
   @JavaMethod
-  open func showContextMenu() -> Bool
+  open override func showContextMenu() -> Bool
 
   @JavaMethod
-  open func onDisplayHint(_ arg0: Int32)
+  open override func onDisplayHint(_ arg0: Int32)
 
   @JavaMethod
-  open func onSizeChanged(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
+  open override func onSizeChanged(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
 
   @JavaMethod
-  open func dispatchSetPressed(_ arg0: Bool)
+  open override func dispatchSetPressed(_ arg0: Bool)
 
   @JavaMethod
-  open func onAttachedToWindow()
+  open override func onAttachedToWindow()
 
   @JavaMethod
   open func onFilterComplete(_ arg0: Int32)
@@ -315,16 +315,16 @@ open class AbsListView: AdapterView {
   open func onTextChanged(_ arg0: CharSequence?, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
 
   @JavaMethod
-  open func setScrollBarStyle(_ arg0: Int32)
+  open override func setScrollBarStyle(_ arg0: Int32)
 
   @JavaMethod
-  open func getSolidColor() -> Int32
+  open override func getSolidColor() -> Int32
 
   @JavaMethod
-  open func onOverScrolled(_ arg0: Int32, _ arg1: Int32, _ arg2: Bool, _ arg3: Bool)
+  open override func onOverScrolled(_ arg0: Int32, _ arg1: Int32, _ arg2: Bool, _ arg3: Bool)
 
   @JavaMethod
-  open func onMeasure(_ arg0: Int32, _ arg1: Int32)
+  open override func onMeasure(_ arg0: Int32, _ arg1: Int32)
 
   @JavaMethod
   open override func onLayout(_ arg0: Bool, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32)

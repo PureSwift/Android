@@ -23,10 +23,10 @@ open class AbsSpinner: AdapterView {
   open func pointToPosition(_ arg0: Int32, _ arg1: Int32) -> Int32
 
   @JavaMethod
-  open func requestLayout()
+  open override func requestLayout()
 
   @JavaMethod
-  open func getAutofillType() -> Int32
+  open override func getAutofillType() -> Int32
 
   @JavaMethod
   open override func setSelection(_ arg0: Int32)
@@ -41,7 +41,7 @@ open class AbsSpinner: AdapterView {
   open func setAdapter(_ arg0: SpinnerAdapter?)
 
   @JavaMethod
-  open func onMeasure(_ arg0: Int32, _ arg1: Int32)
+  open override func onMeasure(_ arg0: Int32, _ arg1: Int32)
 }
 
 extension JavaClass<AbsSpinner> {

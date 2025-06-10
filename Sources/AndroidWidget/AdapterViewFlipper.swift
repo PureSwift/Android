@@ -5,7 +5,7 @@ import JavaRuntime
 @JavaClass("android.widget.AdapterViewFlipper")
 open class AdapterViewFlipper: AdapterViewAnimator {
   @JavaMethod
-  open func onWindowVisibilityChanged(_ arg0: Int32)
+  open override func onWindowVisibilityChanged(_ arg0: Int32)
 
   @JavaMethod
   open override func onDetachedFromWindow()
@@ -38,7 +38,7 @@ open class AdapterViewFlipper: AdapterViewAnimator {
   open func isAutoStart() -> Bool
 
   @JavaMethod
-  open func onAttachedToWindow()
+  open override func onAttachedToWindow()
 
   @JavaMethod
   open override func setAdapter(_ arg0: Adapter?)

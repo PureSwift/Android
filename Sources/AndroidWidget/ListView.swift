@@ -5,7 +5,7 @@ import JavaRuntime
 @JavaClass("android.widget.ListView")
 open class ListView: AbsListView {
   @JavaMethod
-  open func isOpaque() -> Bool
+  open override func isOpaque() -> Bool
 
   @JavaMethod
   open override func getAdapter() -> Adapter!
@@ -86,7 +86,7 @@ open class ListView: AbsListView {
   open override func setAdapter(_ arg0: ListAdapter?)
 
   @JavaMethod
-  open func onFinishInflate()
+  open override func onFinishInflate()
 
   @JavaMethod
   open override func onMeasure(_ arg0: Int32, _ arg1: Int32)
