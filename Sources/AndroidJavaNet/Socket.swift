@@ -31,16 +31,67 @@ open class Socket: JavaObject {
   @_nonoverride public convenience init(_ arg0: InetAddress?, _ arg1: Int32, environment: JNIEnvironment? = nil) throws
 
   @JavaMethod
-  open func isClosed() -> Bool
+  open func connect(_ arg0: SocketAddress?) throws
+
+  @JavaMethod
+  open func connect(_ arg0: SocketAddress?, _ arg1: Int32) throws
+
+  @JavaMethod
+  open func getOutputStream() throws -> OutputStream!
 
   @JavaMethod
   open func isBound() -> Bool
 
   @JavaMethod
+  open func isConnected() -> Bool
+
+  @JavaMethod
   open func getInetAddress() -> InetAddress!
 
   @JavaMethod
+  open func getRemoteSocketAddress() -> SocketAddress!
+
+  @JavaMethod
+  open func getLocalSocketAddress() -> SocketAddress!
+
+  @JavaMethod
+  open func getLocalAddress() -> InetAddress!
+
+  @JavaMethod
   open func getLocalPort() -> Int32
+
+  @JavaMethod
+  open func setSoTimeout(_ arg0: Int32) throws
+
+  @JavaMethod
+  open func getSoTimeout() throws -> Int32
+
+  @JavaMethod
+  open func setSendBufferSize(_ arg0: Int32) throws
+
+  @JavaMethod
+  open func getSendBufferSize() throws -> Int32
+
+  @JavaMethod
+  open func setReceiveBufferSize(_ arg0: Int32) throws
+
+  @JavaMethod
+  open func getReceiveBufferSize() throws -> Int32
+
+  @JavaMethod
+  open func setReuseAddress(_ arg0: Bool) throws
+
+  @JavaMethod
+  open func getReuseAddress() throws -> Bool
+
+  @JavaMethod
+  open func setTrafficClass(_ arg0: Int32) throws
+
+  @JavaMethod
+  open func getTrafficClass() throws -> Int32
+
+  @JavaMethod
+  open func isClosed() -> Bool
 
   @JavaMethod
   open func setOption(_ arg0: SocketOption<JavaObject>?, _ arg1: JavaObject?) throws -> Socket!
@@ -52,60 +103,6 @@ open class Socket: JavaObject {
   open func supportedOptions() -> JavaSet<SocketOption<JavaObject>>!
 
   @JavaMethod
-  open func getLocalSocketAddress() -> SocketAddress!
-
-  @JavaMethod
-  open func setSoTimeout(_ arg0: Int32) throws
-
-  @JavaMethod
-  open func getSoTimeout() throws -> Int32
-
-  @JavaMethod
-  open func setReuseAddress(_ arg0: Bool) throws
-
-  @JavaMethod
-  open func getReuseAddress() throws -> Bool
-
-  @JavaMethod
-  open func setReceiveBufferSize(_ arg0: Int32) throws
-
-  @JavaMethod
-  open func getReceiveBufferSize() throws -> Int32
-
-  @JavaMethod
-  open func setPerformancePreferences(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32)
-
-  @JavaMethod
-  open func connect(_ arg0: SocketAddress?, _ arg1: Int32) throws
-
-  @JavaMethod
-  open func connect(_ arg0: SocketAddress?) throws
-
-  @JavaMethod
-  open func getOutputStream() throws -> OutputStream!
-
-  @JavaMethod
-  open func isConnected() -> Bool
-
-  @JavaMethod
-  open func getRemoteSocketAddress() -> SocketAddress!
-
-  @JavaMethod
-  open func getLocalAddress() -> InetAddress!
-
-  @JavaMethod
-  open func setSendBufferSize(_ arg0: Int32) throws
-
-  @JavaMethod
-  open func getSendBufferSize() throws -> Int32
-
-  @JavaMethod
-  open func setTrafficClass(_ arg0: Int32) throws
-
-  @JavaMethod
-  open func getTrafficClass() throws -> Int32
-
-  @JavaMethod
   open func shutdownInput() throws
 
   @JavaMethod
@@ -113,6 +110,9 @@ open class Socket: JavaObject {
 
   @JavaMethod
   open func sendUrgentData(_ arg0: Int32) throws
+
+  @JavaMethod
+  open func setPerformancePreferences(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32)
 
   @JavaMethod
   open func isInputShutdown() -> Bool

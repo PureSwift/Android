@@ -11,5 +11,5 @@ open class ContentHandler: JavaObject {
   open func getContent(_ arg0: URLConnection?) throws -> JavaObject!
 
   @JavaMethod
-  open func getContent(_ arg0: URLConnection?, _ arg1: [JavaClass?]) throws -> JavaObject!
+  open func getContent(_ arg0: URLConnection?, _ arg1: [JavaClass<JavaObject>?]) throws -> JavaObject!
 }

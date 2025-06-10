@@ -53,13 +53,6 @@ open class StandardProtocolFamily: Enum {
     }
   }
 }
-extension StandardProtocolFamily {
-  @JavaClass("java.lang.Enum$EnumDesc")
-  open class EnumDesc<E: AnyJavaObject>: JavaObject {
-  @JavaMethod
-  open override func toString() -> String
-  }
-}
 extension JavaClass<StandardProtocolFamily> {
   @JavaStaticField(isFinal: true)
   public var INET: StandardProtocolFamily!

@@ -5,10 +5,10 @@ import JavaRuntime
 @JavaClass("java.net.Proxy")
 open class Proxy: JavaObject {
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Proxy.`Type`?, _ arg1: SocketAddress?, environment: JNIEnvironment? = nil)
+  @_nonoverride public convenience init(_ arg0: ProxyType?, _ arg1: SocketAddress?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func type() -> Proxy.`Type`!
+  open func type() -> ProxyType!
 
   @JavaMethod
   open override func equals(_ arg0: JavaObject?) -> Bool

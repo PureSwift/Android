@@ -19,19 +19,37 @@ open class ServerSocket: JavaObject {
   @_nonoverride public convenience init(_ arg0: Int32, _ arg1: Int32, environment: JNIEnvironment? = nil) throws
 
   @JavaMethod
-  open func isClosed() -> Bool
-
-  @JavaMethod
   open func isBound() -> Bool
 
   @JavaMethod
   open func getInetAddress() -> InetAddress!
 
   @JavaMethod
+  open func getLocalSocketAddress() -> SocketAddress!
+
+  @JavaMethod
   open func getLocalPort() -> Int32
 
   @JavaMethod
-  open func implAccept(_ arg0: Socket?) throws
+  open func setSoTimeout(_ arg0: Int32) throws
+
+  @JavaMethod
+  open func getSoTimeout() throws -> Int32
+
+  @JavaMethod
+  open func setReceiveBufferSize(_ arg0: Int32) throws
+
+  @JavaMethod
+  open func getReceiveBufferSize() throws -> Int32
+
+  @JavaMethod
+  open func setReuseAddress(_ arg0: Bool) throws
+
+  @JavaMethod
+  open func getReuseAddress() throws -> Bool
+
+  @JavaMethod
+  open func isClosed() -> Bool
 
   @JavaMethod
   open func setOption(_ arg0: SocketOption<JavaObject>?, _ arg1: JavaObject?) throws -> ServerSocket!
@@ -43,28 +61,10 @@ open class ServerSocket: JavaObject {
   open func supportedOptions() -> JavaSet<SocketOption<JavaObject>>!
 
   @JavaMethod
-  open func getLocalSocketAddress() -> SocketAddress!
-
-  @JavaMethod
-  open func setSoTimeout(_ arg0: Int32) throws
-
-  @JavaMethod
-  open func getSoTimeout() throws -> Int32
-
-  @JavaMethod
-  open func setReuseAddress(_ arg0: Bool) throws
-
-  @JavaMethod
-  open func getReuseAddress() throws -> Bool
-
-  @JavaMethod
-  open func setReceiveBufferSize(_ arg0: Int32) throws
-
-  @JavaMethod
-  open func getReceiveBufferSize() throws -> Int32
-
-  @JavaMethod
   open func setPerformancePreferences(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32)
+
+  @JavaMethod
+  open func implAccept(_ arg0: Socket?) throws
 
   @JavaMethod
   open override func toString() -> String

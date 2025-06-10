@@ -10,7 +10,16 @@ open class SocketImpl: JavaObject {
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func listen(_ arg0: Int32) throws
+  open func connect(_ arg0: String, _ arg1: Int32) throws
+
+  @JavaMethod
+  open func connect(_ arg0: InetAddress?, _ arg1: Int32) throws
+
+  @JavaMethod
+  open func connect(_ arg0: SocketAddress?, _ arg1: Int32) throws
+
+  @JavaMethod
+  open func getOutputStream() throws -> OutputStream!
 
   @JavaMethod
   open func getInetAddress() -> InetAddress!
@@ -28,22 +37,7 @@ open class SocketImpl: JavaObject {
   open func supportedOptions() -> JavaSet<SocketOption<JavaObject>>!
 
   @JavaMethod
-  open func setPerformancePreferences(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32)
-
-  @JavaMethod
-  open func connect(_ arg0: String, _ arg1: Int32) throws
-
-  @JavaMethod
-  open func connect(_ arg0: InetAddress?, _ arg1: Int32) throws
-
-  @JavaMethod
-  open func connect(_ arg0: SocketAddress?, _ arg1: Int32) throws
-
-  @JavaMethod
-  open func getOutputStream() throws -> OutputStream!
-
-  @JavaMethod
-  open func getFileDescriptor() -> FileDescriptor!
+  open func listen(_ arg0: Int32) throws
 
   @JavaMethod
   open func shutdownInput() throws
@@ -52,10 +46,16 @@ open class SocketImpl: JavaObject {
   open func shutdownOutput() throws
 
   @JavaMethod
+  open func getFileDescriptor() -> FileDescriptor!
+
+  @JavaMethod
   open func supportsUrgentData() -> Bool
 
   @JavaMethod
   open func sendUrgentData(_ arg0: Int32) throws
+
+  @JavaMethod
+  open func setPerformancePreferences(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32)
 
   @JavaMethod
   open override func toString() -> String

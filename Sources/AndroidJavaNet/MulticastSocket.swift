@@ -5,25 +5,22 @@ import JavaRuntime
 @JavaClass("java.net.MulticastSocket")
 open class MulticastSocket: DatagramSocket {
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: SocketAddress?, environment: JNIEnvironment? = nil) throws
+  @_nonoverride public convenience init(_ arg0: Int32, environment: JNIEnvironment? = nil) throws
 
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Int32, environment: JNIEnvironment? = nil) throws
+  @_nonoverride public convenience init(_ arg0: SocketAddress?, environment: JNIEnvironment? = nil) throws
 
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil) throws
 
   @JavaMethod
-  open func send(_ arg0: DatagramPacket?, _ arg1: Int8) throws
-
-  @JavaMethod
   open func setTTL(_ arg0: Int8) throws
 
   @JavaMethod
-  open func getTTL() throws -> Int8
+  open func setTimeToLive(_ arg0: Int32) throws
 
   @JavaMethod
-  open func setTimeToLive(_ arg0: Int32) throws
+  open func getTTL() throws -> Int8
 
   @JavaMethod
   open func joinGroup(_ arg0: InetAddress?) throws
@@ -54,6 +51,9 @@ open class MulticastSocket: DatagramSocket {
 
   @JavaMethod
   open func getLoopbackMode() throws -> Bool
+
+  @JavaMethod
+  open func send(_ arg0: DatagramPacket?, _ arg1: Int8) throws
 
   @JavaMethod
   open func getTimeToLive() throws -> Int32

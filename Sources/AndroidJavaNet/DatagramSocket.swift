@@ -7,58 +7,16 @@ import JavaRuntime
 @JavaClass("java.net.DatagramSocket", implements: Closeable.self)
 open class DatagramSocket: JavaObject {
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Int32, environment: JNIEnvironment? = nil) throws
+  @_nonoverride public convenience init(_ arg0: Int32, _ arg1: InetAddress?, environment: JNIEnvironment? = nil) throws
 
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil) throws
 
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Int32, _ arg1: InetAddress?, environment: JNIEnvironment? = nil) throws
+  @_nonoverride public convenience init(_ arg0: Int32, environment: JNIEnvironment? = nil) throws
 
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: SocketAddress?, environment: JNIEnvironment? = nil) throws
-
-  @JavaMethod
-  open func isClosed() -> Bool
-
-  @JavaMethod
-  open func isBound() -> Bool
-
-  @JavaMethod
-  open func getInetAddress() -> InetAddress!
-
-  @JavaMethod
-  open func getLocalPort() -> Int32
-
-  @JavaMethod
-  open func setOption(_ arg0: SocketOption<JavaObject>?, _ arg1: JavaObject?) throws -> DatagramSocket!
-
-  @JavaMethod
-  open func getOption(_ arg0: SocketOption<JavaObject>?) throws -> JavaObject!
-
-  @JavaMethod
-  open func supportedOptions() -> JavaSet<SocketOption<JavaObject>>!
-
-  @JavaMethod
-  open func getLocalSocketAddress() -> SocketAddress!
-
-  @JavaMethod
-  open func setSoTimeout(_ arg0: Int32) throws
-
-  @JavaMethod
-  open func getSoTimeout() throws -> Int32
-
-  @JavaMethod
-  open func setReuseAddress(_ arg0: Bool) throws
-
-  @JavaMethod
-  open func getReuseAddress() throws -> Bool
-
-  @JavaMethod
-  open func setReceiveBufferSize(_ arg0: Int32) throws
-
-  @JavaMethod
-  open func getReceiveBufferSize() throws -> Int32
 
   @JavaMethod
   open func connect(_ arg0: SocketAddress?) throws
@@ -67,34 +25,64 @@ open class DatagramSocket: JavaObject {
   open func connect(_ arg0: InetAddress?, _ arg1: Int32)
 
   @JavaMethod
-  open func send(_ arg0: DatagramPacket?) throws
-
-  @JavaMethod
-  open func disconnect()
-
-  @JavaMethod
-  open func receive(_ arg0: DatagramPacket?) throws
-
-  @JavaMethod
   open func joinGroup(_ arg0: SocketAddress?, _ arg1: NetworkInterface?) throws
 
   @JavaMethod
   open func leaveGroup(_ arg0: SocketAddress?, _ arg1: NetworkInterface?) throws
 
   @JavaMethod
+  open func send(_ arg0: DatagramPacket?) throws
+
+  @JavaMethod
+  open func disconnect()
+
+  @JavaMethod
+  open func isBound() -> Bool
+
+  @JavaMethod
   open func isConnected() -> Bool
+
+  @JavaMethod
+  open func getInetAddress() -> InetAddress!
 
   @JavaMethod
   open func getRemoteSocketAddress() -> SocketAddress!
 
   @JavaMethod
+  open func getLocalSocketAddress() -> SocketAddress!
+
+  @JavaMethod
+  open func receive(_ arg0: DatagramPacket?) throws
+
+  @JavaMethod
   open func getLocalAddress() -> InetAddress!
+
+  @JavaMethod
+  open func getLocalPort() -> Int32
+
+  @JavaMethod
+  open func setSoTimeout(_ arg0: Int32) throws
+
+  @JavaMethod
+  open func getSoTimeout() throws -> Int32
 
   @JavaMethod
   open func setSendBufferSize(_ arg0: Int32) throws
 
   @JavaMethod
   open func getSendBufferSize() throws -> Int32
+
+  @JavaMethod
+  open func setReceiveBufferSize(_ arg0: Int32) throws
+
+  @JavaMethod
+  open func getReceiveBufferSize() throws -> Int32
+
+  @JavaMethod
+  open func setReuseAddress(_ arg0: Bool) throws
+
+  @JavaMethod
+  open func getReuseAddress() throws -> Bool
 
   @JavaMethod
   open func setBroadcast(_ arg0: Bool) throws
@@ -104,6 +92,18 @@ open class DatagramSocket: JavaObject {
 
   @JavaMethod
   open func getTrafficClass() throws -> Int32
+
+  @JavaMethod
+  open func isClosed() -> Bool
+
+  @JavaMethod
+  open func setOption(_ arg0: SocketOption<JavaObject>?, _ arg1: JavaObject?) throws -> DatagramSocket!
+
+  @JavaMethod
+  open func getOption(_ arg0: SocketOption<JavaObject>?) throws -> JavaObject!
+
+  @JavaMethod
+  open func supportedOptions() -> JavaSet<SocketOption<JavaObject>>!
 
   @JavaMethod
   open func close()

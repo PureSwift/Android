@@ -10,6 +10,33 @@ open class DatagramSocketImpl: JavaObject {
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
   @JavaMethod
+  open func connect(_ arg0: InetAddress?, _ arg1: Int32) throws
+
+  @JavaMethod
+  open func setTTL(_ arg0: Int8) throws
+
+  @JavaMethod
+  open func setTimeToLive(_ arg0: Int32) throws
+
+  @JavaMethod
+  open func getTTL() throws -> Int8
+
+  @JavaMethod
+  open func joinGroup(_ arg0: SocketAddress?, _ arg1: NetworkInterface?) throws
+
+  @JavaMethod
+  open func leaveGroup(_ arg0: SocketAddress?, _ arg1: NetworkInterface?) throws
+
+  @JavaMethod
+  open func send(_ arg0: DatagramPacket?) throws
+
+  @JavaMethod
+  open func disconnect()
+
+  @JavaMethod
+  open func receive(_ arg0: DatagramPacket?) throws
+
+  @JavaMethod
   open func getLocalPort() -> Int32
 
   @JavaMethod
@@ -22,40 +49,13 @@ open class DatagramSocketImpl: JavaObject {
   open func supportedOptions() -> JavaSet<SocketOption<JavaObject>>!
 
   @JavaMethod
-  open func connect(_ arg0: InetAddress?, _ arg1: Int32) throws
-
-  @JavaMethod
-  open func send(_ arg0: DatagramPacket?) throws
-
-  @JavaMethod
-  open func disconnect()
+  open func getFileDescriptor() -> FileDescriptor!
 
   @JavaMethod
   open func peekData(_ arg0: DatagramPacket?) throws -> Int32
 
   @JavaMethod
-  open func receive(_ arg0: DatagramPacket?) throws
-
-  @JavaMethod
-  open func setTTL(_ arg0: Int8) throws
-
-  @JavaMethod
-  open func getTTL() throws -> Int8
-
-  @JavaMethod
-  open func setTimeToLive(_ arg0: Int32) throws
-
-  @JavaMethod
   open func leave(_ arg0: InetAddress?) throws
-
-  @JavaMethod
-  open func joinGroup(_ arg0: SocketAddress?, _ arg1: NetworkInterface?) throws
-
-  @JavaMethod
-  open func leaveGroup(_ arg0: SocketAddress?, _ arg1: NetworkInterface?) throws
-
-  @JavaMethod
-  open func getFileDescriptor() -> FileDescriptor!
 
   @JavaMethod
   open func join(_ arg0: InetAddress?) throws

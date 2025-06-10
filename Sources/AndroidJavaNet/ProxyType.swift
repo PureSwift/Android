@@ -3,35 +3,34 @@ import AndroidJavaLang
 import JavaKit
 import JavaRuntime
 
-extension Proxy {
-  @JavaClass("java.net.Proxy$Type")
-  open class Type: Enum {
-    public enum TypeCases: Equatable {
-      case DIRECT
-  case HTTP
-  case SOCKS
-    }
+@JavaClass("java.net.Proxy$Type")
+open class ProxyType: Enum {
+  public enum ProxyTypeCases: Equatable {
+    case DIRECT
+    case HTTP
+    case SOCKS
+  }
 
-    public var enumValue: TypeCases! {
-      let classObj = self.javaClass
-      if self.equals(classObj.DIRECT?.as(JavaObject.self)) {
-        return TypeCases.DIRECT
-  } else if self.equals(classObj.HTTP?.as(JavaObject.self)) {
-        return TypeCases.HTTP
-  } else if self.equals(classObj.SOCKS?.as(JavaObject.self)) {
-        return TypeCases.SOCKS
-  } else {
-        return nil
-      }
+  public var enumValue: ProxyTypeCases! {
+    let classObj = self.javaClass
+    if self.equals(classObj.DIRECT?.as(JavaObject.self)) {
+      return ProxyTypeCases.DIRECT
+    } else if self.equals(classObj.HTTP?.as(JavaObject.self)) {
+      return ProxyTypeCases.HTTP
+    } else if self.equals(classObj.SOCKS?.as(JavaObject.self)) {
+      return ProxyTypeCases.SOCKS
+    } else {
+      return nil
     }
+  }
 
-  public convenience init(_ enumValue: TypeCases, environment: JNIEnvironment? = nil) {
+  public convenience init(_ enumValue: ProxyTypeCases, environment: JNIEnvironment? = nil) {
     let _environment = if let environment {
       environment
     } else {
       try! JavaVirtualMachine.shared().environment()
     }
-    let classObj = try! JavaClass<Type>(environment: _environment)
+    let classObj = try! JavaClass<ProxyType>(environment: _environment)
     switch enumValue {
       case .DIRECT:
         if let DIRECT = classObj.DIRECT {
@@ -53,21 +52,27 @@ extension Proxy {
         }
     }
   }
+}
+extension ProxyType {
+  @JavaClass("java.lang.Enum$EnumDesc")
+  open class EnumDesc<E: AnyJavaObject>: JavaObject {
+  @JavaMethod
+  open override func toString() -> String
   }
 }
-extension JavaClass<Proxy.Type> {
+extension JavaClass<ProxyType> {
   @JavaStaticField(isFinal: true)
-  public var DIRECT: Proxy.`Type`!
+  public var DIRECT: ProxyType!
 
   @JavaStaticField(isFinal: true)
-  public var HTTP: Proxy.`Type`!
+  public var HTTP: ProxyType!
 
   @JavaStaticField(isFinal: true)
-  public var SOCKS: Proxy.`Type`!
+  public var SOCKS: ProxyType!
 
   @JavaStaticMethod
-  public func values() -> [Proxy.`Type`?]
+  public func values() -> [ProxyType?]
 
   @JavaStaticMethod
-  public func valueOf(_ arg0: String) -> Proxy.`Type`!
+  public func valueOf(_ arg0: String) -> ProxyType!
 }
