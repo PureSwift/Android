@@ -13,7 +13,7 @@ open class Resources: JavaObject {
   /// Return a resource identifier for the given resource name. A fully qualified resource name is of the form "package:type/entry".
   /// The first two components (package and type) are optional if defType and defPackage, respectively, are specified here.
   @JavaMethod
-  open func getIdentifier(_ name: String, _ defType: String?, _ defPackage: String?) -> Int32
+  open func getIdentifier(_ name: String, _ defType: String, _ defPackage: String) -> Int32
   
   @JavaMethod
   open func getQuantityString(_ arg0: Int32, _ arg1: Int32, _ arg2: [JavaObject?]) throws -> String
