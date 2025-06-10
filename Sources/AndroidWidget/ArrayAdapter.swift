@@ -2,9 +2,15 @@
 import JavaKit
 import JavaKitCollection
 import JavaRuntime
+import AndroidContent
 
 @JavaClass("android.widget.ArrayAdapter", implements: Filterable.self, ThemedSpinnerAdapter.self)
 open class ArrayAdapter<T: AnyJavaObject>: BaseAdapter {
+    
+  /// ArrayAdapter(Context context, int resource, List<T> objects)
+  @JavaMethod
+  @_nonoverride public convenience init(context: AndroidContent.Context, resource: Int32, environment: JNIEnvironment? = nil)
+  
   @JavaMethod
   open func remove(_ arg0: JavaObject?)
 
@@ -56,4 +62,13 @@ extension JavaClass {
 
   @JavaStaticField(isFinal: true)
   public var NO_SELECTION: Int32
+}
+
+// MARK: - API Annotations
+
+public extension ArrayAdapter {
+    
+    convenience init(context: AndroidContent.Context, resource: ResourceID, environment: JNIEnvironment? = nil) {
+        self.init(context: context, resource: resource.rawValue, environment: environment)
+    }
 }
