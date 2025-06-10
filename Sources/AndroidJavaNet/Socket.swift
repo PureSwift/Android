@@ -7,40 +7,31 @@ import JavaRuntime
 @JavaClass("java.net.Socket", implements: Closeable.self)
 open class Socket: JavaObject {
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: String, _ arg1: Int32, environment: JNIEnvironment? = nil) throws
-
-  @JavaMethod
-  @_nonoverride public convenience init(_ arg0: String, _ arg1: Int32, _ arg2: Bool, environment: JNIEnvironment? = nil) throws
-
-  @JavaMethod
-  @_nonoverride public convenience init(_ arg0: InetAddress?, _ arg1: Int32, environment: JNIEnvironment? = nil) throws
-
-  @JavaMethod
-  @_nonoverride public convenience init(_ arg0: InetAddress?, _ arg1: Int32, _ arg2: InetAddress?, _ arg3: Int32, environment: JNIEnvironment? = nil) throws
-
-  @JavaMethod
   @_nonoverride public convenience init(_ arg0: String, _ arg1: Int32, _ arg2: InetAddress?, _ arg3: Int32, environment: JNIEnvironment? = nil) throws
-
-  @JavaMethod
-  @_nonoverride public convenience init(_ arg0: JavaObject?, environment: JNIEnvironment? = nil)
-
-  @JavaMethod
-  @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: InetAddress?, _ arg1: Int32, _ arg2: Bool, environment: JNIEnvironment? = nil) throws
 
   @JavaMethod
-  open func connect(_ arg0: SocketAddress?) throws
+  @_nonoverride public convenience init(_ arg0: String, _ arg1: Int32, _ arg2: Bool, environment: JNIEnvironment? = nil) throws
 
   @JavaMethod
-  open func connect(_ arg0: SocketAddress?, _ arg1: Int32) throws
+  @_nonoverride public convenience init(_ arg0: InetAddress?, _ arg1: Int32, _ arg2: InetAddress?, _ arg3: Int32, environment: JNIEnvironment? = nil) throws
+
+  @JavaMethod
+  @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
+
+  @JavaMethod
+  @_nonoverride public convenience init(_ arg0: Proxy?, environment: JNIEnvironment? = nil)
+
+  @JavaMethod
+  @_nonoverride public convenience init(_ arg0: String, _ arg1: Int32, environment: JNIEnvironment? = nil) throws
+
+  @JavaMethod
+  @_nonoverride public convenience init(_ arg0: InetAddress?, _ arg1: Int32, environment: JNIEnvironment? = nil) throws
 
   @JavaMethod
   open func isClosed() -> Bool
-
-  @JavaMethod
-  open func isConnected() -> Bool
 
   @JavaMethod
   open func isBound() -> Bool
@@ -49,28 +40,70 @@ open class Socket: JavaObject {
   open func getInetAddress() -> InetAddress!
 
   @JavaMethod
-  open func getOption(_ arg0: JavaObject?) throws -> JavaObject!
-
-  @JavaMethod
   open func getLocalPort() -> Int32
 
   @JavaMethod
-  open func getLocalAddress() -> InetAddress!
+  open func setOption(_ arg0: SocketOption<JavaObject>?, _ arg1: JavaObject?) throws -> Socket!
 
   @JavaMethod
-  open func isInputShutdown() -> Bool
+  open func getOption(_ arg0: SocketOption<JavaObject>?) throws -> JavaObject!
 
   @JavaMethod
-  open func isOutputShutdown() -> Bool
+  open func supportedOptions() -> JavaSet<SocketOption<JavaObject>>!
+
+  @JavaMethod
+  open func getLocalSocketAddress() -> SocketAddress!
+
+  @JavaMethod
+  open func setSoTimeout(_ arg0: Int32) throws
+
+  @JavaMethod
+  open func getSoTimeout() throws -> Int32
+
+  @JavaMethod
+  open func setReuseAddress(_ arg0: Bool) throws
+
+  @JavaMethod
+  open func getReuseAddress() throws -> Bool
+
+  @JavaMethod
+  open func setReceiveBufferSize(_ arg0: Int32) throws
+
+  @JavaMethod
+  open func getReceiveBufferSize() throws -> Int32
+
+  @JavaMethod
+  open func setPerformancePreferences(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32)
+
+  @JavaMethod
+  open func connect(_ arg0: SocketAddress?, _ arg1: Int32) throws
+
+  @JavaMethod
+  open func connect(_ arg0: SocketAddress?) throws
 
   @JavaMethod
   open func getOutputStream() throws -> OutputStream!
 
   @JavaMethod
-  open func setOption(_ arg0: JavaObject?, _ arg1: JavaObject?) throws -> Socket!
+  open func isConnected() -> Bool
 
   @JavaMethod
-  open func sendUrgentData(_ arg0: Int32) throws
+  open func getRemoteSocketAddress() -> SocketAddress!
+
+  @JavaMethod
+  open func getLocalAddress() -> InetAddress!
+
+  @JavaMethod
+  open func setSendBufferSize(_ arg0: Int32) throws
+
+  @JavaMethod
+  open func getSendBufferSize() throws -> Int32
+
+  @JavaMethod
+  open func setTrafficClass(_ arg0: Int32) throws
+
+  @JavaMethod
+  open func getTrafficClass() throws -> Int32
 
   @JavaMethod
   open func shutdownInput() throws
@@ -79,13 +112,13 @@ open class Socket: JavaObject {
   open func shutdownOutput() throws
 
   @JavaMethod
-  open func supportedOptions() -> JavaSet<JavaObject>!
+  open func sendUrgentData(_ arg0: Int32) throws
 
   @JavaMethod
-  open func getRemoteSocketAddress() -> SocketAddress!
+  open func isInputShutdown() -> Bool
 
   @JavaMethod
-  open func getLocalSocketAddress() -> SocketAddress!
+  open func isOutputShutdown() -> Bool
 
   @JavaMethod
   open func setTcpNoDelay(_ arg0: Bool) throws
@@ -106,43 +139,10 @@ open class Socket: JavaObject {
   open func getOOBInline() throws -> Bool
 
   @JavaMethod
-  open func setSoTimeout(_ arg0: Int32) throws
-
-  @JavaMethod
-  open func getSoTimeout() throws -> Int32
-
-  @JavaMethod
-  open func setSendBufferSize(_ arg0: Int32) throws
-
-  @JavaMethod
-  open func getSendBufferSize() throws -> Int32
-
-  @JavaMethod
-  open func setReceiveBufferSize(_ arg0: Int32) throws
-
-  @JavaMethod
-  open func getReceiveBufferSize() throws -> Int32
-
-  @JavaMethod
   open func setKeepAlive(_ arg0: Bool) throws
 
   @JavaMethod
   open func getKeepAlive() throws -> Bool
-
-  @JavaMethod
-  open func setTrafficClass(_ arg0: Int32) throws
-
-  @JavaMethod
-  open func getTrafficClass() throws -> Int32
-
-  @JavaMethod
-  open func setReuseAddress(_ arg0: Bool) throws
-
-  @JavaMethod
-  open func getReuseAddress() throws -> Bool
-
-  @JavaMethod
-  open func setPerformancePreferences(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32)
 
   @JavaMethod
   open override func toString() -> String
@@ -158,4 +158,8 @@ open class Socket: JavaObject {
 
   @JavaMethod
   open func bind(_ arg0: SocketAddress?) throws
+}
+extension JavaClass<Socket> {
+  @JavaStaticMethod
+  public func setSocketImplFactory(_ arg0: SocketImplFactory?) throws
 }

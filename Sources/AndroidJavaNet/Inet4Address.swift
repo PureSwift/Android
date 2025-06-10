@@ -2,8 +2,8 @@
 import JavaKit
 import JavaRuntime
 
-@JavaClass("java.net.Inet6Address")
-open class Inet6Address: InetAddress {
+@JavaClass("java.net.Inet4Address")
+open class Inet4Address: InetAddress {
   @JavaMethod
   open override func equals(_ arg0: JavaObject?) -> Bool
 
@@ -18,9 +18,6 @@ open class Inet6Address: InetAddress {
 
   @JavaMethod
   open override func isLinkLocalAddress() -> Bool
-
-  @JavaMethod
-  open func getScopeId() -> Int32
 
   @JavaMethod
   open override func isAnyLocalAddress() -> Bool
@@ -48,20 +45,11 @@ open class Inet6Address: InetAddress {
 
   @JavaMethod
   open override func isMCOrgLocal() -> Bool
-
-  @JavaMethod
-  open func isIPv4CompatibleAddress() -> Bool
-
-  @JavaMethod
-  open func getScopedInterface() -> NetworkInterface!
 }
-extension JavaClass<Inet6Address> {
+extension JavaClass<Inet4Address> {
   @JavaStaticMethod
-  public func ofLiteral(_ arg0: String) -> InetAddress!
+  public func ofLiteral(_ arg0: String) -> Inet4Address!
 
   @JavaStaticMethod
-  public func getByAddress(_ arg0: String, _ arg1: [Int8], _ arg2: Int32) throws -> Inet6Address!
-
-  @JavaStaticMethod
-  public func getByAddress(_ arg0: String, _ arg1: [Int8], _ arg2: NetworkInterface?) throws -> Inet6Address!
+  public func ofPosixLiteral(_ arg0: String) -> Inet4Address!
 }

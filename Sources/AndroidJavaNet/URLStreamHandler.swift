@@ -27,7 +27,7 @@ open class URLStreamHandler: JavaObject {
   open func toExternalForm(_ arg0: URL?) -> String
 
   @JavaMethod
-  open func openConnection(_ arg0: URL?, _ arg1: JavaObject?) throws -> URLConnection!
+  open func openConnection(_ arg0: URL?, _ arg1: Proxy?) throws -> URLConnection!
 
   @JavaMethod
   open func openConnection(_ arg0: URL?) throws -> URLConnection!

@@ -3,8 +3,11 @@ import AndroidJavaIO
 import JavaKit
 import JavaRuntime
 
-@JavaClass("java.net.SocketAddress", implements: Serializable.self)
-open class SocketAddress: JavaObject {
+@JavaClass("java.net.MalformedURLException")
+open class MalformedURLException: IOException {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
+
+  @JavaMethod
+  @_nonoverride public convenience init(_ arg0: String, environment: JNIEnvironment? = nil)
 }
