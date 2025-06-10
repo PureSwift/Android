@@ -295,6 +295,7 @@ let package = Package(
                     package: "swift-java"
                 ),
                 "AndroidJavaIO",
+                "AndroidJavaUtil"
             ],
             exclude: ["swift-java.config"],
             swiftSettings: [
