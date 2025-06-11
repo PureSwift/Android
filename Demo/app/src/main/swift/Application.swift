@@ -18,24 +18,25 @@ public class Application: AndroidApp.Application {
 public extension Application {
     
     @JavaMethod
-    public func onCreateSwift() {
-        
-        print("\(#function)")
+    func onCreateSwift() {
+        log("\(self).\(#function)")
         
         sayHello()
     }
     
     @JavaMethod
-    public func onTerminateSwift() {
-        
-        print("\(#function)")
+    func onTerminateSwift() {
+        log("\(self).\(#function)")
     }
 }
 
-internal extension Application {
+extension Application {
     
-    func print(_ string: String) {
-        let log = try! JavaClass<AndroidUtil.Log>()
-        _ = log.v("Application", string)
+    static var logTag: String { "Application" }
+    
+    static let log = try! JavaClass<AndroidUtil.Log>()
+    
+    func log(_ string: String) {
+        _ = Self.log.d(Self.logTag, string)
     }
 }

@@ -1,6 +1,6 @@
 package com.pureswift.swiftandroid
 
-class Runnable(): java.lang.Runnable {
+class Runnable(val block: SwiftObject): java.lang.Runnable {
 
     external override fun run()
 }
