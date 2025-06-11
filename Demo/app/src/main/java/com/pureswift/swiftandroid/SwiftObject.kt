@@ -13,5 +13,5 @@ class SwiftObject(val swiftObject: Long, val type: String) {
         finalizeSwift()
     }
 
-    external fun finalizeSwift(): String
+    external fun finalizeSwift()
 }
