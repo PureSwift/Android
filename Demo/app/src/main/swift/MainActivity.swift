@@ -14,6 +14,10 @@ open class MainActivity: AndroidApp.Activity {
         
     @JavaMethod
     open func setRootView(_ view: AndroidView.View?)
+    
+    lazy var textView = TextView(self)
+    
+    var runnable: AndroidJavaLang.Runnable!
 }
 
 @JavaImplementation("com.pureswift.swiftandroid.MainActivity")
@@ -25,12 +29,19 @@ extension MainActivity {
         
         runAsync()
         
-        runMainThread {
-            Self.log("\(self).\(#function) Main Thread Runnable")
-            RunLoop.main.run(until: Date() + 0.1)
-        }
+        startMainRunLoop()
         
         setRootView()
+        
+        // update view on timer
+        Task { [weak self] in
+            while let self = self {
+                try? await Task.sleep(for: .seconds(1))
+                await MainActor.run { [weak self] in
+                    self?.updateView()
+                }
+            }
+        }
     }
 }
 
@@ -56,6 +67,22 @@ private extension MainActivity {
         self.runOnUiThread(Runnable(block).as(AndroidJavaLang.Runnable.self))
     }
     
+    func startMainRunLoop() {
+        let runnable = Runnable { [weak self] in
+            // run main loop
+            RunLoop.main.run(until: Date() + 0.01)
+            // schedule next
+            Task { [weak self] in
+                while let self, let runnable = self.runnable {
+                    try? await Task.sleep(for: .seconds(1))
+                    self.runOnUiThread(runnable)
+                }
+            }
+        }
+        self.runnable = runnable.as(AndroidJavaLang.Runnable.self)
+        self.runOnUiThread(self.runnable)
+    }
+    
     func setRootView() {
         /*
         let listView = ListView(self)
@@ -68,9 +95,13 @@ private extension MainActivity {
         let adapter = ListViewAdapter(context)
         listView.setAdapter(adapter.as(Adapter.self))
         */
-        let textView = TextView(self)
-        textView.text = "Hello Swift!"
+        
         setRootView(textView)
+        updateView()
+    }
+    
+    func updateView() {
+        textView.text = "Hello Swift!\n\(Date().formatted(date: .numeric, time: .complete))"
     }
 }
 
