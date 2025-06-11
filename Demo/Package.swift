@@ -57,11 +57,7 @@ let package = Package(
     ],
     dependencies: [
         .package(
-            path: "../../"
-        ),
-        .package(
-            url: "https://github.com/PureSwift/swift-java.git",
-            branch: "feature/android"
+            path: "../"
         )
     ],
     targets: [
@@ -73,6 +69,7 @@ let package = Package(
                     package: "Android"
                 )
             ],
+            path: "./app/src/main/swift",
             swiftSettings: [
               .swiftLanguageMode(.v5),
               .unsafeFlags(["-I\(javaIncludePath)", "-I\(javaPlatformIncludePath)"])

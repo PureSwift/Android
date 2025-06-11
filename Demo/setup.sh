@@ -26,11 +26,11 @@ fi
 
 # Copy Swift libraries
 mkdir -p $SRC_ROOT/app/src/main/jniLibs/$ANDROID_ARCH/
-cp -rf $SWIFT_SDK_PATH/usr/lib/$ANDROID_LIB/*.so \
+cp -rf $SWIFT_ANDROID_SYSROOT/usr/lib/$ANDROID_LIB/*.so \
     $SRC_ROOT/app/src/main/jniLibs/$ANDROID_ARCH/
 # Copy C stdlib
-cp -rf $SWIFT_SDK_PATH/usr/lib/$ANDROID_LIB/libc++_shared.so \
+cp -rf $SWIFT_ANDROID_SYSROOT/usr/lib/$ANDROID_LIB/libc++_shared.so \
     $SRC_ROOT/app/src/main/jniLibs/$ANDROID_ARCH/
 # Copy Swift dependencies
-cp -rf $SWIFT_SDK_PATH/usr/lib/$ANDROID_LIB/libandroid-spawn.so \
+cp -rf $SWIFT_ANDROID_SYSROOT/usr/lib/$ANDROID_LIB/libandroid-spawn.so \
     $SRC_ROOT/app/src/main/jniLibs/$ANDROID_ARCH/
