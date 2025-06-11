@@ -9,25 +9,28 @@ open class ArrayAdapter<T: AnyJavaObject>: BaseAdapter {
     
   /// ArrayAdapter(Context context, int resource, List<T> objects)
   @JavaMethod
-  @_nonoverride public convenience init(context: AndroidContent.Context?, resource: Int32, objects: [T?], environment: JNIEnvironment? = nil)
+  @_nonoverride public convenience init(context: AndroidContent.Context?, resource: Int32, objects: [JavaObject?], environment: JNIEnvironment? = nil)
+    
+  @JavaMethod
+  @_nonoverride public convenience init(context: AndroidContent.Context?, resource: Int32, textViewResourceId: Int32, objects: [JavaObject?], environment: JNIEnvironment? = nil)
   
   @JavaMethod
-  open func remove(_ arg0: T?)
+  open func remove(_ arg0: JavaObject?)
 
   @JavaMethod
-  open func insert(_ arg0: T?, _ arg1: Int32)
+  open func insert(_ arg0: JavaObject?, _ arg1: Int32)
 
   @JavaMethod
   open func clear()
 
   @JavaMethod
-  open func add(_ arg0: T?)
+  open func add(_ arg0: JavaObject?)
 
   @JavaMethod
   open func addAll(_ arg0: JavaCollection<T>?)
 
   @JavaMethod
-  open func addAll(_ arg0: [T?])
+  open func addAll(_ arg0: [JavaObject?])
 
   @JavaMethod
   open func getCount() -> Int32
@@ -48,7 +51,7 @@ open class ArrayAdapter<T: AnyJavaObject>: BaseAdapter {
   open override func getAutofillOptions() -> [CharSequence?]
 
   @JavaMethod
-  open func getPosition(_ arg0: T?) -> Int32
+  open func getPosition(_ arg0: JavaObject?) -> Int32
 
   @JavaMethod
   open func getItem(_ arg0: Int32) -> T!
