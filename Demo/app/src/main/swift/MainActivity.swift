@@ -17,7 +17,11 @@ open class MainActivity: AndroidApp.Activity {
     
     lazy var textView = TextView(self)
     
+    lazy var listView = ListView(self)
+    
     var runnable: AndroidJavaLang.Runnable!
+    
+    //lazy var timer = AndroidJavaUtil.Timer()
 }
 
 @JavaImplementation("com.pureswift.swiftandroid.MainActivity")
@@ -74,7 +78,7 @@ private extension MainActivity {
             // schedule next
             Task { [weak self] in
                 while let self, let runnable = self.runnable {
-                    try? await Task.sleep(for: .seconds(1))
+                    try? await Task.sleep(for: .seconds(10))
                     self.runOnUiThread(runnable)
                 }
             }
@@ -84,19 +88,23 @@ private extension MainActivity {
     }
     
     func setRootView() {
-        /*
-        let listView = ListView(self)
         let items = [
-            "1",
-            "2",
-            "3"
+            "Row 1",
+            "Row 2",
+            "Row 3"
         ]
-        let context = ListViewAdapter.Context(items: items)
-        let adapter = ListViewAdapter(context)
+        let layout = try! JavaClass<R.layout>()
+        let resource = layout.simple_list_item_1
+        assert(resource != 0)
+        let objects: [JavaObject?] = items.map { JavaString($0) }
+        let adapter = ArrayAdapter<JavaObject>(
+            context: self,
+            resource: resource,
+            objects: objects
+        )
         listView.setAdapter(adapter.as(Adapter.self))
-        */
-        
-        setRootView(textView)
+                
+        setRootView(listView)
         updateView()
     }
     
@@ -131,3 +139,4 @@ extension MainActivity {
         Self.logError(string)
     }
 }
+
