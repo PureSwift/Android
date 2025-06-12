@@ -1,33 +1,17 @@
 package com.pureswift.swiftandroid
 
-import android.database.DataSetObserver
+import android.R
+import android.content.Context
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ListAdapter
+import android.widget.ArrayAdapter
 
-class ListViewAdapter(val context: SwiftObject): ListAdapter {
+class ListViewAdapter<T: Any>(context: Context, val swiftObject: SwiftObject, val objects: ArrayList<T>) :
+    ArrayAdapter<T>(context, 0, objects) {
 
-    external override fun getCount(): Int
+        external override fun getView(position: Int, convertView: View?, parent: ViewGroup): View
 
-    external override fun isEmpty(): Boolean
-
-    external override fun getItem(position: Int): Any?
-
-    external override fun getItemId(position: Int): Long
-
-    external override fun getItemViewType(position: Int): Int
-
-    external override fun getViewTypeCount(): Int
-
-    external override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View?
-
-    external override fun areAllItemsEnabled(): Boolean
-
-    external override fun isEnabled(position: Int): Boolean
-
-    external override fun registerDataSetObserver(observer: DataSetObserver?)
-
-    external override fun unregisterDataSetObserver(observer: DataSetObserver?)
-
-    external override fun hasStableIds(): Boolean
+        fun getResourceId(): Int {
+            return R.layout.simple_list_item_1
+        }
 }

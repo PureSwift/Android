@@ -12,113 +12,50 @@ import AndroidKit
 open class ListViewAdapter: JavaObject {
     
     @JavaMethod
-    @_nonoverride public convenience init(swiftObject: SwiftObject!, environment: JNIEnvironment? = nil)
+    @_nonoverride public convenience init(
+        context: AndroidContent.Context?,
+        swiftObject: SwiftObject?,
+        objects: ArrayList<JavaObject>?,
+        environment: JNIEnvironment? = nil
+    )
     
     @JavaMethod
-    func getContext() -> SwiftObject!
+    func getSwiftObject() -> SwiftObject!
+    
+    @JavaMethod
+    func getResourceId() -> Int32
 }
 
 @JavaImplementation("com.pureswift.swiftandroid.ListViewAdapter")
 extension ListViewAdapter {
     
     @JavaMethod
-    func hasStableIds() -> Bool {
-        log("\(self).\(#function)")
-        return true
-    }
-    
-    @JavaMethod
-    func isEmpty() -> Bool {
-        log("\(self).\(#function)")
-        return context.items.isEmpty
-    }
-    
-    @JavaMethod
-    func getCount() -> Int32 {
-        log("\(self).\(#function)")
-        return Int32(context.items.count)
-    }
-
-    @JavaMethod
-    func getItem(position: Int32) -> JavaObject? {
-        log("\(self).\(#function) \(position)")
-        return JavaString(context.items[Int(position)])
-    }
-    
-    @JavaMethod
-    func getItemId(position: Int32) -> Int64 {
-        log("\(self).\(#function)")
-        return Int64(position)
-    }
-
-    @JavaMethod
-    func getItemViewType(position: Int32) -> Int32 {
-        log("\(self).\(#function)")
-        return 0
-    }
-
-    @JavaMethod
-    func getViewTypeCount() -> Int32 {
-        log("\(self).\(#function)")
-        return 1
-    }
-
-    @JavaMethod
     func getView(position: Int32, convertView: AndroidView.View?, parent: ViewGroup?) -> AndroidView.View? {
         log("\(self).\(#function) \(position)")
-        guard let parent else {
-            assertionFailure()
-            return nil
-        }
-        let view = TextView(parent.getContext())
-        let item = context.items[Int(position)]
-        view.text = item
-        return view
-    }
-
-    @JavaMethod
-    func areAllItemsEnabled() -> Bool {
-        log("\(self).\(#function)")
-        return true
-    }
-
-    @JavaMethod
-    func isEnabled(position: Int32) -> Bool {
-        log("\(self).\(#function) \(position)")
-        return true
-    }
-
-    @JavaMethod
-    func registerDataSetObserver(observer: JavaObject?) {
-        log("\(self).\(#function)")
-        
-    }
-
-    @JavaMethod
-    func unregisterDataSetObserver(observer: JavaObject?) {
-        log("\(self).\(#function)")
-        
+        return getView(position, convertView, parent)
     }
 }
 
 public extension ListViewAdapter {
     
-    struct Context {
-        
-        let items: [String]
-    }
+    typealias GetView = (Int32, AndroidView.View?, ViewGroup?) -> AndroidView.View?
     
-    var context: Context {
+    var getView: GetView {
         get {
-            getContext().valueObject().value as! Context
+            getSwiftObject().valueObject().value as! GetView
         }
         set {
-            getContext().valueObject().value = newValue
+            getSwiftObject().valueObject().value = newValue
         }
     }
     
-    convenience init(_ context: Context, environment: JNIEnvironment? = nil) {
-        self.init(swiftObject: SwiftObject(context), environment: environment)
+    convenience init(
+        context: AndroidContent.Context,
+        getView: @escaping (Int32, AndroidView.View?, ViewGroup?) -> AndroidView.View?,
+        objects: ArrayList<JavaObject>,
+        environment: JNIEnvironment? = nil
+    ) {
+        self.init(context: context, swiftObject: SwiftObject(getView), objects: objects, environment: environment)
     }
 }
 
