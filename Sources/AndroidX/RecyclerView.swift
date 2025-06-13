@@ -8,8 +8,11 @@ import JavaKit
 import JavaKitCollection
 import JavaRuntime
 
-@JavaClass("androidx.recyclerview.widget.RecyclerView")
+@JavaClass("androidx.recyclerview.widget.RecyclerView", implements: ScrollingView.self, NestedScrollingChild2.self, NestedScrollingChild3.self)
 open class RecyclerView: ViewGroup {
+  @JavaMethod
+  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, environment: JNIEnvironment? = nil)
+
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, _ arg2: Int32, environment: JNIEnvironment? = nil)
 
@@ -17,118 +20,103 @@ open class RecyclerView: ViewGroup {
   @_nonoverride public convenience init(_ arg0: Context?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, environment: JNIEnvironment? = nil)
+  open func getLayoutManager() -> RecyclerView.LayoutManager!
+
+  @JavaMethod
+  open func getMinFlingVelocity() -> Int32
+
+  @JavaMethod
+  open func getOnFlingListener() -> RecyclerView.OnFlingListener!
+
+  @JavaMethod
+  open func addOnScrollListener(_ arg0: RecyclerView.OnScrollListener?)
+
+  @JavaMethod
+  open func setOnFlingListener(_ arg0: RecyclerView.OnFlingListener?)
+
+  @JavaMethod
+  open func removeOnScrollListener(_ arg0: RecyclerView.OnScrollListener?)
+
+  @JavaMethod
+  open func fling(_ arg0: Int32, _ arg1: Int32) -> Bool
+
+  @JavaMethod
+  open func dispatchNestedPreScroll(_ arg0: Int32, _ arg1: Int32, _ arg2: [Int32], _ arg3: [Int32], _ arg4: Int32) -> Bool
+
+  @JavaMethod
+  open override func dispatchNestedPreScroll(_ arg0: Int32, _ arg1: Int32, _ arg2: [Int32], _ arg3: [Int32]) -> Bool
+
+  @JavaMethod
+  open func dispatchNestedScroll(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: [Int32], _ arg5: Int32, _ arg6: [Int32])
+
+  @JavaMethod
+  open func dispatchNestedScroll(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: [Int32], _ arg5: Int32) -> Bool
+
+  @JavaMethod
+  open override func dispatchNestedScroll(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: [Int32]) -> Bool
+
+  @JavaMethod
+  open override func stopNestedScroll()
+
+  @JavaMethod
+  open func stopNestedScroll(_ arg0: Int32)
+
+  @JavaMethod
+  open func addItemDecoration(_ arg0: RecyclerView.ItemDecoration?, _ arg1: Int32)
+
+  @JavaMethod
+  open func addItemDecoration(_ arg0: RecyclerView.ItemDecoration?)
+
+  @JavaMethod
+  open func addOnItemTouchListener(_ arg0: RecyclerView.OnItemTouchListener?)
+
+  @JavaMethod
+  open func addOnChildAttachStateChangeListener(_ arg0: RecyclerView.OnChildAttachStateChangeListener?)
+
+  @JavaMethod
+  open func removeItemDecoration(_ arg0: RecyclerView.ItemDecoration?)
+
+  @JavaMethod
+  open func removeOnItemTouchListener(_ arg0: RecyclerView.OnItemTouchListener?)
+
+  @JavaMethod
+  open func removeOnChildAttachStateChangeListener(_ arg0: RecyclerView.OnChildAttachStateChangeListener?)
+
+  @JavaMethod
+  open override func onDraw(_ arg0: Canvas?)
+
+  @JavaMethod
+  open override func requestDisallowInterceptTouchEvent(_ arg0: Bool)
 
   @JavaMethod
   open func getChildViewHolder(_ arg0: View?) -> RecyclerView.ViewHolder!
 
   @JavaMethod
-  open override func isAttachedToWindow() -> Bool
+  open func getScrollState() -> Int32
 
   @JavaMethod
-  open override func requestLayout()
+  open func findChildViewUnder(_ arg0: Float, _ arg1: Float) -> View!
 
   @JavaMethod
-  open override func onDetachedFromWindow()
+  open func setChildDrawingOrderCallback(_ arg0: RecyclerView.ChildDrawingOrderCallback?)
 
   @JavaMethod
-  open override func scrollBy(_ arg0: Int32, _ arg1: Int32)
+  open func getRecycledViewPool() -> RecyclerView.RecycledViewPool!
 
   @JavaMethod
-  open override func getClipToPadding() -> Bool
+  open func setViewCacheExtension(_ arg0: RecyclerView.ViewCacheExtension?)
 
   @JavaMethod
-  open func offsetChildrenHorizontal(_ arg0: Int32)
+  open func setRecycledViewPool(_ arg0: RecyclerView.RecycledViewPool?)
 
   @JavaMethod
-  open func offsetChildrenVertical(_ arg0: Int32)
+  open override func scrollTo(_ arg0: Int32, _ arg1: Int32)
 
   @JavaMethod
-  open func findContainingItemView(_ arg0: View?) -> View!
-
-  @JavaMethod
-  open func onScrollStateChanged(_ arg0: Int32)
-
-  @JavaMethod
-  open override func computeHorizontalScrollOffset() -> Int32
-
-  @JavaMethod
-  open override func computeVerticalScrollOffset() -> Int32
-
-  @JavaMethod
-  open override func computeHorizontalScrollExtent() -> Int32
-
-  @JavaMethod
-  open override func computeVerticalScrollExtent() -> Int32
-
-  @JavaMethod
-  open override func computeHorizontalScrollRange() -> Int32
-
-  @JavaMethod
-  open override func computeVerticalScrollRange() -> Int32
-
-  @JavaMethod
-  open override func onRestoreInstanceState(_ arg0: Parcelable?)
-
-  @JavaMethod
-  open override func onSaveInstanceState() -> Parcelable!
-
-  @JavaMethod
-  open func smoothScrollToPosition(_ arg0: Int32)
-
-  @JavaMethod
-  open func scrollToPosition(_ arg0: Int32)
-
-  @JavaMethod
-  open override func generateDefaultLayoutParams() -> ViewGroup.LayoutParams!
-
-  @JavaMethod
-  open override func generateLayoutParams(_ arg0: ViewGroup.LayoutParams?) -> ViewGroup.LayoutParams!
-
-  @JavaMethod
-  open override func generateLayoutParams(_ arg0: AttributeSet?) -> ViewGroup.LayoutParams!
-
-  @JavaMethod
-  open override func checkLayoutParams(_ arg0: ViewGroup.LayoutParams?) -> Bool
-
-  @JavaMethod
-  open func getDecoratedBoundsWithMargins(_ arg0: View?, _ arg1: Rect?)
-
-  @JavaMethod
-  open override func onAttachedToWindow()
-
-  @JavaMethod
-  open func onChildAttachedToWindow(_ arg0: View?)
-
-  @JavaMethod
-  open override func removeDetachedView(_ arg0: View?, _ arg1: Bool)
-
-  @JavaMethod
-  open override func requestChildRectangleOnScreen(_ arg0: View?, _ arg1: Rect?, _ arg2: Bool) -> Bool
-
-  @JavaMethod
-  open func smoothScrollBy(_ arg0: Int32, _ arg1: Int32)
-
-  @JavaMethod
-  open func smoothScrollBy(_ arg0: Int32, _ arg1: Int32, _ arg2: Interpolator?, _ arg3: Int32)
-
-  @JavaMethod
-  open func smoothScrollBy(_ arg0: Int32, _ arg1: Int32, _ arg2: Interpolator?)
-
-  @JavaMethod
-  open func isComputingLayout() -> Bool
-
-  @JavaMethod
-  open override func getBaseline() -> Int32
-
-  @JavaMethod
-  open override func onMeasure(_ arg0: Int32, _ arg1: Int32)
+  open func onScrolled(_ arg0: Int32, _ arg1: Int32)
 
   @JavaMethod
   open func setAccessibilityDelegateCompat(_ arg0: RecyclerViewAccessibilityDelegate?)
-
-  @JavaMethod
-  open override func setNestedScrollingEnabled(_ arg0: Bool)
 
   @JavaMethod
   open func setLayoutManager(_ arg0: RecyclerView.LayoutManager?)
@@ -143,79 +131,19 @@ open class RecyclerView: ViewGroup {
   open func stopScroll()
 
   @JavaMethod
-  open func getRecycledViewPool() -> RecyclerView.RecycledViewPool!
-
-  @JavaMethod
-  open func setRecycledViewPool(_ arg0: RecyclerView.RecycledViewPool?)
-
-  @JavaMethod
-  open func setViewCacheExtension(_ arg0: RecyclerView.ViewCacheExtension?)
-
-  @JavaMethod
-  open func addItemDecoration(_ arg0: RecyclerView.ItemDecoration?)
-
-  @JavaMethod
-  open func addItemDecoration(_ arg0: RecyclerView.ItemDecoration?, _ arg1: Int32)
-
-  @JavaMethod
   open func getItemDecorationCount() -> Int32
 
   @JavaMethod
   open func getItemDecorationAt(_ arg0: Int32) -> RecyclerView.ItemDecoration!
 
   @JavaMethod
-  open func removeItemDecoration(_ arg0: RecyclerView.ItemDecoration?)
-
-  @JavaMethod
   open override func dispatchKeyEvent(_ arg0: KeyEvent?) -> Bool
-
-  @JavaMethod
-  open func getLayoutManager() -> RecyclerView.LayoutManager!
-
-  @JavaMethod
-  open override func startNestedScroll(_ arg0: Int32) -> Bool
-
-  @JavaMethod
-  open func startNestedScroll(_ arg0: Int32, _ arg1: Int32) -> Bool
-
-  @JavaMethod
-  open override func dispatchNestedPreScroll(_ arg0: Int32, _ arg1: Int32, _ arg2: [Int32], _ arg3: [Int32]) -> Bool
-
-  @JavaMethod
-  open func dispatchNestedPreScroll(_ arg0: Int32, _ arg1: Int32, _ arg2: [Int32], _ arg3: [Int32], _ arg4: Int32) -> Bool
-
-  @JavaMethod
-  open override func stopNestedScroll()
-
-  @JavaMethod
-  open func stopNestedScroll(_ arg0: Int32)
-
-  @JavaMethod
-  open func dispatchNestedScroll(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: [Int32], _ arg5: Int32) -> Bool
-
-  @JavaMethod
-  open func dispatchNestedScroll(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: [Int32], _ arg5: Int32, _ arg6: [Int32])
-
-  @JavaMethod
-  open override func dispatchNestedScroll(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: [Int32]) -> Bool
-
-  @JavaMethod
-  open override func onTouchEvent(_ arg0: MotionEvent?) -> Bool
 
   @JavaMethod
   open override func suppressLayout(_ arg0: Bool)
 
   @JavaMethod
   open override func isLayoutSuppressed() -> Bool
-
-  @JavaMethod
-  open func fling(_ arg0: Int32, _ arg1: Int32) -> Bool
-
-  @JavaMethod
-  open override func dispatchNestedPreFling(_ arg0: Float, _ arg1: Float) -> Bool
-
-  @JavaMethod
-  open override func dispatchNestedFling(_ arg0: Float, _ arg1: Float, _ arg2: Bool) -> Bool
 
   @JavaMethod
   open override func focusSearch(_ arg0: View?, _ arg1: Int32) -> View!
@@ -230,12 +158,6 @@ open class RecyclerView: ViewGroup {
   open override func onRequestFocusInDescendants(_ arg0: Int32, _ arg1: Rect?) -> Bool
 
   @JavaMethod
-  open override func onInterceptTouchEvent(_ arg0: MotionEvent?) -> Bool
-
-  @JavaMethod
-  open override func requestDisallowInterceptTouchEvent(_ arg0: Bool)
-
-  @JavaMethod
   open override func onSizeChanged(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
 
   @JavaMethod
@@ -248,15 +170,6 @@ open class RecyclerView: ViewGroup {
   open func findViewHolderForItemId(_ arg0: Int64) -> RecyclerView.ViewHolder!
 
   @JavaMethod
-  open func getScrollState() -> Int32
-
-  @JavaMethod
-  open override func draw(_ arg0: Canvas?)
-
-  @JavaMethod
-  open override func onDraw(_ arg0: Canvas?)
-
-  @JavaMethod
   open func getChildAdapterPosition(_ arg0: View?) -> Int32
 
   @JavaMethod
@@ -266,19 +179,7 @@ open class RecyclerView: ViewGroup {
   open override func drawChild(_ arg0: Canvas?, _ arg1: View?, _ arg2: Int64) -> Bool
 
   @JavaMethod
-  open func onScrolled(_ arg0: Int32, _ arg1: Int32)
-
-  @JavaMethod
   open func onChildDetachedFromWindow(_ arg0: View?)
-
-  @JavaMethod
-  open override func isNestedScrollingEnabled() -> Bool
-
-  @JavaMethod
-  open func hasNestedScrollingParent(_ arg0: Int32) -> Bool
-
-  @JavaMethod
-  open override func hasNestedScrollingParent() -> Bool
 
   @JavaMethod
   open override func getChildDrawingOrder(_ arg0: Int32, _ arg1: Int32) -> Int32
@@ -314,19 +215,7 @@ open class RecyclerView: ViewGroup {
   open func removeRecyclerListener(_ arg0: RecyclerView.RecyclerListener?)
 
   @JavaMethod
-  open func addOnChildAttachStateChangeListener(_ arg0: RecyclerView.OnChildAttachStateChangeListener?)
-
-  @JavaMethod
-  open func removeOnChildAttachStateChangeListener(_ arg0: RecyclerView.OnChildAttachStateChangeListener?)
-
-  @JavaMethod
   open func clearOnChildAttachStateChangeListeners()
-
-  @JavaMethod
-  open func setOnFlingListener(_ arg0: RecyclerView.OnFlingListener?)
-
-  @JavaMethod
-  open func getOnFlingListener() -> RecyclerView.OnFlingListener!
 
   @JavaMethod
   open override func dispatchSaveInstanceState(_ arg0: SparseArray<Parcelable>?)
@@ -341,31 +230,16 @@ open class RecyclerView: ViewGroup {
   open func removeItemDecorationAt(_ arg0: Int32)
 
   @JavaMethod
-  open func setChildDrawingOrderCallback(_ arg0: RecyclerView.ChildDrawingOrderCallback?)
-
-  @JavaMethod
   open func setOnScrollListener(_ arg0: RecyclerView.OnScrollListener?)
 
   @JavaMethod
-  open func addOnScrollListener(_ arg0: RecyclerView.OnScrollListener?)
-
-  @JavaMethod
-  open func removeOnScrollListener(_ arg0: RecyclerView.OnScrollListener?)
-
-  @JavaMethod
   open func clearOnScrollListeners()
-
-  @JavaMethod
-  open override func scrollTo(_ arg0: Int32, _ arg1: Int32)
 
   @JavaMethod
   open func nestedScrollBy(_ arg0: Int32, _ arg1: Int32)
 
   @JavaMethod
   open func isLayoutFrozen() -> Bool
-
-  @JavaMethod
-  open func getMinFlingVelocity() -> Int32
 
   @JavaMethod
   open func getMaxFlingVelocity() -> Int32
@@ -377,19 +251,10 @@ open class RecyclerView: ViewGroup {
   open func getEdgeEffectFactory() -> RecyclerView.EdgeEffectFactory!
 
   @JavaMethod
-  open func addOnItemTouchListener(_ arg0: RecyclerView.OnItemTouchListener?)
-
-  @JavaMethod
-  open func removeOnItemTouchListener(_ arg0: RecyclerView.OnItemTouchListener?)
-
-  @JavaMethod
   open override func onGenericMotionEvent(_ arg0: MotionEvent?) -> Bool
 
   @JavaMethod
   open func setItemAnimator(_ arg0: RecyclerView.ItemAnimator?)
-
-  @JavaMethod
-  open func getItemAnimator() -> RecyclerView.ItemAnimator!
 
   @JavaMethod
   open override func onLayout(_ arg0: Bool, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32)
@@ -407,22 +272,157 @@ open class RecyclerView: ViewGroup {
   open func setPreserveFocusAfterLayout(_ arg0: Bool)
 
   @JavaMethod
-  open func getChildPosition(_ arg0: View?) -> Int32
-
-  @JavaMethod
-  open func getChildLayoutPosition(_ arg0: View?) -> Int32
-
-  @JavaMethod
   open func getChildItemId(_ arg0: View?) -> Int64
 
   @JavaMethod
   open func findViewHolderForLayoutPosition(_ arg0: Int32) -> RecyclerView.ViewHolder!
 
   @JavaMethod
-  open func findChildViewUnder(_ arg0: Float, _ arg1: Float) -> View!
+  open override func isAttachedToWindow() -> Bool
+
+  @JavaMethod
+  open func getDecoratedBoundsWithMargins(_ arg0: View?, _ arg1: Rect?)
+
+  @JavaMethod
+  open override func requestLayout()
+
+  @JavaMethod
+  open override func onAttachedToWindow()
+
+  @JavaMethod
+  open override func onDetachedFromWindow()
+
+  @JavaMethod
+  open func onChildAttachedToWindow(_ arg0: View?)
+
+  @JavaMethod
+  open func findContainingItemView(_ arg0: View?) -> View!
+
+  @JavaMethod
+  open override func removeDetachedView(_ arg0: View?, _ arg1: Bool)
+
+  @JavaMethod
+  open func offsetChildrenHorizontal(_ arg0: Int32)
+
+  @JavaMethod
+  open func offsetChildrenVertical(_ arg0: Int32)
+
+  @JavaMethod
+  open override func requestChildRectangleOnScreen(_ arg0: View?, _ arg1: Rect?, _ arg2: Bool) -> Bool
+
+  @JavaMethod
+  open override func scrollBy(_ arg0: Int32, _ arg1: Int32)
+
+  @JavaMethod
+  open func smoothScrollBy(_ arg0: Int32, _ arg1: Int32, _ arg2: Interpolator?, _ arg3: Int32)
+
+  @JavaMethod
+  open func smoothScrollBy(_ arg0: Int32, _ arg1: Int32, _ arg2: Interpolator?)
+
+  @JavaMethod
+  open func smoothScrollBy(_ arg0: Int32, _ arg1: Int32)
+
+  @JavaMethod
+  open func isComputingLayout() -> Bool
+
+  @JavaMethod
+  open func smoothScrollToPosition(_ arg0: Int32)
+
+  @JavaMethod
+  open override func getClipToPadding() -> Bool
+
+  @JavaMethod
+  open override func generateDefaultLayoutParams() -> ViewGroup.LayoutParams!
+
+  @JavaMethod
+  open override func checkLayoutParams(_ arg0: ViewGroup.LayoutParams?) -> Bool
+
+  @JavaMethod
+  open override func generateLayoutParams(_ arg0: ViewGroup.LayoutParams?) -> ViewGroup.LayoutParams!
+
+  @JavaMethod
+  open override func generateLayoutParams(_ arg0: AttributeSet?) -> ViewGroup.LayoutParams!
+
+  @JavaMethod
+  open func scrollToPosition(_ arg0: Int32)
+
+  @JavaMethod
+  open override func getBaseline() -> Int32
+
+  @JavaMethod
+  open override func computeHorizontalScrollExtent() -> Int32
+
+  @JavaMethod
+  open override func computeHorizontalScrollOffset() -> Int32
+
+  @JavaMethod
+  open override func computeHorizontalScrollRange() -> Int32
+
+  @JavaMethod
+  open override func computeVerticalScrollExtent() -> Int32
+
+  @JavaMethod
+  open override func computeVerticalScrollOffset() -> Int32
+
+  @JavaMethod
+  open override func computeVerticalScrollRange() -> Int32
+
+  @JavaMethod
+  open override func onMeasure(_ arg0: Int32, _ arg1: Int32)
+
+  @JavaMethod
+  open override func onSaveInstanceState() -> Parcelable!
+
+  @JavaMethod
+  open override func onRestoreInstanceState(_ arg0: Parcelable?)
+
+  @JavaMethod
+  open func onScrollStateChanged(_ arg0: Int32)
+
+  @JavaMethod
+  open override func draw(_ arg0: Canvas?)
+
+  @JavaMethod
+  open func getItemAnimator() -> RecyclerView.ItemAnimator!
+
+  @JavaMethod
+  open func hasNestedScrollingParent(_ arg0: Int32) -> Bool
+
+  @JavaMethod
+  open override func hasNestedScrollingParent() -> Bool
+
+  @JavaMethod
+  open func startNestedScroll(_ arg0: Int32, _ arg1: Int32) -> Bool
+
+  @JavaMethod
+  open override func startNestedScroll(_ arg0: Int32) -> Bool
+
+  @JavaMethod
+  open override func isNestedScrollingEnabled() -> Bool
+
+  @JavaMethod
+  open override func setNestedScrollingEnabled(_ arg0: Bool)
+
+  @JavaMethod
+  open override func dispatchNestedFling(_ arg0: Float, _ arg1: Float, _ arg2: Bool) -> Bool
+
+  @JavaMethod
+  open override func dispatchNestedPreFling(_ arg0: Float, _ arg1: Float) -> Bool
 
   @JavaMethod
   open func hasPendingAdapterUpdates() -> Bool
+
+  @JavaMethod
+  open override func onInterceptTouchEvent(_ arg0: MotionEvent?) -> Bool
+
+  @JavaMethod
+  open override func onTouchEvent(_ arg0: MotionEvent?) -> Bool
+
+  @JavaMethod
+  open func getChildPosition(_ arg0: View?) -> Int32
+
+  @JavaMethod
+  open func getChildLayoutPosition(_ arg0: View?) -> Int32
 
   @JavaMethod
   open func getAdapter() -> RecyclerView.Adapter!
