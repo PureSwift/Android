@@ -12,19 +12,7 @@ extension RecyclerView {
   open func getItemCount() -> Int32
 
   @JavaMethod
-  open func isPreLayout() -> Bool
-
-  @JavaMethod
   open func getTargetScrollPosition() -> Int32
-
-  @JavaMethod
-  open func didStructureChange() -> Bool
-
-  @JavaMethod
-  open func hasTargetScrollPosition() -> Bool
-
-  @JavaMethod
-  open func willRunPredictiveAnimations() -> Bool
 
   @JavaMethod
   open func isMeasuring() -> Bool
@@ -37,6 +25,18 @@ extension RecyclerView {
 
   @JavaMethod
   open func getRemainingScrollVertical() -> Int32
+
+  @JavaMethod
+  open func isPreLayout() -> Bool
+
+  @JavaMethod
+  open func didStructureChange() -> Bool
+
+  @JavaMethod
+  open func hasTargetScrollPosition() -> Bool
+
+  @JavaMethod
+  open func willRunPredictiveAnimations() -> Bool
 
   @JavaMethod
   open func remove(_ arg0: Int32)

@@ -12,12 +12,6 @@ open class SortedList<T: AnyJavaObject>: JavaObject {
   @_nonoverride public convenience init(_ arg0: JavaClass<JavaObject>?, _ arg1: SortedList.Callback<JavaObject>?, _ arg2: Int32, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func beginBatchedUpdates()
-
-  @JavaMethod
-  open func endBatchedUpdates()
-
-  @JavaMethod
   open func removeItemAt(_ arg0: Int32) -> JavaObject!
 
   @JavaMethod
@@ -25,6 +19,12 @@ open class SortedList<T: AnyJavaObject>: JavaObject {
 
   @JavaMethod
   open func recalculatePositionOfItemAt(_ arg0: Int32)
+
+  @JavaMethod
+  open func beginBatchedUpdates()
+
+  @JavaMethod
+  open func endBatchedUpdates()
 
   @JavaMethod
   open func remove(_ arg0: JavaObject?) -> Bool

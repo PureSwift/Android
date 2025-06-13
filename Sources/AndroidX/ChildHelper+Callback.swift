@@ -7,28 +7,28 @@ extension ChildHelper {
   @JavaInterface("androidx.recyclerview.widget.ChildHelper$Callback")
   public struct Callback {
   @JavaMethod
-  public func addView(_ arg0: View?, _ arg1: Int32)
+  public func attachViewToParent(_ arg0: View?, _ arg1: Int32, _ arg2: ViewGroup.LayoutParams?)
 
   @JavaMethod
-  public func indexOfChild(_ arg0: View?) -> Int32
-
-  @JavaMethod
-  public func removeViewAt(_ arg0: Int32)
-
-  @JavaMethod
-  public func getChildAt(_ arg0: Int32) -> View!
-
-  @JavaMethod
-  public func removeAllViews()
+  public func detachViewFromParent(_ arg0: Int32)
 
   @JavaMethod
   public func getChildViewHolder(_ arg0: View?) -> RecyclerView.ViewHolder!
 
   @JavaMethod
-  public func attachViewToParent(_ arg0: View?, _ arg1: Int32, _ arg2: ViewGroup.LayoutParams?)
+  public func addView(_ arg0: View?, _ arg1: Int32)
 
   @JavaMethod
-  public func detachViewFromParent(_ arg0: Int32)
+  public func getChildAt(_ arg0: Int32) -> View!
+
+  @JavaMethod
+  public func removeViewAt(_ arg0: Int32)
+
+  @JavaMethod
+  public func removeAllViews()
+
+  @JavaMethod
+  public func indexOfChild(_ arg0: View?) -> Int32
 
   @JavaMethod
   public func onEnteredHiddenState(_ arg0: View?)

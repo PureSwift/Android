@@ -9,10 +9,16 @@ open class SnapHelper: RecyclerView.OnFlingListener {
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func calculateDistanceToFinalSnap(_ arg0: RecyclerView.LayoutManager?, _ arg1: View?) -> [Int32]
+  open override func onFling(_ arg0: Int32, _ arg1: Int32) -> Bool
 
   @JavaMethod
   open func findSnapView(_ arg0: RecyclerView.LayoutManager?) -> View!
+
+  @JavaMethod
+  open func calculateScrollDistance(_ arg0: Int32, _ arg1: Int32) -> [Int32]
+
+  @JavaMethod
+  open func calculateDistanceToFinalSnap(_ arg0: RecyclerView.LayoutManager?, _ arg1: View?) -> [Int32]
 
   @JavaMethod
   open func findTargetSnapPosition(_ arg0: RecyclerView.LayoutManager?, _ arg1: Int32, _ arg2: Int32) -> Int32
@@ -25,10 +31,4 @@ open class SnapHelper: RecyclerView.OnFlingListener {
 
   @JavaMethod
   open func attachToRecyclerView(_ arg0: RecyclerView?) throws
-
-  @JavaMethod
-  open func calculateScrollDistance(_ arg0: Int32, _ arg1: Int32) -> [Int32]
-
-  @JavaMethod
-  open override func onFling(_ arg0: Int32, _ arg1: Int32) -> Bool
 }

@@ -9,16 +9,19 @@ open class DefaultItemAnimator: SimpleItemAnimator {
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
   @JavaMethod
+  open override func endAnimations()
+
+  @JavaMethod
+  open override func animateMove(_ arg0: RecyclerView.ViewHolder?, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32) -> Bool
+
+  @JavaMethod
+  open override func runPendingAnimations()
+
+  @JavaMethod
   open override func animateRemove(_ arg0: RecyclerView.ViewHolder?) -> Bool
 
   @JavaMethod
-  open override func isRunning() -> Bool
-
-  @JavaMethod
-  open override func endAnimation(_ arg0: RecyclerView.ViewHolder?)
-
-  @JavaMethod
-  open override func endAnimations()
+  open override func animateAdd(_ arg0: RecyclerView.ViewHolder?) -> Bool
 
   @JavaMethod
   open override func animateChange(_ arg0: RecyclerView.ViewHolder?, _ arg1: RecyclerView.ViewHolder?, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32, _ arg5: Int32) -> Bool
@@ -27,13 +30,10 @@ open class DefaultItemAnimator: SimpleItemAnimator {
   open override func canReuseUpdatedViewHolder(_ arg0: RecyclerView.ViewHolder?, _ arg1: List<JavaObject>?) -> Bool
 
   @JavaMethod
-  open override func animateMove(_ arg0: RecyclerView.ViewHolder?, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32) -> Bool
+  open override func isRunning() -> Bool
 
   @JavaMethod
-  open override func animateAdd(_ arg0: RecyclerView.ViewHolder?) -> Bool
-
-  @JavaMethod
-  open override func runPendingAnimations()
+  open override func endAnimation(_ arg0: RecyclerView.ViewHolder?)
 }
 extension JavaClass<DefaultItemAnimator> {
   @JavaStaticField(isFinal: true)

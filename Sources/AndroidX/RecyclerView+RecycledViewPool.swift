@@ -9,16 +9,16 @@ extension RecyclerView {
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func getRecycledView(_ arg0: Int32) -> RecyclerView.ViewHolder!
-
-  @JavaMethod
-  open func putRecycledView(_ arg0: RecyclerView.ViewHolder?)
-
-  @JavaMethod
   open func setMaxRecycledViews(_ arg0: Int32, _ arg1: Int32)
 
   @JavaMethod
   open func getRecycledViewCount(_ arg0: Int32) -> Int32
+
+  @JavaMethod
+  open func getRecycledView(_ arg0: Int32) -> RecyclerView.ViewHolder!
+
+  @JavaMethod
+  open func putRecycledView(_ arg0: RecyclerView.ViewHolder?)
 
   @JavaMethod
   open func clear()

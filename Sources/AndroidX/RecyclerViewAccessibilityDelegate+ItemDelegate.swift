@@ -11,9 +11,9 @@ extension RecyclerViewAccessibilityDelegate {
   @_nonoverride public convenience init(_ arg0: RecyclerViewAccessibilityDelegate?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func performAccessibilityAction(_ arg0: View?, _ arg1: Int32, _ arg2: Bundle?) -> Bool
+  open func sendAccessibilityEvent(_ arg0: View?, _ arg1: Int32)
 
   @JavaMethod
-  open func sendAccessibilityEvent(_ arg0: View?, _ arg1: Int32)
+  open func performAccessibilityAction(_ arg0: View?, _ arg1: Int32, _ arg2: Bundle?) -> Bool
   }
 }

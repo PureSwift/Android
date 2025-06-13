@@ -10,9 +10,6 @@ extension ViewBoundsCheck {
   public func getChildAt(_ arg0: Int32) -> View!
 
   @JavaMethod
-  public func getChildEnd(_ arg0: View?) -> Int32
-
-  @JavaMethod
   public func getParentStart() -> Int32
 
   @JavaMethod
@@ -20,5 +17,8 @@ extension ViewBoundsCheck {
 
   @JavaMethod
   public func getChildStart(_ arg0: View?) -> Int32
+
+  @JavaMethod
+  public func getChildEnd(_ arg0: View?) -> Int32
   }
 }

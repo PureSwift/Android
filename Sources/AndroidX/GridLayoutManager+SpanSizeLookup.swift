@@ -9,13 +9,7 @@ extension GridLayoutManager {
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func getSpanIndex(_ arg0: Int32, _ arg1: Int32) -> Int32
-
-  @JavaMethod
   open func getSpanGroupIndex(_ arg0: Int32, _ arg1: Int32) -> Int32
-
-  @JavaMethod
-  open func getSpanSize(_ arg0: Int32) -> Int32
 
   @JavaMethod
   open func setSpanIndexCacheEnabled(_ arg0: Bool)
@@ -34,5 +28,11 @@ extension GridLayoutManager {
 
   @JavaMethod
   open func isSpanGroupIndexCacheEnabled() -> Bool
+
+  @JavaMethod
+  open func getSpanSize(_ arg0: Int32) -> Int32
+
+  @JavaMethod
+  open func getSpanIndex(_ arg0: Int32, _ arg1: Int32) -> Int32
   }
 }

@@ -24,13 +24,13 @@ extension StaggeredGridLayoutManager {
   @_nonoverride public convenience init(_ arg0: Int32, _ arg1: Int32, environment: JNIEnvironment? = nil)
 
   @JavaMethod
+  open func setFullSpan(_ arg0: Bool)
+
+  @JavaMethod
   open func isFullSpan() -> Bool
 
   @JavaMethod
   open func getSpanIndex() -> Int32
-
-  @JavaMethod
-  open func setFullSpan(_ arg0: Bool)
   }
 }
 extension JavaClass<StaggeredGridLayoutManager.LayoutParams> {

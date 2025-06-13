@@ -9,6 +9,18 @@ extension SortedList {
   @_nonoverride public convenience init(_ arg0: SortedList.Callback<JavaObject>?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
+  open func onInserted(_ arg0: Int32, _ arg1: Int32)
+
+  @JavaMethod
+  open func onRemoved(_ arg0: Int32, _ arg1: Int32)
+
+  @JavaMethod
+  open override func onChanged(_ arg0: Int32, _ arg1: Int32, _ arg2: JavaObject?)
+
+  @JavaMethod
+  open override func onChanged(_ arg0: Int32, _ arg1: Int32)
+
+  @JavaMethod
   open override func areContentsTheSame(_ arg0: JavaObject?, _ arg1: JavaObject?) -> Bool
 
   @JavaMethod
@@ -21,19 +33,7 @@ extension SortedList {
   open func dispatchLastEvent()
 
   @JavaMethod
-  open override func onChanged(_ arg0: Int32, _ arg1: Int32, _ arg2: JavaObject?)
-
-  @JavaMethod
-  open override func onChanged(_ arg0: Int32, _ arg1: Int32)
-
-  @JavaMethod
   open func onMoved(_ arg0: Int32, _ arg1: Int32)
-
-  @JavaMethod
-  open func onRemoved(_ arg0: Int32, _ arg1: Int32)
-
-  @JavaMethod
-  open func onInserted(_ arg0: Int32, _ arg1: Int32)
 
   @JavaMethod
   open override func compare(_ arg0: JavaObject?, _ arg1: JavaObject?) -> Int32

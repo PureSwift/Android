@@ -9,9 +9,9 @@ extension RecyclerView {
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func onScrollStateChanged(_ arg0: RecyclerView?, _ arg1: Int32)
+  open func onScrolled(_ arg0: RecyclerView?, _ arg1: Int32, _ arg2: Int32)
 
   @JavaMethod
-  open func onScrolled(_ arg0: RecyclerView?, _ arg1: Int32, _ arg2: Int32)
+  open func onScrollStateChanged(_ arg0: RecyclerView?, _ arg1: Int32)
   }
 }

@@ -8,17 +8,17 @@ open class SortedListAdapterCallback<T2: AnyJavaObject>: SortedList.Callback {
   @_nonoverride public convenience init(_ arg0: RecyclerView.Adapter<JavaObject>?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open override func onChanged(_ arg0: Int32, _ arg1: Int32, _ arg2: JavaObject?)
-
-  @JavaMethod
-  open override func onChanged(_ arg0: Int32, _ arg1: Int32)
-
-  @JavaMethod
-  open func onMoved(_ arg0: Int32, _ arg1: Int32)
+  open func onInserted(_ arg0: Int32, _ arg1: Int32)
 
   @JavaMethod
   open func onRemoved(_ arg0: Int32, _ arg1: Int32)
 
   @JavaMethod
-  open func onInserted(_ arg0: Int32, _ arg1: Int32)
+  open override func onChanged(_ arg0: Int32, _ arg1: Int32)
+
+  @JavaMethod
+  open override func onChanged(_ arg0: Int32, _ arg1: Int32, _ arg2: JavaObject?)
+
+  @JavaMethod
+  open func onMoved(_ arg0: Int32, _ arg1: Int32)
 }

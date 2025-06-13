@@ -17,6 +17,9 @@ extension ItemTouchHelper {
   open func convertToAbsoluteDirection(_ arg0: Int32, _ arg1: Int32) -> Int32
 
   @JavaMethod
+  open func isLongPressDragEnabled() -> Bool
+
+  @JavaMethod
   open func onChildDraw(_ arg0: Canvas?, _ arg1: RecyclerView?, _ arg2: RecyclerView.ViewHolder?, _ arg3: Float, _ arg4: Float, _ arg5: Int32, _ arg6: Bool)
 
   @JavaMethod
@@ -30,9 +33,6 @@ extension ItemTouchHelper {
 
   @JavaMethod
   open func onMove(_ arg0: RecyclerView?, _ arg1: RecyclerView.ViewHolder?, _ arg2: RecyclerView.ViewHolder?) -> Bool
-
-  @JavaMethod
-  open func isLongPressDragEnabled() -> Bool
 
   @JavaMethod
   open func isItemViewSwipeEnabled() -> Bool
@@ -62,13 +62,13 @@ extension ItemTouchHelper {
   open func onSelectedChanged(_ arg0: RecyclerView.ViewHolder?, _ arg1: Int32)
 
   @JavaMethod
+  open func onMoved(_ arg0: RecyclerView?, _ arg1: RecyclerView.ViewHolder?, _ arg2: Int32, _ arg3: RecyclerView.ViewHolder?, _ arg4: Int32, _ arg5: Int32, _ arg6: Int32)
+
+  @JavaMethod
   open func getAnimationDuration(_ arg0: RecyclerView?, _ arg1: Int32, _ arg2: Float, _ arg3: Float) -> Int64
 
   @JavaMethod
   open func interpolateOutOfBoundsScroll(_ arg0: RecyclerView?, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: Int64) -> Int32
-
-  @JavaMethod
-  open func onMoved(_ arg0: RecyclerView?, _ arg1: RecyclerView.ViewHolder?, _ arg2: Int32, _ arg3: RecyclerView.ViewHolder?, _ arg4: Int32, _ arg5: Int32, _ arg6: Int32)
   }
 }
 extension JavaClass<ItemTouchHelper.Callback> {

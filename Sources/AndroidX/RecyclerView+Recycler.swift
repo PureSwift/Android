@@ -11,22 +11,22 @@ extension RecyclerView {
   @_nonoverride public convenience init(_ arg0: RecyclerView?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func getViewForPosition(_ arg0: Int32) -> View!
-
-  @JavaMethod
-  open func recycleView(_ arg0: View?)
-
-  @JavaMethod
   open func setViewCacheSize(_ arg0: Int32)
 
   @JavaMethod
-  open func getScrapList() -> List<RecyclerView.ViewHolder>!
+  open func getViewForPosition(_ arg0: Int32) -> View!
 
   @JavaMethod
   open func bindViewToPosition(_ arg0: View?, _ arg1: Int32)
 
   @JavaMethod
   open func convertPreLayoutPositionToPostLayout(_ arg0: Int32) -> Int32
+
+  @JavaMethod
+  open func getScrapList() -> List<RecyclerView.ViewHolder>!
+
+  @JavaMethod
+  open func recycleView(_ arg0: View?)
 
   @JavaMethod
   open func clear()

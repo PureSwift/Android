@@ -11,9 +11,6 @@ open class DividerItemDecoration: RecyclerView.ItemDecoration {
   @_nonoverride public convenience init(_ arg0: Context?, _ arg1: Int32, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func setOrientation(_ arg0: Int32)
-
-  @JavaMethod
   open func getDrawable() -> Drawable!
 
   @JavaMethod
@@ -21,6 +18,9 @@ open class DividerItemDecoration: RecyclerView.ItemDecoration {
 
   @JavaMethod
   open override func getItemOffsets(_ arg0: Rect?, _ arg1: View?, _ arg2: RecyclerView?, _ arg3: RecyclerView.State?)
+
+  @JavaMethod
+  open func setOrientation(_ arg0: Int32)
 
   @JavaMethod
   open func setDrawable(_ arg0: Drawable?)

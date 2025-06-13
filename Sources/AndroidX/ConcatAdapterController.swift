@@ -8,61 +8,19 @@ import JavaRuntime
 @JavaClass("androidx.recyclerview.widget.ConcatAdapterController", implements: NestedAdapterWrapper.Callback.self)
 open class ConcatAdapterController: JavaObject {
   @JavaMethod
-  open func onViewRecycled(_ arg0: RecyclerView.ViewHolder?)
-
-  @JavaMethod
-  open func getItemId(_ arg0: Int32) -> Int64
-
-  @JavaMethod
-  open func getItemViewType(_ arg0: Int32) -> Int32
-
-  @JavaMethod
-  open func onBindViewHolder(_ arg0: RecyclerView.ViewHolder?, _ arg1: Int32)
-
-  @JavaMethod
-  open func onCreateViewHolder(_ arg0: ViewGroup?, _ arg1: Int32) -> RecyclerView.ViewHolder!
-
-  @JavaMethod
-  open func hasStableIds() -> Bool
-
-  @JavaMethod
-  open func onFailedToRecycleView(_ arg0: RecyclerView.ViewHolder?) -> Bool
-
-  @JavaMethod
-  open func onViewAttachedToWindow(_ arg0: RecyclerView.ViewHolder?)
-
-  @JavaMethod
-  open func onViewDetachedFromWindow(_ arg0: RecyclerView.ViewHolder?)
+  open func onDetachedFromRecyclerView(_ arg0: RecyclerView?)
 
   @JavaMethod
   open func onAttachedToRecyclerView(_ arg0: RecyclerView?)
 
   @JavaMethod
-  open func onDetachedFromRecyclerView(_ arg0: RecyclerView?)
-
-  @JavaMethod
-  open func canRestoreState() -> Bool
-
-  @JavaMethod
-  open func onItemRangeChanged(_ arg0: NestedAdapterWrapper?, _ arg1: Int32, _ arg2: Int32, _ arg3: JavaObject?)
-
-  @JavaMethod
-  open func onItemRangeChanged(_ arg0: NestedAdapterWrapper?, _ arg1: Int32, _ arg2: Int32)
-
-  @JavaMethod
-  open func onItemRangeInserted(_ arg0: NestedAdapterWrapper?, _ arg1: Int32, _ arg2: Int32)
-
-  @JavaMethod
-  open func onItemRangeRemoved(_ arg0: NestedAdapterWrapper?, _ arg1: Int32, _ arg2: Int32)
-
-  @JavaMethod
-  open func onItemRangeMoved(_ arg0: NestedAdapterWrapper?, _ arg1: Int32, _ arg2: Int32)
-
-  @JavaMethod
-  open func onStateRestorationPolicyChanged(_ arg0: NestedAdapterWrapper?)
-
-  @JavaMethod
   open func getTotalCount() -> Int32
+
+  @JavaMethod
+  open func onFailedToRecycleView(_ arg0: RecyclerView.ViewHolder?) -> Bool
+
+  @JavaMethod
+  open func onViewRecycled(_ arg0: RecyclerView.ViewHolder?)
 
   @JavaMethod
   open func getCopyOfAdapters() -> List<RecyclerView.Adapter<RecyclerView.ViewHolder>>!
@@ -77,5 +35,47 @@ open class ConcatAdapterController: JavaObject {
   open func onChanged(_ arg0: NestedAdapterWrapper?)
 
   @JavaMethod
+  open func hasStableIds() -> Bool
+
+  @JavaMethod
+  open func getItemId(_ arg0: Int32) -> Int64
+
+  @JavaMethod
+  open func canRestoreState() -> Bool
+
+  @JavaMethod
+  open func onViewDetachedFromWindow(_ arg0: RecyclerView.ViewHolder?)
+
+  @JavaMethod
+  open func onViewAttachedToWindow(_ arg0: RecyclerView.ViewHolder?)
+
+  @JavaMethod
+  open func getItemViewType(_ arg0: Int32) -> Int32
+
+  @JavaMethod
+  open func onItemRangeChanged(_ arg0: NestedAdapterWrapper?, _ arg1: Int32, _ arg2: Int32)
+
+  @JavaMethod
+  open func onItemRangeChanged(_ arg0: NestedAdapterWrapper?, _ arg1: Int32, _ arg2: Int32, _ arg3: JavaObject?)
+
+  @JavaMethod
+  open func onItemRangeInserted(_ arg0: NestedAdapterWrapper?, _ arg1: Int32, _ arg2: Int32)
+
+  @JavaMethod
+  open func onItemRangeRemoved(_ arg0: NestedAdapterWrapper?, _ arg1: Int32, _ arg2: Int32)
+
+  @JavaMethod
+  open func onItemRangeMoved(_ arg0: NestedAdapterWrapper?, _ arg1: Int32, _ arg2: Int32)
+
+  @JavaMethod
+  open func onStateRestorationPolicyChanged(_ arg0: NestedAdapterWrapper?)
+
+  @JavaMethod
   open func getBoundAdapter(_ arg0: RecyclerView.ViewHolder?) -> RecyclerView.Adapter<RecyclerView.ViewHolder>!
+
+  @JavaMethod
+  open func onCreateViewHolder(_ arg0: ViewGroup?, _ arg1: Int32) -> RecyclerView.ViewHolder!
+
+  @JavaMethod
+  open func onBindViewHolder(_ arg0: RecyclerView.ViewHolder?, _ arg1: Int32)
 }

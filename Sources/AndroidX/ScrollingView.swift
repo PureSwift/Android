@@ -5,19 +5,19 @@ import JavaRuntime
 @JavaInterface("androidx.core.view.ScrollingView")
 public struct ScrollingView {
   @JavaMethod
-  public func computeHorizontalScrollExtent() -> Int32
+  public func computeHorizontalScrollOffset() -> Int32
 
   @JavaMethod
-  public func computeHorizontalScrollOffset() -> Int32
+  public func computeHorizontalScrollExtent() -> Int32
 
   @JavaMethod
   public func computeHorizontalScrollRange() -> Int32
 
   @JavaMethod
-  public func computeVerticalScrollExtent() -> Int32
+  public func computeVerticalScrollOffset() -> Int32
 
   @JavaMethod
-  public func computeVerticalScrollOffset() -> Int32
+  public func computeVerticalScrollExtent() -> Int32
 
   @JavaMethod
   public func computeVerticalScrollRange() -> Int32

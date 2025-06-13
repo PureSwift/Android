@@ -9,9 +9,9 @@ extension GridLayoutManager {
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open override func getSpanIndex(_ arg0: Int32, _ arg1: Int32) -> Int32
+  open override func getSpanSize(_ arg0: Int32) -> Int32
 
   @JavaMethod
-  open override func getSpanSize(_ arg0: Int32) -> Int32
+  open override func getSpanIndex(_ arg0: Int32, _ arg1: Int32) -> Int32
   }
 }

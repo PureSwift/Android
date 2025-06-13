@@ -8,7 +8,25 @@ open class SimpleItemAnimator: RecyclerView.ItemAnimator {
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
   @JavaMethod
+  open func dispatchMoveFinished(_ arg0: RecyclerView.ViewHolder?)
+
+  @JavaMethod
+  open func animateMove(_ arg0: RecyclerView.ViewHolder?, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32) -> Bool
+
+  @JavaMethod
+  open func dispatchChangeFinished(_ arg0: RecyclerView.ViewHolder?, _ arg1: Bool)
+
+  @JavaMethod
+  open func dispatchRemoveFinished(_ arg0: RecyclerView.ViewHolder?)
+
+  @JavaMethod
+  open func dispatchAddFinished(_ arg0: RecyclerView.ViewHolder?)
+
+  @JavaMethod
   open func animateRemove(_ arg0: RecyclerView.ViewHolder?) -> Bool
+
+  @JavaMethod
+  open func animateAdd(_ arg0: RecyclerView.ViewHolder?) -> Bool
 
   @JavaMethod
   open override func animateChange(_ arg0: RecyclerView.ViewHolder?, _ arg1: RecyclerView.ViewHolder?, _ arg2: RecyclerView.ItemAnimator.ItemHolderInfo?, _ arg3: RecyclerView.ItemAnimator.ItemHolderInfo?) -> Bool
@@ -24,15 +42,6 @@ open class SimpleItemAnimator: RecyclerView.ItemAnimator {
 
   @JavaMethod
   open override func canReuseUpdatedViewHolder(_ arg0: RecyclerView.ViewHolder?) -> Bool
-
-  @JavaMethod
-  open func animateMove(_ arg0: RecyclerView.ViewHolder?, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32) -> Bool
-
-  @JavaMethod
-  open func animateAdd(_ arg0: RecyclerView.ViewHolder?) -> Bool
-
-  @JavaMethod
-  open func dispatchMoveFinished(_ arg0: RecyclerView.ViewHolder?)
 
   @JavaMethod
   open func onRemoveFinished(_ arg0: RecyclerView.ViewHolder?)
@@ -66,15 +75,6 @@ open class SimpleItemAnimator: RecyclerView.ItemAnimator {
 
   @JavaMethod
   open override func animatePersistence(_ arg0: RecyclerView.ViewHolder?, _ arg1: RecyclerView.ItemAnimator.ItemHolderInfo?, _ arg2: RecyclerView.ItemAnimator.ItemHolderInfo?) -> Bool
-
-  @JavaMethod
-  open func dispatchRemoveFinished(_ arg0: RecyclerView.ViewHolder?)
-
-  @JavaMethod
-  open func dispatchAddFinished(_ arg0: RecyclerView.ViewHolder?)
-
-  @JavaMethod
-  open func dispatchChangeFinished(_ arg0: RecyclerView.ViewHolder?, _ arg1: Bool)
 
   @JavaMethod
   open func dispatchRemoveStarting(_ arg0: RecyclerView.ViewHolder?)

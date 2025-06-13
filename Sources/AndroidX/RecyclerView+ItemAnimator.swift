@@ -10,16 +10,19 @@ extension RecyclerView {
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func isRunning() -> Bool
-
-  @JavaMethod
-  open func isRunning(_ arg0: RecyclerView.ItemAnimator.ItemAnimatorFinishedListener?) -> Bool
-
-  @JavaMethod
-  open func endAnimation(_ arg0: RecyclerView.ViewHolder?)
-
-  @JavaMethod
   open func endAnimations()
+
+  @JavaMethod
+  open func getChangeDuration() -> Int64
+
+  @JavaMethod
+  open func getAddDuration() -> Int64
+
+  @JavaMethod
+  open func dispatchAnimationsFinished()
+
+  @JavaMethod
+  open func runPendingAnimations()
 
   @JavaMethod
   open func recordPreLayoutInformation(_ arg0: RecyclerView.State?, _ arg1: RecyclerView.ViewHolder?, _ arg2: Int32, _ arg3: List<JavaObject>?) -> RecyclerView.ItemAnimator.ItemHolderInfo!
@@ -37,10 +40,19 @@ extension RecyclerView {
   open func animateDisappearance(_ arg0: RecyclerView.ViewHolder?, _ arg1: RecyclerView.ItemAnimator.ItemHolderInfo?, _ arg2: RecyclerView.ItemAnimator.ItemHolderInfo?) -> Bool
 
   @JavaMethod
+  open func canReuseUpdatedViewHolder(_ arg0: RecyclerView.ViewHolder?, _ arg1: List<JavaObject>?) -> Bool
+
+  @JavaMethod
   open func canReuseUpdatedViewHolder(_ arg0: RecyclerView.ViewHolder?) -> Bool
 
   @JavaMethod
-  open func canReuseUpdatedViewHolder(_ arg0: RecyclerView.ViewHolder?, _ arg1: List<JavaObject>?) -> Bool
+  open func isRunning(_ arg0: RecyclerView.ItemAnimator.ItemAnimatorFinishedListener?) -> Bool
+
+  @JavaMethod
+  open func isRunning() -> Bool
+
+  @JavaMethod
+  open func endAnimation(_ arg0: RecyclerView.ViewHolder?)
 
   @JavaMethod
   open func dispatchAnimationFinished(_ arg0: RecyclerView.ViewHolder?)
@@ -58,37 +70,25 @@ extension RecyclerView {
   open func onAnimationStarted(_ arg0: RecyclerView.ViewHolder?)
 
   @JavaMethod
-  open func getMoveDuration() -> Int64
-
-  @JavaMethod
   open func setMoveDuration(_ arg0: Int64)
-
-  @JavaMethod
-  open func getAddDuration() -> Int64
 
   @JavaMethod
   open func setAddDuration(_ arg0: Int64)
 
   @JavaMethod
-  open func getRemoveDuration() -> Int64
-
-  @JavaMethod
   open func setRemoveDuration(_ arg0: Int64)
-
-  @JavaMethod
-  open func getChangeDuration() -> Int64
 
   @JavaMethod
   open func setChangeDuration(_ arg0: Int64)
 
   @JavaMethod
-  open func runPendingAnimations()
-
-  @JavaMethod
   open func dispatchAnimationStarted(_ arg0: RecyclerView.ViewHolder?)
 
   @JavaMethod
-  open func dispatchAnimationsFinished()
+  open func getMoveDuration() -> Int64
+
+  @JavaMethod
+  open func getRemoveDuration() -> Int64
   }
 }
 extension JavaClass<RecyclerView.ItemAnimator> {

@@ -7,10 +7,10 @@ extension LinearLayoutManager {
   @JavaClass("androidx.recyclerview.widget.LinearLayoutManager$AnchorInfo")
   open class AnchorInfo: JavaObject {
   @JavaMethod
-  open func assignFromView(_ arg0: View?, _ arg1: Int32)
+  open func assignFromViewAndKeepVisibleRect(_ arg0: View?, _ arg1: Int32)
 
   @JavaMethod
-  open func assignFromViewAndKeepVisibleRect(_ arg0: View?, _ arg1: Int32)
+  open func assignFromView(_ arg0: View?, _ arg1: Int32)
 
   @JavaMethod
   open override func toString() -> String

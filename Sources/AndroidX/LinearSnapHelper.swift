@@ -9,10 +9,10 @@ open class LinearSnapHelper: SnapHelper {
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open override func calculateDistanceToFinalSnap(_ arg0: RecyclerView.LayoutManager?, _ arg1: View?) -> [Int32]
+  open override func findSnapView(_ arg0: RecyclerView.LayoutManager?) -> View!
 
   @JavaMethod
-  open override func findSnapView(_ arg0: RecyclerView.LayoutManager?) -> View!
+  open override func calculateDistanceToFinalSnap(_ arg0: RecyclerView.LayoutManager?, _ arg1: View?) -> [Int32]
 
   @JavaMethod
   open override func findTargetSnapPosition(_ arg0: RecyclerView.LayoutManager?, _ arg1: Int32, _ arg2: Int32) -> Int32

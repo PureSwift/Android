@@ -9,6 +9,12 @@ extension SortedList {
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
   @JavaMethod
+  open func onChanged(_ arg0: Int32, _ arg1: Int32)
+
+  @JavaMethod
+  open func onChanged(_ arg0: Int32, _ arg1: Int32, _ arg2: JavaObject?)
+
+  @JavaMethod
   open func areContentsTheSame(_ arg0: JavaObject?, _ arg1: JavaObject?) -> Bool
 
   @JavaMethod
@@ -16,12 +22,6 @@ extension SortedList {
 
   @JavaMethod
   open func getChangePayload(_ arg0: JavaObject?, _ arg1: JavaObject?) -> JavaObject!
-
-  @JavaMethod
-  open func onChanged(_ arg0: Int32, _ arg1: Int32, _ arg2: JavaObject?)
-
-  @JavaMethod
-  open func onChanged(_ arg0: Int32, _ arg1: Int32)
 
   @JavaMethod
   open func compare(_ arg0: JavaObject?, _ arg1: JavaObject?) -> Int32

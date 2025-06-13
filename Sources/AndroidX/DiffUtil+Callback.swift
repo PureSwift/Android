@@ -9,12 +9,6 @@ extension DiffUtil {
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func getOldListSize() -> Int32
-
-  @JavaMethod
-  open func getNewListSize() -> Int32
-
-  @JavaMethod
   open func areContentsTheSame(_ arg0: Int32, _ arg1: Int32) -> Bool
 
   @JavaMethod
@@ -22,5 +16,11 @@ extension DiffUtil {
 
   @JavaMethod
   open func getChangePayload(_ arg0: Int32, _ arg1: Int32) -> JavaObject!
+
+  @JavaMethod
+  open func getOldListSize() -> Int32
+
+  @JavaMethod
+  open func getNewListSize() -> Int32
   }
 }

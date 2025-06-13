@@ -18,10 +18,40 @@ open class GridLayoutManager: LinearLayoutManager {
   @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, _ arg2: Int32, _ arg3: Int32, environment: JNIEnvironment? = nil)
 
   @JavaMethod
+  open override func setMeasuredDimension(_ arg0: Rect?, _ arg1: Int32, _ arg2: Int32)
+
+  @JavaMethod
+  open override func scrollHorizontallyBy(_ arg0: Int32, _ arg1: RecyclerView.Recycler?, _ arg2: RecyclerView.State?) -> Int32
+
+  @JavaMethod
+  open override func scrollVerticallyBy(_ arg0: Int32, _ arg1: RecyclerView.Recycler?, _ arg2: RecyclerView.State?) -> Int32
+
+  @JavaMethod
+  open override func computeHorizontalScrollOffset(_ arg0: RecyclerView.State?) -> Int32
+
+  @JavaMethod
+  open override func computeHorizontalScrollRange(_ arg0: RecyclerView.State?) -> Int32
+
+  @JavaMethod
+  open override func computeVerticalScrollOffset(_ arg0: RecyclerView.State?) -> Int32
+
+  @JavaMethod
+  open override func computeVerticalScrollRange(_ arg0: RecyclerView.State?) -> Int32
+
+  @JavaMethod
+  open override func onFocusSearchFailed(_ arg0: View?, _ arg1: Int32, _ arg2: RecyclerView.Recycler?, _ arg3: RecyclerView.State?) -> View!
+
+  @JavaMethod
+  open func setSpanCount(_ arg0: Int32)
+
+  @JavaMethod
   open func setSpanSizeLookup(_ arg0: GridLayoutManager.SpanSizeLookup?)
 
   @JavaMethod
   open func getSpanSizeLookup() -> GridLayoutManager.SpanSizeLookup!
+
+  @JavaMethod
+  open func getSpanCount() -> Int32
 
   @JavaMethod
   open func setUsingSpansToEstimateScrollbarDimensions(_ arg0: Bool)
@@ -30,10 +60,10 @@ open class GridLayoutManager: LinearLayoutManager {
   open func isUsingSpansToEstimateScrollbarDimensions() -> Bool
 
   @JavaMethod
-  open func setSpanCount(_ arg0: Int32)
+  open override func supportsPredictiveItemAnimations() -> Bool
 
   @JavaMethod
-  open override func setMeasuredDimension(_ arg0: Rect?, _ arg1: Int32, _ arg2: Int32)
+  open override func onItemsChanged(_ arg0: RecyclerView?)
 
   @JavaMethod
   open override func onLayoutChildren(_ arg0: RecyclerView.Recycler?, _ arg1: RecyclerView.State?)
@@ -42,49 +72,7 @@ open class GridLayoutManager: LinearLayoutManager {
   open override func onLayoutCompleted(_ arg0: RecyclerView.State?)
 
   @JavaMethod
-  open func getSpanCount() -> Int32
-
-  @JavaMethod
-  open override func supportsPredictiveItemAnimations() -> Bool
-
-  @JavaMethod
-  open override func computeHorizontalScrollOffset(_ arg0: RecyclerView.State?) -> Int32
-
-  @JavaMethod
-  open override func computeVerticalScrollOffset(_ arg0: RecyclerView.State?) -> Int32
-
-  @JavaMethod
-  open override func computeHorizontalScrollRange(_ arg0: RecyclerView.State?) -> Int32
-
-  @JavaMethod
-  open override func computeVerticalScrollRange(_ arg0: RecyclerView.State?) -> Int32
-
-  @JavaMethod
-  open override func getRowCountForAccessibility(_ arg0: RecyclerView.Recycler?, _ arg1: RecyclerView.State?) -> Int32
-
-  @JavaMethod
-  open override func getColumnCountForAccessibility(_ arg0: RecyclerView.Recycler?, _ arg1: RecyclerView.State?) -> Int32
-
-  @JavaMethod
-  open override func onItemsRemoved(_ arg0: RecyclerView?, _ arg1: Int32, _ arg2: Int32)
-
-  @JavaMethod
-  open override func onItemsAdded(_ arg0: RecyclerView?, _ arg1: Int32, _ arg2: Int32)
-
-  @JavaMethod
-  open override func onItemsChanged(_ arg0: RecyclerView?)
-
-  @JavaMethod
-  open override func onItemsMoved(_ arg0: RecyclerView?, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
-
-  @JavaMethod
-  open override func onItemsUpdated(_ arg0: RecyclerView?, _ arg1: Int32, _ arg2: Int32, _ arg3: JavaObject?)
-
-  @JavaMethod
-  open override func scrollHorizontallyBy(_ arg0: Int32, _ arg1: RecyclerView.Recycler?, _ arg2: RecyclerView.State?) -> Int32
-
-  @JavaMethod
-  open override func scrollVerticallyBy(_ arg0: Int32, _ arg1: RecyclerView.Recycler?, _ arg2: RecyclerView.State?) -> Int32
+  open override func checkLayoutParams(_ arg0: RecyclerView.LayoutParams?) -> Bool
 
   @JavaMethod
   open override func generateDefaultLayoutParams() -> RecyclerView.LayoutParams!
@@ -96,13 +84,25 @@ open class GridLayoutManager: LinearLayoutManager {
   open override func generateLayoutParams(_ arg0: Context?, _ arg1: AttributeSet?) -> RecyclerView.LayoutParams!
 
   @JavaMethod
-  open override func checkLayoutParams(_ arg0: RecyclerView.LayoutParams?) -> Bool
-
-  @JavaMethod
-  open override func onFocusSearchFailed(_ arg0: View?, _ arg1: Int32, _ arg2: RecyclerView.Recycler?, _ arg3: RecyclerView.State?) -> View!
-
-  @JavaMethod
   open override func setStackFromEnd(_ arg0: Bool)
+
+  @JavaMethod
+  open override func getRowCountForAccessibility(_ arg0: RecyclerView.Recycler?, _ arg1: RecyclerView.State?) -> Int32
+
+  @JavaMethod
+  open override func getColumnCountForAccessibility(_ arg0: RecyclerView.Recycler?, _ arg1: RecyclerView.State?) -> Int32
+
+  @JavaMethod
+  open override func onItemsUpdated(_ arg0: RecyclerView?, _ arg1: Int32, _ arg2: Int32, _ arg3: JavaObject?)
+
+  @JavaMethod
+  open override func onItemsAdded(_ arg0: RecyclerView?, _ arg1: Int32, _ arg2: Int32)
+
+  @JavaMethod
+  open override func onItemsRemoved(_ arg0: RecyclerView?, _ arg1: Int32, _ arg2: Int32)
+
+  @JavaMethod
+  open override func onItemsMoved(_ arg0: RecyclerView?, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
 }
 extension JavaClass<GridLayoutManager> {
   @JavaStaticField(isFinal: true)

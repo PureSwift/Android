@@ -7,9 +7,9 @@ extension ItemTouchHelper {
   @JavaClass("androidx.recyclerview.widget.ItemTouchHelper$ItemTouchHelperGestureListener")
   open class ItemTouchHelperGestureListener: GestureDetector.SimpleOnGestureListener {
   @JavaMethod
-  open override func onLongPress(_ arg0: MotionEvent?)
+  open override func onDown(_ arg0: MotionEvent?) -> Bool
 
   @JavaMethod
-  open override func onDown(_ arg0: MotionEvent?) -> Bool
+  open override func onLongPress(_ arg0: MotionEvent?)
   }
 }

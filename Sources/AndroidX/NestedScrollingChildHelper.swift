@@ -9,13 +9,25 @@ open class NestedScrollingChildHelper: JavaObject {
   @_nonoverride public convenience init(_ arg0: View?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func onStopNestedScroll(_ arg0: View?)
+  open func setNestedScrollingEnabled(_ arg0: Bool)
+
+  @JavaMethod
+  open func startNestedScroll(_ arg0: Int32, _ arg1: Int32) -> Bool
+
+  @JavaMethod
+  open func startNestedScroll(_ arg0: Int32) -> Bool
+
+  @JavaMethod
+  open func dispatchNestedPreScroll(_ arg0: Int32, _ arg1: Int32, _ arg2: [Int32], _ arg3: [Int32], _ arg4: Int32) -> Bool
 
   @JavaMethod
   open func dispatchNestedPreScroll(_ arg0: Int32, _ arg1: Int32, _ arg2: [Int32], _ arg3: [Int32]) -> Bool
 
   @JavaMethod
-  open func dispatchNestedPreScroll(_ arg0: Int32, _ arg1: Int32, _ arg2: [Int32], _ arg3: [Int32], _ arg4: Int32) -> Bool
+  open func stopNestedScroll()
+
+  @JavaMethod
+  open func stopNestedScroll(_ arg0: Int32)
 
   @JavaMethod
   open func dispatchNestedScroll(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: [Int32], _ arg5: Int32) -> Bool
@@ -27,13 +39,16 @@ open class NestedScrollingChildHelper: JavaObject {
   open func dispatchNestedScroll(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: [Int32], _ arg5: Int32, _ arg6: [Int32])
 
   @JavaMethod
-  open func stopNestedScroll(_ arg0: Int32)
+  open func dispatchNestedPreFling(_ arg0: Float, _ arg1: Float) -> Bool
 
   @JavaMethod
-  open func stopNestedScroll()
+  open func dispatchNestedFling(_ arg0: Float, _ arg1: Float, _ arg2: Bool) -> Bool
 
   @JavaMethod
   open func onDetachedFromWindow()
+
+  @JavaMethod
+  open func isNestedScrollingEnabled() -> Bool
 
   @JavaMethod
   open func hasNestedScrollingParent(_ arg0: Int32) -> Bool
@@ -42,20 +57,5 @@ open class NestedScrollingChildHelper: JavaObject {
   open func hasNestedScrollingParent() -> Bool
 
   @JavaMethod
-  open func startNestedScroll(_ arg0: Int32, _ arg1: Int32) -> Bool
-
-  @JavaMethod
-  open func startNestedScroll(_ arg0: Int32) -> Bool
-
-  @JavaMethod
-  open func isNestedScrollingEnabled() -> Bool
-
-  @JavaMethod
-  open func setNestedScrollingEnabled(_ arg0: Bool)
-
-  @JavaMethod
-  open func dispatchNestedFling(_ arg0: Float, _ arg1: Float, _ arg2: Bool) -> Bool
-
-  @JavaMethod
-  open func dispatchNestedPreFling(_ arg0: Float, _ arg1: Float) -> Bool
+  open func onStopNestedScroll(_ arg0: View?)
 }

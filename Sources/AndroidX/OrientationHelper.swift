@@ -6,28 +6,40 @@ import JavaRuntime
 @JavaClass("androidx.recyclerview.widget.OrientationHelper")
 open class OrientationHelper: JavaObject {
   @JavaMethod
-  open func offsetChild(_ arg0: View?, _ arg1: Int32)
-
-  @JavaMethod
   open func getModeInOther() -> Int32
-
-  @JavaMethod
-  open func getDecoratedEnd(_ arg0: View?) -> Int32
 
   @JavaMethod
   open func getDecoratedStart(_ arg0: View?) -> Int32
 
   @JavaMethod
-  open func getStartAfterPadding() -> Int32
+  open func getDecoratedEnd(_ arg0: View?) -> Int32
+
+  @JavaMethod
+  open func getDecoratedMeasurement(_ arg0: View?) -> Int32
 
   @JavaMethod
   open func getEndAfterPadding() -> Int32
 
   @JavaMethod
+  open func getStartAfterPadding() -> Int32
+
+  @JavaMethod
+  open func offsetChild(_ arg0: View?, _ arg1: Int32)
+
+  @JavaMethod
   open func getMode() -> Int32
 
   @JavaMethod
-  open func getDecoratedMeasurement(_ arg0: View?) -> Int32
+  open func getLayoutManager() -> RecyclerView.LayoutManager!
+
+  @JavaMethod
+  open func getEndPadding() -> Int32
+
+  @JavaMethod
+  open func onLayoutComplete()
+
+  @JavaMethod
+  open func getTotalSpaceChange() -> Int32
 
   @JavaMethod
   open func offsetChildren(_ arg0: Int32)
@@ -40,18 +52,6 @@ open class OrientationHelper: JavaObject {
 
   @JavaMethod
   open func getTransformedStartWithDecoration(_ arg0: View?) -> Int32
-
-  @JavaMethod
-  open func getLayoutManager() -> RecyclerView.LayoutManager!
-
-  @JavaMethod
-  open func getTotalSpaceChange() -> Int32
-
-  @JavaMethod
-  open func getEndPadding() -> Int32
-
-  @JavaMethod
-  open func onLayoutComplete()
 
   @JavaMethod
   open func getDecoratedMeasurementInOther(_ arg0: View?) -> Int32

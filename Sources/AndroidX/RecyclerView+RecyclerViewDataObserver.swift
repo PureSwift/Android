@@ -6,6 +6,9 @@ extension RecyclerView {
   @JavaClass("androidx.recyclerview.widget.RecyclerView$RecyclerViewDataObserver")
   open class RecyclerViewDataObserver: RecyclerView.AdapterDataObserver {
   @JavaMethod
+  open override func onChanged()
+
+  @JavaMethod
   open override func onItemRangeChanged(_ arg0: Int32, _ arg1: Int32, _ arg2: JavaObject?)
 
   @JavaMethod
@@ -19,8 +22,5 @@ extension RecyclerView {
 
   @JavaMethod
   open override func onStateRestorationPolicyChanged()
-
-  @JavaMethod
-  open override func onChanged()
   }
 }

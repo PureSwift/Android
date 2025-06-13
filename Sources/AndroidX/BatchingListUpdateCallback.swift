@@ -8,17 +8,17 @@ open class BatchingListUpdateCallback: JavaObject {
   @_nonoverride public convenience init(_ arg0: ListUpdateCallback?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func dispatchLastEvent()
-
-  @JavaMethod
-  open func onChanged(_ arg0: Int32, _ arg1: Int32, _ arg2: JavaObject?)
-
-  @JavaMethod
-  open func onMoved(_ arg0: Int32, _ arg1: Int32)
+  open func onInserted(_ arg0: Int32, _ arg1: Int32)
 
   @JavaMethod
   open func onRemoved(_ arg0: Int32, _ arg1: Int32)
 
   @JavaMethod
-  open func onInserted(_ arg0: Int32, _ arg1: Int32)
+  open func onChanged(_ arg0: Int32, _ arg1: Int32, _ arg2: JavaObject?)
+
+  @JavaMethod
+  open func dispatchLastEvent()
+
+  @JavaMethod
+  open func onMoved(_ arg0: Int32, _ arg1: Int32)
 }

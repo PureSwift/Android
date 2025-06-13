@@ -11,73 +11,61 @@ extension RecyclerView {
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func onViewRecycled(_ arg0: RecyclerView.ViewHolder?)
-
-  @JavaMethod
-  open func getItemCount() -> Int32
-
-  @JavaMethod
-  open func findRelativeAdapterPositionIn(_ arg0: RecyclerView.Adapter<RecyclerView.ViewHolder>?, _ arg1: RecyclerView.ViewHolder?, _ arg2: Int32) -> Int32
-
-  @JavaMethod
-  open func getItemId(_ arg0: Int32) -> Int64
-
-  @JavaMethod
-  open func getItemViewType(_ arg0: Int32) -> Int32
-
-  @JavaMethod
-  open func onBindViewHolder(_ arg0: RecyclerView.ViewHolder?, _ arg1: Int32)
-
-  @JavaMethod
-  open func onBindViewHolder(_ arg0: RecyclerView.ViewHolder?, _ arg1: Int32, _ arg2: List<JavaObject>?)
-
-  @JavaMethod
-  open func onCreateViewHolder(_ arg0: ViewGroup?, _ arg1: Int32) -> RecyclerView.ViewHolder!
-
-  @JavaMethod
-  open func hasStableIds() -> Bool
-
-  @JavaMethod
-  open func hasObservers() -> Bool
-
-  @JavaMethod
-  open func createViewHolder(_ arg0: ViewGroup?, _ arg1: Int32) -> RecyclerView.ViewHolder!
-
-  @JavaMethod
-  open func bindViewHolder(_ arg0: RecyclerView.ViewHolder?, _ arg1: Int32)
-
-  @JavaMethod
-  open func setHasStableIds(_ arg0: Bool)
-
-  @JavaMethod
-  open func onFailedToRecycleView(_ arg0: RecyclerView.ViewHolder?) -> Bool
-
-  @JavaMethod
-  open func onViewAttachedToWindow(_ arg0: RecyclerView.ViewHolder?)
-
-  @JavaMethod
-  open func onViewDetachedFromWindow(_ arg0: RecyclerView.ViewHolder?)
-
-  @JavaMethod
-  open func registerAdapterDataObserver(_ arg0: RecyclerView.AdapterDataObserver?)
-
-  @JavaMethod
   open func unregisterAdapterDataObserver(_ arg0: RecyclerView.AdapterDataObserver?)
-
-  @JavaMethod
-  open func onAttachedToRecyclerView(_ arg0: RecyclerView?)
 
   @JavaMethod
   open func onDetachedFromRecyclerView(_ arg0: RecyclerView?)
 
   @JavaMethod
+  open func registerAdapterDataObserver(_ arg0: RecyclerView.AdapterDataObserver?)
+
+  @JavaMethod
+  open func onAttachedToRecyclerView(_ arg0: RecyclerView?)
+
+  @JavaMethod
+  open func getItemCount() -> Int32
+
+  @JavaMethod
+  open func setHasStableIds(_ arg0: Bool)
+
+  @JavaMethod
+  open func setStateRestorationPolicy(_ arg0: RecyclerView.Adapter.StateRestorationPolicy?)
+
+  @JavaMethod
+  open func onFailedToRecycleView(_ arg0: RecyclerView.ViewHolder?) -> Bool
+
+  @JavaMethod
+  open func onViewRecycled(_ arg0: RecyclerView.ViewHolder?)
+
+  @JavaMethod
+  open func hasObservers() -> Bool
+
+  @JavaMethod
+  open func notifyItemRangeChanged(_ arg0: Int32, _ arg1: Int32, _ arg2: JavaObject?)
+
+  @JavaMethod
+  open func notifyItemRangeChanged(_ arg0: Int32, _ arg1: Int32)
+
+  @JavaMethod
+  open func notifyItemRangeInserted(_ arg0: Int32, _ arg1: Int32)
+
+  @JavaMethod
+  open func notifyItemMoved(_ arg0: Int32, _ arg1: Int32)
+
+  @JavaMethod
+  open func notifyItemRangeRemoved(_ arg0: Int32, _ arg1: Int32)
+
+  @JavaMethod
+  open func createViewHolder(_ arg0: ViewGroup?, _ arg1: Int32) -> RecyclerView.ViewHolder!
+
+  @JavaMethod
   open func notifyDataSetChanged()
 
   @JavaMethod
-  open func notifyItemChanged(_ arg0: Int32, _ arg1: JavaObject?)
+  open func notifyItemChanged(_ arg0: Int32)
 
   @JavaMethod
-  open func notifyItemChanged(_ arg0: Int32)
+  open func notifyItemChanged(_ arg0: Int32, _ arg1: JavaObject?)
 
   @JavaMethod
   open func notifyItemInserted(_ arg0: Int32)
@@ -86,24 +74,36 @@ extension RecyclerView {
   open func notifyItemRemoved(_ arg0: Int32)
 
   @JavaMethod
-  open func setStateRestorationPolicy(_ arg0: RecyclerView.Adapter.StateRestorationPolicy?)
-
-  @JavaMethod
   open func getStateRestorationPolicy() -> RecyclerView.Adapter.StateRestorationPolicy!
 
   @JavaMethod
-  open func notifyItemMoved(_ arg0: Int32, _ arg1: Int32)
+  open func hasStableIds() -> Bool
 
   @JavaMethod
-  open func notifyItemRangeInserted(_ arg0: Int32, _ arg1: Int32)
+  open func getItemId(_ arg0: Int32) -> Int64
 
   @JavaMethod
-  open func notifyItemRangeRemoved(_ arg0: Int32, _ arg1: Int32)
+  open func onViewDetachedFromWindow(_ arg0: RecyclerView.ViewHolder?)
 
   @JavaMethod
-  open func notifyItemRangeChanged(_ arg0: Int32, _ arg1: Int32)
+  open func onViewAttachedToWindow(_ arg0: RecyclerView.ViewHolder?)
 
   @JavaMethod
-  open func notifyItemRangeChanged(_ arg0: Int32, _ arg1: Int32, _ arg2: JavaObject?)
+  open func findRelativeAdapterPositionIn(_ arg0: RecyclerView.Adapter<RecyclerView.ViewHolder>?, _ arg1: RecyclerView.ViewHolder?, _ arg2: Int32) -> Int32
+
+  @JavaMethod
+  open func getItemViewType(_ arg0: Int32) -> Int32
+
+  @JavaMethod
+  open func onCreateViewHolder(_ arg0: ViewGroup?, _ arg1: Int32) -> RecyclerView.ViewHolder!
+
+  @JavaMethod
+  open func bindViewHolder(_ arg0: RecyclerView.ViewHolder?, _ arg1: Int32)
+
+  @JavaMethod
+  open func onBindViewHolder(_ arg0: RecyclerView.ViewHolder?, _ arg1: Int32)
+
+  @JavaMethod
+  open func onBindViewHolder(_ arg0: RecyclerView.ViewHolder?, _ arg1: Int32, _ arg2: List<JavaObject>?)
   }
 }

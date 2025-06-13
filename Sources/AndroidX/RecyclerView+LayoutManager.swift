@@ -16,199 +16,46 @@ extension RecyclerView {
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
   @JavaMethod
+  open func setMeasuredDimension(_ arg0: Int32, _ arg1: Int32)
+
+  @JavaMethod
+  open func setMeasuredDimension(_ arg0: Rect?, _ arg1: Int32, _ arg2: Int32)
+
+  @JavaMethod
+  open func requestLayout()
+
+  @JavaMethod
+  open func removeAndRecycleAllViews(_ arg0: RecyclerView.Recycler?)
+
+  @JavaMethod
+  open func onAdapterChanged(_ arg0: RecyclerView.Adapter?, _ arg1: RecyclerView.Adapter?)
+
+  @JavaMethod
+  open func getBaseline() -> Int32
+
+  @JavaMethod
+  open func onSaveInstanceState() -> Parcelable!
+
+  @JavaMethod
+  open func onRestoreInstanceState(_ arg0: Parcelable?)
+
+  @JavaMethod
   open func addView(_ arg0: View?, _ arg1: Int32)
 
   @JavaMethod
   open func addView(_ arg0: View?)
 
   @JavaMethod
-  open func removeViewAt(_ arg0: Int32)
-
-  @JavaMethod
-  open func getChildAt(_ arg0: Int32) -> View!
-
-  @JavaMethod
-  open func removeAllViews()
-
-  @JavaMethod
-  open func getItemCount() -> Int32
-
-  @JavaMethod
-  open func getPosition(_ arg0: View?) -> Int32
-
-  @JavaMethod
-  open func getItemViewType(_ arg0: View?) -> Int32
-
-  @JavaMethod
-  open func isAttachedToWindow() -> Bool
-
-  @JavaMethod
-  open func requestSimpleAnimationsInNextLayout()
-
-  @JavaMethod
-  open func requestLayout()
-
-  @JavaMethod
-  open func onDetachedFromWindow(_ arg0: RecyclerView?)
-
-  @JavaMethod
-  open func onDetachedFromWindow(_ arg0: RecyclerView?, _ arg1: RecyclerView.Recycler?)
-
-  @JavaMethod
-  open func removeCallbacks(_ arg0: Runnable?) -> Bool
-
-  @JavaMethod
   open func assertNotInLayoutOrScroll(_ arg0: String)
 
   @JavaMethod
-  open func getLayoutDirection() -> Int32
-
-  @JavaMethod
-  open func getPaddingLeft() -> Int32
-
-  @JavaMethod
-  open func getPaddingRight() -> Int32
-
-  @JavaMethod
-  open func getPaddingTop() -> Int32
-
-  @JavaMethod
-  open func getPaddingBottom() -> Int32
-
-  @JavaMethod
-  open func getMinimumHeight() -> Int32
-
-  @JavaMethod
-  open func getMinimumWidth() -> Int32
-
-  @JavaMethod
-  open func setMeasuredDimension(_ arg0: Rect?, _ arg1: Int32, _ arg2: Int32)
-
-  @JavaMethod
-  open func setMeasuredDimension(_ arg0: Int32, _ arg1: Int32)
-
-  @JavaMethod
-  open func onLayoutChildren(_ arg0: RecyclerView.Recycler?, _ arg1: RecyclerView.State?)
-
-  @JavaMethod
-  open func removeAndRecycleAllViews(_ arg0: RecyclerView.Recycler?)
-
-  @JavaMethod
-  open func detachAndScrapAttachedViews(_ arg0: RecyclerView.Recycler?)
-
-  @JavaMethod
-  open func onLayoutCompleted(_ arg0: RecyclerView.State?)
-
-  @JavaMethod
-  open func findViewByPosition(_ arg0: Int32) -> View!
-
-  @JavaMethod
-  open func getHeight() -> Int32
-
-  @JavaMethod
-  open func getHeightMode() -> Int32
-
-  @JavaMethod
-  open func getWidth() -> Int32
-
-  @JavaMethod
-  open func getWidthMode() -> Int32
-
-  @JavaMethod
-  open func calculateItemDecorationsForChild(_ arg0: View?, _ arg1: Rect?)
-
-  @JavaMethod
-  open func isSmoothScrolling() -> Bool
-
-  @JavaMethod
-  open func getClipToPadding() -> Bool
-
-  @JavaMethod
-  open func offsetChildrenHorizontal(_ arg0: Int32)
-
-  @JavaMethod
-  open func offsetChildrenVertical(_ arg0: Int32)
-
-  @JavaMethod
-  open func layoutDecoratedWithMargins(_ arg0: View?, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32)
-
-  @JavaMethod
-  open func removeAndRecycleView(_ arg0: View?, _ arg1: RecyclerView.Recycler?)
-
-  @JavaMethod
-  open func startSmoothScroll(_ arg0: RecyclerView.SmoothScroller?)
-
-  @JavaMethod
-  open func findContainingItemView(_ arg0: View?) -> View!
-
-  @JavaMethod
-  open func isAutoMeasureEnabled() -> Bool
-
-  @JavaMethod
-  open func onScrollStateChanged(_ arg0: Int32)
-
-  @JavaMethod
-  open func onAdapterChanged(_ arg0: RecyclerView.Adapter?, _ arg1: RecyclerView.Adapter?)
-
-  @JavaMethod
-  open func supportsPredictiveItemAnimations() -> Bool
-
-  @JavaMethod
-  open func computeHorizontalScrollOffset(_ arg0: RecyclerView.State?) -> Int32
-
-  @JavaMethod
-  open func computeVerticalScrollOffset(_ arg0: RecyclerView.State?) -> Int32
-
-  @JavaMethod
-  open func computeHorizontalScrollExtent(_ arg0: RecyclerView.State?) -> Int32
-
-  @JavaMethod
-  open func computeVerticalScrollExtent(_ arg0: RecyclerView.State?) -> Int32
-
-  @JavaMethod
-  open func computeHorizontalScrollRange(_ arg0: RecyclerView.State?) -> Int32
-
-  @JavaMethod
-  open func computeVerticalScrollRange(_ arg0: RecyclerView.State?) -> Int32
-
-  @JavaMethod
-  open func onRestoreInstanceState(_ arg0: Parcelable?)
-
-  @JavaMethod
-  open func onSaveInstanceState() -> Parcelable!
-
-  @JavaMethod
-  open func getRowCountForAccessibility(_ arg0: RecyclerView.Recycler?, _ arg1: RecyclerView.State?) -> Int32
-
-  @JavaMethod
-  open func getColumnCountForAccessibility(_ arg0: RecyclerView.Recycler?, _ arg1: RecyclerView.State?) -> Int32
-
-  @JavaMethod
-  open func onItemsRemoved(_ arg0: RecyclerView?, _ arg1: Int32, _ arg2: Int32)
-
-  @JavaMethod
-  open func onItemsAdded(_ arg0: RecyclerView?, _ arg1: Int32, _ arg2: Int32)
-
-  @JavaMethod
-  open func onItemsChanged(_ arg0: RecyclerView?)
-
-  @JavaMethod
-  open func onItemsMoved(_ arg0: RecyclerView?, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
-
-  @JavaMethod
-  open func onItemsUpdated(_ arg0: RecyclerView?, _ arg1: Int32, _ arg2: Int32)
-
-  @JavaMethod
-  open func onItemsUpdated(_ arg0: RecyclerView?, _ arg1: Int32, _ arg2: Int32, _ arg3: JavaObject?)
-
-  @JavaMethod
-  open func canScrollVertically() -> Bool
-
-  @JavaMethod
-  open func canScrollHorizontally() -> Bool
+  open func smoothScrollToPosition(_ arg0: RecyclerView?, _ arg1: RecyclerView.State?, _ arg2: Int32)
 
   @JavaMethod
   open func isLayoutReversed() -> Bool
+
+  @JavaMethod
+  open func getItemCount() -> Int32
 
   @JavaMethod
   open func scrollHorizontallyBy(_ arg0: Int32, _ arg1: RecyclerView.Recycler?, _ arg2: RecyclerView.State?) -> Int32
@@ -217,13 +64,106 @@ extension RecyclerView {
   open func scrollVerticallyBy(_ arg0: Int32, _ arg1: RecyclerView.Recycler?, _ arg2: RecyclerView.State?) -> Int32
 
   @JavaMethod
-  open func smoothScrollToPosition(_ arg0: RecyclerView?, _ arg1: RecyclerView.State?, _ arg2: Int32)
+  open func getChildAt(_ arg0: Int32) -> View!
 
   @JavaMethod
-  open func scrollToPosition(_ arg0: Int32)
+  open func computeHorizontalScrollOffset(_ arg0: RecyclerView.State?) -> Int32
 
   @JavaMethod
-  open func collectAdjacentPrefetchPositions(_ arg0: Int32, _ arg1: Int32, _ arg2: RecyclerView.State?, _ arg3: RecyclerView.LayoutManager.LayoutPrefetchRegistry?)
+  open func computeHorizontalScrollExtent(_ arg0: RecyclerView.State?) -> Int32
+
+  @JavaMethod
+  open func computeHorizontalScrollRange(_ arg0: RecyclerView.State?) -> Int32
+
+  @JavaMethod
+  open func computeVerticalScrollOffset(_ arg0: RecyclerView.State?) -> Int32
+
+  @JavaMethod
+  open func computeVerticalScrollExtent(_ arg0: RecyclerView.State?) -> Int32
+
+  @JavaMethod
+  open func computeVerticalScrollRange(_ arg0: RecyclerView.State?) -> Int32
+
+  @JavaMethod
+  open func onInterceptFocusSearch(_ arg0: View?, _ arg1: Int32) -> View!
+
+  @JavaMethod
+  open func getLayoutDirection() -> Int32
+
+  @JavaMethod
+  open func findContainingItemView(_ arg0: View?) -> View!
+
+  @JavaMethod
+  open func onFocusSearchFailed(_ arg0: View?, _ arg1: Int32, _ arg2: RecyclerView.Recycler?, _ arg3: RecyclerView.State?) -> View!
+
+  @JavaMethod
+  open func getFocusedChild() -> View!
+
+  @JavaMethod
+  open func onRequestChildFocus(_ arg0: RecyclerView?, _ arg1: View?, _ arg2: View?) -> Bool
+
+  @JavaMethod
+  open func onRequestChildFocus(_ arg0: RecyclerView?, _ arg1: RecyclerView.State?, _ arg2: View?, _ arg3: View?) -> Bool
+
+  @JavaMethod
+  open func requestChildRectangleOnScreen(_ arg0: RecyclerView?, _ arg1: View?, _ arg2: Rect?, _ arg3: Bool, _ arg4: Bool) -> Bool
+
+  @JavaMethod
+  open func requestChildRectangleOnScreen(_ arg0: RecyclerView?, _ arg1: View?, _ arg2: Rect?, _ arg3: Bool) -> Bool
+
+  @JavaMethod
+  open func onAddFocusables(_ arg0: RecyclerView?, _ arg1: ArrayList<View>?, _ arg2: Int32, _ arg3: Int32) -> Bool
+
+  @JavaMethod
+  open func onAttachedToWindow(_ arg0: RecyclerView?)
+
+  @JavaMethod
+  open func onDetachedFromWindow(_ arg0: RecyclerView?, _ arg1: RecyclerView.Recycler?)
+
+  @JavaMethod
+  open func onDetachedFromWindow(_ arg0: RecyclerView?)
+
+  @JavaMethod
+  open func removeCallbacks(_ arg0: Runnable?) -> Bool
+
+  @JavaMethod
+  open func getPosition(_ arg0: View?) -> Int32
+
+  @JavaMethod
+  open func isAutoMeasureEnabled() -> Bool
+
+  @JavaMethod
+  open func onMeasure(_ arg0: RecyclerView.Recycler?, _ arg1: RecyclerView.State?, _ arg2: Int32, _ arg3: Int32)
+
+  @JavaMethod
+  open func getMinimumWidth() -> Int32
+
+  @JavaMethod
+  open func getMinimumHeight() -> Int32
+
+  @JavaMethod
+  open func supportsPredictiveItemAnimations() -> Bool
+
+  @JavaMethod
+  open func onItemsChanged(_ arg0: RecyclerView?)
+
+  @JavaMethod
+  open func hasFocus() -> Bool
+
+  @JavaMethod
+  open func isFocused() -> Bool
+
+  @JavaMethod
+  open func onLayoutChildren(_ arg0: RecyclerView.Recycler?, _ arg1: RecyclerView.State?)
+
+  @JavaMethod
+  open func onLayoutCompleted(_ arg0: RecyclerView.State?)
+
+  @JavaMethod
+  open func removeDetachedView(_ arg0: View?)
+
+  @JavaMethod
+  open func checkLayoutParams(_ arg0: RecyclerView.LayoutParams?) -> Bool
 
   @JavaMethod
   open func generateDefaultLayoutParams() -> RecyclerView.LayoutParams!
@@ -235,37 +175,136 @@ extension RecyclerView {
   open func generateLayoutParams(_ arg0: ViewGroup.LayoutParams?) -> RecyclerView.LayoutParams!
 
   @JavaMethod
-  open func checkLayoutParams(_ arg0: RecyclerView.LayoutParams?) -> Bool
+  open func onScrollStateChanged(_ arg0: Int32)
 
   @JavaMethod
-  open func onFocusSearchFailed(_ arg0: View?, _ arg1: Int32, _ arg2: RecyclerView.Recycler?, _ arg3: RecyclerView.State?) -> View!
+  open func getClipToPadding() -> Bool
 
   @JavaMethod
-  open func getDecoratedBoundsWithMargins(_ arg0: View?, _ arg1: Rect?)
+  open func isAttachedToWindow() -> Bool
 
   @JavaMethod
   open func assertInLayoutOrScroll(_ arg0: String)
 
   @JavaMethod
-  open func onAttachedToWindow(_ arg0: RecyclerView?)
+  open func offsetChildrenVertical(_ arg0: Int32)
+
+  @JavaMethod
+  open func offsetChildrenHorizontal(_ arg0: Int32)
+
+  @JavaMethod
+  open func getDecoratedBoundsWithMargins(_ arg0: View?, _ arg1: Rect?)
+
+  @JavaMethod
+  open func removeView(_ arg0: View?)
+
+  @JavaMethod
+  open func removeViewAt(_ arg0: Int32)
+
+  @JavaMethod
+  open func removeAllViews()
+
+  @JavaMethod
+  open func measureChild(_ arg0: View?, _ arg1: Int32, _ arg2: Int32)
+
+  @JavaMethod
+  open func measureChildWithMargins(_ arg0: View?, _ arg1: Int32, _ arg2: Int32)
+
+  @JavaMethod
+  open func canScrollVertically() -> Bool
+
+  @JavaMethod
+  open func getDecoratedTop(_ arg0: View?) -> Int32
+
+  @JavaMethod
+  open func getDecoratedBottom(_ arg0: View?) -> Int32
+
+  @JavaMethod
+  open func getPaddingTop() -> Int32
+
+  @JavaMethod
+  open func getHeight() -> Int32
+
+  @JavaMethod
+  open func getPaddingBottom() -> Int32
+
+  @JavaMethod
+  open func canScrollHorizontally() -> Bool
+
+  @JavaMethod
+  open func getDecoratedLeft(_ arg0: View?) -> Int32
+
+  @JavaMethod
+  open func getDecoratedRight(_ arg0: View?) -> Int32
+
+  @JavaMethod
+  open func getPaddingLeft() -> Int32
+
+  @JavaMethod
+  open func getWidth() -> Int32
+
+  @JavaMethod
+  open func getPaddingRight() -> Int32
+
+  @JavaMethod
+  open func findViewByPosition(_ arg0: Int32) -> View!
 
   @JavaMethod
   open func postOnAnimation(_ arg0: Runnable?)
 
   @JavaMethod
-  open func endAnimation(_ arg0: View?)
+  open func scrollToPosition(_ arg0: Int32)
 
   @JavaMethod
-  open func addDisappearingView(_ arg0: View?)
+  open func performAccessibilityAction(_ arg0: RecyclerView.Recycler?, _ arg1: RecyclerView.State?, _ arg2: Int32, _ arg3: Bundle?) -> Bool
+
+  @JavaMethod
+  open func getPaddingStart() -> Int32
+
+  @JavaMethod
+  open func getPaddingEnd() -> Int32
+
+  @JavaMethod
+  open func getRowCountForAccessibility(_ arg0: RecyclerView.Recycler?, _ arg1: RecyclerView.State?) -> Int32
+
+  @JavaMethod
+  open func getColumnCountForAccessibility(_ arg0: RecyclerView.Recycler?, _ arg1: RecyclerView.State?) -> Int32
+
+  @JavaMethod
+  open func startSmoothScroll(_ arg0: RecyclerView.SmoothScroller?)
+
+  @JavaMethod
+  open func detachAndScrapAttachedViews(_ arg0: RecyclerView.Recycler?)
+
+  @JavaMethod
+  open func removeAndRecycleViewAt(_ arg0: Int32, _ arg1: RecyclerView.Recycler?)
 
   @JavaMethod
   open func addDisappearingView(_ arg0: View?, _ arg1: Int32)
 
   @JavaMethod
-  open func moveView(_ arg0: Int32, _ arg1: Int32)
+  open func addDisappearingView(_ arg0: View?)
 
   @JavaMethod
-  open func removeView(_ arg0: View?)
+  open func layoutDecoratedWithMargins(_ arg0: View?, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32)
+
+  @JavaMethod
+  open func getHeightMode() -> Int32
+
+  @JavaMethod
+  open func getWidthMode() -> Int32
+
+  @JavaMethod
+  open func collectInitialPrefetchPositions(_ arg0: Int32, _ arg1: RecyclerView.LayoutManager.LayoutPrefetchRegistry?)
+
+  @JavaMethod
+  open func collectAdjacentPrefetchPositions(_ arg0: Int32, _ arg1: Int32, _ arg2: RecyclerView.State?, _ arg3: RecyclerView.LayoutManager.LayoutPrefetchRegistry?)
+
+  @JavaMethod
+  open func endAnimation(_ arg0: View?)
+
+  @JavaMethod
+  open func moveView(_ arg0: Int32, _ arg1: Int32)
 
   @JavaMethod
   open func attachView(_ arg0: View?, _ arg1: Int32, _ arg2: RecyclerView.LayoutParams?)
@@ -277,25 +316,7 @@ extension RecyclerView {
   open func attachView(_ arg0: View?)
 
   @JavaMethod
-  open func removeDetachedView(_ arg0: View?)
-
-  @JavaMethod
   open func detachViewAt(_ arg0: Int32)
-
-  @JavaMethod
-  open func getPaddingStart() -> Int32
-
-  @JavaMethod
-  open func getPaddingEnd() -> Int32
-
-  @JavaMethod
-  open func isFocused() -> Bool
-
-  @JavaMethod
-  open func hasFocus() -> Bool
-
-  @JavaMethod
-  open func getFocusedChild() -> View!
 
   @JavaMethod
   open func getLeftDecorationWidth(_ arg0: View?) -> Int32
@@ -310,28 +331,19 @@ extension RecyclerView {
   open func getBottomDecorationHeight(_ arg0: View?) -> Int32
 
   @JavaMethod
-  open func requestChildRectangleOnScreen(_ arg0: RecyclerView?, _ arg1: View?, _ arg2: Rect?, _ arg3: Bool) -> Bool
+  open func isSmoothScrolling() -> Bool
 
   @JavaMethod
-  open func requestChildRectangleOnScreen(_ arg0: RecyclerView?, _ arg1: View?, _ arg2: Rect?, _ arg3: Bool, _ arg4: Bool) -> Bool
+  open func onItemsUpdated(_ arg0: RecyclerView?, _ arg1: Int32, _ arg2: Int32)
 
   @JavaMethod
-  open func onRequestChildFocus(_ arg0: RecyclerView?, _ arg1: RecyclerView.State?, _ arg2: View?, _ arg3: View?) -> Bool
-
-  @JavaMethod
-  open func onRequestChildFocus(_ arg0: RecyclerView?, _ arg1: View?, _ arg2: View?) -> Bool
-
-  @JavaMethod
-  open func removeAndRecycleViewAt(_ arg0: Int32, _ arg1: RecyclerView.Recycler?)
+  open func onItemsUpdated(_ arg0: RecyclerView?, _ arg1: Int32, _ arg2: Int32, _ arg3: JavaObject?)
 
   @JavaMethod
   open func isLayoutHierarchical(_ arg0: RecyclerView.Recycler?, _ arg1: RecyclerView.State?) -> Bool
 
   @JavaMethod
   open func getSelectionModeForAccessibility(_ arg0: RecyclerView.Recycler?, _ arg1: RecyclerView.State?) -> Int32
-
-  @JavaMethod
-  open func performAccessibilityAction(_ arg0: RecyclerView.Recycler?, _ arg1: RecyclerView.State?, _ arg2: Int32, _ arg3: Bundle?) -> Bool
 
   @JavaMethod
   open func performAccessibilityActionForItem(_ arg0: RecyclerView.Recycler?, _ arg1: RecyclerView.State?, _ arg2: View?, _ arg3: Int32, _ arg4: Bundle?) -> Bool
@@ -346,12 +358,6 @@ extension RecyclerView {
   open func isItemPrefetchEnabled() -> Bool
 
   @JavaMethod
-  open func collectInitialPrefetchPositions(_ arg0: Int32, _ arg1: RecyclerView.LayoutManager.LayoutPrefetchRegistry?)
-
-  @JavaMethod
-  open func getBaseline() -> Int32
-
-  @JavaMethod
   open func detachView(_ arg0: View?)
 
   @JavaMethod
@@ -361,22 +367,19 @@ extension RecyclerView {
   open func detachAndScrapViewAt(_ arg0: Int32, _ arg1: RecyclerView.Recycler?)
 
   @JavaMethod
+  open func removeAndRecycleView(_ arg0: View?, _ arg1: RecyclerView.Recycler?)
+
+  @JavaMethod
   open func ignoreView(_ arg0: View?)
 
   @JavaMethod
   open func stopIgnoringView(_ arg0: View?)
 
   @JavaMethod
-  open func measureChild(_ arg0: View?, _ arg1: Int32, _ arg2: Int32)
-
-  @JavaMethod
   open func isMeasurementCacheEnabled() -> Bool
 
   @JavaMethod
   open func setMeasurementCacheEnabled(_ arg0: Bool)
-
-  @JavaMethod
-  open func measureChildWithMargins(_ arg0: View?, _ arg1: Int32, _ arg2: Int32)
 
   @JavaMethod
   open func getDecoratedMeasuredWidth(_ arg0: View?) -> Int32
@@ -391,28 +394,25 @@ extension RecyclerView {
   open func getTransformedBoundingBox(_ arg0: View?, _ arg1: Bool, _ arg2: Rect?)
 
   @JavaMethod
-  open func getDecoratedLeft(_ arg0: View?) -> Int32
-
-  @JavaMethod
-  open func getDecoratedTop(_ arg0: View?) -> Int32
-
-  @JavaMethod
-  open func getDecoratedRight(_ arg0: View?) -> Int32
-
-  @JavaMethod
-  open func getDecoratedBottom(_ arg0: View?) -> Int32
-
-  @JavaMethod
-  open func onInterceptFocusSearch(_ arg0: View?, _ arg1: Int32) -> View!
+  open func calculateItemDecorationsForChild(_ arg0: View?, _ arg1: Rect?)
 
   @JavaMethod
   open func isViewPartiallyVisible(_ arg0: View?, _ arg1: Bool, _ arg2: Bool) -> Bool
 
   @JavaMethod
-  open func onAddFocusables(_ arg0: RecyclerView?, _ arg1: ArrayList<View>?, _ arg2: Int32, _ arg3: Int32) -> Bool
+  open func onItemsAdded(_ arg0: RecyclerView?, _ arg1: Int32, _ arg2: Int32)
 
   @JavaMethod
-  open func onMeasure(_ arg0: RecyclerView.Recycler?, _ arg1: RecyclerView.State?, _ arg2: Int32, _ arg3: Int32)
+  open func onItemsRemoved(_ arg0: RecyclerView?, _ arg1: Int32, _ arg2: Int32)
+
+  @JavaMethod
+  open func onItemsMoved(_ arg0: RecyclerView?, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
+
+  @JavaMethod
+  open func requestSimpleAnimationsInNextLayout()
+
+  @JavaMethod
+  open func getItemViewType(_ arg0: View?) -> Int32
 
   @JavaMethod
   open func getChildCount() -> Int32
@@ -423,10 +423,10 @@ extension JavaClass<RecyclerView.LayoutManager> {
   public func chooseSize(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32) -> Int32
 
   @JavaStaticMethod
-  public func getChildMeasureSpec(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Bool) -> Int32
+  public func getChildMeasureSpec(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: Bool) -> Int32
 
   @JavaStaticMethod
-  public func getChildMeasureSpec(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: Bool) -> Int32
+  public func getChildMeasureSpec(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Bool) -> Int32
 
   @JavaStaticMethod
   public func getProperties(_ arg0: Context?, _ arg1: AttributeSet?, _ arg2: Int32, _ arg3: Int32) -> RecyclerView.LayoutManager.Properties!

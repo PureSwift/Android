@@ -7,10 +7,10 @@ import JavaRuntime
 @JavaClass("androidx.recyclerview.widget.FastScroller", implements: RecyclerView.OnItemTouchListener.self)
 open class FastScroller: RecyclerView.ItemDecoration {
   @JavaMethod
-  open func attachToRecyclerView(_ arg0: RecyclerView?)
+  open func onTouchEvent(_ arg0: RecyclerView?, _ arg1: MotionEvent?)
 
   @JavaMethod
-  open func onTouchEvent(_ arg0: RecyclerView?, _ arg1: MotionEvent?)
+  open func attachToRecyclerView(_ arg0: RecyclerView?)
 
   @JavaMethod
   open func onInterceptTouchEvent(_ arg0: RecyclerView?, _ arg1: MotionEvent?) -> Bool

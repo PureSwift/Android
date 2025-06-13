@@ -24,10 +24,10 @@ extension GridLayoutManager {
   @_nonoverride public convenience init(_ arg0: Int32, _ arg1: Int32, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func getSpanIndex() -> Int32
+  open func getSpanSize() -> Int32
 
   @JavaMethod
-  open func getSpanSize() -> Int32
+  open func getSpanIndex() -> Int32
   }
 }
 extension JavaClass<GridLayoutManager.LayoutParams> {

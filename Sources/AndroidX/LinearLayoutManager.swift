@@ -19,28 +19,49 @@ open class LinearLayoutManager: RecyclerView.LayoutManager {
   @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, _ arg2: Int32, _ arg3: Int32, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func setOrientation(_ arg0: Int32)
+  open override func onSaveInstanceState() -> Parcelable!
 
   @JavaMethod
-  open func setReverseLayout(_ arg0: Bool)
-
-  @JavaMethod
-  open override func onDetachedFromWindow(_ arg0: RecyclerView?, _ arg1: RecyclerView.Recycler?)
-
-  @JavaMethod
-  open func isLayoutRTL() -> Bool
+  open override func onRestoreInstanceState(_ arg0: Parcelable?)
 
   @JavaMethod
   open override func assertNotInLayoutOrScroll(_ arg0: String)
 
   @JavaMethod
-  open override func onLayoutChildren(_ arg0: RecyclerView.Recycler?, _ arg1: RecyclerView.State?)
+  open override func smoothScrollToPosition(_ arg0: RecyclerView?, _ arg1: RecyclerView.State?, _ arg2: Int32)
 
   @JavaMethod
-  open override func onLayoutCompleted(_ arg0: RecyclerView.State?)
+  open override func isLayoutReversed() -> Bool
 
   @JavaMethod
-  open override func findViewByPosition(_ arg0: Int32) -> View!
+  open override func scrollHorizontallyBy(_ arg0: Int32, _ arg1: RecyclerView.Recycler?, _ arg2: RecyclerView.State?) -> Int32
+
+  @JavaMethod
+  open override func scrollVerticallyBy(_ arg0: Int32, _ arg1: RecyclerView.Recycler?, _ arg2: RecyclerView.State?) -> Int32
+
+  @JavaMethod
+  open override func computeHorizontalScrollOffset(_ arg0: RecyclerView.State?) -> Int32
+
+  @JavaMethod
+  open override func computeHorizontalScrollExtent(_ arg0: RecyclerView.State?) -> Int32
+
+  @JavaMethod
+  open override func computeHorizontalScrollRange(_ arg0: RecyclerView.State?) -> Int32
+
+  @JavaMethod
+  open override func computeVerticalScrollOffset(_ arg0: RecyclerView.State?) -> Int32
+
+  @JavaMethod
+  open override func computeVerticalScrollExtent(_ arg0: RecyclerView.State?) -> Int32
+
+  @JavaMethod
+  open override func computeVerticalScrollRange(_ arg0: RecyclerView.State?) -> Int32
+
+  @JavaMethod
+  open override func onFocusSearchFailed(_ arg0: View?, _ arg1: Int32, _ arg2: RecyclerView.Recycler?, _ arg3: RecyclerView.State?) -> View!
+
+  @JavaMethod
+  open override func onDetachedFromWindow(_ arg0: RecyclerView?, _ arg1: RecyclerView.Recycler?)
 
   @JavaMethod
   open func findFirstVisibleItemPosition() -> Int32
@@ -58,34 +79,19 @@ open class LinearLayoutManager: RecyclerView.LayoutManager {
   open override func isAutoMeasureEnabled() -> Bool
 
   @JavaMethod
-  open func getReverseLayout() -> Bool
-
-  @JavaMethod
   open override func supportsPredictiveItemAnimations() -> Bool
 
   @JavaMethod
-  open override func computeHorizontalScrollOffset(_ arg0: RecyclerView.State?) -> Int32
+  open override func onLayoutChildren(_ arg0: RecyclerView.Recycler?, _ arg1: RecyclerView.State?)
 
   @JavaMethod
-  open override func computeVerticalScrollOffset(_ arg0: RecyclerView.State?) -> Int32
+  open override func onLayoutCompleted(_ arg0: RecyclerView.State?)
 
   @JavaMethod
-  open override func computeHorizontalScrollExtent(_ arg0: RecyclerView.State?) -> Int32
+  open override func generateDefaultLayoutParams() -> RecyclerView.LayoutParams!
 
   @JavaMethod
-  open override func computeVerticalScrollExtent(_ arg0: RecyclerView.State?) -> Int32
-
-  @JavaMethod
-  open override func computeHorizontalScrollRange(_ arg0: RecyclerView.State?) -> Int32
-
-  @JavaMethod
-  open override func computeVerticalScrollRange(_ arg0: RecyclerView.State?) -> Int32
-
-  @JavaMethod
-  open override func onRestoreInstanceState(_ arg0: Parcelable?)
-
-  @JavaMethod
-  open override func onSaveInstanceState() -> Parcelable!
+  open func computeScrollVectorForPosition(_ arg0: Int32) -> PointF!
 
   @JavaMethod
   open override func canScrollVertically() -> Bool
@@ -94,43 +100,25 @@ open class LinearLayoutManager: RecyclerView.LayoutManager {
   open override func canScrollHorizontally() -> Bool
 
   @JavaMethod
-  open override func isLayoutReversed() -> Bool
-
-  @JavaMethod
-  open override func scrollHorizontallyBy(_ arg0: Int32, _ arg1: RecyclerView.Recycler?, _ arg2: RecyclerView.State?) -> Int32
-
-  @JavaMethod
-  open override func scrollVerticallyBy(_ arg0: Int32, _ arg1: RecyclerView.Recycler?, _ arg2: RecyclerView.State?) -> Int32
-
-  @JavaMethod
-  open func computeScrollVectorForPosition(_ arg0: Int32) -> PointF!
-
-  @JavaMethod
-  open override func smoothScrollToPosition(_ arg0: RecyclerView?, _ arg1: RecyclerView.State?, _ arg2: Int32)
+  open override func findViewByPosition(_ arg0: Int32) -> View!
 
   @JavaMethod
   open override func scrollToPosition(_ arg0: Int32)
 
   @JavaMethod
-  open func scrollToPositionWithOffset(_ arg0: Int32, _ arg1: Int32)
+  open func setOrientation(_ arg0: Int32)
 
   @JavaMethod
-  open override func collectAdjacentPrefetchPositions(_ arg0: Int32, _ arg1: Int32, _ arg2: RecyclerView.State?, _ arg3: RecyclerView.LayoutManager.LayoutPrefetchRegistry?)
-
-  @JavaMethod
-  open override func generateDefaultLayoutParams() -> RecyclerView.LayoutParams!
-
-  @JavaMethod
-  open func getOrientation() -> Int32
-
-  @JavaMethod
-  open override func onFocusSearchFailed(_ arg0: View?, _ arg1: Int32, _ arg2: RecyclerView.Recycler?, _ arg3: RecyclerView.State?) -> View!
-
-  @JavaMethod
-  open override func collectInitialPrefetchPositions(_ arg0: Int32, _ arg1: RecyclerView.LayoutManager.LayoutPrefetchRegistry?)
+  open func setReverseLayout(_ arg0: Bool)
 
   @JavaMethod
   open func setStackFromEnd(_ arg0: Bool)
+
+  @JavaMethod
+  open func scrollToPositionWithOffset(_ arg0: Int32, _ arg1: Int32)
+
+  @JavaMethod
+  open func isLayoutRTL() -> Bool
 
   @JavaMethod
   open func getExtraLayoutSpace(_ arg0: RecyclerView.State?) -> Int32
@@ -148,16 +136,28 @@ open class LinearLayoutManager: RecyclerView.LayoutManager {
   open func getStackFromEnd() -> Bool
 
   @JavaMethod
+  open func getOrientation() -> Int32
+
+  @JavaMethod
+  open func getReverseLayout() -> Bool
+
+  @JavaMethod
   open func setSmoothScrollbarEnabled(_ arg0: Bool)
 
   @JavaMethod
   open func isSmoothScrollbarEnabled() -> Bool
 
   @JavaMethod
+  open override func collectInitialPrefetchPositions(_ arg0: Int32, _ arg1: RecyclerView.LayoutManager.LayoutPrefetchRegistry?)
+
+  @JavaMethod
   open func setInitialPrefetchItemCount(_ arg0: Int32)
 
   @JavaMethod
   open func getInitialPrefetchItemCount() -> Int32
+
+  @JavaMethod
+  open override func collectAdjacentPrefetchPositions(_ arg0: Int32, _ arg1: Int32, _ arg2: RecyclerView.State?, _ arg3: RecyclerView.LayoutManager.LayoutPrefetchRegistry?)
 
   @JavaMethod
   open func prepareForDrop(_ arg0: View?, _ arg1: View?, _ arg2: Int32, _ arg3: Int32)

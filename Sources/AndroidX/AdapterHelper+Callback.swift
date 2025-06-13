@@ -9,13 +9,13 @@ extension AdapterHelper {
   public func findViewHolder(_ arg0: Int32) -> RecyclerView.ViewHolder!
 
   @JavaMethod
-  public func markViewHoldersUpdated(_ arg0: Int32, _ arg1: Int32, _ arg2: JavaObject?)
-
-  @JavaMethod
   public func offsetPositionsForRemovingInvisible(_ arg0: Int32, _ arg1: Int32)
 
   @JavaMethod
   public func offsetPositionsForRemovingLaidOutOrNewView(_ arg0: Int32, _ arg1: Int32)
+
+  @JavaMethod
+  public func markViewHoldersUpdated(_ arg0: Int32, _ arg1: Int32, _ arg2: JavaObject?)
 
   @JavaMethod
   public func onDispatchFirstPass(_ arg0: AdapterHelper.UpdateOp?)

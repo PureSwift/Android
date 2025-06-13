@@ -6,15 +6,15 @@ extension ThreadUtil {
   @JavaInterface("androidx.recyclerview.widget.ThreadUtil$BackgroundCallback")
   public struct BackgroundCallback<T: AnyJavaObject> {
   @JavaMethod
-  public func refresh(_ arg0: Int32)
-
-  @JavaMethod
-  public func updateRange(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32)
+  public func recycleTile(_ arg0: TileList.Tile<JavaObject>?)
 
   @JavaMethod
   public func loadTile(_ arg0: Int32, _ arg1: Int32)
 
   @JavaMethod
-  public func recycleTile(_ arg0: TileList.Tile<JavaObject>?)
+  public func refresh(_ arg0: Int32)
+
+  @JavaMethod
+  public func updateRange(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32)
   }
 }

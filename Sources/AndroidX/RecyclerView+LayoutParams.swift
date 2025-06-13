@@ -24,13 +24,13 @@ extension RecyclerView {
   @_nonoverride public convenience init(_ arg0: RecyclerView.LayoutParams?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func getBindingAdapterPosition() -> Int32
+  open func getViewLayoutPosition() -> Int32
+
+  @JavaMethod
+  open func isItemRemoved() -> Bool
 
   @JavaMethod
   open func getAbsoluteAdapterPosition() -> Int32
-
-  @JavaMethod
-  open func getViewLayoutPosition() -> Int32
 
   @JavaMethod
   open func isItemChanged() -> Bool
@@ -39,7 +39,7 @@ extension RecyclerView {
   open func isViewInvalid() -> Bool
 
   @JavaMethod
-  open func isItemRemoved() -> Bool
+  open func getBindingAdapterPosition() -> Int32
 
   @JavaMethod
   open func viewNeedsUpdate() -> Bool

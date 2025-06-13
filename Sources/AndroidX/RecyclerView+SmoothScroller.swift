@@ -11,31 +11,13 @@ extension RecyclerView {
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func findViewByPosition(_ arg0: Int32) -> View!
-
-  @JavaMethod
-  open func setTargetPosition(_ arg0: Int32)
+  open func getTargetPosition() -> Int32
 
   @JavaMethod
   open func computeScrollVectorForPosition(_ arg0: Int32) -> PointF!
 
   @JavaMethod
-  open func isRunning() -> Bool
-
-  @JavaMethod
-  open func onChildAttachedToWindow(_ arg0: View?)
-
-  @JavaMethod
   open func getLayoutManager() -> RecyclerView.LayoutManager!
-
-  @JavaMethod
-  open func getChildPosition(_ arg0: View?) -> Int32
-
-  @JavaMethod
-  open func isPendingInitialRun() -> Bool
-
-  @JavaMethod
-  open func getTargetPosition() -> Int32
 
   @JavaMethod
   open func onTargetFound(_ arg0: View?, _ arg1: RecyclerView.State?, _ arg2: RecyclerView.SmoothScroller.Action?)
@@ -47,7 +29,25 @@ extension RecyclerView {
   open func onStop()
 
   @JavaMethod
+  open func findViewByPosition(_ arg0: Int32) -> View!
+
+  @JavaMethod
+  open func getChildPosition(_ arg0: View?) -> Int32
+
+  @JavaMethod
+  open func setTargetPosition(_ arg0: Int32)
+
+  @JavaMethod
+  open func isPendingInitialRun() -> Bool
+
+  @JavaMethod
+  open func isRunning() -> Bool
+
+  @JavaMethod
   open func instantScrollToPosition(_ arg0: Int32)
+
+  @JavaMethod
+  open func onChildAttachedToWindow(_ arg0: View?)
 
   @JavaMethod
   open func onStart()

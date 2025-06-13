@@ -9,16 +9,16 @@ extension AsyncListUtil {
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func getItemRangeInto(_ arg0: [Int32])
-
-  @JavaMethod
-  open func extendRangeInto(_ arg0: [Int32], _ arg1: [Int32], _ arg2: Int32)
-
-  @JavaMethod
   open func onDataRefresh()
 
   @JavaMethod
   open func onItemLoaded(_ arg0: Int32)
+
+  @JavaMethod
+  open func getItemRangeInto(_ arg0: [Int32])
+
+  @JavaMethod
+  open func extendRangeInto(_ arg0: [Int32], _ arg1: [Int32], _ arg2: Int32)
   }
 }
 extension JavaClass<AsyncListUtil.ViewCallback> {

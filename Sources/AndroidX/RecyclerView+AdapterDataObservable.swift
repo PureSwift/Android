@@ -12,21 +12,21 @@ extension RecyclerView {
   open func notifyChanged()
 
   @JavaMethod
-  open func notifyStateRestorationPolicyChanged()
+  open func notifyItemRangeChanged(_ arg0: Int32, _ arg1: Int32, _ arg2: JavaObject?)
 
   @JavaMethod
-  open func notifyItemMoved(_ arg0: Int32, _ arg1: Int32)
+  open func notifyItemRangeChanged(_ arg0: Int32, _ arg1: Int32)
 
   @JavaMethod
   open func notifyItemRangeInserted(_ arg0: Int32, _ arg1: Int32)
 
   @JavaMethod
+  open func notifyItemMoved(_ arg0: Int32, _ arg1: Int32)
+
+  @JavaMethod
   open func notifyItemRangeRemoved(_ arg0: Int32, _ arg1: Int32)
 
   @JavaMethod
-  open func notifyItemRangeChanged(_ arg0: Int32, _ arg1: Int32, _ arg2: JavaObject?)
-
-  @JavaMethod
-  open func notifyItemRangeChanged(_ arg0: Int32, _ arg1: Int32)
+  open func notifyStateRestorationPolicyChanged()
   }
 }

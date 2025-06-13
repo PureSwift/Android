@@ -6,6 +6,9 @@ extension NestedAdapterWrapper {
   @JavaInterface("androidx.recyclerview.widget.NestedAdapterWrapper$Callback")
   public struct Callback {
   @JavaMethod
+  public func onChanged(_ arg0: NestedAdapterWrapper?)
+
+  @JavaMethod
   public func onItemRangeChanged(_ arg0: NestedAdapterWrapper?, _ arg1: Int32, _ arg2: Int32, _ arg3: JavaObject?)
 
   @JavaMethod
@@ -22,8 +25,5 @@ extension NestedAdapterWrapper {
 
   @JavaMethod
   public func onStateRestorationPolicyChanged(_ arg0: NestedAdapterWrapper?)
-
-  @JavaMethod
-  public func onChanged(_ arg0: NestedAdapterWrapper?)
   }
 }

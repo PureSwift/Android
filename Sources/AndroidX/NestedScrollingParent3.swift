@@ -9,31 +9,25 @@ public struct NestedScrollingParent3 {
   public func onNestedScroll(_ arg0: View?, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32, _ arg5: Int32, _ arg6: [Int32])
 
   @JavaMethod
-  public func onStopNestedScroll(_ arg0: View?, _ arg1: Int32)
+  public func onStartNestedScroll(_ arg0: View?, _ arg1: View?, _ arg2: Int32, _ arg3: Int32) -> Bool
 
   @JavaMethod
   public func onNestedScroll(_ arg0: View?, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32, _ arg5: Int32)
 
   @JavaMethod
-  public func onStartNestedScroll(_ arg0: View?, _ arg1: View?, _ arg2: Int32, _ arg3: Int32) -> Bool
+  public func onNestedPreScroll(_ arg0: View?, _ arg1: Int32, _ arg2: Int32, _ arg3: [Int32], _ arg4: Int32)
+
+  @JavaMethod
+  public func onStopNestedScroll(_ arg0: View?, _ arg1: Int32)
 
   @JavaMethod
   public func onNestedScrollAccepted(_ arg0: View?, _ arg1: View?, _ arg2: Int32, _ arg3: Int32)
 
   @JavaMethod
-  public func onNestedPreScroll(_ arg0: View?, _ arg1: Int32, _ arg2: Int32, _ arg3: [Int32], _ arg4: Int32)
-
-  @JavaMethod
-  public func onStopNestedScroll(_ arg0: View?)
-
-  @JavaMethod
-  public func onNestedScroll(_ arg0: View?, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32)
-
-  @JavaMethod
   public func onStartNestedScroll(_ arg0: View?, _ arg1: View?, _ arg2: Int32) -> Bool
 
   @JavaMethod
-  public func onNestedScrollAccepted(_ arg0: View?, _ arg1: View?, _ arg2: Int32)
+  public func onNestedScroll(_ arg0: View?, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32)
 
   @JavaMethod
   public func onNestedPreScroll(_ arg0: View?, _ arg1: Int32, _ arg2: Int32, _ arg3: [Int32])
@@ -43,6 +37,12 @@ public struct NestedScrollingParent3 {
 
   @JavaMethod
   public func onNestedPreFling(_ arg0: View?, _ arg1: Float, _ arg2: Float) -> Bool
+
+  @JavaMethod
+  public func onStopNestedScroll(_ arg0: View?)
+
+  @JavaMethod
+  public func onNestedScrollAccepted(_ arg0: View?, _ arg1: View?, _ arg2: Int32)
 
   @JavaMethod
   public func getNestedScrollAxes() -> Int32

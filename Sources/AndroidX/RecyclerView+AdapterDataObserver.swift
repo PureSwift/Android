@@ -9,6 +9,9 @@ extension RecyclerView {
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
   @JavaMethod
+  open func onChanged()
+
+  @JavaMethod
   open func onItemRangeChanged(_ arg0: Int32, _ arg1: Int32)
 
   @JavaMethod
@@ -25,8 +28,5 @@ extension RecyclerView {
 
   @JavaMethod
   open func onStateRestorationPolicyChanged()
-
-  @JavaMethod
-  open func onChanged()
   }
 }

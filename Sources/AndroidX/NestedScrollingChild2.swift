@@ -5,44 +5,44 @@ import JavaRuntime
 @JavaInterface("androidx.core.view.NestedScrollingChild2", extends: NestedScrollingChild.self)
 public struct NestedScrollingChild2 {
   @JavaMethod
-  public func dispatchNestedPreScroll(_ arg0: Int32, _ arg1: Int32, _ arg2: [Int32], _ arg3: [Int32], _ arg4: Int32) -> Bool
+  public func startNestedScroll(_ arg0: Int32, _ arg1: Int32) -> Bool
 
   @JavaMethod
-  public func dispatchNestedScroll(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: [Int32], _ arg5: Int32) -> Bool
+  public func dispatchNestedPreScroll(_ arg0: Int32, _ arg1: Int32, _ arg2: [Int32], _ arg3: [Int32], _ arg4: Int32) -> Bool
 
   @JavaMethod
   public func stopNestedScroll(_ arg0: Int32)
 
   @JavaMethod
+  public func dispatchNestedScroll(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: [Int32], _ arg5: Int32) -> Bool
+
+  @JavaMethod
   public func hasNestedScrollingParent(_ arg0: Int32) -> Bool
-
-  @JavaMethod
-  public func startNestedScroll(_ arg0: Int32, _ arg1: Int32) -> Bool
-
-  @JavaMethod
-  public func dispatchNestedPreScroll(_ arg0: Int32, _ arg1: Int32, _ arg2: [Int32], _ arg3: [Int32]) -> Bool
-
-  @JavaMethod
-  public func dispatchNestedScroll(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: [Int32]) -> Bool
-
-  @JavaMethod
-  public func stopNestedScroll()
-
-  @JavaMethod
-  public func hasNestedScrollingParent() -> Bool
-
-  @JavaMethod
-  public func startNestedScroll(_ arg0: Int32) -> Bool
-
-  @JavaMethod
-  public func isNestedScrollingEnabled() -> Bool
 
   @JavaMethod
   public func setNestedScrollingEnabled(_ arg0: Bool)
 
   @JavaMethod
-  public func dispatchNestedFling(_ arg0: Float, _ arg1: Float, _ arg2: Bool) -> Bool
+  public func startNestedScroll(_ arg0: Int32) -> Bool
+
+  @JavaMethod
+  public func dispatchNestedPreScroll(_ arg0: Int32, _ arg1: Int32, _ arg2: [Int32], _ arg3: [Int32]) -> Bool
+
+  @JavaMethod
+  public func stopNestedScroll()
+
+  @JavaMethod
+  public func dispatchNestedScroll(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: [Int32]) -> Bool
 
   @JavaMethod
   public func dispatchNestedPreFling(_ arg0: Float, _ arg1: Float) -> Bool
+
+  @JavaMethod
+  public func dispatchNestedFling(_ arg0: Float, _ arg1: Float, _ arg2: Bool) -> Bool
+
+  @JavaMethod
+  public func isNestedScrollingEnabled() -> Bool
+
+  @JavaMethod
+  public func hasNestedScrollingParent() -> Bool
 }

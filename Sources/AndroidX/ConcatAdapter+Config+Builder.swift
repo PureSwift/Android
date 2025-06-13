@@ -9,10 +9,10 @@ extension ConcatAdapter.Config {
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func setStableIdMode(_ arg0: ConcatAdapter.Config.StableIdMode?) -> ConcatAdapter.Config.Builder!
+  open func setIsolateViewTypes(_ arg0: Bool) -> ConcatAdapter.Config.Builder!
 
   @JavaMethod
-  open func setIsolateViewTypes(_ arg0: Bool) -> ConcatAdapter.Config.Builder!
+  open func setStableIdMode(_ arg0: ConcatAdapter.Config.StableIdMode?) -> ConcatAdapter.Config.Builder!
 
   @JavaMethod
   open func build() -> ConcatAdapter.Config!

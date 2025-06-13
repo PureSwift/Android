@@ -16,6 +16,15 @@ extension RecyclerView.SmoothScroller {
   @_nonoverride public convenience init(_ arg0: Int32, _ arg1: Int32, environment: JNIEnvironment? = nil)
 
   @JavaMethod
+  open func setDuration(_ arg0: Int32)
+
+  @JavaMethod
+  open func getInterpolator() -> Interpolator!
+
+  @JavaMethod
+  open func setInterpolator(_ arg0: Interpolator?)
+
+  @JavaMethod
   open func jumpTo(_ arg0: Int32)
 
   @JavaMethod
@@ -29,15 +38,6 @@ extension RecyclerView.SmoothScroller {
 
   @JavaMethod
   open func setDy(_ arg0: Int32)
-
-  @JavaMethod
-  open func setDuration(_ arg0: Int32)
-
-  @JavaMethod
-  open func getInterpolator() -> Interpolator!
-
-  @JavaMethod
-  open func setInterpolator(_ arg0: Interpolator?)
 
   @JavaMethod
   open func update(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Interpolator?)

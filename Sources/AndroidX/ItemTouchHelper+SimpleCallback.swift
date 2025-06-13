@@ -9,6 +9,9 @@ extension ItemTouchHelper {
   @_nonoverride public convenience init(_ arg0: Int32, _ arg1: Int32, environment: JNIEnvironment? = nil)
 
   @JavaMethod
+  open override func getMovementFlags(_ arg0: RecyclerView?, _ arg1: RecyclerView.ViewHolder?) -> Int32
+
+  @JavaMethod
   open func getDragDirs(_ arg0: RecyclerView?, _ arg1: RecyclerView.ViewHolder?) -> Int32
 
   @JavaMethod
@@ -19,9 +22,6 @@ extension ItemTouchHelper {
 
   @JavaMethod
   open func setDefaultDragDirs(_ arg0: Int32)
-
-  @JavaMethod
-  open override func getMovementFlags(_ arg0: RecyclerView?, _ arg1: RecyclerView.ViewHolder?) -> Int32
   }
 }
 extension JavaClass<ItemTouchHelper.SimpleCallback> {

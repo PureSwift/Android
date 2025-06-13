@@ -13,9 +13,6 @@ open class ItemTouchHelper: RecyclerView.ItemDecoration {
   open func attachToRecyclerView(_ arg0: RecyclerView?)
 
   @JavaMethod
-  open func startSwipe(_ arg0: RecyclerView.ViewHolder?)
-
-  @JavaMethod
   open override func onDrawOver(_ arg0: Canvas?, _ arg1: RecyclerView?, _ arg2: RecyclerView.State?)
 
   @JavaMethod
@@ -32,6 +29,9 @@ open class ItemTouchHelper: RecyclerView.ItemDecoration {
 
   @JavaMethod
   open func startDrag(_ arg0: RecyclerView.ViewHolder?)
+
+  @JavaMethod
+  open func startSwipe(_ arg0: RecyclerView.ViewHolder?)
 }
 extension JavaClass<ItemTouchHelper> {
   @JavaStaticField(isFinal: true)

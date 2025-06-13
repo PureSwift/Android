@@ -16,19 +16,25 @@ extension RecyclerView {
   open func getPosition() -> Int32
 
   @JavaMethod
+  open func getItemId() -> Int64
+
+  @JavaMethod
+  open func getAbsoluteAdapterPosition() -> Int32
+
+  @JavaMethod
+  open func getLayoutPosition() -> Int32
+
+  @JavaMethod
+  open func setIsRecyclable(_ arg0: Bool)
+
+  @JavaMethod
   open func getBindingAdapterPosition() -> Int32
 
   @JavaMethod
   open func isRecyclable() -> Bool
 
   @JavaMethod
-  open func getLayoutPosition() -> Int32
-
-  @JavaMethod
   open func getAdapterPosition() -> Int32
-
-  @JavaMethod
-  open func getAbsoluteAdapterPosition() -> Int32
 
   @JavaMethod
   open func getBindingAdapter() -> RecyclerView.Adapter<RecyclerView.ViewHolder>!
@@ -37,13 +43,7 @@ extension RecyclerView {
   open func getOldPosition() -> Int32
 
   @JavaMethod
-  open func getItemId() -> Int64
-
-  @JavaMethod
   open func getItemViewType() -> Int32
-
-  @JavaMethod
-  open func setIsRecyclable(_ arg0: Bool)
 
   @JavaMethod
   open override func toString() -> String

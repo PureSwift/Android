@@ -11,11 +11,11 @@ open class AsyncListUtil<T: AnyJavaObject>: JavaObject {
   open func getItemCount() -> Int32
 
   @JavaMethod
-  open func getItem(_ arg0: Int32) -> JavaObject!
-
-  @JavaMethod
   open func refresh()
 
   @JavaMethod
   open func onRangeChanged()
+
+  @JavaMethod
+  open func getItem(_ arg0: Int32) -> JavaObject!
 }

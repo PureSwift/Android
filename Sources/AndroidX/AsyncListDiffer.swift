@@ -13,16 +13,16 @@ open class AsyncListDiffer<T: AnyJavaObject>: JavaObject {
   @_nonoverride public convenience init(_ arg0: ListUpdateCallback?, _ arg1: AsyncDifferConfig<JavaObject>?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open func addListListener(_ arg0: AsyncListDiffer.ListListener<JavaObject>?)
+  open func submitList(_ arg0: List<JavaObject>?)
 
   @JavaMethod
   open func submitList(_ arg0: List<JavaObject>?, _ arg1: Runnable?)
 
   @JavaMethod
-  open func submitList(_ arg0: List<JavaObject>?)
+  open func getCurrentList() -> List<JavaObject>!
 
   @JavaMethod
-  open func getCurrentList() -> List<JavaObject>!
+  open func addListListener(_ arg0: AsyncListDiffer.ListListener<JavaObject>?)
 
   @JavaMethod
   open func removeListListener(_ arg0: AsyncListDiffer.ListListener<JavaObject>?)
