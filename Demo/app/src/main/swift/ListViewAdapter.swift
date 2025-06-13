@@ -21,9 +21,6 @@ open class ListViewAdapter: JavaObject {
     
     @JavaMethod
     func getSwiftObject() -> SwiftObject!
-    
-    @JavaMethod
-    func getResourceId() -> Int32
 }
 
 @JavaImplementation("com.pureswift.swiftandroid.ListViewAdapter")
