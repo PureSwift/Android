@@ -7,13 +7,13 @@ extension RecyclerView.Adapter {
   @JavaClass("androidx.recyclerview.widget.RecyclerView$Adapter$StateRestorationPolicy")
   open class StateRestorationPolicy: Enum {
     public enum StateRestorationPolicyCases: Equatable {
-      case ALLOW
-  case PREVENT_WHEN_EMPTY
-  case PREVENT
+        case ALLOW
+        case PREVENT_WHEN_EMPTY
+        case PREVENT
     }
 
     public var enumValue: StateRestorationPolicyCases! {
-      let classObj = self.javaClass
+        let classObj = try! JavaClass<RecyclerView.Adapter<JavaObject>.StateRestorationPolicy>(environment: javaEnvironment)
       if self.equals(classObj.ALLOW?.as(JavaObject.self)) {
         return StateRestorationPolicyCases.ALLOW
   } else if self.equals(classObj.PREVENT_WHEN_EMPTY?.as(JavaObject.self)) {
@@ -31,7 +31,7 @@ extension RecyclerView.Adapter {
     } else {
       try! JavaVirtualMachine.shared().environment()
     }
-    let classObj = try! JavaClass<StateRestorationPolicy>(environment: _environment)
+    let classObj = try! JavaClass<RecyclerView.Adapter<JavaObject>.StateRestorationPolicy>(environment: _environment)
     switch enumValue {
       case .ALLOW:
         if let ALLOW = classObj.ALLOW {
@@ -55,19 +55,19 @@ extension RecyclerView.Adapter {
   }
   }
 }
-extension JavaClass<RecyclerView.Adapter.StateRestorationPolicy> {
+extension JavaClass<RecyclerView.Adapter<JavaObject>.StateRestorationPolicy> {
   @JavaStaticField(isFinal: true)
-  public var ALLOW: RecyclerView.Adapter.StateRestorationPolicy!
+  public var ALLOW: RecyclerView.Adapter<JavaObject>.StateRestorationPolicy!
 
   @JavaStaticField(isFinal: true)
-  public var PREVENT_WHEN_EMPTY: RecyclerView.Adapter.StateRestorationPolicy!
+  public var PREVENT_WHEN_EMPTY: RecyclerView.Adapter<JavaObject>.StateRestorationPolicy!
 
   @JavaStaticField(isFinal: true)
-  public var PREVENT: RecyclerView.Adapter.StateRestorationPolicy!
+  public var PREVENT: RecyclerView.Adapter<JavaObject>.StateRestorationPolicy!
 
   @JavaStaticMethod
-  public func values() -> [RecyclerView.Adapter.StateRestorationPolicy?]
+  public func values() -> [RecyclerView.Adapter<JavaObject>.StateRestorationPolicy?]
 
   @JavaStaticMethod
-  public func valueOf(_ arg0: String) -> RecyclerView.Adapter.StateRestorationPolicy!
+  public func valueOf(_ arg0: String) -> RecyclerView.Adapter<JavaObject>.StateRestorationPolicy!
 }

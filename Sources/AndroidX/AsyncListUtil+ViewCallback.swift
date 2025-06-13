@@ -21,7 +21,7 @@ extension AsyncListUtil {
   open func extendRangeInto(_ arg0: [Int32], _ arg1: [Int32], _ arg2: Int32)
   }
 }
-extension JavaClass<AsyncListUtil.ViewCallback> {
+extension JavaClass<AsyncListUtil<JavaObject>.ViewCallback> {
   @JavaStaticField(isFinal: true)
   public var HINT_SCROLL_NONE: Int32
 

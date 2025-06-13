@@ -278,10 +278,10 @@ open class RecyclerView: ViewGroup {
   open func setScrollingTouchSlop(_ arg0: Int32)
 
   @JavaMethod
-  open func swapAdapter(_ arg0: RecyclerView.Adapter?, _ arg1: Bool)
+  open func swapAdapter(_ arg0: RecyclerView.Adapter<JavaObject>?, _ arg1: Bool)
 
   @JavaMethod
-  open func setAdapter(_ arg0: RecyclerView.Adapter?)
+  open func setAdapter(_ arg0: RecyclerView.Adapter<JavaObject>?)
 
   @JavaMethod
   open func setRecyclerListener(_ arg0: RecyclerView.RecyclerListener?)
@@ -425,7 +425,7 @@ open class RecyclerView: ViewGroup {
   open func onChildAttachedToWindow(_ arg0: View?)
 
   @JavaMethod
-  open func getAdapter() -> RecyclerView.Adapter!
+  open func getAdapter() -> RecyclerView.Adapter<JavaObject>!
 }
 extension JavaClass<RecyclerView> {
   @JavaStaticField(isFinal: true)
@@ -733,9 +733,6 @@ extension JavaClass<RecyclerView> {
 
   @JavaStaticField(isFinal: true)
   public var NOT_FOCUSABLE: Int32
-
-  @JavaStaticField(isFinal: true)
-  public var NO_ID: Int32
 
   @JavaStaticField(isFinal: true)
   public var OVER_SCROLL_ALWAYS: Int32

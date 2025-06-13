@@ -9,7 +9,7 @@ extension ThreadUtil {
   public func updateItemCount(_ arg0: Int32, _ arg1: Int32)
 
   @JavaMethod
-  public func addTile(_ arg0: Int32, _ arg1: TileList.Tile<JavaObject>?)
+  public func addTile(_ arg0: Int32, _ arg1: TileList<JavaObject>.Tile<JavaObject>?)
 
   @JavaMethod
   public func removeTile(_ arg0: Int32, _ arg1: Int32)

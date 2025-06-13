@@ -18,9 +18,6 @@ extension JavaClass<RecyclerView.SavedState> {
   public var EMPTY_STATE: AbsSavedState!
 
   @JavaStaticField(isFinal: true)
-  public var CREATOR: Parcelable.Creator<AbsSavedState>!
-
-  @JavaStaticField(isFinal: true)
   public var CONTENTS_FILE_DESCRIPTOR: Int32
 
   @JavaStaticField(isFinal: true)

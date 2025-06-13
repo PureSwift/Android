@@ -5,6 +5,7 @@ import JavaKitCollection
 import JavaRuntime
 
 extension RecyclerView {
+    
   @JavaClass("androidx.recyclerview.widget.RecyclerView$Adapter")
   open class Adapter<VH: AnyJavaObject>: JavaObject {
   @JavaMethod
@@ -29,7 +30,7 @@ extension RecyclerView {
   open func setHasStableIds(_ arg0: Bool)
 
   @JavaMethod
-  open func setStateRestorationPolicy(_ arg0: RecyclerView.Adapter.StateRestorationPolicy?)
+  open func setStateRestorationPolicy(_ arg0: RecyclerView.Adapter<JavaObject>.StateRestorationPolicy?)
 
   @JavaMethod
   open func onFailedToRecycleView(_ arg0: RecyclerView.ViewHolder?) -> Bool
@@ -74,7 +75,7 @@ extension RecyclerView {
   open func notifyItemRemoved(_ arg0: Int32)
 
   @JavaMethod
-  open func getStateRestorationPolicy() -> RecyclerView.Adapter.StateRestorationPolicy!
+  open func getStateRestorationPolicy() -> RecyclerView.Adapter<JavaObject>.StateRestorationPolicy!
 
   @JavaMethod
   open func hasStableIds() -> Bool

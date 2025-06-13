@@ -7,7 +7,7 @@ import AndroidView
 import JavaKit
 import JavaRuntime
 
-@JavaClass("androidx.recyclerview.widget.StaggeredGridLayoutManager", implements: RecyclerView.SmoothScroller.ScrollVectorProvider.self)
+@JavaClass("androidx.recyclerview.widget.StaggeredGridLayoutManager")
 open class StaggeredGridLayoutManager: RecyclerView.LayoutManager {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Int32, _ arg1: Int32, environment: JNIEnvironment? = nil)
@@ -19,7 +19,7 @@ open class StaggeredGridLayoutManager: RecyclerView.LayoutManager {
   open override func setMeasuredDimension(_ arg0: Rect?, _ arg1: Int32, _ arg2: Int32)
 
   @JavaMethod
-  open override func onAdapterChanged(_ arg0: RecyclerView.Adapter?, _ arg1: RecyclerView.Adapter?)
+  open override func onAdapterChanged(_ arg0: RecyclerView.Adapter<JavaObject>?, _ arg1: RecyclerView.Adapter<JavaObject>?)
 
   @JavaMethod
   open override func onSaveInstanceState() -> Parcelable!

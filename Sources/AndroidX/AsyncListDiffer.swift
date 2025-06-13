@@ -7,7 +7,7 @@ import JavaRuntime
 @JavaClass("androidx.recyclerview.widget.AsyncListDiffer")
 open class AsyncListDiffer<T: AnyJavaObject>: JavaObject {
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: RecyclerView.Adapter?, _ arg1: DiffUtil.ItemCallback<JavaObject>?, environment: JNIEnvironment? = nil)
+  @_nonoverride public convenience init(_ arg0: RecyclerView.Adapter<JavaObject>?, _ arg1: DiffUtil.ItemCallback<JavaObject>?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: ListUpdateCallback?, _ arg1: AsyncDifferConfig<JavaObject>?, environment: JNIEnvironment? = nil)

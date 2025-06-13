@@ -5,7 +5,7 @@ import JavaRuntime
 @JavaClass("androidx.recyclerview.widget.AdapterListUpdateCallback", implements: ListUpdateCallback.self)
 open class AdapterListUpdateCallback: JavaObject {
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: RecyclerView.Adapter?, environment: JNIEnvironment? = nil)
+  @_nonoverride public convenience init(_ arg0: RecyclerView.Adapter<JavaObject>?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
   open func onInserted(_ arg0: Int32, _ arg1: Int32)
