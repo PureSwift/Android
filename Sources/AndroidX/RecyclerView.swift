@@ -83,10 +83,10 @@ open class RecyclerView: ViewGroup {
   open override func dispatchKeyEvent(_ arg0: KeyEvent?) -> Bool
 
   @JavaMethod
-  open func smoothScrollBy(_ arg0: Int32, _ arg1: Int32, _ arg2: Interpolator?)
+  open func smoothScrollBy(_ arg0: Int32, _ arg1: Int32, _ arg2: AndroidView.Interpolator?)
 
   @JavaMethod
-  open func smoothScrollBy(_ arg0: Int32, _ arg1: Int32, _ arg2: Interpolator?, _ arg3: Int32)
+  open func smoothScrollBy(_ arg0: Int32, _ arg1: Int32, _ arg2: AndroidView.Interpolator?, _ arg3: Int32)
 
   @JavaMethod
   open func smoothScrollBy(_ arg0: Int32, _ arg1: Int32)
@@ -278,10 +278,10 @@ open class RecyclerView: ViewGroup {
   open func setScrollingTouchSlop(_ arg0: Int32)
 
   @JavaMethod
-  open func swapAdapter(_ arg0: RecyclerView.Adapter<JavaObject>?, _ arg1: Bool)
+  open func swapAdapter(_ arg0: RecyclerView.Adapter<RecyclerView.ViewHolder>?, _ arg1: Bool)
 
   @JavaMethod
-  open func setAdapter(_ arg0: RecyclerView.Adapter<JavaObject>?)
+  open func setAdapter(_ arg0: RecyclerView.Adapter<RecyclerView.ViewHolder>?)
 
   @JavaMethod
   open func setRecyclerListener(_ arg0: RecyclerView.RecyclerListener?)
@@ -425,7 +425,7 @@ open class RecyclerView: ViewGroup {
   open func onChildAttachedToWindow(_ arg0: View?)
 
   @JavaMethod
-  open func getAdapter() -> RecyclerView.Adapter<JavaObject>!
+  open func getAdapter() -> RecyclerView.Adapter<RecyclerView.ViewHolder>!
 }
 extension JavaClass<RecyclerView> {
   @JavaStaticField(isFinal: true)

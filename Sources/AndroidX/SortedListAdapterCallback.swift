@@ -5,7 +5,7 @@ import JavaRuntime
 @JavaClass("androidx.recyclerview.widget.SortedListAdapterCallback")
 open class SortedListAdapterCallback<T2: AnyJavaObject>: SortedList<T2>.Callback<T2> {
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: RecyclerView.Adapter<JavaObject>?, environment: JNIEnvironment? = nil)
+  @_nonoverride public convenience init(_ arg0: RecyclerView.Adapter<RecyclerView.ViewHolder>?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
   open func onInserted(_ arg0: Int32, _ arg1: Int32)

@@ -9,7 +9,7 @@ extension DiffUtil {
   open func dispatchUpdatesTo(_ arg0: ListUpdateCallback?)
 
   @JavaMethod
-  open func dispatchUpdatesTo(_ arg0: RecyclerView.Adapter<JavaObject>?)
+  open func dispatchUpdatesTo(_ arg0: RecyclerView.Adapter<RecyclerView.ViewHolder>?)
 
   @JavaMethod
   open func convertOldPositionToNew(_ arg0: Int32) -> Int32

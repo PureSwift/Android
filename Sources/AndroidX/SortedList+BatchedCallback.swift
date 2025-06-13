@@ -4,7 +4,7 @@ import JavaRuntime
 
 extension SortedList {
   @JavaClass("androidx.recyclerview.widget.SortedList$BatchedCallback")
-  open class BatchedCallback<T2: AnyJavaObject>: SortedList.Callback {
+  open class BatchedCallback<T2: AnyJavaObject>: SortedList<T2>.Callback<T2> {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: SortedList.Callback<JavaObject>?, environment: JNIEnvironment? = nil)
 

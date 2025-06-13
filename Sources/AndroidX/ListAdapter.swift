@@ -5,7 +5,7 @@ import JavaKitCollection
 import JavaRuntime
 
 @JavaClass("androidx.recyclerview.widget.ListAdapter")
-open class ListAdapter<T: AnyJavaObject, VH: AnyJavaObject>: RecyclerView.Adapter<VH> {
+open class ListAdapter<T: AnyJavaObject, VH: RecyclerView.ViewHolder>: RecyclerView.Adapter<VH> {
   @JavaMethod
   open override func getItemCount() -> Int32
 

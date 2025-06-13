@@ -13,7 +13,7 @@ extension ConcatAdapter.Config {
     }
 
     public var enumValue: StableIdModeCases! {
-        let classObj = try! JavaClass<ConcatAdapter<JavaObject>.Config.StableIdMode>(environment: javaEnvironment)
+        let classObj = try! JavaClass<ConcatAdapter.Config.StableIdMode>(environment: javaEnvironment)
       if self.equals(classObj.NO_STABLE_IDS?.as(JavaObject.self)) {
         return StableIdModeCases.NO_STABLE_IDS
   } else if self.equals(classObj.ISOLATED_STABLE_IDS?.as(JavaObject.self)) {
@@ -31,7 +31,7 @@ extension ConcatAdapter.Config {
     } else {
       try! JavaVirtualMachine.shared().environment()
     }
-    let classObj = try! JavaClass<ConcatAdapter<JavaObject>.Config.StableIdMode>(environment: _environment)
+    let classObj = try! JavaClass<ConcatAdapter.Config.StableIdMode>(environment: _environment)
     switch enumValue {
       case .NO_STABLE_IDS:
         if let NO_STABLE_IDS = classObj.NO_STABLE_IDS {
@@ -62,19 +62,19 @@ extension ConcatAdapter.Config.StableIdMode {
   open override func toString() -> String
   }
 }
-extension JavaClass<ConcatAdapter<JavaObject>.Config.StableIdMode> {
+extension JavaClass<ConcatAdapter.Config.StableIdMode> {
   @JavaStaticField(isFinal: true)
-  public var NO_STABLE_IDS: ConcatAdapter<JavaObject>.Config.StableIdMode!
+  public var NO_STABLE_IDS: ConcatAdapter.Config.StableIdMode!
 
   @JavaStaticField(isFinal: true)
-  public var ISOLATED_STABLE_IDS: ConcatAdapter<JavaObject>.Config.StableIdMode!
+  public var ISOLATED_STABLE_IDS: ConcatAdapter.Config.StableIdMode!
 
   @JavaStaticField(isFinal: true)
-  public var SHARED_STABLE_IDS: ConcatAdapter<JavaObject>.Config.StableIdMode!
+  public var SHARED_STABLE_IDS: ConcatAdapter.Config.StableIdMode!
 
   @JavaStaticMethod
-  public func values() -> [ConcatAdapter<JavaObject>.Config.StableIdMode?]
+  public func values() -> [ConcatAdapter.Config.StableIdMode?]
 
   @JavaStaticMethod
-  public func valueOf(_ arg0: String) -> ConcatAdapter<JavaObject>.Config.StableIdMode!
+  public func valueOf(_ arg0: String) -> ConcatAdapter.Config.StableIdMode!
 }

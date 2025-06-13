@@ -6,7 +6,7 @@ extension ThreadUtil {
   @JavaInterface("androidx.recyclerview.widget.ThreadUtil$BackgroundCallback")
   public struct BackgroundCallback<T: AnyJavaObject> {
   @JavaMethod
-  public func recycleTile(_ arg0: TileList.Tile<JavaObject>?)
+  public func recycleTile(_ arg0: TileList<JavaObject>.Tile<JavaObject>?)
 
   @JavaMethod
   public func loadTile(_ arg0: Int32, _ arg1: Int32)
