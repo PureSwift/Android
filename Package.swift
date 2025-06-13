@@ -492,7 +492,9 @@ let package = Package(
             dependencies: [
                 "AndroidJava",
                 "AndroidUtil",
+                "AndroidApp",
                 "AndroidView",
+                "AndroidContent",
                 "AndroidWidget"
             ],
             exclude: ["swift-java.config"],
