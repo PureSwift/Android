@@ -491,6 +491,7 @@ let package = Package(
             name: "AndroidX",
             dependencies: [
                 "AndroidJava",
+                "AndroidUtil",
                 "AndroidView",
                 "AndroidWidget"
             ],
