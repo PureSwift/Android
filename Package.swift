@@ -490,7 +490,9 @@ let package = Package(
         .target(
             name: "AndroidX",
             dependencies: [
-                "AndroidJava"
+                "AndroidJava",
+                "AndroidView",
+                "AndroidWidget"
             ],
             exclude: ["swift-java.config"],
             swiftSettings: [
