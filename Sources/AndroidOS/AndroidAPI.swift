@@ -9,6 +9,7 @@
 import Android
 import AndroidNDK
 #endif
+import JavaKit
 
 /// Android API Level
 public struct AndroidAPI: RawRepresentable, Equatable, Hashable, Codable, Sendable {
@@ -25,26 +26,37 @@ public extension AndroidAPI {
     
     /// Available since API level 24. Returns the API level of the device we're actually running on.
     static var current: AndroidAPI {
-        get throws(Throwable) {
-            let value: CInt
-            #if os(Android) && canImport(AndroidNDK)
-            value = try ndkValue().get()
-            #else
-            value = try jniValue()
-            #endif
+        get throws(Exception) {
+            AndroidAPI(rawValue: try deviceAPILevel())
         }
     }
 }
 
 internal extension AndroidAPI {
     
-    /// `Build.VERSION.SDK_INT`
-    static func jniValue() throws(Throwable) -> Int32 {
-        let javaClass = try JavaClass<Build.VERSION>.init()
-        return javaClass.sdk_version
+    static func deviceAPILevel() throws(Exception) -> Int32 {
+        #if os(Android) && canImport(AndroidNDK)
+        try ndkValue().get()
+        #else
+        try jniValue()
+        #endif
     }
     
+    /// `Build.VERSION.SDK_INT`
+    static func jniValue() throws(Throwable) -> Int32 {
+        do {
+            let javaClass = try JavaClass<Build.VERSION>.init()
+            return javaClass.SDK_INT
+        }
+        catch let error as Throwable {
+            throw error
+        }
+        catch {
+            fatalError("Invalid error \(error)")
+        }
+    }
     
+    /// Available since API level 24. Returns the API level of the device we're actually running on.
     static func ndkValue() -> Result<Int32, Exception> {
         #if os(Android) && canImport(AndroidNDK)
         let value = android_get_device_api_level()
@@ -52,7 +64,7 @@ internal extension AndroidAPI {
         let value: Int32 = -1
         #endif
         guard value != -1 else {
-            throw Exception()
+            return .failure(Exception())
         }
         return .success(value)
     }
