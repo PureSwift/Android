@@ -21,6 +21,8 @@ open class MainActivity: AndroidApp.Activity {
     
     lazy var listView = ListView(self)
     
+    lazy var recyclerView = RecyclerView(self)
+    
     var runnable: AndroidJavaLang.Runnable!
     
     //lazy var timer = AndroidJavaUtil.Timer()
@@ -49,13 +51,7 @@ private extension MainActivity {
         startMainRunLoop()
         setRootView()
         
-        // update view on timer
-        Task { [weak self] in
-            while let self {
-                await self.updateTextView()
-                try? await Task.sleep(for: .seconds(1))
-            }
-        }
+        
     }
     
     func runAsync() {
@@ -80,9 +76,17 @@ private extension MainActivity {
     }
     
     func setRootView() {
+        setRecyclerView()
+    }
+    
+    func setTextView() {
         setRootView(textView)
-        Task {
-            await updateTextView()
+        // update view on timer
+        Task { [weak self] in
+            while let self {
+                await self.updateTextView()
+                try? await Task.sleep(for: .seconds(1))
+            }
         }
     }
     
@@ -90,7 +94,9 @@ private extension MainActivity {
         let items = [
             "Row 1",
             "Row 2",
-            "Row 3"
+            "Row 3",
+            "Row 4",
+            "Row 5"
         ]
         let layout = try! JavaClass<R.layout>()
         let resource = layout.simple_list_item_1
@@ -104,6 +110,44 @@ private extension MainActivity {
         listView.setAdapter(adapter.as(Adapter.self))
                 
         setRootView(listView)
+    }
+    
+    func setRecyclerView() {
+        let items = [
+            "Row 1",
+            "Row 2",
+            "Row 3",
+            "Row 4",
+            "Row 5"
+        ]
+        let callback = RecyclerViewAdapter.Callback(
+            onCreateViewHolder: { (parent, viewType) in
+                let context = parent.getContext()
+                //let linearLayout = LinearLayout(context)
+                //let textView = TextView(context)
+                //linearLayout.addView(textView)
+                //parent.addView(linearLayout)
+                let listItemView = try! JavaClass<LayoutInflater>()
+                    .from(context)
+                    .inflate(JavaClass<R.layout>().simple_list_item_1, parent, false)!
+                
+                return RecyclerViewAdapter.ViewHolder(listItemView, view: listItemView)
+            },
+            onBindViewHolder: { (holder, position) in
+                guard let viewHolder = holder.as(RecyclerViewAdapter.ViewHolder.self) else {
+                    return
+                }
+                let data = items[Int(position)]
+                viewHolder.itemView.as(TextView.self)?.text = data
+            },
+            getItemCount: {
+                Int32(items.count)
+            }
+        )
+        let adapter = RecyclerViewAdapter(callback)
+        recyclerView.setLayoutManager(LinearLayoutManager(self))
+        recyclerView.setAdapter(adapter)
+        setRootView(recyclerView)
     }
     
     @MainActor
