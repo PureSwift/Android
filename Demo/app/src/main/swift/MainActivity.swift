@@ -15,6 +15,8 @@ open class MainActivity: AndroidApp.Activity {
     @JavaMethod
     open func setRootView(_ view: AndroidView.View?)
     
+    static private(set) var shared: MainActivity!
+    
     lazy var textView = TextView(self)
     
     lazy var listView = ListView(self)
@@ -37,18 +39,21 @@ extension MainActivity {
 
 private extension MainActivity {
     
+    #if os(Android)
+    typealias MainActor = AndroidMainActor
+    #endif
+    
     func _onCreate() {
+        MainActivity.shared = self
         runAsync()
         startMainRunLoop()
         setRootView()
         
         // update view on timer
         Task { [weak self] in
-            while let self = self {
+            while let self {
+                await self.updateTextView()
                 try? await Task.sleep(for: .seconds(1))
-                await MainActor.run { [weak self] in
-                    self?.updateView()
-                }
             }
         }
     }
@@ -63,34 +68,22 @@ private extension MainActivity {
         }
         Task {
             Self.log("\(self).\(#function) Task Started")
-            await MainActor.run {
-                RunLoop.main.run(until: Date() + 0.1)
-            }
         }
-    }
-    
-    func runMainThread(_ block: @escaping () -> ()) {
-        self.runOnUiThread(Runnable(block).as(AndroidJavaLang.Runnable.self))
     }
     
     func startMainRunLoop() {
-        let runnable = Runnable { [weak self] in
-            // run main loop
-            RunLoop.main.run(until: Date() + 0.01)
-            // schedule next
-            Task { [weak self] in
-                while let self, let runnable = self.runnable {
-                    try? await Task.sleep(for: .seconds(10))
-                    self.runOnUiThread(runnable)
-                }
-            }
+        #if os(Android)
+        guard AndroidLooper.setupMainLooper() else {
+            fatalError("Unable to setup main loop")
         }
-        self.runnable = runnable.as(AndroidJavaLang.Runnable.self)
-        self.runOnUiThread(self.runnable)
+        #endif
     }
     
     func setRootView() {
-        setListView()
+        setRootView(textView)
+        Task {
+            await updateTextView()
+        }
     }
     
     func setListView() {
@@ -113,7 +106,9 @@ private extension MainActivity {
         setRootView(listView)
     }
     
-    func updateView() {
+    @MainActor
+    func updateTextView() {
+        log("\(self).\(#function)")
         textView.text = "Hello Swift!\n\(Date().formatted(date: .numeric, time: .complete))"
     }
 }
