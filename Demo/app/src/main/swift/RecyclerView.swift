@@ -21,14 +21,6 @@ open class RecyclerViewAdapter: RecyclerView.Adapter {
 extension RecyclerViewAdapter {
     
     @JavaMethod
-    public func onCreateViewHolderSwift(_ viewGroup: ViewGroup?, _ viewType: Int32) -> RecyclerViewAdapter.ViewHolder? {
-        log("\(self).\(#function) \(viewType)")
-        let viewHolder = callback.onCreateViewHolder(viewGroup!, viewType)
-        log("\(self).\(#function) Created \(viewHolder.getClass().getName()) \(viewHolder.itemView.getClass().getName())")
-        return viewHolder
-    }
-    
-    @JavaMethod
     public func onBindViewHolderSwift(_ viewHolder: RecyclerViewAdapter.ViewHolder?, _ position: Int32) {
         log("\(self).\(#function) \(position)")
         callback.onBindViewHolder(viewHolder!, position)
@@ -72,19 +64,15 @@ extension RecyclerViewAdapter {
 public extension RecyclerViewAdapter {
     
     struct Callback {
-        
-        var onCreateViewHolder: ((ViewGroup, Int32) -> RecyclerViewAdapter.ViewHolder)
-        
+                
         var onBindViewHolder: ((RecyclerViewAdapter.ViewHolder, Int32) -> ())
         
         var getItemCount: () -> Int32
         
         public init(
-            onCreateViewHolder: @escaping ((ViewGroup, Int32) -> RecyclerViewAdapter.ViewHolder),
             onBindViewHolder: @escaping ((RecyclerViewAdapter.ViewHolder, Int32) -> Void),
             getItemCount: @escaping () -> Int32 = { return 0 }
         ) {
-            self.onCreateViewHolder = onCreateViewHolder
             self.onBindViewHolder = onBindViewHolder
             self.getItemCount = getItemCount
         }

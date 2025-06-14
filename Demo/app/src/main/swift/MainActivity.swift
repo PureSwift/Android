@@ -121,18 +121,22 @@ private extension MainActivity {
             "Row 5"
         ]
         let callback = RecyclerViewAdapter.Callback(
-            onCreateViewHolder: { (parent, viewType) in
-                let context = parent.getContext()
-                let textView = TextView(context)
-                let viewHolder = RecyclerViewAdapter.ViewHolder(textView)
-                return viewHolder
-            },
             onBindViewHolder: { (holder, position) in
                 guard let viewHolder = holder.as(RecyclerViewAdapter.ViewHolder.self) else {
                     return
                 }
+                // get view
+                let linearLayout = viewHolder.itemView.as(LinearLayout.self)!
+                let textView: TextView
+                if linearLayout.getChildCount() == 0 {
+                    textView = TextView(self)
+                    linearLayout.addView(textView)
+                } else {
+                    textView = linearLayout.getChildAt(0).as(TextView.self)!
+                }
+                // set data
                 let data = items[Int(position)]
-                viewHolder.itemView.as(TextView.self)?.text = data
+                textView.text = data
             },
             getItemCount: {
                 Int32(items.count)
