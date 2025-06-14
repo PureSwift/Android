@@ -7,6 +7,7 @@
 
 #if os(Android)
 import Android
+import AndroidNDK
 #endif
 @_exported import JavaKit
 @_exported import JavaKitCollection
@@ -27,3 +28,4 @@ import Android
 @_exported import AndroidWidget
 @_exported import AndroidWebKit
 @_exported import AndroidLogging
+@_exported import AndroidLooper
