@@ -38,7 +38,7 @@ public struct AndroidLogger: Equatable, Hashable, Sendable {
     }
     
     internal func log(_ message: String) -> Result<Void, SystemPackage.Errno> {
-        let priority = CLogPriority(priority)
+        let priority = Int32(CLogPriority(priority).rawValue)
         let tag = tag.rawValue
         let result = message.withCString { messageCString in
             tag.withCString { tagCString in

@@ -8,6 +8,6 @@
 #if !os(Android)
 /// __android_log_write(int prio, const char *tag, const char *text)
 internal func __android_log_write(_ priority: CInt, _ tag: UnsafePointer<CChar>?, _ text: UnsafePointer<CChar>?) -> CInt {
-    fatalError("Shim")
+    fatalError("shim")
 }
 #endif

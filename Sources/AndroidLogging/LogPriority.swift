@@ -99,7 +99,14 @@ internal extension CLogPriority {
     }
 }
 #else
-internal typealias CLogPriority = CInt
+internal struct CLogPriority: RawRepresentable, Equatable, Hashable, Sendable {
+    
+    public var rawValue: CInt
+    
+    public init(rawValue: CInt) {
+        self.rawValue = rawValue
+    }
+}
 
 internal extension CLogPriority {
     
