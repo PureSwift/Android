@@ -21,12 +21,27 @@ public extension Application {
     func onCreateSwift() {
         log("\(self).\(#function)")
         
+        printAPIVersion()
         sayHello()
     }
     
     @JavaMethod
     func onTerminateSwift() {
         log("\(self).\(#function)")
+    }
+}
+
+private extension Application {
+    
+    func printAPIVersion() {
+        
+        do {
+            let api = try AndroidOS.AndroidAPI.current
+            Self.logInfo("Running on Android API \(api)")
+        }
+        catch {
+            Self.logError("\(error)")
+        }
     }
 }
 
