@@ -91,6 +91,7 @@ let package = Package(
                     name: "JavaKitReflection",
                     package: "swift-java"
                 ),
+                "AndroidNDK",
                 "AndroidJava",
                 "AndroidManifest",
                 "AndroidR",
@@ -102,7 +103,8 @@ let package = Package(
                 "AndroidX",
                 "AndroidWidget",
                 "AndroidWebKit",
-                "AndroidLogging"
+                "AndroidLogging",
+                "AndroidLooper"
             ],
             swiftSettings: [
               .swiftLanguageMode(.v5),
@@ -539,6 +541,22 @@ let package = Package(
             swiftSettings: [
               .swiftLanguageMode(.v6),
             ]
+        ),
+        .target(
+            name: "AndroidLooper",
+            dependencies: [
+                .product(
+                    name: "SystemPackage",
+                    package: "swift-system"
+                ),
+                "AndroidNDK"
+            ],
+            swiftSettings: [
+              .swiftLanguageMode(.v6)
+            ]
+        ),
+        .target(
+            name: "AndroidNDK"
         )
     ],
     swiftLanguageModes: [.v5, .v6]
