@@ -8,13 +8,17 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 class RecyclerViewAdapter(val swiftObject: SwiftObject) :
     RecyclerView.Adapter<ViewHolder>() {
 
-    class ViewHolder(val view: View, val swiftObject: SwiftObject) : RecyclerView.ViewHolder(view) {
+    class ViewHolder(view: View, val swiftObject: SwiftObject) : RecyclerView.ViewHolder(view) {
 
     }
 
     // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewAdapter.ViewHolder {
-        return onCreateViewHolderSwift(parent, viewType)
+        val viewHolder = onCreateViewHolderSwift(parent, viewType)
+        check(viewHolder.itemView != null) {
+            ("ViewHolder.itemView == nil")
+        }
+        return viewHolder
     }
 
     external fun onCreateViewHolderSwift(parent: ViewGroup, viewType: Int): RecyclerViewAdapter.ViewHolder
