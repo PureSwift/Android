@@ -53,6 +53,14 @@ let package = Package(
         .package(
             url: "https://github.com/PureSwift/swift-java.git",
             branch: "feature/android-shim"
+        ),
+        .package(
+          url: "https://github.com/apple/swift-log",
+          from: "1.6.3"
+        ),
+        .package(
+            url: "https://github.com/apple/swift-system",
+            from: "1.5.0"
         )
     ],
     targets: [
@@ -93,7 +101,8 @@ let package = Package(
                 "AndroidUtil",
                 "AndroidX",
                 "AndroidWidget",
-                "AndroidWebKit"
+                "AndroidWebKit",
+                "AndroidLogging"
             ],
             swiftSettings: [
               .swiftLanguageMode(.v5),
@@ -515,6 +524,22 @@ let package = Package(
               .swiftLanguageMode(.v5),
             ]
         ),
+        .target(
+            name: "AndroidLogging",
+            dependencies: [
+                .product(
+                    name: "SystemPackage",
+                    package: "swift-system"
+                ),
+                .product(
+                    name: "Logging",
+                    package: "swift-log"
+                )
+            ],
+            swiftSettings: [
+              .swiftLanguageMode(.v6),
+            ]
+        )
     ],
-    swiftLanguageModes: [.v5]
+    swiftLanguageModes: [.v5, .v6]
 )

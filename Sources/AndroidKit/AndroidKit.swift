@@ -5,6 +5,9 @@
 //  Created by Alsey Coleman Miller on 6/7/25.
 //
 
+#if os(Android)
+import Android
+#endif
 @_exported import JavaKit
 @_exported import JavaKitCollection
 @_exported import JavaKitIO
@@ -23,3 +26,4 @@
 @_exported import AndroidView
 @_exported import AndroidWidget
 @_exported import AndroidWebKit
+@_exported import AndroidLogging
