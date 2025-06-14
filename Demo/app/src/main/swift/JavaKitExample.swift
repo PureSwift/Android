@@ -15,6 +15,7 @@
 import JavaKit
 import JavaKitFunction
 import AndroidUtil
+import AndroidLogging
 
 enum SwiftWrappedError: Error {
   case message(String)
@@ -108,7 +109,7 @@ extension HelloSwift: HelloSwiftNativeMethods {
 internal extension HelloSwift {
     
     func print(_ string: String) {
-        let log = try! JavaClass<AndroidUtil.Log>()
-        _ = log.v("HelloSwift", string)
+        try? AndroidLogger(tag: "HelloSwift", priority: .verbose)
+            .log(string)
     }
 }

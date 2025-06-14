@@ -31,10 +31,15 @@ extension MainActivity {
     public func onCreateSwift(_ savedInstanceState: BaseBundle?) {
         log("\(self).\(#function)")
         
+        _onCreate()
+    }
+}
+
+private extension MainActivity {
+    
+    func _onCreate() {
         runAsync()
-        
         startMainRunLoop()
-        
         setRootView()
         
         // update view on timer
@@ -47,9 +52,6 @@ extension MainActivity {
             }
         }
     }
-}
-
-private extension MainActivity {
     
     func runAsync() {
         RunLoop.main.run(until: Date() + 0.1)
@@ -88,6 +90,10 @@ private extension MainActivity {
     }
     
     func setRootView() {
+        setListView()
+    }
+    
+    func setListView() {
         let items = [
             "Row 1",
             "Row 2",
@@ -105,7 +111,6 @@ private extension MainActivity {
         listView.setAdapter(adapter.as(Adapter.self))
                 
         setRootView(listView)
-        updateView()
     }
     
     func updateView() {
@@ -115,20 +120,21 @@ private extension MainActivity {
 
 extension MainActivity {
     
-    static var logTag: String { "MainActivity" }
-    
-    static let log = try! JavaClass<AndroidUtil.Log>()
-    
+    static var logTag: LogTag { "MainActivity" }
+        
     static func log(_ string: String) {
-        _ = Self.log.d(Self.logTag, string)
+        try? AndroidLogger(tag: logTag, priority: .debug)
+            .log(string)
     }
     
     static func logInfo(_ string: String) {
-        _ = Self.log.i(Self.logTag, string)
+        try? AndroidLogger(tag: logTag, priority: .info)
+            .log(string)
     }
     
     static func logError(_ string: String) {
-        _ = Self.log.e(Self.logTag, string)
+        try? AndroidLogger(tag: logTag, priority: .error)
+            .log(string)
     }
     
     func log(_ string: String) {

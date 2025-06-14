@@ -47,15 +47,28 @@ public extension ViewOnClickListener {
 
 extension ViewOnClickListener {
     
-    static var logTag: String { "ViewOnClickListener" }
+    static var logTag: LogTag { "ViewOnClickListener" }
     
-    static let log = try! JavaClass<AndroidUtil.Log>()
+    static func log(_ string: String) {
+        try? AndroidLogger(tag: logTag, priority: .debug)
+            .log(string)
+    }
+    
+    static func logInfo(_ string: String) {
+        try? AndroidLogger(tag: logTag, priority: .info)
+            .log(string)
+    }
+    
+    static func logError(_ string: String) {
+        try? AndroidLogger(tag: logTag, priority: .error)
+            .log(string)
+    }
     
     func log(_ string: String) {
-        _ = Self.log.d(Self.logTag, string)
+        Self.log(string)
     }
     
     func logError(_ string: String) {
-        _ = Self.log.e(Self.logTag, string)
+        Self.logError(string)
     }
 }
