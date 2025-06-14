@@ -98,4 +98,13 @@ internal extension CLogPriority {
         }
     }
 }
+#else
+internal typealias CLogPriority = CInt
+
+internal extension CLogPriority {
+    
+    init(_ priority: LogPriority) {
+        fatalError("shim")
+    }
+}
 #endif
