@@ -5,9 +5,14 @@ import JavaKitCollection
 import JavaKitFunction
 import JavaRuntime
 import AndroidView
+import AndroidContent
 
 @JavaClass("android.widget.TextView")
 open class TextView: AndroidView.View {
+  
+  @JavaMethod
+  @_nonoverride public convenience init(_ arg0: AndroidContent.Context?, environment: JNIEnvironment? = nil)
+
   @JavaMethod
   open func length() -> Int32
 
