@@ -26,7 +26,7 @@ public extension AndroidAPI {
     
     /// Available since API level 24. Returns the API level of the device we're actually running on.
     static var current: AndroidAPI {
-        get throws(Exception) {
+        get throws(Throwable) {
             AndroidAPI(rawValue: try deviceAPILevel())
         }
     }
@@ -34,7 +34,7 @@ public extension AndroidAPI {
 
 internal extension AndroidAPI {
     
-    static func deviceAPILevel() throws(Exception) -> Int32 {
+    static func deviceAPILevel() throws(Throwable) -> Int32 {
         #if os(Android) && canImport(AndroidNDK)
         try ndkValue().get()
         #else
