@@ -5,24 +5,24 @@ import JavaKit
 import JavaKitCollection
 import JavaRuntime
 
-public typealias ConcatAdapter = RecyclerView.Adapter<RecyclerView.ViewHolder>.Concat
+public typealias ConcatAdapter = RecyclerView.Adapter.Concat
 
 extension RecyclerView.Adapter {
     
     @JavaClass("androidx.recyclerview.widget.ConcatAdapter")
-    open class Concat: RecyclerView.Adapter<VH> {
+    open class Concat: RecyclerView.Adapter {
         
       @JavaMethod
-      @_nonoverride public convenience init(_ arg0: [RecyclerView.Adapter<RecyclerView.ViewHolder>?], environment: JNIEnvironment? = nil)
+      @_nonoverride public convenience init(_ arg0: [RecyclerView.Adapter?], environment: JNIEnvironment? = nil)
 
       @JavaMethod
-      @_nonoverride public convenience init(_ arg0: ConcatAdapter.Config?, _ arg1: [RecyclerView.Adapter<RecyclerView.ViewHolder>?], environment: JNIEnvironment? = nil)
+      @_nonoverride public convenience init(_ arg0: ConcatAdapter.Config?, _ arg1: [RecyclerView.Adapter?], environment: JNIEnvironment? = nil)
 
       @JavaMethod
-      @_nonoverride public convenience init(_ arg0: List<RecyclerView.Adapter<RecyclerView.ViewHolder>>?, environment: JNIEnvironment? = nil)
+      @_nonoverride public convenience init(_ arg0: List<RecyclerView.Adapter>?, environment: JNIEnvironment? = nil)
 
       @JavaMethod
-      @_nonoverride public convenience init(_ arg0: ConcatAdapter.Config?, _ arg1: List<RecyclerView.Adapter<RecyclerView.ViewHolder>>?, environment: JNIEnvironment? = nil)
+      @_nonoverride public convenience init(_ arg0: ConcatAdapter.Config?, _ arg1: List<RecyclerView.Adapter>?, environment: JNIEnvironment? = nil)
 
       @JavaMethod
       open override func onDetachedFromRecyclerView(_ arg0: RecyclerView?)
@@ -34,19 +34,19 @@ extension RecyclerView.Adapter {
       open override func getItemCount() -> Int32
 
       @JavaMethod
-      open func addAdapter(_ arg0: Int32, _ arg1: RecyclerView.Adapter<RecyclerView.ViewHolder>?) -> Bool
+      open func addAdapter(_ arg0: Int32, _ arg1: RecyclerView.Adapter?) -> Bool
 
       @JavaMethod
-      open func addAdapter(_ arg0: RecyclerView.Adapter<RecyclerView.ViewHolder>?) -> Bool
+      open func addAdapter(_ arg0: RecyclerView.Adapter?) -> Bool
 
       @JavaMethod
       open override func setHasStableIds(_ arg0: Bool)
 
       @JavaMethod
-      open func removeAdapter(_ arg0: RecyclerView.Adapter<RecyclerView.ViewHolder>?) -> Bool
+      open func removeAdapter(_ arg0: RecyclerView.Adapter?) -> Bool
 
       @JavaMethod
-      open override func setStateRestorationPolicy(_ arg0: RecyclerView.Adapter<RecyclerView.ViewHolder>.StateRestorationPolicy?)
+      open override func setStateRestorationPolicy(_ arg0: RecyclerView.Adapter.StateRestorationPolicy?)
 
       @JavaMethod
       open override func onFailedToRecycleView(_ arg0: RecyclerView.ViewHolder?) -> Bool
@@ -55,10 +55,10 @@ extension RecyclerView.Adapter {
       open override func onViewRecycled(_ arg0: RecyclerView.ViewHolder?)
 
       @JavaMethod
-      open func getWrappedAdapterAndPosition(_ arg0: Int32) -> Pair<RecyclerView.Adapter<RecyclerView.ViewHolder>, JavaInteger>!
+      open func getWrappedAdapterAndPosition(_ arg0: Int32) -> Pair<RecyclerView.Adapter, JavaInteger>!
 
       @JavaMethod
-      open func getAdapters() -> List<RecyclerView.Adapter<RecyclerView.ViewHolder>>!
+      open func getAdapters() -> List<RecyclerView.Adapter>!
 
       @JavaMethod
       open override func getItemId(_ arg0: Int32) -> Int64
@@ -70,7 +70,7 @@ extension RecyclerView.Adapter {
       open override func onViewAttachedToWindow(_ arg0: RecyclerView.ViewHolder?)
 
       @JavaMethod
-      open override func findRelativeAdapterPositionIn(_ arg0: RecyclerView.Adapter<RecyclerView.ViewHolder>?, _ arg1: RecyclerView.ViewHolder?, _ arg2: Int32) -> Int32
+      open override func findRelativeAdapterPositionIn(_ arg0: RecyclerView.Adapter?, _ arg1: RecyclerView.ViewHolder?, _ arg2: Int32) -> Int32
 
       @JavaMethod
       open override func getItemViewType(_ arg0: Int32) -> Int32
@@ -82,3 +82,4 @@ extension RecyclerView.Adapter {
       open override func onBindViewHolder(_ arg0: RecyclerView.ViewHolder?, _ arg1: Int32)
     }
 }
+

@@ -37,7 +37,7 @@ extension RecyclerView {
   open func getAdapterPosition() -> Int32
 
   @JavaMethod
-  open func getBindingAdapter() -> RecyclerView.Adapter<RecyclerView.ViewHolder>!
+  open func getBindingAdapter() -> RecyclerView.Adapter!
 
   @JavaMethod
   open func getOldPosition() -> Int32

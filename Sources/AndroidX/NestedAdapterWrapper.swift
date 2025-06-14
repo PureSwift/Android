@@ -5,7 +5,7 @@ import JavaRuntime
 @JavaClass("androidx.recyclerview.widget.NestedAdapterWrapper")
 open class NestedAdapterWrapper: JavaObject {
   @JavaField(isFinal: true)
-  public var adapter: RecyclerView.Adapter<RecyclerView.ViewHolder>!
+  public var adapter: RecyclerView.Adapter!
 
   @JavaMethod
   open func getItemId(_ arg0: Int32) -> Int64

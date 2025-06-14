@@ -19,7 +19,7 @@ open class StaggeredGridLayoutManager: RecyclerView.LayoutManager {
   open override func setMeasuredDimension(_ arg0: Rect?, _ arg1: Int32, _ arg2: Int32)
 
   @JavaMethod
-  open override func onAdapterChanged(_ arg0: RecyclerView.Adapter<RecyclerView.ViewHolder>?, _ arg1: RecyclerView.Adapter<RecyclerView.ViewHolder>?)
+  open override func onAdapterChanged(_ arg0: RecyclerView.Adapter?, _ arg1: RecyclerView.Adapter?)
 
   @JavaMethod
   open override func onSaveInstanceState() -> Parcelable!

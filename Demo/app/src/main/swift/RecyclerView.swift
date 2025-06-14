@@ -8,7 +8,7 @@
 import AndroidKit
 
 @JavaClass("com.pureswift.swiftandroid.RecyclerViewAdapter")
-open class RecyclerViewAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder> {
+open class RecyclerViewAdapter: RecyclerView.Adapter {
     
     @JavaMethod
     @_nonoverride public convenience init(swiftObject: SwiftObject?, environment: JNIEnvironment? = nil)

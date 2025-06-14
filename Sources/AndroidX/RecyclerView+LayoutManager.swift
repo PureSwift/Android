@@ -28,7 +28,7 @@ extension RecyclerView {
   open func removeAndRecycleAllViews(_ arg0: RecyclerView.Recycler?)
 
   @JavaMethod
-  open func onAdapterChanged(_ arg0: RecyclerView.Adapter<RecyclerView.ViewHolder>?, _ arg1: RecyclerView.Adapter<RecyclerView.ViewHolder>?)
+  open func onAdapterChanged(_ arg0: RecyclerView.Adapter?, _ arg1: RecyclerView.Adapter?)
 
   @JavaMethod
   open func getBaseline() -> Int32

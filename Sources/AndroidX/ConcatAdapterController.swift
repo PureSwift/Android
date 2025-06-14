@@ -23,13 +23,13 @@ open class ConcatAdapterController: JavaObject {
   open func onViewRecycled(_ arg0: RecyclerView.ViewHolder?)
 
   @JavaMethod
-  open func getCopyOfAdapters() -> List<RecyclerView.Adapter<RecyclerView.ViewHolder>>!
+  open func getCopyOfAdapters() -> List<RecyclerView.Adapter>!
 
   @JavaMethod
-  open func getLocalAdapterPosition(_ arg0: RecyclerView.Adapter<RecyclerView.ViewHolder>?, _ arg1: RecyclerView.ViewHolder?, _ arg2: Int32) -> Int32
+  open func getLocalAdapterPosition(_ arg0: RecyclerView.Adapter?, _ arg1: RecyclerView.ViewHolder?, _ arg2: Int32) -> Int32
 
   @JavaMethod
-  open func getWrappedAdapterAndPosition(_ arg0: Int32) -> Pair<RecyclerView.Adapter<RecyclerView.ViewHolder>, JavaInteger>!
+  open func getWrappedAdapterAndPosition(_ arg0: Int32) -> Pair<RecyclerView.Adapter, JavaInteger>!
 
   @JavaMethod
   open func onChanged(_ arg0: NestedAdapterWrapper?)
@@ -71,7 +71,7 @@ open class ConcatAdapterController: JavaObject {
   open func onStateRestorationPolicyChanged(_ arg0: NestedAdapterWrapper?)
 
   @JavaMethod
-  open func getBoundAdapter(_ arg0: RecyclerView.ViewHolder?) -> RecyclerView.Adapter<RecyclerView.ViewHolder>!
+  open func getBoundAdapter(_ arg0: RecyclerView.ViewHolder?) -> RecyclerView.Adapter!
 
   @JavaMethod
   open func onCreateViewHolder(_ arg0: ViewGroup?, _ arg1: Int32) -> RecyclerView.ViewHolder!

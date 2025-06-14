@@ -278,10 +278,10 @@ open class RecyclerView: ViewGroup {
   open func setScrollingTouchSlop(_ arg0: Int32)
 
   @JavaMethod
-  open func swapAdapter(_ arg0: RecyclerView.Adapter<RecyclerView.ViewHolder>?, _ arg1: Bool)
+  open func swapAdapter(_ arg0: RecyclerView.Adapter?, _ arg1: Bool)
 
   @JavaMethod
-  open func setAdapter(_ arg0: RecyclerView.Adapter<RecyclerView.ViewHolder>?)
+  open func setAdapter(_ arg0: RecyclerView.Adapter?)
 
   @JavaMethod
   open func setRecyclerListener(_ arg0: RecyclerView.RecyclerListener?)
@@ -425,7 +425,7 @@ open class RecyclerView: ViewGroup {
   open func onChildAttachedToWindow(_ arg0: View?)
 
   @JavaMethod
-  open func getAdapter() -> RecyclerView.Adapter<RecyclerView.ViewHolder>!
+  open func getAdapter() -> RecyclerView.Adapter!
 }
 extension JavaClass<RecyclerView> {
   @JavaStaticField(isFinal: true)
