@@ -556,7 +556,11 @@ let package = Package(
             ]
         ),
         .target(
-            name: "AndroidNDK"
+            name: "AndroidNDK",
+            linkerSettings: [
+                .linkedLibrary("android", .when(platforms: [.android])),
+                .linkedLibrary("log", .when(platforms: [.android])),
+            ]
         )
     ],
     swiftLanguageModes: [.v5, .v6]
