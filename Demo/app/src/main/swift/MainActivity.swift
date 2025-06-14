@@ -123,15 +123,9 @@ private extension MainActivity {
         let callback = RecyclerViewAdapter.Callback(
             onCreateViewHolder: { (parent, viewType) in
                 let context = parent.getContext()
-                //let linearLayout = LinearLayout(context)
-                //let textView = TextView(context)
-                //linearLayout.addView(textView)
-                //parent.addView(linearLayout)
-                let listItemView = try! JavaClass<LayoutInflater>()
-                    .from(context)
-                    .inflate(JavaClass<R.layout>().simple_list_item_1, parent, false)!
-                
-                return RecyclerViewAdapter.ViewHolder(listItemView, view: listItemView)
+                let textView = TextView(context)
+                let viewHolder = RecyclerViewAdapter.ViewHolder(textView)
+                return viewHolder
             },
             onBindViewHolder: { (holder, position) in
                 guard let viewHolder = holder.as(RecyclerViewAdapter.ViewHolder.self) else {

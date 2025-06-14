@@ -8,16 +8,15 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 class RecyclerViewAdapter(val swiftObject: SwiftObject) :
     RecyclerView.Adapter<ViewHolder>() {
 
-    class ViewHolder(view: View, val swiftObject: SwiftObject) : RecyclerView.ViewHolder(view) {
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     }
 
     // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewAdapter.ViewHolder {
         val viewHolder = onCreateViewHolderSwift(parent, viewType)
-        check(viewHolder.itemView != null) {
-            ("ViewHolder.itemView == nil")
-        }
+        checkNotNull(viewHolder)
+        checkNotNull(viewHolder.itemView)
         return viewHolder
     }
 
@@ -25,10 +24,10 @@ class RecyclerViewAdapter(val swiftObject: SwiftObject) :
 
     // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        onBindViewHolderSwift(holder, position)
+        onBindViewHolderSwift(holder as RecyclerViewAdapter.ViewHolder, position)
     }
 
-    external fun onBindViewHolderSwift(holder: RecyclerView.ViewHolder, position: Int)
+    external fun onBindViewHolderSwift(holder: RecyclerViewAdapter.ViewHolder, position: Int)
 
     // Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount(): Int {

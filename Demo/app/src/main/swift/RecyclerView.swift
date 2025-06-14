@@ -21,15 +21,17 @@ open class RecyclerViewAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder> {
 extension RecyclerViewAdapter {
     
     @JavaMethod
-    public func onCreateViewHolderSwift(_ viewGroup: ViewGroup?, _ viewType: Int32) -> RecyclerView.ViewHolder? {
+    public func onCreateViewHolderSwift(_ viewGroup: ViewGroup?, _ viewType: Int32) -> RecyclerViewAdapter.ViewHolder? {
         log("\(self).\(#function) \(viewType)")
-        return callback.onCreateViewHolder?(viewGroup!, viewType)
+        let viewHolder = callback.onCreateViewHolder(viewGroup!, viewType)
+        log("\(self).\(#function) Created \(viewHolder.getClass().getName()) \(viewHolder.itemView.getClass().getName())")
+        return viewHolder
     }
     
     @JavaMethod
-    public func onBindViewHolderSwift(_ viewHolder: RecyclerView.ViewHolder?, _ position: Int32) {
+    public func onBindViewHolderSwift(_ viewHolder: RecyclerViewAdapter.ViewHolder?, _ position: Int32) {
         log("\(self).\(#function) \(position)")
-        callback.onBindViewHolder?(viewHolder!, position)
+        callback.onBindViewHolder(viewHolder!, position)
     }
     
     @JavaMethod
@@ -71,15 +73,15 @@ public extension RecyclerViewAdapter {
     
     struct Callback {
         
-        var onCreateViewHolder: ((ViewGroup, Int32) -> RecyclerView.ViewHolder)?
+        var onCreateViewHolder: ((ViewGroup, Int32) -> RecyclerViewAdapter.ViewHolder)
         
-        var onBindViewHolder: ((RecyclerView.ViewHolder, Int32) -> ())?
+        var onBindViewHolder: ((RecyclerViewAdapter.ViewHolder, Int32) -> ())
         
         var getItemCount: () -> Int32
         
         public init(
-            onCreateViewHolder: ((ViewGroup, Int32) -> RecyclerView.ViewHolder)? = nil,
-            onBindViewHolder: ((RecyclerView.ViewHolder, Int32) -> Void)? = nil,
+            onCreateViewHolder: @escaping ((ViewGroup, Int32) -> RecyclerViewAdapter.ViewHolder),
+            onBindViewHolder: @escaping ((RecyclerViewAdapter.ViewHolder, Int32) -> Void),
             getItemCount: @escaping () -> Int32 = { return 0 }
         ) {
             self.onCreateViewHolder = onCreateViewHolder
@@ -112,26 +114,6 @@ extension RecyclerViewAdapter {
     open class ViewHolder: RecyclerView.ViewHolder {
         
         @JavaMethod
-        @_nonoverride public convenience init(view: AndroidView.View?, swiftObject: SwiftObject?, environment: JNIEnvironment? = nil)
-        
-        @JavaMethod
-        func getSwiftObject() -> SwiftObject!
-    }
-}
-
-public extension RecyclerViewAdapter.ViewHolder {
-    
-    convenience init(_ value: Any, view: AndroidView.View?, environment: JNIEnvironment? = nil) {
-        let swiftObject = SwiftObject(value, environment: environment)
-        self.init(view: view, swiftObject: swiftObject, environment: environment)
-    }
-    
-    var value: Any {
-        get {
-            getSwiftObject().valueObject().value
-        }
-        set {
-            getSwiftObject().valueObject().value = newValue
-        }
+        @_nonoverride public convenience init(view: AndroidView.View?, environment: JNIEnvironment? = nil)
     }
 }
