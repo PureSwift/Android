@@ -6,6 +6,6 @@
 //
 
 import JavaKit
-import AndroidJava
+import JavaLang
 import AndroidApp
 import AndroidWidget
