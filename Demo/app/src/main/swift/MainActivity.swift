@@ -7,7 +7,7 @@
 
 import Foundation
 import AndroidKit
-import AndroidJavaLang
+import JavaLang
 
 @JavaClass("com.pureswift.swiftandroid.MainActivity")
 open class MainActivity: AndroidApp.Activity {
@@ -23,7 +23,7 @@ open class MainActivity: AndroidApp.Activity {
     
     lazy var recyclerView = RecyclerView(self)
     
-    var runnable: AndroidJavaLang.Runnable!
+    var runnable: JavaLang.Runnable!
     
     //lazy var timer = AndroidJavaUtil.Timer()
 }

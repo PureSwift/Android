@@ -8,9 +8,9 @@
 import JavaKit
 import JavaRuntime
 import AndroidKit
-import AndroidJavaLang
+import JavaLang
 
-@JavaClass("com.pureswift.swiftandroid.Runnable", extends: AndroidJavaLang.Runnable.self)
+@JavaClass("com.pureswift.swiftandroid.Runnable", extends: JavaLang.Runnable.self)
 open class Runnable: JavaObject {
     
     public typealias Block = () -> ()
