@@ -15,7 +15,7 @@ import AndroidNDK
 @_exported import JavaKitNetwork
 @_exported import JavaKitFunction
 @_exported import JavaKit
-@_exported import Java
+@_exported import JavaLang
 @_exported import AndroidOS
 @_exported import AndroidContent
 @_exported import AndroidUtil
