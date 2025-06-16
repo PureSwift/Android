@@ -6,7 +6,9 @@
 //
 
 import JavaKit
-import AndroidJavaIO
-import AndroidJavaLang
-import AndroidJavaAWT
-import AndroidJavaUtil
+import JavaKitNetwork
+import JavaKitCollection
+import JavaIO
+import JavaLang
+import JavaAWT
+import JavaUtil
