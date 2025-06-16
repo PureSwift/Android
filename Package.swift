@@ -55,8 +55,16 @@ let package = Package(
             branch: "feature/android-shim"
         ),
         .package(
-          url: "https://github.com/apple/swift-log",
-          from: "1.6.3"
+            url: "https://github.com/PureSwift/JavaLang.git",
+            branch: "master"
+        ),
+        .package(
+            url: "https://github.com/PureSwift/Kotlin.git",
+            branch: "master"
+        ),
+        .package(
+            url: "https://github.com/apple/swift-log",
+            from: "1.6.3"
         ),
         .package(
             url: "https://github.com/apple/swift-system",
@@ -142,245 +150,31 @@ let package = Package(
                     name: "JavaKitJar",
                     package: "swift-java"
                 ),
-                "AndroidJavaLang",
-                "AndroidJavaIO",
-                //"AndroidJavaNIO",
-                "AndroidJavaNet",
-                "AndroidJavaTime",
-                "AndroidJavaAWT",
-                "AndroidJavaUtil"
+                .product(
+                    name: "JavaLang",
+                    package: "JavaLang"
+                ),
+                .product(
+                    name: "JavaUtil",
+                    package: "JavaLang"
+                ),
+                .product(
+                    name: "JavaIO",
+                    package: "JavaLang"
+                ),
+                .product(
+                    name: "JavaNet",
+                    package: "JavaLang"
+                ),
+                .product(
+                    name: "JavaTime",
+                    package: "JavaLang"
+                ),
+                .product(
+                    name: "JavaAWT",
+                    package: "JavaLang"
+                )
             ],
-            swiftSettings: [
-              .swiftLanguageMode(.v5),
-            ]
-        ),
-        .target(
-            name: "AndroidJavaIO",
-            dependencies: [
-                .product(
-                    name: "JavaKit",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitCollection",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitIO",
-                    package: "swift-java"
-                ),
-            ],
-            exclude: ["swift-java.config"],
-            swiftSettings: [
-              .swiftLanguageMode(.v5),
-            ]
-        ),/*
-        .target(
-            name: "AndroidJavaNIO",
-            dependencies: [
-                .product(
-                    name: "JavaKit",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitCollection",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitIO",
-                    package: "swift-java"
-                ),
-                "AndroidJavaLang",
-                "AndroidJavaIO"
-            ],
-            exclude: ["swift-java.config"],
-            swiftSettings: [
-              .swiftLanguageMode(.v5),
-            ]
-        ),*/
-        .target(
-            name: "AndroidJavaLang",
-            dependencies: [
-                .product(
-                    name: "JavaKit",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitCollection",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitReflection",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitIO",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitFunction",
-                    package: "swift-java"
-                ),
-                "AndroidJavaIO"
-            ],
-            exclude: ["swift-java.config"],
-            swiftSettings: [
-              .swiftLanguageMode(.v5),
-            ]
-        ),
-        .target(
-            name: "AndroidJavaAWT",
-            dependencies: [
-                .product(
-                    name: "JavaKit",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitCollection",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitReflection",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitIO",
-                    package: "swift-java"
-                ),
-                "AndroidJavaIO",
-                "AndroidJavaLang"
-            ],
-            exclude: ["swift-java.config"],
-            swiftSettings: [
-              .swiftLanguageMode(.v5),
-            ]
-        ),
-        .target(
-            name: "AndroidJavaTime",
-            dependencies: [
-                .product(
-                    name: "JavaKit",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitCollection",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitReflection",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitIO",
-                    package: "swift-java"
-                ),
-                "AndroidJavaLang",
-                "AndroidJavaIO",
-            ],
-            exclude: ["swift-java.config"],
-            swiftSettings: [
-              .swiftLanguageMode(.v5),
-            ]
-        ),
-        .target(
-            name: "AndroidJavaNet",
-            dependencies: [
-                .product(
-                    name: "JavaKit",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitCollection",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitReflection",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitIO",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitNetwork",
-                    package: "swift-java"
-                ),
-                "AndroidJavaIO",
-                "AndroidJavaUtil"
-            ],
-            exclude: ["swift-java.config"],
-            swiftSettings: [
-              .swiftLanguageMode(.v5),
-            ]
-        ),
-        .target(
-            name: "AndroidJavaUtil",
-            dependencies: [
-                .product(
-                    name: "JavaKit",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitCollection",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitReflection",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitFunction",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitIO",
-                    package: "swift-java"
-                ),
-                "AndroidJavaIO",
-                "AndroidJavaLang",
-                "AndroidJavaTime"
-            ],
-            exclude: ["swift-java.config"],
-            swiftSettings: [
-              .swiftLanguageMode(.v5),
-            ]
-        ),
-        .target(
-            name: "AndroidJavaBeans",
-            dependencies: [
-                .product(
-                    name: "JavaKit",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitCollection",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitReflection",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitFunction",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitIO",
-                    package: "swift-java"
-                ),
-                "AndroidJavaIO"
-            ],
-            exclude: ["swift-java.config"],
-            swiftSettings: [
-              .swiftLanguageMode(.v5),
-            ]
-        ),
-        .target(
-            name: "AndroidJavaMath",
-            dependencies: [
-                "AndroidJavaLang"
-            ],
-            exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
             ]
@@ -502,6 +296,10 @@ let package = Package(
         .target(
             name: "AndroidX",
             dependencies: [
+                .product(
+                    name: "Kotlin",
+                    package: "Kotlin"
+                ),
                 "AndroidJava",
                 "AndroidUtil",
                 "AndroidApp",
