@@ -4,7 +4,7 @@ import JavaKitCollection
 import JavaRuntime
 
 @JavaClass("androidx.navigation.CollectionNavType")
-open class CollectionNavType<T: AnyJavaObject>: NavType {
+open class CollectionNavType: NavType<JavaObject> {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Bool, environment: JNIEnvironment? = nil)
 
@@ -14,7 +14,9 @@ open class CollectionNavType<T: AnyJavaObject>: NavType {
   @JavaMethod
   open func emptyCollection() -> JavaObject!
 }
-extension JavaClass {
+
+extension JavaClass<CollectionNavType> {
+
   @JavaStaticField(isFinal: true)
   public var Companion: NavType.Companion!
 

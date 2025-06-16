@@ -42,9 +42,10 @@ open class NavType<T: AnyJavaObject>: JavaObject {
   @JavaMethod
   open override func toString() -> String
 }
-extension JavaClass {
+extension JavaClass<NavType<JavaObject>> {
+    
   @JavaStaticField(isFinal: true)
-  public var Companion: NavType.Companion!
+  public var Companion: NavType<JavaObject>.Companion!
 
   @JavaStaticField(isFinal: true)
   public var IntType: NavType<JavaInteger>!
@@ -95,11 +96,11 @@ extension JavaClass {
   public var StringListType: NavType<List<JavaString>>!
 
   @JavaStaticMethod
-  public func fromArgType<T: AnyJavaObject>(_ arg0: String, _ arg1: String) -> NavType<JavaObject>! where ObjectType == NavType<T>
+  public func fromArgType<T: AnyJavaObject>(_ arg0: String, _ arg1: String) -> NavType<T>! where ObjectType == NavType<T>
 
   @JavaStaticMethod
-  public func inferFromValue<T: AnyJavaObject>(_ arg0: String) -> NavType<JavaObject>! where ObjectType == NavType<T>
+  public func inferFromValue<T: AnyJavaObject>(_ arg0: String) -> NavType<T>! where ObjectType == NavType<T>
 
   @JavaStaticMethod
-  public func inferFromValueType<T: AnyJavaObject>(_ arg0: JavaObject?) -> NavType<JavaObject>! where ObjectType == NavType<T>
+  public func inferFromValueType<T: AnyJavaObject>(_ arg0: JavaObject?) -> NavType<T>! where ObjectType == NavType<T>
 }
