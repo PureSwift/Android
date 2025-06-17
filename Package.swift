@@ -313,6 +313,21 @@ let package = Package(
             ]
         ),
         .target(
+            name: "AndroidMaterial",
+            dependencies: [
+                "AndroidJava",
+                "AndroidUtil",
+                "AndroidApp",
+                "AndroidView",
+                "AndroidContent",
+                "AndroidWidget"
+            ],
+            exclude: ["swift-java.config"],
+            swiftSettings: [
+              .swiftLanguageMode(.v5),
+            ]
+        ),
+        .target(
             name: "AndroidWebKit",
             dependencies: [
                 "AndroidJava",
