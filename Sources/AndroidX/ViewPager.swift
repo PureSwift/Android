@@ -340,7 +340,7 @@ extension JavaClass<ViewPager> {
   public var ACCESSIBILITY_LIVE_REGION_POLITE: Int32
 
   @JavaStaticField(isFinal: true)
-  public var ALPHA: Property<View, JavaFloat>!
+  public var ALPHA: Property!
 
   @JavaStaticField(isFinal: true)
   public var AUTOFILL_FLAG_INCLUDE_NOT_IMPORTANT_VIEWS: Int32
@@ -598,19 +598,19 @@ extension JavaClass<ViewPager> {
   public var REQUESTED_FRAME_RATE_CATEGORY_NO_PREFERENCE: Float
 
   @JavaStaticField(isFinal: true)
-  public var ROTATION: Property<View, JavaFloat>!
+  public var ROTATION: Property!
 
   @JavaStaticField(isFinal: true)
-  public var ROTATION_X: Property<View, JavaFloat>!
+  public var ROTATION_X: Property!
 
   @JavaStaticField(isFinal: true)
-  public var ROTATION_Y: Property<View, JavaFloat>!
+  public var ROTATION_Y: Property!
 
   @JavaStaticField(isFinal: true)
-  public var SCALE_X: Property<View, JavaFloat>!
+  public var SCALE_X: Property!
 
   @JavaStaticField(isFinal: true)
-  public var SCALE_Y: Property<View, JavaFloat>!
+  public var SCALE_Y: Property!
 
   @JavaStaticField(isFinal: true)
   public var SCREEN_STATE_OFF: Int32
@@ -769,23 +769,23 @@ extension JavaClass<ViewPager> {
   public var TEXT_DIRECTION_RTL: Int32
 
   @JavaStaticField(isFinal: true)
-  public var TRANSLATION_X: Property<View, JavaFloat>!
+  public var TRANSLATION_X: Property!
 
   @JavaStaticField(isFinal: true)
-  public var TRANSLATION_Y: Property<View, JavaFloat>!
+  public var TRANSLATION_Y: Property!
 
   @JavaStaticField(isFinal: true)
-  public var TRANSLATION_Z: Property<View, JavaFloat>!
+  public var TRANSLATION_Z: Property!
 
   @JavaStaticField(isFinal: true)
   public var VISIBLE: Int32
 
   @JavaStaticField(isFinal: true)
-  public var X: Property<View, JavaFloat>!
+  public var X: Property!
 
   @JavaStaticField(isFinal: true)
-  public var Y: Property<View, JavaFloat>!
+  public var Y: Property!
 
   @JavaStaticField(isFinal: true)
-  public var Z: Property<View, JavaFloat>!
+  public var Z: Property!
 }
