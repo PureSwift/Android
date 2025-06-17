@@ -109,6 +109,7 @@ let package = Package(
                 "AndroidApp",
                 "AndroidUtil",
                 "AndroidX",
+                "AndroidMaterial",
                 "AndroidWidget",
                 "AndroidWebKit",
                 "AndroidLogging",

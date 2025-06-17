@@ -23,6 +23,7 @@ import AndroidNDK
 @_exported import AndroidR
 @_exported import AndroidApp
 @_exported import AndroidX
+@_exported import AndroidMaterial
 @_exported import AndroidGraphics
 @_exported import AndroidView
 @_exported import AndroidWidget
