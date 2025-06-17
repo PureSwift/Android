@@ -32,7 +32,7 @@ open class ExtendedFloatingActionButton: MaterialButton {
   open func isExtended() -> Bool
 
   @JavaMethod
-  open override func setTextColor(_ arg0: ColorStateList?)
+  open func setTextColor(_ arg0: ColorStateList?)
 
   @JavaMethod
   open override func setTextColor(_ arg0: Int32)
@@ -44,7 +44,7 @@ open class ExtendedFloatingActionButton: MaterialButton {
   open override func onAttachedToWindow()
 
   @JavaMethod
-  open func getBehavior() -> CircularRevealCoordinatorLayout.Behavior<ExtendedFloatingActionButton>!
+  open func getBehavior() -> CircularRevealCoordinatorLayout.Behavior!
 
   @JavaMethod
   open func setExtended(_ arg0: Bool)

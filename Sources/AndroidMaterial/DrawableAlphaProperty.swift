@@ -20,5 +20,5 @@ open class DrawableAlphaProperty: Property {
 }
 extension JavaClass<DrawableAlphaProperty> {
   @JavaStaticField(isFinal: true)
-  public var DRAWABLE_ALPHA_COMPAT: Property<Drawable, JavaInteger>!
+  public var DRAWABLE_ALPHA_COMPAT: Property!
 }

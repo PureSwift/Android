@@ -31,7 +31,7 @@ open class AppBarLayout: LinearLayout {
   open func isLiftOnScroll() -> Bool
 
   @JavaMethod
-  open func getBehavior() -> CircularRevealCoordinatorLayout.Behavior<AppBarLayout>!
+  open func getBehavior() -> CircularRevealCoordinatorLayout.Behavior!
 
   @JavaMethod
   open func getMinimumHeightForVisibleOverlappingContent() -> Int32

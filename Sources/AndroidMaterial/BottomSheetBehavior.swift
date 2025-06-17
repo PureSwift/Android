@@ -157,7 +157,7 @@ open class BottomSheetBehavior: CircularRevealCoordinatorLayout.Behavior {
   @JavaMethod
   open func setState(_ arg0: Int32)
 }
-extension JavaClass {
+extension JavaClass<BottomSheetBehavior> {
   @JavaStaticField(isFinal: true)
   public var STATE_DRAGGING: Int32
 
@@ -198,5 +198,5 @@ extension JavaClass {
   public var SAVE_NONE: Int32
 
   @JavaStaticMethod
-  public func from(_ arg0: View?) -> BottomSheetBehavior<View>!
+  public func from(_ arg0: View?) -> BottomSheetBehavior!
 }

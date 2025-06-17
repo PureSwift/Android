@@ -21,5 +21,5 @@ extension CircularRevealWidget {
 }
 extension JavaClass<CircularRevealWidget.CircularRevealProperty> {
   @JavaStaticField(isFinal: true)
-  public var CIRCULAR_REVEAL: Property<CircularRevealWidget, CircularRevealWidget.RevealInfo>!
+  public var CIRCULAR_REVEAL: Property!
 }

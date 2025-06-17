@@ -19,12 +19,6 @@ extension JavaClass<MaterialCheckBox.SavedState> {
   public var CREATOR: Parcelable.Creator<MaterialCheckBox.SavedState>!
 
   @JavaStaticField(isFinal: true)
-  public var CREATOR: Parcelable.Creator<View.BaseSavedState>!
-
-  @JavaStaticField(isFinal: true)
-  public var CREATOR: Parcelable.Creator<AbsSavedState>!
-
-  @JavaStaticField(isFinal: true)
   public var EMPTY_STATE: AbsSavedState!
 
   @JavaStaticField(isFinal: true)

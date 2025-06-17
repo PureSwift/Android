@@ -5,8 +5,9 @@ import JavaRuntime
 extension ExtendedFloatingActionButton {
   @JavaClass("com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ChangeSizeStrategy")
   open class ChangeSizeStrategy: BaseMotionStrategy {
+      
   @JavaMethod
-  open override func onAnimationEnd()
+  open func onAnimationEnd()
 
   @JavaMethod
   open func onChange(_ arg0: ExtendedFloatingActionButton.OnChangedCallback?)

@@ -64,32 +64,32 @@ open class MaterialCheckBox: CheckBox {
   @JavaMethod
   open func getErrorAccessibilityLabel() -> CharSequence!
 
-  @JavaMethod
-  open func addOnErrorChangedListener(_ arg0: MaterialCheckBox.OnErrorChangedListener?)
+  //@JavaMethod
+  //open func addOnErrorChangedListener(_ arg0: MaterialCheckBox.OnErrorChangedListener?)
 
-  @JavaMethod
-  open func removeOnErrorChangedListener(_ arg0: MaterialCheckBox.OnErrorChangedListener?)
+  //@JavaMethod
+  //open func removeOnErrorChangedListener(_ arg0: MaterialCheckBox.OnErrorChangedListener?)
 
   @JavaMethod
   open func clearOnErrorChangedListeners()
 
-  @JavaMethod
-  open override func setButtonDrawable(_ arg0: Drawable?)
+  //@JavaMethod
+  //open override func setButtonDrawable(_ arg0: Drawable?)
 
   @JavaMethod
   open override func setButtonDrawable(_ arg0: Int32)
 
-  @JavaMethod
-  open override func getButtonDrawable() -> Drawable!
+  //@JavaMethod
+  //open override func getButtonDrawable() -> Drawable!
 
-  @JavaMethod
-  open override func setButtonTintList(_ arg0: ColorStateList?)
+  //@JavaMethod
+  //open override func setButtonTintList(_ arg0: ColorStateList?)
 
-  @JavaMethod
-  open override func getButtonTintList() -> ColorStateList!
+  //@JavaMethod
+  //open override func getButtonTintList() -> ColorStateList!
 
-  @JavaMethod
-  open override func setButtonTintMode(_ arg0: PorterDuff.Mode?)
+  //@JavaMethod
+  //open override func setButtonTintMode(_ arg0: PorterDuff.Mode?)
 
   @JavaMethod
   open func setButtonIconDrawableResource(_ arg0: Int32)

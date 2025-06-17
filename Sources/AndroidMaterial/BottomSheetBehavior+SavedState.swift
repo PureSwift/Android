@@ -10,7 +10,7 @@ extension BottomSheetBehavior {
   @_nonoverride public convenience init(_ arg0: Parcelable?, _ arg1: Int32, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Parcelable?, _ arg1: BottomSheetBehavior<JavaObject>?, environment: JNIEnvironment? = nil)
+  @_nonoverride public convenience init(_ arg0: Parcelable?, _ arg1: BottomSheetBehavior?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Parcel?, _ arg1: JavaClassLoader?, environment: JNIEnvironment? = nil)

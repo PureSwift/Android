@@ -43,10 +43,10 @@ open class CollapsingToolbarLayout: FrameLayout {
   open override func generateDefaultLayoutParams() -> CollapsingToolbarLayout.LayoutParams!
 
   @JavaMethod
-  open override func generateLayoutParams(_ arg0: ViewGroup.LayoutParams?) -> FrameLayout.LayoutParams!
+  open func generateLayoutParams(_ arg0: ViewGroup.LayoutParams?) -> FrameLayout.LayoutParams!
 
   @JavaMethod
-  open override func generateLayoutParams(_ arg0: AttributeSet?) -> FrameLayout.LayoutParams!
+  open func generateLayoutParams(_ arg0: AttributeSet?) -> FrameLayout.LayoutParams!
 
   @JavaMethod
   open override func onLayout(_ arg0: Bool, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32)

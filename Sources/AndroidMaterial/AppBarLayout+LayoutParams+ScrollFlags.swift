@@ -4,18 +4,22 @@ import JavaKitReflection
 import JavaRuntime
 
 extension AppBarLayout.LayoutParams {
-  @JavaInterface("com.google.android.material.appbar.AppBarLayout$LayoutParams$ScrollFlags", extends: Annotation.self)
-  public struct ScrollFlags {
-  @JavaMethod
-  public func equals(_ arg0: JavaObject?) -> Bool
+  
+    public typealias ScrollFlags = AppBarLayoutLayoutParamsScrollFlags
+}
 
-  @JavaMethod
-  public func toString() -> String
 
-  @JavaMethod
-  public func hashCode() -> Int32
+@JavaInterface("com.google.android.material.appbar.AppBarLayout$LayoutParams$ScrollFlags", extends: Annotation.self)
+public struct AppBarLayoutLayoutParamsScrollFlags {
+@JavaMethod
+public func equals(_ arg0: JavaObject?) -> Bool
 
-  @JavaMethod
-  public func annotationType() -> JavaClass<Annotation>!
-  }
+@JavaMethod
+public func toString() -> String
+
+@JavaMethod
+public func hashCode() -> Int32
+
+@JavaMethod
+public func annotationType() -> JavaClass<Annotation>!
 }

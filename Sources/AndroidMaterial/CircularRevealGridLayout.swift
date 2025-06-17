@@ -16,7 +16,7 @@ open class CircularRevealGridLayout: GridLayout {
   @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open override func draw(_ arg0: Canvas?)
+    open override func draw(_ arg0: Canvas?)
 
   @JavaMethod
   open func buildCircularRevealCache()
@@ -49,7 +49,7 @@ open class CircularRevealGridLayout: GridLayout {
   open func actualIsOpaque() -> Bool
 
   @JavaMethod
-  open override func isOpaque() -> Bool
+    open override func isOpaque() -> Bool
 }
 extension JavaClass<CircularRevealGridLayout> {
   @JavaStaticField(isFinal: true)

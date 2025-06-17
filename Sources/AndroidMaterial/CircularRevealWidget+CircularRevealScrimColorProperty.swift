@@ -21,5 +21,5 @@ extension CircularRevealWidget {
 }
 extension JavaClass<CircularRevealWidget.CircularRevealScrimColorProperty> {
   @JavaStaticField(isFinal: true)
-  public var CIRCULAR_REVEAL_SCRIM_COLOR: Property<CircularRevealWidget, JavaInteger>!
+  public var CIRCULAR_REVEAL_SCRIM_COLOR: Property!
 }

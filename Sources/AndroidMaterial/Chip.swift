@@ -136,13 +136,13 @@ open class Chip: CheckBox {
   open override func setCompoundDrawablesWithIntrinsicBounds(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
 
   @JavaMethod
-  open override func setCompoundDrawablesWithIntrinsicBounds(_ arg0: Drawable?, _ arg1: Drawable?, _ arg2: Drawable?, _ arg3: Drawable?)
+  open func setCompoundDrawablesWithIntrinsicBounds(_ arg0: Drawable?, _ arg1: Drawable?, _ arg2: Drawable?, _ arg3: Drawable?)
 
   @JavaMethod
-  open override func setCompoundDrawablesRelative(_ arg0: Drawable?, _ arg1: Drawable?, _ arg2: Drawable?, _ arg3: Drawable?)
+  open func setCompoundDrawablesRelative(_ arg0: Drawable?, _ arg1: Drawable?, _ arg2: Drawable?, _ arg3: Drawable?)
 
   @JavaMethod
-  open override func setCompoundDrawablesRelativeWithIntrinsicBounds(_ arg0: Drawable?, _ arg1: Drawable?, _ arg2: Drawable?, _ arg3: Drawable?)
+  open func setCompoundDrawablesRelativeWithIntrinsicBounds(_ arg0: Drawable?, _ arg1: Drawable?, _ arg2: Drawable?, _ arg3: Drawable?)
 
   @JavaMethod
   open override func setCompoundDrawablesRelativeWithIntrinsicBounds(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
@@ -229,7 +229,7 @@ open class Chip: CheckBox {
   open func setTextAppearanceResource(_ arg0: Int32)
 
   @JavaMethod
-  open override func setTextAppearance(_ arg0: Context?, _ arg1: Int32)
+  open func setTextAppearance(_ arg0: Context?, _ arg1: Int32)
 
   @JavaMethod
   open override func setTextAppearance(_ arg0: Int32)
@@ -454,7 +454,7 @@ open class Chip: CheckBox {
   open func setEnsureMinTouchTargetSize(_ arg0: Bool)
 
   @JavaMethod
-  open override func setCompoundDrawables(_ arg0: Drawable?, _ arg1: Drawable?, _ arg2: Drawable?, _ arg3: Drawable?)
+  open func setCompoundDrawables(_ arg0: Drawable?, _ arg1: Drawable?, _ arg2: Drawable?, _ arg3: Drawable?)
 
   @JavaMethod
   open override func setSingleLine(_ arg0: Bool)

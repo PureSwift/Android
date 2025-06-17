@@ -20,5 +20,5 @@ open class ChildrenAlphaProperty: Property {
 }
 extension JavaClass<ChildrenAlphaProperty> {
   @JavaStaticField(isFinal: true)
-  public var CHILDREN_ALPHA: Property<ViewGroup, JavaFloat>!
+  public var CHILDREN_ALPHA: Property!
 }

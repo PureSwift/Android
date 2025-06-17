@@ -22,16 +22,16 @@ open class BottomSheetDialog: Dialog {
   open override func onDetachedFromWindow()
 
   @JavaMethod
-  open override func setContentView(_ arg0: View?)
+  open func setContentView(_ arg0: View?)
 
   @JavaMethod
-  open override func setContentView(_ arg0: View?, _ arg1: ViewGroup.LayoutParams?)
+  open func setContentView(_ arg0: View?, _ arg1: ViewGroup.LayoutParams?)
 
   @JavaMethod
   open override func setContentView(_ arg0: Int32)
 
   @JavaMethod
-  open override func onCreate(_ arg0: Bundle?)
+  open func onCreate(_ arg0: Bundle?)
 
   @JavaMethod
   open override func setCancelable(_ arg0: Bool)
@@ -40,7 +40,7 @@ open class BottomSheetDialog: Dialog {
   open override func setCanceledOnTouchOutside(_ arg0: Bool)
 
   @JavaMethod
-  open func getBehavior() -> BottomSheetBehavior<FrameLayout>!
+  open func getBehavior() -> BottomSheetBehavior!
 
   @JavaMethod
   open func setDismissWithAnimation(_ arg0: Bool)

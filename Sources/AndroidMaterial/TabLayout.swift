@@ -34,7 +34,7 @@ open class TabLayout: HorizontalScrollView {
   open override func onMeasure(_ arg0: Int32, _ arg1: Int32)
 
   @JavaMethod
-  open override func generateLayoutParams(_ arg0: AttributeSet?) -> FrameLayout.LayoutParams!
+  open func generateLayoutParams(_ arg0: AttributeSet?) -> FrameLayout.LayoutParams!
 
   @JavaMethod
   open override func shouldDelayChildPressedState() -> Bool

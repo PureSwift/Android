@@ -125,7 +125,7 @@ open class FloatingActionButton: ImageButton {
   open func getRippleColorStateList() -> ColorStateList!
 
   @JavaMethod
-  open func getBehavior() -> CircularRevealCoordinatorLayout.Behavior<FloatingActionButton>!
+  open func getBehavior() -> CircularRevealCoordinatorLayout.Behavior!
 
   @JavaMethod
   open func setSupportBackgroundTintList(_ arg0: ColorStateList?)
@@ -239,10 +239,10 @@ open class FloatingActionButton: ImageButton {
   open func setHideMotionSpecResource(_ arg0: Int32)
 
   @JavaMethod
-  open func addTransformationCallback(_ arg0: TransformationCallback<FloatingActionButton>?)
+  open func addTransformationCallback(_ arg0: TransformationCallback?)
 
   @JavaMethod
-  open func removeTransformationCallback(_ arg0: TransformationCallback<FloatingActionButton>?)
+  open func removeTransformationCallback(_ arg0: TransformationCallback?)
 
   @JavaMethod
   open func setShadowPaddingEnabled(_ arg0: Bool)

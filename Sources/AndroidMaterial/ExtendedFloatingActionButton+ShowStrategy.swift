@@ -3,6 +3,7 @@ import JavaKit
 import JavaRuntime
 
 extension ExtendedFloatingActionButton {
+    
   @JavaClass("com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ShowStrategy")
   open class ShowStrategy: BaseMotionStrategy {
   @JavaMethod
@@ -21,6 +22,6 @@ extension ExtendedFloatingActionButton {
   open func shouldCancel() -> Bool
 
   @JavaMethod
-  open override func onAnimationEnd()
+  open func onAnimationEnd()
   }
 }

@@ -3,7 +3,7 @@ import JavaKit
 import JavaRuntime
 
 extension AppBarLayout {
-  @JavaInterface("com.google.android.material.appbar.AppBarLayout$OnOffsetChangedListener", extends: AppBarLayout.BaseOnOffsetChangedListener<AppBarLayout>.self)
+  @JavaInterface("com.google.android.material.appbar.AppBarLayout$OnOffsetChangedListener", extends: AppBarLayout.BaseOnOffsetChangedListener.self)
   public struct OnOffsetChangedListener {
   @JavaMethod
   public func onOffsetChanged(_ arg0: AppBarLayout?, _ arg1: Int32)

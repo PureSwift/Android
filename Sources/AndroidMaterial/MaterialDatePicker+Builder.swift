@@ -56,7 +56,7 @@ extension MaterialDatePicker {
 }
 extension JavaClass<MaterialDatePicker.Builder> {
   @JavaStaticMethod
-  public func customDatePicker<(_ arg0: DateSelector?) -> MaterialDatePicker.Builder!
+  public func customDatePicker(_ arg0: DateSelector?) -> MaterialDatePicker.Builder!
 
   @JavaStaticMethod
   public func datePicker() -> MaterialDatePicker.Builder!

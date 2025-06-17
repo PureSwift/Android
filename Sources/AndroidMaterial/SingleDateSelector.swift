@@ -42,7 +42,7 @@ open class SingleDateSelector: JavaObject {
   open func getSelection() -> JavaLong!
 
   @JavaMethod
-  open func onCreateTextInputView(_ arg0: LayoutInflater?, _ arg1: ViewGroup?, _ arg2: Bundle?, _ arg3: CalendarConstraints?, _ arg4: OnSelectionChangedListener<JavaLong>?) -> View!
+  open func onCreateTextInputView(_ arg0: LayoutInflater?, _ arg1: ViewGroup?, _ arg2: Bundle?, _ arg3: CalendarConstraints?, _ arg4: OnSelectionChangedListener?) -> View!
 
   @JavaMethod
   open func getDefaultThemeResId(_ arg0: Context?) -> Int32

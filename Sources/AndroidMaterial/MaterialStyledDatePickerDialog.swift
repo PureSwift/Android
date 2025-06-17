@@ -20,7 +20,7 @@ open class MaterialStyledDatePickerDialog: DatePickerDialog {
   @_nonoverride public convenience init(_ arg0: Context?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open override func onCreate(_ arg0: Bundle?)
+  open func onCreate(_ arg0: Bundle?)
 }
 extension JavaClass<MaterialStyledDatePickerDialog> {
   @JavaStaticField(isFinal: true)

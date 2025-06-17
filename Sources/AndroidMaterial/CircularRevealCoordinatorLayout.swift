@@ -76,10 +76,10 @@ extension CircularRevealCoordinatorLayout {
 }
 extension JavaClass {
   @JavaStaticMethod
-  public func getTag(_ arg0: View?) -> JavaObject! where ObjectType == CircularRevealCoordinatorLayout.Behavior<V>
+  public func getTag(_ arg0: View?) -> JavaObject! where ObjectType == CircularRevealCoordinatorLayout.Behavior
 
   @JavaStaticMethod
-  public func setTag(_ arg0: View?, _ arg1: JavaObject?) where ObjectType == CircularRevealCoordinatorLayout.Behavior<V>
+  public func setTag(_ arg0: View?, _ arg1: JavaObject?) where ObjectType == CircularRevealCoordinatorLayout.Behavior
 }
 extension CircularRevealCoordinatorLayout {
   @JavaInterface("androidx.coordinatorlayout.widget.CoordinatorLayout$DefaultBehavior", extends: Annotation.self)

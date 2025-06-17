@@ -9,7 +9,7 @@ extension ExtendedFloatingActionButton {
   @_nonoverride public convenience init(_ arg0: ExtendedFloatingActionButton?, _ arg1: AnimatorTracker?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
-  open override func onAnimationEnd()
+  open func onAnimationEnd()
 
   @JavaMethod
   open func performNow()
@@ -18,7 +18,7 @@ extension ExtendedFloatingActionButton {
   open func getDefaultMotionSpecResource() -> Int32
 
   @JavaMethod
-  open override func onAnimationCancel()
+  open func onAnimationCancel()
 
   @JavaMethod
   open func onChange(_ arg0: ExtendedFloatingActionButton.OnChangedCallback?)
