@@ -8,7 +8,7 @@ open class ViewAnimator: FrameLayout {
   open override func getAccessibilityClassName() -> CharSequence!
 
   @JavaMethod
-  open func removeViewsInLayout(_ arg0: Int32, _ arg1: Int32)
+  open override func removeViewsInLayout(_ arg0: Int32, _ arg1: Int32)
 
   @JavaMethod
   open func getAnimateFirstView() -> Bool
@@ -29,16 +29,16 @@ open class ViewAnimator: FrameLayout {
   open func showPrevious()
 
   @JavaMethod
-  open func removeAllViews()
+  open override func removeAllViews()
 
   @JavaMethod
-  open func removeViewAt(_ arg0: Int32)
+  open override func removeViewAt(_ arg0: Int32)
 
   @JavaMethod
-  open func removeViews(_ arg0: Int32, _ arg1: Int32)
+  open override func removeViews(_ arg0: Int32, _ arg1: Int32)
 
   @JavaMethod
-  open func getBaseline() -> Int32
+  open override func getBaseline() -> Int32
 }
 extension JavaClass<ViewAnimator> {
   @JavaStaticField(isFinal: true)

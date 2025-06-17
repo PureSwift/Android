@@ -11,7 +11,7 @@ open class MediaController: FrameLayout {
   open func setPrevNextListeners(_ arg0: ViewSwitcher.OnClickListener?, _ arg1: ViewSwitcher.OnClickListener?)
 
   @JavaMethod
-  open func setEnabled(_ arg0: Bool)
+    open override func setEnabled(_ arg0: Bool)
 
   @JavaMethod
   open func show()
@@ -26,7 +26,7 @@ open class MediaController: FrameLayout {
   open func hide()
 
   @JavaMethod
-  open func onFinishInflate()
+    open override func onFinishInflate()
 
   @JavaMethod
   open func setMediaPlayer(_ arg0: MediaController.MediaPlayerControl?)

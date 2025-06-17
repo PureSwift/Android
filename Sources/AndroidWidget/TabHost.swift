@@ -12,7 +12,7 @@ open class TabHost: FrameLayout {
   open func setup(_ arg0: LocalActivityManager?)
 
   @JavaMethod
-  open func dispatchWindowFocusChanged(_ arg0: Bool)
+  open override func dispatchWindowFocusChanged(_ arg0: Bool)
 
   @JavaMethod
   open func setOnTabChangedListener(_ arg0: TabHost.OnTabChangeListener?)

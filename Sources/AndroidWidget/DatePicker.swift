@@ -8,7 +8,7 @@ open class DatePicker: FrameLayout {
   open func `init`(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: DatePicker.OnDateChangedListener?)
 
   @JavaMethod
-  open func isEnabled() -> Bool
+    open override func isEnabled() -> Bool
 
   @JavaMethod
   open func getYear() -> Int32
@@ -62,10 +62,10 @@ open class DatePicker: FrameLayout {
   open func setMaxDate(_ arg0: Int64)
 
   @JavaMethod
-  open func getAutofillType() -> Int32
+    open override func getAutofillType() -> Int32
 
   @JavaMethod
-  open func setEnabled(_ arg0: Bool)
+  open override func setEnabled(_ arg0: Bool)
 }
 extension JavaClass<DatePicker> {
   @JavaStaticField(isFinal: true)

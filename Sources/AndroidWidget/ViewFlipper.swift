@@ -5,10 +5,10 @@ import JavaRuntime
 @JavaClass("android.widget.ViewFlipper")
 open class ViewFlipper: ViewAnimator {
   @JavaMethod
-  open func onWindowVisibilityChanged(_ arg0: Int32)
+  open override func onWindowVisibilityChanged(_ arg0: Int32)
 
   @JavaMethod
-  open func onDetachedFromWindow()
+  open override func onDetachedFromWindow()
 
   @JavaMethod
   open override func getAccessibilityClassName() -> CharSequence!
@@ -35,7 +35,7 @@ open class ViewFlipper: ViewAnimator {
   open func isAutoStart() -> Bool
 
   @JavaMethod
-  open func onAttachedToWindow()
+  open override func onAttachedToWindow()
 }
 extension JavaClass<ViewFlipper> {
   @JavaStaticField(isFinal: true)

@@ -5,22 +5,22 @@ import JavaRuntime
 @JavaClass("android.widget.ScrollView")
 open class ScrollView: FrameLayout {
   @JavaMethod
-  open func getTopFadingEdgeStrength() -> Float
+    open override func getTopFadingEdgeStrength() -> Float
 
   @JavaMethod
-  open func getBottomFadingEdgeStrength() -> Float
+    open override func getBottomFadingEdgeStrength() -> Float
 
   @JavaMethod
-  open func computeVerticalScrollRange() -> Int32
+  open override func computeVerticalScrollRange() -> Int32
 
   @JavaMethod
-  open func computeVerticalScrollOffset() -> Int32
+  open override func computeVerticalScrollOffset() -> Int32
 
   @JavaMethod
-  open func requestDisallowInterceptTouchEvent(_ arg0: Bool)
+  open override func requestDisallowInterceptTouchEvent(_ arg0: Bool)
 
   @JavaMethod
-  open func onDetachedFromWindow()
+  open override func onDetachedFromWindow()
 
   @JavaMethod
   open override func getAccessibilityClassName() -> CharSequence!
@@ -59,19 +59,19 @@ open class ScrollView: FrameLayout {
   open func setEdgeEffectColor(_ arg0: Int32)
 
   @JavaMethod
-  open func requestLayout()
+  open override func requestLayout()
 
   @JavaMethod
-  open func onSizeChanged(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
+  open override func onSizeChanged(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
 
   @JavaMethod
-  open func scrollTo(_ arg0: Int32, _ arg1: Int32)
+  open override func scrollTo(_ arg0: Int32, _ arg1: Int32)
 
   @JavaMethod
-  open func computeScroll()
+  open override func computeScroll()
 
   @JavaMethod
-  open func onOverScrolled(_ arg0: Int32, _ arg1: Int32, _ arg2: Bool, _ arg3: Bool)
+  open override func onOverScrolled(_ arg0: Int32, _ arg1: Int32, _ arg2: Bool, _ arg3: Bool)
 
   @JavaMethod
   open func isFillViewport() -> Bool
