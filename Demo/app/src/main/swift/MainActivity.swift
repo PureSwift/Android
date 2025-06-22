@@ -22,10 +22,6 @@ open class MainActivity: AndroidApp.Activity {
     lazy var listView = ListView(self)
     
     lazy var recyclerView = RecyclerView(self)
-    
-    var runnable: JavaLang.Runnable!
-    
-    //lazy var timer = AndroidJavaUtil.Timer()
 }
 
 @JavaImplementation("com.pureswift.swiftandroid.MainActivity")
@@ -163,12 +159,20 @@ private extension MainActivity {
         _ = bottomNav.getMenu().add(0, 1, 0, JavaString("Home").as(CharSequence.self)).setIcon(17301543)
         _ = bottomNav.getMenu().add(0, 2, 1, JavaString("Profile").as(CharSequence.self)).setIcon(17301659)
         
-        let fragment1 = Fragment()
+        let homeFragment = Fragment(callback: .init(onViewCreated: { view, bundle in
+            let context = self
+            let label = TextView(context)
+            label.text = "Home View"
+            label.gravity = .center
+            view.as(ViewGroup.self)!.addView(label)
+        }))
+        
+        let fragment1 = homeFragment
         let fragment2 = Fragment()
         
         let listener = NavigationBarViewOnItemSelectedListener { item in
             guard let item else { return false }
-            let fragment: Fragment = (item.getItemId() == 1) ? fragment1 : fragment2
+            let fragment: AndroidApp.Fragment = (item.getItemId() == 1) ? fragment1 : fragment2
             _ = self.getFragmentManager().beginTransaction()
                 .replace(2001, fragment)
                 .commit()
@@ -189,7 +193,6 @@ private extension MainActivity {
             .add(2001, fragment1)
             .commit()
     }
-    
 }
 
 extension MainActivity {
