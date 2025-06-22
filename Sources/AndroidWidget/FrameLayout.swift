@@ -2,9 +2,13 @@
 import JavaKit
 import JavaRuntime
 import AndroidView
+import AndroidContent
 
 @JavaClass("android.widget.FrameLayout")
 open class FrameLayout: ViewGroup {
+  
+  @JavaMethod
+  @_nonoverride public convenience init(_ arg0: Context?, environment: JNIEnvironment? = nil)
   
   @JavaMethod
   open override func getAccessibilityClassName() -> CharSequence!
