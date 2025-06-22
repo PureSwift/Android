@@ -21,7 +21,7 @@ public extension Fragment {
     
     struct Callback {
         
-        var onCreateView: ((AndroidView.LayoutInflater?, AndroidView.ViewGroup?, AndroidOS.Bundle?) -> (AndroidView.View))
+        var onViewCreated: ((AndroidView.View, AndroidOS.Bundle?) -> ())?
     }
 }
 
@@ -29,13 +29,19 @@ public extension Fragment {
 extension Fragment {
     
     @JavaMethod
-    func onCreateViewSwift(
-        inflater: AndroidView.LayoutInflater?,
-        container: AndroidView.ViewGroup?,
+    func onViewCreated(
+        view: AndroidView.View?,
         savedInstanceState: AndroidOS.Bundle?
-    ) -> AndroidView.View? {
+    ) {
         log("\(self).\(#function)")
-        return callback.onCreateView(inflater, container, savedInstanceState)
+        guard let onViewCreated = callback.onViewCreated else {
+            return
+        }
+        guard let view else {
+            assertionFailure("Missing view")
+            return
+        }
+        onViewCreated(view, savedInstanceState)
     }
 }
 

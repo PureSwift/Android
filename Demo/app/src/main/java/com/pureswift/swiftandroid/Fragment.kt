@@ -16,16 +16,9 @@ class Fragment(val swiftObject: SwiftObject): android.app.Fragment() {
     ): View? {
         val context = this.context
         checkNotNull(context)
-        val view = this.onCreateViewSwift(inflater, container, savedInstanceState)
-        checkNotNull(view)
         val linearLayout = LinearLayout(context)
-        linearLayout.addView(view)
-        return view
+        return linearLayout
     }
 
-    external fun onCreateViewSwift(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View
+    external override fun onViewCreated(view: View, savedInstanceState: Bundle?)
 }
