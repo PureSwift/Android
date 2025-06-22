@@ -2,9 +2,14 @@
 import JavaKit
 import JavaRuntime
 import AndroidView
+import AndroidContent
 
 @JavaClass("android.widget.LinearLayout")
 open class LinearLayout: ViewGroup {
+
+  @JavaMethod
+  @_nonoverride public convenience init(_ arg0: Context?, environment: JNIEnvironment? = nil)
+  
   @JavaMethod
   open override func onRtlPropertiesChanged(_ arg0: Int32)
 
