@@ -167,8 +167,16 @@ private extension MainActivity {
             view.as(ViewGroup.self)!.addView(label)
         }))
         
+        let profileFragment = Fragment(callback: .init(onViewCreated: { view, bundle in
+            let context = self
+            let label = TextView(context)
+            label.text = "Profile"
+            label.gravity = .center
+            view.as(ViewGroup.self)!.addView(label)
+        }))
+        
         let fragment1 = homeFragment
-        let fragment2 = Fragment()
+        let fragment2 = profileFragment
         
         let listener = NavigationBarViewOnItemSelectedListener { item in
             guard let item else { return false }
@@ -178,7 +186,7 @@ private extension MainActivity {
                 .commit()
             return true
         }
-        bottomNav.setOnNavigationItemSelectedListener(listener.as(BottomNavigationView.OnNavigationItemSelectedListener.self))
+        bottomNav.setOnItemSelectedListener(listener.as(NavigationBarView.OnItemSelectedListener.self))
         
         let matchParent = try! JavaClass<ViewGroup.LayoutParams>().MATCH_PARENT
         let wrapContent = try! JavaClass<ViewGroup.LayoutParams>().WRAP_CONTENT
