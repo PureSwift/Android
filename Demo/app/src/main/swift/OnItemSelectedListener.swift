@@ -21,7 +21,7 @@ open class NavigationBarViewOnItemSelectedListener: JavaObject {
     public func getAction() -> SwiftObject?
 }
 
-@JavaImplementation("com.pureswift.swiftandroid.ViewOnClickListener")
+@JavaImplementation("com.pureswift.swiftandroid.NavigationBarViewOnItemSelectedListener")
 extension NavigationBarViewOnItemSelectedListener {
     
     @JavaMethod
