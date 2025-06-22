@@ -50,8 +50,6 @@ private extension MainActivity {
         runAsync()
         startMainRunLoop()
         setRootView()
-        
-        
     }
     
     func runAsync() {
@@ -76,7 +74,7 @@ private extension MainActivity {
     }
     
     func setRootView() {
-        setRecyclerView()
+        setTabBar()
     }
     
     func setTextView() {
@@ -153,6 +151,45 @@ private extension MainActivity {
         log("\(self).\(#function)")
         textView.text = "Hello Swift!\n\(Date().formatted(date: .numeric, time: .complete))"
     }
+    
+    func setTabBar() {
+        let layout = LinearLayout(self)
+        layout.orientation = .vertical
+        
+        let container = FrameLayout(self)
+        container.setId(2001)
+        
+        let bottomNav = BottomNavigationView(self)
+        _ = bottomNav.getMenu().add(0, 1, 0, JavaString("Home").as(CharSequence.self)).setIcon(17301543)
+        _ = bottomNav.getMenu().add(0, 2, 1, JavaString("Profile").as(CharSequence.self)).setIcon(17301659)
+        
+        let fragment1 = Fragment()
+        let fragment2 = Fragment()
+        
+        let listener = NavigationBarViewOnItemSelectedListener { item in
+            guard let item else { return false }
+            let fragment: Fragment = (item.getItemId() == 1) ? fragment1 : fragment2
+            _ = self.getFragmentManager().beginTransaction()
+                .replace(2001, fragment)
+                .commit()
+            return true
+        }
+        bottomNav.setOnNavigationItemSelectedListener(listener.as(BottomNavigationView.OnNavigationItemSelectedListener.self))
+        
+        let matchParent = try! JavaClass<ViewGroup.LayoutParams>().MATCH_PARENT
+        let wrapContent = try! JavaClass<ViewGroup.LayoutParams>().WRAP_CONTENT
+        
+        layout.addView(container as AndroidView.View, ViewGroup.LayoutParams(matchParent, 1))
+        layout.addView(bottomNav as AndroidView.View, ViewGroup.LayoutParams(matchParent, wrapContent))
+        
+        self.setRootView(layout)
+        
+        // Default to Home
+        _ = self.getFragmentManager().beginTransaction()
+            .add(2001, fragment1)
+            .commit()
+    }
+    
 }
 
 extension MainActivity {
