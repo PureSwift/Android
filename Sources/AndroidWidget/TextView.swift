@@ -664,6 +664,28 @@ open class TextView: AndroidView.View {
   @JavaMethod
   open func setCompoundDrawablesRelativeWithIntrinsicBounds(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
 }
+
+public extension TextView {
+    
+    var text: String {
+        get {
+            getText().toString()
+        }
+        set {
+            setText(JavaString(newValue).as(CharSequence.self))
+        }
+    }
+    
+    var gravity: ViewGravity {
+        get {
+            ViewGravity(rawValue: getGravity())
+        }
+        set {
+            setGravity(newValue.rawValue)
+        }
+    }
+}
+
 extension JavaClass<TextView> {
   @JavaStaticField(isFinal: true)
   public var AUTO_SIZE_TEXT_TYPE_NONE: Int32
