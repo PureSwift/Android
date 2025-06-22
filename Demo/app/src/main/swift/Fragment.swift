@@ -21,7 +21,7 @@ public extension Fragment {
     
     struct Callback {
         
-        var onCreateView: ((AndroidView.LayoutInflater?, AndroidView.ViewGroup?, AndroidOS.Bundle?) -> (AndroidView.View?))?
+        var onCreateView: ((AndroidView.LayoutInflater?, AndroidView.ViewGroup?, AndroidOS.Bundle?) -> (AndroidView.View))
     }
 }
 
@@ -29,13 +29,13 @@ public extension Fragment {
 extension Fragment {
     
     @JavaMethod
-    func onCreateView(
+    func onCreateViewSwift(
         inflater: AndroidView.LayoutInflater?,
         container: AndroidView.ViewGroup?,
         savedInstanceState: AndroidOS.Bundle?
     ) -> AndroidView.View? {
         log("\(self).\(#function)")
-        return callback.onCreateView?(inflater, container, savedInstanceState)
+        return callback.onCreateView(inflater, container, savedInstanceState)
     }
 }
 
