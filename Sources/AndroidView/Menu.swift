@@ -73,7 +73,10 @@ public struct Menu {
 
   @JavaMethod
   public func add(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: CharSequence?) -> MenuItem!
-
+  
+  @JavaMethod
+  public func add(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: String) -> MenuItem!
+  
   @JavaMethod
   public func add(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32) -> MenuItem!
 
