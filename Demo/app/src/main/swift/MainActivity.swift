@@ -35,7 +35,7 @@ extension MainActivity {
     public func onCreateSwift(_ savedInstanceState: BaseBundle?) {
         log("\(self).\(#function)")
         
-        _onCreate()
+        _onCreate(savedInstanceState)
     }
 }
 
@@ -45,10 +45,16 @@ private extension MainActivity {
     typealias MainActor = AndroidMainActor
     #endif
     
-    func _onCreate() {
-        MainActivity.shared = self
-        runAsync()
-        startMainRunLoop()
+    func _onCreate(_ savedInstanceState: BaseBundle?) {
+        
+        // setup singletons
+        if savedInstanceState == nil, MainActivity.shared == nil {
+            MainActivity.shared = self
+            startMainRunLoop()
+            runAsync()
+        }
+        
+        // need to recreate views
         setRootView()
     }
     
@@ -130,7 +136,6 @@ private extension MainActivity {
         _ = getFragmentManager()
             .beginTransaction()
             .replace(rootViewID, homeFragment)
-            .addToBackStack(nil)
             .commit()
         
         // Set as the content view
