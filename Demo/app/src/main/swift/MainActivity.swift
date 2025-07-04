@@ -22,6 +22,10 @@ open class MainActivity: AndroidApp.Activity {
     lazy var listView = ListView(self)
     
     lazy var recyclerView = RecyclerView(self)
+    
+    lazy var button = AndroidWidget.Button(self)
+    
+    lazy var rootViewID: Int32 = try! JavaClass<AndroidView.View>().generateViewId()
 }
 
 @JavaImplementation("com.pureswift.swiftandroid.MainActivity")
@@ -70,11 +74,17 @@ private extension MainActivity {
     }
     
     func setRootView() {
-        setTabBar()
+        setupNavigationStack()
     }
     
     func setTextView() {
-        setRootView(textView)
+        let linearLayout = LinearLayout(self)
+        linearLayout.orientation = .vertical
+        linearLayout.gravity = .center
+        linearLayout.addView(textView)
+        configureButton()
+        linearLayout.addView(button)
+        setRootView(linearLayout)
         // update view on timer
         Task { [weak self] in
             while let self {
@@ -82,6 +92,100 @@ private extension MainActivity {
                 try? await Task.sleep(for: .seconds(1))
             }
         }
+    }
+    
+    func setupNavigationStack() {
+        
+        let fragmentContainer = FrameLayout(self)
+        fragmentContainer.setId(rootViewID)
+        let matchParent = try! JavaClass<AndroidView.ViewGroup.LayoutParams>().MATCH_PARENT
+        fragmentContainer.setLayoutParams(ViewGroup.LayoutParams(matchParent, matchParent))
+        
+        let homeFragment = Fragment(callback: .init(onViewCreated: { view, bundle in
+            let context = self
+            
+            let linearLayout = LinearLayout(self)
+            linearLayout.setLayoutParams(ViewGroup.LayoutParams(matchParent, matchParent))
+            linearLayout.orientation = .vertical
+            linearLayout.gravity = .center
+            
+            let label = TextView(context)
+            label.text = "Home View"
+            label.gravity = .center
+            linearLayout.addView(label)
+            
+            let button = Button(context)
+            button.text = "Push"
+            label.gravity = .center
+            let listener = ViewOnClickListener {
+                self.didPushButton()
+            }
+            button.setOnClickListener(listener.as(View.OnClickListener.self))
+            linearLayout.addView(button)
+            
+            view.as(ViewGroup.self)!.addView(linearLayout)
+        }))
+        
+        // setup initial fragment
+        _ = getFragmentManager()
+            .beginTransaction()
+            .replace(rootViewID, homeFragment)
+            .addToBackStack(nil)
+            .commit()
+        
+        // Set as the content view
+        setRootView(fragmentContainer)
+    }
+    
+    func configureButton() {
+        button.text = "Push"
+        let listener = ViewOnClickListener {
+            self.didPushButton()
+        }
+        button.setOnClickListener(listener.as(View.OnClickListener.self))
+    }
+    
+    func didPushButton() {
+        
+        let counter = getFragmentManager().getBackStackEntryCount() + 1
+        
+        let detailFragment = Fragment(callback: .init(onViewCreated: { view, bundle in
+            let context = self
+            
+            let matchParent = try! JavaClass<AndroidView.ViewGroup.LayoutParams>().MATCH_PARENT
+            
+            let linearLayout = LinearLayout(self)
+            linearLayout.setLayoutParams(ViewGroup.LayoutParams(matchParent, matchParent))
+            linearLayout.orientation = .vertical
+            linearLayout.gravity = .center
+            
+            let label = TextView(context)
+            label.text = "Detail View \(counter)"
+            label.gravity = .center
+            linearLayout.addView(label)
+            
+            let button = Button(context)
+            button.text = "Push"
+            button.gravity = .center
+            let listener = ViewOnClickListener {
+                self.didPushButton()
+            }
+            button.setOnClickListener(listener.as(View.OnClickListener.self))
+            linearLayout.addView(button)
+            
+            view.as(ViewGroup.self)!.addView(linearLayout)
+        }))
+        
+        push(detailFragment, name: "Detail \(counter)")
+    }
+    
+    func push(_ fragment: AndroidApp.Fragment, name: String) {
+        log("\(self).\(#function) \(name)")
+        _ = getFragmentManager()
+            .beginTransaction()
+            .replace(rootViewID, fragment)
+            .addToBackStack(name)
+            .commit()
     }
     
     func setListView() {
