@@ -27,6 +27,9 @@ open class FragmentTransaction: JavaObject {
   open func addToBackStack(_ arg0: String) -> FragmentTransaction!
 
   @JavaMethod
+  open func addToBackStack(_ arg0: JavaString?) -> FragmentTransaction!
+  
+  @JavaMethod
   open func isAddToBackStackAllowed() -> Bool
 
   @JavaMethod
