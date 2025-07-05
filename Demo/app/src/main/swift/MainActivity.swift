@@ -8,6 +8,7 @@
 import Foundation
 import AndroidKit
 import JavaLang
+import Binder
 
 @JavaClass("com.pureswift.swiftandroid.MainActivity")
 open class MainActivity: AndroidApp.Activity {
@@ -56,6 +57,10 @@ private extension MainActivity {
         
         // need to recreate views
         setRootView()
+        
+        Task {
+            printBinderVersion()
+        }
     }
     
     func runAsync() {
@@ -310,6 +315,17 @@ private extension MainActivity {
             .add(2001, fragment1)
             .commit()
     }
+    
+    private func printBinderVersion() {
+        // Print Binder version
+        do {
+            let version = try BinderVersion.current
+            logInfo("Binder Version: \(version)")
+        }
+        catch {
+            logError("Unable to read binder: \(error)")
+        }
+    }
 }
 
 extension MainActivity {
@@ -338,5 +354,8 @@ extension MainActivity {
     func logError(_ string: String) {
         Self.logError(string)
     }
+    
+    func logInfo(_ string: String) {
+        Self.logInfo(string)
+    }
 }
-
