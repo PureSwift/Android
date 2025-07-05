@@ -63,6 +63,10 @@ let package = Package(
             branch: "master"
         ),
         .package(
+            url: "https://github.com/PureSwift/Binder.git",
+            branch: "master"
+        ),
+        .package(
             url: "https://github.com/apple/swift-log",
             from: "1.6.3"
         ),
@@ -98,6 +102,10 @@ let package = Package(
                 .product(
                     name: "JavaKitReflection",
                     package: "swift-java"
+                ),
+                .product(
+                    name: "Binder",
+                    package: "Binder"
                 ),
                 "AndroidNDK",
                 "AndroidJava",
