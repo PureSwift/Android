@@ -18,7 +18,7 @@ import Dispatch
 public extension Looper {
     
     // Swift structured concurrency executor that enqueues jobs on an Android Looper.
-    final class SerialExecutor: Executor, _Concurrency.SerialExecutor, @unchecked Sendable {
+    final class Executor: SerialExecutor, @unchecked Sendable {
         
         private let _eventFd: FileDescriptor
         private let _looper: AndroidMainActor.AndroidLooper
