@@ -110,7 +110,7 @@ internal extension Looper.Handle {
      * The opts may be ALOOPER_PREPARE_ALLOW_NON_CALLBACKS or 0.
      */
     static func prepare(options: Looper.PrepareOptions = []) -> Looper.Handle {
-        guard let pointer = ALooper_prepare(options.rawValue) else {
+        guard let pointer = ALooper_prepare(Int32(options.rawValue)) else {
             fatalError("Unable to initialize")
         }
         return Looper.Handle(pointer)

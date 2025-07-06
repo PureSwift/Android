@@ -5,18 +5,25 @@
 //  Created by Alsey Coleman Miller on 7/6/25.
 //
 
+#if os(Android)
+import Android
+import AndroidNDK
+#endif
+
 public extension Looper {
     
     /// Looper Prepare Options
     struct PrepareOptions: OptionSet, Sendable {
         
-        public var rawValue: CInt
+        public typealias RawValue = Int
         
-        public init(rawValue: CInt) {
-            self.rawValue = rawValue
+        public var rawValue: RawValue
+
+        public init(rawValue: RawValue) {
+            self.init(rawValue)
         }
         
-        private init(_ raw: CInt) {
+        private init(_ raw: RawValue) {
             self.rawValue = raw
         }
     }
