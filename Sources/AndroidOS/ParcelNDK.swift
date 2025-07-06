@@ -45,7 +45,7 @@ internal extension AndroidBinder.Parcel {
      * will return null. This must be deleted with AParcel_delete. This does not take ownership of the
      * jobject and is only good for as long as the jobject is alive.
      */
-    static func fromJava(_ javaObject: jobject, environment: JNIEnvironment? = nil) -> AndroidBinder.Parcel {
+    static func fromJava(_ javaObject: jobject, environment: JNIEnvironment) -> AndroidBinder.Parcel {
         guard let pointer = AParcel_fromJavaParcel(environment, javaObject) else {
             fatalError("Unable to initialize from Java object")
         }
