@@ -38,6 +38,11 @@ public struct Status: ~Copyable {
 
 public extension Status {
     
+    /// Directly initialize from a pointer.
+    init(_ pointer: OpaquePointer) {
+        self.handle = .init(pointer)
+    }
+    
     /// New status which is considered a success.
     init() {
         self.init(.newOk())
@@ -101,6 +106,16 @@ public extension Status {
     }
 }
 
+// MARK: - Methods
+
+public extension Status {
+    
+    /// Access the underlying opaque pointer.
+    func withUnsafePointer<E, Result>(_ body: (OpaquePointer) throws(E) -> Result) throws(E) -> Result where E: Error {
+        try body(handle.pointer)
+    }
+}
+
 // MARK: - CustomStringConvertible
 
 extension Status { //: CustomStringConvertible, CustomDebugStringConvertible {
@@ -119,7 +134,7 @@ internal extension Status {
         
         let pointer: OpaquePointer
         
-        private init(_ pointer: OpaquePointer) {
+        init(_ pointer: OpaquePointer) {
             self.pointer = pointer
         }
     }
