@@ -40,6 +40,17 @@ public extension Parcel {
     init(_ pointer: OpaquePointer) {
         self.handle = .init(pointer)
     }
+    
+    /**
+     * Creates a parcel.
+     *
+     * Available since API level 31.
+     *
+     * \return A parcel which is not related to any IBinder objects.
+     */
+    init() {
+        self.handle = .create()
+    }
 }
 
 // MARK: - Properties
@@ -82,6 +93,20 @@ internal extension Parcel {
 }
 
 internal extension Parcel.Handle {
+    
+    /**
+     * Creates a parcel.
+     *
+     * Available since API level 31.
+     *
+     * \return A parcel which is not related to any IBinder objects.
+     */
+    static func create() -> Parcel.Handle {
+        guard let pointer = AParcel_create() else {
+            fatalError("Unable to initialize \(Self.self) \(#function)")
+        }
+        return Parcel.Handle(pointer)
+    }
     
     /**
      * Cleans up a parcel.
