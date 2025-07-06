@@ -9,6 +9,6 @@
 
 public typealias binder_status_t = Int32
 
-
+public typealias binder_exception_t = Int32
 
 #endif
