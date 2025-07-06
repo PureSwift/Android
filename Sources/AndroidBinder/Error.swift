@@ -110,8 +110,16 @@ internal extension binder_status_t {
         file: StaticString = #file,
         function: StaticString = #function
     ) -> Result<Void, AndroidBinderError> {
+        mapError((), file: file, function: function)
+    }
+    
+    func mapError<T>(
+        _ value: T,
+        file: StaticString = #file,
+        function: StaticString = #function
+    ) -> Result<T, AndroidBinderError> {
         guard self != STATUS_OK else {
-            return .success(())
+            return .success(value)
         }
         let errorCode = AndroidBinderError.ErrorCode(rawValue: self)
         let error = AndroidBinderError(errorCode, file: file, function: function)
