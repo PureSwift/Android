@@ -17,13 +17,19 @@ typealias AChoreographer_vsyncCallback = @convention(c) (UnsafePointer<OpaquePoi
 typealias AChoreographer_refreshRateCallback = @convention(c) (Int64, UnsafeMutableRawPointer?) -> Void
 
 var ALOOPER_PREPARE_ALLOW_NON_CALLBACKS: Int32 { stub() }
+
 var ALOOPER_EVENT_INPUT: Int32 { stub() }
+var ALOOPER_EVENT_OUTPUT: Int32 { stub() }
+var ALOOPER_EVENT_ERROR: Int32 { stub() }
+var ALOOPER_EVENT_HANGUP: Int32 { stub() }
+var ALOOPER_EVENT_INVALID: Int32 { stub() }
 
 var ALOOPER_POLL_WAKE: Int { stub() }
 var ALOOPER_POLL_CALLBACK: Int { stub() }
 var ALOOPER_POLL_TIMEOUT: Int { stub() }
 var ALOOPER_POLL_ERROR: Int { stub() }
 
+// renamed on Darwin
 var kCFRunLoopDefaultMode: CFRunLoopMode { .defaultMode }
 
 #endif
