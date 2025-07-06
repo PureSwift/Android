@@ -5,11 +5,39 @@
 //  Created by Alsey Coleman Miller on 7/6/25.
 //
 
+#if canImport(Darwin)
+import Darwin
+#elseif canImport(Glibc)
+import Gblic
+#endif
+
 #if !os(Android)
 
 func stub() -> Never {
     fatalError("Not running on Android JVM")
 }
+
+// MARK: - Binder
+
+func AIBinder_new(_ clazz: OpaquePointer, _ args: UnsafeRawPointer?) { stub() }
+func AIBinder_decStrong(_ binder: OpaquePointer) { stub() }
+func AIBinder_incStrong(_ binder: OpaquePointer) { stub() }
+func AIBinder_associateClass(_ binder: OpaquePointer, _ binderClass: UnsafeRawPointer) -> binder_status_t { stub() }
+func AIBinder_getClass(_ binder: OpaquePointer) -> UnsafeRawPointer? { stub() }
+func AIBinder_prepareTransaction(_ binder: OpaquePointer) -> OpaquePointer { stub() }
+func AIBinder_transact(_ binder: OpaquePointer, _ transactionCode: Int32, _ inParcel: OpaquePointer, _ outParcel: OpaquePointer?, _ flags: UInt32) -> binder_status_t { stub() }
+func AIBinder_setExtension(_ binder: OpaquePointer, _ extensionBinder: OpaquePointer) -> binder_status_t { stub() }
+func AIBinder_isRemote(_ binder: OpaquePointer) -> Bool { stub() }
+func AIBinder_isAlive(_ binder: OpaquePointer) -> Bool { stub() }
+func AIBinder_dump(_ binder: OpaquePointer, _ fd: Int32, _ args: UnsafePointer<UnsafePointer<CChar>?>?, _ numArgs: UInt32) -> binder_status_t { stub() }
+func AIBinder_ping(_ binder: OpaquePointer) -> binder_status_t { stub() }
+func AIBinder_linkToDeath(_ binder: OpaquePointer, _ recipient: UnsafeMutablePointer<OpaquePointer>?, _ cookie: UnsafeMutableRawPointer?) -> binder_status_t { stub() }
+func AIBinder_unlinkToDeath(_ binder: OpaquePointer, _ recipient: UnsafeMutablePointer<OpaquePointer>?, _ cookie: UnsafeMutableRawPointer?) -> binder_status_t { stub() }
+func AIBinder_weakRefs(_ binder: OpaquePointer) -> UnsafeMutableRawPointer? { stub() }
+func AIBinder_getCallingUid() -> uid_t { stub() }
+func AIBinder_getCallingPid() -> pid_t { stub() }
+func AIBinder_isHandlingTransaction() -> Bool { stub() }
+func AIBinder_debugGetRefCount(_ binder: OpaquePointer) -> Int32 { stub() }
 
 // MARK: - Parcel
 
@@ -49,6 +77,5 @@ func AStatus_getStatus(_ pointer: OpaquePointer) -> binder_status_t { stub() }
 func AStatus_getMessage(_ pointer: OpaquePointer) -> UnsafePointer<CChar>? { stub() }
 func AStatus_getDescription(_ pointer: OpaquePointer) -> UnsafePointer<CChar>? { stub() }
 func AStatus_deleteDescription(_ pointer: UnsafePointer<CChar>) { stub() }
-
 
 #endif
