@@ -233,7 +233,8 @@ let package = Package(
             name: "AndroidOS",
             dependencies: [
                 "AndroidJava",
-                "AndroidNDK"
+                "AndroidNDK",
+                "AndroidBinder"
             ],
             exclude: ["swift-java.config"],
             swiftSettings: [
