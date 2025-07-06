@@ -67,6 +67,10 @@ let package = Package(
             branch: "master"
         ),
         .package(
+            url: "https://github.com/PureSwift/Socket.git",
+            branch: "main"
+        ),
+        .package(
             url: "https://github.com/apple/swift-log",
             from: "1.6.3"
         ),
@@ -122,7 +126,7 @@ let package = Package(
                 "AndroidWebKit",
                 "AndroidLogging",
                 "AndroidLooper",
-                "AndroidBinder"
+                //"AndroidBinder" // Requires NDK 29
             ],
             swiftSettings: [
               .swiftLanguageMode(.v5),
@@ -365,6 +369,9 @@ let package = Package(
             ],
             swiftSettings: [
               .swiftLanguageMode(.v6),
+            ],
+            linkerSettings: [
+                .linkedLibrary("log", .when(platforms: [.android]))
             ]
         ),
         .target(
@@ -374,10 +381,17 @@ let package = Package(
                     name: "SystemPackage",
                     package: "swift-system"
                 ),
+                .product(
+                    name: "Socket",
+                    package: "Socket"
+                ),
                 "AndroidNDK"
             ],
             swiftSettings: [
               .swiftLanguageMode(.v6)
+            ],
+            linkerSettings: [
+                .linkedLibrary("android", .when(platforms: [.android]))
             ]
         ),
         .target(
@@ -395,13 +409,15 @@ let package = Package(
             ],
             swiftSettings: [
               .swiftLanguageMode(.v6)
+            ],
+            linkerSettings: [
+                .linkedLibrary("binder_ndk", .when(platforms: [.android]))
             ]
         ),
         .target(
             name: "AndroidNDK",
             linkerSettings: [
-                .linkedLibrary("android", .when(platforms: [.android])),
-                .linkedLibrary("log", .when(platforms: [.android])),
+                .linkedLibrary("android", .when(platforms: [.android]))
             ]
         )
     ],
