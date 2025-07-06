@@ -5,6 +5,11 @@
 //  Created by Alsey Coleman Miller on 7/6/25.
 //
 
+#if canImport(Android)
+import Android
+import AndroidNDK
+#endif
+
 /**
  * Android Binder Status
  *
@@ -44,6 +49,26 @@ public extension Status {
     init(errorCode: AndroidBinderError.ErrorCode) {
         self.init(.from(status: errorCode))
     }
+    
+    /// New status with the specified exception code.
+    init(exceptionCode: binder_exception_t) {
+        self.init(.from(exceptionCode: exceptionCode))
+    }
+    
+    /// New status with the specified exception code and message.
+    init(exceptionCode: binder_exception_t, message: String) {
+        self.init(.from(exceptionCode: exceptionCode, message: message))
+    }
+    
+    /// New status with the specified service-specific error code.
+    init(serviceSpecific error: Int32) {
+        self.init(.from(serviceSpecificError: error))
+    }
+    
+    /// New status with the specified service-specific error code and message.
+    init(serviceSpecific error: Int32, message: String) {
+        self.init(.from(serviceSpecificError: error, message: message))
+    }
 }
 
 // MARK: - Properties
@@ -61,16 +86,19 @@ public extension Status {
     }
     
     /// If there is a message associated with this status, this will return that message.
-    var message: String {
+    var message: String? {
         handle.message
     }
-}
-
-// MARK: - Methods
-
-public extension Status {
     
+    /// The exception code this status represents.
+    var exceptionCode: binder_exception_t {
+        handle.exceptionCode
+    }
     
+    /// The service-specific error code if applicable.
+    var serviceSpecificError: Int32? {
+        handle.serviceSpecificError
+    }
 }
 
 // MARK: - CustomStringConvertible
@@ -117,7 +145,9 @@ internal extension Status {
          * \return a description, must be deleted with AStatus_deleteDescription.
          */
         init(status: Status.Handle) {
-            let cString = AStatus_getDescription(status.pointer)
+            guard let cString = AStatus_getDescription(status.pointer) else {
+                fatalError("Unable to initialize")
+            }
             self.init(cString)
         }
         
@@ -137,6 +167,20 @@ extension Status.Description {
 internal extension Status.Handle {
     
     /**
+     * New status which is considered a success.
+     *
+     * Available since API level 29.
+     *
+     * \return a newly constructed status object that the caller owns.
+     */
+    static func newOk() -> Status.Handle {
+        guard let pointer = AStatus_newOk() else {
+            fatalError("Unable to initialize \(Self.self) \(#function)")
+        }
+        return Status.Handle(pointer)
+    }
+    
+    /**
      * New status with binder_status_t. This is typically for low level failures when a binder_status_t
      * is returned by an API on AIBinder or AParcel, and that is to be returned from a method returning
      * an AStatus instance. This is the least preferable way to return errors.
@@ -150,19 +194,64 @@ internal extension Status.Handle {
      */
     static func from(status: AndroidBinderError.ErrorCode) -> Status.Handle {
         assert(status.rawValue != 0)
-        let pointer = AStatus_fromStatus(status.rawValue)
+        guard let pointer = AStatus_fromStatus(status.rawValue) else {
+            fatalError("Unable to initialize \(Self.self) \(#function)")
+        }
         return Status.Handle(pointer)
     }
     
     /**
-     * New status which is considered a success.
+     * New status with exception code.
      *
      * Available since API level 29.
      *
+     * \param exception the code that this status should represent. If this is EX_NONE, then this
+     * constructs an non-error status object.
+     *
      * \return a newly constructed status object that the caller owns.
      */
-    static func newOk() -> Status.Handle {
-        let pointer = AStatus_newOk()
+    static func from(exceptionCode: binder_exception_t) -> Status.Handle {
+        guard let pointer = AStatus_fromExceptionCode(exceptionCode) else {
+            fatalError("Unable to initialize \(Self.self) \(#function)")
+        }
+        return Status.Handle(pointer)
+    }
+    
+    /**
+     * New status with exception code and message.
+     *
+     * Available since API level 29.
+     *
+     * \param exception the code that this status should represent. If this is EX_NONE, then this
+     * constructs an non-error status object.
+     * \param message the error message to associate with this status object.
+     *
+     * \return a newly constructed status object that the caller owns.
+     */
+    static func from(exceptionCode: binder_exception_t, message: String) -> Status.Handle {
+        message.withCString { cString in
+            guard let pointer = AStatus_fromExceptionCodeWithMessage(exceptionCode, cString) else {
+                fatalError("Unable to initialize \(Self.self) \(#function)")
+            }
+            return Status.Handle(pointer)
+        }
+    }
+    
+    static func from(serviceSpecificError error: Int32) -> Status.Handle {
+        guard let pointer = AStatus_fromServiceSpecificError(error) else {
+            fatalError("Unable to initialize \(Self.self) \(#function)")
+        }
+        return Status.Handle(pointer)
+    }
+    
+    static func from(serviceSpecificError error: Int32, message: String) -> Status.Handle {
+        let pointer = message.withCString { cString in
+            AStatus_fromServiceSpecificErrorWithMessage(error, cString)
+            
+        }
+        guard let pointer else {
+            fatalError("Unable to initialize \(Self.self) \(#function)")
+        }
         return Status.Handle(pointer)
     }
     
@@ -203,8 +292,12 @@ internal extension Status.Handle {
      *
      * \return the message associated with this error.
      */
-    var message: String {
-        String(cString: AStatus_getMessage(pointer))
+    var message: String? {
+        let message = AStatus_getMessage(pointer).flatMap { String(cString: $0) }
+        guard let message, message.isEmpty == false else {
+            return nil
+        }
+        return message
     }
     
     /**
@@ -239,5 +332,36 @@ internal extension Status.Handle {
             return nil
         }
         return AndroidBinderError.ErrorCode(rawValue: errorCode)
+    }
+    
+    /**
+     * The exception that this status object represents.
+     *
+     * Available since API level 29.
+     *
+     * \param status the status being queried.
+     *
+     * \return the exception code that this object represents.
+     */
+    var exceptionCode: binder_exception_t {
+        let code = AStatus_getExceptionCode(pointer)
+        return code
+    }
+    
+    /**
+     * The service specific error if this object represents one. This function will only ever return a
+     * non-zero result if AStatus_getExceptionCode returns EX_SERVICE_SPECIFIC. If this function returns
+     * 0, the status object may still represent a different exception or status. To find out if this
+     * transaction as a whole is okay, use AStatus_isOk instead.
+     *
+     * Available since API level 29.
+     *
+     * \param status the status being queried.
+     *
+     * \return the service-specific error code if the exception code is EX_SERVICE_SPECIFIC or 0.
+     */
+    var serviceSpecificError: Int32? {
+        let value = AStatus_getServiceSpecificError(pointer)
+        return value != 0 ? value : nil
     }
 }
