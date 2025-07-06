@@ -16,13 +16,13 @@ typealias AChoreographer_frameCallback64 = @convention(c) (Int64, UnsafeMutableR
 typealias AChoreographer_vsyncCallback = @convention(c) (UnsafePointer<OpaquePointer>?, UnsafeMutableRawPointer?) -> Void
 typealias AChoreographer_refreshRateCallback = @convention(c) (Int64, UnsafeMutableRawPointer?) -> Void
 
-var ALOOPER_PREPARE_ALLOW_NON_CALLBACKS: Int32 { stub() }
+var ALOOPER_PREPARE_ALLOW_NON_CALLBACKS: Int { stub() }
 
-var ALOOPER_EVENT_INPUT: Int32 { stub() }
-var ALOOPER_EVENT_OUTPUT: Int32 { stub() }
-var ALOOPER_EVENT_ERROR: Int32 { stub() }
-var ALOOPER_EVENT_HANGUP: Int32 { stub() }
-var ALOOPER_EVENT_INVALID: Int32 { stub() }
+var ALOOPER_EVENT_INPUT: Int { stub() }
+var ALOOPER_EVENT_OUTPUT: Int { stub() }
+var ALOOPER_EVENT_ERROR: Int { stub() }
+var ALOOPER_EVENT_HANGUP: Int { stub() }
+var ALOOPER_EVENT_INVALID: Int { stub() }
 
 var ALOOPER_POLL_WAKE: Int { stub() }
 var ALOOPER_POLL_CALLBACK: Int { stub() }
