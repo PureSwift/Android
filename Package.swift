@@ -121,7 +121,8 @@ let package = Package(
                 "AndroidWidget",
                 "AndroidWebKit",
                 "AndroidLogging",
-                "AndroidLooper"
+                "AndroidLooper",
+                "AndroidBinder"
             ],
             swiftSettings: [
               .swiftLanguageMode(.v5),
@@ -371,6 +372,23 @@ let package = Package(
                 .product(
                     name: "SystemPackage",
                     package: "swift-system"
+                ),
+                "AndroidNDK"
+            ],
+            swiftSettings: [
+              .swiftLanguageMode(.v6)
+            ]
+        ),
+        .target(
+            name: "AndroidBinder",
+            dependencies: [
+                .product(
+                    name: "SystemPackage",
+                    package: "swift-system"
+                ),
+                .product(
+                    name: "Binder",
+                    package: "Binder"
                 ),
                 "AndroidNDK"
             ],
