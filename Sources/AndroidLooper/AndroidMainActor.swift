@@ -14,10 +14,11 @@ import SystemPackage
 import CoreFoundation
 import Dispatch
 
+@available(macOS 13.0, *)
 @globalActor
 public final actor AndroidMainActor: GlobalActor {
     
-    static let _executor = try! AndroidLooperExecutor(looper: AndroidLooper.main)
+    static let _executor = try! Looper.Executor(looper: AndroidLooper.main)
 
     public static let shared = AndroidMainActor()
     public static let sharedUnownedExecutor: UnownedSerialExecutor = AndroidMainActor._executor
@@ -28,6 +29,7 @@ public final actor AndroidMainActor: GlobalActor {
     }
 }
 
+@available(macOS 13.0, *)
 private extension AndroidMainActor {
     
     nonisolated(unsafe) private static var didInstallGlobalExecutor = false
@@ -75,6 +77,7 @@ private extension AndroidMainActor {
     }
 }
 
+@available(macOS 13.0, *)
 internal extension AndroidMainActor {
     
     // Much of this is adapted from https://github.com/PADL/AndroidLooper/blob/0f26e1bdb989120f5689d74ea69a0525833ecd52/Sources/AndroidLooper/ALooper.swift
@@ -118,7 +121,7 @@ internal extension AndroidMainActor {
         }
 
         /// Adds a new file descriptor to be polled by the looper.
-        public func add(fd: FileDescriptor, ident: CInt = 0, events: Events = .input, callback: LooperCallback? = nil, data: UnsafeMutableRawPointer? = nil) throws {
+        public func add(fd: FileDescriptor, ident: CInt = 0, events: Looper.Events = .input, callback: LooperCallback? = nil, data: UnsafeMutableRawPointer? = nil) throws {
             if ALooper_addFd(_looper, fd.rawValue, callback != nil ? CInt(ALOOPER_POLL_CALLBACK) : ident, events.rawValue, callback, data) != 1 {
                 throw AndroidLooper.Error.addFdFailure
             }
@@ -171,7 +174,7 @@ internal extension AndroidMainActor {
             case ALOOPER_POLL_ERROR:
                 throw AndroidLooper.Error.pollError
             default:
-                return PollResult(ident: err, fd: outFd, events: Events(rawValue: outEvents), data: outData)
+                return PollResult(ident: err, fd: outFd, events: Looper.Events(rawValue: outEvents), data: outData)
             }
         }
     }
@@ -188,28 +191,11 @@ extension AndroidMainActor.AndroidLooper {
         case pollTimeout
         case pollError
     }
-
-    struct Events: OptionSet, Sendable {
-        
-        public typealias RawValue = CInt
-        
-        public let rawValue: RawValue
-
-        public init(rawValue: RawValue) {
-            self.rawValue = rawValue
-        }
-
-        public static var input: Events { Events(rawValue: 1 << 0) }
-        public static var output: Events { Events(rawValue: 1 << 1) }
-        public static var error: Events { Events(rawValue: 1 << 2) }
-        public static var hangup: Events { Events(rawValue: 1 << 3) }
-        public static var invalid: Events { Events(rawValue: 1 << 4) }
-    }
     
     struct PollResult {
         let ident: CInt
         let fd: CInt
-        let events: Events
+        let events: Looper.Events
         let data: UnsafeRawPointer?
     }
 }
