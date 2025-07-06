@@ -112,3 +112,9 @@ public extension Looper {
     }
 }
 
+@available(macOS 13.0, *)
+private func drainAExecutor(fd: CInt, events: CInt, data: UnsafeMutableRawPointer?) -> CInt {
+    let executor = Unmanaged<Looper.Executor>.fromOpaque(data!).takeUnretainedValue()
+    executor.drain()
+    return 1
+}
