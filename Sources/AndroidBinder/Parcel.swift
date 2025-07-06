@@ -32,6 +32,16 @@ public struct Parcel: ~Copyable {
     }
 }
 
+// MARK: - Initialization
+
+public extension Parcel {
+    
+    /// Directly initialize from a pointer.
+    init(_ pointer: OpaquePointer) {
+        self.handle = .init(pointer)
+    }
+}
+
 // MARK: - Properties
 
 public extension Parcel {
@@ -46,6 +56,11 @@ public extension Parcel {
 
 public extension Parcel {
     
+    /// Access the underlying opaque pointer.
+    func withUnsafePointer<E, Result>(_ body: (OpaquePointer) throws(E) -> Result) throws(E) -> Result where E: Error {
+        try body(handle.pointer)
+    }
+    
     /// Sets the position within the parcel.
     func setDataPosition(_ position: Int) throws(AndroidBinderError) {
         try handle.setDataPosition(Int32(position)).get()
@@ -59,6 +74,10 @@ internal extension Parcel {
     struct Handle {
         
         let pointer: OpaquePointer
+        
+        init(_ pointer: OpaquePointer) {
+            self.pointer = pointer
+        }
     }
 }
 
