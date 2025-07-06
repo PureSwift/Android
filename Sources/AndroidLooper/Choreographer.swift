@@ -18,11 +18,7 @@ import AndroidNDK
 ///
 /// The frame callback is also the appropriate place to run any per-frame state update logic. For example, in a game, the frame callback should be responsible for updating things like physics, AI, game state, and rendering the frame. Input and sensors should be handled separately via callbacks registered with AInputQueue and ASensorManager.
 ///
-/// https://developer.android.com/ndk/reference/group/choreographer
-@available(macOS, unavailable)
-@available(iOS, unavailable)
-@available(tvOS, unavailable)
-@available(watchOS, unavailable)
+/// [See Also](https://developer.android.com/ndk/reference/group/choreographer)
 public struct AndroidChoreographer : @unchecked Sendable {
     
     private let pointer: OpaquePointer
@@ -36,11 +32,7 @@ public struct AndroidChoreographer : @unchecked Sendable {
     ///
     /// This must be called on an ALooper thread.
     public static var current: AndroidChoreographer {
-        #if !os(Android)
-        fatalError("only implemented for Android")
-        #else
-        AndroidChoreographer(pointer: AChoreographer_getInstance())
-        #endif
+        AndroidChoreographer(pointer: AChoreographer_getInstance()!)
     }
 
     private init(pointer: OpaquePointer) {
@@ -55,10 +47,6 @@ public struct AndroidChoreographer : @unchecked Sendable {
     }
 
     public func postFrameCallback(_ callback: @convention(c)(Int, UnsafeMutableRawPointer?) -> ()) {
-        #if !os(Android)
-        fatalError("only implemented for Android")
-        #else
         AChoreographer_postFrameCallback(pointer, callback, nil)
-        #endif
     }
 }
