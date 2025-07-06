@@ -76,6 +76,16 @@ public extension Parcel {
     func setDataPosition(_ position: Int) throws(AndroidBinderError) {
         try handle.setDataPosition(Int32(position)).get()
     }
+    
+    /// Reads an Int32 value from the parcel.
+    func readInt32() throws(AndroidBinderError) -> Int32 {
+        try handle.readInt32().get()
+    }
+    
+    /// Writes an Int32 value to the parcel.
+    func writeInt32(_ value: Int32) throws(AndroidBinderError) {
+        try handle.writeInt32(value).get()
+    }
 }
 
 // MARK: - Supporting Types
@@ -155,5 +165,15 @@ internal extension Parcel.Handle {
      */
     var dataPosition: Int32 {
         AParcel_getDataPosition(pointer)
+    }
+    
+    func readInt32() -> Result<Int32, AndroidBinderError> {
+        var value: Int32 = 0
+        let status = AParcel_readInt32(pointer, &value)
+        return status.mapError(value)
+    }
+    
+    func writeInt32(_ value: Int32) -> Result<Void, AndroidBinderError> {
+        AParcel_writeInt32(pointer, value).mapError()
     }
 }
