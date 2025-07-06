@@ -71,7 +71,7 @@ public final class AndroidBinder {
     }
     
     /// Directly initialize from a pointer.
-    init(_ pointer: OpaquePointer) {
+    public init(_ pointer: OpaquePointer) {
         self.handle = .init(pointer)
     }
     
@@ -99,7 +99,7 @@ public final class AndroidBinder {
      *
      * \return a binder object representing the newly instantiated object.
      */
-    init(class: borrowing BinderClass, arguments: [String] = []) {
+    public init(class: borrowing BinderClass, arguments: [String] = []) {
         fatalError()
     }
 }
