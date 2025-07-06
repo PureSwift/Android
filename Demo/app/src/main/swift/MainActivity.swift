@@ -78,14 +78,14 @@ private extension MainActivity {
     
     func startMainRunLoop() {
         #if os(Android)
-        guard AndroidLooper.setupMainLooper() else {
+        guard AndroidMainActor.setupMainLooper() else {
             fatalError("Unable to setup main loop")
         }
         #endif
     }
     
     func setRootView() {
-        setupNavigationStack()
+        setTextView()
     }
     
     func setTextView() {
