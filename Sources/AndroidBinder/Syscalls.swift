@@ -11,12 +11,29 @@ func stub() -> Never {
     fatalError("Not running on Android JVM")
 }
 
-func AParcel_delete(_ pointer: OpaquePointer) { stub() }
-func AParcel_setDataPosition(_ pointer: OpaquePointer, _ position: Int32) -> binder_status_t { stub() }
-func AParcel_getDataPosition(_ pointer: OpaquePointer) -> Int32 { stub() }
-func AParcel_writeInt32(_ pointer: OpaquePointer, _ value: Int32) -> binder_status_t { stub() }
-func AParcel_marshal(_ pointer: OpaquePointer, _ buffer: UnsafeMutablePointer<UInt8>, _ start: UInt32, _ len: UInt32) -> binder_status_t { stub() }
-func AParcel_unmarshal(_ pointer: OpaquePointer, _ buffer: UnsafePointer<UInt8>, _ len: UInt32) -> binder_status_t { stub() }
+// MARK: - Parcel
+
+func AParcel_create() -> OpaquePointer? { stub() }
+func AParcel_delete(_ parcel: OpaquePointer) { stub() }
+func AParcel_setDataPosition(_ parcel: OpaquePointer, _ position: Int32) -> binder_status_t { stub() }
+func AParcel_getDataPosition(_ parcel: OpaquePointer) -> Int32 { stub() }
+func AParcel_writeInt32(_ parcel: OpaquePointer, _ value: Int32) -> binder_status_t { stub() }
+func AParcel_writeBool(_ parcel: OpaquePointer, _ value: Bool) -> binder_status_t { stub() }
+func AParcel_writeFloat(_ parcel: OpaquePointer, _ value: Float) -> binder_status_t { stub() }
+func AParcel_writeDouble(_ parcel: OpaquePointer, _ value: Double) -> binder_status_t { stub() }
+func AParcel_writeString(_ parcel: OpaquePointer, _ string: UnsafePointer<CChar>?) -> binder_status_t { stub() }
+func AParcel_writeParcelable(_ parcel: OpaquePointer, _ parcelable: OpaquePointer) -> binder_status_t { stub() }
+func AParcel_marshal(_ parcel: OpaquePointer, _ buffer: UnsafeMutablePointer<UInt8>, _ offset: UInt32, _ length: UInt32) -> binder_status_t { stub() }
+func AParcel_unmarshal(_ parcel: OpaquePointer, _ buffer: UnsafePointer<UInt8>, _ length: UInt32) -> binder_status_t { stub() }
+func AParcel_getDataSize(_ parcel: OpaquePointer) -> Int32 { stub() }
+func AParcel_readInt32(_ parcel: OpaquePointer, _ outValue: UnsafeMutablePointer<Int32>) -> binder_status_t { stub() }
+func AParcel_readBool(_ parcel: OpaquePointer, _ outValue: UnsafeMutablePointer<Bool>) -> binder_status_t { stub() }
+func AParcel_readFloat(_ parcel: OpaquePointer, _ outValue: UnsafeMutablePointer<Float>) -> binder_status_t { stub() }
+func AParcel_readDouble(_ parcel: OpaquePointer, _ outValue: UnsafeMutablePointer<Double>) -> binder_status_t { stub() }
+func AParcel_readString(_ parcel: OpaquePointer, _ outString: UnsafeMutablePointer<UnsafePointer<CChar>?>) -> binder_status_t { stub() }
+func AParcel_readParcelable(_ parcel: OpaquePointer, _ outParcelable: UnsafeMutablePointer<OpaquePointer?>) -> binder_status_t { stub() }
+
+// MARK: - Status
 
 func AStatus_delete(_ pointer: OpaquePointer) { stub() }
 func AStatus_newOk() -> OpaquePointer? { stub() }
