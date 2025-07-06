@@ -51,13 +51,13 @@ public extension Status {
     }
     
     /// New status with the specified exception code.
-    init(exceptionCode: binder_exception_t) {
-        self.init(.from(exceptionCode: exceptionCode))
+    init(exception: Exception) {
+        self.init(.from(exception: exception))
     }
     
     /// New status with the specified exception code and message.
-    init(exceptionCode: binder_exception_t, message: String) {
-        self.init(.from(exceptionCode: exceptionCode, message: message))
+    init(exception: Exception, message: String) {
+        self.init(.from(exception: exception, message: message))
     }
     
     /// New status with the specified service-specific error code.
@@ -91,8 +91,8 @@ public extension Status {
     }
     
     /// The exception code this status represents.
-    var exceptionCode: binder_exception_t {
-        handle.exceptionCode
+    var exception: Exception? {
+        handle.exception
     }
     
     /// The service-specific error code if applicable.
@@ -210,8 +210,8 @@ internal extension Status.Handle {
      *
      * \return a newly constructed status object that the caller owns.
      */
-    static func from(exceptionCode: binder_exception_t) -> Status.Handle {
-        guard let pointer = AStatus_fromExceptionCode(exceptionCode) else {
+    static func from(exception: Exception) -> Status.Handle {
+        guard let pointer = AStatus_fromExceptionCode(exception.rawValue) else {
             fatalError("Unable to initialize \(Self.self) \(#function)")
         }
         return Status.Handle(pointer)
@@ -228,9 +228,9 @@ internal extension Status.Handle {
      *
      * \return a newly constructed status object that the caller owns.
      */
-    static func from(exceptionCode: binder_exception_t, message: String) -> Status.Handle {
+    static func from(exception: Exception, message: String) -> Status.Handle {
         message.withCString { cString in
-            guard let pointer = AStatus_fromExceptionCodeWithMessage(exceptionCode, cString) else {
+            guard let pointer = AStatus_fromExceptionCodeWithMessage(exception.rawValue, cString) else {
                 fatalError("Unable to initialize \(Self.self) \(#function)")
             }
             return Status.Handle(pointer)
@@ -343,9 +343,16 @@ internal extension Status.Handle {
      *
      * \return the exception code that this object represents.
      */
-    var exceptionCode: binder_exception_t {
+    var exception: Exception? {
         let code = AStatus_getExceptionCode(pointer)
-        return code
+        guard code != 0 else {
+            return nil
+        }
+        guard let exception = Exception(rawValue: code) else {
+            assertionFailure("Invalid exception code \(code)")
+            return .transactionFailed
+        }
+        return exception
     }
     
     /**
