@@ -36,8 +36,8 @@ public struct AndroidBinderError: Error {
 public extension AndroidBinderError {
     
     var message: String {
-        // TODO: Create status and get message
-        return "Error \(errorCode.rawValue)"
+        let status = Status(errorCode: errorCode)
+        return status.description
     }
 }
 
@@ -54,6 +54,11 @@ extension AndroidBinderError: CustomStringConvertible {
 
 public extension AndroidBinderError {
     
+    /**
+     * Low-level status types for use in binder. This is the least preferable way to
+     * return an error for binder services (where binder_exception_t should be used,
+     * particularly EX_SERVICE_SPECIFIC).
+     */
     struct ErrorCode: RawRepresentable, Equatable, Hashable, Sendable {
         
         public let rawValue: Int32
