@@ -84,6 +84,7 @@ internal extension AndroidMainActor {
 
     /// https://developer.android.com/ndk/reference/group/looper
     @available(macOS 13.0, *)
+    @available(*, deprecated, message: "Use Looper instead")
     struct AndroidLooper: ~Copyable, @unchecked Sendable {
         
         private let _looper: OpaquePointer
@@ -122,7 +123,7 @@ internal extension AndroidMainActor {
 
         /// Adds a new file descriptor to be polled by the looper.
         public func add(fd: FileDescriptor, ident: CInt = 0, events: Looper.Events = .input, callback: LooperCallback? = nil, data: UnsafeMutableRawPointer? = nil) throws {
-            if ALooper_addFd(_looper, fd.rawValue, callback != nil ? CInt(ALOOPER_POLL_CALLBACK) : ident, events.rawValue, callback, data) != 1 {
+            if ALooper_addFd(_looper, fd.rawValue, callback != nil ? CInt(ALOOPER_POLL_CALLBACK) : ident, Int32(events.rawValue), callback, data) != 1 {
                 throw AndroidLooper.Error.addFdFailure
             }
         }
@@ -174,7 +175,7 @@ internal extension AndroidMainActor {
             case ALOOPER_POLL_ERROR:
                 throw AndroidLooper.Error.pollError
             default:
-                return PollResult(ident: err, fd: outFd, events: Looper.Events(rawValue: outEvents), data: outData)
+                return PollResult(ident: err, fd: outFd, events: Looper.Events(rawValue: Int(outEvents)), data: outData)
             }
         }
     }
