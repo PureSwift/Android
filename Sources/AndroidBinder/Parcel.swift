@@ -11,7 +11,14 @@ import AndroidNDK
 #endif
 import Binder
 
-/// A collection of data that can be sent as a single packet.
+/**
+ * Android Binder Parcel
+ *
+ * This object represents a package of data that can be sent between processes. When transacting, an
+ * instance of it is automatically created to be used for the transaction. When two processes use
+ * binder to communicate, they must agree on a format of this parcel to be used in order to transfer
+ * data. This is usually done in an IDL (see AIDL, specificially).
+ */
 public struct Parcel: ~Copyable {
     
     internal let handle: Handle
@@ -56,12 +63,6 @@ internal extension Parcel {
 }
 
 internal extension Parcel.Handle {
-    
-    #if !os(Android)
-    private func stub() -> Never {
-        fatalError("Not running on Android JVM")
-    }
-    #endif
     
     /**
      * Cleans up a parcel.
