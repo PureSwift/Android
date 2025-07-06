@@ -20,7 +20,6 @@ public extension Thread {
         options: Looper.PrepareOptions = [],
         _ body: (borrowing Looper) throws(E) -> T
     ) throws(E) -> T {
-        let looper = Looper.currentThread(options: options)
-        return try body(looper)
+        try Looper.currentThread(options: options, body)
     }
 }
