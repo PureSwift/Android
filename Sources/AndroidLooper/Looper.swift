@@ -28,8 +28,18 @@ public struct Looper: ~Copyable {
     
     internal let handle: Handle
     
-    internal init(_ handle: Handle) {
+    /// Whether the handle is "owned" and we need to release on deinit.
+    internal let isRetained: Bool
+    
+    internal init(_ handle: Handle, retain: Bool) {
         self.handle = handle
+        self.isRetained = retain
+    }
+    
+    deinit {
+        if isRetained {
+            handle.release()
+        }
     }
 }
 
@@ -37,17 +47,56 @@ public struct Looper: ~Copyable {
 
 public extension Looper {
     
-    /// Directly initialize from a pointer.
+    /// Directly initialize from a pointer and retain the underlying object.
     init(_ pointer: OpaquePointer) {
-        self.handle = .init(pointer)
+        self.init(Handle(pointer), retain: true) // retains by default
     }
     
+    /// Initialize from a pointer without retaining the underlying object.
+    static func takeUnretained(from pointer: OpaquePointer) -> Looper {
+        // equivalent to
+        // Unmanaged<AnyObject>.fromOpaque(pointer).takeUnretainedValue()
+        self.init(Handle(pointer), retain: false)
+    }
+    
+    /// Initialize from another instance and retain the underlying object.
+    init(_ other: borrowing Looper) {
+        self.init(other.handle, retain: true)
+    }
+    
+    /// Gets the looper for the current thread, if any.
+    ///
+    /// The instance is retained.
     static var currentThread: Looper? {
-        Handle.forThread().flatMap { .init($0) }
+        Handle.forThread().flatMap { .init($0, retain: true) }
     }
     
+    /// Gets the looper for the current thread, if any and provides a borrowed instance to use.
+    ///
+    /// The instance is not retained and only valid for the duration of ``body``.
+    static func currentThread<T, E>(_ body: (borrowing Looper) throws(E) -> (T)) throws(E) -> T? {
+        let looper = Looper.Handle
+            .forThread()
+            .flatMap{ Looper($0, retain: false) } // don't retain this instance
+        guard let looper else {
+            return nil
+        }
+        return try body(looper)
+    }
+    
+    /// Prepares a looper associated with the calling thread, and returns it.
+    ///
+    /// The instance is retained.
     static func currentThread(options: PrepareOptions) -> Looper {
-        Looper(.prepare(options: options))
+        Looper(.prepare(options: options), retain: true)
+    }
+    
+    /// Gets the looper for the current thread, if any and provides a borrowed instance to use.
+    ///
+    /// The instance is not retained and only valid for the duration of ``body``.
+    static func currentThread<T, E>(options: PrepareOptions, _ body: (borrowing Looper) throws(E) -> (T)) throws(E) -> T {
+        let looper = Looper(.prepare(options: options), retain: false)
+        return try body(looper)
     }
 }
 
@@ -79,6 +128,11 @@ public extension Looper {
 }
 
 // MARK: - Supporting Types
+
+public extension Looper {
+    
+    typealias Callback = @convention(c) (CInt, CInt, UnsafeMutableRawPointer?) -> CInt
+}
 
 internal extension Looper {
     
@@ -168,8 +222,16 @@ internal extension Looper.Handle {
      * This method can be called on any thread.
      * This method may block briefly if it needs to wake the poll.
      */
-    func add(fileDescriptor: FileDescriptor) {
-        
+    func add(
+        fileDescriptor fd: FileDescriptor,
+        id: CInt = CInt(ALOOPER_POLL_CALLBACK),
+        events: Looper.Events = .input,
+        callback: Looper.Callback? = nil,
+        data: UnsafeMutableRawPointer? = nil
+    ) -> Bool {
+        let id = callback != nil ? CInt(ALOOPER_POLL_CALLBACK) : id
+        let result = ALooper_addFd(pointer, fd.rawValue, id, Int32(events.rawValue), callback, data)
+        return result != 1
     }
     
     /**
@@ -189,7 +251,7 @@ internal extension Looper.Handle {
      * This method can be called on any thread.
      * This method may block briefly if it needs to wake the poll.
      */
-    func remove(fileDescriptor: FileDescriptor) {
-        
+    func remove(fileDescriptor: FileDescriptor) -> CInt { // TODO: Create Looper.RemoveResult
+        ALooper_removeFd(pointer, fileDescriptor.rawValue)
     }
 }
