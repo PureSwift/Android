@@ -19,15 +19,15 @@ public extension Looper {
      */
     struct Events: OptionSet, Sendable {
         
-        public typealias RawValue = CInt
+        public typealias RawValue = Int
         
-        public var rawValue: RawValue
+        public var rawValue: Int
 
-        public init(rawValue: RawValue) {
-            self.rawValue = rawValue
+        public init(rawValue: Int) {
+            self.init(rawValue)
         }
         
-        private init(_ raw: RawValue) {
+        private init(_ raw: Int) {
             self.rawValue = raw
         }
     }
