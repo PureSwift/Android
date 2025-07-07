@@ -54,17 +54,14 @@ public extension AndroidMainActor {
         // the public API should always be retained.
         assert(looper.isRetained)
         
-        let executor: Looper.Executor
+        // override the global executors to wake the main looper to drain the queue whenever something is scheduled
         do {
-            executor = try Looper.Executor(looper: looper)
+            let executor = try Looper.Executor(looper: looper)
+            return try AndroidMainActor.installGlobalExecutor(executor)
         }
         catch {
-            assertionFailure("Unable to initialize Looper.Executor: \(error)")
             return false
         }
-        
-        // override the global executors to wake the main looper to drain the queue whenever something is scheduled
-        return AndroidMainActor.installGlobalExecutor(executor)
     }
 }
 
@@ -96,13 +93,13 @@ private extension AndroidMainActor {
     /// See also [a draft proposal for custom executors](https://github.com/rjmccall/swift-evolution/blob/custom-executors/proposals/0000-custom-executors.md#the-default-global-concurrent-executor)
     static func installGlobalExecutor(
         _ executor: Looper.Executor
-    ) -> Bool {
+    ) throws(AndroidLooperError) -> Bool {
         if didInstallGlobalExecutor {
             return false
         }
         didInstallGlobalExecutor = true
 
-        let looperCallback: Looper.Callback = { ft, event, data in
+        let looperCallback: Looper.Handle.Callback = { ft, event, data in
             while true {
                 switch CFRunLoopRunInMode(kCFRunLoopDefaultMode, 0.0, true) {
                 case CFRunLoopRunResult.handledSource:
@@ -123,66 +120,17 @@ private extension AndroidMainActor {
         let dispatchPort = _dispatch_get_main_queue_port_4CF()
         let fileDescriptor = FileDescriptor(rawValue: dispatchPort)
         
-        guard executor.looper.handle.add(
+        try executor.looper.handle.add(
             fileDescriptor: fileDescriptor,
             id: 0,
             events: .input,
             callback: looperCallback,
             data: nil
-        ) else {
-            return false
-        }
+        ).get()
+        
         // install executor
         self.executor = executor
         _ = mainLoop
         return true
-    }
-}
-
-@available(macOS 13.0, *)
-internal extension Looper.Handle {
-    
-    /// Waits for events to be available, with optional timeout in milliseconds.
-    func pollOnce(duration: Duration? = nil) throws(Error) -> AndroidMainActor.PollResult? {
-        var outFd: CInt = -1
-        var outEvents: CInt = 0
-        var outData: UnsafeMutableRawPointer?
-
-        let timeoutMillis: CInt
-        if let duration {
-            timeoutMillis = CInt(duration.milliseconds)
-        } else {
-            timeoutMillis = 0
-        }
-        
-        let err = ALooper_pollOnce(timeoutMillis, &outFd, &outEvents, &outData)
-        switch Int(err) {
-        case ALOOPER_POLL_WAKE:
-            fallthrough
-        case ALOOPER_POLL_CALLBACK:
-            return nil
-        case ALOOPER_POLL_TIMEOUT:
-            throw AndroidMainActor.Error.pollTimeout
-        case ALOOPER_POLL_ERROR:
-            throw AndroidMainActor.Error.pollError
-        default:
-            return AndroidMainActor.PollResult(id: err, fd: .init(rawValue: outFd), events: Looper.Events(rawValue: Int(outEvents)), data: outData)
-        }
-    }
-}
-
-@available(macOS 13.0, *)
-public extension AndroidMainActor {
-    
-    enum Error: Swift.Error {
-        case pollTimeout
-        case pollError
-    }
-    
-    struct PollResult: Identifiable {
-        public let id: CInt
-        public let fd: FileDescriptor
-        public let events: Looper.Events
-        public let data: UnsafeRawPointer?
     }
 }

@@ -25,12 +25,12 @@ public extension Looper {
         let queue = LockedState(initialState: [UnownedJob]())
         
         /// Initialize with Android Looper
-        internal init(looper: consuming Looper) throws(Errno) {
+        internal init(looper: consuming Looper) throws(AndroidLooperError) {
             let looperHandle = looper.handle
             // open fd
             let fd = eventfd(0, EFD_CLOEXEC | EFD_NONBLOCK) // TODO: Move to System / Socket package
             if fd < 0 {
-                throw Errno(rawValue: errno)
+                throw .bionic(Errno(rawValue: errno))
             }
             
             // initialize
@@ -38,20 +38,17 @@ public extension Looper {
             self.eventFd = eventFd
             self.looper = looper
             
-            // add to looper
-            guard looperHandle.add(fileDescriptor: eventFd, callback: drainAExecutor, data: Unmanaged.passUnretained(self).toOpaque()) else {
-                try? eventFd.close()
-                throw .invalidArgument
-            }
+            // Add fd to Looper
+            try configureLooper()
         }
 
         deinit {
             if eventFd.rawValue != -1 {
-                _ = looper.handle.remove(fileDescriptor: eventFd)
+                _ = try? looper.remove(fileDescriptor: eventFd)
                 try? eventFd.close()
             }
         }
-
+        
         /// Enqueue a single job
         public func enqueue(_ job: UnownedJob) {
             queue.withLock { queue in
@@ -68,6 +65,17 @@ public extension Looper {
 
 @available(macOS 13.0, iOS 13.0, *)
 internal extension Looper.Executor {
+    
+    func configureLooper() throws(AndroidLooperError) {
+        do {
+            // add to looper
+            try looper.handle.add(fileDescriptor: eventFd, callback: drainAExecutor, data: Unmanaged.passUnretained(self).toOpaque()).get()
+        }
+        catch {
+            try? eventFd.close()
+            throw error
+        }
+    }
     
     /// Read number of remaining events from eventFd
     var eventsRemaining: UInt64 {
