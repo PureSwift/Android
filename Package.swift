@@ -41,9 +41,14 @@ let javaIncludePath = "\(javaHome)/include"
 
 // Get NDK version from command line
 let ndkVersion = ProcessInfo.processInfo.environment["ANDROID_NDK_VERSION"].flatMap { UInt($0) } ?? 27
-let ndkBinder = ndkVersion >= 29 // binder_ndk Requires NDK 29
-
 let ndkVersionDefine = SwiftSetting.define("ANDROID_NDK_VERSION_" + ndkVersion.description)
+
+// Get Android API version
+let sdkVersion = ProcessInfo.processInfo.environment["ANDROID_SDK_VERSION"].flatMap { UInt($0) } ?? 29
+let sdkVersionDefine = SwiftSetting.define("ANDROID_SDK_VERSION_" + ndkVersion.description)
+
+// Conditionally enable features
+let ndkBinder = sdkVersion >= 29 // binder_ndk Requires API 29
 
 var package = Package(
     name: "SwiftAndroid",
@@ -136,7 +141,8 @@ var package = Package(
             swiftSettings: [
               .swiftLanguageMode(.v5),
               .unsafeFlags(["-I\(javaIncludePath)", "-I\(javaPlatformIncludePath)"]),
-              ndkVersionDefine
+              ndkVersionDefine,
+              sdkVersionDefine
             ]
         ),
         .target(
@@ -197,7 +203,8 @@ var package = Package(
             ],
             swiftSettings: [
               .swiftLanguageMode(.v5),
-              ndkVersionDefine
+              ndkVersionDefine,
+              sdkVersionDefine
             ]
         ),
         .target(
@@ -208,7 +215,8 @@ var package = Package(
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
-              ndkVersionDefine
+              ndkVersionDefine,
+              sdkVersionDefine
             ]
         ),
         .target(
@@ -229,7 +237,8 @@ var package = Package(
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
-              ndkVersionDefine
+              ndkVersionDefine,
+              sdkVersionDefine
             ]
         ),
         .target(
@@ -240,7 +249,8 @@ var package = Package(
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
-              ndkVersionDefine
+              ndkVersionDefine,
+              sdkVersionDefine
             ]
         ),
         .target(
@@ -252,7 +262,8 @@ var package = Package(
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
-              ndkVersionDefine
+              ndkVersionDefine,
+              sdkVersionDefine
             ]
         ),
         .target(
@@ -264,7 +275,8 @@ var package = Package(
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
-              ndkVersionDefine
+              ndkVersionDefine,
+              sdkVersionDefine
             ]
         ),
         .target(
@@ -277,7 +289,8 @@ var package = Package(
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
-              ndkVersionDefine
+              ndkVersionDefine,
+              sdkVersionDefine
             ]
         ),
         .target(
@@ -291,7 +304,8 @@ var package = Package(
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
-              ndkVersionDefine
+              ndkVersionDefine,
+              sdkVersionDefine
             ]
         ),
         .target(
@@ -305,7 +319,8 @@ var package = Package(
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
-              ndkVersionDefine
+              ndkVersionDefine,
+              sdkVersionDefine
             ]
         ),
         .target(
@@ -320,7 +335,8 @@ var package = Package(
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
-              ndkVersionDefine
+              ndkVersionDefine,
+              sdkVersionDefine
             ]
         ),
         .target(
@@ -340,7 +356,8 @@ var package = Package(
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
-              ndkVersionDefine
+              ndkVersionDefine,
+              sdkVersionDefine
             ]
         ),
         .target(
@@ -356,7 +373,8 @@ var package = Package(
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
-              ndkVersionDefine
+              ndkVersionDefine,
+              sdkVersionDefine
             ]
         ),
         .target(
@@ -370,7 +388,8 @@ var package = Package(
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
-              ndkVersionDefine
+              ndkVersionDefine,
+              sdkVersionDefine
             ]
         ),
         .target(
@@ -387,7 +406,8 @@ var package = Package(
             ],
             swiftSettings: [
               .swiftLanguageMode(.v6),
-              ndkVersionDefine
+              ndkVersionDefine,
+              sdkVersionDefine
             ],
             linkerSettings: [
                 .linkedLibrary("log", .when(platforms: [.android]))
@@ -408,7 +428,8 @@ var package = Package(
             ],
             swiftSettings: [
               .swiftLanguageMode(.v6),
-              ndkVersionDefine
+              ndkVersionDefine,
+              sdkVersionDefine
             ],
             linkerSettings: [
                 .linkedLibrary("android", .when(platforms: [.android]))
