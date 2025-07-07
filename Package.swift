@@ -43,6 +43,8 @@ let javaIncludePath = "\(javaHome)/include"
 let ndkVersion = ProcessInfo.processInfo.environment["ANDROID_NDK_VERSION"].flatMap { UInt($0) } ?? 27
 let ndkBinder = ndkVersion >= 29 // binder_ndk Requires NDK 29
 
+let ndkVersionDefine = SwiftSetting.define("ANDROID_NDK_VERSION_" + ndkVersion.description)
+
 var package = Package(
     name: "SwiftAndroid",
     platforms: [
@@ -134,6 +136,7 @@ var package = Package(
             swiftSettings: [
               .swiftLanguageMode(.v5),
               .unsafeFlags(["-I\(javaIncludePath)", "-I\(javaPlatformIncludePath)"]),
+              ndkVersionDefine
             ]
         ),
         .target(
@@ -194,6 +197,7 @@ var package = Package(
             ],
             swiftSettings: [
               .swiftLanguageMode(.v5),
+              ndkVersionDefine
             ]
         ),
         .target(
@@ -204,6 +208,7 @@ var package = Package(
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
+              ndkVersionDefine
             ]
         ),
         .target(
@@ -224,6 +229,7 @@ var package = Package(
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
+              ndkVersionDefine
             ]
         ),
         .target(
@@ -234,6 +240,7 @@ var package = Package(
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
+              ndkVersionDefine
             ]
         ),
         .target(
@@ -245,6 +252,7 @@ var package = Package(
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
+              ndkVersionDefine
             ]
         ),
         .target(
@@ -256,6 +264,7 @@ var package = Package(
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
+              ndkVersionDefine
             ]
         ),
         .target(
@@ -268,6 +277,7 @@ var package = Package(
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
+              ndkVersionDefine
             ]
         ),
         .target(
@@ -281,6 +291,7 @@ var package = Package(
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
+              ndkVersionDefine
             ]
         ),
         .target(
@@ -294,6 +305,7 @@ var package = Package(
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
+              ndkVersionDefine
             ]
         ),
         .target(
@@ -308,6 +320,7 @@ var package = Package(
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
+              ndkVersionDefine
             ]
         ),
         .target(
@@ -327,6 +340,7 @@ var package = Package(
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
+              ndkVersionDefine
             ]
         ),
         .target(
@@ -342,6 +356,7 @@ var package = Package(
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
+              ndkVersionDefine
             ]
         ),
         .target(
@@ -355,6 +370,7 @@ var package = Package(
             exclude: ["swift-java.config"],
             swiftSettings: [
               .swiftLanguageMode(.v5),
+              ndkVersionDefine
             ]
         ),
         .target(
@@ -371,6 +387,7 @@ var package = Package(
             ],
             swiftSettings: [
               .swiftLanguageMode(.v6),
+              ndkVersionDefine
             ],
             linkerSettings: [
                 .linkedLibrary("log", .when(platforms: [.android]))
@@ -390,7 +407,8 @@ var package = Package(
                 "AndroidNDK"
             ],
             swiftSettings: [
-              .swiftLanguageMode(.v6)
+              .swiftLanguageMode(.v6),
+              ndkVersionDefine
             ],
             linkerSettings: [
                 .linkedLibrary("android", .when(platforms: [.android]))
