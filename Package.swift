@@ -39,8 +39,8 @@ let javaIncludePath = "\(javaHome)/include"
   let javaPlatformIncludePath = "\(javaIncludePath)/win32"
 #endif
 
-let ndkVersion = 27
-
+// Get NDK version from command line
+let ndkVersion = ProcessInfo.processInfo.environment["ANDROID_NDK_VERSION"].flatMap { UInt($0) } ?? 27
 let ndkBinder = ndkVersion >= 29 // binder_ndk Requires NDK 29
 
 var package = Package(
