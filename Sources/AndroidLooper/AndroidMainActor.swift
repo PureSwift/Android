@@ -21,6 +21,8 @@ public actor AndroidMainActor: GlobalActor {
     public static let shared = AndroidMainActor()
     
     public static let sharedUnownedExecutor: UnownedSerialExecutor = {
+        // ensure executor is retained to avoid crash
+         // https://forums.swift.org/t/how-to-properly-use-custom-executor-on-global-actor/71829/4
         guard let executor = AndroidMainActor.executor else {
             fatalError("Executor was never installed")
         }
@@ -57,7 +59,7 @@ public extension AndroidMainActor {
             executor = try Looper.Executor(looper: looper)
         }
         catch {
-            assertionFailure("Unable to initialize \(String(describing: Looper.Executor.self)): \(error)")
+            assertionFailure("Unable to initialize Looper.Executor: \(error)")
             return false
         }
         
@@ -132,6 +134,7 @@ private extension AndroidMainActor {
         }
         // install executor
         self.executor = executor
+        _ = mainLoop
         return true
     }
 }
@@ -146,12 +149,12 @@ internal extension Looper.Handle {
         var outData: UnsafeMutableRawPointer?
 
         let timeoutMillis: CInt
-        if let duration = duration {
-            timeoutMillis = CInt(Double(duration.components.seconds) * 1000 + Double(duration.components.attoseconds) * 1e-15)
+        if let duration {
+            timeoutMillis = CInt(duration.milliseconds)
         } else {
             timeoutMillis = 0
         }
-
+        
         let err = ALooper_pollOnce(timeoutMillis, &outFd, &outEvents, &outData)
         switch Int(err) {
         case ALOOPER_POLL_WAKE:
