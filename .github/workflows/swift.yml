@@ -1,0 +1,21 @@
+name: Swift
+on: [push]
+jobs:
+
+  android:
+    name: Android
+    strategy:
+      fail-fast: false
+      matrix:
+        swift: ['6.1']
+        arch: ['aarch64', 'x86_64']
+        sdk: ['24', '28', '29']
+    runs-on: macos-15
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: "Build Swift Package for Android"
+        run: |
+          brew install skiptools/skip/skip || (brew update && brew install skiptools/skip/skip)
+          skip android sdk install --version ${{ matrix.swift }}
+          ANDROID_NDK_ROOT="" ANDROID_SDK_VERSION=${{ matrix.sdk }} skip android build --arch ${{ matrix.arch }} --android-api-level ${{ matrix.sdk }}

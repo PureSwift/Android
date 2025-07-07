@@ -4,7 +4,7 @@ Swift bindings to Android SDK (via Java Native Interface)
 
 ## Compile
 
-Tested against [@finagolfin Swift Android SDK](https://github.com/finagolfin/swift-android-sdk) v6.0.3
+Tested against [Skip Tools](https://skip.tools/docs/gettingstarted/#installation)
 
 There is an included example Android application under `/Demo`. 
 
