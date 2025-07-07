@@ -231,7 +231,7 @@ internal extension Looper.Handle {
     ) -> Bool {
         let id = callback != nil ? CInt(ALOOPER_POLL_CALLBACK) : id
         let result = ALooper_addFd(pointer, fd.rawValue, id, Int32(events.rawValue), callback, data)
-        return result != 1
+        return result == 1
     }
     
     /**
