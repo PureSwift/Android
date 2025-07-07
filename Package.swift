@@ -39,7 +39,11 @@ let javaIncludePath = "\(javaHome)/include"
   let javaPlatformIncludePath = "\(javaIncludePath)/win32"
 #endif
 
-let package = Package(
+let ndkVersion = 27
+
+let ndkBinder = ndkVersion >= 29 // binder_ndk Requires NDK 29
+
+var package = Package(
     name: "SwiftAndroid",
     platforms: [
         .macOS(.v10_15)
@@ -125,8 +129,7 @@ let package = Package(
                 "AndroidWidget",
                 "AndroidWebKit",
                 "AndroidLogging",
-                "AndroidLooper",
-                //"AndroidBinder" // Requires NDK 29
+                "AndroidLooper"
             ],
             swiftSettings: [
               .swiftLanguageMode(.v5),
@@ -237,8 +240,7 @@ let package = Package(
             name: "AndroidOS",
             dependencies: [
                 "AndroidJava",
-                "AndroidNDK",
-                "AndroidBinder"
+                "AndroidNDK"
             ],
             exclude: ["swift-java.config"],
             swiftSettings: [
@@ -395,26 +397,6 @@ let package = Package(
             ]
         ),
         .target(
-            name: "AndroidBinder",
-            dependencies: [
-                .product(
-                    name: "SystemPackage",
-                    package: "swift-system"
-                ),
-                .product(
-                    name: "Binder",
-                    package: "Binder"
-                ),
-                "AndroidNDK"
-            ],
-            swiftSettings: [
-              .swiftLanguageMode(.v6)
-            ],
-            linkerSettings: [
-                .linkedLibrary("binder_ndk", .when(platforms: [.android]))
-            ]
-        ),
-        .target(
             name: "AndroidNDK",
             linkerSettings: [
                 .linkedLibrary("android", .when(platforms: [.android]))
@@ -423,3 +405,36 @@ let package = Package(
     ],
     swiftLanguageModes: [.v5, .v6]
 )
+
+if ndkBinder {
+    // Add the binder target
+    let binderTarget = Target.target(
+        name: "AndroidBinder",
+        dependencies: [
+            .product(
+                name: "SystemPackage",
+                package: "swift-system"
+            ),
+            .product(
+                name: "Binder",
+                package: "Binder"
+            ),
+            "AndroidNDK"
+        ],
+        swiftSettings: [
+          .swiftLanguageMode(.v6)
+        ],
+        linkerSettings: [
+            .linkedLibrary("binder_ndk", .when(platforms: [.android]))
+        ]
+    )
+    package.targets.append(binderTarget)
+    // add as dependency to AndroidOS
+    if let index = package.targets.firstIndex(where: { $0.name == "AndroidOS" }) {
+        package.targets[index].dependencies.append("AndroidBinder")
+    }
+    // add as dependency to AndroidKit
+    if let index = package.targets.firstIndex(where: { $0.name == "AndroidKit" }) {
+        package.targets[index].dependencies.append("AndroidBinder")
+    }
+}

@@ -5,6 +5,7 @@
 //  Created by Alsey Coleman Miller on 7/6/25.
 //
 
+#if canImport(AndroidBinder)
 #if canImport(Android)
 import Android
 import AndroidNDK
@@ -91,4 +92,5 @@ internal extension AndroidBinder {
 func AIBinder_fromJavaBinder(_ environment: JNIEnvironment?, _ javaObject: jobject) -> OpaquePointer? { fatalError("stub") }
 
 func AIBinder_toJavaBinder(_ environment: JNIEnvironment?, _ ndkObject: OpaquePointer?) -> jobject { fatalError("stub") }
+#endif
 #endif

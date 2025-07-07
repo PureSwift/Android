@@ -5,6 +5,7 @@
 //  Created by Alsey Coleman Miller on 7/6/25.
 //
 
+#if canImport(AndroidBinder)
 #if canImport(Android)
 import Android
 import AndroidNDK
@@ -55,4 +56,5 @@ internal extension AndroidBinder.Parcel {
 
 #if !os(Android)
 func AParcel_fromJavaParcel(_ environment: JNIEnvironment?, _ javaObject: jobject) -> OpaquePointer? { fatalError("stub") }
+#endif
 #endif
