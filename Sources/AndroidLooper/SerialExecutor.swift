@@ -26,18 +26,15 @@ public extension Looper {
         
         /// Initialize with Android Looper
         internal init(looper: consuming Looper) throws(AndroidLooperError) {
-            let looperHandle = looper.handle
             // open fd
             let fd = eventfd(0, EFD_CLOEXEC | EFD_NONBLOCK) // TODO: Move to System / Socket package
             if fd < 0 {
                 throw .bionic(Errno(rawValue: errno))
             }
-            
             // initialize
             let eventFd = FileDescriptor(rawValue: fd)
             self.eventFd = eventFd
             self.looper = looper
-            
             // Add fd to Looper
             try configureLooper()
         }
