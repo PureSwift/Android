@@ -24,13 +24,6 @@ func _dispatch_main_queue_callback_4CF()
 @_silgen_name("_dispatch_get_main_queue_port_4CF")
 func _dispatch_get_main_queue_port_4CF() -> Int32
 
-#if canImport(Darwin)
-
-/// `int eventfd(unsigned int initval, int flags);`
-func eventfd(_ initval: CUnsignedInt, _ flags: CInt) -> CInt { stub() }
-
-#endif
-
 #if !os(Android)
 
 func stub() -> Never {

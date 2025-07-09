@@ -6,7 +6,6 @@
 //
 
 #if !os(Android)
-
 import CoreFoundation
 
 typealias AVsyncId = Int64
@@ -15,9 +14,6 @@ typealias AChoreographer_frameCallback = @convention(c) (Int, UnsafeMutableRawPo
 typealias AChoreographer_frameCallback64 = @convention(c) (Int64, UnsafeMutableRawPointer?) -> Void
 typealias AChoreographer_vsyncCallback = @convention(c) (UnsafePointer<OpaquePointer>?, UnsafeMutableRawPointer?) -> Void
 typealias AChoreographer_refreshRateCallback = @convention(c) (Int64, UnsafeMutableRawPointer?) -> Void
-
-var EFD_CLOEXEC: Int32 { stub() }
-var EFD_NONBLOCK: Int32 { stub() }
 
 var ALOOPER_PREPARE_ALLOW_NON_CALLBACKS: Int { stub() }
 

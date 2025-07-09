@@ -13,6 +13,7 @@ import AndroidNDK
 import CoreFoundation
 import Dispatch
 import SystemPackage
+import Socket
 
 @available(macOS 13.0, iOS 13.0, *)
 public extension Looper {
@@ -20,30 +21,38 @@ public extension Looper {
     // Swift structured concurrency executor that enqueues jobs on an Android Looper.
     final class Executor: SerialExecutor, @unchecked Sendable {
         
-        let eventFd: FileDescriptor
+        #if os(Android)
+        let eventFd: SocketDescriptor.Event
+        #endif
         let looper: Looper
         let queue = LockedState(initialState: [UnownedJob]())
         
         /// Initialize with Android Looper
         internal init(looper: consuming Looper) throws(AndroidLooperError) {
+            #if os(Android)
+            let eventFd: SocketDescriptor.Event
             // open fd
-            let fd = eventfd(0, EFD_CLOEXEC | EFD_NONBLOCK) // TODO: Move to System / Socket package
-            if fd < 0 {
-                throw .bionic(Errno(rawValue: errno))
+            do {
+                eventFd = try SocketDescriptor.Event(0, flags: [.closeOnExec, .nonBlocking])
+            }
+            catch {
+                throw .bionic(error)
             }
             // initialize
-            let eventFd = FileDescriptor(rawValue: fd)
             self.eventFd = eventFd
+            #endif
             self.looper = looper
             // Add fd to Looper
             try configureLooper()
         }
 
         deinit {
+            #if os(Android)
             if eventFd.rawValue != -1 {
-                _ = try? looper.remove(fileDescriptor: eventFd)
+                _ = try? looper.remove(fileDescriptor: .init(rawValue: eventFd.rawValue))
                 try? eventFd.close()
             }
+            #endif
         }
         
         /// Enqueue a single job
@@ -66,10 +75,12 @@ internal extension Looper.Executor {
     func configureLooper() throws(AndroidLooperError) {
         do {
             // add to looper
-            try looper.handle.add(fileDescriptor: eventFd, callback: drainAExecutor, data: Unmanaged.passUnretained(self).toOpaque()).get()
+            try looper.handle.add(fileDescriptor: .init(rawValue: eventFd.rawValue), callback: drainAExecutor, data: Unmanaged.passUnretained(self).toOpaque()).get()
         }
         catch {
+            #if os(Android)
             try? eventFd.close()
+            #endif
             throw error
         }
     }
@@ -77,25 +88,17 @@ internal extension Looper.Executor {
     /// Read number of remaining events from eventFd
     var eventsRemaining: UInt64 {
         get throws {
-            var value = UInt64(0)
-            try withUnsafeMutableBytes(of: &value) {
-                guard try eventFd.read(into: $0) == MemoryLayout<UInt64>.size else {
-                    throw Errno.invalidArgument
-                }
-            }
-
-            return value
+            #if os(Android)
+            try eventFd.read().rawValue
+            #endif
         }
     }
 
     /// Increment number of remaining events on eventFd
     func signal() throws {
-        var value = UInt64(1)
-        try withUnsafeBytes(of: &value) { (pointer) throws -> () in
-            guard try eventFd.write(pointer) == MemoryLayout<UInt64>.size else {
-                throw Errno.outOfRange
-            }
-        }
+        #if os(Android)
+        try eventFd.write(1)
+        #endif
     }
 
     /// Drain job queue
