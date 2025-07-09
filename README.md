@@ -1,6 +1,6 @@
-# Android
+# AndroidKit
 
-Swift bindings to Android SDK (via Java Native Interface)
+Swift bindings to Android SDK (via Java Native Interface) and NDK.
 
 ## Compile
 
@@ -21,3 +21,4 @@ Then you can compile the app from the Android IDE.
 - [AndroidSwiftUI](https://github.com/PureSwift/AndroidSwiftUI) - SwiftUI for Android
 - [AndroidBluetooth](https://github.com/PureSwift/AndroidBluetooth) - Swift Bluetooth stack for Android
 - [BluetoothLinux](https://github.com/PureSwift/BluetoothLinux) - Pure Swift Linux Bluetooth Stack
+- [CoreModel](https://github.com/PureSwift/CoreModel) - Pure Swift ORM
