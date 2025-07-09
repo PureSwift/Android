@@ -4,11 +4,7 @@ import PackageDescription
 let package = Package(
     name: "SwiftAndroidApp",
     platforms: [
-      .macOS(.v13),
-      .iOS(.v13),
-      .tvOS(.v13),
-      .watchOS(.v6),
-      .macCatalyst(.v13),
+      .macOS(.v15),
     ],
     products: [
         .library(

@@ -19,7 +19,7 @@ let ndkBinder = sdkVersion >= 29 // binder_ndk Requires API 29
 var package = Package(
     name: "SwiftAndroid",
     platforms: [
-        .macOS(.v10_15)
+        .macOS(.v15)
     ],
     products: [
         .library(
