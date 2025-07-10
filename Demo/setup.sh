@@ -11,8 +11,6 @@ if [[ $OSTYPE == 'darwin'* ]]; then
     HOMEBREW_NO_AUTO_UPDATE=1 brew install wget cmake ninja android-ndk
 fi
 
-
-
 # Copy Swift libraries
 rm -rf $SRC_ROOT/app/src/main/jniLibs/$ANDROID_ARCH/
 mkdir -p $SRC_ROOT/app/src/main/jniLibs/$ANDROID_ARCH/
