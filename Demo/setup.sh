@@ -6,9 +6,12 @@ source swift-define
 if [[ $OSTYPE == 'darwin'* ]]; then
     echo "Install macOS build dependencies"
     brew install skiptools/skip/skip
+    skip android sdk install
     brew update
     HOMEBREW_NO_AUTO_UPDATE=1 brew install wget cmake ninja android-ndk
 fi
+
+
 
 # Copy Swift libraries
 rm -rf $SRC_ROOT/app/src/main/jniLibs/$ANDROID_ARCH/
