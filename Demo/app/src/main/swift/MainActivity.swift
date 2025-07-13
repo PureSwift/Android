@@ -16,6 +16,9 @@ open class MainActivity: AndroidApp.Activity {
     @JavaMethod
     open func setRootView(_ view: AndroidView.View?)
     
+    @JavaMethod
+    open func getEmitter() -> UnitEmitter!
+    
     static private(set) var shared: MainActivity!
     
     lazy var textView = TextView(self)
@@ -25,6 +28,8 @@ open class MainActivity: AndroidApp.Activity {
     lazy var recyclerView = RecyclerView(self)
     
     lazy var button = AndroidWidget.Button(self)
+
+    lazy var emitter = getEmitter()!
     
     lazy var rootViewID: Int32 = try! JavaClass<AndroidView.View>().generateViewId()
 }
@@ -56,7 +61,8 @@ private extension MainActivity {
         }
         
         // need to recreate views
-        setRootView()
+        //setRootView()
+        startEmitterTimer()
         
         Task {
             printBinderVersion()
@@ -103,6 +109,22 @@ private extension MainActivity {
                 try? await Task.sleep(for: .seconds(1))
             }
         }
+    }
+    
+    func startEmitterTimer() {
+        // update view on timer
+        Task { [weak self] in
+            while let self {
+                emit()
+                try? await Task.sleep(for: .seconds(1))
+            }
+        }
+    }
+
+    @MainActor
+    func emit() {
+        Self.log("\(self).\(#function)")
+        emitter.emit()
     }
     
     func setupNavigationStack() {
