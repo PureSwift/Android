@@ -115,12 +115,12 @@ private extension MainActivity {
         // update view on timer
         Task { [weak self] in
             while let self {
-                emit()
+                await emit()
                 try? await Task.sleep(for: .seconds(1))
             }
         }
     }
-
+    
     @MainActor
     func emit() {
         Self.log("\(self).\(#function)")
