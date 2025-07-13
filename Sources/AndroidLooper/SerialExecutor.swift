@@ -73,16 +73,16 @@ public extension Looper {
 internal extension Looper.Executor {
     
     func configureLooper() throws(AndroidLooperError) {
+        #if os(Android)
         do {
             // add to looper
             try looper.handle.add(fileDescriptor: .init(rawValue: eventFd.rawValue), callback: drainAExecutor, data: Unmanaged.passUnretained(self).toOpaque()).get()
         }
         catch {
-            #if os(Android)
             try? eventFd.close()
-            #endif
             throw error
         }
+        #endif
     }
     
     /// Read number of remaining events from eventFd
@@ -90,6 +90,8 @@ internal extension Looper.Executor {
         get throws {
             #if os(Android)
             try eventFd.read().rawValue
+            #else
+            0
             #endif
         }
     }
