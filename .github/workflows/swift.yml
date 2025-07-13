@@ -9,7 +9,7 @@ jobs:
       matrix:
         swift: ['6.1']
         arch: ['aarch64', 'x86_64']
-        sdk: ['24', '28', '29']
+        sdk: ['24', '28', '29', '31', '33']
     runs-on: macos-15
     timeout-minutes: 30
     steps:

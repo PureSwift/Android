@@ -29,7 +29,7 @@ var package = Package(
     dependencies: [
         .package(
             url: "https://github.com/PureSwift/swift-java.git",
-            branch: "feature/android-shim"
+            branch: "feature/android"
         ),
         .package(
             url: "https://github.com/PureSwift/JavaLang.git",
@@ -398,6 +398,10 @@ var package = Package(
         ),
         .target(
             name: "AndroidNDK",
+            cxxSettings: [
+                .define("ANDROID_NDK_VERSION", to: ndkVersion.description),
+                .define("ANDROID_SDK_VERSION", to: sdkVersion.description)
+            ],
             linkerSettings: [
                 .linkedLibrary("android", .when(platforms: [.android]))
             ]
