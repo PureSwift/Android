@@ -10,7 +10,7 @@ let ndkVersion = ProcessInfo.processInfo.environment["ANDROID_NDK_VERSION"].flat
 let ndkVersionDefine = SwiftSetting.define("ANDROID_NDK_VERSION_" + ndkVersion.description)
 
 // Get Android API version
-let sdkVersion = ProcessInfo.processInfo.environment["ANDROID_SDK_VERSION"].flatMap { UInt($0) } ?? 29
+let sdkVersion = ProcessInfo.processInfo.environment["ANDROID_SDK_VERSION"].flatMap { UInt($0) } ?? 28
 let sdkVersionDefine = SwiftSetting.define("ANDROID_SDK_VERSION_" + sdkVersion.description)
 
 // Conditionally enable features
