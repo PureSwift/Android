@@ -7,7 +7,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        swift: ['6.1']
+        swift: ['6.2.3']
         arch: ['aarch64', 'x86_64']
         sdk: ['24', '28', '29', '31', '33']
     runs-on: macos-15
