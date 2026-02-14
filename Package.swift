@@ -484,6 +484,14 @@ if ndkBinder {
         ]
     )
     package.targets.append(binderTarget)
+    
+    // Add the binder product
+    let binderProduct = Product.library(
+        name: "AndroidBinder",
+        targets: ["AndroidBinder"]
+    )
+    package.products.append(binderProduct)
+    
     // add as dependency to AndroidOS
     if let index = package.targets.firstIndex(where: { $0.name == "AndroidOS" }) {
         package.targets[index].dependencies.append("AndroidBinder")
