@@ -24,6 +24,57 @@ var package = Package(
     products: [
         .library(
             name: "AndroidKit", targets: ["AndroidKit"]
+        ),
+        .library(
+            name: "AndroidJava", targets: ["AndroidJava"]
+        ),
+        .library(
+            name: "AndroidManifest", targets: ["AndroidManifest"]
+        ),
+        .library(
+            name: "AndroidR", targets: ["AndroidR"]
+        ),
+        .library(
+            name: "AndroidAnimation", targets: ["AndroidAnimation"]
+        ),
+        .library(
+            name: "AndroidUtil", targets: ["AndroidUtil"]
+        ),
+        .library(
+            name: "AndroidOS", targets: ["AndroidOS"]
+        ),
+        .library(
+            name: "AndroidApp", targets: ["AndroidApp"]
+        ),
+        .library(
+            name: "AndroidContent", targets: ["AndroidContent"]
+        ),
+        .library(
+            name: "AndroidGraphics", targets: ["AndroidGraphics"]
+        ),
+        .library(
+            name: "AndroidView", targets: ["AndroidView"]
+        ),
+        .library(
+            name: "AndroidWidget", targets: ["AndroidWidget"]
+        ),
+        .library(
+            name: "AndroidX", targets: ["AndroidX"]
+        ),
+        .library(
+            name: "AndroidMaterial", targets: ["AndroidMaterial"]
+        ),
+        .library(
+            name: "AndroidWebKit", targets: ["AndroidWebKit"]
+        ),
+        .library(
+            name: "AndroidLogging", targets: ["AndroidLogging"]
+        ),
+        .library(
+            name: "AndroidLooper", targets: ["AndroidLooper"]
+        ),
+        .library(
+            name: "AndroidNDK", targets: ["AndroidNDK"]
         )
     ],
     dependencies: [
