@@ -11,7 +11,7 @@ let ndkVersionDefine = SwiftSetting.define("ANDROID_NDK_VERSION_" + ndkVersion.d
 
 // Get Android API version
 let sdkVersion = ProcessInfo.processInfo.environment["ANDROID_SDK_VERSION"].flatMap { UInt($0) } ?? 29
-let sdkVersionDefine = SwiftSetting.define("ANDROID_SDK_VERSION_" + ndkVersion.description)
+let sdkVersionDefine = SwiftSetting.define("ANDROID_SDK_VERSION_" + sdkVersion.description)
 
 // Conditionally enable features
 let ndkBinder = sdkVersion >= 29 // binder_ndk Requires API 29
