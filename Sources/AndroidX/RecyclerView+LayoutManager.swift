@@ -2,6 +2,7 @@
 import AndroidContent
 import AndroidGraphics
 import JavaLang
+import JavaUtil
 import AndroidOS
 import AndroidUtil
 import AndroidView

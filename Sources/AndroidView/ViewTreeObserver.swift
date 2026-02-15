@@ -65,10 +65,10 @@ open class ViewTreeObserver: JavaObject {
   open func removeOnTouchModeChangeListener(_ arg0: ViewTreeObserver.OnTouchModeChangeListener?)
 
   @JavaMethod
-  open func addOnSystemGestureExclusionRectsChangedListener(_ arg0: JavaConsumer<List<Rect>>?)
+  open func addOnSystemGestureExclusionRectsChangedListener(_ arg0: JavaUtilFunction.JavaConsumer<List<Rect>>?)
 
   @JavaMethod
-  open func removeOnSystemGestureExclusionRectsChangedListener(_ arg0: JavaConsumer<List<Rect>>?)
+  open func removeOnSystemGestureExclusionRectsChangedListener(_ arg0: JavaUtilFunction.JavaConsumer<List<Rect>>?)
 
   @JavaMethod
   open func dispatchOnGlobalLayout()

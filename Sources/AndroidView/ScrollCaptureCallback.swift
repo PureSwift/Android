@@ -9,7 +9,7 @@ import CSwiftJavaJNI
 @JavaInterface("android.view.ScrollCaptureCallback")
 public struct ScrollCaptureCallback {
   @JavaMethod
-  public func onScrollCaptureSearch(_ arg0: CancellationSignal?, _ arg1: JavaConsumer<Rect>?)
+  public func onScrollCaptureSearch(_ arg0: CancellationSignal?, _ arg1: JavaUtilFunction.JavaConsumer<Rect>?)
 
   @JavaMethod
   public func onScrollCaptureStart(_ arg0: ScrollCaptureSession?, _ arg1: CancellationSignal?, _ arg2: Runnable?)
@@ -18,5 +18,5 @@ public struct ScrollCaptureCallback {
   public func onScrollCaptureEnd(_ arg0: Runnable?)
 
   @JavaMethod
-  public func onScrollCaptureImageRequest(_ arg0: ScrollCaptureSession?, _ arg1: CancellationSignal?, _ arg2: Rect?, _ arg3: JavaConsumer<Rect>?)
+  public func onScrollCaptureImageRequest(_ arg0: ScrollCaptureSession?, _ arg1: CancellationSignal?, _ arg2: Rect?, _ arg3: JavaUtilFunction.JavaConsumer<Rect>?)
 }

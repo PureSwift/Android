@@ -200,7 +200,7 @@ open class ViewGroup: View {
   open override func dispatchPointerCaptureChanged(_ arg0: Bool)
 
   @JavaMethod
-  open override func dispatchScrollCaptureSearch(_ arg0: Rect?, _ arg1: Point?, _ arg2: JavaConsumer<ScrollCaptureTarget>?)
+  open override func dispatchScrollCaptureSearch(_ arg0: Rect?, _ arg1: Point?, _ arg2: JavaUtilFunction.JavaConsumer<ScrollCaptureTarget>?)
 
   @JavaMethod
   open func addView(_ arg0: View?, _ arg1: ViewGroup.LayoutParams?)
