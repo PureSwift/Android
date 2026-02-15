@@ -2,8 +2,8 @@
 import AndroidContent
 import AndroidGraphics
 import AndroidUtil
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaClass("com.google.android.material.drawable.DrawableUtils")
 open class DrawableUtils: JavaObject {

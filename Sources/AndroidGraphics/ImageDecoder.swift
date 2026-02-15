@@ -2,8 +2,8 @@
 import AndroidContent
 import JavaIO
 import JavaLang
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaClass("android.graphics.ImageDecoder", implements: AutoCloseable.self)
 open class ImageDecoder: JavaObject {

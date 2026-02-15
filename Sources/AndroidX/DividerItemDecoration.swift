@@ -2,8 +2,8 @@
 import AndroidContent
 import AndroidGraphics
 import AndroidView
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaClass("androidx.recyclerview.widget.DividerItemDecoration")
 open class DividerItemDecoration: RecyclerView.ItemDecoration {

@@ -5,7 +5,7 @@
 //  Created by Alsey Coleman Miller on 6/17/25.
 //
 
-import JavaKit
+import SwiftJava
 
 @JavaClass("com.google.android.material.floatingactionbutton.BaseMotionStrategy")
 open class BaseMotionStrategy: JavaObject {

@@ -3,8 +3,8 @@ import AndroidContent
 import AndroidGraphics
 import AndroidUtil
 import AndroidView
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaClass("androidx.recyclerview.widget.GridLayoutManager")
 open class GridLayoutManager: LinearLayoutManager {

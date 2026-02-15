@@ -2,9 +2,9 @@
 import AndroidGraphics
 import JavaLang
 import AndroidOS
-import JavaKit
-import JavaKitFunction
-import JavaRuntime
+import SwiftJava
+import JavaUtilFunction
+import CSwiftJavaJNI
 
 @JavaInterface("android.view.ScrollCaptureCallback")
 public struct ScrollCaptureCallback {

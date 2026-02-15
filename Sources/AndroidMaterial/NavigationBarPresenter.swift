@@ -2,8 +2,8 @@
 import AndroidContent
 import AndroidOS
 import AndroidView
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaClass("com.google.android.material.navigation.NavigationBarPresenter")
 open class NavigationBarPresenter: JavaObject {

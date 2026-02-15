@@ -2,8 +2,8 @@
 import AndroidApp
 import AndroidContent
 import AndroidOS
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaClass("com.google.android.material.datepicker.MaterialStyledDatePickerDialog")
 open class MaterialStyledDatePickerDialog: DatePickerDialog {

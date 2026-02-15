@@ -4,9 +4,8 @@ import AndroidGraphics
 import AndroidOS
 import AndroidUtil
 import AndroidView
-import JavaKit
-import JavaKitCollection
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaClass("androidx.recyclerview.widget.RecyclerView", implements: ScrollingView.self, NestedScrollingChild2.self, NestedScrollingChild3.self)
 open class RecyclerView: ViewGroup {

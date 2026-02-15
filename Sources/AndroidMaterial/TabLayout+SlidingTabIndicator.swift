@@ -3,8 +3,8 @@ import AndroidGraphics
 import AndroidUtil
 import AndroidView
 import AndroidWidget
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 extension TabLayout {
   @JavaClass("com.google.android.material.tabs.TabLayout$SlidingTabIndicator")

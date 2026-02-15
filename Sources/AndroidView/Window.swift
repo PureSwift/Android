@@ -2,9 +2,8 @@
 import AndroidContent
 import AndroidGraphics
 import AndroidOS
-import JavaKit
-import JavaKitCollection
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaClass("android.view.Window")
 open class Window: JavaObject {

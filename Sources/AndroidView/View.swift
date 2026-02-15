@@ -3,12 +3,12 @@ import AndroidContent
 import AndroidGraphics
 import JavaLang
 import JavaUtil
+import JavaLangUtil
 import AndroidOS
 import AndroidUtil
-import JavaKit
-import JavaKitCollection
-import JavaKitFunction
-import JavaRuntime
+import SwiftJava
+import JavaUtilFunction
+import CSwiftJavaJNI
 
 @JavaClass("android.view.View", implements: Drawable.Callback.self, KeyEvent.Callback.self)
 open class View: JavaObject {

@@ -5,7 +5,7 @@
 //  Created by Alsey Coleman Miller on 7/13/25.
 //
 
-import JavaKit
+import SwiftJava
 
 /// Bridge from Swift to Kotlin Coroutines
 @JavaClass("com.pureswift.swiftandroid.UnitEmitter")

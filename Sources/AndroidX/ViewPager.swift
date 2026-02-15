@@ -4,10 +4,9 @@ import AndroidGraphics
 import AndroidOS
 import AndroidUtil
 import AndroidView
-import JavaKit
-import JavaKitCollection
-import JavaKitReflection
-import JavaRuntime
+import SwiftJava
+import JavaLangReflect
+import CSwiftJavaJNI
 
 @JavaClass("androidx.viewpager.widget.ViewPager")
 open class ViewPager: ViewGroup {

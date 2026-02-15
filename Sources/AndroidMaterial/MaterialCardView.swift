@@ -4,8 +4,8 @@ import AndroidGraphics
 import AndroidUtil
 import AndroidView
 import AndroidWidget
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaClass("com.google.android.material.card.MaterialCardView", implements: Checkable.self)
 open class MaterialCardView: FrameLayout {

@@ -4,10 +4,9 @@ import AndroidGraphics
 import JavaUtil
 import AndroidOS
 import AndroidUtil
-import JavaKit
-import JavaKitCollection
-import JavaKitFunction
-import JavaRuntime
+import SwiftJava
+import JavaUtilFunction
+import CSwiftJavaJNI
 
 @JavaClass("android.view.ViewGroup", implements: ViewParent.self, ViewManager.self)
 open class ViewGroup: View {

@@ -5,8 +5,8 @@
 //  Created by Alsey Coleman Miller on 6/16/25.
 //
 
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaInterface("com.google.android.material.circularreveal.CircularRevealWidget")
 public struct CircularRevealWidget {

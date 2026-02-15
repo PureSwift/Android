@@ -5,8 +5,8 @@ import AndroidOS
 import AndroidUtil
 import AndroidView
 import AndroidWidget
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaClass("com.google.android.material.appbar.MaterialToolbar")
 open class MaterialToolbar: ViewGroup {

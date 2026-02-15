@@ -2,10 +2,9 @@
 import JavaLang
 import JavaUtil
 import AndroidWidget
-import JavaKit
-import JavaKitCollection
-import JavaKitFunction
-import JavaRuntime
+import SwiftJava
+import JavaUtilFunction
+import CSwiftJavaJNI
 
 @JavaClass("android.webkit.WebView")
 open class WebView: AbsoluteLayout {

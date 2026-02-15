@@ -4,8 +4,8 @@ import AndroidGraphics
 import AndroidUtil
 import AndroidView
 import AndroidWidget
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaClass("com.google.android.material.chip.Chip", implements: ChipDrawable.Delegate.self)
 open class Chip: CheckBox {

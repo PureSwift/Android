@@ -2,10 +2,10 @@
 import AndroidContent
 import AndroidGraphics
 import AndroidUtil
-import JavaKit
-import JavaKitReflection
+import SwiftJava
+import JavaLangReflect
 import JavaLang
-import JavaRuntime
+import CSwiftJavaJNI
 
 @JavaClass("com.google.android.material.chip.ChipDrawable", implements: Drawable.Callback.self)
 open class ChipDrawable: Drawable {

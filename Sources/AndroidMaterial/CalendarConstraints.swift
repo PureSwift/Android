@@ -5,7 +5,7 @@
 //  Created by Alsey Coleman Miller on 6/16/25.
 //
 
-import JavaKit
+import SwiftJava
 
 /**
  Used to limit the display range of the calendar and set an openAt month.

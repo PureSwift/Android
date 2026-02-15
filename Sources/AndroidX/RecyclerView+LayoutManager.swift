@@ -5,9 +5,8 @@ import JavaLang
 import AndroidOS
 import AndroidUtil
 import AndroidView
-import JavaKit
-import JavaKitCollection
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 extension RecyclerView {
   @JavaClass("androidx.recyclerview.widget.RecyclerView$LayoutManager")

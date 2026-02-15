@@ -2,8 +2,8 @@
 import JavaIO
 import JavaLang
 import AndroidUtil
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaInterface("android.content.res.XmlResourceParser", extends: AttributeSet.self, AutoCloseable.self)
 public struct XmlResourceParser {

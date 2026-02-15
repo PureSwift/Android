@@ -5,10 +5,12 @@
 //  Created by Alsey Coleman Miller on 6/7/25.
 //
 
-import JavaKit
-import JavaKitNetwork
-import JavaKitCollection
+import SwiftJava
+import JavaNet
 import JavaIO
 import JavaLang
 import JavaAWT
 import JavaUtil
+import JavaLangUtil
+import JavaLangIO
+import JavaLangNet

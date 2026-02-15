@@ -3,8 +3,8 @@ import AndroidContent
 import AndroidUtil
 import AndroidView
 import AndroidWidget
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 extension AppBarLayout {
   @JavaClass("com.google.android.material.appbar.AppBarLayout$LayoutParams")

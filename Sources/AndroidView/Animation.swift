@@ -2,8 +2,8 @@
 import AndroidContent
 import JavaLang
 import AndroidUtil
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaClass("android.view.animation.Animation", implements: Cloneable.self)
 open class Animation: JavaObject {

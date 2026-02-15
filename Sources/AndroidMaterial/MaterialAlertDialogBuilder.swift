@@ -3,8 +3,8 @@ import AndroidContent
 import AndroidGraphics
 import AndroidView
 import AndroidWidget
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaClass("com.google.android.material.dialog.MaterialAlertDialogBuilder")
 open class MaterialAlertDialogBuilder: JavaObject {

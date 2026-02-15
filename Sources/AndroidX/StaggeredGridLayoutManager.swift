@@ -4,8 +4,8 @@ import AndroidGraphics
 import AndroidOS
 import AndroidUtil
 import AndroidView
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaClass("androidx.recyclerview.widget.StaggeredGridLayoutManager")
 open class StaggeredGridLayoutManager: RecyclerView.LayoutManager {

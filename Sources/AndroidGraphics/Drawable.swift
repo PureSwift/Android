@@ -3,8 +3,8 @@ import AndroidContent
 import JavaIO
 import JavaLang
 import AndroidUtil
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaClass("android.graphics.drawable.Drawable")
 open class Drawable: JavaObject {
