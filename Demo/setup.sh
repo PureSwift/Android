@@ -19,9 +19,9 @@ rm -rf "$JNI_LIBS_DIR/"
 mkdir -p "$JNI_LIBS_DIR/"
 
 copied_swift_libs=0
-if [[ -d "$SWIFT_ANDROID_LIBS" ]]; then
+if [[ -d "$SWIFT_ANDROID_RUNTIME_LIBS" ]]; then
     shopt -s nullglob
-    for so in "$SWIFT_ANDROID_LIBS"/*.so; do
+    for so in "$SWIFT_ANDROID_RUNTIME_LIBS"/*.so; do
         cp -f "$so" "$JNI_LIBS_DIR/"
         copied_swift_libs=1
     done
