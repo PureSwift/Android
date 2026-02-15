@@ -79,8 +79,8 @@ var package = Package(
     ],
     dependencies: [
         .package(
-            url: "https://github.com/PureSwift/swift-java.git",
-            branch: "feature/android"
+            url: "https://github.com/swiftlang/swift-java.git",
+            branch: "main"
         ),
         .package(
             url: "https://github.com/PureSwift/JavaLang.git",
