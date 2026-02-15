@@ -52,18 +52,18 @@ android {
             )
         }
     }
-/*
-    // Custom Swift build task
-    val buildSwift by tasks.registering(Exec::class) {
-        group = "build"
-        description = "Build Swift sources"
-        workingDir("$projectDir")
-        commandLine("bash", "build-swift.sh")
-    }
+}
 
-    tasks.withType<JavaCompile> {
-        dependsOn(buildSwift)
-    }*/
+// Compile native Swift code for the demo app with `skip android build`.
+val buildSwift by tasks.registering(Exec::class) {
+    group = "build"
+    description = "Build native Swift sources for Android"
+    workingDir(rootProject.projectDir)
+    commandLine("bash", "build-swift.sh")
+}
+
+tasks.named("preBuild") {
+    dependsOn(buildSwift)
 }
 
 dependencies {
