@@ -1,5 +1,6 @@
 # Configurable
-SRC_ROOT="${SRC_ROOT:=$(pwd)}"
+SWIFT_DEFINE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SRC_ROOT="${SRC_ROOT:=$SWIFT_DEFINE_DIR}"
 SWIFT_TARGET_ARCH="${SWIFT_TARGET_ARCH:=aarch64}"
 ANDROID_ARCH="${ANDROID_ARCH:=arm64-v8a}"
 ANDROID_LIB="${ANDROID_LIB:=aarch64-linux-android}"
@@ -11,12 +12,17 @@ SWIFT_VERSION_SHORT=6.2.3
 SWIFT_VERSION=swift-$SWIFT_VERSION_SHORT-RELEASE
 SWIFT_TARGET_NAME=$SWIFT_TARGET_ARCH-unknown-linux-android$ANDROID_SDK_VERSION
 XCTOOLCHAIN=/Library/Developer/Toolchains/$SWIFT_VERSION.xctoolchain
-SWIFT_ARTIFACT_BUNDLE=swift-$SWIFT_VERSION_SHORT-RELEASE-android-0.1.artifactbundle
+SWIFT_ARTIFACT_BUNDLE="${SWIFT_ARTIFACT_BUNDLE:=swift-$SWIFT_VERSION_SHORT-RELEASE_android.artifactbundle}"
+SWIFT_SDKS_ROOT="${SWIFT_SDKS_ROOT:=$HOME/Library/org.swift.swiftpm/swift-sdks}"
+if [[ ! -d "$SWIFT_SDKS_ROOT/$SWIFT_ARTIFACT_BUNDLE" ]]; then
+    SWIFT_SDKS_ROOT="$HOME/.swiftpm/swift-sdks"
+fi
 
 # Paths
 SWIFT_SDK=swift-$SWIFT_VERSION_SHORT-release-android-$ANDROID_SDK_VERSION-sdk
-SWIFT_ANDROID_SYSROOT=~/.swiftpm/swift-sdks/$SWIFT_ARTIFACT_BUNDLE/swift-android/ndk-sysroot
-SWIFT_ANDROID_LIBS=~/.swiftpm/swift-sdks/$SWIFT_ARTIFACT_BUNDLE/swift-android/swift-resources/usr/lib/swift-$SWIFT_TARGET_ARCH/android/
+SWIFT_ANDROID_SYSROOT="$SWIFT_SDKS_ROOT/$SWIFT_ARTIFACT_BUNDLE/swift-android/ndk-sysroot"
+SWIFT_ANDROID_LIBS="$SWIFT_SDKS_ROOT/$SWIFT_ARTIFACT_BUNDLE/swift-android/swift-resources/usr/lib/swift-$SWIFT_TARGET_ARCH"
+SWIFT_ANDROID_RUNTIME_LIBS="$SWIFT_ANDROID_LIBS/android"
 SWIFT_PACKAGE_SRC=$SRC_ROOT
 JAVA_HOME=$SWIFT_ANDROID_SYSROOT/usr
 
