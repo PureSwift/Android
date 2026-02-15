@@ -8,7 +8,9 @@
 import Foundation
 import AndroidKit
 import JavaLang
+#if canImport(Binder)
 import Binder
+#endif
 
 @JavaClass("com.pureswift.swiftandroid.MainActivity")
 open class MainActivity: AndroidApp.Activity {
@@ -64,9 +66,11 @@ private extension MainActivity {
         //setRootView()
         startEmitterTimer()
         
+        #if canImport(Binder)
         Task {
             printBinderVersion()
         }
+        #endif
     }
     
     func runAsync() {
@@ -338,6 +342,7 @@ private extension MainActivity {
             .commit()
     }
     
+    #if canImport(Binder)
     private func printBinderVersion() {
         // Print Binder version
         do {
@@ -348,6 +353,7 @@ private extension MainActivity {
             logError("Unable to read binder: \(error)")
         }
     }
+    #endif
 }
 
 extension MainActivity {
