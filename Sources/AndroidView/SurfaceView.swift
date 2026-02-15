@@ -3,8 +3,8 @@ import AndroidContent
 import AndroidGraphics
 import AndroidOS
 import AndroidUtil
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaClass("android.view.SurfaceView")
 open class SurfaceView: View {

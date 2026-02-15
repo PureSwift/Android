@@ -5,8 +5,8 @@ import AndroidOS
 import AndroidUtil
 import AndroidView
 import AndroidWidget
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaClass("com.google.android.material.button.MaterialButton", implements: Checkable.self)
 open class MaterialButton: Button {

@@ -5,7 +5,7 @@
 //  Created by Killian Greene on 7/6/18.
 //
 
-import JavaKit
+import SwiftJava
 
 public extension Permission {
     

@@ -4,9 +4,8 @@ import AndroidGraphics
 import AndroidOS
 import AndroidUtil
 import AndroidView
-import JavaKit
-import JavaKitCollection
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaClass("com.google.android.material.bottomappbar.BottomAppBar", implements: CircularRevealCoordinatorLayout.AttachedBehavior.self)
 open class BottomAppBar: ViewGroup {

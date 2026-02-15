@@ -2,8 +2,8 @@
 import AndroidContent
 import AndroidGraphics
 import AndroidOS
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaClass("android.view.PointerIcon", implements: Parcelable.self)
 open class PointerIcon: JavaObject {

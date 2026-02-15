@@ -2,8 +2,8 @@
 import AndroidContent
 import AndroidGraphics
 import AndroidUtil
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaClass("android.view.TextureView")
 open class TextureView: View {

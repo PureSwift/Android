@@ -2,8 +2,8 @@
 import AndroidGraphics
 import AndroidUtil
 import AndroidWidget
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaClass("com.google.android.material.animation.ImageMatrixProperty")
 open class ImageMatrixProperty: Property {

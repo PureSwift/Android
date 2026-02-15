@@ -5,8 +5,8 @@
 //  Created by Alsey Coleman Miller on 6/9/25.
 //
 
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 /// Java class that retains a Swift value for the duration of its lifetime.
 @JavaClass("com.pureswift.swiftandroid.SwiftObject")

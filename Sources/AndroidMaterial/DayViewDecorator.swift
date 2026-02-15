@@ -2,8 +2,8 @@
 import AndroidContent
 import AndroidGraphics
 import AndroidOS
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaClass("com.google.android.material.datepicker.DayViewDecorator", implements: Parcelable.self)
 open class DayViewDecorator: JavaObject {

@@ -3,9 +3,8 @@ import AndroidContent
 import AndroidOS
 import AndroidView
 import AndroidWidget
-import JavaKit
-import JavaKitCollection
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaInterface("com.google.android.material.datepicker.DateSelector", extends: Parcelable.self)
 public struct DateSelector {

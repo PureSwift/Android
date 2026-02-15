@@ -3,12 +3,12 @@ import AndroidContent
 import AndroidGraphics
 import JavaLang
 import JavaUtil
+import JavaLangUtil
 import AndroidOS
 import AndroidUtil
-import JavaKit
-import JavaKitCollection
-import JavaKitFunction
-import JavaRuntime
+import SwiftJava
+import JavaUtilFunction
+import CSwiftJavaJNI
 
 @JavaClass("android.view.View", implements: Drawable.Callback.self, KeyEvent.Callback.self)
 open class View: JavaObject {
@@ -1825,10 +1825,10 @@ open class View: JavaObject {
   open func setScrollCaptureCallback(_ arg0: ScrollCaptureCallback?)
 
   @JavaMethod
-  open func dispatchScrollCaptureSearch(_ arg0: Rect?, _ arg1: Point?, _ arg2: JavaConsumer<ScrollCaptureTarget>?)
+  open func dispatchScrollCaptureSearch(_ arg0: Rect?, _ arg1: Point?, _ arg2: JavaUtilFunction.JavaConsumer<ScrollCaptureTarget>?)
 
   @JavaMethod
-  open func onScrollCaptureSearch(_ arg0: Rect?, _ arg1: Point?, _ arg2: JavaConsumer<ScrollCaptureTarget>?)
+  open func onScrollCaptureSearch(_ arg0: Rect?, _ arg1: Point?, _ arg2: JavaUtilFunction.JavaConsumer<ScrollCaptureTarget>?)
 
   @JavaMethod
   open func setTooltipText(_ arg0: CharSequence?)

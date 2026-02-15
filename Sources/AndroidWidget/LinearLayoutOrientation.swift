@@ -5,7 +5,7 @@
 //  Created by Alsey Coleman Miller on 6/9/25.
 //
 
-import JavaKit
+import SwiftJava
 
 public extension LinearLayout {
     

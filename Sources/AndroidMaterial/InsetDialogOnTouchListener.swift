@@ -2,8 +2,8 @@
 import AndroidApp
 import AndroidGraphics
 import AndroidView
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaClass("com.google.android.material.dialog.InsetDialogOnTouchListener", implements: View.OnTouchListener.self)
 open class InsetDialogOnTouchListener: JavaObject {

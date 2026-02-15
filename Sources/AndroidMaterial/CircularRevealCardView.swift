@@ -3,8 +3,8 @@ import AndroidContent
 import AndroidGraphics
 import AndroidUtil
 import AndroidView
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaClass("com.google.android.material.circularreveal.cardview.CircularRevealCardView", implements: CircularRevealWidget.self)
 open class CircularRevealCardView: MaterialCardView {

@@ -5,8 +5,8 @@ import AndroidOS
 import AndroidUtil
 import AndroidView
 import AndroidWidget
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaClass("com.google.android.material.floatingactionbutton.FloatingActionButton", implements: ExpandableTransformationWidget.self, CircularRevealCoordinatorLayout.AttachedBehavior.self)
 open class FloatingActionButton: ImageButton {

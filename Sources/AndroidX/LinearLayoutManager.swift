@@ -4,8 +4,8 @@ import AndroidGraphics
 import AndroidOS
 import AndroidUtil
 import AndroidView
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaClass("androidx.recyclerview.widget.LinearLayoutManager", implements: ItemTouchHelper.ViewDropHandler.self, RecyclerView.SmoothScroller.ScrollVectorProvider.self)
 open class LinearLayoutManager: RecyclerView.LayoutManager {

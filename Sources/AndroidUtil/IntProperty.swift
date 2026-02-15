@@ -1,5 +1,5 @@
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaClass("android.util.IntProperty")
 open class IntProperty: Property {

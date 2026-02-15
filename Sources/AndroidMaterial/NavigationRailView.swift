@@ -2,8 +2,8 @@
 import AndroidContent
 import AndroidUtil
 import AndroidView
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaClass("com.google.android.material.navigationrail.NavigationRailView")
 open class NavigationRailView: NavigationBarView {

@@ -4,8 +4,8 @@ import AndroidGraphics
 import AndroidUtil
 import AndroidView
 import AndroidWidget
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaClass("com.google.android.material.datepicker.MaterialCalendarGridView")
 open class MaterialCalendarGridView: GridView {

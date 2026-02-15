@@ -3,8 +3,8 @@ import AndroidContent
 import AndroidGraphics
 import AndroidUtil
 import AndroidView
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaClass("com.google.android.material.carousel.CarouselLayoutManager", implements: Carousel.self)
 open class CarouselLayoutManager: JavaObject {

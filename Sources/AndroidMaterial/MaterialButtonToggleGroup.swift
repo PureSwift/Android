@@ -4,9 +4,8 @@ import AndroidGraphics
 import AndroidUtil
 import AndroidView
 import AndroidWidget
-import JavaKit
-import JavaKitCollection
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaClass("com.google.android.material.button.MaterialButtonToggleGroup")
 open class MaterialButtonToggleGroup: LinearLayout {

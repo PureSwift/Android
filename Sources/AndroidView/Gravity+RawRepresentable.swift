@@ -5,7 +5,7 @@
 //  Created by Alsey Coleman Miller on 6/9/25.
 //
 
-import JavaKit
+import SwiftJava
 
 /// Standard constants and tools for placing an object within a potentially larger container.
 public struct ViewGravity: OptionSet, Equatable, Hashable, Codable, Sendable {

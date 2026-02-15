@@ -2,8 +2,8 @@
 import JavaIO
 import JavaLang
 import AndroidOS
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaClass("android.content.res.loader.ResourcesProvider", implements: AutoCloseable.self, Closeable.self)
 open class ResourcesProvider: JavaObject {

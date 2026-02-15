@@ -3,9 +3,9 @@ import AndroidContent
 import AndroidGraphics
 import AndroidUtil
 import AndroidView
-import JavaKit
-import JavaKitReflection
-import JavaRuntime
+import SwiftJava
+import JavaLangReflect
+import CSwiftJavaJNI
 
 @JavaClass("com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout", implements: CircularRevealWidget.self)
 open class CircularRevealCoordinatorLayout: ViewGroup {

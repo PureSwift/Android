@@ -9,7 +9,7 @@
 import Android
 import AndroidNDK
 #endif
-import JavaKit
+import SwiftJava
 
 /// Android API Level
 public struct AndroidAPI: RawRepresentable, Equatable, Hashable, Codable, Sendable {

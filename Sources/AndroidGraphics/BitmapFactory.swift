@@ -2,8 +2,8 @@
 import AndroidContent
 import JavaIO
 import AndroidUtil
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaClass("android.graphics.BitmapFactory")
 open class BitmapFactory: JavaObject {

@@ -5,7 +5,7 @@
 //  Created by Alsey Coleman Miller on 3/22/18.
 //
 
-import JavaKit
+import SwiftJava
 
 /// Android Manifest Permission
 public struct Permission: RawRepresentable, Equatable, Hashable, Codable, Sendable {

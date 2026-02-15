@@ -5,7 +5,7 @@
 //  Created by Alsey Coleman Miller on 6/10/25.
 //
 
-import JavaKit
+import SwiftJava
 
 /// Android Resource ID
 ///

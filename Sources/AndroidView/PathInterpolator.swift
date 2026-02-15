@@ -2,13 +2,13 @@
 import AndroidContent
 import AndroidGraphics
 import AndroidUtil
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaClass("android.view.animation.PathInterpolator")
 open class PathInterpolator: BaseInterpolator {
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: Path?, environment: JNIEnvironment? = nil)
+  @_nonoverride public convenience init(_ arg0: AndroidGraphics.Path?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Context?, _ arg1: AttributeSet?, environment: JNIEnvironment? = nil)

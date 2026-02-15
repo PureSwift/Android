@@ -79,8 +79,8 @@ var package = Package(
     ],
     dependencies: [
         .package(
-            url: "https://github.com/PureSwift/swift-java.git",
-            branch: "feature/android"
+            url: "https://github.com/swiftlang/swift-java.git",
+            branch: "main"
         ),
         .package(
             url: "https://github.com/PureSwift/JavaLang.git",
@@ -112,27 +112,23 @@ var package = Package(
             name: "AndroidKit",
             dependencies: [
                 .product(
-                    name: "JavaKit",
+                    name: "SwiftJava",
                     package: "swift-java"
                 ),
                 .product(
-                    name: "JavaKitCollection",
+                    name: "JavaIO",
                     package: "swift-java"
                 ),
                 .product(
-                    name: "JavaKitIO",
+                    name: "JavaNet",
                     package: "swift-java"
                 ),
                 .product(
-                    name: "JavaKitNetwork",
+                    name: "JavaUtilFunction",
                     package: "swift-java"
                 ),
                 .product(
-                    name: "JavaKitFunction",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitReflection",
+                    name: "JavaLangReflect",
                     package: "swift-java"
                 ),
                 "AndroidNDK",
@@ -161,31 +157,27 @@ var package = Package(
             name: "AndroidJava",
             dependencies: [
                 .product(
-                    name: "JavaKit",
+                    name: "SwiftJava",
                     package: "swift-java"
                 ),
                 .product(
-                    name: "JavaKitCollection",
+                    name: "JavaIO",
                     package: "swift-java"
                 ),
                 .product(
-                    name: "JavaKitIO",
+                    name: "JavaNet",
                     package: "swift-java"
                 ),
                 .product(
-                    name: "JavaKitNetwork",
+                    name: "JavaUtilFunction",
                     package: "swift-java"
                 ),
                 .product(
-                    name: "JavaKitFunction",
+                    name: "JavaLangReflect",
                     package: "swift-java"
                 ),
                 .product(
-                    name: "JavaKitReflection",
-                    package: "swift-java"
-                ),
-                .product(
-                    name: "JavaKitJar",
+                    name: "JavaUtilJar",
                     package: "swift-java"
                 ),
                 .product(
@@ -193,15 +185,15 @@ var package = Package(
                     package: "JavaLang"
                 ),
                 .product(
-                    name: "JavaUtil",
+                    name: "JavaLangUtil",
                     package: "JavaLang"
                 ),
                 .product(
-                    name: "JavaIO",
+                    name: "JavaLangIO",
                     package: "JavaLang"
                 ),
                 .product(
-                    name: "JavaNet",
+                    name: "JavaLangNet",
                     package: "JavaLang"
                 ),
                 .product(

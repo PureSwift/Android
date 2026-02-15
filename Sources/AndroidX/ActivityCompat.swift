@@ -3,9 +3,9 @@ import AndroidApp
 import AndroidContent
 import AndroidOS
 import AndroidView
-import JavaKit
-import JavaKitReflection
-import JavaRuntime
+import SwiftJava
+import JavaLangReflect
+import CSwiftJavaJNI
 
 @JavaClass("androidx.core.app.ActivityCompat")
 open class ActivityCompat: JavaObject {

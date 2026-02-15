@@ -2,8 +2,8 @@
 import AndroidContent
 import AndroidUtil
 import AndroidView
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaClass("com.google.android.material.behavior.HideBottomViewOnScrollBehavior")
 open class HideBottomViewOnScrollBehavior: CircularRevealCoordinatorLayout.Behavior {

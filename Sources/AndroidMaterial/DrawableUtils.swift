@@ -2,8 +2,8 @@
 import AndroidContent
 import AndroidGraphics
 import AndroidUtil
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaClass("com.google.android.material.drawable.DrawableUtils")
 open class DrawableUtils: JavaObject {
@@ -41,7 +41,7 @@ extension JavaClass<DrawableUtils> {
   public func getUncheckedState(_ arg0: [Int32]) -> [Int32]
 
   @JavaStaticMethod
-  public func setOutlineToPath(_ arg0: Outline?, _ arg1: Path?)
+  public func setOutlineToPath(_ arg0: Outline?, _ arg1: AndroidGraphics.Path?)
 
   @JavaStaticMethod
   public func getColorStateListOrNull(_ arg0: Drawable?) -> ColorStateList!

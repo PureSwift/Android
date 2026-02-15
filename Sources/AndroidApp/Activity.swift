@@ -2,9 +2,8 @@
 import JavaIO
 import JavaLang
 import AndroidContent
-import JavaKit
-import JavaKitCollection
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaClass("android.app.Activity", implements: FragmentBreadCrumbs.OnCreateContextMenuListener.self)
 open class Activity: ContextWrapper {

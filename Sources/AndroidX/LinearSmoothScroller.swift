@@ -2,8 +2,8 @@
 import AndroidContent
 import AndroidUtil
 import AndroidView
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 @JavaClass("androidx.recyclerview.widget.LinearSmoothScroller")
 open class LinearSmoothScroller: RecyclerView.SmoothScroller {

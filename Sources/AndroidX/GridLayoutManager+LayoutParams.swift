@@ -2,8 +2,8 @@
 import AndroidContent
 import AndroidUtil
 import AndroidView
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 
 extension GridLayoutManager {
   @JavaClass("androidx.recyclerview.widget.GridLayoutManager$LayoutParams")

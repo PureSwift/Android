@@ -5,9 +5,8 @@
 //  Created by Alsey Coleman Miller on 6/7/25.
 //
 
-import JavaKit
-import JavaKitCollection
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 import AndroidContent
 import AndroidGraphics
 import AndroidOS

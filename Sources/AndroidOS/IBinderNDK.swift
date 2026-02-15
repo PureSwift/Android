@@ -10,8 +10,8 @@
 import Android
 import AndroidNDK
 #endif
-import JavaKit
-import JavaRuntime
+import SwiftJava
+import CSwiftJavaJNI
 import AndroidBinder
 
 // MARK: - NDK Parcel
