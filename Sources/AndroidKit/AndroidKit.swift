@@ -10,11 +10,9 @@ import Android
 import AndroidNDK
 #endif
 @_exported import SwiftJava
-@_exported import SwiftJavaCollection
-@_exported import SwiftJavaIO
-@_exported import SwiftJavaNetwork
+@_exported import JavaIO
+@_exported import JavaNet
 @_exported import JavaUtilFunction
-@_exported import SwiftJava
 @_exported import JavaLang
 @_exported import AndroidOS
 @_exported import AndroidContent
