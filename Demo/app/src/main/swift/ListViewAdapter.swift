@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import SwiftJava
+import JavaUtil
 import AndroidKit
 
 @JavaClass("com.pureswift.swiftandroid.ListViewAdapter", extends: ListAdapter.self)
