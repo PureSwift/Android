@@ -17,293 +17,366 @@ public struct Permission: RawRepresentable, Equatable, Hashable, Codable, Sendab
     }
 }
 
+internal extension Permission {
+    
+    static let javaClass = try! JavaClass<Manifest.Permission>()
+}
+
 public extension Permission {
     
-    static let acceptHandover = Permission(rawValue: try! JavaClass<Manifest.Permission>().ACCEPT_HANDOVER)
+    static let acceptHandover = Permission(rawValue: javaClass.ACCEPT_HANDOVER)
     
-    static let accessCheckinProperties = Permission(rawValue: try! JavaClass<Manifest.Permission>().ACCESS_CHECKIN_PROPERTIES)
+    static let accessCheckinProperties = Permission(rawValue: javaClass.ACCESS_CHECKIN_PROPERTIES)
     
-    static let accessCoarseLocation = Permission(rawValue: try! JavaClass<Manifest.Permission>().ACCESS_COARSE_LOCATION)
+    static let accessCoarseLocation = Permission(rawValue: javaClass.ACCESS_COARSE_LOCATION)
     
-    static let accessFineLocation = Permission(rawValue: try! JavaClass<Manifest.Permission>().ACCESS_FINE_LOCATION)
+    static let accessFineLocation = Permission(rawValue: javaClass.ACCESS_FINE_LOCATION)
     
-    static let accessLocationExtraCommands = Permission(rawValue: try! JavaClass<Manifest.Permission>().ACCESS_LOCATION_EXTRA_COMMANDS)
+    static let accessLocationExtraCommands = Permission(rawValue: javaClass.ACCESS_LOCATION_EXTRA_COMMANDS)
     
-    static let accessNetworkState = Permission(rawValue: try! JavaClass<Manifest.Permission>().ACCESS_NETWORK_STATE)
+    static let accessNetworkState = Permission(rawValue: javaClass.ACCESS_NETWORK_STATE)
     
-    static let accessNotificationPolicy = Permission(rawValue: try! JavaClass<Manifest.Permission>().ACCESS_NOTIFICATION_POLICY)
+    static let accessNotificationPolicy = Permission(rawValue: javaClass.ACCESS_NOTIFICATION_POLICY)
     
-    static let accessWifiState = Permission(rawValue: try! JavaClass<Manifest.Permission>().ACCESS_WIFI_STATE)
+    static let accessWifiState = Permission(rawValue: javaClass.ACCESS_WIFI_STATE)
     
-    static let accountManager = Permission(rawValue: try! JavaClass<Manifest.Permission>().ACCOUNT_MANAGER)
+    static let accessBackgroundLocation = Permission(rawValue: javaClass.ACCESS_BACKGROUND_LOCATION)
     
-    static let addVoicemail = Permission(rawValue: try! JavaClass<Manifest.Permission>().ADD_VOICEMAIL)
+    static let accessMediaLocation = Permission(rawValue: javaClass.ACCESS_MEDIA_LOCATION)
     
-    static let answerPhoneCalls = Permission(rawValue: try! JavaClass<Manifest.Permission>().ANSWER_PHONE_CALLS)
+    static let accountManager = Permission(rawValue: javaClass.ACCOUNT_MANAGER)
     
-    static let batteryStats = Permission(rawValue: try! JavaClass<Manifest.Permission>().BATTERY_STATS)
+    static let activityRecognition = Permission(rawValue: javaClass.ACTIVITY_RECOGNITION)
     
-    static let bindAccessibilityService = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_ACCESSIBILITY_SERVICE)
+    static let addVoicemail = Permission(rawValue: javaClass.ADD_VOICEMAIL)
     
-    static let bindAppwidget = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_APPWIDGET)
+    static let answerPhoneCalls = Permission(rawValue: javaClass.ANSWER_PHONE_CALLS)
     
-    static let bindAutofillService = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_AUTOFILL_SERVICE)
+    static let batteryStats = Permission(rawValue: javaClass.BATTERY_STATS)
     
-    static let bindCarrierServices = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_CARRIER_SERVICES)
+    static let bindAccessibilityService = Permission(rawValue: javaClass.BIND_ACCESSIBILITY_SERVICE)
     
-    static let bindChooserTargetService = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_CHOOSER_TARGET_SERVICE)
+    static let bindAppwidget = Permission(rawValue: javaClass.BIND_APPWIDGET)
     
-    static let bindConditionProviderService = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_CONDITION_PROVIDER_SERVICE)
+    static let bindAutofillService = Permission(rawValue: javaClass.BIND_AUTOFILL_SERVICE)
     
-    static let bindDeviceAdmin = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_DEVICE_ADMIN)
+    static let bindCarrierServices = Permission(rawValue: javaClass.BIND_CARRIER_SERVICES)
     
-    static let bindDreamService = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_DREAM_SERVICE)
+    static let bindChooserTargetService = Permission(rawValue: javaClass.BIND_CHOOSER_TARGET_SERVICE)
     
-    static let bindIncallService = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_INCALL_SERVICE)
+    static let bindConditionProviderService = Permission(rawValue: javaClass.BIND_CONDITION_PROVIDER_SERVICE)
     
-    static let bindInputMethod = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_INPUT_METHOD)
+    static let bindDeviceAdmin = Permission(rawValue: javaClass.BIND_DEVICE_ADMIN)
     
-    static let bindMidiDeviceService = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_MIDI_DEVICE_SERVICE)
+    static let bindDreamService = Permission(rawValue: javaClass.BIND_DREAM_SERVICE)
     
-    static let bindNfcService = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_NFC_SERVICE)
+    static let bindIncallService = Permission(rawValue: javaClass.BIND_INCALL_SERVICE)
     
-    static let bindNotificationListenerService = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_NOTIFICATION_LISTENER_SERVICE)
+    static let bindInputMethod = Permission(rawValue: javaClass.BIND_INPUT_METHOD)
     
-    static let bindPrintService = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_PRINT_SERVICE)
+    static let bindMidiDeviceService = Permission(rawValue: javaClass.BIND_MIDI_DEVICE_SERVICE)
     
-    static let bindQuickSettingsTile = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_QUICK_SETTINGS_TILE)
+    static let bindNfcService = Permission(rawValue: javaClass.BIND_NFC_SERVICE)
     
-    static let bindRemoteviews = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_REMOTEVIEWS)
+    static let bindNotificationListenerService = Permission(rawValue: javaClass.BIND_NOTIFICATION_LISTENER_SERVICE)
     
-    static let bindScreeningService = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_SCREENING_SERVICE)
+    static let bindPrintService = Permission(rawValue: javaClass.BIND_PRINT_SERVICE)
     
-    static let bindTelecomConnectionService = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_TELECOM_CONNECTION_SERVICE)
+    static let bindQuickSettingsTile = Permission(rawValue: javaClass.BIND_QUICK_SETTINGS_TILE)
     
-    static let bindTextService = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_TEXT_SERVICE)
+    static let bindRemoteviews = Permission(rawValue: javaClass.BIND_REMOTEVIEWS)
     
-    static let bindTvInput = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_TV_INPUT)
+    static let bindScreeningService = Permission(rawValue: javaClass.BIND_SCREENING_SERVICE)
     
-    static let bindVisualVoicemailService = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_VISUAL_VOICEMAIL_SERVICE)
+    static let bindTelecomConnectionService = Permission(rawValue: javaClass.BIND_TELECOM_CONNECTION_SERVICE)
     
-    static let bindVoiceInteraction = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_VOICE_INTERACTION)
+    static let bindTextService = Permission(rawValue: javaClass.BIND_TEXT_SERVICE)
     
-    static let bindVpnService = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_VPN_SERVICE)
+    static let bindTvInput = Permission(rawValue: javaClass.BIND_TV_INPUT)
     
-    static let bindVrListenerService = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_VR_LISTENER_SERVICE)
+    static let bindVisualVoicemailService = Permission(rawValue: javaClass.BIND_VISUAL_VOICEMAIL_SERVICE)
     
-    static let bindWallpaper = Permission(rawValue: try! JavaClass<Manifest.Permission>().BIND_WALLPAPER)
+    static let bindVoiceInteraction = Permission(rawValue: javaClass.BIND_VOICE_INTERACTION)
     
-    static let bluetooth = Permission(rawValue: try! JavaClass<Manifest.Permission>().BLUETOOTH)
+    static let bindVpnService = Permission(rawValue: javaClass.BIND_VPN_SERVICE)
     
-    static let bluetoothAdmin = Permission(rawValue: try! JavaClass<Manifest.Permission>().BLUETOOTH_ADMIN)
+    static let bindVrListenerService = Permission(rawValue: javaClass.BIND_VR_LISTENER_SERVICE)
     
-    static let bluetoothPrivileged = Permission(rawValue: try! JavaClass<Manifest.Permission>().BLUETOOTH_PRIVILEGED)
+    static let bindWallpaper = Permission(rawValue: javaClass.BIND_WALLPAPER)
     
-    static let bodySensors = Permission(rawValue: try! JavaClass<Manifest.Permission>().BODY_SENSORS)
+    static let bluetooth = Permission(rawValue: javaClass.BLUETOOTH)
     
-    static let broadcastPackageRemoved = Permission(rawValue: try! JavaClass<Manifest.Permission>().BROADCAST_PACKAGE_REMOVED)
+    static let bluetoothAdmin = Permission(rawValue: javaClass.BLUETOOTH_ADMIN)
     
-    static let broadcastSms = Permission(rawValue: try! JavaClass<Manifest.Permission>().BROADCAST_SMS)
+    static let bluetoothPrivileged = Permission(rawValue: javaClass.BLUETOOTH_PRIVILEGED)
     
-    static let broadcastSticky = Permission(rawValue: try! JavaClass<Manifest.Permission>().BROADCAST_STICKY)
+    static let bluetoothAdvertise = Permission(rawValue: javaClass.BLUETOOTH_ADVERTISE)
     
-    static let broadcastWapPush = Permission(rawValue: try! JavaClass<Manifest.Permission>().BROADCAST_WAP_PUSH)
+    static let bluetoothConnect = Permission(rawValue: javaClass.BLUETOOTH_CONNECT)
     
-    static let callPhone = Permission(rawValue: try! JavaClass<Manifest.Permission>().CALL_PHONE)
+    static let bluetoothScan = Permission(rawValue: javaClass.BLUETOOTH_SCAN)
     
-    static let callPrivileged = Permission(rawValue: try! JavaClass<Manifest.Permission>().CALL_PRIVILEGED)
+    static let bodySensors = Permission(rawValue: javaClass.BODY_SENSORS)
     
-    static let camera = Permission(rawValue: try! JavaClass<Manifest.Permission>().CAMERA)
+    static let bodySensorsBackground = Permission(rawValue: javaClass.BODY_SENSORS_BACKGROUND)
     
-    static let captureAudioOutput = Permission(rawValue: try! JavaClass<Manifest.Permission>().CAPTURE_AUDIO_OUTPUT)
+    static let broadcastPackageRemoved = Permission(rawValue: javaClass.BROADCAST_PACKAGE_REMOVED)
     
-    //static let captureSecureVideoOutput = Permission(rawValue: try! JavaClass<Manifest.Permission>().CAPTURE_SECURE_VIDEO_OUTPUT)
+    static let broadcastSms = Permission(rawValue: javaClass.BROADCAST_SMS)
     
-    //static let captureVideoOutput = Permission(rawValue: try! JavaClass<Manifest.Permission>().CAPTURE_VIDEO_OUTPUT)
+    static let broadcastSticky = Permission(rawValue: javaClass.BROADCAST_STICKY)
     
-    static let changeComponentEnabledState = Permission(rawValue: try! JavaClass<Manifest.Permission>().CHANGE_COMPONENT_ENABLED_STATE)
+    static let broadcastWapPush = Permission(rawValue: javaClass.BROADCAST_WAP_PUSH)
     
-    static let changeConfiguration = Permission(rawValue: try! JavaClass<Manifest.Permission>().CHANGE_CONFIGURATION)
+    static let callPhone = Permission(rawValue: javaClass.CALL_PHONE)
     
-    static let changeNetworkState = Permission(rawValue: try! JavaClass<Manifest.Permission>().CHANGE_NETWORK_STATE)
+    static let callPrivileged = Permission(rawValue: javaClass.CALL_PRIVILEGED)
     
-    static let changeWifiMulticastState = Permission(rawValue: try! JavaClass<Manifest.Permission>().CHANGE_WIFI_MULTICAST_STATE)
+    static let camera = Permission(rawValue: javaClass.CAMERA)
     
-    static let changeWifiState = Permission(rawValue: try! JavaClass<Manifest.Permission>().CHANGE_WIFI_STATE)
+    static let captureAudioOutput = Permission(rawValue: javaClass.CAPTURE_AUDIO_OUTPUT)
     
-    static let clearAppCache = Permission(rawValue: try! JavaClass<Manifest.Permission>().CLEAR_APP_CACHE)
+    static let captureSecureVideoOutput = Permission(rawValue: javaClass.CAPTURE_SECURE_VIDEO_OUTPUT)
     
-    static let controlLocationUpdates = Permission(rawValue: try! JavaClass<Manifest.Permission>().CONTROL_LOCATION_UPDATES)
+    static let captureVideoOutput = Permission(rawValue: javaClass.CAPTURE_VIDEO_OUTPUT)
     
-    static let deleteCacheFiles = Permission(rawValue: try! JavaClass<Manifest.Permission>().DELETE_CACHE_FILES)
+    static let changeComponentEnabledState = Permission(rawValue: javaClass.CHANGE_COMPONENT_ENABLED_STATE)
     
-    static let deletePackages = Permission(rawValue: try! JavaClass<Manifest.Permission>().DELETE_PACKAGES)
+    static let changeConfiguration = Permission(rawValue: javaClass.CHANGE_CONFIGURATION)
     
-    static let diagnostic = Permission(rawValue: try! JavaClass<Manifest.Permission>().DIAGNOSTIC)
+    static let changeNetworkState = Permission(rawValue: javaClass.CHANGE_NETWORK_STATE)
     
-    static let disableKeyguard = Permission(rawValue: try! JavaClass<Manifest.Permission>().DISABLE_KEYGUARD)
+    static let changeWifiMulticastState = Permission(rawValue: javaClass.CHANGE_WIFI_MULTICAST_STATE)
     
-    static let dump = Permission(rawValue: try! JavaClass<Manifest.Permission>().DUMP)
+    static let changeWifiState = Permission(rawValue: javaClass.CHANGE_WIFI_STATE)
     
-    static let expandStatusBar = Permission(rawValue: try! JavaClass<Manifest.Permission>().EXPAND_STATUS_BAR)
+    static let clearAppCache = Permission(rawValue: javaClass.CLEAR_APP_CACHE)
     
-    static let factoryTest = Permission(rawValue: try! JavaClass<Manifest.Permission>().FACTORY_TEST)
+    static let controlLocationUpdates = Permission(rawValue: javaClass.CONTROL_LOCATION_UPDATES)
     
-    static let foregroundService = Permission(rawValue: try! JavaClass<Manifest.Permission>().FOREGROUND_SERVICE)
+    static let deleteCacheFiles = Permission(rawValue: javaClass.DELETE_CACHE_FILES)
     
-    static let getAccounts = Permission(rawValue: try! JavaClass<Manifest.Permission>().GET_ACCOUNTS)
+    static let deletePackages = Permission(rawValue: javaClass.DELETE_PACKAGES)
     
-    static let getAccountsPrivileged = Permission(rawValue: try! JavaClass<Manifest.Permission>().GET_ACCOUNTS_PRIVILEGED)
+    static let diagnostic = Permission(rawValue: javaClass.DIAGNOSTIC)
     
-    static let getPackageSize = Permission(rawValue: try! JavaClass<Manifest.Permission>().GET_PACKAGE_SIZE)
+    static let disableKeyguard = Permission(rawValue: javaClass.DISABLE_KEYGUARD)
     
-    static let globalSearch = Permission(rawValue: try! JavaClass<Manifest.Permission>().GLOBAL_SEARCH)
+    static let dump = Permission(rawValue: javaClass.DUMP)
     
-    static let installLocationProvider = Permission(rawValue: try! JavaClass<Manifest.Permission>().INSTALL_LOCATION_PROVIDER)
+    static let expandStatusBar = Permission(rawValue: javaClass.EXPAND_STATUS_BAR)
     
-    static let installPackages = Permission(rawValue: try! JavaClass<Manifest.Permission>().INSTALL_PACKAGES)
+    static let factoryTest = Permission(rawValue: javaClass.FACTORY_TEST)
     
-    static let installShortcut = Permission(rawValue: try! JavaClass<Manifest.Permission>().INSTALL_SHORTCUT)
+    static let foregroundService = Permission(rawValue: javaClass.FOREGROUND_SERVICE)
     
-    static let instantAppForegroundService = Permission(rawValue: try! JavaClass<Manifest.Permission>().INSTANT_APP_FOREGROUND_SERVICE)
+    static let foregroundServiceCamera = Permission(rawValue: javaClass.FOREGROUND_SERVICE_CAMERA)
     
-    static let internet = Permission(rawValue: try! JavaClass<Manifest.Permission>().INTERNET)
+    static let foregroundServiceConnectedDevice = Permission(rawValue: javaClass.FOREGROUND_SERVICE_CONNECTED_DEVICE)
     
-    static let killBackgroundProcesses = Permission(rawValue: try! JavaClass<Manifest.Permission>().KILL_BACKGROUND_PROCESSES)
+    static let foregroundServiceDataSync = Permission(rawValue: javaClass.FOREGROUND_SERVICE_DATA_SYNC)
     
-    static let locationHardware = Permission(rawValue: try! JavaClass<Manifest.Permission>().LOCATION_HARDWARE)
+    static let foregroundServiceHealth = Permission(rawValue: javaClass.FOREGROUND_SERVICE_HEALTH)
     
-    static let manageDocuments = Permission(rawValue: try! JavaClass<Manifest.Permission>().MANAGE_DOCUMENTS)
+    static let foregroundServiceLocation = Permission(rawValue: javaClass.FOREGROUND_SERVICE_LOCATION)
     
-    static let manageOwnCalls = Permission(rawValue: try! JavaClass<Manifest.Permission>().MANAGE_OWN_CALLS)
+    static let foregroundServiceMediaPlayback = Permission(rawValue: javaClass.FOREGROUND_SERVICE_MEDIA_PLAYBACK)
     
-    static let masterClear = Permission(rawValue: try! JavaClass<Manifest.Permission>().MASTER_CLEAR)
+    static let foregroundServiceMediaProjection = Permission(rawValue: javaClass.FOREGROUND_SERVICE_MEDIA_PROJECTION)
     
-    static let mediaContentControl = Permission(rawValue: try! JavaClass<Manifest.Permission>().MEDIA_CONTENT_CONTROL)
+    static let foregroundServiceMicrophone = Permission(rawValue: javaClass.FOREGROUND_SERVICE_MICROPHONE)
     
-    static let modifyAudioSettings = Permission(rawValue: try! JavaClass<Manifest.Permission>().MODIFY_AUDIO_SETTINGS)
+    static let foregroundServicePhoneCall = Permission(rawValue: javaClass.FOREGROUND_SERVICE_PHONE_CALL)
     
-    static let modifyPhoneState = Permission(rawValue: try! JavaClass<Manifest.Permission>().MODIFY_PHONE_STATE)
+    static let foregroundServiceRemoteMessaging = Permission(rawValue: javaClass.FOREGROUND_SERVICE_REMOTE_MESSAGING)
     
-    static let mountFormatFilesystems = Permission(rawValue: try! JavaClass<Manifest.Permission>().MOUNT_FORMAT_FILESYSTEMS)
+    static let foregroundServiceSpecialUse = Permission(rawValue: javaClass.FOREGROUND_SERVICE_SPECIAL_USE)
     
-    static let mountUnmountFilesystems = Permission(rawValue: try! JavaClass<Manifest.Permission>().MOUNT_UNMOUNT_FILESYSTEMS)
+    static let foregroundServiceSystemExempted = Permission(rawValue: javaClass.FOREGROUND_SERVICE_SYSTEM_EXEMPTED)
     
-    static let nfc = Permission(rawValue: try! JavaClass<Manifest.Permission>().NFC)
+    static let getAccounts = Permission(rawValue: javaClass.GET_ACCOUNTS)
     
-    static let nfcTransactionEvent = Permission(rawValue: try! JavaClass<Manifest.Permission>().NFC_TRANSACTION_EVENT)
+    static let getAccountsPrivileged = Permission(rawValue: javaClass.GET_ACCOUNTS_PRIVILEGED)
     
-    static let packageUsageStats = Permission(rawValue: try! JavaClass<Manifest.Permission>().PACKAGE_USAGE_STATS)
+    static let getPackageSize = Permission(rawValue: javaClass.GET_PACKAGE_SIZE)
     
-    static let processOutgoingCalls = Permission(rawValue: try! JavaClass<Manifest.Permission>().PROCESS_OUTGOING_CALLS)
+    static let globalSearch = Permission(rawValue: javaClass.GLOBAL_SEARCH)
     
-    static let readCalendar = Permission(rawValue: try! JavaClass<Manifest.Permission>().READ_CALENDAR)
+    static let installLocationProvider = Permission(rawValue: javaClass.INSTALL_LOCATION_PROVIDER)
     
-    static let readCallLog = Permission(rawValue: try! JavaClass<Manifest.Permission>().READ_CALL_LOG)
+    static let installPackages = Permission(rawValue: javaClass.INSTALL_PACKAGES)
     
-    static let readContacts = Permission(rawValue: try! JavaClass<Manifest.Permission>().READ_CONTACTS)
+    static let installShortcut = Permission(rawValue: javaClass.INSTALL_SHORTCUT)
     
-    static let readExternalStorage = Permission(rawValue: try! JavaClass<Manifest.Permission>().READ_EXTERNAL_STORAGE)
+    static let instantAppForegroundService = Permission(rawValue: javaClass.INSTANT_APP_FOREGROUND_SERVICE)
     
-    //static let readFrameBuffer = Permission(rawValue: try! JavaClass<Manifest.Permission>().READ_FRAME_BUFFER)
+    static let internet = Permission(rawValue: javaClass.INTERNET)
     
-    static let readLogs = Permission(rawValue: try! JavaClass<Manifest.Permission>().READ_LOGS)
+    static let killBackgroundProcesses = Permission(rawValue: javaClass.KILL_BACKGROUND_PROCESSES)
     
-    static let readPhoneNumbers = Permission(rawValue: try! JavaClass<Manifest.Permission>().READ_PHONE_NUMBERS)
+    static let locationHardware = Permission(rawValue: javaClass.LOCATION_HARDWARE)
     
-    static let readPhoneState = Permission(rawValue: try! JavaClass<Manifest.Permission>().READ_PHONE_STATE)
+    static let manageDocuments = Permission(rawValue: javaClass.MANAGE_DOCUMENTS)
     
-    static let readSms = Permission(rawValue: try! JavaClass<Manifest.Permission>().READ_SMS)
+    static let manageOwnCalls = Permission(rawValue: javaClass.MANAGE_OWN_CALLS)
     
-    static let readSyncSettings = Permission(rawValue: try! JavaClass<Manifest.Permission>().READ_SYNC_SETTINGS)
+    static let manageExternalStorage = Permission(rawValue: javaClass.MANAGE_EXTERNAL_STORAGE)
     
-    static let readSyncStats = Permission(rawValue: try! JavaClass<Manifest.Permission>().READ_SYNC_STATS)
+    static let manageMedia = Permission(rawValue: javaClass.MANAGE_MEDIA)
     
-    static let readVoicemail = Permission(rawValue: try! JavaClass<Manifest.Permission>().READ_VOICEMAIL)
+    static let manageOngoingCalls = Permission(rawValue: javaClass.MANAGE_ONGOING_CALLS)
     
-    static let reboot = Permission(rawValue: try! JavaClass<Manifest.Permission>().REBOOT)
+    static let masterClear = Permission(rawValue: javaClass.MASTER_CLEAR)
     
-    static let receiveBootCompleted = Permission(rawValue: try! JavaClass<Manifest.Permission>().RECEIVE_BOOT_COMPLETED)
+    static let mediaContentControl = Permission(rawValue: javaClass.MEDIA_CONTENT_CONTROL)
     
-    static let receiveMms = Permission(rawValue: try! JavaClass<Manifest.Permission>().RECEIVE_MMS)
+    static let modifyAudioSettings = Permission(rawValue: javaClass.MODIFY_AUDIO_SETTINGS)
     
-    static let receiveSms = Permission(rawValue: try! JavaClass<Manifest.Permission>().RECEIVE_SMS)
+    static let modifyPhoneState = Permission(rawValue: javaClass.MODIFY_PHONE_STATE)
     
-    static let receiveWapPush = Permission(rawValue: try! JavaClass<Manifest.Permission>().RECEIVE_WAP_PUSH)
+    static let mountFormatFilesystems = Permission(rawValue: javaClass.MOUNT_FORMAT_FILESYSTEMS)
     
-    static let recordAudio = Permission(rawValue: try! JavaClass<Manifest.Permission>().RECORD_AUDIO)
+    static let mountUnmountFilesystems = Permission(rawValue: javaClass.MOUNT_UNMOUNT_FILESYSTEMS)
     
-    static let reorderTasks = Permission(rawValue: try! JavaClass<Manifest.Permission>().REORDER_TASKS)
+    static let nfc = Permission(rawValue: javaClass.NFC)
     
-    static let requestCompanionRunInBackground = Permission(rawValue: try! JavaClass<Manifest.Permission>().REQUEST_COMPANION_RUN_IN_BACKGROUND)
+    static let nfcTransactionEvent = Permission(rawValue: javaClass.NFC_TRANSACTION_EVENT)
     
-    static let requestCompanionUseDataInBackground = Permission(rawValue: try! JavaClass<Manifest.Permission>().REQUEST_COMPANION_USE_DATA_IN_BACKGROUND)
+    static let nfcPreferredPaymentInfo = Permission(rawValue: javaClass.NFC_PREFERRED_PAYMENT_INFO)
     
-    static let requestDeletePackages = Permission(rawValue: try! JavaClass<Manifest.Permission>().REQUEST_DELETE_PACKAGES)
+    static let nearbyWifiDevices = Permission(rawValue: javaClass.NEARBY_WIFI_DEVICES)
     
-    static let requestIgnoreBatteryOptimizations = Permission(rawValue: try! JavaClass<Manifest.Permission>().REQUEST_IGNORE_BATTERY_OPTIMIZATIONS)
+    static let packageUsageStats = Permission(rawValue: javaClass.PACKAGE_USAGE_STATS)
     
-    static let requestInstallPackages = Permission(rawValue: try! JavaClass<Manifest.Permission>().REQUEST_INSTALL_PACKAGES)
+    static let postNotifications = Permission(rawValue: javaClass.POST_NOTIFICATIONS)
     
-    static let sendRespondViaMessage = Permission(rawValue: try! JavaClass<Manifest.Permission>().SEND_RESPOND_VIA_MESSAGE)
+    static let processOutgoingCalls = Permission(rawValue: javaClass.PROCESS_OUTGOING_CALLS)
     
-    static let sendSms = Permission(rawValue: try! JavaClass<Manifest.Permission>().SEND_SMS)
+    static let readCalendar = Permission(rawValue: javaClass.READ_CALENDAR)
     
-    static let setAlarm = Permission(rawValue: try! JavaClass<Manifest.Permission>().SET_ALARM)
+    static let readCallLog = Permission(rawValue: javaClass.READ_CALL_LOG)
     
-    static let setAlwaysFinish = Permission(rawValue: try! JavaClass<Manifest.Permission>().SET_ALWAYS_FINISH)
+    static let readContacts = Permission(rawValue: javaClass.READ_CONTACTS)
     
-    static let setAnimationScale = Permission(rawValue: try! JavaClass<Manifest.Permission>().SET_ANIMATION_SCALE)
+    static let readExternalStorage = Permission(rawValue: javaClass.READ_EXTERNAL_STORAGE)
     
-    static let setDebugApp = Permission(rawValue: try! JavaClass<Manifest.Permission>().SET_DEBUG_APP)
+    static let readMediaAudio = Permission(rawValue: javaClass.READ_MEDIA_AUDIO)
     
-    static let setProcessLimit = Permission(rawValue: try! JavaClass<Manifest.Permission>().SET_PROCESS_LIMIT)
+    static let readMediaImages = Permission(rawValue: javaClass.READ_MEDIA_IMAGES)
     
-    static let setTime = Permission(rawValue: try! JavaClass<Manifest.Permission>().SET_TIME)
+    static let readMediaVideo = Permission(rawValue: javaClass.READ_MEDIA_VIDEO)
     
-    static let setTimeZone = Permission(rawValue: try! JavaClass<Manifest.Permission>().SET_TIME_ZONE)
+    static let readMediaVisualUserSelected = Permission(rawValue: javaClass.READ_MEDIA_VISUAL_USER_SELECTED)
     
-    static let setWallpaper = Permission(rawValue: try! JavaClass<Manifest.Permission>().SET_WALLPAPER)
+    static let readFrameBuffer = Permission(rawValue: javaClass.READ_FRAME_BUFFER)
     
-    static let setWallpaperHints = Permission(rawValue: try! JavaClass<Manifest.Permission>().SET_WALLPAPER_HINTS)
+    static let readLogs = Permission(rawValue: javaClass.READ_LOGS)
     
-    static let signalPersistentProcesses = Permission(rawValue: try! JavaClass<Manifest.Permission>().SIGNAL_PERSISTENT_PROCESSES)
+    static let readPhoneNumbers = Permission(rawValue: javaClass.READ_PHONE_NUMBERS)
     
-    static let statusBar = Permission(rawValue: try! JavaClass<Manifest.Permission>().STATUS_BAR)
+    static let readPhoneState = Permission(rawValue: javaClass.READ_PHONE_STATE)
     
-    static let systemAlertWindow = Permission(rawValue: try! JavaClass<Manifest.Permission>().SYSTEM_ALERT_WINDOW)
+    static let readSms = Permission(rawValue: javaClass.READ_SMS)
     
-    static let transmitIr = Permission(rawValue: try! JavaClass<Manifest.Permission>().TRANSMIT_IR)
+    static let readSyncSettings = Permission(rawValue: javaClass.READ_SYNC_SETTINGS)
     
-    static let uninstallShortcut = Permission(rawValue: try! JavaClass<Manifest.Permission>().UNINSTALL_SHORTCUT)
+    static let readSyncStats = Permission(rawValue: javaClass.READ_SYNC_STATS)
     
-    static let updateDeviceStats = Permission(rawValue: try! JavaClass<Manifest.Permission>().UPDATE_DEVICE_STATS)
+    static let readVoicemail = Permission(rawValue: javaClass.READ_VOICEMAIL)
     
-    static let useBiometric = Permission(rawValue: try! JavaClass<Manifest.Permission>().USE_BIOMETRIC)
+    static let reboot = Permission(rawValue: javaClass.REBOOT)
     
-    static let useSip = Permission(rawValue: try! JavaClass<Manifest.Permission>().USE_SIP)
+    static let receiveBootCompleted = Permission(rawValue: javaClass.RECEIVE_BOOT_COMPLETED)
     
-    static let vibrate = Permission(rawValue: try! JavaClass<Manifest.Permission>().VIBRATE)
+    static let receiveMms = Permission(rawValue: javaClass.RECEIVE_MMS)
     
-    static let wakeLock = Permission(rawValue: try! JavaClass<Manifest.Permission>().WAKE_LOCK)
+    static let receiveSms = Permission(rawValue: javaClass.RECEIVE_SMS)
     
-    static let writeApnSettings = Permission(rawValue: try! JavaClass<Manifest.Permission>().WRITE_APN_SETTINGS)
+    static let receiveWapPush = Permission(rawValue: javaClass.RECEIVE_WAP_PUSH)
     
-    static let writeCalendar = Permission(rawValue: try! JavaClass<Manifest.Permission>().WRITE_CALENDAR)
+    static let recordAudio = Permission(rawValue: javaClass.RECORD_AUDIO)
     
-    static let writeCallLog = Permission(rawValue: try! JavaClass<Manifest.Permission>().WRITE_CALL_LOG)
+    static let reorderTasks = Permission(rawValue: javaClass.REORDER_TASKS)
     
-    static let writeContacts = Permission(rawValue: try! JavaClass<Manifest.Permission>().WRITE_CONTACTS)
+    static let requestCompanionRunInBackground = Permission(rawValue: javaClass.REQUEST_COMPANION_RUN_IN_BACKGROUND)
     
-    static let writeExternalStorage = Permission(rawValue: try! JavaClass<Manifest.Permission>().WRITE_EXTERNAL_STORAGE)
+    static let requestCompanionUseDataInBackground = Permission(rawValue: javaClass.REQUEST_COMPANION_USE_DATA_IN_BACKGROUND)
     
-    static let writeGservices = Permission(rawValue: try! JavaClass<Manifest.Permission>().WRITE_GSERVICES)
+    static let requestDeletePackages = Permission(rawValue: javaClass.REQUEST_DELETE_PACKAGES)
     
-    static let writeSecureSettings = Permission(rawValue: try! JavaClass<Manifest.Permission>().WRITE_SECURE_SETTINGS)
+    static let requestIgnoreBatteryOptimizations = Permission(rawValue: javaClass.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS)
     
-    static let writeSettings = Permission(rawValue: try! JavaClass<Manifest.Permission>().WRITE_SETTINGS)
+    static let requestInstallPackages = Permission(rawValue: javaClass.REQUEST_INSTALL_PACKAGES)
     
-    static let writeSyncSettings = Permission(rawValue: try! JavaClass<Manifest.Permission>().WRITE_SYNC_SETTINGS)
+    static let requestPasswordComplexity = Permission(rawValue: javaClass.REQUEST_PASSWORD_COMPLEXITY)
     
-    static let writeVoicemail = Permission(rawValue: try! JavaClass<Manifest.Permission>().WRITE_VOICEMAIL)
+    static let scheduleExactAlarm = Permission(rawValue: javaClass.SCHEDULE_EXACT_ALARM)
+    
+    static let sendRespondViaMessage = Permission(rawValue: javaClass.SEND_RESPOND_VIA_MESSAGE)
+    
+    static let sendSms = Permission(rawValue: javaClass.SEND_SMS)
+    
+    static let setAlarm = Permission(rawValue: javaClass.SET_ALARM)
+    
+    static let setAlwaysFinish = Permission(rawValue: javaClass.SET_ALWAYS_FINISH)
+    
+    static let setAnimationScale = Permission(rawValue: javaClass.SET_ANIMATION_SCALE)
+    
+    static let setDebugApp = Permission(rawValue: javaClass.SET_DEBUG_APP)
+    
+    static let setProcessLimit = Permission(rawValue: javaClass.SET_PROCESS_LIMIT)
+    
+    static let setTime = Permission(rawValue: javaClass.SET_TIME)
+    
+    static let setTimeZone = Permission(rawValue: javaClass.SET_TIME_ZONE)
+    
+    static let setWallpaper = Permission(rawValue: javaClass.SET_WALLPAPER)
+    
+    static let setWallpaperHints = Permission(rawValue: javaClass.SET_WALLPAPER_HINTS)
+    
+    static let signalPersistentProcesses = Permission(rawValue: javaClass.SIGNAL_PERSISTENT_PROCESSES)
+    
+    static let statusBar = Permission(rawValue: javaClass.STATUS_BAR)
+    
+    static let systemAlertWindow = Permission(rawValue: javaClass.SYSTEM_ALERT_WINDOW)
+    
+    static let transmitIr = Permission(rawValue: javaClass.TRANSMIT_IR)
+    
+    static let uninstallShortcut = Permission(rawValue: javaClass.UNINSTALL_SHORTCUT)
+    
+    static let updateDeviceStats = Permission(rawValue: javaClass.UPDATE_DEVICE_STATS)
+    
+    static let useBiometric = Permission(rawValue: javaClass.USE_BIOMETRIC)
+    
+    static let useExactAlarm = Permission(rawValue: javaClass.USE_EXACT_ALARM)
+    
+    static let useFullScreenIntent = Permission(rawValue: javaClass.USE_FULL_SCREEN_INTENT)
+    
+    static let useSip = Permission(rawValue: javaClass.USE_SIP)
+    
+    static let uwbRanging = Permission(rawValue: javaClass.UWB_RANGING)
+    
+    static let vibrate = Permission(rawValue: javaClass.VIBRATE)
+    
+    static let wakeLock = Permission(rawValue: javaClass.WAKE_LOCK)
+    
+    static let writeApnSettings = Permission(rawValue: javaClass.WRITE_APN_SETTINGS)
+    
+    static let writeCalendar = Permission(rawValue: javaClass.WRITE_CALENDAR)
+    
+    static let writeCallLog = Permission(rawValue: javaClass.WRITE_CALL_LOG)
+    
+    static let writeContacts = Permission(rawValue: javaClass.WRITE_CONTACTS)
+    
+    static let writeExternalStorage = Permission(rawValue: javaClass.WRITE_EXTERNAL_STORAGE)
+    
+    static let writeGservices = Permission(rawValue: javaClass.WRITE_GSERVICES)
+    
+    static let writeSecureSettings = Permission(rawValue: javaClass.WRITE_SECURE_SETTINGS)
+    
+    static let writeSettings = Permission(rawValue: javaClass.WRITE_SETTINGS)
+    
+    static let writeSyncSettings = Permission(rawValue: javaClass.WRITE_SYNC_SETTINGS)
+    
+    static let writeVoicemail = Permission(rawValue: javaClass.WRITE_VOICEMAIL)
 }
