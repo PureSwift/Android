@@ -206,6 +206,12 @@ extension JavaClass<Manifest.Permission> {
   public var CAPTURE_AUDIO_OUTPUT: String
 
   @JavaStaticField(isFinal: true)
+  public var CAPTURE_SECURE_VIDEO_OUTPUT: String
+
+  @JavaStaticField(isFinal: true)
+  public var CAPTURE_VIDEO_OUTPUT: String
+
+  @JavaStaticField(isFinal: true)
   public var CHANGE_COMPONENT_ENABLED_STATE: String
 
   @JavaStaticField(isFinal: true)
@@ -252,6 +258,42 @@ extension JavaClass<Manifest.Permission> {
 
   @JavaStaticField(isFinal: true)
   public var FOREGROUND_SERVICE: String
+
+  @JavaStaticField(isFinal: true)
+  public var FOREGROUND_SERVICE_CAMERA: String
+
+  @JavaStaticField(isFinal: true)
+  public var FOREGROUND_SERVICE_CONNECTED_DEVICE: String
+
+  @JavaStaticField(isFinal: true)
+  public var FOREGROUND_SERVICE_DATA_SYNC: String
+
+  @JavaStaticField(isFinal: true)
+  public var FOREGROUND_SERVICE_HEALTH: String
+
+  @JavaStaticField(isFinal: true)
+  public var FOREGROUND_SERVICE_LOCATION: String
+
+  @JavaStaticField(isFinal: true)
+  public var FOREGROUND_SERVICE_MEDIA_PLAYBACK: String
+
+  @JavaStaticField(isFinal: true)
+  public var FOREGROUND_SERVICE_MEDIA_PROJECTION: String
+
+  @JavaStaticField(isFinal: true)
+  public var FOREGROUND_SERVICE_MICROPHONE: String
+
+  @JavaStaticField(isFinal: true)
+  public var FOREGROUND_SERVICE_PHONE_CALL: String
+
+  @JavaStaticField(isFinal: true)
+  public var FOREGROUND_SERVICE_REMOTE_MESSAGING: String
+
+  @JavaStaticField(isFinal: true)
+  public var FOREGROUND_SERVICE_SPECIAL_USE: String
+
+  @JavaStaticField(isFinal: true)
+  public var FOREGROUND_SERVICE_SYSTEM_EXEMPTED: String
 
   @JavaStaticField(isFinal: true)
   public var GET_ACCOUNTS: String
@@ -392,6 +434,9 @@ extension JavaClass<Manifest.Permission> {
   public var READ_EXTERNAL_STORAGE: String
 
   @JavaStaticField(isFinal: true)
+  public var READ_FRAME_BUFFER: String
+
+  @JavaStaticField(isFinal: true)
   public var READ_HOME_APP_SEARCH_DATA: String
 
   @JavaStaticField(isFinal: true)
@@ -408,6 +453,9 @@ extension JavaClass<Manifest.Permission> {
 
   @JavaStaticField(isFinal: true)
   public var READ_MEDIA_VIDEO: String
+
+  @JavaStaticField(isFinal: true)
+  public var READ_MEDIA_VISUAL_USER_SELECTED: String
 
   @JavaStaticField(isFinal: true)
   public var READ_NEARBY_STREAMING_POLICY: String
