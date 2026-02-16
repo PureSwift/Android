@@ -40,16 +40,20 @@ public extension Permission {
     
     static let accessWifiState = Permission(rawValue: javaClass.ACCESS_WIFI_STATE)
     
+    @available(Android 29, *)
     static let accessBackgroundLocation = Permission(rawValue: javaClass.ACCESS_BACKGROUND_LOCATION)
     
+    @available(Android 29, *)
     static let accessMediaLocation = Permission(rawValue: javaClass.ACCESS_MEDIA_LOCATION)
     
     static let accountManager = Permission(rawValue: javaClass.ACCOUNT_MANAGER)
     
+    @available(Android 29, *)
     static let activityRecognition = Permission(rawValue: javaClass.ACTIVITY_RECOGNITION)
     
     static let addVoicemail = Permission(rawValue: javaClass.ADD_VOICEMAIL)
     
+    @available(Android 26, *)
     static let answerPhoneCalls = Permission(rawValue: javaClass.ANSWER_PHONE_CALLS)
     
     static let batteryStats = Permission(rawValue: javaClass.BATTERY_STATS)
@@ -110,14 +114,18 @@ public extension Permission {
     
     static let bluetoothPrivileged = Permission(rawValue: javaClass.BLUETOOTH_PRIVILEGED)
     
+    @available(Android 31, *)
     static let bluetoothAdvertise = Permission(rawValue: javaClass.BLUETOOTH_ADVERTISE)
     
+    @available(Android 31, *)
     static let bluetoothConnect = Permission(rawValue: javaClass.BLUETOOTH_CONNECT)
     
+    @available(Android 31, *)
     static let bluetoothScan = Permission(rawValue: javaClass.BLUETOOTH_SCAN)
     
     static let bodySensors = Permission(rawValue: javaClass.BODY_SENSORS)
     
+    @available(Android 33, *)
     static let bodySensorsBackground = Permission(rawValue: javaClass.BODY_SENSORS_BACKGROUND)
     
     static let broadcastPackageRemoved = Permission(rawValue: javaClass.BROADCAST_PACKAGE_REMOVED)
@@ -136,8 +144,10 @@ public extension Permission {
     
     static let captureAudioOutput = Permission(rawValue: javaClass.CAPTURE_AUDIO_OUTPUT)
     
+    @available(Android 21, *)
     static let captureSecureVideoOutput = Permission(rawValue: javaClass.CAPTURE_SECURE_VIDEO_OUTPUT)
     
+    @available(Android 21, *)
     static let captureVideoOutput = Permission(rawValue: javaClass.CAPTURE_VIDEO_OUTPUT)
     
     static let changeComponentEnabledState = Permission(rawValue: javaClass.CHANGE_COMPONENT_ENABLED_STATE)
@@ -168,30 +178,43 @@ public extension Permission {
     
     static let factoryTest = Permission(rawValue: javaClass.FACTORY_TEST)
     
+    @available(Android 28, *)
     static let foregroundService = Permission(rawValue: javaClass.FOREGROUND_SERVICE)
     
+    @available(Android 34, *)
     static let foregroundServiceCamera = Permission(rawValue: javaClass.FOREGROUND_SERVICE_CAMERA)
     
+    @available(Android 34, *)
     static let foregroundServiceConnectedDevice = Permission(rawValue: javaClass.FOREGROUND_SERVICE_CONNECTED_DEVICE)
     
+    @available(Android 34, *)
     static let foregroundServiceDataSync = Permission(rawValue: javaClass.FOREGROUND_SERVICE_DATA_SYNC)
     
+    @available(Android 34, *)
     static let foregroundServiceHealth = Permission(rawValue: javaClass.FOREGROUND_SERVICE_HEALTH)
     
+    @available(Android 34, *)
     static let foregroundServiceLocation = Permission(rawValue: javaClass.FOREGROUND_SERVICE_LOCATION)
     
+    @available(Android 34, *)
     static let foregroundServiceMediaPlayback = Permission(rawValue: javaClass.FOREGROUND_SERVICE_MEDIA_PLAYBACK)
     
+    @available(Android 34, *)
     static let foregroundServiceMediaProjection = Permission(rawValue: javaClass.FOREGROUND_SERVICE_MEDIA_PROJECTION)
     
+    @available(Android 34, *)
     static let foregroundServiceMicrophone = Permission(rawValue: javaClass.FOREGROUND_SERVICE_MICROPHONE)
     
+    @available(Android 34, *)
     static let foregroundServicePhoneCall = Permission(rawValue: javaClass.FOREGROUND_SERVICE_PHONE_CALL)
     
+    @available(Android 34, *)
     static let foregroundServiceRemoteMessaging = Permission(rawValue: javaClass.FOREGROUND_SERVICE_REMOTE_MESSAGING)
     
+    @available(Android 34, *)
     static let foregroundServiceSpecialUse = Permission(rawValue: javaClass.FOREGROUND_SERVICE_SPECIAL_USE)
     
+    @available(Android 34, *)
     static let foregroundServiceSystemExempted = Permission(rawValue: javaClass.FOREGROUND_SERVICE_SYSTEM_EXEMPTED)
     
     static let getAccounts = Permission(rawValue: javaClass.GET_ACCOUNTS)
@@ -220,10 +243,13 @@ public extension Permission {
     
     static let manageOwnCalls = Permission(rawValue: javaClass.MANAGE_OWN_CALLS)
     
+    @available(Android 30, *)
     static let manageExternalStorage = Permission(rawValue: javaClass.MANAGE_EXTERNAL_STORAGE)
     
+    @available(Android 31, *)
     static let manageMedia = Permission(rawValue: javaClass.MANAGE_MEDIA)
     
+    @available(Android 31, *)
     static let manageOngoingCalls = Permission(rawValue: javaClass.MANAGE_ONGOING_CALLS)
     
     static let masterClear = Permission(rawValue: javaClass.MASTER_CLEAR)
@@ -242,12 +268,15 @@ public extension Permission {
     
     static let nfcTransactionEvent = Permission(rawValue: javaClass.NFC_TRANSACTION_EVENT)
     
+    @available(Android 33, *)
     static let nfcPreferredPaymentInfo = Permission(rawValue: javaClass.NFC_PREFERRED_PAYMENT_INFO)
     
+    @available(Android 33, *)
     static let nearbyWifiDevices = Permission(rawValue: javaClass.NEARBY_WIFI_DEVICES)
     
     static let packageUsageStats = Permission(rawValue: javaClass.PACKAGE_USAGE_STATS)
     
+    @available(Android 33, *)
     static let postNotifications = Permission(rawValue: javaClass.POST_NOTIFICATIONS)
     
     static let processOutgoingCalls = Permission(rawValue: javaClass.PROCESS_OUTGOING_CALLS)
@@ -260,18 +289,24 @@ public extension Permission {
     
     static let readExternalStorage = Permission(rawValue: javaClass.READ_EXTERNAL_STORAGE)
     
+    @available(Android 33, *)
     static let readMediaAudio = Permission(rawValue: javaClass.READ_MEDIA_AUDIO)
     
+    @available(Android 33, *)
     static let readMediaImages = Permission(rawValue: javaClass.READ_MEDIA_IMAGES)
     
+    @available(Android 33, *)
     static let readMediaVideo = Permission(rawValue: javaClass.READ_MEDIA_VIDEO)
     
+    @available(Android 34, *)
     static let readMediaVisualUserSelected = Permission(rawValue: javaClass.READ_MEDIA_VISUAL_USER_SELECTED)
     
+    @available(Android 21, *)
     static let readFrameBuffer = Permission(rawValue: javaClass.READ_FRAME_BUFFER)
     
     static let readLogs = Permission(rawValue: javaClass.READ_LOGS)
     
+    @available(Android 26, *)
     static let readPhoneNumbers = Permission(rawValue: javaClass.READ_PHONE_NUMBERS)
     
     static let readPhoneState = Permission(rawValue: javaClass.READ_PHONE_STATE)
@@ -308,8 +343,10 @@ public extension Permission {
     
     static let requestInstallPackages = Permission(rawValue: javaClass.REQUEST_INSTALL_PACKAGES)
     
+    @available(Android 31, *)
     static let requestPasswordComplexity = Permission(rawValue: javaClass.REQUEST_PASSWORD_COMPLEXITY)
     
+    @available(Android 31, *)
     static let scheduleExactAlarm = Permission(rawValue: javaClass.SCHEDULE_EXACT_ALARM)
     
     static let sendRespondViaMessage = Permission(rawValue: javaClass.SEND_RESPOND_VIA_MESSAGE)
@@ -348,12 +385,15 @@ public extension Permission {
     
     static let useBiometric = Permission(rawValue: javaClass.USE_BIOMETRIC)
     
+    @available(Android 33, *)
     static let useExactAlarm = Permission(rawValue: javaClass.USE_EXACT_ALARM)
     
+    @available(Android 29, *)
     static let useFullScreenIntent = Permission(rawValue: javaClass.USE_FULL_SCREEN_INTENT)
     
     static let useSip = Permission(rawValue: javaClass.USE_SIP)
     
+    @available(Android 31, *)
     static let uwbRanging = Permission(rawValue: javaClass.UWB_RANGING)
     
     static let vibrate = Permission(rawValue: javaClass.VIBRATE)

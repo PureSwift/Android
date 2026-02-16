@@ -13,6 +13,7 @@ extension JavaClass<Manifest.Permission> {
   @JavaStaticField(isFinal: true)
   public var ACCEPT_HANDOVER: String
 
+  @available(Android 29, *)
   @JavaStaticField(isFinal: true)
   public var ACCESS_BACKGROUND_LOCATION: String
 
@@ -31,6 +32,7 @@ extension JavaClass<Manifest.Permission> {
   @JavaStaticField(isFinal: true)
   public var ACCESS_LOCATION_EXTRA_COMMANDS: String
 
+  @available(Android 29, *)
   @JavaStaticField(isFinal: true)
   public var ACCESS_MEDIA_LOCATION: String
 
@@ -46,12 +48,14 @@ extension JavaClass<Manifest.Permission> {
   @JavaStaticField(isFinal: true)
   public var ACCOUNT_MANAGER: String
 
+  @available(Android 29, *)
   @JavaStaticField(isFinal: true)
   public var ACTIVITY_RECOGNITION: String
 
   @JavaStaticField(isFinal: true)
   public var ADD_VOICEMAIL: String
 
+  @available(Android 26, *)
   @JavaStaticField(isFinal: true)
   public var ANSWER_PHONE_CALLS: String
 
@@ -160,21 +164,25 @@ extension JavaClass<Manifest.Permission> {
   @JavaStaticField(isFinal: true)
   public var BLUETOOTH_ADMIN: String
 
+  @available(Android 31, *)
   @JavaStaticField(isFinal: true)
   public var BLUETOOTH_ADVERTISE: String
 
+  @available(Android 31, *)
   @JavaStaticField(isFinal: true)
   public var BLUETOOTH_CONNECT: String
 
   @JavaStaticField(isFinal: true)
   public var BLUETOOTH_PRIVILEGED: String
 
+  @available(Android 31, *)
   @JavaStaticField(isFinal: true)
   public var BLUETOOTH_SCAN: String
 
   @JavaStaticField(isFinal: true)
   public var BODY_SENSORS: String
 
+  @available(Android 33, *)
   @JavaStaticField(isFinal: true)
   public var BODY_SENSORS_BACKGROUND: String
 
@@ -205,9 +213,11 @@ extension JavaClass<Manifest.Permission> {
   @JavaStaticField(isFinal: true)
   public var CAPTURE_AUDIO_OUTPUT: String
 
+  @available(Android 21, *)
   @JavaStaticField(isFinal: true)
   public var CAPTURE_SECURE_VIDEO_OUTPUT: String
 
+  @available(Android 21, *)
   @JavaStaticField(isFinal: true)
   public var CAPTURE_VIDEO_OUTPUT: String
 
@@ -256,42 +266,55 @@ extension JavaClass<Manifest.Permission> {
   @JavaStaticField(isFinal: true)
   public var FACTORY_TEST: String
 
+  @available(Android 28, *)
   @JavaStaticField(isFinal: true)
   public var FOREGROUND_SERVICE: String
 
+  @available(Android 34, *)
   @JavaStaticField(isFinal: true)
   public var FOREGROUND_SERVICE_CAMERA: String
 
+  @available(Android 34, *)
   @JavaStaticField(isFinal: true)
   public var FOREGROUND_SERVICE_CONNECTED_DEVICE: String
 
+  @available(Android 34, *)
   @JavaStaticField(isFinal: true)
   public var FOREGROUND_SERVICE_DATA_SYNC: String
 
+  @available(Android 34, *)
   @JavaStaticField(isFinal: true)
   public var FOREGROUND_SERVICE_HEALTH: String
 
+  @available(Android 34, *)
   @JavaStaticField(isFinal: true)
   public var FOREGROUND_SERVICE_LOCATION: String
 
+  @available(Android 34, *)
   @JavaStaticField(isFinal: true)
   public var FOREGROUND_SERVICE_MEDIA_PLAYBACK: String
 
+  @available(Android 34, *)
   @JavaStaticField(isFinal: true)
   public var FOREGROUND_SERVICE_MEDIA_PROJECTION: String
 
+  @available(Android 34, *)
   @JavaStaticField(isFinal: true)
   public var FOREGROUND_SERVICE_MICROPHONE: String
 
+  @available(Android 34, *)
   @JavaStaticField(isFinal: true)
   public var FOREGROUND_SERVICE_PHONE_CALL: String
 
+  @available(Android 34, *)
   @JavaStaticField(isFinal: true)
   public var FOREGROUND_SERVICE_REMOTE_MESSAGING: String
 
+  @available(Android 34, *)
   @JavaStaticField(isFinal: true)
   public var FOREGROUND_SERVICE_SPECIAL_USE: String
 
+  @available(Android 34, *)
   @JavaStaticField(isFinal: true)
   public var FOREGROUND_SERVICE_SYSTEM_EXEMPTED: String
 
@@ -349,12 +372,15 @@ extension JavaClass<Manifest.Permission> {
   @JavaStaticField(isFinal: true)
   public var MANAGE_DOCUMENTS: String
 
+  @available(Android 30, *)
   @JavaStaticField(isFinal: true)
   public var MANAGE_EXTERNAL_STORAGE: String
 
+  @available(Android 31, *)
   @JavaStaticField(isFinal: true)
   public var MANAGE_MEDIA: String
 
+  @available(Android 31, *)
   @JavaStaticField(isFinal: true)
   public var MANAGE_ONGOING_CALLS: String
 
@@ -385,12 +411,14 @@ extension JavaClass<Manifest.Permission> {
   @JavaStaticField(isFinal: true)
   public var MOUNT_UNMOUNT_FILESYSTEMS: String
 
+  @available(Android 33, *)
   @JavaStaticField(isFinal: true)
   public var NEARBY_WIFI_DEVICES: String
 
   @JavaStaticField(isFinal: true)
   public var NFC: String
 
+  @available(Android 33, *)
   @JavaStaticField(isFinal: true)
   public var NFC_PREFERRED_PAYMENT_INFO: String
 
@@ -406,6 +434,7 @@ extension JavaClass<Manifest.Permission> {
   @JavaStaticField(isFinal: true)
   public var PERSISTENT_ACTIVITY: String
 
+  @available(Android 33, *)
   @JavaStaticField(isFinal: true)
   public var POST_NOTIFICATIONS: String
 
@@ -445,21 +474,26 @@ extension JavaClass<Manifest.Permission> {
   @JavaStaticField(isFinal: true)
   public var READ_LOGS: String
 
+  @available(Android 33, *)
   @JavaStaticField(isFinal: true)
   public var READ_MEDIA_AUDIO: String
 
+  @available(Android 33, *)
   @JavaStaticField(isFinal: true)
   public var READ_MEDIA_IMAGES: String
 
+  @available(Android 33, *)
   @JavaStaticField(isFinal: true)
   public var READ_MEDIA_VIDEO: String
 
+  @available(Android 34, *)
   @JavaStaticField(isFinal: true)
   public var READ_MEDIA_VISUAL_USER_SELECTED: String
 
   @JavaStaticField(isFinal: true)
   public var READ_NEARBY_STREAMING_POLICY: String
 
+  @available(Android 26, *)
   @JavaStaticField(isFinal: true)
   public var READ_PHONE_NUMBERS: String
 
@@ -538,12 +572,14 @@ extension JavaClass<Manifest.Permission> {
   @JavaStaticField(isFinal: true)
   public var REQUEST_OBSERVE_COMPANION_DEVICE_PRESENCE: String
 
+  @available(Android 31, *)
   @JavaStaticField(isFinal: true)
   public var REQUEST_PASSWORD_COMPLEXITY: String
 
   @JavaStaticField(isFinal: true)
   public var RESTART_PACKAGES: String
 
+  @available(Android 31, *)
   @JavaStaticField(isFinal: true)
   public var SCHEDULE_EXACT_ALARM: String
 
@@ -622,12 +658,14 @@ extension JavaClass<Manifest.Permission> {
   @JavaStaticField(isFinal: true)
   public var USE_BIOMETRIC: String
 
+  @available(Android 33, *)
   @JavaStaticField(isFinal: true)
   public var USE_EXACT_ALARM: String
 
   @JavaStaticField(isFinal: true)
   public var USE_FINGERPRINT: String
 
+  @available(Android 29, *)
   @JavaStaticField(isFinal: true)
   public var USE_FULL_SCREEN_INTENT: String
 
@@ -637,6 +675,7 @@ extension JavaClass<Manifest.Permission> {
   @JavaStaticField(isFinal: true)
   public var USE_SIP: String
 
+  @available(Android 31, *)
   @JavaStaticField(isFinal: true)
   public var UWB_RANGING: String
 
