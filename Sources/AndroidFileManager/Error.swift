@@ -8,6 +8,9 @@
 /// Android file manager error.
 public enum AndroidFileManagerError: Swift.Error, Equatable, Sendable {
 
+    /// Unable to initialize an `AConfiguration` instance.
+    case invalidConfiguration
+
     /// Unable to initialize an `AStorageManager` instance.
     case invalidStorageManager
 
@@ -26,4 +29,3 @@ public enum AndroidFileManagerError: Swift.Error, Equatable, Sendable {
     /// Error unmounting OBB file (result code).
     case unmountObb(Int32)
 }
-
