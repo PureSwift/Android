@@ -135,10 +135,8 @@ public extension Parcel {
     func marshal(start: Int = 0, length: Int? = nil) throws(AndroidBinderError) -> [UInt8] {
         let len = length ?? (dataSize - start)
         var buffer = [UInt8](repeating: 0, count: len)
-        try buffer.withUnsafeMutableBufferPointer { buf in
-            if let base = buf.baseAddress {
-                try handle.marshal(into: base, start: start, length: len).get()
-            }
+        if let base = buffer.withUnsafeMutableBufferPointer({ $0.baseAddress }) {
+            try handle.marshal(into: base, start: start, length: len).get()
         }
         return buffer
     }
@@ -151,10 +149,8 @@ public extension Parcel {
      * \param data the bytes to unmarshal.
      */
     func unmarshal(_ data: [UInt8]) throws(AndroidBinderError) {
-        try data.withUnsafeBufferPointer { buf in
-            if let base = buf.baseAddress {
-                try handle.unmarshal(base, length: data.count).get()
-            }
+        if let base = data.withUnsafeBufferPointer({ $0.baseAddress }) {
+            try handle.unmarshal(base, length: data.count).get()
         }
     }
 }
@@ -800,16 +796,17 @@ internal extension Parcel.Handle {
     func readString() -> Result<String, AndroidBinderError> {
         var ctx = ParcelStringReadContext(buffer: nil)
         let status = withUnsafeMutablePointer(to: &ctx) { ctxPtr -> binder_status_t in
-            AParcel_readString(pointer, ctxPtr) { userData, length -> UnsafeMutablePointer<CChar>? in
-                guard let userData = userData else { return nil }
+            AParcel_readString(pointer, ctxPtr) { userData, length, outBuffer -> Bool in
+                guard let userData = userData else { return false }
                 let buf = UnsafeMutablePointer<CChar>.allocate(capacity: Int(length) + 1)
                 buf[Int(length)] = 0
                 userData.assumingMemoryBound(to: ParcelStringReadContext.self).pointee.buffer = buf
-                return buf
+                outBuffer?.pointee = buf
+                return true
             }
         }
         defer { ctx.buffer?.deallocate() }
-        guard status == STATUS_OK else { return status.mapError() }
+        guard status == STATUS_OK else { return status.mapError(as: String.self) }
         guard let buf = ctx.buffer else { return .success("") }
         return .success(String(cString: buf))
     }
@@ -817,7 +814,7 @@ internal extension Parcel.Handle {
     func readStrongBinder() -> Result<AndroidBinder, AndroidBinderError> {
         var binderPtr: OpaquePointer? = nil
         let status = AParcel_readStrongBinder(pointer, &binderPtr)
-        guard status == STATUS_OK else { return status.mapError() }
+        guard status == STATUS_OK else { return status.mapError(as: AndroidBinder.self) }
         guard let ptr = binderPtr else {
             return .failure(AndroidBinderError(AndroidBinderError.ErrorCode.unexpectedNull))
         }
@@ -832,7 +829,7 @@ internal extension Parcel.Handle {
     func readStatusHeader() -> Result<Status, AndroidBinderError> {
         var statusPtr: OpaquePointer? = nil
         let statusCode = AParcel_readStatusHeader(pointer, &statusPtr)
-        guard statusCode == STATUS_OK else { return statusCode.mapError() }
+        guard statusCode == STATUS_OK else { return statusCode.mapError(as: Status.self) }
         guard let ptr = statusPtr else {
             return .failure(AndroidBinderError(AndroidBinderError.ErrorCode.unexpectedNull))
         }
@@ -979,7 +976,7 @@ internal extension Parcel.Handle {
             }
         }
         defer { ctx.buffer?.deallocate() }
-        guard status == STATUS_OK else { return status.mapError() }
+        guard status == STATUS_OK else { return status.mapError(as: [Int8]?.self) }
         if ctx.isNull { return .success(nil) }
         if let buf = ctx.buffer {
             return .success(Array(UnsafeBufferPointer(start: buf, count: Int(ctx.count))))
@@ -1004,7 +1001,7 @@ internal extension Parcel.Handle {
             }
         }
         defer { ctx.buffer?.deallocate() }
-        guard status == STATUS_OK else { return status.mapError() }
+        guard status == STATUS_OK else { return status.mapError(as: [Int32]?.self) }
         if ctx.isNull { return .success(nil) }
         if let buf = ctx.buffer {
             return .success(Array(UnsafeBufferPointer(start: buf, count: Int(ctx.count))))
@@ -1029,7 +1026,7 @@ internal extension Parcel.Handle {
             }
         }
         defer { ctx.buffer?.deallocate() }
-        guard status == STATUS_OK else { return status.mapError() }
+        guard status == STATUS_OK else { return status.mapError(as: [UInt32]?.self) }
         if ctx.isNull { return .success(nil) }
         if let buf = ctx.buffer {
             return .success(Array(UnsafeBufferPointer(start: buf, count: Int(ctx.count))))
@@ -1054,7 +1051,7 @@ internal extension Parcel.Handle {
             }
         }
         defer { ctx.buffer?.deallocate() }
-        guard status == STATUS_OK else { return status.mapError() }
+        guard status == STATUS_OK else { return status.mapError(as: [Int64]?.self) }
         if ctx.isNull { return .success(nil) }
         if let buf = ctx.buffer {
             return .success(Array(UnsafeBufferPointer(start: buf, count: Int(ctx.count))))
@@ -1079,7 +1076,7 @@ internal extension Parcel.Handle {
             }
         }
         defer { ctx.buffer?.deallocate() }
-        guard status == STATUS_OK else { return status.mapError() }
+        guard status == STATUS_OK else { return status.mapError(as: [UInt64]?.self) }
         if ctx.isNull { return .success(nil) }
         if let buf = ctx.buffer {
             return .success(Array(UnsafeBufferPointer(start: buf, count: Int(ctx.count))))
@@ -1104,7 +1101,7 @@ internal extension Parcel.Handle {
             }
         }
         defer { ctx.buffer?.deallocate() }
-        guard status == STATUS_OK else { return status.mapError() }
+        guard status == STATUS_OK else { return status.mapError(as: [Float]?.self) }
         if ctx.isNull { return .success(nil) }
         if let buf = ctx.buffer {
             return .success(Array(UnsafeBufferPointer(start: buf, count: Int(ctx.count))))
@@ -1129,7 +1126,7 @@ internal extension Parcel.Handle {
             }
         }
         defer { ctx.buffer?.deallocate() }
-        guard status == STATUS_OK else { return status.mapError() }
+        guard status == STATUS_OK else { return status.mapError(as: [Double]?.self) }
         if ctx.isNull { return .success(nil) }
         if let buf = ctx.buffer {
             return .success(Array(UnsafeBufferPointer(start: buf, count: Int(ctx.count))))
@@ -1154,7 +1151,7 @@ internal extension Parcel.Handle {
             }
         }
         defer { ctx.buffer?.deallocate() }
-        guard status == STATUS_OK else { return status.mapError() }
+        guard status == STATUS_OK else { return status.mapError(as: [UInt16]?.self) }
         if ctx.isNull { return .success(nil) }
         if let buf = ctx.buffer {
             return .success(Array(UnsafeBufferPointer(start: buf, count: Int(ctx.count))))
@@ -1184,7 +1181,7 @@ internal extension Parcel.Handle {
             )
         }
         defer { ctx.elements?.deallocate() }
-        guard status == STATUS_OK else { return status.mapError() }
+        guard status == STATUS_OK else { return status.mapError(as: [Bool]?.self) }
         if ctx.isNull { return .success(nil) }
         if let elements = ctx.elements {
             return .success(Array(UnsafeBufferPointer(start: elements, count: Int(ctx.count))))

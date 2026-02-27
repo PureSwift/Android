@@ -75,6 +75,9 @@ var package = Package(
         ),
         .library(
             name: "AndroidNDK", targets: ["AndroidNDK"]
+        ),
+        .library(
+            name: "AndroidHardware", targets: ["AndroidHardware"]
         )
     ],
     dependencies: [
@@ -145,7 +148,8 @@ var package = Package(
                 "AndroidWidget",
                 "AndroidWebKit",
                 "AndroidLogging",
-                "AndroidLooper"
+                "AndroidLooper",
+                "AndroidHardware"
             ],
             swiftSettings: [
               .swiftLanguageMode(.v5),
@@ -444,6 +448,21 @@ var package = Package(
             cxxSettings: [
                 .define("ANDROID_NDK_VERSION", to: ndkVersion.description),
                 .define("ANDROID_SDK_VERSION", to: sdkVersion.description)
+            ],
+            linkerSettings: [
+                .linkedLibrary("android", .when(platforms: [.android]))
+            ]
+        ),
+        .target(
+            name: "AndroidHardware",
+            dependencies: [
+                "AndroidNDK",
+                "AndroidLooper"
+            ],
+            swiftSettings: [
+              .swiftLanguageMode(.v6),
+              ndkVersionDefine,
+              sdkVersionDefine
             ],
             linkerSettings: [
                 .linkedLibrary("android", .when(platforms: [.android]))
