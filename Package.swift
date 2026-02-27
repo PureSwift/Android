@@ -78,6 +78,9 @@ var package = Package(
         ),
         .library(
             name: "AndroidHardware", targets: ["AndroidHardware"]
+        ),
+        .library(
+            name: "AndroidFileManager", targets: ["AndroidFileManager"]
         )
     ],
     dependencies: [
@@ -149,7 +152,8 @@ var package = Package(
                 "AndroidWebKit",
                 "AndroidLogging",
                 "AndroidLooper",
-                "AndroidHardware"
+                "AndroidHardware",
+                "AndroidFileManager"
             ],
             swiftSettings: [
               .swiftLanguageMode(.v5),
@@ -458,6 +462,20 @@ var package = Package(
             dependencies: [
                 "AndroidNDK",
                 "AndroidLooper"
+            ],
+            swiftSettings: [
+              .swiftLanguageMode(.v6),
+              ndkVersionDefine,
+              sdkVersionDefine
+            ],
+            linkerSettings: [
+                .linkedLibrary("android", .when(platforms: [.android]))
+            ]
+        ),
+        .target(
+            name: "AndroidFileManager",
+            dependencies: [
+                "AndroidNDK"
             ],
             swiftSettings: [
               .swiftLanguageMode(.v6),
