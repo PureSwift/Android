@@ -220,18 +220,6 @@ var package = Package(
             ]
         ),
         .target(
-            name: "AndroidManifest",
-            dependencies: [
-                "AndroidJava"
-            ],
-            exclude: ["swift-java.config"],
-            swiftSettings: [
-              .swiftLanguageMode(.v5),
-              ndkVersionDefine,
-              sdkVersionDefine
-            ]
-        ),
-        .target(
             name: "AndroidR",
             dependencies: [
                 "AndroidJava"
@@ -476,6 +464,20 @@ var package = Package(
         ),
         .target(
             name: "AndroidFileManager",
+            dependencies: [
+                "AndroidNDK"
+            ],
+            swiftSettings: [
+              .swiftLanguageMode(.v6),
+              ndkVersionDefine,
+              sdkVersionDefine
+            ],
+            linkerSettings: [
+                .linkedLibrary("android", .when(platforms: [.android]))
+            ]
+        ),
+        .target(
+            name: "AndroidManifest",
             dependencies: [
                 "AndroidNDK"
             ],
