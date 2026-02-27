@@ -5,8 +5,6 @@
 //  Created by Alsey Coleman Miller on 3/22/18.
 //
 
-import SwiftJava
-
 /// Android Manifest Permission
 public struct Permission: RawRepresentable, Equatable, Hashable, Codable, Sendable {
     
@@ -419,4 +417,130 @@ public extension Permission {
     static let writeSyncSettings = Permission(rawValue: javaClass.WRITE_SYNC_SETTINGS)
     
     static let writeVoicemail = Permission(rawValue: javaClass.WRITE_VOICEMAIL)
+    
+    @available(Android 31, *)
+    static let accessBlobsAcrossUsers = Permission(rawValue: javaClass.ACCESS_BLOBS_ACROSS_USERS)
+    
+    @available(Android 29, *)
+    static let bindCallRedirectionService = Permission(rawValue: javaClass.BIND_CALL_REDIRECTION_SERVICE)
+    
+    @available(Android 29, *)
+    static let bindCarrierMessagingClientService = Permission(rawValue: javaClass.BIND_CARRIER_MESSAGING_CLIENT_SERVICE)
+    
+    static let bindCarrierMessagingService = Permission(rawValue: javaClass.BIND_CARRIER_MESSAGING_SERVICE)
+    
+    @available(Android 31, *)
+    static let bindCompanionDeviceService = Permission(rawValue: javaClass.BIND_COMPANION_DEVICE_SERVICE)
+    
+    @available(Android 30, *)
+    static let bindControls = Permission(rawValue: javaClass.BIND_CONTROLS)
+    
+    @available(Android 30, *)
+    static let bindQuickAccessWalletService = Permission(rawValue: javaClass.BIND_QUICK_ACCESS_WALLET_SERVICE)
+    
+    @available(Android 33, *)
+    static let bindTvInteractiveApp = Permission(rawValue: javaClass.BIND_TV_INTERACTIVE_APP)
+    
+    @available(Android 29, *)
+    static let callCompanionApp = Permission(rawValue: javaClass.CALL_COMPANION_APP)
+    
+    @available(Android 33, *)
+    static let deliverCompanionMessages = Permission(rawValue: javaClass.DELIVER_COMPANION_MESSAGES)
+    
+    static let getTasks = Permission(rawValue: javaClass.GET_TASKS)
+    
+    @available(Android 31, *)
+    static let hideOverlayWindows = Permission(rawValue: javaClass.HIDE_OVERLAY_WINDOWS)
+    
+    @available(Android 31, *)
+    static let highSamplingRateSensors = Permission(rawValue: javaClass.HIGH_SAMPLING_RATE_SENSORS)
+    
+    @available(Android 30, *)
+    static let interactAcrossProfiles = Permission(rawValue: javaClass.INTERACT_ACROSS_PROFILES)
+    
+    @available(Android 32, *)
+    static let launchMultiPaneSettingsDeepLink = Permission(rawValue: javaClass.LAUNCH_MULTI_PANE_SETTINGS_DEEP_LINK)
+    
+    @available(Android 30, *)
+    static let loaderUsageStats = Permission(rawValue: javaClass.LOADER_USAGE_STATS)
+    
+    @available(Android 33, *)
+    static let manageWifiInterfaces = Permission(rawValue: javaClass.MANAGE_WIFI_INTERFACES)
+    
+    @available(Android 33, *)
+    static let manageWifiNetworkSelection = Permission(rawValue: javaClass.MANAGE_WIFI_NETWORK_SELECTION)
+    
+    @available(Android 33, *)
+    static let overrideWifiConfig = Permission(rawValue: javaClass.OVERRIDE_WIFI_CONFIG)
+    
+    static let persistentActivity = Permission(rawValue: javaClass.PERSISTENT_ACTIVITY)
+    
+    @available(Android 30, *)
+    static let queryAllPackages = Permission(rawValue: javaClass.QUERY_ALL_PACKAGES)
+    
+    @available(Android 33, *)
+    static let readAssistantAppSearchData = Permission(rawValue: javaClass.READ_ASSISTANT_APP_SEARCH_DATA)
+    
+    @available(Android 33, *)
+    static let readBasicPhoneState = Permission(rawValue: javaClass.READ_BASIC_PHONE_STATE)
+    
+    @available(Android 33, *)
+    static let readHomeAppSearchData = Permission(rawValue: javaClass.READ_HOME_APP_SEARCH_DATA)
+    
+    static let readInputState = Permission(rawValue: javaClass.READ_INPUT_STATE)
+    
+    @available(Android 33, *)
+    static let readNearbyStreamingPolicy = Permission(rawValue: javaClass.READ_NEARBY_STREAMING_POLICY)
+    
+    @available(Android 30, *)
+    static let readPrecisePhoneState = Permission(rawValue: javaClass.READ_PRECISE_PHONE_STATE)
+    
+    @available(Android 33, *)
+    static let requestCompanionProfileAppStreaming = Permission(rawValue: javaClass.REQUEST_COMPANION_PROFILE_APP_STREAMING)
+    
+    @available(Android 33, *)
+    static let requestCompanionProfileAutomotiveProjection = Permission(rawValue: javaClass.REQUEST_COMPANION_PROFILE_AUTOMOTIVE_PROJECTION)
+    
+    @available(Android 33, *)
+    static let requestCompanionProfileComputer = Permission(rawValue: javaClass.REQUEST_COMPANION_PROFILE_COMPUTER)
+    
+    @available(Android 31, *)
+    static let requestCompanionProfileWatch = Permission(rawValue: javaClass.REQUEST_COMPANION_PROFILE_WATCH)
+    
+    @available(Android 33, *)
+    static let requestCompanionSelfManaged = Permission(rawValue: javaClass.REQUEST_COMPANION_SELF_MANAGED)
+    
+    @available(Android 31, *)
+    static let requestCompanionStartForegroundServicesFromBackground = Permission(rawValue: javaClass.REQUEST_COMPANION_START_FOREGROUND_SERVICES_FROM_BACKGROUND)
+    
+    @available(Android 31, *)
+    static let requestObserveCompanionDevicePresence = Permission(rawValue: javaClass.REQUEST_OBSERVE_COMPANION_DEVICE_PRESENCE)
+    
+    static let restartPackages = Permission(rawValue: javaClass.RESTART_PACKAGES)
+    
+    static let setPreferredApplications = Permission(rawValue: javaClass.SET_PREFERRED_APPLICATIONS)
+    
+    @available(Android 29, *)
+    static let smsFinancialTransactions = Permission(rawValue: javaClass.SMS_FINANCIAL_TRANSACTIONS)
+    
+    @available(Android 31, *)
+    static let startForegroundServicesFromBackground = Permission(rawValue: javaClass.START_FOREGROUND_SERVICES_FROM_BACKGROUND)
+    
+    @available(Android 33, *)
+    static let startViewAppFeatures = Permission(rawValue: javaClass.START_VIEW_APP_FEATURES)
+    
+    @available(Android 29, *)
+    static let startViewPermissionUsage = Permission(rawValue: javaClass.START_VIEW_PERMISSION_USAGE)
+    
+    @available(Android 33, *)
+    static let subscribeToKeyguardLockedState = Permission(rawValue: javaClass.SUBSCRIBE_TO_KEYGUARD_LOCKED_STATE)
+    
+    @available(Android 31, *)
+    static let updatePackagesWithoutUserAction = Permission(rawValue: javaClass.UPDATE_PACKAGES_WITHOUT_USER_ACTION)
+    
+    @available(Android 23, *)
+    static let useFingerprint = Permission(rawValue: javaClass.USE_FINGERPRINT)
+    
+    @available(Android 31, *)
+    static let useIccAuthWithDeviceIdentifier = Permission(rawValue: javaClass.USE_ICC_AUTH_WITH_DEVICE_IDENTIFIER)
 }
