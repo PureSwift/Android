@@ -148,7 +148,8 @@ var package = Package(
                 "AndroidWidget",
                 "AndroidWebKit",
                 "AndroidLogging",
-                "AndroidLooper"
+                "AndroidLooper",
+                "AndroidHardware"
             ],
             swiftSettings: [
               .swiftLanguageMode(.v5),
