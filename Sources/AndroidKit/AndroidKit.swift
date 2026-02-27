@@ -31,4 +31,6 @@ import AndroidNDK
 @_exported import AndroidWebKit
 @_exported import AndroidLogging
 @_exported import AndroidLooper
+@_exported import AndroidHardware
 @_exported import AndroidFileManager
+@_exported import AndroidNativeActivity
