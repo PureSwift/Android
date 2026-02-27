@@ -34,3 +34,4 @@ import AndroidNDK
 @_exported import AndroidHardware
 @_exported import AndroidFileManager
 @_exported import AndroidNativeActivity
+@_exported import AndroidInput
