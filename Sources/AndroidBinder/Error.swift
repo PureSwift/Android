@@ -126,7 +126,7 @@ internal extension binder_status_t {
         return .failure(error)
     }
 
-    func mapError<T>(
+    func mapError<T: ~Copyable>(
         as _: T.Type,
         file: StaticString = #file,
         function: StaticString = #function
