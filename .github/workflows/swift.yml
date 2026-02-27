@@ -7,8 +7,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        swift: ['6.2.3']
-        arch: ['aarch64', 'x86_64']
+        swift: ['6.2.3', 'nightly-6.3']
+        arch: ['aarch64', 'x86_64', 'armv7']
         sdk: ['28', '29', '31', '33']
     runs-on: macos-15
     timeout-minutes: 30
