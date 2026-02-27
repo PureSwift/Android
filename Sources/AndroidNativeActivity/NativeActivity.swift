@@ -19,7 +19,8 @@ import SystemPackage
 /// It is created by the framework, and handed to the application's native code as it is being launched.
 ///
 /// [See Also](https://developer.android.com/ndk/reference/group/native-activity#anativeactivity)
-public struct NativeActivity: ~Copyable {
+@MainActor
+public final class NativeActivity {
     
     // MARK: - Properties
     
@@ -29,6 +30,10 @@ public struct NativeActivity: ~Copyable {
     
     internal init(_ pointer: UnsafeMutablePointer<ANativeActivity>) {
         self.pointer = pointer
+    }
+    
+    deinit {
+        ANativeActivity_finish(pointer)
     }
     
     // MARK: - Accessors
@@ -247,14 +252,6 @@ public extension NativeActivity {
     func hideSoftInput(flags: UInt32) {
         ANativeActivity_hideSoftInput(pointer, flags)
     }
-    
-    /// Finish the given activity.
-    ///
-    /// Calls Activity.finish() on the Java object for the given activity.
-    /// Note that this method can be called from any thread; it will send a message to the main thread of the process where the Java finish call will take place.
-    func finish() {
-        ANativeActivity_finish(pointer)
-    }
 }
 
 #if !os(Android)
@@ -267,8 +264,5 @@ private func ANativeActivity_finish(_ activity: UnsafeMutablePointer<ANativeActi
 
 public typealias ANativeActivity = OpaquePointer
 public typealias ANativeActivityCallbacks = OpaquePointer
-public typealias JavaVM_ = OpaquePointer
-public typealias JNIEnv = OpaquePointer
-public typealias jobject = OpaquePointer
 public typealias ARect = OpaquePointer
 #endif
