@@ -17,6 +17,8 @@ func stub() -> Never {
     fatalError("Not running on Android")
 }
 
+typealias ALooper_callbackFunc = @convention(c) (Int32, Int32, UnsafeMutableRawPointer?) -> Int32
+
 // MARK: - ASensorEvent
 
 /**
@@ -50,7 +52,7 @@ public struct ASensorEvent {
 // MARK: - ASensorManager
 
 func ASensorManager_getInstanceForPackage(_ packageName: UnsafePointer<CChar>?) -> OpaquePointer? { stub() }
-func ASensorManager_getSensorList(_ manager: OpaquePointer, _ list: UnsafeMutablePointer<UnsafePointer<OpaquePointer>?>) -> Int32 { stub() }
+func ASensorManager_getSensorList(_ manager: OpaquePointer, _ list: UnsafeMutablePointer<UnsafePointer<OpaquePointer?>?>) -> Int32 { stub() }
 func ASensorManager_getDefaultSensor(_ manager: OpaquePointer, _ type: Int32) -> OpaquePointer? { stub() }
 func ASensorManager_getDefaultSensorEx(_ manager: OpaquePointer, _ type: Int32, _ wakeUp: Bool) -> OpaquePointer? { stub() }
 func ASensorManager_createEventQueue(_ manager: OpaquePointer, _ looper: OpaquePointer, _ ident: Int32, _ callback: ALooper_callbackFunc?, _ data: UnsafeMutableRawPointer?) -> OpaquePointer? { stub() }

@@ -48,10 +48,13 @@ public extension SensorManager {
 
     /// Returns all sensors available on the device.
     var sensors: [Sensor] {
-        var list: UnsafePointer<OpaquePointer>?
+        var list: UnsafePointer<OpaquePointer?>?
         let count = ASensorManager_getSensorList(pointer, &list)
         guard count > 0, let list else { return [] }
-        return (0 ..< Int(count)).map { Sensor(list[$0]) }
+        return (0 ..< Int(count)).compactMap { index in
+            guard let pointer = list[index] else { return nil }
+            return Sensor(pointer)
+        }
     }
 
     /// Returns the default sensor of the given type, or `nil` if none exists.
