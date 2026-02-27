@@ -81,7 +81,7 @@ func AParcel_readDouble(_ parcel: OpaquePointer, _ outValue: UnsafeMutablePointe
 func AParcel_readBool(_ parcel: OpaquePointer, _ outValue: UnsafeMutablePointer<Bool>) -> binder_status_t { stub() }
 func AParcel_readChar(_ parcel: OpaquePointer, _ outValue: UnsafeMutablePointer<UInt16>) -> binder_status_t { stub() }
 func AParcel_readByte(_ parcel: OpaquePointer, _ outValue: UnsafeMutablePointer<Int8>) -> binder_status_t { stub() }
-func AParcel_readString(_ parcel: OpaquePointer, _ stringData: UnsafeMutableRawPointer?, _ allocator: (@convention(c) (UnsafeMutableRawPointer?, Int32) -> UnsafeMutablePointer<CChar>?)?) -> binder_status_t { stub() }
+func AParcel_readString(_ parcel: OpaquePointer, _ stringData: UnsafeMutableRawPointer?, _ allocator: (@convention(c) (UnsafeMutableRawPointer?, Int32, UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>?) -> Bool)?) -> binder_status_t { stub() }
 func AParcel_readStrongBinder(_ parcel: OpaquePointer, _ outBinder: UnsafeMutablePointer<OpaquePointer?>) -> binder_status_t { stub() }
 func AParcel_readParcelFileDescriptor(_ parcel: OpaquePointer, _ outFd: UnsafeMutablePointer<Int32>) -> binder_status_t { stub() }
 func AParcel_readStatusHeader(_ parcel: OpaquePointer, _ outStatus: UnsafeMutablePointer<OpaquePointer?>) -> binder_status_t { stub() }
