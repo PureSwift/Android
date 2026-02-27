@@ -297,6 +297,8 @@ var package = Package(
                 "AndroidJava",
                 "AndroidUtil",
                 "AndroidOS",
+                "AndroidNDK",
+                "AndroidFileManager",
             ],
             exclude: ["swift-java.config"],
             swiftSettings: [
