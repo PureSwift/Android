@@ -19,7 +19,7 @@ import SystemPackage
 /// It is created by the framework, and handed to the application's native code as it is being launched.
 ///
 /// [See Also](https://developer.android.com/ndk/reference/group/native-activity#anativeactivity)
-public struct NativeActivity: ~Copyable, Sendable {
+public struct NativeActivity: ~Copyable {
     
     // MARK: - Properties
     
