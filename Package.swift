@@ -84,6 +84,9 @@ var package = Package(
         ),
         .library(
             name: "AndroidNativeActivity", targets: ["AndroidNativeActivity"]
+        ),
+        .library(
+            name: "AndroidInput", targets: ["AndroidInput"]
         )
     ],
     dependencies: [
@@ -157,7 +160,8 @@ var package = Package(
                 "AndroidLooper",
                 "AndroidHardware",
                 "AndroidFileManager",
-                "AndroidNativeActivity"
+                "AndroidNativeActivity",
+                "AndroidInput"
             ],
             swiftSettings: [
               .swiftLanguageMode(.v5),
@@ -500,10 +504,26 @@ var package = Package(
                 "AndroidNDK",
                 "AndroidLooper",
                 "AndroidFileManager",
+                "AndroidInput",
                 .product(
                     name: "SystemPackage",
                     package: "swift-system"
                 )
+            ],
+            swiftSettings: [
+              .swiftLanguageMode(.v6),
+              ndkVersionDefine,
+              sdkVersionDefine
+            ],
+            linkerSettings: [
+                .linkedLibrary("android", .when(platforms: [.android]))
+            ]
+        ),
+        .target(
+            name: "AndroidInput",
+            dependencies: [
+                "AndroidNDK",
+                "AndroidLooper"
             ],
             swiftSettings: [
               .swiftLanguageMode(.v6),
