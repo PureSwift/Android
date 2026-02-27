@@ -17,7 +17,7 @@ import AndroidLooper
 /// AInputQueue is an opaque handle for the native input queue associated with a window.
 ///
 /// [See Also](https://developer.android.com/ndk/reference/group/input#ainputqueue)
-public struct InputQueue: ~Copyable, Sendable {
+public struct InputQueue: ~Copyable {
     
     // MARK: - Properties
     
@@ -39,12 +39,14 @@ public struct InputQueue: ~Copyable, Sendable {
     ///   - callback: The function to call when an event is available.
     ///   - data: A private data pointer to supply to the callback.
     public func attachLooper(
-        _ looper: Looper,
+        _ looper: borrowing Looper,
         identifier: Int32,
         callback: ALooper_callbackFunc?,
         data: UnsafeMutableRawPointer?
     ) {
-        AInputQueue_attachLooper(pointer, looper.pointer, identifier, callback, data)
+        looper.withUnsafePointer { looperPointer in
+            AInputQueue_attachLooper(self.pointer, looperPointer, identifier, callback, data)
+        }
     }
     
     /// Remove the input queue from the looper it is currently attached to.
@@ -84,7 +86,7 @@ public struct InputQueue: ~Copyable, Sendable {
     /// - Parameter event: The input event to pre-dispatch.
     /// - Returns: The result code.
     @discardableResult
-    public func preDispatchEvent(_ event: InputEvent) -> Int32 {
+    public func preDispatchEvent(_ event: borrowing InputEvent) -> Int32 {
         AInputQueue_preDispatchEvent(pointer, event.pointer)
     }
     
@@ -95,16 +97,7 @@ public struct InputQueue: ~Copyable, Sendable {
     /// - Parameters:
     ///   - event: The event that was handled.
     ///   - handled: Whether the event was handled (1) or not (0).
-    public func finishEvent(_ event: InputEvent, handled: Bool) {
+    public func finishEvent(_ event: borrowing InputEvent, handled: Bool) {
         AInputQueue_finishEvent(pointer, event.pointer, handled ? 1 : 0)
     }
 }
-
-#if !os(Android)
-private func AInputQueue_attachLooper(_ queue: OpaquePointer, _ looper: OpaquePointer, _ ident: Int32, _ callback: ALooper_callbackFunc?, _ data: UnsafeMutableRawPointer?) { fatalError("stub") }
-private func AInputQueue_detachLooper(_ queue: OpaquePointer) { fatalError("stub") }
-private func AInputQueue_hasEvents(_ queue: OpaquePointer) -> Int32 { fatalError("stub") }
-private func AInputQueue_getEvent(_ queue: OpaquePointer, _ outEvent: UnsafeMutablePointer<OpaquePointer?>?) -> Int32 { fatalError("stub") }
-private func AInputQueue_preDispatchEvent(_ queue: OpaquePointer, _ event: OpaquePointer) -> Int32 { fatalError("stub") }
-private func AInputQueue_finishEvent(_ queue: OpaquePointer, _ event: OpaquePointer, _ handled: Int32) { fatalError("stub") }
-#endif
