@@ -13,18 +13,34 @@ import Darwin
 #elseif canImport(Glibc)
 import Glibc
 #endif
-import SystemPackage
 
 public extension Permission {
 
-    /// Result of `APermissionManager_checkPermission`.
-    enum CheckStatus: Sendable, Equatable {
+    /// Permission State
+    enum CheckStatus: Int32, Sendable, Equatable {
+        
         /// Permission is granted (`0`).
-        case granted
+        case granted = 0
+        
         /// Permission is denied (`-1`).
-        case denied
-        /// Any other platform-specific status code.
-        case unknown(Int32)
+        case denied = -1
+    }
+    
+    enum Error: Int32, Swift.Error {
+        
+        /**
+         This is returned if the permission check encountered an unspecified error.
+
+         The output result is unmodified.
+         */
+        case unknown = -1
+        
+        /**
+         This is returned if the permission check failed because the service is unavailable.
+
+         The output result is unmodified.
+         */
+        case serviceUnavailable = -2
     }
 }
 
@@ -40,27 +56,44 @@ public extension Permission {
     func check(
         pid: pid_t = getpid(),
         uid: uid_t = getuid()
-    ) -> CheckStatus {
-        let result: Int32
+    ) throws(Permission.Error) -> CheckStatus {
+        try _check(pid: pid, uid: uid).get()
+    }
+    
+    /// Checks this permission for a specific process/user pair using
+    /// `APermissionManager_checkPermission`.
+    ///
+    /// - Parameters:
+    ///   - pid: Process ID to evaluate. Defaults to the current process ID.
+    ///   - uid: User ID to evaluate. Defaults to the current user ID.
+    /// - Returns: Permission check status.
+    internal func _check(
+        pid: pid_t = getpid(),
+        uid: uid_t = getuid()
+    ) -> Result<CheckStatus, Error> {
+        var result: Int32 = -1
+        let returnCode: Int32
         #if os(Android)
-        result = rawValue.withCString {
-            APermissionManager_checkPermission($0, pid, uid)
+        returnCode = rawValue.withCString {
+            APermissionManager_checkPermission($0, pid, uid, &result)
         }
         #else
-        result = -1
+        returnCode = -1
         #endif
-        switch result {
-        case 0:
-            return .granted
-        case -1:
-            return .denied
-        default:
-            return .unknown(result)
+        guard returnCode != 0, let status = CheckStatus(rawValue: result) else {
+            return .failure(.init(rawValue: returnCode) ?? .unknown)
         }
+        return .success(status)
     }
 
     /// Returns `true` when this permission is granted for the current process.
     var isGranted: Bool {
-        check() == .granted
+        let status = _check()
+        switch status {
+        case .success(.granted):
+            return true
+        default:
+            return false
+        }
     }
 }
