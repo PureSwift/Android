@@ -16,7 +16,7 @@ import AndroidNDK
 /// both key events and motion events (touch, mouse, joystick, etc.).
 ///
 /// [See Also](https://developer.android.com/ndk/reference/group/input#ainputevent)
-public struct InputEvent: ~Copyable, Sendable {
+public struct InputEvent: ~Copyable {
     
     // MARK: - Properties
     
