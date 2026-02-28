@@ -5,6 +5,7 @@
 //  Created by Alsey Coleman Miller on 2/27/26.
 //
 
+#if AGDK
 #if os(Android)
 import Android
 import AndroidNDK
@@ -16,13 +17,13 @@ public struct GameController: ~Copyable {
     
     let environment: JNIEnvironment
     
-    public init(context: jobject, environment: JNIEnvironment) {
+    public init(context: jobject, environment: JNIEnvironment) throws {
         let result = Paddleboat_init(environment, context)
         guard result == 0 else {
-            throw Error(rawValue: result) ?? .notInitialized
+            throw GameController.Error(rawValue: result) ?? GameController.Error.notInitialized
         }
         guard Paddleboat_isInitialized() else {
-            throw .notInitialized
+            throw GameController.Error.notInitialized
         }
         self.environment = environment
     }
@@ -31,7 +32,7 @@ public struct GameController: ~Copyable {
         Paddleboat_destroy(environment)
     }
     
-    public static func update() {
+    public func update() {
         Paddleboat_update(environment)
     }
     
@@ -51,27 +52,25 @@ public struct GameController: ~Copyable {
     
     public static func getControllerName(index: Int32, bufferSize: Int = 128) -> (ErrorCode, String) {
         var buffer = [CChar](repeating: 0, count: bufferSize)
-        let err = Paddleboat_getControllerName(index, buffer.count, &buffer)
+        let err = Paddleboat_getControllerName(index, Int32(buffer.count), &buffer)
         let code = ErrorCode(rawValue: err) ?? .noError
-        let name = String(cString: buffer)
+        let name = buffer.withUnsafeBufferPointer { String(cString: $0.baseAddress!) }
         return (code, name)
     }
     
     // MARK: - Lights / Vibration
     @discardableResult
-    public static func setControllerLight(index: Int32, type: LightType, data: UInt32) -> ErrorCode {
-        guard let env = currentJNIEnv() else { return .notInitialized }
-        let err = Paddleboat_setControllerLight(index, type.rawValue, data, env)
+    public func setControllerLight(index: Int32, type: LightType, data: UInt32) -> ErrorCode {
+        let err = Paddleboat_setControllerLight(index, type.rawValue, data, environment)
         return ErrorCode(rawValue: err) ?? .noError
     }
-    
+
     @discardableResult
-    public static func setControllerVibration(index: Int32, vibration: VibrationData) -> ErrorCode {
-        guard let env = currentJNIEnv() else { return .notInitialized }
+    public func setControllerVibration(index: Int32, vibration: VibrationData) -> ErrorCode {
         var cData = Paddleboat_Vibration_Data(duration_ms: vibration.durationMs,
                                               left_motor_intensity: vibration.intensityLeft,
                                               right_motor_intensity: vibration.intensityRight)
-        let err = Paddleboat_setControllerVibrationData(index, &cData, env)
+        let err = Paddleboat_setControllerVibrationData(index, &cData, environment)
         return ErrorCode(rawValue: err) ?? .noError
     }
     
@@ -90,6 +89,7 @@ public extension GameController {
     
     // MARK: - Error
     public enum Error: Int32, Swift.Error {
+        case noError = 0
         case alreadyInitialized = -2000
         case notInitialized = -2001
         case invalidParameter = -2002
@@ -102,15 +102,17 @@ public extension GameController {
         case noMouse = -2009
         case initGCMFailure = -2010
     }
-    
-    public enum Status: Int32 {
+
+    typealias ErrorCode = Error
+
+    public enum ControllerStatus: Int32 {
         case inactive = 0
         case active = 1
         case justConnected = 2
         case justDisconnected = 3
     }
-    
-    public struct Buttons: OptionSet {
+
+    public struct Buttons: OptionSet, Sendable {
         public let rawValue: UInt32
         public init(rawValue: UInt32) { self.rawValue = rawValue }
         public static let a            = Buttons(rawValue: 1 << 0)
@@ -142,7 +144,7 @@ public extension GameController {
         case rgb = 1
     }
     
-    public struct IntegratedMotionSensorFlags: OptionSet {
+    public struct IntegratedMotionSensorFlags: OptionSet, Sendable {
         public let rawValue: UInt32
         public init(rawValue: UInt32) { self.rawValue = rawValue }
         public static let none          = IntegratedMotionSensorFlags([])
@@ -162,3 +164,4 @@ public extension GameController {
         }
     }
 }
+#endif
