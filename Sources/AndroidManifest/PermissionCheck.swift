@@ -53,6 +53,7 @@ public extension Permission {
     ///   - pid: Process ID to evaluate. Defaults to the current process ID.
     ///   - uid: User ID to evaluate. Defaults to the current user ID.
     /// - Returns: Permission check status.
+    @available(Android 31, *)
     func check(
         pid: pid_t = getpid(),
         uid: uid_t = getuid()
@@ -67,6 +68,7 @@ public extension Permission {
     ///   - pid: Process ID to evaluate. Defaults to the current process ID.
     ///   - uid: User ID to evaluate. Defaults to the current user ID.
     /// - Returns: Permission check status.
+    @available(Android 31, *)
     internal func _check(
         pid: pid_t = getpid(),
         uid: uid_t = getuid()
@@ -87,6 +89,7 @@ public extension Permission {
     }
 
     /// Returns `true` when this permission is granted for the current process.
+    @available(Android 31, *)
     var isGranted: Bool {
         let status = _check()
         switch status {

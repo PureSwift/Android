@@ -132,6 +132,7 @@ public extension Parcel {
      * \param length number of bytes to marshal, or nil to marshal from \p start to end.
      * \return the marshaled bytes.
      */
+    @available(Android 33, *)
     func marshal(start: Int = 0, length: Int? = nil) throws(AndroidBinderError) -> [UInt8] {
         let len = length ?? (dataSize - start)
         var buffer = [UInt8](repeating: 0, count: len)
@@ -148,6 +149,7 @@ public extension Parcel {
      *
      * \param data the bytes to unmarshal.
      */
+    @available(Android 33, *)
     func unmarshal(_ data: [UInt8]) throws(AndroidBinderError) {
         if let base = data.withUnsafeBufferPointer({ $0.baseAddress }) {
             try handle.unmarshal(base, length: data.count).get()
@@ -671,6 +673,7 @@ internal extension Parcel.Handle {
      *
      * Available since API level 33.
      */
+    @available(Android 33, *)
     func marshal(into buffer: UnsafeMutablePointer<UInt8>, start: Int, length: Int) -> Result<Void, AndroidBinderError> {
         AParcel_marshal(pointer, buffer, start, length).mapError()
     }
@@ -680,6 +683,7 @@ internal extension Parcel.Handle {
      *
      * Available since API level 33.
      */
+    @available(Android 33, *)
     func unmarshal(_ data: UnsafePointer<UInt8>, length: Int) -> Result<Void, AndroidBinderError> {
         AParcel_unmarshal(pointer, data, length).mapError()
     }
