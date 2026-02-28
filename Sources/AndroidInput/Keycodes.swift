@@ -7,7 +7,7 @@
 
 #if os(Android)
 import Android
-import AndroidNDK
+import CAndroidNDK
 #endif
 
 /// Key code identifying a physical key on a keyboard or virtual key from an input device.

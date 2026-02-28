@@ -8,7 +8,7 @@
 #if AGDK
 #if os(Android)
 import Android
-import AndroidNDK
+import CAndroidNDK
 #endif
 
 /// Swift wrapper for the Android Game Controller (Paddleboat) C API.

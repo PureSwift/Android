@@ -7,7 +7,7 @@
 
 #if canImport(Android)
 import Android
-import AndroidNDK
+import CAndroidNDK
 #endif
 
 /// A sensor event containing a measurement from a hardware sensor.

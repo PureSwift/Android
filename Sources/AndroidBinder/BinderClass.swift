@@ -7,7 +7,7 @@
 
 #if canImport(Android)
 import Android
-import AndroidNDK
+import CAndroidNDK
 #endif
 
 public struct BinderClass: ~Copyable {

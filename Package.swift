@@ -74,7 +74,7 @@ var package = Package(
             name: "AndroidLooper", targets: ["AndroidLooper"]
         ),
         .library(
-            name: "AndroidNDK", targets: ["AndroidNDK"]
+            name: "CAndroidNDK", targets: ["CAndroidNDK"]
         ),
         .library(
             name: "AndroidHardware", targets: ["AndroidHardware"]
@@ -143,7 +143,7 @@ var package = Package(
                     name: "JavaLangReflect",
                     package: "swift-java"
                 ),
-                "AndroidNDK",
+                "CAndroidNDK",
                 "AndroidJava",
                 "AndroidManifest",
                 "AndroidR",
@@ -265,7 +265,7 @@ var package = Package(
             name: "AndroidOS",
             dependencies: [
                 "AndroidJava",
-                "AndroidNDK"
+                "CAndroidNDK"
             ],
             exclude: ["swift-java.config"],
             swiftSettings: [
@@ -293,7 +293,7 @@ var package = Package(
                 "AndroidJava",
                 "AndroidUtil",
                 "AndroidOS",
-                "AndroidNDK",
+                "CAndroidNDK",
                 "AndroidFileManager",
             ],
             exclude: ["swift-java.config"],
@@ -434,7 +434,7 @@ var package = Package(
                     name: "Socket",
                     package: "Socket"
                 ),
-                "AndroidNDK"
+                "CAndroidNDK"
             ],
             swiftSettings: [
               .swiftLanguageMode(.v6),
@@ -446,7 +446,7 @@ var package = Package(
             ]
         ),
         .target(
-            name: "AndroidNDK",
+            name: "CAndroidNDK",
             cxxSettings: [
                 .define("ANDROID_NDK_VERSION", to: ndkVersion.description),
                 .define("ANDROID_SDK_VERSION", to: sdkVersion.description)
@@ -458,7 +458,7 @@ var package = Package(
         .target(
             name: "AndroidHardware",
             dependencies: [
-                "AndroidNDK",
+                "CAndroidNDK",
                 "AndroidLooper"
             ],
             swiftSettings: [
@@ -473,7 +473,7 @@ var package = Package(
         .target(
             name: "AndroidFileManager",
             dependencies: [
-                "AndroidNDK"
+                "CAndroidNDK"
             ],
             swiftSettings: [
               .swiftLanguageMode(.v6),
@@ -487,7 +487,7 @@ var package = Package(
         .target(
             name: "AndroidManifest",
             dependencies: [
-                "AndroidNDK"
+                "CAndroidNDK"
             ],
             swiftSettings: [
               .swiftLanguageMode(.v6),
@@ -501,7 +501,7 @@ var package = Package(
         .target(
             name: "AndroidNativeActivity",
             dependencies: [
-                "AndroidNDK",
+                "CAndroidNDK",
                 "AndroidLooper",
                 "AndroidFileManager",
                 "AndroidInput",
@@ -522,7 +522,7 @@ var package = Package(
         .target(
             name: "AndroidInput",
             dependencies: [
-                "AndroidNDK",
+                "CAndroidNDK",
                 "AndroidLooper"
             ],
             swiftSettings: [
@@ -551,7 +551,7 @@ if ndkBinder {
                 name: "Binder",
                 package: "Binder"
             ),
-            "AndroidNDK"
+            "CAndroidNDK"
         ],
         swiftSettings: [
           .swiftLanguageMode(.v6)
