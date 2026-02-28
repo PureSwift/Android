@@ -44,17 +44,6 @@ public struct InputEvent: ~Copyable {
     public var source: EventSource {
         EventSource(rawValue: AInputEvent_getSource(pointer))
     }
-    
-    /// Get the display id that an input event came from.
-    ///
-    /// Available since API level 31.
-    public var displayId: Int32 {
-        #if os(Android)
-        AInputEvent_getDisplayId(pointer)
-        #else
-        0
-        #endif
-    }
 }
 
 // MARK: - Event Type
