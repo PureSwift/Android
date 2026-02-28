@@ -62,6 +62,7 @@ extension JavaClass<Build.VERSION> {
   /// The user-visible SDK version of the framework in its raw String representation.
   ///
   /// - Note: Deprecated since API 15. Use `SDK_INT` instead.
+  @available(*, deprecated, message: "Use `SDK_INT` instead.")
   @JavaStaticField(isFinal: true)
   public var SDK: String
 
