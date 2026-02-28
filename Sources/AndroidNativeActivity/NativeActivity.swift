@@ -19,7 +19,6 @@ import SystemPackage
 /// It is created by the framework, and handed to the application's native code as it is being launched.
 ///
 /// [See Also](https://developer.android.com/ndk/reference/group/native-activity#anativeactivity)
-@MainActor
 public final class NativeActivity {
     
     // MARK: - Properties
@@ -43,18 +42,6 @@ public final class NativeActivity {
     /// You can set the functions here to your own callbacks. The callbacks pointer itself is not immutable, so you must not call them directly. We recommend copying the callbacks to your own unique callbacks table and using those directly.
     public var callbacks: UnsafeMutablePointer<ANativeActivityCallbacks> {
         pointer.pointee.callbacks
-    }
-    
-    /// The global handle on the process's Java VM.
-    public var javaVM: JavaVM {
-        JavaVM(pointer.pointee.vm)
-    }
-    
-    /// JNI context for the main thread of the app.
-    ///
-    /// Note that this field can ONLY be used from the main thread of the process; that is, the thread that calls into the ANativeActivityCallbacks.
-    public var javaEnvironment: JNIEnvironment {
-        JNIEnvironment(pointer.pointee.env)
     }
     
     /// The NativeActivity object handle.
@@ -84,7 +71,7 @@ public final class NativeActivity {
     /// It is not used by the framework, but can be set by the application to its own instance state.
     public var instance: UnsafeMutableRawPointer? {
         get { pointer.pointee.instance }
-        nonmutating set { pointer.pointee.instance = newValue }
+        set { pointer.pointee.instance = newValue }
     }
     
     /// Pointer to the Asset Manager instance for the application.
@@ -102,28 +89,6 @@ public final class NativeActivity {
             return nil
         }
         return FilePath(String(cString: path))
-    }
-}
-
-// MARK: - JavaVM
-
-public struct JavaVM: ~Copyable, Sendable {
-    
-    internal let pointer: UnsafeMutablePointer<JavaVM_>
-    
-    internal init(_ pointer: UnsafeMutablePointer<JavaVM_>) {
-        self.pointer = pointer
-    }
-}
-
-// MARK: - JNI Environment
-
-public struct JNIEnvironment: ~Copyable, Sendable {
-    
-    internal let pointer: UnsafeMutablePointer<JNIEnv>
-    
-    internal init(_ pointer: UnsafeMutablePointer<JNIEnv>) {
-        self.pointer = pointer
     }
 }
 
