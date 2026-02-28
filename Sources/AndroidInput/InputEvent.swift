@@ -153,7 +153,7 @@ public extension InputEvent {
     ///
     /// Only valid for key events.
     var keyAction: KeyAction {
-        KeyAction(rawValue: AKeyEvent_getAction(pointer))
+        KeyAction(AKeyEvent_getAction(pointer))
     }
     
     /// Get the key event flags.
@@ -167,7 +167,7 @@ public extension InputEvent {
     ///
     /// Only valid for key events.
     var keyCode: KeyCode {
-        KeyCode(rawValue: AKeyEvent_getKeyCode(pointer))
+        KeyCode(AKeyEvent_getKeyCode(pointer))
     }
     
     /// Get the hardware key id of this key event.
@@ -210,10 +210,14 @@ public extension InputEvent {
 
 public struct KeyAction: RawRepresentable, Equatable, Hashable, Sendable {
     
-    public let rawValue: Int32
+    public let rawValue: Int
     
-    public init(rawValue: Int32) {
+    public init(rawValue: Int) {
         self.rawValue = rawValue
+    }
+
+    internal init(_ rawValue: Int32) {
+        self.rawValue = Int(rawValue)
     }
     
     /// Key down action.
@@ -234,7 +238,7 @@ public extension InputEvent {
     ///
     /// Only valid for motion events.
     var motionAction: MotionAction {
-        MotionAction(rawValue: AMotionEvent_getAction(pointer))
+        MotionAction(AMotionEvent_getAction(pointer))
     }
     
     /// Get the motion event flags.
@@ -338,7 +342,7 @@ public extension InputEvent {
     /// - Parameter pointerIndex: The index of the pointer for which to retrieve the tool type.
     /// - Returns: The tool type.
     func getToolType(at pointerIndex: Int) -> ToolType {
-        ToolType(rawValue: AMotionEvent_getToolType(pointer, pointerIndex))
+        ToolType(AMotionEvent_getToolType(pointer, pointerIndex))
     }
     
     /// Get the original raw X coordinate of this event.
@@ -499,10 +503,14 @@ public extension InputEvent {
 
 public struct MotionAction: RawRepresentable, Equatable, Hashable, Sendable {
     
-    public let rawValue: Int32
+    public let rawValue: Int
     
-    public init(rawValue: Int32) {
+    public init(rawValue: Int) {
         self.rawValue = rawValue
+    }
+
+    internal init(_ rawValue: Int32) {
+        self.rawValue = Int(rawValue)
     }
     
     /// Motion action down.
@@ -549,10 +557,14 @@ public struct MotionAction: RawRepresentable, Equatable, Hashable, Sendable {
 
 public struct ToolType: RawRepresentable, Equatable, Hashable, Sendable {
     
-    public let rawValue: Int32
+    public let rawValue: Int
     
-    public init(rawValue: Int32) {
+    public init(rawValue: Int) {
         self.rawValue = rawValue
+    }
+
+    internal init(_ rawValue: Int32) {
+        self.rawValue = Int(rawValue)
     }
     
     /// Unknown tool type.
