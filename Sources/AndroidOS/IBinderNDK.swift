@@ -56,7 +56,7 @@ internal extension AndroidBinder {
      * the Java object is of the wrong type, this will return null.
      */
     convenience init(_ javaObject: jobject, environment: JNIEnvironment) {
-        guard let pointer = AParcel_fromJavaParcel(environment, javaObject) else {
+        guard let pointer = AIBinder_fromJavaBinder(environment, javaObject) else {
             fatalError("Unable to initialize from Java object")
         }
         self.init(pointer)
