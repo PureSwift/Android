@@ -53,6 +53,7 @@ open class InputDevice: JavaObject {
   @JavaMethod
   open func getVibrator() -> Vibrator!
 
+  @available(Android 31, *)
   @JavaMethod
   open func getVibratorManager() -> VibratorManager!
 

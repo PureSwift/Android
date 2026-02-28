@@ -2,6 +2,7 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+@available(Android 30, *)
 extension VibrationEffect {
   /// A composition of haptic primitives that, when combined, create more complex haptic patterns.
   ///
@@ -43,6 +44,8 @@ extension VibrationEffect {
   open func compose() -> VibrationEffect!
   }
 }
+
+@available(Android 30, *)
 extension JavaClass<VibrationEffect.Composition> {
   /// Primitive: a brief, standard feedback effect (click).
   @JavaStaticField(isFinal: true)

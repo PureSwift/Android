@@ -49,6 +49,8 @@ open class VibrationAttributes: JavaObject {
   @JavaMethod
   open func getFlags() -> Int32
 }
+
+@available(Android 30, *)
 extension JavaClass<VibrationAttributes> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<VibrationAttributes>!
