@@ -14,6 +14,8 @@ open class CombinedVibration: JavaObject {
   @JavaMethod
   open func describeContents() -> Int32
 }
+
+@available(Android 31, *)
 extension JavaClass<CombinedVibration> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<CombinedVibration>!

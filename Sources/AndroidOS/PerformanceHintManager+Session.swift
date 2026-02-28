@@ -4,6 +4,7 @@ import JavaLangIO
 import SwiftJava
 import CSwiftJavaJNI
 
+@available(Android 31, *)
 extension PerformanceHintManager {
   /// A hint session for a set of threads, used to report work durations to the system.
   ///

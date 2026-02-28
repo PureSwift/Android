@@ -2,6 +2,7 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+@available(Android 30, *)
 extension VibrationAttributes {
   /// Builder class for `VibrationAttributes` objects.
   ///

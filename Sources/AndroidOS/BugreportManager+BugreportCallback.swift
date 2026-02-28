@@ -2,6 +2,7 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+@available(Android 29, *)
 extension BugreportManager {
   /// Callback for receiving progress and completion notifications during bug report collection.
   ///
@@ -31,6 +32,8 @@ extension BugreportManager {
   open func onEarlyReportFinished()
   }
 }
+
+@available(Android 29, *)
 extension JavaClass<BugreportManager.BugreportCallback> {
   @JavaStaticField(isFinal: true)
   public var BUGREPORT_ERROR_ANOTHER_REPORT_IN_PROGRESS: Int32

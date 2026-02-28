@@ -28,6 +28,8 @@ extension Build {
   open override func hashCode() -> Int32
   }
 }
+
+@available(Android 29, *)
 extension JavaClass<Build.Partition> {
   /// The name of the system partition.
   @JavaStaticField(isFinal: true)

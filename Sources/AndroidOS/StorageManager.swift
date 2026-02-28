@@ -12,6 +12,7 @@ import CSwiftJavaJNI
 @JavaClass("android.os.storage.StorageManager")
 open class StorageManager: JavaObject {
   /// Unregisters a previously registered `StorageVolumeCallback`.
+  @available(Android 30, *)
   @JavaMethod
   open func unregisterStorageVolumeCallback(_ arg0: StorageManager.StorageVolumeCallback?)
 

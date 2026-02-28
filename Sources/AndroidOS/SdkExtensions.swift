@@ -16,6 +16,8 @@ import CSwiftJavaJNI
 open class SdkExtensions: JavaObject {
 
 }
+
+@available(Android 30, *)
 extension JavaClass<SdkExtensions> {
   /// Returns the extension version for the given SDK integer, or `0` if the extension
   /// is not present on this device.

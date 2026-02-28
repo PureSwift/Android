@@ -2,6 +2,7 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+@available(Android 31, *)
 extension CombinedVibration {
   /// A combination of vibration effects that are performed by different vibrators in parallel.
   ///
