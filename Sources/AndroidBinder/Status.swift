@@ -121,6 +121,7 @@ public extension Status {
 extension Status { //: CustomStringConvertible, CustomDebugStringConvertible {
     
     /// Get human-readable description for debugging.
+    @available(Android 30, *)
     public var description: String {
         handle.withDescription { $0.description }
     }
@@ -142,6 +143,7 @@ internal extension Status {
 
 internal extension Status {
     
+    @available(Android 30, *)
     struct Description: ~Copyable {
         
         let cString: UnsafePointer<CChar>
@@ -172,8 +174,9 @@ internal extension Status {
     }
 }
 
+@available(Android 30, *)
 extension Status.Description {
-    
+
     public var description: String {
         String(cString: cString)
     }
@@ -290,6 +293,7 @@ internal extension Status.Handle {
      *
      * \return a description, must be deleted with AStatus_deleteDescription.
      */
+    @available(Android 30, *)
     func withDescription<T>(_ block: (borrowing Status.Description) -> T) -> T {
         let description = Status.Description(status: self)
         return block(description)

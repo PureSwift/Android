@@ -50,6 +50,7 @@ public extension Parcel {
      *
      * \return A parcel which is not related to any IBinder objects.
      */
+    @available(Android 31, *)
     init() {
         self.handle = .create()
     }
@@ -73,6 +74,7 @@ public extension Parcel {
      *
      * Available since API level 31.
      */
+    @available(Android 31, *)
     var dataSize: Int {
         Int(handle.dataSize)
     }
@@ -106,6 +108,7 @@ public extension Parcel {
      *
      * Available since API level 31.
      */
+    @available(Android 31, *)
     func reset() throws(AndroidBinderError) {
         try handle.reset().get()
     }
@@ -119,6 +122,7 @@ public extension Parcel {
      * \param start starting position in \p other (must be a value from getDataPosition).
      * \param size number of bytes to copy from \p other.
      */
+    @available(Android 31, *)
     func appendContents(of other: borrowing Parcel, start: Int = 0, size: Int) throws(AndroidBinderError) {
         try handle.appendFrom(other.handle, start: Int32(start), size: Int32(size)).get()
     }
@@ -602,6 +606,7 @@ internal extension Parcel.Handle {
      *
      * Available since API level 31.
      */
+    @available(Android 31, *)
     static func create() -> Parcel.Handle {
         guard let pointer = AParcel_create() else {
             fatalError("Unable to initialize \(Self.self) \(#function)")
@@ -637,6 +642,7 @@ internal extension Parcel.Handle {
      *
      * Available since API level 31.
      */
+    @available(Android 31, *)
     var dataSize: Int32 {
         AParcel_getDataSize(pointer)
     }
@@ -655,6 +661,7 @@ internal extension Parcel.Handle {
      *
      * Available since API level 31.
      */
+    @available(Android 31, *)
     func reset() -> Result<Void, AndroidBinderError> {
         AParcel_reset(pointer).mapError()
     }
@@ -664,6 +671,7 @@ internal extension Parcel.Handle {
      *
      * Available since API level 31.
      */
+    @available(Android 31, *)
     func appendFrom(_ from: Parcel.Handle, start: Int32, size: Int32) -> Result<Void, AndroidBinderError> {
         AParcel_appendFrom(from.pointer, pointer, start, size).mapError()
     }
