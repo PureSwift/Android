@@ -45,7 +45,7 @@ internal extension AndroidAPI {
 
      Available since API level 29.
      */
-    static func deviceAPILevel() throws(Throwable) -> Int32 {
+    static func deviceAPILevel() throws -> Int32 {
         if #available(Android 24, *) {
             try ndkValue().get()
         } else {
@@ -54,7 +54,7 @@ internal extension AndroidAPI {
     }
     
     /// `Build.VERSION.SDK_INT`
-    static func jniValue() throws(Throwable) -> Int32 {
+    static func jniValue() throws -> Int32 {
         do {
             let javaClass = try JavaClass<Build.VERSION>.init()
             return javaClass.SDK_INT
