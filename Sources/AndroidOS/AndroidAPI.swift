@@ -34,16 +34,27 @@ public extension AndroidAPI {
 
 internal extension AndroidAPI {
     
-    static func deviceAPILevel() throws -> Int32 {
-        #if os(Android) && canImport(CAndroidNDK)
-        try ndkValue().get()
-        #else
-        try jniValue()
-        #endif
+    /**
+     Returns the targetSdkVersion of the caller, or __ANDROID_API_FUTURE__ if there is no known target SDK version (for code not running in the context of an app).
+
+     The returned value is the same as the AndroidManifest.xml targetSdkVersion. This is mostly useful for the OS to decide what behavior an app is expecting. See also android_get_device_api_level().
+
+     Available since API level 24. Returns the API level of the device we're actually running on, or -1 on failure.
+
+     The returned value is the same as the Java Build.VERSION.SDK_INT. This is mostly useful for an app to work out what version of the OS it's running on. See also android_get_application_target_sdk_version().
+
+     Available since API level 29.
+     */
+    static func deviceAPILevel() throws(Throwable) -> Int32 {
+        if #available(Android 24, *) {
+            try ndkValue().get()
+        } else {
+            try jniValue()
+        }
     }
     
     /// `Build.VERSION.SDK_INT`
-    static func jniValue() throws -> Int32 {
+    static func jniValue() throws(Throwable) -> Int32 {
         do {
             let javaClass = try JavaClass<Build.VERSION>.init()
             return javaClass.SDK_INT
