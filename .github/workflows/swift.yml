@@ -10,12 +10,16 @@ jobs:
         swift: ['6.2.3', 'nightly-6.3']
         arch: ['aarch64', 'x86_64', 'armv7']
         sdk: ['28', '29', '31', '33']
-    runs-on: macos-15
+    runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+      - uses: skiptools/actions/setup-skip@v1
+        with:
+          install-swift-android-sdk: true
+          gradle-version: 'none'
+          swift-version: ${{ matrix.swift }}
+          swift-android-sdk-version: ${{ matrix.swift }}
       - name: "Build Swift Package for Android"
         run: |
-          brew install skiptools/skip/skip || (brew update && brew install skiptools/skip/skip)
-          skip android sdk install --version ${{ matrix.swift }}
           ANDROID_NDK_ROOT="" ANDROID_SDK_VERSION=${{ matrix.sdk }} skip android build --arch ${{ matrix.arch }} --android-api-level ${{ matrix.sdk }}
