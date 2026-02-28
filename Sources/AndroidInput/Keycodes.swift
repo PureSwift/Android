@@ -1,4 +1,14 @@
-// MARK: - Key Code
+//
+//  Keycodes.swift
+//  SwiftAndroid
+//
+//  Created by Alsey Coleman Miller on 2/27/26.
+//
+
+#if os(Android)
+import Android
+import AndroidNDK
+#endif
 
 /// Key code identifying a physical key on a keyboard or virtual key from an input device.
 ///
@@ -7,10 +17,14 @@
 /// [See Also](https://developer.android.com/ndk/reference/group/input#anonymous-enum-3)
 public struct KeyCode: RawRepresentable, Equatable, Hashable, Sendable {
 
-    public let rawValue: Int32
+    public let rawValue: Int
 
-    public init(rawValue: Int32) {
+    public init(rawValue: Int) {
         self.rawValue = rawValue
+    }
+
+    internal init(_ rawValue: Int32) {
+        self.rawValue = Int(rawValue)
     }
 }
 
