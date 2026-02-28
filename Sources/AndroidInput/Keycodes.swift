@@ -748,13 +748,7 @@ public extension KeyCode {
 
     /// Recent Apps key.
     static var recentApps: KeyCode { KeyCode(rawValue: AKEYCODE_RECENT_APPS) }
-
-    /// Screenshot key.
-    static var screenshot: KeyCode { KeyCode(rawValue: AKEYCODE_SCREENSHOT) }
-
-    /// Emoji Picker key.
-    static var emojiPicker: KeyCode { KeyCode(rawValue: AKEYCODE_EMOJI_PICKER) }
-
+    
     // MARK: System Navigation Gestures
 
     /// System Navigation Up key.

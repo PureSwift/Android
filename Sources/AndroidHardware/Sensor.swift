@@ -82,6 +82,7 @@ public extension Sensor {
     }
 
     /// The hardware sensor handle, unique within a device.
+    @available(Android 29, *)
     var handle: Int32 {
         ASensor_getHandle(pointer)
     }
