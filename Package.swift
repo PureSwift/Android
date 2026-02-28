@@ -81,6 +81,12 @@ var package = Package(
         ),
         .library(
             name: "AndroidFileManager", targets: ["AndroidFileManager"]
+        ),
+        .library(
+            name: "AndroidNativeActivity", targets: ["AndroidNativeActivity"]
+        ),
+        .library(
+            name: "AndroidInput", targets: ["AndroidInput"]
         )
     ],
     dependencies: [
@@ -153,7 +159,9 @@ var package = Package(
                 "AndroidLogging",
                 "AndroidLooper",
                 "AndroidHardware",
-                "AndroidFileManager"
+                "AndroidFileManager",
+                "AndroidNativeActivity",
+                "AndroidInput"
             ],
             swiftSettings: [
               .swiftLanguageMode(.v5),
@@ -480,6 +488,42 @@ var package = Package(
             name: "AndroidManifest",
             dependencies: [
                 "AndroidNDK"
+            ],
+            swiftSettings: [
+              .swiftLanguageMode(.v6),
+              ndkVersionDefine,
+              sdkVersionDefine
+            ],
+            linkerSettings: [
+                .linkedLibrary("android", .when(platforms: [.android]))
+            ]
+        ),
+        .target(
+            name: "AndroidNativeActivity",
+            dependencies: [
+                "AndroidNDK",
+                "AndroidLooper",
+                "AndroidFileManager",
+                "AndroidInput",
+                .product(
+                    name: "SystemPackage",
+                    package: "swift-system"
+                )
+            ],
+            swiftSettings: [
+              .swiftLanguageMode(.v6),
+              ndkVersionDefine,
+              sdkVersionDefine
+            ],
+            linkerSettings: [
+                .linkedLibrary("android", .when(platforms: [.android]))
+            ]
+        ),
+        .target(
+            name: "AndroidInput",
+            dependencies: [
+                "AndroidNDK",
+                "AndroidLooper"
             ],
             swiftSettings: [
               .swiftLanguageMode(.v6),

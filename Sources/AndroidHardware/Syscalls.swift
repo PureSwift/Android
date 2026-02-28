@@ -17,7 +17,7 @@ func stub() -> Never {
     fatalError("Not running on Android")
 }
 
-typealias ALooper_callbackFunc = @convention(c) (Int32, Int32, UnsafeMutableRawPointer?) -> Int32
+public typealias ALooper_callbackFunc = @convention(c) (Int32, Int32, UnsafeMutableRawPointer?) -> Int32
 
 // MARK: - ASensorEvent
 
@@ -29,7 +29,7 @@ typealias ALooper_callbackFunc = @convention(c) (Int32, Int32, UnsafeMutableRawP
  *   version(4) + sensor(4) + type(4) + reserved0(4) +
  *   timestamp(8) + data_union(64) + flags(4) + reserved1(12)
  */
-public struct ASensorEvent {
+public struct ASensorEvent: Sendable {
     public var version: Int32       // sizeof(struct ASensorEvent)
     public var sensor: Int32        // sensor identifier
     public var type: Int32          // sensor type
