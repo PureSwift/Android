@@ -7,7 +7,7 @@
 
 #if canImport(Android)
 import Android
-import AndroidNDK
+import CAndroidNDK
 #elseif canImport(Darwin)
 import Darwin
 #elseif canImport(Glibc)

@@ -7,7 +7,7 @@
 
 #if os(Android)
 import Android
-import AndroidNDK
+import CAndroidNDK
 #endif
 import SwiftJava
 
@@ -35,7 +35,7 @@ public extension AndroidAPI {
 internal extension AndroidAPI {
     
     static func deviceAPILevel() throws -> Int32 {
-        #if os(Android) && canImport(AndroidNDK)
+        #if os(Android) && canImport(CAndroidNDK)
         try ndkValue().get()
         #else
         try jniValue()
@@ -58,7 +58,7 @@ internal extension AndroidAPI {
     
     /// Available since API level 24. Returns the API level of the device we're actually running on.
     static func ndkValue() -> Result<Int32, Exception> {
-        #if os(Android) && canImport(AndroidNDK)
+        #if os(Android) && canImport(CAndroidNDK)
         let value = android_get_device_api_level()
         #else
         let value: Int32 = -1

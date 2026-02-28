@@ -7,7 +7,7 @@
 
 #if os(Android)
 import Android
-import AndroidNDK
+import CAndroidNDK
 #endif
 
 /// A handle to an `AAsset`.
