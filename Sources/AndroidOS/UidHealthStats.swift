@@ -2,6 +2,13 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Keys for health statistics about a UID (app or shared UID).
+///
+/// Use these keys with `HealthStats` to retrieve per-UID battery attribution data,
+/// including CPU time, network activity, sensor usage, wake locks, and more.
+///
+/// See also: [android.os.health.UidHealthStats](https://developer.android.com/reference/android/os/health/UidHealthStats)
+@available(Android 24, *)
 @JavaClass("android.os.health.UidHealthStats")
 open class UidHealthStats: JavaObject {
 

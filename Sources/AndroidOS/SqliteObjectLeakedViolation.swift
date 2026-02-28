@@ -2,6 +2,10 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Violation raised when a SQLite object (cursor or database) is finalized without being closed.
+///
+/// See also: [android.os.strictmode.SqliteObjectLeakedViolation](https://developer.android.com/reference/android/os/strictmode/SqliteObjectLeakedViolation)
+@available(Android 28, *)
 @JavaClass("android.os.strictmode.SqliteObjectLeakedViolation")
 open class SqliteObjectLeakedViolation: Violation {
 

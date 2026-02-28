@@ -2,6 +2,13 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Keys for health statistics about a bound Service within a UID.
+///
+/// Use these keys with `HealthStats` to retrieve per-service battery attribution data,
+/// such as launch counts and start-service invocation counts.
+///
+/// See also: [android.os.health.ServiceHealthStats](https://developer.android.com/reference/android/os/health/ServiceHealthStats)
+@available(Android 24, *)
 @JavaClass("android.os.health.ServiceHealthStats")
 open class ServiceHealthStats: JavaObject {
 

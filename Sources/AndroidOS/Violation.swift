@@ -3,11 +3,18 @@ import JavaLang
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Base class for all StrictMode violation objects, which extend `Throwable` so they carry a stack
+/// trace identifying where the violation occurred.
+///
+/// See also: [android.os.strictmode.Violation](https://developer.android.com/reference/android/os/strictmode/Violation)
+@available(Android 28, *)
 @JavaClass("android.os.strictmode.Violation")
 open class Violation: Throwable {
+  /// Records the current stack trace into this violation for later inspection.
   @JavaMethod
   open override func fillInStackTrace() -> Throwable!
 
+  /// Sets the cause of this violation.
   @JavaMethod
   open override func initCause(_ arg0: Throwable?) -> Throwable!
 

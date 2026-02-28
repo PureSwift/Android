@@ -4,6 +4,11 @@ import JavaLangIO
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Provides access to a raw block of memory. Useful for sharing large amounts of data between
+/// processes without going through the Parcel buffer size limit.
+///
+/// See also: [android.os.SharedMemory](https://developer.android.com/reference/android/os/SharedMemory)
+@available(Android 27, *)
 @JavaClass("android.os.SharedMemory", implements: Parcelable.self, Closeable.self)
 open class SharedMemory: JavaObject {
   @JavaMethod

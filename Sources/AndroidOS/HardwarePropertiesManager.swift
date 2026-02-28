@@ -2,14 +2,28 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Provides access to hardware sensor data such as device temperatures, CPU usage, and fan speeds.
+///
+/// Obtain an instance via `Context.getSystemService(Context.HARDWARE_PROPERTIES_SERVICE)`.
+/// Requires the `DEVICE_POWER` permission.
+///
+/// See [android.os.HardwarePropertiesManager](https://developer.android.com/reference/android/os/HardwarePropertiesManager)
+@available(Android 24, *)
 @JavaClass("android.os.HardwarePropertiesManager")
 open class HardwarePropertiesManager: JavaObject {
+  /// Returns the temperatures (in degrees Celsius) of the given device component type and temperature type.
+  ///
+  /// - Parameters:
+  ///   - arg0: One of the `DEVICE_TEMPERATURE_*` constants specifying the component (e.g., CPU, GPU, battery).
+  ///   - arg1: One of the `TEMPERATURE_*` constants specifying the reading type (e.g., current, throttling, shutdown).
   @JavaMethod
   open func getDeviceTemperatures(_ arg0: Int32, _ arg1: Int32) -> [Float]
 
+  /// Returns per-CPU-core usage information.
   @JavaMethod
   open func getCpuUsages() -> [CpuUsageInfo?]
 
+  /// Returns the speeds (in RPM) of the device's fans, or an empty array if none are present.
   @JavaMethod
   open func getFanSpeeds() -> [Float]
 }

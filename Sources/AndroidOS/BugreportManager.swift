@@ -2,8 +2,16 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Manages the collection of bug reports on the device.
+///
+/// Obtain an instance via `Context.getSystemService(Context.BUGREPORT_SERVICE)`.
+/// Callers must hold the `DUMP` permission.
+///
+/// See [android.os.BugreportManager](https://developer.android.com/reference/android/os/BugreportManager)
+@available(Android 29, *)
 @JavaClass("android.os.BugreportManager")
 open class BugreportManager: JavaObject {
+  /// Cancels any bug report currently in progress.
   @JavaMethod
   open func cancelBugreport()
 }

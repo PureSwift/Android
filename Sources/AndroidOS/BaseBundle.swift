@@ -2,104 +2,158 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// A mapping from String keys to values of various types. The only types currently supported
+/// are: Boolean, Int, Long, Double, String, and arrays of each of these types.
+///
+/// This is the base class for `Bundle` and `PersistableBundle`.
+///
+/// See also: [android.os.BaseBundle](https://developer.android.com/reference/android/os/BaseBundle)
+@available(Android 21, *)
 @JavaClass("android.os.BaseBundle")
 open class BaseBundle: JavaObject {
+  /// Inserts a String value into the mapping, replacing any existing value for the given key.
   @JavaMethod
   open func putString(_ arg0: String, _ arg1: String)
 
+  /// Inserts a boolean array value into the mapping.
   @JavaMethod
   open func putBooleanArray(_ arg0: String, _ arg1: [Bool])
 
+  /// Inserts an int array value into the mapping.
   @JavaMethod
   open func putIntArray(_ arg0: String, _ arg1: [Int32])
 
+  /// Inserts a long array value into the mapping.
   @JavaMethod
   open func putLongArray(_ arg0: String, _ arg1: [Int64])
 
+  /// Inserts a double array value into the mapping.
   @JavaMethod
   open func putDoubleArray(_ arg0: String, _ arg1: [Double])
 
+  /// Inserts a String array value into the mapping.
   @JavaMethod
   open func putStringArray(_ arg0: String, _ arg1: [String])
 
+  /// Returns the value associated with the given key, or nil if no mapping of the desired type
+  /// exists for the given key.
   @JavaMethod
   open func getBooleanArray(_ arg0: String) -> [Bool]
 
+  /// Returns the value associated with the given key, or nil if no mapping of the desired type
+  /// exists for the given key.
   @JavaMethod
   open func getIntArray(_ arg0: String) -> [Int32]
 
+  /// Returns the value associated with the given key, or nil if no mapping of the desired type
+  /// exists for the given key.
   @JavaMethod
   open func getLongArray(_ arg0: String) -> [Int64]
 
+  /// Returns the value associated with the given key, or nil if no mapping of the desired type
+  /// exists for the given key.
   @JavaMethod
   open func getDoubleArray(_ arg0: String) -> [Double]
 
+  /// Removes any entry with the given key from the mapping.
   @JavaMethod
   open func remove(_ arg0: String)
 
+  /// Returns the number of mappings contained in this Bundle.
   @JavaMethod
   open func size() -> Int32
 
+  /// Returns the entry with the given key as an object.
   @JavaMethod
   open func get(_ arg0: String) -> JavaObject!
 
+  /// Returns the value associated with the given key, or `false` if no mapping of the desired type
+  /// exists for the given key.
   @JavaMethod
   open func getBoolean(_ arg0: String) -> Bool
 
+  /// Returns the value associated with the given key, or `arg1` if no mapping of the desired type
+  /// exists for the given key.
   @JavaMethod
   open func getBoolean(_ arg0: String, _ arg1: Bool) -> Bool
 
+  /// Inserts a Boolean value into the mapping.
   @JavaMethod
   open func putBoolean(_ arg0: String, _ arg1: Bool)
 
+  /// Returns the value associated with the given key, or `0` if no mapping of the desired type
+  /// exists for the given key.
   @JavaMethod
   open func getInt(_ arg0: String) -> Int32
 
+  /// Returns the value associated with the given key, or `arg1` if no mapping of the desired type
+  /// exists for the given key.
   @JavaMethod
   open func getInt(_ arg0: String, _ arg1: Int32) -> Int32
 
+  /// Inserts an int value into the mapping.
   @JavaMethod
   open func putInt(_ arg0: String, _ arg1: Int32)
 
+  /// Returns the value associated with the given key, or `arg1` if no mapping of the desired type
+  /// exists for the given key.
   @JavaMethod
   open func getLong(_ arg0: String, _ arg1: Int64) -> Int64
 
+  /// Returns the value associated with the given key, or `0L` if no mapping of the desired type
+  /// exists for the given key.
   @JavaMethod
   open func getLong(_ arg0: String) -> Int64
 
+  /// Inserts a long value into the mapping.
   @JavaMethod
   open func putLong(_ arg0: String, _ arg1: Int64)
 
+  /// Returns the value associated with the given key, or `arg1` if no mapping of the desired type
+  /// exists for the given key.
   @JavaMethod
   open func getDouble(_ arg0: String, _ arg1: Double) -> Double
 
+  /// Returns the value associated with the given key, or `0.0` if no mapping of the desired type
+  /// exists for the given key.
   @JavaMethod
   open func getDouble(_ arg0: String) -> Double
 
+  /// Inserts a double value into the mapping.
   @JavaMethod
   open func putDouble(_ arg0: String, _ arg1: Double)
 
+  /// Removes all elements from the mapping.
   @JavaMethod
   open func clear()
 
+  /// Returns true if the mapping is empty, false otherwise.
   @JavaMethod
   open func isEmpty() -> Bool
 
+  /// Inserts all mappings from the given `PersistableBundle` into this Bundle.
   @JavaMethod
   open func putAll(_ arg0: PersistableBundle?)
 
+  /// Returns a Set containing the Strings used as keys in this Bundle.
   @JavaMethod
   open func keySet() -> JavaSet<JavaString>!
 
+  /// Returns true if the given key is contained in the mapping.
   @JavaMethod
   open func containsKey(_ arg0: String) -> Bool
 
+  /// Returns the value associated with the given key, or nil if no mapping exists.
   @JavaMethod
   open func getStringArray(_ arg0: String) -> [String]
 
+  /// Returns the value associated with the given key, or nil if no mapping of the desired type
+  /// exists for the given key.
   @JavaMethod
   open func getString(_ arg0: String) -> String
 
+  /// Returns the value associated with the given key, or `arg1` if no mapping of the desired type
+  /// exists for the given key.
   @JavaMethod
   open func getString(_ arg0: String, _ arg1: String) -> String
 }

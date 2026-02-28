@@ -3,20 +3,30 @@ import SwiftJava
 import CSwiftJavaJNI
 
 extension BugreportManager {
+  /// Callback for receiving progress and completion notifications during bug report collection.
+  ///
+  /// See [android.os.BugreportManager.BugreportCallback](https://developer.android.com/reference/android/os/BugreportManager.BugreportCallback)
+  @available(Android 29, *)
   @JavaClass("android.os.BugreportManager$BugreportCallback")
   open class BugreportCallback: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
+  /// Called periodically to report collection progress as a percentage from 0 to 100.
   @JavaMethod
   open func onProgress(_ arg0: Float)
 
+  /// Called if an error occurs during bug report collection.
+  ///
+  /// - Parameter arg0: One of the `BUGREPORT_ERROR_*` constants indicating the failure reason.
   @JavaMethod
   open func onError(_ arg0: Int32)
 
+  /// Called when the bug report has been successfully collected.
   @JavaMethod
   open func onFinished()
 
+  /// Called when the early section of the bug report (e.g., critical data) has been collected.
   @JavaMethod
   open func onEarlyReportFinished()
   }

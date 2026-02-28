@@ -2,6 +2,12 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Describes the source of some work that may be done by someone else.
+///
+/// Includes sources of wakeups and other types of work, in order to attribute battery usage
+/// correctly when doing work on behalf of another app.
+///
+/// See also: [android.os.WorkSource](https://developer.android.com/reference/android/os/WorkSource)
 @JavaClass("android.os.WorkSource", implements: Parcelable.self)
 open class WorkSource: JavaObject {
   @JavaMethod

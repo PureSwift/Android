@@ -2,6 +2,13 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Keys for health statistics about a process ID (PID) within a UID.
+///
+/// Use these keys with `HealthStats` to retrieve per-PID battery attribution data,
+/// such as wake lock nesting counts and wake durations.
+///
+/// See also: [android.os.health.PidHealthStats](https://developer.android.com/reference/android/os/health/PidHealthStats)
+@available(Android 24, *)
 @JavaClass("android.os.health.PidHealthStats")
 open class PidHealthStats: JavaObject {
 

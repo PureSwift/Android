@@ -2,6 +2,10 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Violation raised when cleartext network traffic is detected.
+///
+/// See also: [android.os.strictmode.CleartextNetworkViolation](https://developer.android.com/reference/android/os/strictmode/CleartextNetworkViolation)
+@available(Android 28, *)
 @JavaClass("android.os.strictmode.CleartextNetworkViolation")
 open class CleartextNetworkViolation: Violation {
 

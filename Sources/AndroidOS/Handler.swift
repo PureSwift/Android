@@ -3,117 +3,232 @@ import JavaLang
 import SwiftJava
 import CSwiftJavaJNI
 
+/// A Handler allows you to send and process `Message` and `Runnable` objects associated with a
+/// thread's `MessageQueue`. Each Handler instance is associated with a single thread and that
+/// thread's message queue. When you create a new Handler it is bound to a `Looper`.
+///
+/// There are two main uses for a Handler: (1) to schedule messages and runnables to be executed
+/// at some point in the future; and (2) to enqueue an action to be performed on a different thread
+/// than your own.
+///
+/// - Note: The no-argument constructor is deprecated since API 30. Use a constructor that
+///   accepts a `Looper` to make sure your Handler is bound to the right thread.
+///
+/// See also: [android.os.Handler](https://developer.android.com/reference/android/os/Handler)
 @JavaClass("android.os.Handler")
 open class Handler: JavaObject {
+  /// Creates a new Handler using the `Looper` for the current thread and the specified callback.
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Handler.Callback?, environment: JNIEnvironment? = nil)
 
+  /// Uses the provided `Looper` instead of the default one.
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Looper?, environment: JNIEnvironment? = nil)
 
+  /// Uses the provided `Looper` instead of the default one and takes a callback interface in which
+  /// you can handle messages.
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Looper?, _ arg1: Handler.Callback?, environment: JNIEnvironment? = nil)
 
+  /// Default constructor associates this handler with the `Looper` for the current thread.
+  ///
+  /// - Note: Deprecated since API 30. Use `Handler(Looper)` instead.
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
+  /// Subclasses must implement this to receive messages.
   @JavaMethod
   open func handleMessage(_ arg0: Message?)
 
+  /// Handle system messages here.
   @JavaMethod
   open func dispatchMessage(_ arg0: Message?)
 
+  /// Returns a string representing the name of the specified message.
+  ///
+  /// The default implementation will either return the class name of the message callback if any,
+  /// or the hexadecimal representation of the message's `what` field.
   @JavaMethod
   open func getMessageName(_ arg0: Message?) -> String
 
+  /// Returns a new `Message` from the global message pool.
+  ///
+  /// Allows us to avoid allocating new objects in many cases.
   @JavaMethod
   open func obtainMessage() -> Message!
 
+  /// Same as `obtainMessage()`, except that it also sets the what member of the returned Message.
   @JavaMethod
   open func obtainMessage(_ arg0: Int32) -> Message!
 
+  /// Same as `obtainMessage()`, except that it also sets the what, arg1, arg2 and obj members.
   @JavaMethod
   open func obtainMessage(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: JavaObject?) -> Message!
 
+  /// Same as `obtainMessage()`, except that it also sets the what, arg1 and arg2 members.
   @JavaMethod
   open func obtainMessage(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32) -> Message!
 
+  /// Same as `obtainMessage()`, except that it also sets the what and obj members.
   @JavaMethod
   open func obtainMessage(_ arg0: Int32, _ arg1: JavaObject?) -> Message!
 
+  /// Causes the Runnable `arg0` to be added to the message queue, to be run at a specific time
+  /// given by `arg1`. The time-base is `SystemClock.uptimeMillis`.
+  ///
+  /// - Returns: `true` if the Runnable was successfully placed in to the message queue.
   @JavaMethod
   open func postAtTime(_ arg0: Runnable?, _ arg1: Int64) -> Bool
 
+  /// Causes the Runnable `arg0` to be added to the message queue, to be run at a specific time
+  /// given by `arg2`. The time-base is `SystemClock.uptimeMillis`.
+  ///
+  /// - Parameter arg1: An optional token to associate with the runnable (used for cancellation).
+  /// - Returns: `true` if the Runnable was successfully placed in to the message queue.
   @JavaMethod
   open func postAtTime(_ arg0: Runnable?, _ arg1: JavaObject?, _ arg2: Int64) -> Bool
 
+  /// Causes the Runnable `arg0` to be added to the message queue, to be run after the specified
+  /// amount of time elapses.
+  ///
+  /// - Parameter arg1: An optional token to associate with the runnable (used for cancellation).
+  /// - Parameter arg2: The delay in milliseconds.
+  /// - Returns: `true` if the Runnable was successfully placed in to the message queue.
+  @available(Android 28, *)
   @JavaMethod
   open func postDelayed(_ arg0: Runnable?, _ arg1: JavaObject?, _ arg2: Int64) -> Bool
 
+  /// Causes the Runnable `arg0` to be added to the message queue, to be run after the specified
+  /// amount of time elapses.
+  ///
+  /// - Parameter arg1: The delay in milliseconds.
+  /// - Returns: `true` if the Runnable was successfully placed in to the message queue.
   @JavaMethod
   open func postDelayed(_ arg0: Runnable?, _ arg1: Int64) -> Bool
 
+  /// Posts a runnable to the front of the message queue. Use with care.
+  ///
+  /// - Returns: `true` if the Runnable was successfully placed in to the message queue.
   @JavaMethod
   open func postAtFrontOfQueue(_ arg0: Runnable?) -> Bool
 
+  /// Remove any pending posts of Runnable `arg0` that are in the message queue,
+  /// filtered by the given token.
   @JavaMethod
   open func removeCallbacks(_ arg0: Runnable?, _ arg1: JavaObject?)
 
+  /// Remove any pending posts of Runnable `arg0` that are in the message queue.
   @JavaMethod
   open func removeCallbacks(_ arg0: Runnable?)
 
+  /// Push a message onto the end of the message queue after all pending messages
+  /// before the current time. It will be received in `handleMessage(Message)`, in the
+  /// thread attached to this handler.
+  ///
+  /// - Returns: `true` if the message was successfully placed in to the message queue.
   @JavaMethod
   open func sendMessage(_ arg0: Message?) -> Bool
 
+  /// Sends a Message containing only the `what` value.
+  ///
+  /// - Returns: `true` if the message was successfully placed in to the message queue.
   @JavaMethod
   open func sendEmptyMessage(_ arg0: Int32) -> Bool
 
+  /// Sends a Message containing only the `what` value, to be delivered after the specified
+  /// amount of time elapses.
+  ///
+  /// - Returns: `true` if the message was successfully placed in to the message queue.
   @JavaMethod
   open func sendEmptyMessageDelayed(_ arg0: Int32, _ arg1: Int64) -> Bool
 
+  /// Sends a Message containing only the `what` value, to be delivered at a specific time.
+  ///
+  /// - Returns: `true` if the message was successfully placed in to the message queue.
   @JavaMethod
   open func sendEmptyMessageAtTime(_ arg0: Int32, _ arg1: Int64) -> Bool
 
+  /// Enqueue a message into the message queue after all pending messages before
+  /// (current time + `arg1`) milliseconds.
+  ///
+  /// - Returns: `true` if the message was successfully placed in to the message queue.
   @JavaMethod
   open func sendMessageDelayed(_ arg0: Message?, _ arg1: Int64) -> Bool
 
+  /// Enqueue a message into the message queue after all pending messages
+  /// before the absolute time (in milliseconds) `arg1`.
+  ///
+  /// - Returns: `true` if the message was successfully placed in to the message queue.
   @JavaMethod
   open func sendMessageAtTime(_ arg0: Message?, _ arg1: Int64) -> Bool
 
+  /// Enqueue a message at the front of the message queue. Use with care.
+  ///
+  /// - Returns: `true` if the message was successfully placed in to the message queue.
   @JavaMethod
   open func sendMessageAtFrontOfQueue(_ arg0: Message?) -> Bool
 
+  /// Remove any pending posts of messages with code `arg0` that are in the message queue.
   @JavaMethod
   open func removeMessages(_ arg0: Int32)
 
+  /// Remove any pending posts of messages with code `arg0` and whose `obj` is `arg1` that are in
+  /// the message queue. If `arg1` is nil, all messages with code `arg0` are removed.
   @JavaMethod
   open func removeMessages(_ arg0: Int32, _ arg1: JavaObject?)
 
+  /// Remove any pending posts of callbacks and sent messages whose `obj` is `arg0`.
+  /// If `arg0` is nil, all callbacks and messages will be removed.
   @JavaMethod
   open func removeCallbacksAndMessages(_ arg0: JavaObject?)
 
+  /// Check if there are any pending posts of messages with the specified runnable in the
+  /// message queue.
+  @available(Android 29, *)
   @JavaMethod
   open func hasCallbacks(_ arg0: Runnable?) -> Bool
 
+  /// Returns the `Looper` object associated with this handler.
   @JavaMethod
   open func getLooper() -> Looper!
 
+  /// Check if there are any pending posts of messages with code `arg0` and whose `obj`
+  /// is `arg1` in the message queue.
   @JavaMethod
   open func hasMessages(_ arg0: Int32, _ arg1: JavaObject?) -> Bool
 
+  /// Check if there are any pending posts of messages with code `arg0` in the message queue.
   @JavaMethod
   open func hasMessages(_ arg0: Int32) -> Bool
 
   @JavaMethod
   open override func toString() -> String
 
+  /// Causes the Runnable `arg0` to be added to the message queue.
+  ///
+  /// - Returns: `true` if the Runnable was successfully placed in to the message queue.
   @JavaMethod
   open func post(_ arg0: Runnable?) -> Bool
 }
 extension JavaClass<Handler> {
+  /// Creates a handler with callbacks to handle messages without deriving from the Handler class.
+  ///
+  /// This handler ignores any messages for which the callback returns `true`.
+  ///
+  /// - Parameter arg0: The `Looper` to use.
+  /// - Returns: A new async `Handler`.
+  @available(Android 28, *)
   @JavaStaticMethod
   public func createAsync(_ arg0: Looper?) -> Handler!
 
+  /// Creates a handler with callbacks to handle messages without deriving from the Handler class.
+  ///
+  /// This is an async handler, allowing longer work to be done without stopping the event processing.
+  ///
+  /// - Parameter arg0: The `Looper` to use.
+  /// - Parameter arg1: The callback to handle messages.
+  /// - Returns: A new async `Handler`.
+  @available(Android 28, *)
   @JavaStaticMethod
   public func createAsync(_ arg0: Looper?, _ arg1: Handler.Callback?) -> Handler!
 }

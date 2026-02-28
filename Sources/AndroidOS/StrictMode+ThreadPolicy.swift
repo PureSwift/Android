@@ -3,6 +3,11 @@ import SwiftJava
 import CSwiftJavaJNI
 
 extension StrictMode {
+  /// Describes what the current thread is allowed to do and the penalty if it does something it
+  /// is not supposed to. Build instances with ``StrictMode/ThreadPolicy/Builder``.
+  ///
+  /// See also: [android.os.StrictMode.ThreadPolicy](https://developer.android.com/reference/android/os/StrictMode.ThreadPolicy)
+  @available(Android 9, *)
   @JavaClass("android.os.StrictMode$ThreadPolicy")
   open class ThreadPolicy: JavaObject {
   @JavaMethod
@@ -10,6 +15,7 @@ extension StrictMode {
   }
 }
 extension JavaClass<StrictMode.ThreadPolicy> {
+  /// The default, lax thread policy that does not detect any violations.
   @JavaStaticField(isFinal: true)
   public var LAX: StrictMode.ThreadPolicy!
 }

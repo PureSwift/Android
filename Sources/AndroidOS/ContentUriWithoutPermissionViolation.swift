@@ -2,6 +2,10 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Violation raised when a content URI is accessed without the required permissions.
+///
+/// See also: [android.os.strictmode.ContentUriWithoutPermissionViolation](https://developer.android.com/reference/android/os/strictmode/ContentUriWithoutPermissionViolation)
+@available(Android 28, *)
 @JavaClass("android.os.strictmode.ContentUriWithoutPermissionViolation")
 open class ContentUriWithoutPermissionViolation: Violation {
 

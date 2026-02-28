@@ -2,26 +2,69 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Writes trace events to the system trace buffer. These trace events can be collected and
+/// visualized using the Perfetto tool.
+///
+/// This tracing mechanism is independent of the method tracing mechanism offered by `Debug.startMethodTracing()`.
+/// In particular, it enables tracing of events that occur across multiple processes.
+///
+/// For information about using the Perfetto tool, read
+/// [Capture a system trace on the command line](https://developer.android.com/topic/performance/tracing/command-line).
+///
+/// See also: [android.os.Trace](https://developer.android.com/reference/android/os/Trace)
+@available(Android 18, *)
 @JavaClass("android.os.Trace")
 open class Trace: JavaObject {
 
 }
 extension JavaClass<Trace> {
+  /// Writes a trace message to indicate that a given section of code has begun.
+  ///
+  /// This call must be followed by a corresponding call to `endSection()` on the same thread.
+  ///
+  /// - Parameter arg0: The name of the code section to appear in the trace. The name may
+  ///   be at most 127 Unicode code units long.
   @JavaStaticMethod
   public func beginSection(_ arg0: String)
 
+  /// Writes a trace message to indicate that a given section of code has ended.
+  ///
+  /// This call must be preceded by a corresponding call to `beginSection(String)`.
+  /// Calling this method will mark the end of the most recently begun section of code,
+  /// so care must be taken to ensure that `beginSection` / `endSection` pairs are
+  /// properly nested and called from the same thread.
   @JavaStaticMethod
   public func endSection()
 
+  /// Writes a trace message to indicate that a given section of code has begun. Unlike
+  /// `beginSection(String)` and `endSection()`, asynchronous events do not need to be
+  /// nested. The cookie can be used to distinguish simultaneous events.
+  ///
+  /// - Parameter arg0: The name of the code section to appear in the trace.
+  /// - Parameter arg1: An identifier for distinguishing simultaneous events with the same name.
+  @available(Android 29, *)
   @JavaStaticMethod
   public func beginAsyncSection(_ arg0: String, _ arg1: Int32)
 
+  /// Writes a trace message to indicate that the current method has ended. Must be called from
+  /// the same thread as the corresponding `beginAsyncSection(String, int)`.
+  ///
+  /// - Parameter arg0: The name of the code section to appear in the trace.
+  /// - Parameter arg1: An identifier for distinguishing simultaneous events with the same name.
+  @available(Android 29, *)
   @JavaStaticMethod
   public func endAsyncSection(_ arg0: String, _ arg1: Int32)
 
+  /// Writes trace message to indicate the value of a given counter.
+  ///
+  /// - Parameter arg0: The counter's name.
+  /// - Parameter arg1: The counter's value.
+  @available(Android 29, *)
   @JavaStaticMethod
   public func setCounter(_ arg0: String, _ arg1: Int64)
 
+  /// Returns true if the app tracing is currently enabled.
+  @available(Android 29, *)
   @JavaStaticMethod
   public func isEnabled() -> Bool
 }

@@ -2,102 +2,177 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Information about the current build, extracted from system properties.
+///
+/// See also: [android.os.Build](https://developer.android.com/reference/android/os/Build)
 @JavaClass("android.os.Build")
 open class Build: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 }
 extension JavaClass<Build> {
+  /// The name of the underlying board, like "goldfish".
   @JavaStaticField(isFinal: true)
   public var BOARD: String
 
+  /// The system bootloader version number.
+  @available(Android 8, *)
   @JavaStaticField(isFinal: true)
   public var BOOTLOADER: String
 
+  /// The consumer-visible brand with which the product/hardware will be associated, if any.
   @JavaStaticField(isFinal: true)
   public var BRAND: String
 
+  /// The name of the instruction set (CPU type + ABI convention) of native code.
+  ///
+  /// - Note: Deprecated since API 21. Use `SUPPORTED_ABIS` instead.
+  @available(Android 4, *)
   @JavaStaticField(isFinal: true)
   public var CPU_ABI: String
 
+  /// The name of the second instruction set (CPU type + ABI convention) of native code.
+  ///
+  /// - Note: Deprecated since API 21. Use `SUPPORTED_ABIS` instead.
+  @available(Android 8, *)
   @JavaStaticField(isFinal: true)
   public var CPU_ABI2: String
 
+  /// The name of the industrial design.
   @JavaStaticField(isFinal: true)
   public var DEVICE: String
 
+  /// A build ID string meant for displaying to the user.
   @JavaStaticField(isFinal: true)
   public var DISPLAY: String
 
+  /// A string that uniquely identifies this build.
   @JavaStaticField(isFinal: true)
   public var FINGERPRINT: String
 
+  /// The name of the hardware (from the kernel command line or /proc).
+  @available(Android 8, *)
   @JavaStaticField(isFinal: true)
   public var HARDWARE: String
 
+  /// A string that uniquely identifies the host that produced the build.
   @JavaStaticField(isFinal: true)
   public var HOST: String
 
+  /// Either a changelist number, or a label like "M4-rc20".
   @JavaStaticField(isFinal: true)
   public var ID: String
 
+  /// The manufacturer of the product/hardware.
+  @available(Android 4, *)
   @JavaStaticField(isFinal: true)
   public var MANUFACTURER: String
 
+  /// The end-user-visible name for the end product.
   @JavaStaticField(isFinal: true)
   public var MODEL: String
 
+  /// The SKU of the hardware as defined by the original design manufacturer (ODM).
+  @available(Android 31, *)
   @JavaStaticField(isFinal: true)
   public var ODM_SKU: String
 
+  /// The name of the overall product.
   @JavaStaticField(isFinal: true)
   public var PRODUCT: String
 
+  /// The radio firmware version number.
+  ///
+  /// - Note: Deprecated since API 15. Use `getRadioVersion()` instead.
   @JavaStaticField(isFinal: true)
   public var RADIO: String
 
+  /// A hardware serial number, if available. Alphanumeric only, case-insensitive.
+  ///
+  /// - Note: Deprecated since API 26. Use `getSerial()` instead.
+  @available(Android 9, *)
   @JavaStaticField(isFinal: true)
   public var SERIAL: String
 
+  /// The SKU of the hardware as defined by the original design manufacturer (ODM) for Google.
+  @available(Android 31, *)
   @JavaStaticField(isFinal: true)
   public var SKU: String
 
+  /// The manufacturer of the System-on-Chip (SoC).
+  @available(Android 31, *)
   @JavaStaticField(isFinal: true)
   public var SOC_MANUFACTURER: String
 
+  /// The model of the System-on-Chip (SoC).
+  @available(Android 31, *)
   @JavaStaticField(isFinal: true)
   public var SOC_MODEL: String
 
+  /// An ordered list of **32 bit** ABIs supported by this device.
+  ///
+  /// The most preferred ABI is the first element in the list.
+  @available(Android 21, *)
   @JavaStaticField(isFinal: true)
   public var SUPPORTED_32_BIT_ABIS: [String]
 
+  /// An ordered list of **64 bit** ABIs supported by this device.
+  ///
+  /// The most preferred ABI is the first element in the list.
+  @available(Android 21, *)
   @JavaStaticField(isFinal: true)
   public var SUPPORTED_64_BIT_ABIS: [String]
 
+  /// An ordered list of ABIs supported by this device.
+  ///
+  /// The most preferred ABI is the first element in the list.
+  @available(Android 21, *)
   @JavaStaticField(isFinal: true)
   public var SUPPORTED_ABIS: [String]
 
+  /// Comma-separated tags describing the build, like "unsigned,debug".
   @JavaStaticField(isFinal: true)
   public var TAGS: String
 
+  /// The time at which the build was produced, given in milliseconds since the UNIX epoch.
   @JavaStaticField(isFinal: true)
   public var TIME: Int64
 
+  /// The type of build, like "user" or "eng".
   @JavaStaticField(isFinal: true)
   public var TYPE: String
 
+  /// Value used for when a build property is unknown.
   @JavaStaticField(isFinal: true)
   public var UNKNOWN: String
 
+  /// The username that produced the build.
   @JavaStaticField(isFinal: true)
   public var USER: String
 
+  /// Gets the hardware serial number, if available.
+  ///
+  /// Requires the `READ_PRIVILEGED_PHONE_STATE` permission, or for the calling app to be the device
+  /// or profile owner and have the `READ_PHONE_STATE` permission.
+  ///
+  /// - Returns: The hardware serial number if available, `UNKNOWN` otherwise.
+  @available(Android 26, *)
   @JavaStaticMethod
   public func getSerial() -> String
 
+  /// Returns information about the partitions that have a separate fingerprint defined.
+  ///
+  /// - Returns: A list of `Build.Partition` objects for all partitions with fingerprints.
+  @available(Android 29, *)
   @JavaStaticMethod
   public func getFingerprintedPartitions() -> List<Build.Partition>!
 
+  /// Returns the version string for the radio firmware.
+  ///
+  /// May return `nil`. (Replaces the deprecated `RADIO` constant.)
+  ///
+  /// - Returns: The radio firmware version, or `nil` if not available.
+  @available(Android 14, *)
   @JavaStaticMethod
   public func getRadioVersion() -> String
 }

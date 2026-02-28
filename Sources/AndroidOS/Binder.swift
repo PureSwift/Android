@@ -4,47 +4,87 @@ import JavaLangIO
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Base class for a remotable object, the core part of a lightweight remote procedure call
+/// mechanism defined by `IBinder`. This class is an implementation of IBinder that provides
+/// standard local implementation of such an object.
+///
+/// Most developers will not implement this class directly, instead using the aidl tool to
+/// describe the desired interface, having it generate the appropriate Binder subclass.
+///
+/// To use this class, create a subclass and implement `onTransact(int, Parcel, Parcel, int)`.
+/// You can then send the object to another process and receive calls through the `transact()`
+/// method, dispatching them to the appropriate action in `onTransact()`.
+///
+/// See also: [android.os.Binder](https://developer.android.com/reference/android/os/Binder)
 @JavaClass("android.os.Binder", implements: IBinder.self)
 open class Binder: JavaObject {
+  /// Create a new Binder object with an interface descriptor.
+  @available(Android 29, *)
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: String, environment: JNIEnvironment? = nil)
 
+  /// Create a new Binder object.
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
+  /// Convenience method for associating a specific interface with the Binder. After calling,
+  /// `queryLocalInterface(String)` will be implemented for you to return the given owner IInterface
+  /// when the corresponding descriptor is requested.
   @JavaMethod
   open func attachInterface(_ arg0: IInterface?, _ arg1: String)
 
+  /// Return the binder's interface descriptor.
   @JavaMethod
   open func getInterfaceDescriptor() -> String
 
+  /// Check to see if the object still exists.
   @JavaMethod
   open func pingBinder() -> Bool
 
+  /// Check to see if the process that the binder is in is still alive.
   @JavaMethod
   open func isBinderAlive() -> Bool
 
+  /// Use information supplied to `attachInterface()` to return the associated IInterface if it
+  /// matches the requested descriptor.
   @JavaMethod
   open func queryLocalInterface(_ arg0: String) -> IInterface!
 
+  /// Override this to perform the transaction. The default implementation returns false for
+  /// any code that is not recognized. You can also call the default implementation for any
+  /// code that is not handled by the subclass.
+  ///
+  /// - Parameter arg0: The action to perform. This should be a number between
+  ///   `FIRST_CALL_TRANSACTION` and `LAST_CALL_TRANSACTION`.
+  /// - Parameter arg1: Marshalled data to read from. Must not be nil.
+  /// - Parameter arg2: Marshalled data to write to. May be nil if the caller does not expect a result.
+  /// - Parameter arg3: Additional operation flags.
   @JavaMethod
   open func onTransact(_ arg0: Int32, _ arg1: Parcel?, _ arg2: Parcel?, _ arg3: Int32) throws -> Bool
 
+  /// Implemented to call `dump(FileDescriptor, PrintWriter, String[])` asynchronously on a new thread.
   @JavaMethod
   open func dumpAsync(_ arg0: FileDescriptor?, _ arg1: [String])
 
+  /// Default implementation reinterprets the flags argument, and if the `FLAG_ONEWAY` bit is set,
+  /// calls `onTransact(int, Parcel, Parcel, int)` for `INTERFACE_TRANSACTION`, otherwise calls
+  /// `onTransact(int, Parcel, Parcel, int)`.
   @JavaMethod
   open func transact(_ arg0: Int32, _ arg1: Parcel?, _ arg2: Parcel?, _ arg3: Int32) throws -> Bool
 
+  /// Local implementation is a no-op.
   @JavaMethod
   open func linkToDeath(_ arg0: IBinder.DeathRecipient?, _ arg1: Int32)
 
+  /// Local implementation is a no-op.
   @JavaMethod
   open func unlinkToDeath(_ arg0: IBinder.DeathRecipient?, _ arg1: Int32) -> Bool
 
+  /// Implemented to call `dump(FileDescriptor, String[])`.
   @JavaMethod
   open func dump(_ arg0: FileDescriptor?, _ arg1: PrintWriter?, _ arg2: [String])
 
+  /// Print the object's state into the given stream.
   @JavaMethod
   open func dump(_ arg0: FileDescriptor?, _ arg1: [String])
 }
@@ -73,39 +113,85 @@ extension JavaClass<Binder> {
   @JavaStaticField(isFinal: true)
   public var TWEET_TRANSACTION: Int32
 
+  /// Return the PID of the process that sent you the current transaction that is being processed.
+  /// This is only available for calls into a Binder; it will be -1 for the initiating process.
   @JavaStaticMethod
   public func getCallingPid() -> Int32
 
+  /// Return the Linux UID assigned to the process that sent you the current transaction that is
+  /// being processed. This is only available for calls into a Binder; it will be the UID of the
+  /// current process for the initiating process.
   @JavaStaticMethod
   public func getCallingUid() -> Int32
 
+  /// Return the Linux UID assigned to the process that sent the current transaction being processed.
+  /// Unlike `getCallingUid()`, this throws `SecurityException` if the call is not being processed.
+  @available(Android 29, *)
   @JavaStaticMethod
   public func getCallingUidOrThrow() -> Int32
 
+  /// Return the UserHandle assigned to the process that sent you the current transaction that is
+  /// being processed.
+  @available(Android 17, *)
   @JavaStaticMethod
   public func getCallingUserHandle() -> UserHandle!
 
+  /// Reset the identity of the incoming IPC on the current thread.
+  ///
+  /// This can be useful if, while handling an incoming call, you will be making outgoing calls
+  /// on other Binders and want your identity (and not the identity of the caller) to be used for
+  /// those calls. You can use `restoreCallingIdentity(long)` to restore the original identity
+  /// after making your calls.
+  ///
+  /// - Returns: A token that can be passed to `restoreCallingIdentity(long)` to restore the
+  ///   previous identity.
   @JavaStaticMethod
   public func clearCallingIdentity() -> Int64
 
+  /// Restore the identity of the incoming IPC on the current thread back to a previously identity
+  /// that was returned by `clearCallingIdentity()`.
+  ///
+  /// - Parameter arg0: The token returned by `clearCallingIdentity()`.
   @JavaStaticMethod
   public func restoreCallingIdentity(_ arg0: Int64)
 
+  /// Sets the work source for this thread. Any IPC made after this call will be attributed to the
+  /// given UID.
+  ///
+  /// - Returns: A token that can be passed to `restoreCallingWorkSource(long)` to restore the
+  ///   previous work source.
+  @available(Android 29, *)
   @JavaStaticMethod
   public func setCallingWorkSourceUid(_ arg0: Int32) -> Int64
 
+  /// Returns the work source set by the caller.
+  ///
+  /// Unlike `getCallingUid()`, this can be used from any thread.
+  @available(Android 29, *)
   @JavaStaticMethod
   public func getCallingWorkSourceUid() -> Int32
 
+  /// Resets the work source, and returns a token to restore it later.
+  @available(Android 29, *)
   @JavaStaticMethod
   public func clearCallingWorkSource() -> Int64
 
+  /// Restores the work source on this thread using a token previously returned by
+  /// `setCallingWorkSourceUid(int)` or `clearCallingWorkSource()`.
+  @available(Android 29, *)
   @JavaStaticMethod
   public func restoreCallingWorkSource(_ arg0: Int64)
 
+  /// Flush any Binder commands pending in the current thread to the kernel driver.
+  ///
+  /// This can be useful to call before performing an operation that may block for a long time,
+  /// to ensure that any pending object references have been released in order to prevent the
+  /// process from holding on to objects longer than it needs to.
   @JavaStaticMethod
   public func flushPendingCommands()
 
+  /// Add the calling thread to the IPC thread pool. This function does not return until the
+  /// current process is exiting.
   @JavaStaticMethod
   public func joinThreadPool()
 }

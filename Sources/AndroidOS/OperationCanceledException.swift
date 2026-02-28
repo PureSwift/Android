@@ -2,6 +2,11 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Thrown when an operation in progress is canceled, typically via a `CancellationSignal`.
+/// Callers should handle this exception to respond gracefully to user- or system-initiated cancellation.
+///
+/// See also: [android.os.OperationCanceledException](https://developer.android.com/reference/android/os/OperationCanceledException)
+@available(Android 16, *)
 @JavaClass("android.os.OperationCanceledException")
 open class OperationCanceledException: RuntimeException {
   @JavaMethod

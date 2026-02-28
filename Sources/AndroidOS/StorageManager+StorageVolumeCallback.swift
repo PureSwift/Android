@@ -3,11 +3,16 @@ import SwiftJava
 import CSwiftJavaJNI
 
 extension StorageManager {
+  /// Callback invoked when the state of a `StorageVolume` changes.
+  ///
+  /// See [android.os.storage.StorageManager.StorageVolumeCallback](https://developer.android.com/reference/android/os/storage/StorageManager.StorageVolumeCallback)
+  @available(Android 30, *)
   @JavaClass("android.os.storage.StorageManager$StorageVolumeCallback")
   open class StorageVolumeCallback: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
+  /// Called when the state of the associated `StorageVolume` has changed.
   @JavaMethod
   open func onStateChanged(_ arg0: StorageVolume?)
   }

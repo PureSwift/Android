@@ -4,81 +4,119 @@ import JavaLangIO
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Provides access to environment variables. Contains the path to external storage (SD card),
+/// and the state of the external storage.
+///
+/// See also: [android.os.Environment](https://developer.android.com/reference/android/os/Environment)
 @JavaClass("android.os.Environment")
 open class Environment: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 }
 extension JavaClass<Environment> {
+  /// Standard directory in which to place any audio files that should be in the list of alarms
+  /// that the user can select (not as regular music).
   @JavaStaticField(isFinal: false)
   public var DIRECTORY_ALARMS: String
 
+  /// Standard directory in which to place audiobooks that are purchased or downloaded by the user.
+  @available(Android 29, *)
   @JavaStaticField(isFinal: false)
   public var DIRECTORY_AUDIOBOOKS: String
 
+  /// The traditional location for pictures and videos when mounting the device as a camera.
   @JavaStaticField(isFinal: false)
   public var DIRECTORY_DCIM: String
 
+  /// Standard directory in which to place documents that have been created by the user.
+  @available(Android 19, *)
   @JavaStaticField(isFinal: false)
   public var DIRECTORY_DOCUMENTS: String
 
+  /// Standard directory in which to place files that have been downloaded by the user.
   @JavaStaticField(isFinal: false)
   public var DIRECTORY_DOWNLOADS: String
 
+  /// Standard directory in which to place movies that are available to the user.
   @JavaStaticField(isFinal: false)
   public var DIRECTORY_MOVIES: String
 
+  /// Standard directory in which to place any audio files that should be in the regular list
+  /// of music for the user.
   @JavaStaticField(isFinal: false)
   public var DIRECTORY_MUSIC: String
 
+  /// Standard directory in which to place any audio files that should be in the list of
+  /// notifications that the user can select (not as regular music).
   @JavaStaticField(isFinal: false)
   public var DIRECTORY_NOTIFICATIONS: String
 
+  /// Standard directory in which to place pictures that are available to the user.
   @JavaStaticField(isFinal: false)
   public var DIRECTORY_PICTURES: String
 
+  /// Standard directory in which to place any audio files that should be in the list of
+  /// podcasts that the user can select (not as regular music).
   @JavaStaticField(isFinal: false)
   public var DIRECTORY_PODCASTS: String
 
+  /// Standard directory in which to place any audio files that should be in the list of
+  /// audio recordings made by the user (not as regular music).
+  @available(Android 31, *)
   @JavaStaticField(isFinal: false)
   public var DIRECTORY_RECORDINGS: String
 
+  /// Standard directory in which to place any audio files that should be in the list of
+  /// ringtones that the user can select (not as regular music).
   @JavaStaticField(isFinal: false)
   public var DIRECTORY_RINGTONES: String
 
+  /// Standard directory for storing screenshots captured by the user.
+  @available(Android 29, *)
   @JavaStaticField(isFinal: false)
   public var DIRECTORY_SCREENSHOTS: String
 
+  /// getExternalStorageState() if the media was removed before it was unmounted.
   @JavaStaticField(isFinal: true)
   public var MEDIA_BAD_REMOVAL: String
 
+  /// getExternalStorageState() if the media is present and being disk-checked.
   @JavaStaticField(isFinal: true)
   public var MEDIA_CHECKING: String
 
+  /// getExternalStorageState() if the media is in the process of being ejected.
   @JavaStaticField(isFinal: true)
   public var MEDIA_EJECTING: String
 
+  /// getExternalStorageState() if the media is present and mounted at its mount point with read/write access.
   @JavaStaticField(isFinal: true)
   public var MEDIA_MOUNTED: String
 
+  /// getExternalStorageState() if the media is present and mounted at its mount point with read-only access.
   @JavaStaticField(isFinal: true)
   public var MEDIA_MOUNTED_READ_ONLY: String
 
+  /// getExternalStorageState() if the media is present but is blank or is using an unsupported filesystem.
   @JavaStaticField(isFinal: true)
   public var MEDIA_NOFS: String
 
+  /// getExternalStorageState() if the media is not present.
   @JavaStaticField(isFinal: true)
   public var MEDIA_REMOVED: String
 
+  /// getExternalStorageState() if the media is present not mounted, and shared via USB mass storage.
   @JavaStaticField(isFinal: true)
   public var MEDIA_SHARED: String
 
+  /// getExternalStorageState() if the state is unknown.
   @JavaStaticField(isFinal: true)
   public var MEDIA_UNKNOWN: String
 
+  /// getExternalStorageState() if the media is present but cannot be mounted. Typically this is because the file system on the media is corrupt.
   @JavaStaticField(isFinal: true)
   public var MEDIA_UNMOUNTABLE: String
 
+  /// getExternalStorageState() if the media is present but not mounted.
   @JavaStaticField(isFinal: true)
   public var MEDIA_UNMOUNTED: String
 

@@ -3,6 +3,11 @@ import SwiftJava
 import CSwiftJavaJNI
 
 extension StrictMode {
+  /// Describes what the virtual machine should detect and the penalty if it detects a violation.
+  /// Build instances with ``StrictMode/VmPolicy/Builder``.
+  ///
+  /// See also: [android.os.StrictMode.VmPolicy](https://developer.android.com/reference/android/os/StrictMode.VmPolicy)
+  @available(Android 9, *)
   @JavaClass("android.os.StrictMode$VmPolicy")
   open class VmPolicy: JavaObject {
   @JavaMethod
@@ -10,6 +15,7 @@ extension StrictMode {
   }
 }
 extension JavaClass<StrictMode.VmPolicy> {
+  /// The default, lax VM policy that does not detect any violations.
   @JavaStaticField(isFinal: true)
   public var LAX: StrictMode.VmPolicy!
 }

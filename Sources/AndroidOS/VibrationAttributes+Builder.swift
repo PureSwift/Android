@@ -3,20 +3,38 @@ import SwiftJava
 import CSwiftJavaJNI
 
 extension VibrationAttributes {
+  /// Builder class for `VibrationAttributes` objects.
+  ///
+  /// See also: [android.os.VibrationAttributes.Builder](https://developer.android.com/reference/android/os/VibrationAttributes.Builder)
+  @available(Android 30, *)
   @JavaClass("android.os.VibrationAttributes$Builder")
   open class Builder: JavaObject {
+  /// Constructs a new Builder with no attributes set.
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
+  /// Constructs a new Builder with attributes copied from an existing `VibrationAttributes`.
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: VibrationAttributes?, environment: JNIEnvironment? = nil)
 
+  /// Sets the attribute describing the type of the corresponding vibration.
+  ///
+  /// - Parameter arg0: One of the `VibrationAttributes.USAGE_*` constants.
+  /// - Returns: This Builder to allow chaining of calls.
   @JavaMethod
   open func setUsage(_ arg0: Int32) -> VibrationAttributes.Builder!
 
+  /// Creates a `VibrationAttributes` with the given parameters and the current settings.
+  ///
+  /// - Returns: The new `VibrationAttributes`.
   @JavaMethod
   open func build() -> VibrationAttributes!
 
+  /// Replaces flags with the given flags, filtered by the mask.
+  ///
+  /// - Parameter arg0: The flags to set.
+  /// - Parameter arg1: The mask for the flags.
+  /// - Returns: This Builder to allow chaining of calls.
   @JavaMethod
   open func setFlags(_ arg0: Int32, _ arg1: Int32) -> VibrationAttributes.Builder!
   }

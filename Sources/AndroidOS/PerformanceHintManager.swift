@@ -2,6 +2,15 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Lets apps communicate performance requirements to the Android system.
+///
+/// Use `createHintSession(_:_:)` to create a `Session` for a set of threads,
+/// then report actual work durations to allow the system to scale CPU frequency accordingly.
+///
+/// Obtain an instance via `Context.getSystemService(PerformanceHintManager.class)`.
+///
+/// See also: [android.os.PerformanceHintManager](https://developer.android.com/reference/android/os/PerformanceHintManager)
+@available(Android 31, *)
 @JavaClass("android.os.PerformanceHintManager")
 open class PerformanceHintManager: JavaObject {
   @JavaMethod

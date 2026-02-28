@@ -2,44 +2,59 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Retrieves file system statistics such as total, free, and available space for a given path.
+///
+/// Wraps the Unix `statvfs` system call. Prefer the `Long`-returning variants (e.g.,
+/// `getBlockSizeLong()`, `getFreeBytes()`) over the deprecated `Int32` variants for
+/// accurate results on large file systems.
+///
+/// See also: [android.os.StatFs](https://developer.android.com/reference/android/os/StatFs)
 @JavaClass("android.os.StatFs")
 open class StatFs: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: String, environment: JNIEnvironment? = nil)
 
+  /// Re-reads the file system statistics for the path provided at construction time.
   @JavaMethod
   open func restat(_ arg0: String)
 
   @JavaMethod
   open func getBlockSize() -> Int32
 
+  /// Returns the size in bytes of a single block on the file system.
   @JavaMethod
   open func getBlockSizeLong() -> Int64
 
   @JavaMethod
   open func getBlockCount() -> Int32
 
+  /// Returns the total number of blocks on the file system.
   @JavaMethod
   open func getBlockCountLong() -> Int64
 
   @JavaMethod
   open func getFreeBlocks() -> Int32
 
+  /// Returns the total number of free blocks, including those reserved for the super-user.
   @JavaMethod
   open func getFreeBlocksLong() -> Int64
 
+  /// Returns the number of free bytes available on the file system, including reserved blocks.
   @JavaMethod
   open func getFreeBytes() -> Int64
 
   @JavaMethod
   open func getAvailableBlocks() -> Int32
 
+  /// Returns the number of blocks available to non-privileged processes.
   @JavaMethod
   open func getAvailableBlocksLong() -> Int64
 
+  /// Returns the number of bytes available to non-privileged processes.
   @JavaMethod
   open func getAvailableBytes() -> Int64
 
+  /// Returns the total size of the file system in bytes.
   @JavaMethod
   open func getTotalBytes() -> Int64
 }

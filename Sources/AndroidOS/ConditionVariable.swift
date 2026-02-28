@@ -2,23 +2,37 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// A synchronization primitive that allows threads to wait until a condition becomes true.
+///
+/// Threads call `block()` to wait until another thread calls `open()` to release them.
+/// The condition can be reset to the closed state by calling `close()`.
+///
+/// See also: [android.os.ConditionVariable](https://developer.android.com/reference/android/os/ConditionVariable)
 @JavaClass("android.os.ConditionVariable")
 open class ConditionVariable: JavaObject {
+  /// Creates a `ConditionVariable` in the closed (blocking) state.
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
+  /// Creates a `ConditionVariable` with the specified initial state.
+  /// Pass `true` to start in the open state, `false` to start closed.
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Bool, environment: JNIEnvironment? = nil)
 
+  /// Sets the condition to the closed state, causing subsequent calls to `block()` to wait.
   @JavaMethod
   open func close()
 
+  /// Sets the condition to the open state, releasing all threads currently blocked in `block()`.
   @JavaMethod
   open func open()
 
+  /// Blocks the calling thread indefinitely until `open()` is called.
   @JavaMethod
   open func block()
 
+  /// Blocks the calling thread for up to the given number of milliseconds, or until `open()` is called.
+  /// Returns `true` if the condition was opened, `false` if the timeout expired.
   @JavaMethod
   open func block(_ arg0: Int64) -> Bool
 }

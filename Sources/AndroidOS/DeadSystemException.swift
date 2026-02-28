@@ -2,6 +2,11 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Thrown when the system server process has died, indicating that the Android system
+/// itself is no longer available and the device may be restarting.
+///
+/// See also: [android.os.DeadSystemException](https://developer.android.com/reference/android/os/DeadSystemException)
+@available(Android 23, *)
 @JavaClass("android.os.DeadSystemException")
 open class DeadSystemException: DeadObjectException {
   @JavaMethod

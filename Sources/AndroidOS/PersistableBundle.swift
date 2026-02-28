@@ -4,23 +4,40 @@ import JavaLang
 import SwiftJava
 import CSwiftJavaJNI
 
+/// A mapping from String keys to values of various types. The set of types supported by this
+/// class is purposefully restricted to simple objects that can safely be persisted to and
+/// restored from disk.
+///
+/// Unlike `Bundle`, values stored in a `PersistableBundle` can be saved to persistent storage,
+/// such as an `Activity`'s saved instance state.
+///
+/// See also: [android.os.PersistableBundle](https://developer.android.com/reference/android/os/PersistableBundle)
+@available(Android 21, *)
 @JavaClass("android.os.PersistableBundle", implements: Cloneable.self, Parcelable.self)
 open class PersistableBundle: BaseBundle {
+  /// Constructs a new, empty PersistableBundle that is optimized for a given number of key/value pairs.
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Int32, environment: JNIEnvironment? = nil)
 
+  /// Constructs a PersistableBundle containing a copy of the mappings from the given PersistableBundle.
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: PersistableBundle?, environment: JNIEnvironment? = nil)
 
+  /// Constructs a new, empty PersistableBundle.
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
+  /// Inserts a PersistableBundle value into the mapping.
   @JavaMethod
   open func putPersistableBundle(_ arg0: String, _ arg1: PersistableBundle?)
 
+  /// Writes the PersistableBundle contents to a stream, typically in order for it to be saved
+  /// to persistent storage.
   @JavaMethod
   open func writeToStream(_ arg0: OutputStream?) throws
 
+  /// Returns the value associated with the given key, or nil if no mapping of the desired type
+  /// exists for the given key.
   @JavaMethod
   open func getPersistableBundle(_ arg0: String) -> PersistableBundle!
 
@@ -30,6 +47,8 @@ open class PersistableBundle: BaseBundle {
   @JavaMethod
   open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
+  /// Makes a deep copy of the given PersistableBundle.
+  @available(Android 26, *)
   @JavaMethod
   open func deepCopy() -> PersistableBundle!
 
@@ -43,6 +62,7 @@ extension JavaClass<PersistableBundle> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<PersistableBundle>!
 
+  /// An unmodifiable PersistableBundle that is always empty.
   @JavaStaticField(isFinal: true)
   public var EMPTY: PersistableBundle!
 
@@ -52,6 +72,8 @@ extension JavaClass<PersistableBundle> {
   @JavaStaticField(isFinal: true)
   public var PARCELABLE_WRITE_RETURN_VALUE: Int32
 
+  /// Reads a PersistableBundle from a stream that was previously written by
+  /// `writeToStream(OutputStream)`.
   @JavaStaticMethod
   public func readFromStream(_ arg0: InputStream?) throws -> PersistableBundle!
 }

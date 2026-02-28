@@ -3,8 +3,16 @@ import SwiftJava
 import CSwiftJavaJNI
 
 extension PowerManager {
+  /// Listener passed to observe changes in the state of a `WakeLock`.
+  ///
+  /// See also: [android.os.PowerManager.WakeLockStateListener](https://developer.android.com/reference/android/os/PowerManager.WakeLockStateListener)
+  @available(Android 31, *)
   @JavaInterface("android.os.PowerManager$WakeLockStateListener")
   public struct WakeLockStateListener {
+  /// Called when the state of the wake lock changes.
+  ///
+  /// - Parameter arg0: `true` if the wake lock has been acquired (is held),
+  ///   `false` if it has been released.
   @JavaMethod
   public func onStateChanged(_ arg0: Bool)
   }

@@ -2,6 +2,12 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// A simple pattern matcher that supports literal string matching, prefix matching,
+/// simple glob patterns, advanced glob patterns, and suffix matching against strings.
+///
+/// Use the `PATTERN_*` constants to select the matching strategy when constructing an instance.
+///
+/// See also: [android.os.PatternMatcher](https://developer.android.com/reference/android/os/PatternMatcher)
 @JavaClass("android.os.PatternMatcher", implements: Parcelable.self)
 open class PatternMatcher: JavaObject {
   @JavaMethod
@@ -19,12 +25,15 @@ open class PatternMatcher: JavaObject {
   @JavaMethod
   open override func toString() -> String
 
+  /// Returns `true` if the given string matches this pattern.
   @JavaMethod
   open func match(_ arg0: String) -> Bool
 
+  /// Returns the pattern type constant (one of the `PATTERN_*` values).
   @JavaMethod
   open func getType() -> Int32
 
+  /// Returns the pattern string used for matching.
   @JavaMethod
   open func getPath() -> String
 }

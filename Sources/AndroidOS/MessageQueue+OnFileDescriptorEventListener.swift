@@ -5,19 +5,31 @@ import SwiftJava
 import CSwiftJavaJNI
 
 extension MessageQueue {
+  /// A listener which is invoked when file descriptor related events occur.
+  ///
+  /// See also: [android.os.MessageQueue.OnFileDescriptorEventListener](https://developer.android.com/reference/android/os/MessageQueue.OnFileDescriptorEventListener)
+  @available(Android 23, *)
   @JavaInterface("android.os.MessageQueue$OnFileDescriptorEventListener")
   public struct OnFileDescriptorEventListener {
+  /// Called when a file descriptor receives events.
+  ///
+  /// - Parameter arg0: The file descriptor.
+  /// - Parameter arg1: The set of events that occurred: a combination of `EVENT_INPUT`, `EVENT_OUTPUT`, and `EVENT_ERROR`.
+  /// - Returns: The new set of events to watch, or `0` to unregister the listener.
   @JavaMethod
   public func onFileDescriptorEvents(_ arg0: FileDescriptor?, _ arg1: Int32) -> Int32
   }
 }
 extension JavaClass<MessageQueue.OnFileDescriptorEventListener> {
+  /// File descriptor event: indicates that the file descriptor is ready for input operations.
   @JavaStaticField(isFinal: true)
   public var EVENT_ERROR: Int32
 
+  /// File descriptor event: indicates that an error occurred on the file descriptor.
   @JavaStaticField(isFinal: true)
   public var EVENT_INPUT: Int32
 
+  /// File descriptor event: indicates that the file descriptor is ready for output operations.
   @JavaStaticField(isFinal: true)
   public var EVENT_OUTPUT: Int32
 }

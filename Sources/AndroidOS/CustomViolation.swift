@@ -2,6 +2,10 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Violation raised when `StrictMode.noteSlowCall` is used to flag a custom slow call.
+///
+/// See also: [android.os.strictmode.CustomViolation](https://developer.android.com/reference/android/os/strictmode/CustomViolation)
+@available(Android 28, *)
 @JavaClass("android.os.strictmode.CustomViolation")
 open class CustomViolation: Violation {
 

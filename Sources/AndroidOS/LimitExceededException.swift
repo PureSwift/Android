@@ -3,6 +3,11 @@ import JavaLang
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Thrown when a caller has exceeded a resource or rate limit imposed by the system or a service.
+/// The specific limit that was exceeded is typically described in the exception message.
+///
+/// See also: [android.os.LimitExceededException](https://developer.android.com/reference/android/os/LimitExceededException)
+@available(Android 31, *)
 @JavaClass("android.os.LimitExceededException")
 open class LimitExceededException: IllegalStateException {
   @JavaMethod

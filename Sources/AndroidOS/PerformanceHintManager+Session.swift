@@ -5,6 +5,13 @@ import SwiftJava
 import CSwiftJavaJNI
 
 extension PerformanceHintManager {
+  /// A hint session for a set of threads, used to report work durations to the system.
+  ///
+  /// Call `updateTargetWorkDuration(_:)` to inform the system of your target frame time,
+  /// and `reportActualWorkDuration(_:)` after each frame to allow the CPU governor to adapt.
+  ///
+  /// See also: [android.os.PerformanceHintManager.Session](https://developer.android.com/reference/android/os/PerformanceHintManager.Session)
+  @available(Android 31, *)
   @JavaClass("android.os.PerformanceHintManager$Session", implements: Closeable.self)
   open class Session: JavaObject {
   @JavaMethod

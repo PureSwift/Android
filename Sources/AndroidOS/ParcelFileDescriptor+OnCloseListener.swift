@@ -5,8 +5,15 @@ import SwiftJava
 import CSwiftJavaJNI
 
 extension ParcelFileDescriptor {
+  /// Listener invoked when a `ParcelFileDescriptor` created with `wrap(_:_:_:)` is closed.
+  ///
+  /// See [android.os.ParcelFileDescriptor.OnCloseListener](https://developer.android.com/reference/android/os/ParcelFileDescriptor.OnCloseListener)
+  @available(Android 19, *)
   @JavaInterface("android.os.ParcelFileDescriptor$OnCloseListener")
   public struct OnCloseListener {
+  /// Called when the associated `ParcelFileDescriptor` is closed.
+  ///
+  /// - Parameter arg0: Any `IOException` that caused the close, or `nil` if the descriptor was closed normally.
   @JavaMethod
   public func onClose(_ arg0: IOException?)
   }

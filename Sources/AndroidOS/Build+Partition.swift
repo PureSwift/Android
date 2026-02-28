@@ -3,14 +3,21 @@ import SwiftJava
 import CSwiftJavaJNI
 
 extension Build {
+  /// Contains information about a partition that has a separate build fingerprint.
+  ///
+  /// See also: [android.os.Build.Partition](https://developer.android.com/reference/android/os/Build.Partition)
+  @available(Android 29, *)
   @JavaClass("android.os.Build$Partition")
   open class Partition: JavaObject {
+  /// Returns the fingerprint of the partition.
   @JavaMethod
   open func getFingerprint() -> String
 
+  /// Returns the time (in milliseconds since the UNIX epoch) at which this partition was built.
   @JavaMethod
   open func getBuildTimeMillis() -> Int64
 
+  /// Returns the name of this partition, e.g. "system" or "vendor".
   @JavaMethod
   open func getName() -> String
 
@@ -22,6 +29,7 @@ extension Build {
   }
 }
 extension JavaClass<Build.Partition> {
+  /// The name of the system partition.
   @JavaStaticField(isFinal: true)
   public var PARTITION_NAME_SYSTEM: String
 }

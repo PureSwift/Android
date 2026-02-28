@@ -3,14 +3,31 @@ import SwiftJava
 import CSwiftJavaJNI
 
 extension PowerManager {
+  /// A wake lock is a mechanism to indicate that your application needs to have the device stay on.
+  ///
+  /// Any application using a WakeLock must request the `android.permission.WAKE_LOCK` permission
+  /// in an `<uses-permission>` element of the application's manifest.
+  ///
+  /// Call `release()` when you are done and don't need the lock anymore. It is very important to
+  /// do this as soon as possible to avoid running down the user's battery excessively.
+  ///
+  /// See also: [android.os.PowerManager.WakeLock](https://developer.android.com/reference/android/os/PowerManager.WakeLock)
   @JavaClass("android.os.PowerManager$WakeLock")
   open class WakeLock: JavaObject {
+  /// Returns true if the wake lock is currently held.
   @JavaMethod
   open func isHeld() -> Bool
 
+  /// Sets whether this WakeLock is reference counted.
+  ///
+  /// Wake locks are reference counted by default. If a wake lock is reference counted, then
+  /// each call to `acquire()` must be balanced by an equal number of calls to `release()`.
+  /// If a wake lock is not reference counted, then one call to `release()` is sufficient to
+  /// undo the effect of all previous calls to `acquire()`.
   @JavaMethod
   open func setReferenceCounted(_ arg0: Bool)
 
+  /// Sets the work source associated with the wake lock.
   @JavaMethod
   open func setWorkSource(_ arg0: WorkSource?)
 
@@ -20,15 +37,25 @@ extension PowerManager {
   @JavaMethod
   open override func toString() -> String
 
+  /// Releases the wake lock. The CPU is allowed to sleep as soon as all wake locks have been released.
   @JavaMethod
   open func release()
 
+  /// Releases the wake lock with optional flags.
+  ///
+  /// - Parameter arg0: Combination of flag values to modify the release behavior.
   @JavaMethod
   open func release(_ arg0: Int32)
 
+  /// Acquires the wake lock. Ensures the device is on at the level requested when the wake lock
+  /// was created.
   @JavaMethod
   open func acquire()
 
+  /// Acquires the wake lock with a timeout. The lock will be released automatically after
+  /// the timeout.
+  ///
+  /// - Parameter arg0: The number of milliseconds to hold the wake lock before automatically releasing.
   @JavaMethod
   open func acquire(_ arg0: Int64)
   }

@@ -4,20 +4,29 @@ import JavaLang
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Provides static utility methods for common file operations.
+///
+/// This is an internal system API and is not intended for use by third-party applications.
+///
+/// See [android.os.FileUtils](https://developer.android.com/reference/android/os/FileUtils)
 @JavaClass("android.os.FileUtils")
 open class FileUtils: JavaObject {
 
 }
 extension JavaClass<FileUtils> {
+  /// Copies all bytes from one file descriptor to another, returning the number of bytes copied.
   @JavaStaticMethod
   public func copy(_ arg0: FileDescriptor?, _ arg1: FileDescriptor?) throws -> Int64
 
+  /// Copies all bytes from an `InputStream` to an `OutputStream`, returning the number of bytes copied.
   @JavaStaticMethod
   public func copy(_ arg0: InputStream?, _ arg1: OutputStream?) throws -> Int64
 
+  /// Closes the given `FileDescriptor`, silently ignoring any errors.
   @JavaStaticMethod
   public func closeQuietly(_ arg0: FileDescriptor?)
 
+  /// Closes the given `AutoCloseable`, silently ignoring any errors.
   @JavaStaticMethod
   public func closeQuietly(_ arg0: AutoCloseable?)
 }

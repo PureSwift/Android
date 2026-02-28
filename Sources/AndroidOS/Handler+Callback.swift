@@ -3,8 +3,15 @@ import SwiftJava
 import CSwiftJavaJNI
 
 extension Handler {
+  /// Callback interface you can use when instantiating a Handler to avoid having to implement
+  /// your own subclass of Handler.
+  ///
+  /// See also: [android.os.Handler.Callback](https://developer.android.com/reference/android/os/Handler.Callback)
   @JavaInterface("android.os.Handler$Callback")
   public struct Callback {
+  /// Handle a message sent to this handler.
+  ///
+  /// - Returns: `true` if no further handling is desired.
   @JavaMethod
   public func handleMessage(_ arg0: Message?) -> Bool
   }

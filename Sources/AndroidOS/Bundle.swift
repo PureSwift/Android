@@ -7,140 +7,223 @@ import JavaLangUtil
 import SwiftJava
 import CSwiftJavaJNI
 
+/// A mapping from String keys to various Parcelable values. This is the primary method for
+/// transferring data between Activities and between Activities and Services.
+///
+/// `Bundle` extends `BaseBundle` and adds support for `Parcelable` values, IBinder objects, and
+/// various other Android-specific types.
+///
+/// See also: [android.os.Bundle](https://developer.android.com/reference/android/os/Bundle)
 @JavaClass("android.os.Bundle", implements: Cloneable.self, Parcelable.self)
 open class Bundle: BaseBundle {
+  /// Constructs a new, empty Bundle that is optimized for a given number of key/value pairs.
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Int32, environment: JNIEnvironment? = nil)
 
+  /// Constructs a Bundle containing a copy of the mappings from the given ClassLoader.
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: JavaClassLoader?, environment: JNIEnvironment? = nil)
 
+  /// Constructs a new, empty Bundle.
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
+  /// Constructs a Bundle containing a copy of the mappings from the given Bundle.
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Bundle?, environment: JNIEnvironment? = nil)
 
+  /// Constructs a Bundle containing a copy of the mappings from the given PersistableBundle.
+  @available(Android 21, *)
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: PersistableBundle?, environment: JNIEnvironment? = nil)
 
   @JavaMethod
   open func describeContents() -> Int32
 
+  /// Writes the Bundle contents to a Parcel, typically in order for it to be passed through
+  /// an IBinder connection.
   @JavaMethod
   open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
+  /// Changes the ClassLoader this Bundle uses when unparcelling data.
   @JavaMethod
   open func setClassLoader(_ arg0: JavaClassLoader?)
 
+  /// Makes a deep copy of the given bundle.
+  @available(Android 26, *)
   @JavaMethod
   open func deepCopy() -> Bundle!
 
+  /// Reports whether the bundle contains any parcelled file descriptors.
   @JavaMethod
   open func hasFileDescriptors() -> Bool
 
+  /// Inserts a CharSequence value into the mapping.
   @JavaMethod
   open func putCharSequence(_ arg0: String, _ arg1: CharSequence?)
 
+  /// Inserts a Parcelable value into the mapping.
   @JavaMethod
   open func putParcelable(_ arg0: String, _ arg1: Parcelable?)
 
+  /// Inserts an array of Parcelable values into the mapping.
   @JavaMethod
   open func putParcelableArray(_ arg0: String, _ arg1: [Parcelable?])
 
+  /// Inserts a List of Parcelable values into the mapping.
   @JavaMethod
   open func putParcelableArrayList(_ arg0: String, _ arg1: ArrayList<Parcelable>?)
 
+  /// Inserts an ArrayList of Integer values into the mapping.
   @JavaMethod
   open func putIntegerArrayList(_ arg0: String, _ arg1: ArrayList<JavaInteger>?)
 
+  /// Inserts an ArrayList of String values into the mapping.
   @JavaMethod
   open func putStringArrayList(_ arg0: String, _ arg1: ArrayList<JavaString>?)
 
+  /// Inserts an ArrayList of CharSequence values into the mapping.
   @JavaMethod
   open func putCharSequenceArrayList(_ arg0: String, _ arg1: ArrayList<CharSequence>?)
 
+  /// Inserts a Serializable value into the mapping.
   @JavaMethod
   open func putSerializable(_ arg0: String, _ arg1: Serializable?)
 
+  /// Inserts a byte array value into the mapping.
   @JavaMethod
   open func putByteArray(_ arg0: String, _ arg1: [Int8])
 
+  /// Inserts a short array value into the mapping.
   @JavaMethod
   open func putShortArray(_ arg0: String, _ arg1: [Int16])
 
+  /// Inserts a char array value into the mapping.
   @JavaMethod
   open func putCharArray(_ arg0: String, _ arg1: [UInt16])
 
+  /// Inserts a float array value into the mapping.
   @JavaMethod
   open func putFloatArray(_ arg0: String, _ arg1: [Float])
 
+  /// Inserts a CharSequence array value into the mapping.
   @JavaMethod
   open func putCharSequenceArray(_ arg0: String, _ arg1: [CharSequence?])
 
+  /// Inserts a Bundle value into the mapping.
   @JavaMethod
   open func putBundle(_ arg0: String, _ arg1: Bundle?)
 
+  /// Inserts an IBinder value into the mapping.
+  @available(Android 18, *)
   @JavaMethod
   open func putBinder(_ arg0: String, _ arg1: IBinder?)
 
+  /// Returns the value associated with the given key, or nil if no mapping of the desired type
+  /// exists for the given key.
   @JavaMethod
   open func getCharSequence(_ arg0: String) -> CharSequence!
 
+  /// Returns the value associated with the given key, or `arg1` if no mapping of the desired type
+  /// exists for the given key.
   @JavaMethod
   open func getCharSequence(_ arg0: String, _ arg1: CharSequence?) -> CharSequence!
 
+  /// Returns the value associated with the given key, cast to the given class, or nil if no
+  /// mapping of the desired type exists for the given key.
+  @available(Android 33, *)
   @JavaMethod
   open func getParcelable(_ arg0: String, _ arg1: JavaClass<JavaObject>?) -> JavaObject!
 
+  /// Returns the value associated with the given key, or nil if no mapping of the desired type
+  /// exists for the given key.
+  ///
+  /// - Note: Deprecated since API 33. Use `getParcelable(String, Class)` instead.
   @JavaMethod
   open func getParcelable(_ arg0: String) -> Parcelable!
 
+  /// Returns the value associated with the given key, or nil if no mapping of the desired type
+  /// exists for the given key.
+  @available(Android 33, *)
   @JavaMethod
   open func getParcelableArray(_ arg0: String, _ arg1: JavaClass<JavaObject>?) -> [JavaObject?]
 
+  /// Returns the value associated with the given key, or nil if no mapping of the desired type
+  /// exists for the given key.
+  ///
+  /// - Note: Deprecated since API 33. Use `getParcelableArray(String, Class)` instead.
   @JavaMethod
   open func getParcelableArray(_ arg0: String) -> [Parcelable?]
 
+  /// Returns the value associated with the given key, or nil if no mapping of the desired type
+  /// exists for the given key.
+  @available(Android 33, *)
   @JavaMethod
   open func getParcelableArrayList(_ arg0: String, _ arg1: JavaClass<JavaObject>?) -> ArrayList<JavaObject>!
 
+  /// Returns the value associated with the given key, or nil if no mapping of the desired type
+  /// exists for the given key.
+  ///
+  /// - Note: Deprecated since API 33. Use `getParcelableArrayList(String, Class)` instead.
   @JavaMethod
   open func getParcelableArrayList(_ arg0: String) -> ArrayList<Parcelable>!
 
+  /// Returns the value associated with the given key, or nil if no mapping of the desired type
+  /// exists for the given key.
+  ///
+  /// - Note: Deprecated since API 33. Use `getSerializable(String, Class)` instead.
   @JavaMethod
   open func getSerializable(_ arg0: String) -> Serializable!
 
+  /// Returns the value associated with the given key, cast to the given class, or nil if no
+  /// mapping of the desired type exists for the given key.
+  @available(Android 33, *)
   @JavaMethod
   open func getSerializable(_ arg0: String, _ arg1: JavaClass<Serializable>?) -> Serializable!
 
+  /// Returns the value associated with the given key, or nil if no mapping of the desired type
+  /// exists for the given key.
   @JavaMethod
   open func getIntegerArrayList(_ arg0: String) -> ArrayList<JavaInteger>!
 
+  /// Returns the value associated with the given key, or nil if no mapping of the desired type
+  /// exists for the given key.
   @JavaMethod
   open func getStringArrayList(_ arg0: String) -> ArrayList<JavaString>!
 
+  /// Returns the value associated with the given key, or nil if no mapping of the desired type
+  /// exists for the given key.
   @JavaMethod
   open func getCharSequenceArrayList(_ arg0: String) -> ArrayList<CharSequence>!
 
+  /// Returns the value associated with the given key, or nil if no mapping exists.
   @JavaMethod
   open func getByteArray(_ arg0: String) -> [Int8]
 
+  /// Returns the value associated with the given key, or nil if no mapping exists.
   @JavaMethod
   open func getShortArray(_ arg0: String) -> [Int16]
 
+  /// Returns the value associated with the given key, or nil if no mapping exists.
   @JavaMethod
   open func getCharArray(_ arg0: String) -> [UInt16]
 
+  /// Returns the value associated with the given key, or nil if no mapping exists.
   @JavaMethod
   open func getFloatArray(_ arg0: String) -> [Float]
 
+  /// Returns the value associated with the given key, or nil if no mapping exists.
   @JavaMethod
   open func getCharSequenceArray(_ arg0: String) -> [CharSequence?]
 
+  /// Returns the value associated with the given key, or nil if no mapping of the desired type
+  /// exists for the given key.
+  @available(Android 18, *)
   @JavaMethod
   open func getBinder(_ arg0: String) -> IBinder!
 
+  /// Reads the Parcel contents into this Bundle, typically in order for it to be passed through
+  /// an IBinder connection.
   @JavaMethod
   open func readFromParcel(_ arg0: Parcel?)
 
@@ -153,51 +236,74 @@ open class Bundle: BaseBundle {
   @JavaMethod
   open override func clone() -> JavaObject!
 
+  /// Returns the value associated with the given key, or `arg1` if no mapping of the desired type
+  /// exists for the given key.
   @JavaMethod
   open func getByte(_ arg0: String, _ arg1: Int8) -> JavaByte!
 
+  /// Returns the value associated with the given key, or 0 if no mapping of the desired type
+  /// exists for the given key.
   @JavaMethod
   open func getByte(_ arg0: String) -> Int8
 
+  /// Inserts a byte value into the mapping.
   @JavaMethod
   open func putByte(_ arg0: String, _ arg1: Int8)
 
+  /// Returns the value associated with the given key, or `arg1` if no mapping of the desired type
+  /// exists for the given key.
   @JavaMethod
   open func getShort(_ arg0: String, _ arg1: Int16) -> Int16
 
+  /// Returns the value associated with the given key, or 0 if no mapping of the desired type
+  /// exists for the given key.
   @JavaMethod
   open func getShort(_ arg0: String) -> Int16
 
+  /// Inserts a short value into the mapping.
   @JavaMethod
   open func putShort(_ arg0: String, _ arg1: Int16)
 
+  /// Returns the value associated with the given key, or 0 if no mapping of the desired type
+  /// exists for the given key.
   @JavaMethod
   open func getChar(_ arg0: String) -> UInt16
 
+  /// Returns the value associated with the given key, or `arg1` if no mapping of the desired type
+  /// exists for the given key.
   @JavaMethod
   open func getChar(_ arg0: String, _ arg1: UInt16) -> UInt16
 
+  /// Inserts a char value into the mapping.
   @JavaMethod
   open func putChar(_ arg0: String, _ arg1: UInt16)
 
+  /// Returns the value associated with the given key, or `arg1` if no mapping of the desired type
+  /// exists for the given key.
   @JavaMethod
   open func getFloat(_ arg0: String, _ arg1: Float) -> Float
 
+  /// Returns the value associated with the given key, or 0.0f if no mapping of the desired type
+  /// exists for the given key.
   @JavaMethod
   open func getFloat(_ arg0: String) -> Float
 
+  /// Inserts a float value into the mapping.
   @JavaMethod
   open func putFloat(_ arg0: String, _ arg1: Float)
 
   @JavaMethod
   open override func clear()
 
+  /// Returns the ClassLoader currently associated with this Bundle.
   @JavaMethod
   open func getClassLoader() -> JavaClassLoader!
 
+  /// Inserts all mappings from the given Bundle into this Bundle.
   @JavaMethod
   open func putAll(_ arg0: Bundle?)
 
+  /// Returns the value associated with the given key, or nil if no mapping exists.
   @JavaMethod
   open func getBundle(_ arg0: String) -> Bundle!
 }
@@ -205,6 +311,7 @@ extension JavaClass<Bundle> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<Bundle>!
 
+  /// An unmodifiable Bundle that is always empty.
   @JavaStaticField(isFinal: true)
   public var EMPTY: Bundle!
 

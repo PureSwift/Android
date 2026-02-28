@@ -3,11 +3,24 @@ import SwiftJava
 import CSwiftJavaJNI
 
 extension Parcelable {
+  /// Interface that must be implemented and provided as a public `CREATOR` field that generates
+  /// instances of your Parcelable class from a Parcel.
+  ///
+  /// See also: [android.os.Parcelable.Creator](https://developer.android.com/reference/android/os/Parcelable.Creator)
   @JavaInterface("android.os.Parcelable$Creator")
   public struct Creator<T: AnyJavaObject> {
+  /// Create a new instance of the Parcelable class, instantiating it from the given Parcel
+  /// whose data had previously been written by `Parcelable.writeToParcel()`.
+  ///
+  /// - Parameter arg0: The Parcel to read the object's data from.
+  /// - Returns: A new instance of the Parcelable class.
   @JavaMethod
   public func createFromParcel(_ arg0: Parcel?) -> JavaObject!
 
+  /// Create a new array of the Parcelable class.
+  ///
+  /// - Parameter arg0: The size of the array.
+  /// - Returns: An array of the Parcelable class, with every entry initialized to nil.
   @JavaMethod
   public func newArray(_ arg0: Int32) -> [JavaObject?]
   }
