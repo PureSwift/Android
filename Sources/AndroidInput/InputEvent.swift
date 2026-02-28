@@ -68,30 +68,30 @@ public struct EventType: RawRepresentable, Equatable, Hashable, Sendable {
     }
     
     /// Indicates that the input event is a key event.
-    public static let key = EventType(rawValue: AINPUT_EVENT_TYPE_KEY)
-    
+    public static let key = EventType(rawValue: Int32(AINPUT_EVENT_TYPE_KEY))
+
     /// Indicates that the input event is a motion event.
-    public static let motion = EventType(rawValue: AINPUT_EVENT_TYPE_MOTION)
-    
+    public static let motion = EventType(rawValue: Int32(AINPUT_EVENT_TYPE_MOTION))
+
     /// Indicates that the input event is a focus event.
     ///
     /// Available since API level 28.
-    public static let focus = EventType(rawValue: AINPUT_EVENT_TYPE_FOCUS)
-    
+    public static let focus = EventType(rawValue: Int32(AINPUT_EVENT_TYPE_FOCUS))
+
     /// Indicates that the input event is a capture event.
     ///
     /// Available since API level 28.
-    public static let capture = EventType(rawValue: AINPUT_EVENT_TYPE_CAPTURE)
-    
+    public static let capture = EventType(rawValue: Int32(AINPUT_EVENT_TYPE_CAPTURE))
+
     /// Indicates that the input event is a drag event.
     ///
     /// Available since API level 31.
-    public static let drag = EventType(rawValue: AINPUT_EVENT_TYPE_DRAG)
-    
+    public static let drag = EventType(rawValue: Int32(AINPUT_EVENT_TYPE_DRAG))
+
     /// Indicates that the input event is a touch mode event.
     ///
     /// Available since API level 31.
-    public static let touchMode = EventType(rawValue: AINPUT_EVENT_TYPE_TOUCH_MODE)
+    public static let touchMode = EventType(rawValue: Int32(AINPUT_EVENT_TYPE_TOUCH_MODE))
 }
 
 // MARK: - Event Source
@@ -105,55 +105,55 @@ public struct EventSource: RawRepresentable, Equatable, Hashable, Sendable {
     }
     
     /// Unknown input source.
-    public static let unknown = EventSource(rawValue: AINPUT_SOURCE_UNKNOWN)
-    
+    public static let unknown = EventSource(rawValue: Int32(bitPattern: AINPUT_SOURCE_UNKNOWN))
+
     /// Keyboard input source.
-    public static let keyboard = EventSource(rawValue: AINPUT_SOURCE_KEYBOARD)
-    
+    public static let keyboard = EventSource(rawValue: Int32(bitPattern: AINPUT_SOURCE_KEYBOARD))
+
     /// D-pad input source.
-    public static let dpad = EventSource(rawValue: AINPUT_SOURCE_DPAD)
-    
+    public static let dpad = EventSource(rawValue: Int32(bitPattern: AINPUT_SOURCE_DPAD))
+
     /// Gamepad input source.
-    public static let gamepad = EventSource(rawValue: AINPUT_SOURCE_GAMEPAD)
-    
+    public static let gamepad = EventSource(rawValue: Int32(bitPattern: AINPUT_SOURCE_GAMEPAD))
+
     /// Touchscreen input source.
-    public static let touchscreen = EventSource(rawValue: AINPUT_SOURCE_TOUCHSCREEN)
-    
+    public static let touchscreen = EventSource(rawValue: Int32(bitPattern: AINPUT_SOURCE_TOUCHSCREEN))
+
     /// Mouse input source.
-    public static let mouse = EventSource(rawValue: AINPUT_SOURCE_MOUSE)
-    
+    public static let mouse = EventSource(rawValue: Int32(bitPattern: AINPUT_SOURCE_MOUSE))
+
     /// Stylus input source.
-    public static let stylus = EventSource(rawValue: AINPUT_SOURCE_STYLUS)
-    
+    public static let stylus = EventSource(rawValue: Int32(bitPattern: AINPUT_SOURCE_STYLUS))
+
     /// Bluetooth stylus input source.
-    public static let bluetoothStylus = EventSource(rawValue: AINPUT_SOURCE_BLUETOOTH_STYLUS)
-    
+    public static let bluetoothStylus = EventSource(rawValue: Int32(bitPattern: AINPUT_SOURCE_BLUETOOTH_STYLUS))
+
     /// Trackball input source.
-    public static let trackball = EventSource(rawValue: AINPUT_SOURCE_TRACKBALL)
-    
+    public static let trackball = EventSource(rawValue: Int32(bitPattern: AINPUT_SOURCE_TRACKBALL))
+
     /// Mouse relative input source.
-    public static let mouseRelative = EventSource(rawValue: AINPUT_SOURCE_MOUSE_RELATIVE)
-    
+    public static let mouseRelative = EventSource(rawValue: Int32(bitPattern: AINPUT_SOURCE_MOUSE_RELATIVE))
+
     /// Touchpad input source.
-    public static let touchpad = EventSource(rawValue: AINPUT_SOURCE_TOUCHPAD)
-    
+    public static let touchpad = EventSource(rawValue: Int32(bitPattern: AINPUT_SOURCE_TOUCHPAD))
+
     /// Touch navigation input source.
-    public static let touchNavigation = EventSource(rawValue: AINPUT_SOURCE_TOUCH_NAVIGATION)
-    
+    public static let touchNavigation = EventSource(rawValue: Int32(bitPattern: AINPUT_SOURCE_TOUCH_NAVIGATION))
+
     /// Joystick input source.
-    public static let joystick = EventSource(rawValue: AINPUT_SOURCE_JOYSTICK)
-    
+    public static let joystick = EventSource(rawValue: Int32(bitPattern: AINPUT_SOURCE_JOYSTICK))
+
     /// HDMI input source.
-    public static let hdmi = EventSource(rawValue: AINPUT_SOURCE_HDMI)
-    
+    public static let hdmi = EventSource(rawValue: Int32(bitPattern: AINPUT_SOURCE_HDMI))
+
     /// Sensor input source.
-    public static let sensor = EventSource(rawValue: AINPUT_SOURCE_SENSOR)
-    
+    public static let sensor = EventSource(rawValue: Int32(bitPattern: AINPUT_SOURCE_SENSOR))
+
     /// Rotary encoder input source.
-    public static let rotaryEncoder = EventSource(rawValue: AINPUT_SOURCE_ROTARY_ENCODER)
-    
+    public static let rotaryEncoder = EventSource(rawValue: Int32(bitPattern: AINPUT_SOURCE_ROTARY_ENCODER))
+
     /// Any input source.
-    public static let any = EventSource(rawValue: AINPUT_SOURCE_ANY)
+    public static let any = EventSource(rawValue: Int32(bitPattern: AINPUT_SOURCE_ANY))
 }
 
 // MARK: - Key Event

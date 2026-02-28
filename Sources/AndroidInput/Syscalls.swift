@@ -142,30 +142,30 @@ func AMotionEvent_getHistoricalY(
 
 // MARK: - AInputEvent Constants
 
-let AINPUT_EVENT_TYPE_KEY: Int32 = 1
-let AINPUT_EVENT_TYPE_MOTION: Int32 = 2
-let AINPUT_EVENT_TYPE_FOCUS: Int32 = 3
-let AINPUT_EVENT_TYPE_CAPTURE: Int32 = 4
-let AINPUT_EVENT_TYPE_DRAG: Int32 = 5
-let AINPUT_EVENT_TYPE_TOUCH_MODE: Int32 = 6
+let AINPUT_EVENT_TYPE_KEY: Int = 1
+let AINPUT_EVENT_TYPE_MOTION: Int = 2
+let AINPUT_EVENT_TYPE_FOCUS: Int = 3
+let AINPUT_EVENT_TYPE_CAPTURE: Int = 4
+let AINPUT_EVENT_TYPE_DRAG: Int = 5
+let AINPUT_EVENT_TYPE_TOUCH_MODE: Int = 6
 
-let AINPUT_SOURCE_UNKNOWN: Int32 = 0
-let AINPUT_SOURCE_KEYBOARD: Int32 = 0x101
-let AINPUT_SOURCE_DPAD: Int32 = 0x201
-let AINPUT_SOURCE_GAMEPAD: Int32 = 0x401
-let AINPUT_SOURCE_TOUCHSCREEN: Int32 = 0x1002
-let AINPUT_SOURCE_MOUSE: Int32 = 0x2002
-let AINPUT_SOURCE_STYLUS: Int32 = 0x4002
-let AINPUT_SOURCE_BLUETOOTH_STYLUS: Int32 = 0x8002
-let AINPUT_SOURCE_TRACKBALL: Int32 = 0x10004
-let AINPUT_SOURCE_MOUSE_RELATIVE: Int32 = 0x20004
-let AINPUT_SOURCE_TOUCHPAD: Int32 = 0x100008
-let AINPUT_SOURCE_TOUCH_NAVIGATION: Int32 = 0x200000
-let AINPUT_SOURCE_JOYSTICK: Int32 = 0x1000010
-let AINPUT_SOURCE_HDMI: Int32 = 0x2000010
-let AINPUT_SOURCE_SENSOR: Int32 = 0x4000000
-let AINPUT_SOURCE_ROTARY_ENCODER: Int32 = 0x400000
-let AINPUT_SOURCE_ANY: Int32 = -1
+let AINPUT_SOURCE_UNKNOWN: UInt32 = 0
+let AINPUT_SOURCE_KEYBOARD: UInt32 = 0x101
+let AINPUT_SOURCE_DPAD: UInt32 = 0x201
+let AINPUT_SOURCE_GAMEPAD: UInt32 = 0x401
+let AINPUT_SOURCE_TOUCHSCREEN: UInt32 = 0x1002
+let AINPUT_SOURCE_MOUSE: UInt32 = 0x2002
+let AINPUT_SOURCE_STYLUS: UInt32 = 0x4002
+let AINPUT_SOURCE_BLUETOOTH_STYLUS: UInt32 = 0x8002
+let AINPUT_SOURCE_TRACKBALL: UInt32 = 0x10004
+let AINPUT_SOURCE_MOUSE_RELATIVE: UInt32 = 0x20004
+let AINPUT_SOURCE_TOUCHPAD: UInt32 = 0x100008
+let AINPUT_SOURCE_TOUCH_NAVIGATION: UInt32 = 0x200000
+let AINPUT_SOURCE_JOYSTICK: UInt32 = 0x1000010
+let AINPUT_SOURCE_HDMI: UInt32 = 0x2000010
+let AINPUT_SOURCE_SENSOR: UInt32 = 0x4000000
+let AINPUT_SOURCE_ROTARY_ENCODER: UInt32 = 0x400000
+let AINPUT_SOURCE_ANY: UInt32 = 0xFFFFFFFF
 
 // MARK: - AKeyEvent Constants
 
@@ -516,5 +516,35 @@ let AKEYCODE_MACRO_3: Int32 = 315
 let AKEYCODE_MACRO_4: Int32 = 316
 let AKEYCODE_EMOJI_PICKER: Int32 = 317
 let AKEYCODE_SCREENSHOT: Int32 = 318
+
+// MARK: - JNI Types
+
+typealias JNIEnvironment = OpaquePointer
+typealias jobject = OpaquePointer
+
+// MARK: - Paddleboat
+
+struct Paddleboat_Vibration_Data {
+    var duration_ms: Int32
+    var left_motor_intensity: Float
+    var right_motor_intensity: Float
+    init(duration_ms: Int32, left_motor_intensity: Float, right_motor_intensity: Float) {
+        self.duration_ms = duration_ms
+        self.left_motor_intensity = left_motor_intensity
+        self.right_motor_intensity = right_motor_intensity
+    }
+}
+
+func Paddleboat_init(_ env: JNIEnvironment, _ context: jobject) -> Int32 { stub() }
+func Paddleboat_isInitialized() -> Bool { stub() }
+func Paddleboat_destroy(_ env: JNIEnvironment) { stub() }
+func Paddleboat_update(_ env: JNIEnvironment) { stub() }
+func Paddleboat_setBackButtonConsumed(_ consume: Bool) { stub() }
+func Paddleboat_getBackButtonConsumed() -> Bool { stub() }
+func Paddleboat_getControllerStatus(_ index: Int32) -> Int32 { stub() }
+func Paddleboat_getControllerName(_ index: Int32, _ bufferSize: Int32, _ buffer: UnsafeMutablePointer<CChar>) -> Int32 { stub() }
+func Paddleboat_setControllerLight(_ index: Int32, _ type: Int32, _ data: UInt32, _ env: JNIEnvironment) -> Int32 { stub() }
+func Paddleboat_setControllerVibrationData(_ index: Int32, _ data: UnsafeMutablePointer<Paddleboat_Vibration_Data>, _ env: JNIEnvironment) -> Int32 { stub() }
+func Paddleboat_getIntegratedMotionSensorFlags() -> UInt32 { stub() }
 
 #endif
