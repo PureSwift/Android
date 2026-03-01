@@ -2,8 +2,16 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Base class for Binder interfaces. When defining a new interface, you must derive it from
+/// IInterface.
+///
+/// See also: [android.os.IInterface](https://developer.android.com/reference/android/os/IInterface)
 @JavaInterface("android.os.IInterface")
 public struct IInterface {
+  /// Retrieve the Binder object associated with this interface.
+  ///
+  /// You must use this instead of a plain cast, so that proxy objects can return the correct
+  /// result.
   @JavaMethod
   public func asBinder() -> IBinder!
 }

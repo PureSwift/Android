@@ -2,6 +2,11 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Thrown when an app exposes a `file://` URI to another app via an `Intent`, which is
+/// unsafe on Android 24 and above. Use `FileProvider` to share files via `content://` URIs instead.
+///
+/// See also: [android.os.FileUriExposedException](https://developer.android.com/reference/android/os/FileUriExposedException)
+@available(Android 24, *)
 @JavaClass("android.os.FileUriExposedException")
 open class FileUriExposedException: RuntimeException {
   @JavaMethod

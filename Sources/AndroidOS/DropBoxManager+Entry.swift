@@ -5,26 +5,40 @@ import SwiftJava
 import CSwiftJavaJNI
 
 extension DropBoxManager {
+  /// A single diagnostic log entry stored in the drop box.
+  ///
+  /// Entries are timestamped and carry a tag, optional text or binary content, and a set of flags
+  /// (e.g., `IS_TEXT`, `IS_GZIPPED`). Always call `close()` when finished with an entry.
+  ///
+  /// See [android.os.DropBoxManager.Entry](https://developer.android.com/reference/android/os/DropBoxManager.Entry)
+  @available(Android 8, *)
   @JavaClass("android.os.DropBoxManager$Entry", implements: Parcelable.self, Closeable.self)
   open class Entry: JavaObject {
+  /// Creates an empty entry with the given tag and timestamp.
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: String, _ arg1: Int64, environment: JNIEnvironment? = nil)
 
+  /// Creates a text entry with the given tag, timestamp, and text content.
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: String, _ arg1: Int64, _ arg2: String, environment: JNIEnvironment? = nil)
 
+  /// Creates a binary entry with the given tag, timestamp, data, and flags.
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: String, _ arg1: Int64, _ arg2: [Int8], _ arg3: Int32, environment: JNIEnvironment? = nil)
 
+  /// Creates a file-backed entry with the given tag, timestamp, file, and flags.
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: String, _ arg1: Int64, _ arg2: File?, _ arg3: Int32, environment: JNIEnvironment? = nil) throws
 
+  /// Creates an entry backed by a `ParcelFileDescriptor` with the given tag, timestamp, and flags.
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: String, _ arg1: Int64, _ arg2: ParcelFileDescriptor?, _ arg3: Int32, environment: JNIEnvironment? = nil)
 
+  /// Returns the tag associated with this entry.
   @JavaMethod
   open func getTag() -> String
 
+  /// Returns the time at which this entry was created, in milliseconds since the epoch.
   @JavaMethod
   open func getTimeMillis() -> Int64
 
@@ -34,15 +48,19 @@ extension DropBoxManager {
   @JavaMethod
   open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
+  /// Closes this entry and releases any underlying resources.
   @JavaMethod
   open func close()
 
+  /// Returns an `InputStream` for reading this entry's contents, or `nil` if the entry is empty.
   @JavaMethod
   open func getInputStream() throws -> InputStream!
 
+  /// Returns up to `arg0` bytes of this entry's content as a `String`, or `nil` if not text.
   @JavaMethod
   open func getText(_ arg0: Int32) -> String
 
+  /// Returns the flags for this entry (e.g., `IS_TEXT`, `IS_GZIPPED`, `IS_EMPTY`).
   @JavaMethod
   open func getFlags() -> Int32
   }

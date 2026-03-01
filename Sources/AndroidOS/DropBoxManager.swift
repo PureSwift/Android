@@ -4,20 +4,34 @@ import JavaLangIO
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Stores and retrieves diagnostic log entries (text, binary, or file-based) organised by tag.
+///
+/// Entries are retained by the system for diagnostic and bug-reporting purposes. Obtain an instance
+/// via `Context.getSystemService(Context.DROPBOX_SERVICE)`.
+///
+/// See [android.os.DropBoxManager](https://developer.android.com/reference/android/os/DropBoxManager)
+@available(Android 8, *)
 @JavaClass("android.os.DropBoxManager")
 open class DropBoxManager: JavaObject {
+  /// Adds a plain-text entry with the given tag.
   @JavaMethod
   open func addText(_ arg0: String, _ arg1: String)
 
+  /// Adds a binary entry with the given tag and flags.
   @JavaMethod
   open func addData(_ arg0: String, _ arg1: [Int8], _ arg2: Int32)
 
+  /// Returns whether entries with the given tag will be stored (i.e., the tag is not disabled).
   @JavaMethod
   open func isTagEnabled(_ arg0: String) -> Bool
 
+  /// Returns the next entry after the given time (in milliseconds) with the given tag, or `nil` if none.
+  ///
+  /// The caller is responsible for closing the returned `Entry`.
   @JavaMethod
   open func getNextEntry(_ arg0: String, _ arg1: Int64) -> DropBoxManager.Entry!
 
+  /// Adds a file-based entry with the given tag and flags.
   @JavaMethod
   open func addFile(_ arg0: String, _ arg1: File?, _ arg2: Int32) throws
 }

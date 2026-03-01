@@ -2,6 +2,16 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Encapsulates a collection of attributes describing information about a vibration effect.
+///
+/// These attributes are used to describe the reason a vibration is occurring, and may be used
+/// to apply system-level policies for how the vibration should be performed, or whether it should
+/// be allowed to perform at all.
+///
+/// Use `VibrationAttributes.Builder` to construct an instance.
+///
+/// See also: [android.os.VibrationAttributes](https://developer.android.com/reference/android/os/VibrationAttributes)
+@available(Android 30, *)
 @JavaClass("android.os.VibrationAttributes", implements: Parcelable.self)
 open class VibrationAttributes: JavaObject {
   @JavaMethod
@@ -10,12 +20,19 @@ open class VibrationAttributes: JavaObject {
   @JavaMethod
   open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
+  /// Returns the usage class for these vibration attributes.
+  ///
+  /// - Returns: One of the `USAGE_CLASS_*` constants.
   @JavaMethod
   open func getUsageClass() -> Int32
 
+  /// Returns the usage for these vibration attributes.
+  ///
+  /// - Returns: One of the `USAGE_*` constants.
   @JavaMethod
   open func getUsage() -> Int32
 
+  /// Returns whether the given flag is set.
   @JavaMethod
   open func isFlagSet(_ arg0: Int32) -> Bool
 
@@ -28,58 +45,78 @@ open class VibrationAttributes: JavaObject {
   @JavaMethod
   open override func hashCode() -> Int32
 
+  /// Returns the flags for these vibration attributes.
   @JavaMethod
   open func getFlags() -> Int32
 }
+
+@available(Android 30, *)
 extension JavaClass<VibrationAttributes> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<VibrationAttributes>!
 
+  /// Flag requesting vibration effect to be played even under limited conditions.
   @JavaStaticField(isFinal: true)
   public var FLAG_BYPASS_INTERRUPTION_POLICY: Int32
 
+  /// Usage value to use for accessibility vibrations, such as feedback when navigating
+  /// on screen or activating accessibility features.
   @JavaStaticField(isFinal: true)
   public var USAGE_ACCESSIBILITY: Int32
 
+  /// Usage value to use for alarm vibrations.
   @JavaStaticField(isFinal: true)
   public var USAGE_ALARM: Int32
 
+  /// Usage class value to use when the vibration is related to an alarm.
   @JavaStaticField(isFinal: true)
   public var USAGE_CLASS_ALARM: Int32
 
+  /// Usage class value to use when the vibration is feedback in response to a user action.
   @JavaStaticField(isFinal: true)
   public var USAGE_CLASS_FEEDBACK: Int32
 
+  /// Mask for vibration usage class constants.
   @JavaStaticField(isFinal: true)
   public var USAGE_CLASS_MASK: Int32
 
+  /// Usage class value to use when the vibration is part of audio/media playback.
   @JavaStaticField(isFinal: true)
   public var USAGE_CLASS_MEDIA: Int32
 
+  /// Usage class value to use when the vibration usage class is unknown.
   @JavaStaticField(isFinal: true)
   public var USAGE_CLASS_UNKNOWN: Int32
 
+  /// Usage value to use for incoming communication request vibrations.
   @JavaStaticField(isFinal: true)
   public var USAGE_COMMUNICATION_REQUEST: Int32
 
+  /// Usage value to use for hardware feedback vibrations.
   @JavaStaticField(isFinal: true)
   public var USAGE_HARDWARE_FEEDBACK: Int32
 
+  /// Usage value to use for vibrations that are part of audio/media playback.
   @JavaStaticField(isFinal: true)
   public var USAGE_MEDIA: Int32
 
+  /// Usage value to use for notification vibrations.
   @JavaStaticField(isFinal: true)
   public var USAGE_NOTIFICATION: Int32
 
+  /// Usage value to use for physical emulation vibrations.
   @JavaStaticField(isFinal: true)
   public var USAGE_PHYSICAL_EMULATION: Int32
 
+  /// Usage value to use for ringtone vibrations.
   @JavaStaticField(isFinal: true)
   public var USAGE_RINGTONE: Int32
 
+  /// Usage value to use for touch vibrations (e.g., when the user touches a UI element).
   @JavaStaticField(isFinal: true)
   public var USAGE_TOUCH: Int32
 
+  /// Usage value to use when usage is unknown.
   @JavaStaticField(isFinal: true)
   public var USAGE_UNKNOWN: Int32
 
@@ -89,6 +126,9 @@ extension JavaClass<VibrationAttributes> {
   @JavaStaticField(isFinal: true)
   public var PARCELABLE_WRITE_RETURN_VALUE: Int32
 
+  /// Creates a `VibrationAttributes` object with the given usage.
+  ///
+  /// - Parameter arg0: One of the `USAGE_*` constants.
   @JavaStaticMethod
   public func createForUsage(_ arg0: Int32) -> VibrationAttributes!
 }

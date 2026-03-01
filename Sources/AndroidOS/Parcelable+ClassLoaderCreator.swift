@@ -3,8 +3,19 @@ import SwiftJava
 import CSwiftJavaJNI
 
 extension Parcelable {
+  /// Specialization of `Parcelable.Creator` that allows you to receive the ClassLoader the
+  /// object is being created in.
+  ///
+  /// See also: [android.os.Parcelable.ClassLoaderCreator](https://developer.android.com/reference/android/os/Parcelable.ClassLoaderCreator)
+  @available(Android 13, *)
   @JavaInterface("android.os.Parcelable$ClassLoaderCreator", extends: Parcelable.Creator<JavaObject>.self)
   public struct ClassLoaderCreator<T: AnyJavaObject> {
+  /// Create a new instance of the Parcelable class, instantiating it from the given Parcel
+  /// whose data had previously been written by `Parcelable.writeToParcel()`.
+  ///
+  /// - Parameter arg0: The Parcel to read the object's data from.
+  /// - Parameter arg1: The ClassLoader that this object is being created in.
+  /// - Returns: A new instance of the Parcelable class.
   @JavaMethod
   public func createFromParcel(_ arg0: Parcel?, _ arg1: JavaClassLoader?) -> JavaObject!
 

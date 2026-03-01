@@ -3,8 +3,15 @@ import SwiftJava
 import CSwiftJavaJNI
 
 extension RecoverySystem {
+  /// Listener for receiving progress updates during OTA package verification.
+  ///
+  /// See [android.os.RecoverySystem.ProgressListener](https://developer.android.com/reference/android/os/RecoverySystem.ProgressListener)
+  @available(Android 8, *)
   @JavaInterface("android.os.RecoverySystem$ProgressListener")
   public struct ProgressListener {
+  /// Called periodically during package verification with the current progress.
+  ///
+  /// - Parameter arg0: The verification progress as a percentage from 0 to 100.
   @JavaMethod
   public func onProgress(_ arg0: Int32)
   }

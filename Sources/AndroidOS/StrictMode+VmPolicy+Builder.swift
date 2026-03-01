@@ -3,80 +3,110 @@ import SwiftJava
 import CSwiftJavaJNI
 
 extension StrictMode.VmPolicy {
+  /// Builder for ``StrictMode/VmPolicy``. Combine detection methods and penalty methods,
+  /// then call ``build()`` to obtain the policy.
+  ///
+  /// See also: [android.os.StrictMode.VmPolicy.Builder](https://developer.android.com/reference/android/os/StrictMode.VmPolicy.Builder)
+  @available(Android 9, *)
   @JavaClass("android.os.StrictMode$VmPolicy$Builder")
   open class Builder: JavaObject {
+  /// Creates a Builder with no violations detected and no penalties set.
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
+  /// Creates a Builder based on an existing VmPolicy, copying all detection and penalty settings.
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: StrictMode.VmPolicy?, environment: JNIEnvironment? = nil)
 
+  /// Detects all violations that are detectable in the VM.
   @JavaMethod
   open func detectAll() -> StrictMode.VmPolicy.Builder!
 
+  /// Crashes the whole process on a policy violation.
   @JavaMethod
   open func penaltyDeath() -> StrictMode.VmPolicy.Builder!
 
+  /// Logs the policy violation to the system log.
   @JavaMethod
   open func penaltyLog() -> StrictMode.VmPolicy.Builder!
 
+  /// Sends a violation report to the DropBox system service.
   @JavaMethod
   open func penaltyDropBox() -> StrictMode.VmPolicy.Builder!
 
+  /// Sets the maximum number of allowed instances of a class; violations are reported when exceeded.
   @JavaMethod
   open func setClassInstanceLimit(_ arg0: JavaClass<JavaObject>?, _ arg1: Int32) -> StrictMode.VmPolicy.Builder!
 
+  /// Enables detection of Activity instances left in memory after they have been destroyed.
   @JavaMethod
   open func detectActivityLeaks() -> StrictMode.VmPolicy.Builder!
 
+  /// Enables detection of usage of private non-SDK APIs.
   @JavaMethod
   open func detectNonSdkApiUsage() -> StrictMode.VmPolicy.Builder!
 
+  /// Permits usage of private non-SDK APIs without triggering a violation.
   @JavaMethod
   open func permitNonSdkApiUsage() -> StrictMode.VmPolicy.Builder!
 
+  /// Enables detection of leaked SQLite cursors and databases.
   @JavaMethod
   open func detectLeakedSqlLiteObjects() -> StrictMode.VmPolicy.Builder!
 
+  /// Enables detection of objects that implement `Closeable` and are not closed after use.
   @JavaMethod
   open func detectLeakedClosableObjects() -> StrictMode.VmPolicy.Builder!
 
+  /// Enables detection of BroadcastReceivers or ServiceConnections that are registered but not unregistered.
   @JavaMethod
   open func detectLeakedRegistrationObjects() -> StrictMode.VmPolicy.Builder!
 
+  /// Enables detection of `file://` URIs being exposed across process boundaries.
   @JavaMethod
   open func detectFileUriExposure() -> StrictMode.VmPolicy.Builder!
 
+  /// Enables detection of cleartext network traffic.
   @JavaMethod
   open func detectCleartextNetwork() -> StrictMode.VmPolicy.Builder!
 
+  /// Enables detection of content URIs accessed without the appropriate permission.
   @JavaMethod
   open func detectContentUriWithoutPermission() -> StrictMode.VmPolicy.Builder!
 
+  /// Enables detection of network sockets that are not tagged with `TrafficStats.setThreadStatsTag`.
   @JavaMethod
   open func detectUntaggedSockets() -> StrictMode.VmPolicy.Builder!
 
+  /// Enables detection of implicit direct-boot unaware calls.
   @JavaMethod
   open func detectImplicitDirectBoot() -> StrictMode.VmPolicy.Builder!
 
+  /// Enables detection of credential-protected data storage access while the device is locked.
   @JavaMethod
   open func detectCredentialProtectedWhileLocked() -> StrictMode.VmPolicy.Builder!
 
+  /// Enables detection of incorrect context use, such as using the wrong Context for UI operations.
   @JavaMethod
   open func detectIncorrectContextUse() -> StrictMode.VmPolicy.Builder!
 
+  /// Enables detection of unsafe intent launches.
   @JavaMethod
   open func detectUnsafeIntentLaunch() -> StrictMode.VmPolicy.Builder!
 
+  /// Permits unsafe intent launches without triggering a violation.
   @JavaMethod
   open func permitUnsafeIntentLaunch() -> StrictMode.VmPolicy.Builder!
 
+  /// Crashes the whole process when cleartext network traffic is detected.
   @JavaMethod
   open func penaltyDeathOnCleartextNetwork() -> StrictMode.VmPolicy.Builder!
 
+  /// Crashes the whole process when a `file://` URI is exposed.
   @JavaMethod
   open func penaltyDeathOnFileUriExposure() -> StrictMode.VmPolicy.Builder!
 
+  /// Constructs and returns the ``StrictMode/VmPolicy`` with the settings applied.
   @JavaMethod
   open func build() -> StrictMode.VmPolicy!
   }

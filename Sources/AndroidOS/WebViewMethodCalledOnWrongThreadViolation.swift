@@ -2,6 +2,10 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Violation raised when a `WebView` method is called from a thread other than the main thread.
+///
+/// See also: [android.os.strictmode.WebViewMethodCalledOnWrongThreadViolation](https://developer.android.com/reference/android/os/strictmode/WebViewMethodCalledOnWrongThreadViolation)
+@available(Android 28, *)
 @JavaClass("android.os.strictmode.WebViewMethodCalledOnWrongThreadViolation")
 open class WebViewMethodCalledOnWrongThreadViolation: Violation {
 

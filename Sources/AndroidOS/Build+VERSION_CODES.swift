@@ -3,6 +3,11 @@ import SwiftJava
 import CSwiftJavaJNI
 
 extension Build {
+  /// Enumeration of the currently known SDK version codes. These are the values that can be found
+  /// in `Build.VERSION.SDK_INT`. Version numbers increment monotonically with each official
+  /// platform release.
+  ///
+  /// See also: [android.os.Build.VERSION_CODES](https://developer.android.com/reference/android/os/Build.VERSION_CODES)
   @JavaClass("android.os.Build$VERSION_CODES")
   open class VERSION_CODES: JavaObject {
   @JavaMethod
@@ -10,105 +15,140 @@ extension Build {
   }
 }
 extension JavaClass<Build.VERSION_CODES> {
+  /// April 2009: The original, first, version of Android. Yay!
   @JavaStaticField(isFinal: true)
   public var BASE: Int32
 
+  /// February 2009: First Android update, officially called 1.1.
   @JavaStaticField(isFinal: true)
   public var BASE_1_1: Int32
 
+  /// May 2009: Android 1.5, Cupcake.
   @JavaStaticField(isFinal: true)
   public var CUPCAKE: Int32
 
+  /// Magic version number for a current development build, which has not yet turned into an
+  /// official release. Use this value to test against future API levels.
   @JavaStaticField(isFinal: true)
   public var CUR_DEVELOPMENT: Int32
 
+  /// September 2009: Android 1.6, Donut.
   @JavaStaticField(isFinal: true)
   public var DONUT: Int32
 
+  /// November 2009: Android 2.0, Eclair.
   @JavaStaticField(isFinal: true)
   public var ECLAIR: Int32
 
+  /// December 2009: Android 2.0.1, Eclair.
   @JavaStaticField(isFinal: true)
   public var ECLAIR_0_1: Int32
 
+  /// January 2010: Android 2.1, Eclair.
   @JavaStaticField(isFinal: true)
   public var ECLAIR_MR1: Int32
 
+  /// May 2010: Android 2.2, Froyo.
   @JavaStaticField(isFinal: true)
   public var FROYO: Int32
 
+  /// November 2010: Android 2.3, Gingerbread.
   @JavaStaticField(isFinal: true)
   public var GINGERBREAD: Int32
 
+  /// February 2011: Android 2.3.3, Gingerbread MR1.
   @JavaStaticField(isFinal: true)
   public var GINGERBREAD_MR1: Int32
 
+  /// February 2011: Android 3.0, Honeycomb.
   @JavaStaticField(isFinal: true)
   public var HONEYCOMB: Int32
 
+  /// May 2011: Android 3.1, Honeycomb MR1.
   @JavaStaticField(isFinal: true)
   public var HONEYCOMB_MR1: Int32
 
+  /// June 2011: Android 3.2, Honeycomb MR2.
   @JavaStaticField(isFinal: true)
   public var HONEYCOMB_MR2: Int32
 
+  /// October 2011: Android 4.0, Ice Cream Sandwich.
   @JavaStaticField(isFinal: true)
   public var ICE_CREAM_SANDWICH: Int32
 
+  /// December 2011: Android 4.0.3, Ice Cream Sandwich MR1.
   @JavaStaticField(isFinal: true)
   public var ICE_CREAM_SANDWICH_MR1: Int32
 
+  /// June 2012: Android 4.1, Jelly Bean.
   @JavaStaticField(isFinal: true)
   public var JELLY_BEAN: Int32
 
+  /// November 2012: Android 4.2, Jelly Bean MR1.
   @JavaStaticField(isFinal: true)
   public var JELLY_BEAN_MR1: Int32
 
+  /// July 2013: Android 4.3, Jelly Bean MR2.
   @JavaStaticField(isFinal: true)
   public var JELLY_BEAN_MR2: Int32
 
+  /// October 2013: Android 4.4, KitKat.
   @JavaStaticField(isFinal: true)
   public var KITKAT: Int32
 
+  /// June 2014: Android 4.4W, KitKat for Wearables (Android Wear).
   @JavaStaticField(isFinal: true)
   public var KITKAT_WATCH: Int32
 
+  /// November 2014: Android 5.0, Lollipop.
   @JavaStaticField(isFinal: true)
   public var LOLLIPOP: Int32
 
+  /// March 2015: Android 5.1, Lollipop MR1.
   @JavaStaticField(isFinal: true)
   public var LOLLIPOP_MR1: Int32
 
+  /// October 2015: Android 6.0, Marshmallow.
   @JavaStaticField(isFinal: true)
   public var M: Int32
 
+  /// August 2016: Android 7.0, Nougat.
   @JavaStaticField(isFinal: true)
   public var N: Int32
 
+  /// October 2016: Android 7.1, Nougat MR1.
   @JavaStaticField(isFinal: true)
   public var N_MR1: Int32
 
+  /// August 2017: Android 8.0, Oreo.
   @JavaStaticField(isFinal: true)
   public var O: Int32
 
+  /// December 2017: Android 8.1, Oreo MR1.
   @JavaStaticField(isFinal: true)
   public var O_MR1: Int32
 
+  /// August 2018: Android 9, Pie.
   @JavaStaticField(isFinal: true)
   public var P: Int32
 
+  /// September 2019: Android 10, Q.
   @JavaStaticField(isFinal: true)
   public var Q: Int32
 
+  /// September 2020: Android 11, R.
   @JavaStaticField(isFinal: true)
   public var R: Int32
 
+  /// October 2021: Android 12, S.
   @JavaStaticField(isFinal: true)
   public var S: Int32
 
+  /// March 2022: Android 12L, S_V2 (also known as Sv2).
   @JavaStaticField(isFinal: true)
   public var S_V2: Int32
 
+  /// August 2022: Android 13, Tiramisu.
   @JavaStaticField(isFinal: true)
   public var TIRAMISU: Int32
 }

@@ -2,6 +2,10 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Thrown when an operation is attempted on a dead remote object, typically because
+/// the remote process hosting the binder has terminated.
+///
+/// See also: [android.os.DeadObjectException](https://developer.android.com/reference/android/os/DeadObjectException)
 @JavaClass("android.os.DeadObjectException")
 open class DeadObjectException: RemoteException {
   @JavaMethod

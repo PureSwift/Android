@@ -4,32 +4,54 @@ import JavaLangIO
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Monitors a file or directory for filesystem events such as creation, modification, and deletion.
+///
+/// Subclass and override `onEvent(_:_:)` to receive event notifications. Call `startWatching()` to
+/// begin monitoring and `stopWatching()` to cease it.
+///
+/// See [android.os.FileObserver](https://developer.android.com/reference/android/os/FileObserver)
 @JavaClass("android.os.FileObserver")
 open class FileObserver: JavaObject {
+  /// Creates a `FileObserver` that watches the given path for all events.
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: String, environment: JNIEnvironment? = nil)
 
+  /// Creates a `FileObserver` that watches the given list of files for the specified event mask.
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: List<File>?, _ arg1: Int32, environment: JNIEnvironment? = nil)
 
+  /// Creates a `FileObserver` that watches the given `File` for all events.
+  @available(Android 29, *)
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: File?, environment: JNIEnvironment? = nil)
 
+  /// Creates a `FileObserver` that watches the given list of files for all events.
+  @available(Android 29, *)
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: List<File>?, environment: JNIEnvironment? = nil)
 
+  /// Creates a `FileObserver` that watches the given path for the specified event mask.
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: String, _ arg1: Int32, environment: JNIEnvironment? = nil)
 
+  /// Creates a `FileObserver` that watches the given `File` for the specified event mask.
+  @available(Android 29, *)
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: File?, _ arg1: Int32, environment: JNIEnvironment? = nil)
 
+  /// Starts watching for filesystem events. Has no effect if already watching.
   @JavaMethod
   open func startWatching()
 
+  /// Stops watching for filesystem events. Has no effect if not currently watching.
   @JavaMethod
   open func stopWatching()
 
+  /// Called when a filesystem event occurs on the observed path.
+  ///
+  /// - Parameters:
+  ///   - arg0: The type of event (one of the event constants, e.g., `CREATE`, `MODIFY`, `DELETE`).
+  ///   - arg1: The name of the file or directory affected, relative to the observed path, or `nil` if not applicable.
   @JavaMethod
   open func onEvent(_ arg0: Int32, _ arg1: String)
 

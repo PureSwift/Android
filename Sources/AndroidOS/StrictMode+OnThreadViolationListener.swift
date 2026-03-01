@@ -3,8 +3,13 @@ import SwiftJava
 import CSwiftJavaJNI
 
 extension StrictMode {
+  /// Listener interface for thread policy violations, invoked on the thread that caused the violation.
+  ///
+  /// See also: [android.os.StrictMode.OnThreadViolationListener](https://developer.android.com/reference/android/os/StrictMode.OnThreadViolationListener)
+  @available(Android 28, *)
   @JavaInterface("android.os.StrictMode$OnThreadViolationListener")
   public struct OnThreadViolationListener {
+  /// Called when a thread policy violation is detected.
   @JavaMethod
   public func onThreadViolation(_ arg0: Violation?)
   }

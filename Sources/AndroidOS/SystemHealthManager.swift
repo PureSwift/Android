@@ -2,6 +2,12 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Provides access to system health (battery/power) statistics for UIDs.
+///
+/// Obtain an instance via `Context.getSystemService(SystemHealthManager.class)`.
+///
+/// See also: [android.os.health.SystemHealthManager](https://developer.android.com/reference/android/os/health/SystemHealthManager)
+@available(Android 24, *)
 @JavaClass("android.os.health.SystemHealthManager")
 open class SystemHealthManager: JavaObject {
   @JavaMethod

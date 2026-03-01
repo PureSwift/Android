@@ -2,6 +2,10 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Violation raised when a network socket is used without being tagged via `TrafficStats.setThreadStatsTag`.
+///
+/// See also: [android.os.strictmode.UntaggedSocketViolation](https://developer.android.com/reference/android/os/strictmode/UntaggedSocketViolation)
+@available(Android 28, *)
 @JavaClass("android.os.strictmode.UntaggedSocketViolation")
 open class UntaggedSocketViolation: Violation {
 

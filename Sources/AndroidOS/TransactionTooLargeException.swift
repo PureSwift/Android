@@ -2,6 +2,12 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Thrown when a Binder transaction fails because the data being transferred is too large.
+/// The Binder transaction buffer has a fixed, limited size shared across all active transactions
+/// for the process; payloads should be reduced or transferred via alternative means such as files.
+///
+/// See also: [android.os.TransactionTooLargeException](https://developer.android.com/reference/android/os/TransactionTooLargeException)
+@available(Android 15, *)
 @JavaClass("android.os.TransactionTooLargeException")
 open class TransactionTooLargeException: RemoteException {
   @JavaMethod

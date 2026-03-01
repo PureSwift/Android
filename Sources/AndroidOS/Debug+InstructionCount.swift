@@ -3,6 +3,11 @@ import SwiftJava
 import CSwiftJavaJNI
 
 extension Debug {
+  /// Tracks global VM instruction counts for profiling purposes.
+  ///
+  /// Note: This class was deprecated in API level 23.
+  ///
+  /// See also: [android.os.Debug.InstructionCount](https://developer.android.com/reference/android/os/Debug.InstructionCount)
   @JavaClass("android.os.Debug$InstructionCount")
   open class InstructionCount: JavaObject {
   @JavaMethod

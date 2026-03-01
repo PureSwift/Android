@@ -3,135 +3,254 @@ import JavaTime
 import SwiftJava
 import CSwiftJavaJNI
 
+/// This class lets you query and request control of aspects of the device's power state.
+///
+/// **Power save mode and low power mode**
+///
+/// Devices can enter a low-power mode to conserve battery. When in this mode, the device may
+/// limit or disable features such as sync, Wi-Fi, and other services. Use `isPowerSaveMode()`
+/// to check.
+///
+/// **Wake locks**
+///
+/// Wake locks are mechanisms by which applications can request that the CPU continue running
+/// even when the screen goes dark. Use `newWakeLock(int, String)` to create a wake lock and
+/// the `WakeLock` class to manage it.
+///
+/// > **Warning**: Wake locks held for too long reduce battery life significantly. Use them sparingly.
+///
+/// See also: [android.os.PowerManager](https://developer.android.com/reference/android/os/PowerManager)
 @JavaClass("android.os.PowerManager")
 open class PowerManager: JavaObject {
+  /// Creates a new wake lock with the specified level and tag.
+  ///
+  /// - Parameter arg0: Combination of wake lock level and optional flags.
+  /// - Parameter arg1: Your class name (or other tag) for debugging purposes.
+  /// - Returns: A new `WakeLock` object.
   @JavaMethod
   open func newWakeLock(_ arg0: Int32, _ arg1: String) -> PowerManager.WakeLock!
 
+  /// Returns true if the device supports the given wake lock level.
+  @available(Android 21, *)
   @JavaMethod
   open func isWakeLockLevelSupported(_ arg0: Int32) -> Bool
 
+  /// Returns true if the screen is currently on.
+  ///
+  /// - Note: Deprecated since API 20. Use `isInteractive()` instead.
   @JavaMethod
   open func isScreenOn() -> Bool
 
+  /// Returns true if the device is in an interactive state (screen on or similar).
+  @available(Android 20, *)
   @JavaMethod
   open func isInteractive() -> Bool
 
+  /// Returns true if the device supports rebooting userspace.
+  @available(Android 30, *)
   @JavaMethod
   open func isRebootingUserspaceSupported() -> Bool
 
+  /// Reboot the device. Requires the `REBOOT` permission.
+  ///
+  /// - Parameter arg0: The reason for the reboot, or nil.
   @JavaMethod
   open func reboot(_ arg0: String)
 
+  /// Returns true if the device is currently in power save mode.
+  @available(Android 21, *)
   @JavaMethod
   open func isPowerSaveMode() -> Bool
 
+  /// Returns the estimated remaining time until the battery is fully discharged.
+  ///
+  /// - Returns: A `Duration` representing the remaining battery life, or `nil` if unavailable.
+  @available(Android 31, *)
   @JavaMethod
   open func getBatteryDischargePrediction() -> Duration!
 
+  /// Returns true if the current battery discharge prediction is personalized based on usage history.
+  @available(Android 31, *)
   @JavaMethod
   open func isBatteryDischargePredictionPersonalized() -> Bool
 
+  /// Returns how location features should behave when battery saver is on.
+  ///
+  /// - Returns: One of the `LOCATION_MODE_*` constants.
+  @available(Android 28, *)
   @JavaMethod
   open func getLocationPowerSaveMode() -> Int32
 
+  /// Returns true if the device is currently in idle (Doze) mode.
+  @available(Android 23, *)
   @JavaMethod
   open func isDeviceIdleMode() -> Bool
 
+  /// Returns true if the device is currently in light idle mode.
+  @available(Android 33, *)
   @JavaMethod
   open func isDeviceLightIdleMode() -> Bool
 
+  /// Returns true if Low Power Standby is enabled.
+  @available(Android 33, *)
   @JavaMethod
   open func isLowPowerStandbyEnabled() -> Bool
 
+  /// Returns true if the given application package name is on the device's power allowlist
+  /// (i.e., ignoring battery optimizations).
+  @available(Android 23, *)
   @JavaMethod
   open func isIgnoringBatteryOptimizations(_ arg0: String) -> Bool
 
+  /// Returns true if the device supports Sustained Performance Mode.
+  @available(Android 24, *)
   @JavaMethod
   open func isSustainedPerformanceModeSupported() -> Bool
 
+  /// Returns the current thermal status of the device.
+  ///
+  /// - Returns: One of the `THERMAL_STATUS_*` constants.
+  @available(Android 29, *)
   @JavaMethod
   open func getCurrentThermalStatus() -> Int32
 
+  /// Adds a listener for thermal status change notifications.
+  @available(Android 29, *)
   @JavaMethod
   open func addThermalStatusListener(_ arg0: PowerManager.OnThermalStatusChangedListener?)
 
+  /// Removes a previously added thermal status listener.
+  @available(Android 29, *)
   @JavaMethod
   open func removeThermalStatusListener(_ arg0: PowerManager.OnThermalStatusChangedListener?)
 
+  /// Provides an estimate of how much thermal headroom remains before throttling.
+  ///
+  /// - Parameter arg0: How many seconds in the future to forecast (0–10 seconds).
+  /// - Returns: A value between 0.0 (no throttling) and 1.0 (at critical threshold).
+  @available(Android 31, *)
   @JavaMethod
   open func getThermalHeadroom(_ arg0: Int32) -> Float
 }
 extension JavaClass<PowerManager> {
+  /// Flag for `newWakeLock(int, String)`: turn the screen on when the wake lock is acquired.
   @JavaStaticField(isFinal: true)
   public var ACQUIRE_CAUSES_WAKEUP: Int32
 
+  /// Broadcast Action: Sent when the device wakes up from idle (Doze) mode.
+  @available(Android 23, *)
   @JavaStaticField(isFinal: true)
   public var ACTION_DEVICE_IDLE_MODE_CHANGED: String
 
+  /// Broadcast Action: Sent when the device enters or exits light idle mode.
+  @available(Android 33, *)
   @JavaStaticField(isFinal: true)
   public var ACTION_DEVICE_LIGHT_IDLE_MODE_CHANGED: String
 
+  /// Broadcast Action: Sent when the Low Power Standby policy changes.
+  @available(Android 33, *)
   @JavaStaticField(isFinal: true)
   public var ACTION_LOW_POWER_STANDBY_ENABLED_CHANGED: String
 
+  /// Broadcast Action: Sent when the device's power save mode changes.
+  @available(Android 21, *)
   @JavaStaticField(isFinal: true)
   public var ACTION_POWER_SAVE_MODE_CHANGED: String
 
+  /// Wake lock level: Ensures that the screen and keyboard backlight are on at full brightness.
+  ///
+  /// - Note: Deprecated since API 17.
   @JavaStaticField(isFinal: true)
   public var FULL_WAKE_LOCK: Int32
 
+  /// Constant for `getLocationPowerSaveMode()`: all location providers disabled while in power save mode.
+  @available(Android 28, *)
   @JavaStaticField(isFinal: true)
   public var LOCATION_MODE_ALL_DISABLED_WHEN_SCREEN_OFF: Int32
 
+  /// Constant for `getLocationPowerSaveMode()`: only the foreground app may use location.
+  @available(Android 28, *)
   @JavaStaticField(isFinal: true)
   public var LOCATION_MODE_FOREGROUND_ONLY: Int32
 
+  /// Constant for `getLocationPowerSaveMode()`: GPS-based location disabled while in power save mode.
+  @available(Android 28, *)
   @JavaStaticField(isFinal: true)
   public var LOCATION_MODE_GPS_DISABLED_WHEN_SCREEN_OFF: Int32
 
+  /// Constant for `getLocationPowerSaveMode()`: location mode is unchanged when power saving is on.
+  @available(Android 28, *)
   @JavaStaticField(isFinal: true)
   public var LOCATION_MODE_NO_CHANGE: Int32
 
+  /// Constant for `getLocationPowerSaveMode()`: location may be throttled while in power save mode.
+  @available(Android 28, *)
   @JavaStaticField(isFinal: true)
   public var LOCATION_MODE_THROTTLE_REQUESTS_WHEN_SCREEN_OFF: Int32
 
+  /// Flag for `WakeLock.release()`: keep the screen on briefly after releasing the wake lock.
   @JavaStaticField(isFinal: true)
   public var ON_AFTER_RELEASE: Int32
 
+  /// Wake lock level: Ensures that the CPU is running while allowing the screen and keyboard
+  /// backlight to go off.
   @JavaStaticField(isFinal: true)
   public var PARTIAL_WAKE_LOCK: Int32
 
+  /// Wake lock level: Turns the screen off when the device is held face-down (uses proximity sensor).
   @JavaStaticField(isFinal: true)
   public var PROXIMITY_SCREEN_OFF_WAKE_LOCK: Int32
 
+  /// Flag for `WakeLock.release(int)`: Defer releasing until the proximity sensor reports the
+  /// user is not holding the device close to their face.
+  @available(Android 21, *)
   @JavaStaticField(isFinal: true)
   public var RELEASE_FLAG_WAIT_FOR_NO_PROXIMITY: Int32
 
+  /// Wake lock level: Ensures that the screen is on at full brightness; keyboard backlight may go off.
+  ///
+  /// - Note: Deprecated since API 15.
   @JavaStaticField(isFinal: true)
   public var SCREEN_BRIGHT_WAKE_LOCK: Int32
 
+  /// Wake lock level: Ensures that the screen is on (but may be dimmed); keyboard backlight may go off.
+  ///
+  /// - Note: Deprecated since API 17.
   @JavaStaticField(isFinal: true)
   public var SCREEN_DIM_WAKE_LOCK: Int32
 
+  /// Thermal status: the device is close to a critical thermal threshold.
+  @available(Android 29, *)
   @JavaStaticField(isFinal: true)
   public var THERMAL_STATUS_CRITICAL: Int32
 
+  /// Thermal status: the device is close to an emergency thermal threshold.
+  @available(Android 29, *)
   @JavaStaticField(isFinal: true)
   public var THERMAL_STATUS_EMERGENCY: Int32
 
+  /// Thermal status: light thermal throttling is occurring.
+  @available(Android 29, *)
   @JavaStaticField(isFinal: true)
   public var THERMAL_STATUS_LIGHT: Int32
 
+  /// Thermal status: moderate thermal throttling is occurring.
+  @available(Android 29, *)
   @JavaStaticField(isFinal: true)
   public var THERMAL_STATUS_MODERATE: Int32
 
+  /// Thermal status: no throttling.
+  @available(Android 29, *)
   @JavaStaticField(isFinal: true)
   public var THERMAL_STATUS_NONE: Int32
 
+  /// Thermal status: severe thermal throttling is occurring.
+  @available(Android 29, *)
   @JavaStaticField(isFinal: true)
   public var THERMAL_STATUS_SEVERE: Int32
 
+  /// Thermal status: the device needs to shut down immediately due to thermal conditions.
+  @available(Android 29, *)
   @JavaStaticField(isFinal: true)
   public var THERMAL_STATUS_SHUTDOWN: Int32
 }

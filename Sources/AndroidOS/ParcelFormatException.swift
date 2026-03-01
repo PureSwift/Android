@@ -2,6 +2,10 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Thrown when a `Parcel` contains data in an unexpected or invalid format that cannot
+/// be correctly deserialized.
+///
+/// See also: [android.os.ParcelFormatException](https://developer.android.com/reference/android/os/ParcelFormatException)
 @JavaClass("android.os.ParcelFormatException")
 open class ParcelFormatException: RuntimeException {
   @JavaMethod

@@ -2,11 +2,20 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// A `CombinedVibration` describes a haptic effect to be performed by one or more `Vibrator`s.
+///
+/// These effects may be performed by a `VibratorManager` for a synchronized multi-vibrator effect.
+/// Use the factory methods `createParallel()` or `startParallel()` to construct an instance.
+///
+/// See also: [android.os.CombinedVibration](https://developer.android.com/reference/android/os/CombinedVibration)
+@available(Android 31, *)
 @JavaClass("android.os.CombinedVibration", implements: Parcelable.self)
 open class CombinedVibration: JavaObject {
   @JavaMethod
   open func describeContents() -> Int32
 }
+
+@available(Android 31, *)
 extension JavaClass<CombinedVibration> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<CombinedVibration>!
@@ -17,9 +26,15 @@ extension JavaClass<CombinedVibration> {
   @JavaStaticField(isFinal: true)
   public var PARCELABLE_WRITE_RETURN_VALUE: Int32
 
+  /// Creates a `CombinedVibration` that plays the same effect on all vibrators simultaneously.
+  ///
+  /// - Parameter arg0: The `VibrationEffect` to play on all vibrators.
   @JavaStaticMethod
   public func createParallel(_ arg0: VibrationEffect?) -> CombinedVibration!
 
+  /// Start building a parallel `CombinedVibration` with different effects per vibrator.
+  ///
+  /// - Returns: A `ParallelCombination` builder.
   @JavaStaticMethod
   public func startParallel() -> CombinedVibration.ParallelCombination!
 }

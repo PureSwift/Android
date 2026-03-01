@@ -2,6 +2,10 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Violation raised when a resource is accessed with a type that does not match its definition.
+///
+/// See also: [android.os.strictmode.ResourceMismatchViolation](https://developer.android.com/reference/android/os/strictmode/ResourceMismatchViolation)
+@available(Android 28, *)
 @JavaClass("android.os.strictmode.ResourceMismatchViolation")
 open class ResourceMismatchViolation: Violation {
 

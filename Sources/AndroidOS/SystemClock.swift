@@ -3,32 +3,83 @@ import JavaTime
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Core timekeeping facilities.
+///
+/// Three different clocks are available, and they should not be confused:
+/// - `System.currentTimeMillis()` is the standard "wall" clock (time and date), expressing
+///   milliseconds since the epoch. The wall clock can be set by the user or the phone network,
+///   so the time may jump backwards or forwards unpredictably. Use for correspondence with
+///   real-world dates and times.
+/// - `uptimeMillis()` is counted in milliseconds since the system was booted. This clock stops
+///   when the system enters deep sleep, but is not affected by clock scaling, idle, or other
+///   power saving mechanisms.
+/// - `elapsedRealtime()` and `elapsedRealtimeNanos()` return the time since the system was
+///   booted, and include deep sleep. This clock is guaranteed to be monotonic, and continues
+///   to tick even when the CPU is in power saving modes.
+///
+/// See also: [android.os.SystemClock](https://developer.android.com/reference/android/os/SystemClock)
 @JavaClass("android.os.SystemClock")
 open class SystemClock: JavaObject {
 
 }
 extension JavaClass<SystemClock> {
+  /// Returns milliseconds since boot, not counting time spent in deep sleep.
+  ///
+  /// Note that this value may get reset occasionally (before it would otherwise wrap around)
+  /// when the phone is powered down and restarted.
+  ///
+  /// - Returns: Milliseconds of non-sleep uptime since boot.
   @JavaStaticMethod
   public func uptimeMillis() -> Int64
 
+  /// Sets the current wall time, in milliseconds. Requires the calling process to have appropriate
+  /// permissions.
+  ///
+  /// - Returns: If the clock was successfully set to the specified time.
   @JavaStaticMethod
   public func setCurrentTimeMillis(_ arg0: Int64) -> Bool
 
+  /// Returns milliseconds since boot, including time spent in sleep.
+  ///
+  /// - Returns: Elapsed milliseconds since boot.
   @JavaStaticMethod
   public func elapsedRealtime() -> Int64
 
+  /// Returns nanoseconds since boot, including time spent in sleep.
+  ///
+  /// - Returns: Elapsed nanoseconds since boot.
+  @available(Android 17, *)
   @JavaStaticMethod
   public func elapsedRealtimeNanos() -> Int64
 
+  /// Returns milliseconds running in the current thread.
+  ///
+  /// - Returns: Milliseconds of CPU time used by the current thread.
   @JavaStaticMethod
   public func currentThreadTimeMillis() -> Int64
 
+  /// Returns a `Clock` backed by `currentNetworkTimeClock()`.
+  ///
+  /// Throws `DateTimeException` if the network time is not available.
+  @available(Android 33, *)
   @JavaStaticMethod
   public func currentNetworkTimeClock() -> Clock!
 
+  /// Returns a `Clock` backed by `elapsedRealtime()` that, when queried, provides an estimate
+  /// of the current epoch time using the GNSS-provided time.
+  ///
+  /// Throws `DateTimeException` if the GNSS time is not available.
+  @available(Android 34, *)
   @JavaStaticMethod
   public func currentGnssTimeClock() -> Clock!
 
+  /// Waits a given number of milliseconds (of uptimeMillis) before returning.
+  ///
+  /// Similar to `Thread.sleep(long)`, but does not throw `InterruptedException`; `interrupt()`
+  /// events are deferred until the next interruptible operation. Does not return until at least
+  /// the specified number of milliseconds has elapsed.
+  ///
+  /// - Parameter arg0: Time to sleep in milliseconds.
   @JavaStaticMethod
   public func sleep(_ arg0: Int64)
 }

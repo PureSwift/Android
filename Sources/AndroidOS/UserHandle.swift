@@ -2,6 +2,13 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Represents a specific user on the device. Supports equality checking and parceling.
+///
+/// On a multi-user device, each user has their own isolated set of data. A `UserHandle`
+/// identifies a specific user and is used in places where the API operates on a per-user basis.
+///
+/// See also: [android.os.UserHandle](https://developer.android.com/reference/android/os/UserHandle)
+@available(Android 17, *)
 @JavaClass("android.os.UserHandle", implements: Parcelable.self)
 open class UserHandle: JavaObject {
   @JavaMethod
@@ -32,12 +39,16 @@ extension JavaClass<UserHandle> {
   @JavaStaticField(isFinal: true)
   public var PARCELABLE_WRITE_RETURN_VALUE: Int32
 
+  /// Write a UserHandle to a Parcel, handling null values.
   @JavaStaticMethod
   public func writeToParcel(_ arg0: UserHandle?, _ arg1: Parcel?)
 
+  /// Returns the UserHandle for a given UID.
+  @available(Android 23, *)
   @JavaStaticMethod
   public func getUserHandleForUid(_ arg0: Int32) -> UserHandle!
 
+  /// Reads a UserHandle from a Parcel previously written with `writeToParcel(UserHandle, Parcel)`.
   @JavaStaticMethod
   public func readFromParcel(_ arg0: Parcel?) -> UserHandle!
 }

@@ -4,32 +4,49 @@ import JavaLangIO
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Watches a set of `IBinder` tokens and notifies subclasses when the set transitions
+/// between empty and non-empty.
+///
+/// Callers acquire tokens via `acquire(_:_:)` and release them via `release(_:)`.
+/// Override `acquired()` and `released()` to respond when the watched set becomes
+/// non-empty or empties, respectively.
+///
+/// See also: [android.os.TokenWatcher](https://developer.android.com/reference/android/os/TokenWatcher)
 @JavaClass("android.os.TokenWatcher")
 open class TokenWatcher: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Handler?, _ arg1: String, environment: JNIEnvironment? = nil)
 
+  /// Called when the set of held tokens transitions from non-empty to empty.
+  /// Override to respond to the released state.
   @JavaMethod
   open func released()
 
+  /// Returns `true` if at least one token is currently held.
   @JavaMethod
   open func isAcquired() -> Bool
 
+  /// Dumps a summary of currently held tokens to the log.
   @JavaMethod
   open func dump()
 
+  /// Dumps a summary of currently held tokens to the given `PrintWriter`.
   @JavaMethod
   open func dump(_ arg0: PrintWriter?)
 
+  /// Releases the token associated with the given `IBinder`, removing it from the watched set.
   @JavaMethod
   open func release(_ arg0: IBinder?)
 
   @JavaMethod
   open func cleanup(_ arg0: IBinder?, _ arg1: Bool)
 
+  /// Adds the given `IBinder` token to the watched set with the specified display name.
   @JavaMethod
   open func acquire(_ arg0: IBinder?, _ arg1: String)
 
+  /// Called when the set of held tokens transitions from empty to non-empty.
+  /// Override to respond to the acquired state.
   @JavaMethod
   open func acquired()
 }

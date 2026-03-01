@@ -2,6 +2,13 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Keys for health statistics about a Java package within a UID.
+///
+/// Use these keys with `HealthStats` to retrieve per-package battery attribution data,
+/// such as wakeup alarm counts and bound services.
+///
+/// See also: [android.os.health.PackageHealthStats](https://developer.android.com/reference/android/os/health/PackageHealthStats)
+@available(Android 24, *)
 @JavaClass("android.os.health.PackageHealthStats")
 open class PackageHealthStats: JavaObject {
 

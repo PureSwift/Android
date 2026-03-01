@@ -4,20 +4,50 @@ import JavaLangIO
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Low-level class holding the list of messages to be dispatched by a `Looper`.
+/// Messages are not added directly to a `MessageQueue`, but rather through `Handler` objects
+/// associated with the Looper.
+///
+/// You can retrieve the `MessageQueue` for the current thread with `Looper.myQueue()`.
+///
+/// See also: [android.os.MessageQueue](https://developer.android.com/reference/android/os/MessageQueue)
 @JavaClass("android.os.MessageQueue")
 open class MessageQueue: JavaObject {
+  /// Returns true if the looper has no pending messages which are due to be processed.
+  ///
+  /// This is a transient state; the looper may not remain idle for long. If the caller intends
+  /// to perform work based on this state it should use `addIdleHandler()` instead.
   @JavaMethod
   open func isIdle() -> Bool
 
+  /// Add a new `IdleHandler` to this message queue. This may be removed automatically for you by
+  /// returning false from `IdleHandler.queueIdle()` when it is invoked, or explicitly removing it
+  /// with `removeIdleHandler(MessageQueue.IdleHandler)`.
+  ///
+  /// This method is safe to call from any thread.
   @JavaMethod
   open func addIdleHandler(_ arg0: MessageQueue.IdleHandler?)
 
+  /// Remove an `IdleHandler` that was previously added with `addIdleHandler(MessageQueue.IdleHandler)`.
+  ///
+  /// This method is safe to call from any thread.
   @JavaMethod
   open func removeIdleHandler(_ arg0: MessageQueue.IdleHandler?)
 
+  /// Adds a file descriptor listener to receive notification when file descriptor
+  /// related events occur.
+  ///
+  /// - Parameter arg0: The file descriptor for which a listener is to be registered.
+  /// - Parameter arg1: A combination of the `EVENT_INPUT`, `EVENT_OUTPUT`, or `EVENT_ERROR` event masks.
+  /// - Parameter arg2: The listener to invoke when file descriptor events occur.
+  @available(Android 23, *)
   @JavaMethod
   open func addOnFileDescriptorEventListener(_ arg0: FileDescriptor?, _ arg1: Int32, _ arg2: MessageQueue.OnFileDescriptorEventListener?)
 
+  /// Removes a file descriptor listener.
+  ///
+  /// - Parameter arg0: The file descriptor whose listener will be unregistered.
+  @available(Android 23, *)
   @JavaMethod
   open func removeOnFileDescriptorEventListener(_ arg0: FileDescriptor?)
 

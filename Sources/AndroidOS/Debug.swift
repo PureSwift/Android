@@ -5,6 +5,12 @@ import JavaLangUtil
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Provides debugging and diagnostics utility methods.
+///
+/// Includes tools for method tracing, allocation tracking, heap profiling, and connecting
+/// with a Java debugger.
+///
+/// See also: [android.os.Debug](https://developer.android.com/reference/android/os/Debug)
 @JavaClass("android.os.Debug")
 open class Debug: JavaObject {
 

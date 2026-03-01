@@ -2,6 +2,10 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Violation raised when a network operation occurs on a thread that has forbidden network access.
+///
+/// See also: [android.os.strictmode.NetworkViolation](https://developer.android.com/reference/android/os/strictmode/NetworkViolation)
+@available(Android 28, *)
 @JavaClass("android.os.strictmode.NetworkViolation")
 open class NetworkViolation: Violation {
 

@@ -2,6 +2,10 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Violation raised when unbuffered input/output is performed on a thread that has forbidden it.
+///
+/// See also: [android.os.strictmode.UnbufferedIoViolation](https://developer.android.com/reference/android/os/strictmode/UnbufferedIoViolation)
+@available(Android 28, *)
 @JavaClass("android.os.strictmode.UnbufferedIoViolation")
 open class UnbufferedIoViolation: Violation {
 

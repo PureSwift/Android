@@ -4,14 +4,27 @@ import JavaLangUtil
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Provides information about the extension SDK versions present on the device.
+///
+/// Extension SDKs allow certain Android API surfaces to be updated independently of the
+/// platform release. Use `getExtensionVersion(_:)` to query the version of a specific
+/// extension by its SDK integer identifier.
+///
+/// See also: [android.os.ext.SdkExtensions](https://developer.android.com/reference/android/os/ext/SdkExtensions)
+@available(Android 30, *)
 @JavaClass("android.os.ext.SdkExtensions")
 open class SdkExtensions: JavaObject {
 
 }
+
+@available(Android 30, *)
 extension JavaClass<SdkExtensions> {
+  /// Returns the extension version for the given SDK integer, or `0` if the extension
+  /// is not present on this device.
   @JavaStaticMethod
   public func getExtensionVersion(_ arg0: Int32) -> Int32
 
+  /// Returns a map of all extension SDK identifiers to their version numbers on this device.
   @JavaStaticMethod
   public func getAllExtensionVersions() -> Map<JavaInteger, JavaInteger>!
 }

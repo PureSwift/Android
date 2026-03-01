@@ -2,8 +2,13 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Violation raised when a `Context` is used in an incorrect way, such as using an Activity context where an Application context is required.
+///
+/// See also: [android.os.strictmode.IncorrectContextUseViolation](https://developer.android.com/reference/android/os/strictmode/IncorrectContextUseViolation)
+@available(Android 31, *)
 @JavaClass("android.os.strictmode.IncorrectContextUseViolation")
 open class IncorrectContextUseViolation: Violation {
+  /// Creates a new violation with the given message and optional cause.
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: String, _ arg1: Throwable?, environment: JNIEnvironment? = nil)
 }

@@ -5,6 +5,11 @@ import SwiftJava
 import CSwiftJavaJNI
 
 extension Debug {
+  /// Memory usage statistics for a process, broken down by category (Dalvik, native, other).
+  ///
+  /// Obtain an instance by calling `Debug.getMemoryInfo(_:)`.
+  ///
+  /// See also: [android.os.Debug.MemoryInfo](https://developer.android.com/reference/android/os/Debug.MemoryInfo)
   @JavaClass("android.os.Debug$MemoryInfo", implements: Parcelable.self)
   open class MemoryInfo: JavaObject {
   @JavaField(isFinal: false)
@@ -55,9 +60,11 @@ extension Debug {
   @JavaMethod
   open func getTotalSharedClean() -> Int32
 
+  @available(Android 23, *)
   @JavaMethod
   open func getMemoryStat(_ arg0: String) -> String
 
+  @available(Android 23, *)
   @JavaMethod
   open func getMemoryStats() -> Map<JavaString, JavaString>!
 

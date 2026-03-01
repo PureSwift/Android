@@ -5,23 +5,33 @@ import JavaLangUtil
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Represents a storage volume on the device, such as internal storage or a removable SD card.
+///
+/// See [android.os.storage.StorageVolume](https://developer.android.com/reference/android/os/storage/StorageVolume)
+@available(Android 14, *)
 @JavaClass("android.os.storage.StorageVolume", implements: Parcelable.self)
 open class StorageVolume: JavaObject {
+  /// Returns the directory of this storage volume, or `nil` if not currently mounted.
   @JavaMethod
   open func getDirectory() -> File!
 
+  /// Returns whether this volume is the device's primary shared storage.
   @JavaMethod
   open func isPrimary() -> Bool
 
+  /// Returns whether this volume is removable (e.g., an SD card).
   @JavaMethod
   open func isRemovable() -> Bool
 
+  /// Returns whether this volume is emulated (backed by internal storage).
   @JavaMethod
   open func isEmulated() -> Bool
 
+  /// Returns the UUID uniquely identifying this storage volume, or `nil` if unavailable.
   @JavaMethod
   open func getStorageUuid() -> UUID!
 
+  /// Returns the MediaStore volume name associated with this storage volume.
   @JavaMethod
   open func getMediaStoreVolumeName() -> String
 
@@ -31,6 +41,7 @@ open class StorageVolume: JavaObject {
   @JavaMethod
   open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
+  /// Returns the filesystem UUID of this volume as a string, or `nil` if unavailable.
   @JavaMethod
   open func getUuid() -> String
 
@@ -43,9 +54,11 @@ open class StorageVolume: JavaObject {
   @JavaMethod
   open override func hashCode() -> Int32
 
+  /// Returns the current mount state of this volume (e.g., `Environment.MEDIA_MOUNTED`).
   @JavaMethod
   open func getState() -> String
 
+  /// Returns the `UserHandle` that owns this storage volume.
   @JavaMethod
   open func getOwner() -> UserHandle!
 }

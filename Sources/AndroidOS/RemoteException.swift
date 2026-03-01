@@ -2,6 +2,10 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// The parent exception for a set of errors that may occur during remote procedure calls via Binder.
+/// Subclasses include `DeadObjectException` and `TransactionTooLargeException`.
+///
+/// See also: [android.os.RemoteException](https://developer.android.com/reference/android/os/RemoteException)
 @JavaClass("android.os.RemoteException")
 open class RemoteException: Exception {
   @JavaMethod
@@ -10,9 +14,13 @@ open class RemoteException: Exception {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
+  /// Converts this `RemoteException` to a `RuntimeException`, suitable for rethrowing
+  /// in contexts where checked exceptions are not expected.
   @JavaMethod
   open func rethrowAsRuntimeException() -> RuntimeException!
 
+  /// Rethrows this exception as a `RuntimeException`, intended for use in system server code
+  /// to propagate remote errors across process boundaries.
   @JavaMethod
   open func rethrowFromSystemServer() -> RuntimeException!
 }

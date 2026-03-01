@@ -3,9 +3,17 @@ import SwiftJava
 import CSwiftJavaJNI
 
 extension CancellationSignal {
+  /// A listener that is notified when a `CancellationSignal` is canceled.
+  ///
+  /// Implement this interface and register it via `CancellationSignal.setOnCancelListener(_:)`
+  /// to receive a callback when the associated operation is canceled.
+  ///
+  /// See also: [android.os.CancellationSignal.OnCancelListener](https://developer.android.com/reference/android/os/CancellationSignal.OnCancelListener)
+  @available(Android 16, *)
   @JavaInterface("android.os.CancellationSignal$OnCancelListener")
   public struct OnCancelListener {
-  @JavaMethod
-  public func onCancel()
+    /// Called when the associated `CancellationSignal` has been canceled.
+    @JavaMethod
+    public func onCancel()
   }
 }

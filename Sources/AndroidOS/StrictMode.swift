@@ -2,32 +2,45 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// A class that lets you impose stricter coding practices on yourself and catch things you might
+/// otherwise overlook. Thread policy and VM policy can be configured independently.
+///
+/// See also: [android.os.StrictMode](https://developer.android.com/reference/android/os/StrictMode)
+@available(Android 9, *)
 @JavaClass("android.os.StrictMode")
 open class StrictMode: JavaObject {
 
 }
 extension JavaClass<StrictMode> {
+  /// Sets the policy for what actions on the current thread should be detected and penalized.
   @JavaStaticMethod
   public func setThreadPolicy(_ arg0: StrictMode.ThreadPolicy?)
 
+  /// Returns the current thread's policy.
   @JavaStaticMethod
   public func getThreadPolicy() -> StrictMode.ThreadPolicy!
 
+  /// Temporarily permits disk writes on the current thread and returns the old policy to restore when done.
   @JavaStaticMethod
   public func allowThreadDiskWrites() -> StrictMode.ThreadPolicy!
 
+  /// Temporarily permits disk reads on the current thread and returns the old policy to restore when done.
   @JavaStaticMethod
   public func allowThreadDiskReads() -> StrictMode.ThreadPolicy!
 
+  /// Sets the policy for what actions in the VM process should be detected and penalized.
   @JavaStaticMethod
   public func setVmPolicy(_ arg0: StrictMode.VmPolicy?)
 
+  /// Returns the current VM policy.
   @JavaStaticMethod
   public func getVmPolicy() -> StrictMode.VmPolicy!
 
+  /// Enables the recommended defaults for a client application.
   @JavaStaticMethod
   public func enableDefaults()
 
+  /// For code to note that it's doing work that should be done on a different thread.
   @JavaStaticMethod
   public func noteSlowCall(_ arg0: String)
 }

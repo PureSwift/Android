@@ -2,147 +2,226 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Tools for managing OS processes.
+///
+/// See also: [android.os.Process](https://developer.android.com/reference/android/os/Process)
 @JavaClass("android.os.Process")
 open class Process: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 }
 extension JavaClass<Process> {
+  /// Defines the UID/GID under which Bluetooth code runs.
   @JavaStaticField(isFinal: true)
   public var BLUETOOTH_UID: Int32
 
+  /// Defines the start of a range of UIDs (and GIDs), going from this number to
+  /// `LAST_APPLICATION_UID` that are reserved for assigning to applications.
   @JavaStaticField(isFinal: true)
   public var FIRST_APPLICATION_UID: Int32
 
+  /// An invalid UID value.
   @JavaStaticField(isFinal: true)
   public var INVALID_UID: Int32
 
+  /// Last of application-specific UIDs starting at `FIRST_APPLICATION_UID`.
   @JavaStaticField(isFinal: true)
   public var LAST_APPLICATION_UID: Int32
 
+  /// Defines the UID/GID for the Phone application.
   @JavaStaticField(isFinal: true)
   public var PHONE_UID: Int32
 
+  /// Defines the UID/GID under which the root code runs.
   @JavaStaticField(isFinal: true)
   public var ROOT_UID: Int32
 
+  /// Defines the UID/GID under which the shell code runs.
   @JavaStaticField(isFinal: true)
   public var SHELL_UID: Int32
 
+  /// Standard Linux SIGKILL signal.
   @JavaStaticField(isFinal: true)
   public var SIGNAL_KILL: Int32
 
+  /// Standard Linux SIGQUIT signal.
   @JavaStaticField(isFinal: true)
   public var SIGNAL_QUIT: Int32
 
+  /// Standard Linux SIGUSR1 signal.
   @JavaStaticField(isFinal: true)
   public var SIGNAL_USR1: Int32
 
+  /// Defines the UID/GID under which system code runs.
   @JavaStaticField(isFinal: true)
   public var SYSTEM_UID: Int32
 
+  /// Priority we give to the main thread of an audio app. This is the minimum amount
+  /// of fatigue to make audio work properly.
   @JavaStaticField(isFinal: true)
   public var THREAD_PRIORITY_AUDIO: Int32
 
+  /// Standard priority background threads, is set to the lowest priority.
   @JavaStaticField(isFinal: true)
   public var THREAD_PRIORITY_BACKGROUND: Int32
 
+  /// Standard priority of application threads. Use with `setThreadPriority(int)` and
+  /// `setThreadPriority(int, int)`.
   @JavaStaticField(isFinal: true)
   public var THREAD_PRIORITY_DEFAULT: Int32
 
+  /// Standard priority of threads that are currently running a user interface that the user
+  /// is interacting with. Applications can not normally change to this priority.
   @JavaStaticField(isFinal: true)
   public var THREAD_PRIORITY_DISPLAY: Int32
 
+  /// Standard priority of threads that are currently running a user interface. Applications
+  /// can not normally change to this priority.
   @JavaStaticField(isFinal: true)
   public var THREAD_PRIORITY_FOREGROUND: Int32
 
+  /// Adjustment used to move threads slightly more favorable than its parent process's priority.
   @JavaStaticField(isFinal: true)
   public var THREAD_PRIORITY_LESS_FAVORABLE: Int32
 
+  /// Minimum increment to make a priority less favorable.
   @JavaStaticField(isFinal: true)
   public var THREAD_PRIORITY_LOWEST: Int32
 
+  /// Adjustment used to move threads slightly more favorable than its parent process's priority.
   @JavaStaticField(isFinal: true)
   public var THREAD_PRIORITY_MORE_FAVORABLE: Int32
 
+  /// Standard priority of the most important audio threads.
   @JavaStaticField(isFinal: true)
   public var THREAD_PRIORITY_URGENT_AUDIO: Int32
 
+  /// Standard priority of threads that are currently running a user interface that the user
+  /// is interacting with. Applications can not normally change to this priority.
   @JavaStaticField(isFinal: true)
   public var THREAD_PRIORITY_URGENT_DISPLAY: Int32
 
+  /// Standard priority of video threads. Applications can not normally change to this priority.
   @JavaStaticField(isFinal: true)
   public var THREAD_PRIORITY_VIDEO: Int32
 
+  /// Defines the UID/GID for the WiFi supplicant process.
   @JavaStaticField(isFinal: true)
   public var WIFI_UID: Int32
 
+  /// Returns elapsed milliseconds of the time this process has run.
+  ///
+  /// - Returns: Returns the number of milliseconds this process has return.
   @JavaStaticMethod
   public func getElapsedCpuTime() -> Int64
 
+  /// Returns the time, in milliseconds, since the start of the process, measured using the
+  /// elapsed realtime clock.
+  @available(Android 24, *)
   @JavaStaticMethod
   public func getStartElapsedRealtime() -> Int64
 
+  /// Returns the time, in milliseconds, since the start of the process, measured using the
+  /// uptime clock.
+  @available(Android 24, *)
   @JavaStaticMethod
   public func getStartUptimeMillis() -> Int64
 
+  /// Returns the time spent in the system call (in milliseconds), since the process was started.
+  @available(Android 33, *)
   @JavaStaticMethod
   public func getStartRequestedElapsedRealtime() -> Int64
 
+  /// Returns true if the current process is a 64-bit runtime.
+  @available(Android 23, *)
   @JavaStaticMethod
   public func is64Bit() -> Bool
 
+  /// Returns the time, in milliseconds, that the process was requested to start.
+  @available(Android 33, *)
   @JavaStaticMethod
   public func getStartRequestedUptimeMillis() -> Int64
 
+  /// Returns the identifier of this process, which can be used with `killProcess(int)` and
+  /// `sendSignal(int, int)`.
   @JavaStaticMethod
   public func myPid() -> Int32
 
+  /// Returns the identifier of the calling thread, which be used with `setThreadPriority(int, int)`.
   @JavaStaticMethod
   public func myTid() -> Int32
 
+  /// Returns the identifier of this process's uid. This is the kernel uid that the process is
+  /// running under, which is the identity of its app-specific sandbox.
   @JavaStaticMethod
   public func myUid() -> Int32
 
+  /// Returns this process's user handle. This is the user the process is running under.
+  @available(Android 17, *)
   @JavaStaticMethod
   public func myUserHandle() -> UserHandle!
 
+  /// Returns whether the given uid belongs to an application.
+  @available(Android 24, *)
   @JavaStaticMethod
   public func isApplicationUid(_ arg0: Int32) -> Bool
 
+  /// Returns whether the current process is in an isolated sandbox.
+  @available(Android 16, *)
   @JavaStaticMethod
   public func isIsolated() -> Bool
 
+  /// Returns whether the current process is running inside an SDK sandbox.
+  @available(Android 33, *)
   @JavaStaticMethod
   public func isSdkSandbox() -> Bool
 
+  /// Returns the UID assigned to a particular user name, or -1 if there is none.
   @JavaStaticMethod
   public func getUidForName(_ arg0: String) -> Int32
 
+  /// Returns the GID assigned to a particular user name, or -1 if there is none.
   @JavaStaticMethod
   public func getGidForName(_ arg0: String) -> Int32
 
+  /// Sets the priority of the calling thread. This is effectively the same as calling the
+  /// `setThreadPriority(int, int)` static method with your own thread's tid.
   @JavaStaticMethod
   public func setThreadPriority(_ arg0: Int32) throws
 
+  /// Sets the priority of a thread. Note that only the process that created a thread can change
+  /// its priority; the calling process must have the same UID as the specified thread, or it must
+  /// be the init or root process.
   @JavaStaticMethod
   public func setThreadPriority(_ arg0: Int32, _ arg1: Int32) throws
 
+  /// Return the list of CPU core IDs that are reserved exclusively for the calling process.
+  @available(Android 24, *)
   @JavaStaticMethod
   public func getExclusiveCores() -> [Int32]
 
+  /// Returns the current priority of a thread, based on Linux priorities.
   @JavaStaticMethod
   public func getThreadPriority(_ arg0: Int32) throws -> Int32
 
+  /// Determine whether the current environment supports multiple processes.
+  ///
+  /// - Note: Deprecated since API 8. Always returns true.
   @JavaStaticMethod
   public func supportsProcesses() -> Bool
 
+  /// Returns the name of the process. This is the same as the package name.
+  @available(Android 28, *)
   @JavaStaticMethod
   public func myProcessName() -> String
 
+  /// Kill the process with the given PID. Note that, though this API allows us to request to kill
+  /// any process based on its PID, the kernel will still impose standard restrictions on which
+  /// PIDs you are actually able to kill.
   @JavaStaticMethod
   public func killProcess(_ arg0: Int32)
 
+  /// Send a signal to the given process.
   @JavaStaticMethod
   public func sendSignal(_ arg0: Int32, _ arg1: Int32)
 }

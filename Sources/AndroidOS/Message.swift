@@ -3,23 +3,46 @@ import JavaLang
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Defines a message containing a description and arbitrary data object that can be sent to a
+/// `Handler`. This object contains two extra int fields and an extra object field that allow you
+/// to not do allocations in many cases.
+///
+/// While the constructor of Message is public, the best way to get one of these is to call
+/// `Message.obtain()` or one of the `Handler.obtainMessage()` methods, which will pull them from
+/// a pool of recycled objects.
+///
+/// See also: [android.os.Message](https://developer.android.com/reference/android/os/Message)
 @JavaClass("android.os.Message", implements: Parcelable.self)
 open class Message: JavaObject {
+  /// `arg1` and `arg2` are lower-cost alternatives to using `setData()` if you only need to store
+  /// a few integer values.
   @JavaField(isFinal: false)
   public var arg1: Int32
 
+  /// `arg1` and `arg2` are lower-cost alternatives to using `setData()` if you only need to store
+  /// a few integer values.
   @JavaField(isFinal: false)
   public var arg2: Int32
 
+  /// An arbitrary object to send to the recipient. When using Messenger to send the message
+  /// across processes this can only be non-nil if it contains a Parcelable of a framework class
+  /// (not one implemented by the application).
   @JavaField(isFinal: false)
   public var obj: JavaObject!
 
+  /// Optional Messenger where replies to this message can be sent.
   @JavaField(isFinal: false)
   public var replyTo: Messenger!
 
+  /// Optional field indicating the uid that sent the message. Only valid for messages posted by
+  /// a Messenger; otherwise, it will be -1.
+  @available(Android 21, *)
   @JavaField(isFinal: false)
   public var sendingUid: Int32
 
+  /// User-defined message code so that the recipient can identify what this message is about.
+  /// Each `Handler` has its own name-space for message codes, so you do not need to worry about
+  /// yours conflicting with other handlers.
   @JavaField(isFinal: false)
   public var what: Int32
 
@@ -32,42 +55,76 @@ open class Message: JavaObject {
   @JavaMethod
   open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
+  /// Returns the targeted delivery time of this message, in milliseconds.
   @JavaMethod
   open func getWhen() -> Int64
 
+  /// Retrieves a callback object that will be executed if this message is dispatched.
   @JavaMethod
   open func getCallback() -> Runnable!
 
+  /// Like `getData()`, but does not lazily create the Bundle.
+  ///
+  /// A null is returned if the Bundle does not already exist. See `getData()` for further
+  /// information on a Bundle's contents.
   @JavaMethod
   open func peekData() -> Bundle!
 
+  /// Sets a Bundle of arbitrary data values. Use the `arg1` and `arg2` members as a lower cost
+  /// way to send a few simple integer values, if you can.
   @JavaMethod
   open func setData(_ arg0: Bundle?)
 
+  /// Sends this Message to the Handler specified by `getTarget()`.
+  ///
+  /// Throws a null pointer exception if this field has not been set.
   @JavaMethod
   open func sendToTarget()
 
+  /// Returns true if the message is asynchronous, meaning that it is not subject to Looper
+  /// synchronization barriers.
+  @available(Android 22, *)
   @JavaMethod
   open func isAsynchronous() -> Bool
 
+  /// Sets whether the message is asynchronous, meaning that it is not subject to Looper
+  /// synchronization barriers.
+  @available(Android 22, *)
   @JavaMethod
   open func setAsynchronous(_ arg0: Bool)
 
+  /// Return a Message instance to the global pool.
+  ///
+  /// You MUST NOT touch the Message after calling this function because it has effectively been
+  /// freed. It is an error to recycle a message that is currently enqueued or that is in the
+  /// process of being delivered to a Handler.
   @JavaMethod
   open func recycle()
 
   @JavaMethod
   open override func toString() -> String
 
+  /// Retrieve the target Handler implementation that will receive this message.
   @JavaMethod
   open func getTarget() -> Handler!
 
+  /// Sets the Handler implementation that will receive this message object.
+  ///
+  /// - Note: Deprecated since API 33.
   @JavaMethod
   open func setTarget(_ arg0: Handler?)
 
+  /// Make this message like `arg0`. Performs a shallow copy of the data field.
+  /// Does not copy the linked list fields, nor the timestamp or target/callback of the original message.
   @JavaMethod
   open func copyFrom(_ arg0: Message?)
 
+  /// Obtains a Bundle of arbitrary data associated with this event, lazily creating it if necessary.
+  /// Set this value by calling `setData(Bundle)`.
+  ///
+  /// - Note: When transferring data across processes via `Messenger`, you will need to set your
+  ///   class loader on the Bundle via `Bundle.setClassLoader()` so that it can instantiate your
+  ///   objects when you retrieve them.
   @JavaMethod
   open func getData() -> Bundle!
 }
@@ -81,27 +138,38 @@ extension JavaClass<Message> {
   @JavaStaticField(isFinal: true)
   public var PARCELABLE_WRITE_RETURN_VALUE: Int32
 
+  /// Return a new Message instance from the global pool by copying the fields of the provided
+  /// source message.
   @JavaStaticMethod
   public func obtain(_ arg0: Message?) -> Message!
 
+  /// Return a new Message instance from the global pool.
+  ///
+  /// Allows us to avoid allocating new objects in many cases.
   @JavaStaticMethod
   public func obtain() -> Message!
 
+  /// Same as `obtain()`, but sets the values of the target, what, arg1, arg2, and obj members.
   @JavaStaticMethod
   public func obtain(_ arg0: Handler?, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: JavaObject?) -> Message!
 
+  /// Same as `obtain()`, but sets the values of the target, what, arg1, and arg2 members.
   @JavaStaticMethod
   public func obtain(_ arg0: Handler?, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32) -> Message!
 
+  /// Same as `obtain()`, but sets the values of the target, what, and obj members.
   @JavaStaticMethod
   public func obtain(_ arg0: Handler?, _ arg1: Int32, _ arg2: JavaObject?) -> Message!
 
+  /// Same as `obtain()`, but sets the values of the target and what members.
   @JavaStaticMethod
   public func obtain(_ arg0: Handler?, _ arg1: Int32) -> Message!
 
+  /// Same as `obtain()`, but sets the values of the target and callback members.
   @JavaStaticMethod
   public func obtain(_ arg0: Handler?, _ arg1: Runnable?) -> Message!
 
+  /// Same as `obtain()`, but sets the value of the target member.
   @JavaStaticMethod
   public func obtain(_ arg0: Handler?) -> Message!
 }

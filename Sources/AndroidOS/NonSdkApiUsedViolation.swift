@@ -2,6 +2,10 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Violation raised when a private, non-SDK API is accessed.
+///
+/// See also: [android.os.strictmode.NonSdkApiUsedViolation](https://developer.android.com/reference/android/os/strictmode/NonSdkApiUsedViolation)
+@available(Android 28, *)
 @JavaClass("android.os.strictmode.NonSdkApiUsedViolation")
 open class NonSdkApiUsedViolation: Violation {
 

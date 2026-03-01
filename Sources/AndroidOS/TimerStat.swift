@@ -2,6 +2,13 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Holds the count and total duration for a timed event in health statistics.
+///
+/// Used with `HealthStats` to represent events that have both a count (number of occurrences)
+/// and a time duration (total elapsed time in milliseconds).
+///
+/// See also: [android.os.health.TimerStat](https://developer.android.com/reference/android/os/health/TimerStat)
+@available(Android 24, *)
 @JavaClass("android.os.health.TimerStat", implements: Parcelable.self)
 open class TimerStat: JavaObject {
   @JavaMethod

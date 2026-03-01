@@ -2,20 +2,36 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// A convenient base class for scheduling a countdown timer with periodic tick callbacks.
+///
+/// Subclass and implement `onTick(_:)` to receive regular callbacks and `onFinish()` to
+/// be notified when the countdown completes. Call `start()` to begin the timer and
+/// `cancel()` to stop it before it finishes.
+///
+/// See also: [android.os.CountDownTimer](https://developer.android.com/reference/android/os/CountDownTimer)
 @JavaClass("android.os.CountDownTimer")
 open class CountDownTimer: JavaObject {
+  /// Creates a new `CountDownTimer`.
+  ///
+  /// - Parameters:
+  ///   - arg0: The total countdown duration in milliseconds.
+  ///   - arg1: The interval in milliseconds between `onTick(_:)` callbacks.
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Int64, _ arg1: Int64, environment: JNIEnvironment? = nil)
 
+  /// Called at each tick interval with the number of milliseconds remaining until the countdown finishes.
   @JavaMethod
   open func onTick(_ arg0: Int64)
 
+  /// Called when the countdown has finished.
   @JavaMethod
   open func onFinish()
 
+  /// Starts the countdown timer and returns `self` for chaining.
   @JavaMethod
   open func start() -> CountDownTimer!
 
+  /// Cancels the countdown timer. `onFinish()` will not be called after cancellation.
   @JavaMethod
   open func cancel()
 }

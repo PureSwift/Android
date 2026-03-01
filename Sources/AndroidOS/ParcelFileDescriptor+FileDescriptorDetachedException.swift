@@ -5,6 +5,10 @@ import SwiftJava
 import CSwiftJavaJNI
 
 extension ParcelFileDescriptor {
+  /// Exception thrown when a file descriptor has already been detached and cannot be used again.
+  ///
+  /// See [android.os.ParcelFileDescriptor.FileDescriptorDetachedException](https://developer.android.com/reference/android/os/ParcelFileDescriptor.FileDescriptorDetachedException)
+  @available(Android 12, *)
   @JavaClass("android.os.ParcelFileDescriptor$FileDescriptorDetachedException")
   open class FileDescriptorDetachedException: IOException {
   @JavaMethod

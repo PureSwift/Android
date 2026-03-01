@@ -2,54 +2,119 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Class that operates the vibrator on the device.
+///
+/// If your process exits, any vibrations you started will stop.
+///
+/// To obtain an instance of the system vibrator, call
+/// `Context.getSystemService(Context.VIBRATOR_SERVICE)`.
+///
+/// See also: [android.os.Vibrator](https://developer.android.com/reference/android/os/Vibrator)
 @JavaClass("android.os.Vibrator")
 open class Vibrator: JavaObject {
+  /// Check whether the hardware has a vibrator.
+  ///
+  /// - Returns: `true` if the hardware has a vibrator, `false` otherwise.
   @JavaMethod
   open func hasVibrator() -> Bool
 
+  /// Check whether the vibrator has amplitude control.
+  ///
+  /// - Returns: `true` if the hardware can control the amplitude of vibrations, `false` otherwise.
+  @available(Android 26, *)
   @JavaMethod
   open func hasAmplitudeControl() -> Bool
 
+  /// Vibrate with a repeating pattern.
+  ///
+  /// - Parameter arg0: Timing values for turning the vibrator on and off.
+  /// - Parameter arg1: The index into the timings array at which to repeat, or `-1` for no repeat.
+  ///
+  /// - Note: Deprecated since API 26. Use `vibrate(VibrationEffect)` instead.
   @JavaMethod
   open func vibrate(_ arg0: [Int64], _ arg1: Int32)
 
+  /// Vibrate with a given `VibrationEffect` and `VibrationAttributes`.
+  @available(Android 33, *)
   @JavaMethod
   open func vibrate(_ arg0: VibrationEffect?, _ arg1: VibrationAttributes?)
 
+  /// Vibrate with a given `VibrationEffect`.
+  @available(Android 26, *)
   @JavaMethod
   open func vibrate(_ arg0: VibrationEffect?)
 
+  /// Vibrate constantly for the specified period of time.
+  ///
+  /// - Parameter arg0: The number of milliseconds to vibrate.
+  ///
+  /// - Note: Deprecated since API 26. Use `vibrate(VibrationEffect)` instead.
   @JavaMethod
   open func vibrate(_ arg0: Int64)
 
+  /// Query whether the vibrator supports the given predefined effects.
+  ///
+  /// - Parameter arg0: An array of `VibrationEffect.EFFECT_*` constants to query.
+  /// - Returns: An array of support status codes, one per queried effect.
+  @available(Android 30, *)
   @JavaMethod
   open func areEffectsSupported(_ arg0: [Int32]) -> [Int32]
 
+  /// Query whether the vibrator supports all of the given effects.
+  ///
+  /// - Returns: `VIBRATION_EFFECT_SUPPORT_YES`, `VIBRATION_EFFECT_SUPPORT_NO`, or
+  ///   `VIBRATION_EFFECT_SUPPORT_UNKNOWN`.
+  @available(Android 30, *)
   @JavaMethod
   open func areAllEffectsSupported(_ arg0: [Int32]) -> Int32
 
+  /// Query whether the vibrator supports the given composition primitives.
+  ///
+  /// - Parameter arg0: An array of `VibrationEffect.Composition.PRIMITIVE_*` constants to query.
+  /// - Returns: An array of booleans indicating support for each primitive.
+  @available(Android 30, *)
   @JavaMethod
   open func arePrimitivesSupported(_ arg0: [Int32]) -> [Bool]
 
+  /// Query whether the vibrator supports all of the given composition primitives.
+  ///
+  /// - Returns: `true` if all primitives are supported, `false` otherwise.
+  @available(Android 30, *)
   @JavaMethod
   open func areAllPrimitivesSupported(_ arg0: [Int32]) -> Bool
 
+  /// Query the estimated durations of the given composition primitives.
+  ///
+  /// - Parameter arg0: An array of `VibrationEffect.Composition.PRIMITIVE_*` constants.
+  /// - Returns: An array of estimated durations in milliseconds.
+  @available(Android 31, *)
   @JavaMethod
   open func getPrimitiveDurations(_ arg0: [Int32]) -> [Int32]
 
+  /// Gets the ID of this vibrator.
+  ///
+  /// - Returns: The vibrator ID, or `-1` if this is the default vibrator.
+  @available(Android 31, *)
   @JavaMethod
   open func getId() -> Int32
 
+  /// Turn the vibrator off.
   @JavaMethod
   open func cancel()
 }
 extension JavaClass<Vibrator> {
+  /// Vibration effect support: the effect is not supported by this vibrator.
+  @available(Android 30, *)
   @JavaStaticField(isFinal: true)
   public var VIBRATION_EFFECT_SUPPORT_NO: Int32
 
+  /// Vibration effect support: support for the effect is not known.
+  @available(Android 30, *)
   @JavaStaticField(isFinal: true)
   public var VIBRATION_EFFECT_SUPPORT_UNKNOWN: Int32
 
+  /// Vibration effect support: the effect is supported by this vibrator.
+  @available(Android 30, *)
   @JavaStaticField(isFinal: true)
   public var VIBRATION_EFFECT_SUPPORT_YES: Int32
 }

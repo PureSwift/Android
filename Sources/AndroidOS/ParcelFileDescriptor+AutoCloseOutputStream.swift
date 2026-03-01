@@ -5,11 +5,16 @@ import SwiftJava
 import CSwiftJavaJNI
 
 extension ParcelFileDescriptor {
+  /// An `OutputStream` that automatically closes its underlying `ParcelFileDescriptor` when the stream is closed.
+  ///
+  /// See [android.os.ParcelFileDescriptor.AutoCloseOutputStream](https://developer.android.com/reference/android/os/ParcelFileDescriptor.AutoCloseOutputStream)
   @JavaClass("android.os.ParcelFileDescriptor$AutoCloseOutputStream")
   open class AutoCloseOutputStream: FileOutputStream {
+  /// Creates an `AutoCloseOutputStream` writing to the given `ParcelFileDescriptor`.
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: ParcelFileDescriptor?, environment: JNIEnvironment? = nil)
 
+  /// Closes this stream and the underlying `ParcelFileDescriptor`.
   @JavaMethod
   open override func close() throws
   }

@@ -2,6 +2,13 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Keys for health statistics about a process within a UID.
+///
+/// Use these keys with `HealthStats` to retrieve per-process battery attribution data,
+/// such as crash counts, ANR counts, and foreground time.
+///
+/// See also: [android.os.health.ProcessHealthStats](https://developer.android.com/reference/android/os/health/ProcessHealthStats)
+@available(Android 24, *)
 @JavaClass("android.os.health.ProcessHealthStats")
 open class ProcessHealthStats: JavaObject {
 

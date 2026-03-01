@@ -2,23 +2,47 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// VibratorManager is used to access all the vibrators available on the device, to vibrate
+/// in a synchronized manner, or to perform complex vibration effects using multiple vibrators
+/// simultaneously.
+///
+/// To obtain an instance of the vibrator manager, call
+/// `Context.getSystemService(Context.VIBRATOR_MANAGER_SERVICE)`.
+///
+/// See also: [android.os.VibratorManager](https://developer.android.com/reference/android/os/VibratorManager)
+@available(Android 31, *)
 @JavaClass("android.os.VibratorManager")
 open class VibratorManager: JavaObject {
+  /// Vibrate with a given `CombinedVibration`.
+  ///
+  /// - Parameter arg0: The `CombinedVibration` to perform.
   @JavaMethod
   open func vibrate(_ arg0: CombinedVibration?)
 
+  /// Vibrate with a given `CombinedVibration` and `VibrationAttributes`.
+  ///
+  /// - Parameter arg0: The `CombinedVibration` to perform.
+  /// - Parameter arg1: Attributes to describe the reason and properties of the vibration.
   @JavaMethod
   open func vibrate(_ arg0: CombinedVibration?, _ arg1: VibrationAttributes?)
 
+  /// Retrieve a specific vibrator by its ID.
+  ///
+  /// - Parameter arg0: The ID of the vibrator to retrieve.
+  /// - Returns: The `Vibrator` with the given ID, or `nil` if not found.
   @JavaMethod
   open func getVibrator(_ arg0: Int32) -> Vibrator!
 
+  /// Returns the default vibrator (the first vibrator on the device, or a virtual one if
+  /// no physical vibrators are available).
   @JavaMethod
   open func getDefaultVibrator() -> Vibrator!
 
+  /// Returns a list of all available vibrator IDs.
   @JavaMethod
   open func getVibratorIds() -> [Int32]
 
+  /// Turns all the vibrators off.
   @JavaMethod
   open func cancel()
 }

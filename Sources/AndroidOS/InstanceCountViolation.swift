@@ -2,8 +2,14 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Violation raised when the number of live instances of a class exceeds the limit set by
+/// `StrictMode.VmPolicy.Builder.setClassInstanceLimit`.
+///
+/// See also: [android.os.strictmode.InstanceCountViolation](https://developer.android.com/reference/android/os/strictmode/InstanceCountViolation)
+@available(Android 28, *)
 @JavaClass("android.os.strictmode.InstanceCountViolation")
 open class InstanceCountViolation: Violation {
+  /// Returns the number of live instances of the class that triggered this violation.
   @JavaMethod
   open func getNumberOfInstances() -> Int64
 }
