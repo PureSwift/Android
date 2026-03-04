@@ -3,8 +3,13 @@ import SwiftJava
 import CSwiftJavaJNI
 
 extension IBinder {
+  /// Interface for receiving a callback when the process hosting an IBinder has gone away.
+  ///
+  /// See also: [android.os.IBinder.DeathRecipient](https://developer.android.com/reference/android/os/IBinder.DeathRecipient)
   @JavaInterface("android.os.IBinder$DeathRecipient")
   public struct DeathRecipient {
+  /// Called when the process containing this binder has unexpectedly gone away (typically because
+  /// its hosting process has been killed).
   @JavaMethod
   public func binderDied()
   }

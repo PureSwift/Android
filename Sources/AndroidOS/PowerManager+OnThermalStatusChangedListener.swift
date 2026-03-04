@@ -3,8 +3,16 @@ import SwiftJava
 import CSwiftJavaJNI
 
 extension PowerManager {
+  /// Listener passed to `addThermalStatusListener(PowerManager.OnThermalStatusChangedListener)`
+  /// to be notified of thermal status changes.
+  ///
+  /// See also: [android.os.PowerManager.OnThermalStatusChangedListener](https://developer.android.com/reference/android/os/PowerManager.OnThermalStatusChangedListener)
+  @available(Android 29, *)
   @JavaInterface("android.os.PowerManager$OnThermalStatusChangedListener")
   public struct OnThermalStatusChangedListener {
+  /// Called when the thermal status changes.
+  ///
+  /// - Parameter arg0: The new thermal status, one of the `THERMAL_STATUS_*` constants.
   @JavaMethod
   public func onThermalStatusChanged(_ arg0: Int32)
   }

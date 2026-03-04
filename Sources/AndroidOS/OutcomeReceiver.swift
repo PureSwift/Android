@@ -2,11 +2,20 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// A callback interface for receiving the result of an asynchronous operation that can
+/// either succeed with a result value or fail with an error.
+///
+/// Implement `onResult(_:)` to handle success and `onError(_:)` to handle failure.
+///
+/// See also: [android.os.OutcomeReceiver](https://developer.android.com/reference/android/os/OutcomeReceiver)
+@available(Android 31, *)
 @JavaInterface("android.os.OutcomeReceiver")
 public struct OutcomeReceiver<R: AnyJavaObject, E: AnyJavaObject> {
+  /// Called when the asynchronous operation completes successfully with the given result.
   @JavaMethod
   public func onResult(_ arg0: JavaObject?)
 
+  /// Called when the asynchronous operation fails with the given error.
   @JavaMethod
   public func onError(_ arg0: Throwable?)
 }

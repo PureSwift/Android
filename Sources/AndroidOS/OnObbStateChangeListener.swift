@@ -2,11 +2,20 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Listener for receiving notifications when the mount state of an OBB file changes.
+///
+/// See [android.os.storage.OnObbStateChangeListener](https://developer.android.com/reference/android/os/storage/OnObbStateChangeListener)
+@available(Android 9, *)
 @JavaClass("android.os.storage.OnObbStateChangeListener")
 open class OnObbStateChangeListener: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
+  /// Called when the mount state of an OBB has changed.
+  ///
+  /// - Parameters:
+  ///   - arg0: The path of the OBB file whose state changed.
+  ///   - arg1: The new state, one of the constants defined on this class (e.g., `MOUNTED`, `UNMOUNTED`, or an error code).
   @JavaMethod
   open func onObbStateChange(_ arg0: String, _ arg1: Int32)
 }

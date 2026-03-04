@@ -2,18 +2,65 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Interface for classes whose instances can be written to and restored from a `Parcel`.
+/// Classes implementing the Parcelable interface must also have a non-nil static field called
+/// `CREATOR` of a type that implements the `Parcelable.Creator` interface.
+///
+/// A typical implementation of Parcelable is:
+/// ```java
+/// public class MyParcelable implements Parcelable {
+///     private int mData;
+///
+///     public int describeContents() {
+///         return 0;
+///     }
+///
+///     public void writeToParcel(Parcel out, int flags) {
+///         out.writeInt(mData);
+///     }
+///
+///     public static final Parcelable.Creator<MyParcelable> CREATOR
+///             = new Parcelable.Creator<MyParcelable>() {
+///         public MyParcelable createFromParcel(Parcel in) {
+///             return new MyParcelable(in);
+///         }
+///
+///         public MyParcelable[] newArray(int size) {
+///             return new MyParcelable[size];
+///         }
+///     };
+/// }
+/// ```
+///
+/// See also: [android.os.Parcelable](https://developer.android.com/reference/android/os/Parcelable)
 @JavaInterface("android.os.Parcelable")
 public struct Parcelable {
+  /// Describe the kinds of special objects contained in this Parcelable instance's marshaled
+  /// representation. For example, if the object will include a file descriptor in the output of
+  /// `writeToParcel(Parcel, int)`, the return value of this method must include the
+  /// `CONTENTS_FILE_DESCRIPTOR` bit.
+  ///
+  /// - Returns: A bitmask indicating the set of special object types marshaled by this Parcelable object instance.
   @JavaMethod
   public func describeContents() -> Int32
 
+  /// Flatten this object in to a Parcel.
+  ///
+  /// - Parameter arg0: The Parcel in which the object should be written.
+  /// - Parameter arg1: Additional flags about how the object should be written. May be 0 or
+  ///   `PARCELABLE_WRITE_RETURN_VALUE`.
   @JavaMethod
   public func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 }
 extension JavaClass<Parcelable> {
+  /// Descriptor bit used with `describeContents()`: the Parcelable object's flattened
+  /// representation includes a file descriptor.
   @JavaStaticField(isFinal: true)
   public var CONTENTS_FILE_DESCRIPTOR: Int32
 
+  /// Flag for use with `writeToParcel(Parcel, int)`: the object being written is a return value,
+  /// that is the result of a function such as `writeToParcel`. The implementation of
+  /// Parcelable may release resources once they know their data has been sent away.
   @JavaStaticField(isFinal: true)
   public var PARCELABLE_WRITE_RETURN_VALUE: Int32
 }

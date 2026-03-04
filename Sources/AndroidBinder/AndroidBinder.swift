@@ -111,9 +111,12 @@ public extension AndroidBinder {
     /**
      * Determine whether the current thread is currently executing an incoming transaction.
      *
+     * Available since API level 33.
+     *
      * \return true if the current thread is currently executing an incoming transaction, and false
      * otherwise.
      */
+    @available(Android 33, *)
     static var isHandlingTransaction: Bool {
         AIBinder_isHandlingTransaction()
     }

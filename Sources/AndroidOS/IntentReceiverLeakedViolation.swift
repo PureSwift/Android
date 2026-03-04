@@ -2,6 +2,10 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Violation raised when a `BroadcastReceiver` is leaked (registered but not unregistered).
+///
+/// See also: [android.os.strictmode.IntentReceiverLeakedViolation](https://developer.android.com/reference/android/os/strictmode/IntentReceiverLeakedViolation)
+@available(Android 28, *)
 @JavaClass("android.os.strictmode.IntentReceiverLeakedViolation")
 open class IntentReceiverLeakedViolation: Violation {
 

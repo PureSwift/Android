@@ -2,6 +2,10 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Violation raised when a `file://` URI is exposed to another app via an `Intent`.
+///
+/// See also: [android.os.strictmode.FileUriExposedViolation](https://developer.android.com/reference/android/os/strictmode/FileUriExposedViolation)
+@available(Android 28, *)
 @JavaClass("android.os.strictmode.FileUriExposedViolation")
 open class FileUriExposedViolation: Violation {
 

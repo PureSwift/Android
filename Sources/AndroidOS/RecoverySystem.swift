@@ -4,11 +4,21 @@ import JavaLangIO
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Provides utilities for interacting with the device's recovery system, including OTA package verification.
+///
+/// See [android.os.RecoverySystem](https://developer.android.com/reference/android/os/RecoverySystem)
+@available(Android 8, *)
 @JavaClass("android.os.RecoverySystem")
 open class RecoverySystem: JavaObject {
 
 }
 extension JavaClass<RecoverySystem> {
+  /// Verifies the cryptographic signature of an OTA update package.
+  ///
+  /// - Parameters:
+  ///   - arg0: The update package file to verify.
+  ///   - arg1: An optional `ProgressListener` to receive verification progress updates.
+  ///   - arg2: An optional file containing trusted public keys; uses the system default if `nil`.
   @JavaStaticMethod
   public func verifyPackage(_ arg0: File?, _ arg1: RecoverySystem.ProgressListener?, _ arg2: File?) throws
 }

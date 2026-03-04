@@ -4,32 +4,48 @@ import JavaLangIO
 import SwiftJava
 import CSwiftJavaJNI
 
+/// An anonymous shared memory file backed by a file descriptor, allowing data to be shared between processes.
+///
+/// See [android.os.MemoryFile](https://developer.android.com/reference/android/os/MemoryFile)
 @JavaClass("android.os.MemoryFile")
 open class MemoryFile: JavaObject {
+  /// Creates a new `MemoryFile` with the given name and size in bytes.
+  ///
+  /// The name is for debugging purposes only and does not affect behavior.
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: String, _ arg1: Int32, environment: JNIEnvironment? = nil) throws
 
+  /// Returns whether the memory file's pages may be released by the kernel under memory pressure.
   @JavaMethod
   open func isPurgingAllowed() -> Bool
 
+  /// Sets whether the memory file's pages may be purged under memory pressure.
+  ///
+  /// Returns the previous value of the purging-allowed flag.
   @JavaMethod
   open func allowPurging(_ arg0: Bool) throws -> Bool
 
+  /// Returns an `OutputStream` that writes to this memory file.
   @JavaMethod
   open func getOutputStream() -> OutputStream!
 
+  /// Returns the size of this memory file in bytes.
   @JavaMethod
   open func length() -> Int32
 
+  /// Closes this memory file, releasing its underlying resources.
   @JavaMethod
   open func close()
 
+  /// Returns an `InputStream` that reads from this memory file.
   @JavaMethod
   open func getInputStream() -> InputStream!
 
+  /// Reads up to `arg3` bytes from this memory file starting at `arg2` into `arg0` starting at `arg1`.
   @JavaMethod
   open func readBytes(_ arg0: [Int8], _ arg1: Int32, _ arg2: Int32, _ arg3: Int32) throws -> Int32
 
+  /// Writes `arg3` bytes to this memory file starting at `arg2` from `arg0` starting at `arg1`.
   @JavaMethod
   open func writeBytes(_ arg0: [Int8], _ arg1: Int32, _ arg2: Int32, _ arg3: Int32) throws
 }

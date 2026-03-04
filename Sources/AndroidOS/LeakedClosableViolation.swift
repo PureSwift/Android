@@ -2,6 +2,10 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Violation raised when a `Closeable` object is finalized without being closed first.
+///
+/// See also: [android.os.strictmode.LeakedClosableViolation](https://developer.android.com/reference/android/os/strictmode/LeakedClosableViolation)
+@available(Android 28, *)
 @JavaClass("android.os.strictmode.LeakedClosableViolation")
 open class LeakedClosableViolation: Violation {
 

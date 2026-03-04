@@ -2,6 +2,10 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Violation raised when credential-protected storage is accessed while the device is locked.
+///
+/// See also: [android.os.strictmode.CredentialProtectedWhileLockedViolation](https://developer.android.com/reference/android/os/strictmode/CredentialProtectedWhileLockedViolation)
+@available(Android 28, *)
 @JavaClass("android.os.strictmode.CredentialProtectedWhileLockedViolation")
 open class CredentialProtectedWhileLockedViolation: Violation {
 

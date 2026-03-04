@@ -2,14 +2,31 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// A generic interface for receiving a result from another process or component.
+///
+/// Pass a `ResultReceiver` to an API that performs work asynchronously; the API will call
+/// `send(_:_:)` when it has a result. Override `onReceiveResult(_:_:)` in a subclass to
+/// handle the incoming result code and optional data bundle.
+///
+/// See also: [android.os.ResultReceiver](https://developer.android.com/reference/android/os/ResultReceiver)
 @JavaClass("android.os.ResultReceiver", implements: Parcelable.self)
 open class ResultReceiver: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Handler?, environment: JNIEnvironment? = nil)
 
+  /// Delivers a result to this receiver. May be called from any process.
+  ///
+  /// - Parameters:
+  ///   - arg0: An integer result code to identify the outcome.
+  ///   - arg1: An optional `Bundle` carrying additional result data.
   @JavaMethod
   open func send(_ arg0: Int32, _ arg1: Bundle?)
 
+  /// Called when a result is delivered via `send(_:_:)`. Override in subclasses to process results.
+  ///
+  /// - Parameters:
+  ///   - arg0: The result code supplied by the sender.
+  ///   - arg1: The optional data bundle supplied by the sender.
   @JavaMethod
   open func onReceiveResult(_ arg0: Int32, _ arg1: Bundle?)
 

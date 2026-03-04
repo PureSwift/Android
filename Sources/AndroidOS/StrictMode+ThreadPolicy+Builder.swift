@@ -3,74 +3,102 @@ import SwiftJava
 import CSwiftJavaJNI
 
 extension StrictMode.ThreadPolicy {
+  /// Builder for ``StrictMode/ThreadPolicy``. Combine detection methods and penalty methods,
+  /// then call ``build()`` to obtain the policy.
+  ///
+  /// See also: [android.os.StrictMode.ThreadPolicy.Builder](https://developer.android.com/reference/android/os/StrictMode.ThreadPolicy.Builder)
+  @available(Android 9, *)
   @JavaClass("android.os.StrictMode$ThreadPolicy$Builder")
   open class Builder: JavaObject {
+  /// Creates a Builder with no violations detected and no penalties set.
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
+  /// Creates a Builder based on an existing ThreadPolicy, copying all detection and penalty settings.
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: StrictMode.ThreadPolicy?, environment: JNIEnvironment? = nil)
 
+  /// Detects all violations that are detectable on this thread.
   @JavaMethod
   open func detectAll() -> StrictMode.ThreadPolicy.Builder!
 
+  /// Permits all policy violations on this thread.
   @JavaMethod
   open func permitAll() -> StrictMode.ThreadPolicy.Builder!
 
+  /// Enables detection of network operations on the thread.
   @JavaMethod
   open func detectNetwork() -> StrictMode.ThreadPolicy.Builder!
 
+  /// Permits network operations on the thread.
   @JavaMethod
   open func permitNetwork() -> StrictMode.ThreadPolicy.Builder!
 
+  /// Enables detection of disk reads on the thread.
   @JavaMethod
   open func detectDiskReads() -> StrictMode.ThreadPolicy.Builder!
 
+  /// Permits disk reads on the thread.
   @JavaMethod
   open func permitDiskReads() -> StrictMode.ThreadPolicy.Builder!
 
+  /// Enables detection of custom slow calls via `noteSlowCall`.
   @JavaMethod
   open func detectCustomSlowCalls() -> StrictMode.ThreadPolicy.Builder!
 
+  /// Permits custom slow calls on the thread.
   @JavaMethod
   open func permitCustomSlowCalls() -> StrictMode.ThreadPolicy.Builder!
 
+  /// Permits resource ID mismatch mismatches on the thread.
   @JavaMethod
   open func permitResourceMismatches() -> StrictMode.ThreadPolicy.Builder!
 
+  /// Enables detection of unbuffered input/output operations on the thread.
   @JavaMethod
   open func detectUnbufferedIo() -> StrictMode.ThreadPolicy.Builder!
 
+  /// Permits unbuffered input/output operations on the thread.
   @JavaMethod
   open func permitUnbufferedIo() -> StrictMode.ThreadPolicy.Builder!
 
+  /// Enables detection of mismatches between defined resource types.
   @JavaMethod
   open func detectResourceMismatches() -> StrictMode.ThreadPolicy.Builder!
 
+  /// Enables detection of disk writes on the thread.
   @JavaMethod
   open func detectDiskWrites() -> StrictMode.ThreadPolicy.Builder!
 
+  /// Permits disk writes on the thread.
   @JavaMethod
   open func permitDiskWrites() -> StrictMode.ThreadPolicy.Builder!
 
+  /// Shows a dialog on a policy violation.
   @JavaMethod
   open func penaltyDialog() -> StrictMode.ThreadPolicy.Builder!
 
+  /// Crashes the whole process on a policy violation.
   @JavaMethod
   open func penaltyDeath() -> StrictMode.ThreadPolicy.Builder!
 
+  /// Crashes the whole process when a network operation is performed on the thread.
   @JavaMethod
   open func penaltyDeathOnNetwork() -> StrictMode.ThreadPolicy.Builder!
 
+  /// Flashes the screen when a policy violation occurs.
   @JavaMethod
   open func penaltyFlashScreen() -> StrictMode.ThreadPolicy.Builder!
 
+  /// Logs the policy violation to the system log.
   @JavaMethod
   open func penaltyLog() -> StrictMode.ThreadPolicy.Builder!
 
+  /// Sends a violation report to the DropBox system service.
   @JavaMethod
   open func penaltyDropBox() -> StrictMode.ThreadPolicy.Builder!
 
+  /// Constructs and returns the ``StrictMode/ThreadPolicy`` with the settings applied.
   @JavaMethod
   open func build() -> StrictMode.ThreadPolicy!
   }

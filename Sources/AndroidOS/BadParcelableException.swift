@@ -2,6 +2,10 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Thrown when a `Parcelable` encounters an error during marshalling or unmarshalling,
+/// such as when a class cannot be found or data is malformed.
+///
+/// See also: [android.os.BadParcelableException](https://developer.android.com/reference/android/os/BadParcelableException)
 @JavaClass("android.os.BadParcelableException")
 open class BadParcelableException: RuntimeException {
   @JavaMethod

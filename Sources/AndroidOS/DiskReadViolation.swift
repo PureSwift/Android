@@ -2,6 +2,10 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Violation raised when a disk read occurs on a thread that has forbidden disk reads.
+///
+/// See also: [android.os.strictmode.DiskReadViolation](https://developer.android.com/reference/android/os/strictmode/DiskReadViolation)
+@available(Android 28, *)
 @JavaClass("android.os.strictmode.DiskReadViolation")
 open class DiskReadViolation: Violation {
 

@@ -4,26 +4,42 @@ import JavaLangIO
 import SwiftJava
 import CSwiftJavaJNI
 
+/// A file descriptor that can be passed between processes via Binder IPC.
+///
+/// Wraps a Unix file descriptor and implements `Parcelable`, enabling it to be written to a
+/// `Parcel` and sent to another process. The receiver obtains a duplicate file descriptor
+/// referring to the same underlying open file description.
+///
+/// See [android.os.ParcelFileDescriptor](https://developer.android.com/reference/android/os/ParcelFileDescriptor)
 @JavaClass("android.os.ParcelFileDescriptor", implements: Parcelable.self, Closeable.self)
 open class ParcelFileDescriptor: JavaObject {
+  /// Creates a new `ParcelFileDescriptor` that is a copy of the given descriptor.
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: ParcelFileDescriptor?, environment: JNIEnvironment? = nil)
 
+  /// Returns the underlying `FileDescriptor`.
   @JavaMethod
   open func getFileDescriptor() -> FileDescriptor!
 
+  /// Returns the total size in bytes of the file backing this descriptor, or `-1` if unknown.
   @JavaMethod
   open func getStatSize() -> Int64
 
+  /// Returns the raw native file descriptor integer.
   @JavaMethod
   open func getFd() -> Int32
 
+  /// Detaches the native file descriptor from this object and returns it.
+  ///
+  /// After calling this, the caller is responsible for closing the file descriptor.
   @JavaMethod
   open func detachFd() -> Int32
 
+  /// Closes this descriptor with an associated error message delivered to any `OnCloseListener`.
   @JavaMethod
   open func closeWithError(_ arg0: String) throws
 
+  /// Returns whether this descriptor can detect remote-side errors via `checkError()`.
   @JavaMethod
   open func canDetectErrors() -> Bool
 
@@ -39,12 +55,15 @@ open class ParcelFileDescriptor: JavaObject {
   @JavaMethod
   open override func toString() -> String
 
+  /// Closes this `ParcelFileDescriptor` and its underlying file descriptor.
   @JavaMethod
   open func close() throws
 
+  /// Checks for and throws any error that occurred on the remote side of a pipe.
   @JavaMethod
   open func checkError() throws
 
+  /// Returns a new `ParcelFileDescriptor` that is a duplicate of this one.
   @JavaMethod
   open func dup() throws -> ParcelFileDescriptor!
 }
@@ -82,36 +101,47 @@ extension JavaClass<ParcelFileDescriptor> {
   @JavaStaticField(isFinal: true)
   public var PARCELABLE_WRITE_RETURN_VALUE: Int32
 
+  /// Opens the given file with the specified mode flags and returns a `ParcelFileDescriptor`.
   @JavaStaticMethod
   public func fromFd(_ arg0: Int32) throws -> ParcelFileDescriptor!
 
+  /// Adopts the given raw file descriptor, taking ownership without duplicating it.
   @JavaStaticMethod
   public func adoptFd(_ arg0: Int32) -> ParcelFileDescriptor!
 
+  /// Creates a pair of `ParcelFileDescriptor`s connected by an anonymous pipe.
   @JavaStaticMethod
   public func createPipe() throws -> [ParcelFileDescriptor?]
 
+  /// Creates a reliable pipe pair that can propagate errors back to the write end.
   @JavaStaticMethod
   public func createReliablePipe() throws -> [ParcelFileDescriptor?]
 
+  /// Creates a pair of `ParcelFileDescriptor`s connected by a socket pair.
   @JavaStaticMethod
   public func createSocketPair() throws -> [ParcelFileDescriptor?]
 
+  /// Creates a reliable socket pair that can propagate errors back to the write end.
   @JavaStaticMethod
   public func createReliableSocketPair() throws -> [ParcelFileDescriptor?]
 
+  /// Parses a mode string such as `"r"`, `"w"`, or `"rw"` into the corresponding `MODE_*` flags.
   @JavaStaticMethod
   public func parseMode(_ arg0: String) -> Int32
 
+  /// Wraps an existing `ParcelFileDescriptor`, routing close notifications to the given listener.
   @JavaStaticMethod
   public func wrap(_ arg0: ParcelFileDescriptor?, _ arg1: Handler?, _ arg2: ParcelFileDescriptor.OnCloseListener?) throws -> ParcelFileDescriptor!
 
+  /// Opens the given file with the specified mode flags, routing close notifications to the listener.
   @JavaStaticMethod
   public func open(_ arg0: File?, _ arg1: Int32, _ arg2: Handler?, _ arg3: ParcelFileDescriptor.OnCloseListener?) throws -> ParcelFileDescriptor!
 
+  /// Opens the given file with the specified mode flags.
   @JavaStaticMethod
   public func open(_ arg0: File?, _ arg1: Int32) throws -> ParcelFileDescriptor!
 
+  /// Duplicates the given `FileDescriptor` into a new `ParcelFileDescriptor`.
   @JavaStaticMethod
   public func dup(_ arg0: FileDescriptor?) throws -> ParcelFileDescriptor!
 }

@@ -2,6 +2,13 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Reference to a Handler, which others can use to send messages to it.
+///
+/// This allows for the implementation of message-based communication across processes, by
+/// creating a Messenger pointing to a Handler in one process, and handing that Messenger to
+/// another process.
+///
+/// See also: [android.os.Messenger](https://developer.android.com/reference/android/os/Messenger)
 @JavaClass("android.os.Messenger", implements: Parcelable.self)
 open class Messenger: JavaObject {
   @JavaMethod

@@ -36,8 +36,12 @@ public struct AndroidBinderError: Error {
 public extension AndroidBinderError {
     
     var message: String {
-        let status = Status(errorCode: errorCode)
-        return status.description
+        if #available(Android 30, *) {
+            let status = Status(errorCode: errorCode)
+            return status.description
+        } else {
+            return "Binder error (code: \(errorCode))"
+        }
     }
 }
 

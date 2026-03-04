@@ -3,8 +3,15 @@ import SwiftJava
 import CSwiftJavaJNI
 
 extension MessageQueue {
+  /// Callback interface for discovering when a thread is going to block waiting for more messages.
+  ///
+  /// See also: [android.os.MessageQueue.IdleHandler](https://developer.android.com/reference/android/os/MessageQueue.IdleHandler)
   @JavaInterface("android.os.MessageQueue$IdleHandler")
   public struct IdleHandler {
+  /// Called when the message queue has run out of messages and will now wait for more.
+  ///
+  /// - Returns: `true` to keep your idle handler active, `false` to have it removed. Returning
+  ///   `false` is the same as calling `removeIdleHandler(IdleHandler)`.
   @JavaMethod
   public func queueIdle() -> Bool
   }

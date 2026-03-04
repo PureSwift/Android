@@ -3,6 +3,9 @@ import SwiftJava
 import CSwiftJavaJNI
 
 extension Build {
+  /// Various version strings for the current build.
+  ///
+  /// See also: [android.os.Build.VERSION](https://developer.android.com/reference/android/os/Build.VERSION)
   @JavaClass("android.os.Build$VERSION")
   open class VERSION: JavaObject {
   @JavaMethod
@@ -10,36 +13,68 @@ extension Build {
   }
 }
 extension JavaClass<Build.VERSION> {
+  /// The base OS build the product is based on.
+  @available(Android 23, *)
   @JavaStaticField(isFinal: true)
   public var BASE_OS: String
 
+  /// The current development codename, or the string "REL" if this is a release build.
+  @available(Android 4, *)
   @JavaStaticField(isFinal: true)
   public var CODENAME: String
 
+  /// The internal value used by the underlying source control to represent this build.
   @JavaStaticField(isFinal: true)
   public var INCREMENTAL: String
 
+  /// The media performance class of the device or 0 if none.
+  ///
+  /// If this value is not 0, the device conforms to the media performance class definition
+  /// of the SDK version that corresponds to this value. Possible values can be
+  /// `Build.VERSION_CODES.R` (30), `Build.VERSION_CODES.S` (31), or higher.
+  @available(Android 31, *)
   @JavaStaticField(isFinal: true)
   public var MEDIA_PERFORMANCE_CLASS: Int32
 
+  /// The developer preview revision of a pre-release SDK.
+  ///
+  /// This field is always 0 on production platform builds/devices. If you're trying to detect
+  /// if you're running on a pre-release platform you should use `CODENAME` instead.
+  @available(Android 23, *)
   @JavaStaticField(isFinal: true)
   public var PREVIEW_SDK_INT: Int32
 
+  /// The user-visible version string. For example, "1.0" or "3.4b5" or "XYZ".
   @JavaStaticField(isFinal: true)
   public var RELEASE: String
 
+  /// The version string we show to the user; can be the release version ("1.0") or the codename
+  /// for a development build.
+  @available(Android 30, *)
   @JavaStaticField(isFinal: true)
   public var RELEASE_OR_CODENAME: String
 
+  /// The version string shown to the user. May be a combination of `RELEASE` and `PREVIEW_SDK_INT`.
+  @available(Android 33, *)
   @JavaStaticField(isFinal: true)
   public var RELEASE_OR_PREVIEW_DISPLAY: String
 
+  /// The user-visible SDK version of the framework in its raw String representation.
+  ///
+  /// - Note: Deprecated since API 15. Use `SDK_INT` instead.
+  @available(*, deprecated, message: "Use `SDK_INT` instead.")
   @JavaStaticField(isFinal: true)
   public var SDK: String
 
+  /// The user-visible SDK version of the framework; its possible values are defined in
+  /// `Build.VERSION_CODES`.
+  @available(Android 4, *)
   @JavaStaticField(isFinal: true)
   public var SDK_INT: Int32
 
+  /// The user-visible security patch level. This value represents the date when the device's
+  /// security patch was last updated, in the form "YYYY-MM-DD" (for example "2021-11-05").
+  @available(Android 23, *)
   @JavaStaticField(isFinal: true)
   public var SECURITY_PATCH: String
 }

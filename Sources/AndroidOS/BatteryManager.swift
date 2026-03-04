@@ -2,17 +2,27 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Provides information about battery state and charging status.
+///
+/// Obtain an instance via `Context.getSystemService(Context.BATTERY_SERVICE)`.
+///
+/// See [android.os.BatteryManager](https://developer.android.com/reference/android/os/BatteryManager)
+@available(Android 21, *)
 @JavaClass("android.os.BatteryManager")
 open class BatteryManager: JavaObject {
+  /// Returns whether the device is currently charging.
   @JavaMethod
   open func isCharging() -> Bool
 
+  /// Returns an estimate of how long until the battery is fully charged, in milliseconds, or `-1` if unknown.
   @JavaMethod
   open func computeChargeTimeRemaining() -> Int64
 
+  /// Returns the value of the given integer battery property (e.g., `BATTERY_PROPERTY_CAPACITY`).
   @JavaMethod
   open func getIntProperty(_ arg0: Int32) -> Int32
 
+  /// Returns the value of the given long battery property (e.g., `BATTERY_PROPERTY_ENERGY_COUNTER`).
   @JavaMethod
   open func getLongProperty(_ arg0: Int32) -> Int64
 }

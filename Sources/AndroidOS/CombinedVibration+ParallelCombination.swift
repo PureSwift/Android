@@ -2,12 +2,27 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+@available(Android 31, *)
 extension CombinedVibration {
+  /// A combination of vibration effects that are performed by different vibrators in parallel.
+  ///
+  /// To create a ParallelCombination, use `CombinedVibration.startParallel()`.
+  ///
+  /// See also: [android.os.CombinedVibration.ParallelCombination](https://developer.android.com/reference/android/os/CombinedVibration.ParallelCombination)
+  @available(Android 31, *)
   @JavaClass("android.os.CombinedVibration$ParallelCombination")
   open class ParallelCombination: JavaObject {
+  /// Adds a `VibrationEffect` for a specific vibrator to this combination.
+  ///
+  /// - Parameter arg0: The ID of the vibrator to use.
+  /// - Parameter arg1: The `VibrationEffect` to perform on the specified vibrator.
+  /// - Returns: This `ParallelCombination` to allow chaining of calls.
   @JavaMethod
   open func addVibrator(_ arg0: Int32, _ arg1: VibrationEffect?) -> CombinedVibration.ParallelCombination!
 
+  /// Combines all added effects into a single `CombinedVibration`.
+  ///
+  /// - Returns: The `CombinedVibration` representing this parallel combination.
   @JavaMethod
   open func combine() -> CombinedVibration!
   }

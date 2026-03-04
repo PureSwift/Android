@@ -2,6 +2,13 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// CPU usage information for a single CPU core, as returned by `HardwarePropertiesManager`.
+///
+/// Contains both active (non-idle) CPU time and total CPU time for use in calculating
+/// utilization percentages.
+///
+/// See also: [android.os.CpuUsageInfo](https://developer.android.com/reference/android/os/CpuUsageInfo)
+@available(Android 24, *)
 @JavaClass("android.os.CpuUsageInfo", implements: Parcelable.self)
 open class CpuUsageInfo: JavaObject {
   @JavaMethod

@@ -2,6 +2,16 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// A VibrationEffect describes a haptic effect to be performed by a `Vibrator`.
+///
+/// These effects may be performed on any Vibrator that supports them, however devices may not
+/// support all effects. Some devices may not support haptics at all.
+///
+/// Use the static factory methods (`createOneShot()`, `createWaveform()`, `createPredefined()`,
+/// or `startComposition()`) to create a `VibrationEffect`.
+///
+/// See also: [android.os.VibrationEffect](https://developer.android.com/reference/android/os/VibrationEffect)
+@available(Android 26, *)
 @JavaClass("android.os.VibrationEffect", implements: Parcelable.self)
 open class VibrationEffect: JavaObject {
   @JavaMethod
@@ -11,18 +21,28 @@ extension JavaClass<VibrationEffect> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<VibrationEffect>!
 
+  /// The default amplitude for `createOneShot(long, int)`. This is device-specific and may not
+  /// produce consistent results across devices.
   @JavaStaticField(isFinal: true)
   public var DEFAULT_AMPLITUDE: Int32
 
+  /// A click effect. Use this effect as a baseline, as it's the most common type of haptic feedback.
+  @available(Android 29, *)
   @JavaStaticField(isFinal: true)
   public var EFFECT_CLICK: Int32
 
+  /// A double-click effect.
+  @available(Android 29, *)
   @JavaStaticField(isFinal: true)
   public var EFFECT_DOUBLE_CLICK: Int32
 
+  /// A heavy click effect. This effect is stronger than `EFFECT_CLICK`.
+  @available(Android 29, *)
   @JavaStaticField(isFinal: true)
   public var EFFECT_HEAVY_CLICK: Int32
 
+  /// A tick effect. This effect is weaker than `EFFECT_CLICK`.
+  @available(Android 29, *)
   @JavaStaticField(isFinal: true)
   public var EFFECT_TICK: Int32
 
@@ -32,18 +52,46 @@ extension JavaClass<VibrationEffect> {
   @JavaStaticField(isFinal: true)
   public var PARCELABLE_WRITE_RETURN_VALUE: Int32
 
+  /// Creates a predefined vibration effect.
+  ///
+  /// Predefined effects are a set of standard vibration effects that should be identical,
+  /// regardless of the app requesting them.
+  ///
+  /// - Parameter arg0: The ID of the effect to perform, one of the `EFFECT_*` constants.
+  /// - Returns: A `VibrationEffect` for the predefined effect.
+  @available(Android 29, *)
   @JavaStaticMethod
   public func createPredefined(_ arg0: Int32) -> VibrationEffect!
 
+  /// Start composing a haptic effect.
+  ///
+  /// - Returns: A `VibrationEffect.Composition` builder.
+  @available(Android 30, *)
   @JavaStaticMethod
   public func startComposition() -> VibrationEffect.Composition!
 
+  /// Creates a one-shot vibration.
+  ///
+  /// One-shot vibrations will vibrate constantly for the specified period of time at the
+  /// specified amplitude, and then stop.
+  ///
+  /// - Parameter arg0: The number of milliseconds to vibrate. Must be positive.
+  /// - Parameter arg1: The strength of the vibration. Must be between 1 and 255, or `DEFAULT_AMPLITUDE`.
   @JavaStaticMethod
   public func createOneShot(_ arg0: Int64, _ arg1: Int32) -> VibrationEffect!
 
+  /// Create a waveform vibration with amplitudes.
+  ///
+  /// - Parameter arg0: Timing values for turning the vibrator on and off (in milliseconds).
+  /// - Parameter arg1: Amplitude values, one per timing segment.
+  /// - Parameter arg2: The index into the timings array at which to repeat, or `-1` for no repeat.
   @JavaStaticMethod
   public func createWaveform(_ arg0: [Int64], _ arg1: [Int32], _ arg2: Int32) -> VibrationEffect!
 
+  /// Create a waveform vibration.
+  ///
+  /// - Parameter arg0: Timing values for turning the vibrator on and off (in milliseconds).
+  /// - Parameter arg1: The index into the timings array at which to repeat, or `-1` for no repeat.
   @JavaStaticMethod
   public func createWaveform(_ arg0: [Int64], _ arg1: Int32) -> VibrationEffect!
 }

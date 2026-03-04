@@ -2,20 +2,42 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Provides the ability to cancel an operation in progress.
+///
+/// A `CancellationSignal` is associated with a particular operation. The `cancel()` method can
+/// be called at any time to cancel the operation. If the operation has already completed normally,
+/// canceling it has no effect.
+///
+/// See also: [android.os.CancellationSignal](https://developer.android.com/reference/android/os/CancellationSignal)
+@available(Android 16, *)
 @JavaClass("android.os.CancellationSignal")
 open class CancellationSignal: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
+  /// Returns true if the operation has been canceled.
   @JavaMethod
   open func isCanceled() -> Bool
 
+  /// Throws `OperationCanceledException` if the operation has been canceled.
   @JavaMethod
   open func throwIfCanceled()
 
+  /// Sets the cancellation listener to be called when the operation is canceled.
+  ///
+  /// This method is intended to be used by the recipient of a cancellation signal such as a
+  /// database or a content provider to handle cancellation requests while performing a
+  /// long-running operation.
+  ///
+  /// If `cancel()` has already been called, then the provided listener is invoked immediately.
+  ///
+  /// - Parameter arg0: The cancellation listener, or nil to remove the current listener.
   @JavaMethod
   open func setOnCancelListener(_ arg0: CancellationSignal.OnCancelListener?)
 
+  /// Cancels the operation and signals the cancellation listener.
+  ///
+  /// If the operation has not yet started, then it will be canceled as soon as it does.
   @JavaMethod
   open func cancel()
 }

@@ -24,6 +24,7 @@ public extension AndroidOS.Parcel {
 public extension AndroidOS.Parcel {
     
     /// Create a temporary NDK object and perform operatios on it.
+    @available(Android 30, *)
     func withNDK<E, Result>(_ body: (borrowing NDK) throws(E) -> Result) throws(E) -> Result where E: Error {
         let ndk = NDK.fromJava(javaThis, environment: javaEnvironment)
         return try body(ndk)
@@ -46,6 +47,7 @@ internal extension AndroidBinder.Parcel {
      * will return null. This must be deleted with AParcel_delete. This does not take ownership of the
      * jobject and is only good for as long as the jobject is alive.
      */
+    @available(Android 30, *)
     static func fromJava(_ javaObject: jobject, environment: JNIEnvironment) -> AndroidBinder.Parcel {
         guard let pointer = AParcel_fromJavaParcel(environment, javaObject) else {
             fatalError("Unable to initialize from Java object")

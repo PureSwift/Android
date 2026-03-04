@@ -2,6 +2,11 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Thrown when an application attempts to perform a network operation on the main thread.
+/// Network I/O must be performed on a background thread to avoid blocking the UI.
+///
+/// See also: [android.os.NetworkOnMainThreadException](https://developer.android.com/reference/android/os/NetworkOnMainThreadException)
+@available(Android 11, *)
 @JavaClass("android.os.NetworkOnMainThreadException")
 open class NetworkOnMainThreadException: RuntimeException {
   @JavaMethod

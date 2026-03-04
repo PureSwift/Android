@@ -2,6 +2,10 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Violation raised when a `ServiceConnection` is leaked (bound but not unbound).
+///
+/// See also: [android.os.strictmode.ServiceConnectionLeakedViolation](https://developer.android.com/reference/android/os/strictmode/ServiceConnectionLeakedViolation)
+@available(Android 28, *)
 @JavaClass("android.os.strictmode.ServiceConnectionLeakedViolation")
 open class ServiceConnectionLeakedViolation: Violation {
 

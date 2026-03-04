@@ -2,44 +2,82 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+@available(Android 30, *)
 extension VibrationEffect {
+  /// A composition of haptic primitives that, when combined, create more complex haptic patterns.
+  ///
+  /// To create a Composition, use `VibrationEffect.startComposition()`.
+  ///
+  /// See also: [android.os.VibrationEffect.Composition](https://developer.android.com/reference/android/os/VibrationEffect.Composition)
+  @available(Android 30, *)
   @JavaClass("android.os.VibrationEffect$Composition")
   open class Composition: JavaObject {
+  /// Add a haptic primitive to the end of the current composition, with a specific scale factor
+  /// applied to it.
+  ///
+  /// - Parameter arg0: The primitive to add (a `PRIMITIVE_*` constant).
+  /// - Parameter arg1: The scale to apply to the amplitude (0.0 to 1.0).
+  /// - Returns: This Composition to allow chaining of calls.
   @JavaMethod
   open func addPrimitive(_ arg0: Int32, _ arg1: Float) -> VibrationEffect.Composition!
 
+  /// Add a haptic primitive to the end of the current composition with default scale.
+  ///
+  /// - Parameter arg0: The primitive to add (a `PRIMITIVE_*` constant).
+  /// - Returns: This Composition to allow chaining of calls.
   @JavaMethod
   open func addPrimitive(_ arg0: Int32) -> VibrationEffect.Composition!
 
+  /// Add a haptic primitive to the end of the current composition with scale and delay.
+  ///
+  /// - Parameter arg0: The primitive to add (a `PRIMITIVE_*` constant).
+  /// - Parameter arg1: The scale to apply to the amplitude (0.0 to 1.0).
+  /// - Parameter arg2: The delay in milliseconds to wait before playing this primitive.
+  /// - Returns: This Composition to allow chaining of calls.
   @JavaMethod
   open func addPrimitive(_ arg0: Int32, _ arg1: Float, _ arg2: Int32) -> VibrationEffect.Composition!
 
+  /// Compose all of the added primitives together into a single `VibrationEffect`.
+  ///
+  /// - Returns: The `VibrationEffect` representing the composition.
   @JavaMethod
   open func compose() -> VibrationEffect!
   }
 }
+
+@available(Android 30, *)
 extension JavaClass<VibrationEffect.Composition> {
+  /// Primitive: a brief, standard feedback effect (click).
   @JavaStaticField(isFinal: true)
   public var PRIMITIVE_CLICK: Int32
 
+  /// Primitive: a very weak, short tick sensation.
+  @available(Android 31, *)
   @JavaStaticField(isFinal: true)
   public var PRIMITIVE_LOW_TICK: Int32
 
+  /// Primitive: a quick downward ramp in amplitude.
   @JavaStaticField(isFinal: true)
   public var PRIMITIVE_QUICK_FALL: Int32
 
+  /// Primitive: a quick upward ramp in amplitude.
   @JavaStaticField(isFinal: true)
   public var PRIMITIVE_QUICK_RISE: Int32
 
+  /// Primitive: a slow upward ramp in amplitude.
   @JavaStaticField(isFinal: true)
   public var PRIMITIVE_SLOW_RISE: Int32
 
+  /// Primitive: a spinning sensation.
+  @available(Android 31, *)
   @JavaStaticField(isFinal: true)
   public var PRIMITIVE_SPIN: Int32
 
+  /// Primitive: a strong, heavy impact.
   @JavaStaticField(isFinal: true)
   public var PRIMITIVE_THUD: Int32
 
+  /// Primitive: a very short, light sensation.
   @JavaStaticField(isFinal: true)
   public var PRIMITIVE_TICK: Int32
 }

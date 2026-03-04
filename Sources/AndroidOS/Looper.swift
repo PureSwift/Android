@@ -3,42 +3,86 @@ import JavaLang
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Class used to run a message loop for a thread. Threads by default do not have a message loop
+/// associated with them; to create one, call `prepare()` in the thread that is to run the loop,
+/// and then `loop()` to have it process messages until the loop is stopped.
+///
+/// Most interaction with a message loop is through the `Handler` class.
+///
+/// See also: [android.os.Looper](https://developer.android.com/reference/android/os/Looper)
 @JavaClass("android.os.Looper")
 open class Looper: JavaObject {
+  /// Returns true if the current thread is this looper's thread.
+  @available(Android 19, *)
   @JavaMethod
   open func isCurrentThread() -> Bool
 
+  /// Quits the looper.
+  ///
+  /// Causes the `loop()` method to terminate without processing any more messages in the
+  /// message queue. Any attempt to post messages to the queue after the looper is asked to quit
+  /// will fail. Any messages that have already been dispatched will continue to be processed.
+  ///
+  /// - Note: Using this method may be unsafe because some messages may not be delivered before
+  ///   the looper terminates. Consider using `quitSafely()` instead.
   @JavaMethod
   open func quit()
 
+  /// Quits the looper safely.
+  ///
+  /// Causes the `loop()` method to terminate as soon as all remaining messages in the message queue
+  /// that are already due to be delivered have been handled. However, pending delayed messages
+  /// whose due time has not come will not be delivered before the loop terminates.
+  @available(Android 18, *)
   @JavaMethod
   open func quitSafely()
 
+  /// Gets the Thread associated with this Looper.
   @JavaMethod
   open func getThread() -> Thread!
 
   @JavaMethod
   open override func toString() -> String
 
+  /// Gets the message queue associated with this looper.
   @JavaMethod
   open func getQueue() -> MessageQueue!
 }
 extension JavaClass<Looper> {
+  /// Initialize the current thread as a looper, marking it as an application's main looper.
+  ///
+  /// The main looper for your application is created by the Android environment, so you should
+  /// never need to call this function yourself.
+  ///
+  /// - Note: Deprecated since API 33.
   @JavaStaticMethod
   public func prepareMainLooper()
 
+  /// Returns the application's main looper, which lives in the main thread of the application.
   @JavaStaticMethod
   public func getMainLooper() -> Looper!
 
+  /// Return the Looper object associated with the current thread.
+  ///
+  /// - Returns: `nil` if the calling thread is not associated with a Looper.
   @JavaStaticMethod
   public func myLooper() -> Looper!
 
+  /// Return the `MessageQueue` object associated with the current thread.
+  ///
+  /// - Returns: The MessageQueue for the current thread.
   @JavaStaticMethod
   public func myQueue() -> MessageQueue!
 
+  /// Initialize the current thread as a looper.
+  ///
+  /// This gives you a chance to create handlers that then reference this looper, before actually
+  /// starting the loop. Be sure to call `loop()` after calling this method, and to stop the loop
+  /// by calling `quit()`.
   @JavaStaticMethod
   public func prepare()
 
+  /// Run the message queue in this thread. Be sure to call `quit()` to end the loop.
   @JavaStaticMethod
   public func loop()
 }

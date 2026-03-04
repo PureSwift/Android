@@ -2,6 +2,10 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Violation raised when an `Intent` with mutable extras is passed to `startActivity` or similar methods in an unsafe way.
+///
+/// See also: [android.os.strictmode.UnsafeIntentLaunchViolation](https://developer.android.com/reference/android/os/strictmode/UnsafeIntentLaunchViolation)
+@available(Android 31, *)
 @JavaClass("android.os.strictmode.UnsafeIntentLaunchViolation")
 open class UnsafeIntentLaunchViolation: Violation {
 

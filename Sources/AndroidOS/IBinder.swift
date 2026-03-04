@@ -4,60 +4,133 @@ import JavaLangIO
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Base interface for a remotable object, the core part of a lightweight remote procedure call
+/// mechanism designed for high performance when performing in-process and cross-process calls.
+/// This interface describes the abstract protocol for interacting with a remotable object.
+///
+/// Do not implement this interface directly, instead extend from `Binder`.
+///
+/// The key IBinder API is `transact()` matched with `Binder.onTransact()`. These methods allow
+/// you to send a call to an IBinder object and receive a call coming in to a Binder object,
+/// respectively. This transaction API is synchronous, such that a call to `transact()` does not
+/// return until the target has returned from `Binder.onTransact()`; this is the expected behavior
+/// when calling an object that exists in the local process, and the underlying inter-process
+/// communication (IPC) mechanism also provides this behavior.
+///
+/// See also: [android.os.IBinder](https://developer.android.com/reference/android/os/IBinder)
 @JavaInterface("android.os.IBinder")
 public struct IBinder {
+  /// Get the canonical name of the interface supported by this binder.
   @JavaMethod
   public func getInterfaceDescriptor() throws -> String
 
+  /// Check to see if the object still exists.
+  ///
+  /// - Returns: `true` if the process in which the binder is running still exists,
+  ///   and `false` if not. Note that if `false` is returned, this does not tell you that the
+  ///   binder has completely died; it is possible that the binder is running in a remote
+  ///   process but there is a transient problem preventing communication.
   @JavaMethod
   public func pingBinder() -> Bool
 
+  /// Check to see if the process that the binder is in is still alive.
+  ///
+  /// - Returns: `false` if the process is not alive. Note that if it returns `true`, the process
+  ///   may have died while the call was in progress if you're not holding a reference count on the
+  ///   binder in the remote process.
   @JavaMethod
   public func isBinderAlive() -> Bool
 
+  /// Attempt to retrieve a local implementation of an interface for this Binder object.
+  ///
+  /// If null is returned, you will need to instantiate a proxy class to marshal calls through
+  /// the transact() method.
   @JavaMethod
   public func queryLocalInterface(_ arg0: String) -> IInterface!
 
+  /// Implemented to provide to dump() the output to the given file descriptor, asynchronously.
   @JavaMethod
   public func dumpAsync(_ arg0: FileDescriptor?, _ arg1: [String]) throws
 
+  /// Perform a generic operation with the object.
+  ///
+  /// - Parameter arg0: The action to perform. This should be a number between
+  ///   `FIRST_CALL_TRANSACTION` and `LAST_CALL_TRANSACTION`.
+  /// - Parameter arg1: Marshalled data to send to the target. Must not be nil.
+  ///   If you are not sending any data, you must create an empty Parcel that is given here.
+  /// - Parameter arg2: Marshalled data to be received from the target. May be nil if you are
+  ///   not interested in the return value.
+  /// - Parameter arg3: Additional operation flags. Either 0 for a normal RPC, or `FLAG_ONEWAY`
+  ///   for a one-way RPC.
+  ///
+  /// - Returns: Returns the result from calling `Binder.onTransact()`. A successful call generally
+  ///   returns `true`; `false` generally means the transaction code was not understood.
   @JavaMethod
   public func transact(_ arg0: Int32, _ arg1: Parcel?, _ arg2: Parcel?, _ arg3: Int32) throws -> Bool
 
+  /// Register the recipient for a notification if this binder goes away.
+  ///
+  /// If this binder object unexpectedly goes away (typically because its hosting process
+  /// has been killed), then the given `DeathRecipient`'s `binderDied()` method will be called.
+  ///
+  /// - Parameter arg0: The object to be called when the binder's process dies.
+  /// - Parameter arg1: Reserved, should be 0.
   @JavaMethod
   public func linkToDeath(_ arg0: IBinder.DeathRecipient?, _ arg1: Int32) throws
 
+  /// Remove a previously registered death notification.
+  ///
+  /// The recipient will no longer be called if this object dies.
+  ///
+  /// - Returns: `true` if the given death recipient was previously registered with
+  ///   `linkToDeath()`, `false` otherwise.
   @JavaMethod
   public func unlinkToDeath(_ arg0: IBinder.DeathRecipient?, _ arg1: Int32) -> Bool
 
+  /// Print the object's state into the given stream.
   @JavaMethod
   public func dump(_ arg0: FileDescriptor?, _ arg1: [String]) throws
 }
 extension JavaClass<IBinder> {
+  /// IBinder protocol transaction code: `dump` the object.
   @JavaStaticField(isFinal: true)
   public var DUMP_TRANSACTION: Int32
 
+  /// The first transaction code available for user commands.
   @JavaStaticField(isFinal: true)
   public var FIRST_CALL_TRANSACTION: Int32
 
+  /// Flag to `transact()`: this is a one-way call, meaning that the caller returns immediately,
+  /// without waiting for a result from the callee. Applies only if the caller and callee are in
+  /// different processes.
   @JavaStaticField(isFinal: true)
   public var FLAG_ONEWAY: Int32
 
+  /// IBinder protocol transaction code: interrogate the recipient side of the transaction for its
+  /// canonical interface descriptor.
   @JavaStaticField(isFinal: true)
   public var INTERFACE_TRANSACTION: Int32
 
+  /// The last transaction code available for user commands (inclusive).
   @JavaStaticField(isFinal: true)
   public var LAST_CALL_TRANSACTION: Int32
 
+  /// IBinder protocol transaction code: tell an app process that the caller likes it.
   @JavaStaticField(isFinal: true)
   public var LIKE_TRANSACTION: Int32
 
+  /// IBinder protocol transaction code: `pingBinder()`.
   @JavaStaticField(isFinal: true)
   public var PING_TRANSACTION: Int32
 
+  /// IBinder protocol transaction code: send a tweet to the target object.
   @JavaStaticField(isFinal: true)
   public var TWEET_TRANSACTION: Int32
 
+  /// Returns the maximum suggested IPC payload size for a bulk data transfer.
+  ///
+  /// - Returns: The recommended maximum IPC payload size in bytes.
+  @available(Android 30, *)
   @JavaStaticMethod
   public func getSuggestedMaxIpcSizeBytes() -> Int32
 }

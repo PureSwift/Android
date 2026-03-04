@@ -2,6 +2,10 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Violation raised when a disk write occurs on a thread that has forbidden disk writes.
+///
+/// See also: [android.os.strictmode.DiskWriteViolation](https://developer.android.com/reference/android/os/strictmode/DiskWriteViolation)
+@available(Android 28, *)
 @JavaClass("android.os.strictmode.DiskWriteViolation")
 open class DiskWriteViolation: Violation {
 

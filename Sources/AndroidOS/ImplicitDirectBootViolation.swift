@@ -2,6 +2,10 @@
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Violation raised when a direct-boot unaware component is implicitly accessed before the user unlocks the device.
+///
+/// See also: [android.os.strictmode.ImplicitDirectBootViolation](https://developer.android.com/reference/android/os/strictmode/ImplicitDirectBootViolation)
+@available(Android 28, *)
 @JavaClass("android.os.strictmode.ImplicitDirectBootViolation")
 open class ImplicitDirectBootViolation: Violation {
 

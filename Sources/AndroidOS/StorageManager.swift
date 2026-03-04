@@ -5,77 +5,108 @@ import JavaLangUtil
 import SwiftJava
 import CSwiftJavaJNI
 
+/// Provides access to device storage functions such as OBB management, storage volume enumeration, and cache quota queries.
+///
+/// See [android.os.storage.StorageManager](https://developer.android.com/reference/android/os/storage/StorageManager)
+@available(Android 9, *)
 @JavaClass("android.os.storage.StorageManager")
 open class StorageManager: JavaObject {
+  /// Unregisters a previously registered `StorageVolumeCallback`.
+  @available(Android 30, *)
   @JavaMethod
   open func unregisterStorageVolumeCallback(_ arg0: StorageManager.StorageVolumeCallback?)
 
+  /// Mounts an OBB file using the provided key, notifying the listener of state changes.
   @JavaMethod
   open func mountObb(_ arg0: String, _ arg1: String, _ arg2: OnObbStateChangeListener?) -> Bool
 
+  /// Unmounts a previously mounted OBB file, notifying the listener of state changes.
   @JavaMethod
   open func unmountObb(_ arg0: String, _ arg1: Bool, _ arg2: OnObbStateChangeListener?) -> Bool
 
+  /// Returns whether the given OBB path is currently mounted.
   @JavaMethod
   open func isObbMounted(_ arg0: String) -> Bool
 
+  /// Returns the filesystem path at which the given OBB is mounted, or `nil` if not mounted.
   @JavaMethod
   open func getMountedObbPath(_ arg0: String) -> String
 
+  /// Returns the UUID for the storage volume that contains the given path.
   @JavaMethod
   open func getUuidForPath(_ arg0: File?) throws -> UUID!
 
+  /// Returns whether low-level space allocation is supported for the given file descriptor.
   @JavaMethod
   open func isAllocationSupported(_ arg0: FileDescriptor?) -> Bool
 
+  /// Returns the `StorageVolume` that contains the given file, or `nil` if none.
+  @available(Android 24, *)
   @JavaMethod
   open func getStorageVolume(_ arg0: File?) -> StorageVolume!
 
+  /// Returns all storage volumes currently visible to the calling user.
+  @available(Android 24, *)
   @JavaMethod
   open func getStorageVolumes() -> List<StorageVolume>!
 
+  /// Returns all storage volumes visible to the calling user, including those from shared profiles.
   @JavaMethod
   open func getStorageVolumesIncludingSharedProfiles() -> List<StorageVolume>!
 
+  /// Returns storage volumes that have been recently made available.
   @JavaMethod
   open func getRecentStorageVolumes() -> List<StorageVolume>!
 
+  /// Returns the primary shared/external storage volume.
   @JavaMethod
   open func getPrimaryStorageVolume() -> StorageVolume!
 
+  /// Returns whether the given file resides on an encrypted storage volume.
   @JavaMethod
   open func isEncrypted(_ arg0: File?) -> Bool
 
+  /// Opens a file descriptor backed by a `ProxyFileDescriptorCallback` on the given handler.
   @JavaMethod
   open func openProxyFileDescriptor(_ arg0: Int32, _ arg1: ProxyFileDescriptorCallback?, _ arg2: Handler?) throws -> ParcelFileDescriptor!
 
+  /// Returns the cache quota in bytes allocated to the caller for the given storage UUID.
   @JavaMethod
   open func getCacheQuotaBytes(_ arg0: UUID?) throws -> Int64
 
+  /// Returns the total cache bytes currently used by the caller for the given storage UUID.
   @JavaMethod
   open func getCacheSizeBytes(_ arg0: UUID?) throws -> Int64
 
+  /// Returns the number of bytes that can be allocated for the given storage UUID.
   @JavaMethod
   open func getAllocatableBytes(_ arg0: UUID?) throws -> Int64
 
+  /// Allocates the given number of bytes on the filesystem backing the given file descriptor.
   @JavaMethod
   open func allocateBytes(_ arg0: FileDescriptor?, _ arg1: Int64) throws
 
+  /// Allocates the given number of bytes on the storage volume with the given UUID.
   @JavaMethod
   open func allocateBytes(_ arg0: UUID?, _ arg1: Int64) throws
 
+  /// Sets whether the given directory's contents should be treated as a cache group.
   @JavaMethod
   open func setCacheBehaviorGroup(_ arg0: File?, _ arg1: Bool) throws
 
+  /// Returns whether the given directory is configured as a cache group.
   @JavaMethod
   open func isCacheBehaviorGroup(_ arg0: File?) throws -> Bool
 
+  /// Sets whether deleted files under the given directory should leave behind a tombstone.
   @JavaMethod
   open func setCacheBehaviorTombstone(_ arg0: File?, _ arg1: Bool) throws
 
+  /// Returns whether tombstone cache behavior is enabled for the given directory.
   @JavaMethod
   open func isCacheBehaviorTombstone(_ arg0: File?) throws -> Bool
 
+  /// Returns whether the underlying filesystem supports checkpoint operations.
   @JavaMethod
   open func isCheckpointSupported() -> Bool
 }

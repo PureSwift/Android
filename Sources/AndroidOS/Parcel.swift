@@ -7,6 +7,19 @@ import SwiftJava
 import JavaUtilFunction
 import CSwiftJavaJNI
 
+/// Container for a message (data and object references) that can be sent through an IBinder.
+/// A Parcel can contain both flattened data that will be unflattened on the other side of the
+/// IPC (using the various methods here for writing specific types, or the general
+/// `Parcelable` interface), and references to live `IBinder` objects that will result in the
+/// other side receiving a proxy IBinder connected with the original IBinder in the Parcel.
+///
+/// Parcel is **not** a general-purpose serialization mechanism. This class (and the corresponding
+/// `Parcelable` API for placing arbitrary objects into a Parcel) is designed as a high-performance
+/// IPC transport. As such, it is not appropriate to place any Parcel data in to persistent storage:
+/// changes in the underlying implementation of any of the data in the Parcel can render older data
+/// unreadable.
+///
+/// See also: [android.os.Parcel](https://developer.android.com/reference/android/os/Parcel)
 @JavaClass("android.os.Parcel")
 open class Parcel: JavaObject {
   @JavaMethod
@@ -415,12 +428,18 @@ open class Parcel: JavaObject {
   open func createByteArray() -> [Int8]
 }
 extension JavaClass<Parcel> {
+  /// A `Parcelable.Creator` that can be used to create `String` objects from a Parcel.
   @JavaStaticField(isFinal: true)
   public var STRING_CREATOR: Parcelable.Creator<JavaString>!
 
+  /// Retrieve a new Parcel object from the pool.
   @JavaStaticMethod
   public func obtain() -> Parcel!
 
+  /// Retrieve a new Parcel object from the pool, bound to a specific IBinder for IPC.
+  ///
+  /// - Parameter arg0: The IBinder to associate with this Parcel.
+  @available(Android 33, *)
   @JavaStaticMethod
   public func obtain(_ arg0: IBinder?) -> Parcel!
 }

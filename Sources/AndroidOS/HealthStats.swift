@@ -4,6 +4,13 @@ import JavaLangUtil
 import SwiftJava
 import CSwiftJavaJNI
 
+/// A map of health stats data collected for a uid, package, pid, process, or service.
+///
+/// Keys are defined in the concrete subclasses: `UidHealthStats`, `PackageHealthStats`,
+/// `PidHealthStats`, `ProcessHealthStats`, and `ServiceHealthStats`.
+///
+/// See also: [android.os.health.HealthStats](https://developer.android.com/reference/android/os/health/HealthStats)
+@available(Android 24, *)
 @JavaClass("android.os.health.HealthStats")
 open class HealthStats: JavaObject {
   @JavaMethod

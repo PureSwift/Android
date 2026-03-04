@@ -3,8 +3,13 @@ import SwiftJava
 import CSwiftJavaJNI
 
 extension StrictMode {
+  /// Listener interface for VM policy violations.
+  ///
+  /// See also: [android.os.StrictMode.OnVmViolationListener](https://developer.android.com/reference/android/os/StrictMode.OnVmViolationListener)
+  @available(Android 28, *)
   @JavaInterface("android.os.StrictMode$OnVmViolationListener")
   public struct OnVmViolationListener {
+  /// Called when a VM policy violation is detected.
   @JavaMethod
   public func onVmViolation(_ arg0: Violation?)
   }

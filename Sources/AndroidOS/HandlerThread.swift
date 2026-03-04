@@ -3,6 +3,10 @@ import JavaLang
 import SwiftJava
 import CSwiftJavaJNI
 
+/// A `Thread` that has a `Looper`. The looper can then be used to create handler classes.
+/// Note that `start()` must still be called.
+///
+/// See also: [android.os.HandlerThread](https://developer.android.com/reference/android/os/HandlerThread)
 @JavaClass("android.os.HandlerThread")
 open class HandlerThread: Thread {
   @JavaMethod

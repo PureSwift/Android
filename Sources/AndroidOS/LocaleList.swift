@@ -4,6 +4,13 @@ import JavaLangUtil
 import SwiftJava
 import CSwiftJavaJNI
 
+/// An immutable, ordered list of locales that can be used to express language preferences.
+///
+/// Used by the system to determine the best locale for the user's language settings.
+/// Instances are parcelable and can be constructed from BCP 47 language tags.
+///
+/// See also: [android.os.LocaleList](https://developer.android.com/reference/android/os/LocaleList)
+@available(Android 24, *)
 @JavaClass("android.os.LocaleList", implements: Parcelable.self)
 open class LocaleList: JavaObject {
   @JavaMethod
@@ -15,15 +22,20 @@ open class LocaleList: JavaObject {
   @JavaMethod
   open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
+  /// Returns a comma-separated BCP 47 language tag string representing all locales in this list.
   @JavaMethod
   open func toLanguageTags() -> String
 
+  /// Returns the first locale from this list that appears in the given array of supported locales,
+  /// or `nil` if none match.
   @JavaMethod
   open func getFirstMatch(_ arg0: [String]) -> Locale!
 
+  /// Returns the number of locales in this list.
   @JavaMethod
   open func size() -> Int32
 
+  /// Returns the locale at the given index.
   @JavaMethod
   open func get(_ arg0: Int32) -> Locale!
 
@@ -36,9 +48,11 @@ open class LocaleList: JavaObject {
   @JavaMethod
   open override func hashCode() -> Int32
 
+  /// Returns the index of the given locale in this list, or `-1` if not found.
   @JavaMethod
   open func indexOf(_ arg0: Locale?) -> Int32
 
+  /// Returns `true` if this list contains no locales.
   @JavaMethod
   open func isEmpty() -> Bool
 }
@@ -52,21 +66,27 @@ extension JavaClass<LocaleList> {
   @JavaStaticField(isFinal: true)
   public var PARCELABLE_WRITE_RETURN_VALUE: Int32
 
+  /// Returns an empty `LocaleList`.
   @JavaStaticMethod
   public func getEmptyLocaleList() -> LocaleList!
 
+  /// Constructs a `LocaleList` from a comma-separated BCP 47 language tag string.
   @JavaStaticMethod
   public func forLanguageTags(_ arg0: String) -> LocaleList!
 
   @JavaStaticMethod
   public func matchesLanguageAndScript(_ arg0: Locale?, _ arg1: Locale?) -> Bool
 
+  /// Returns the locale list that best represents the current user's preferences,
+  /// adjusted for the default locale overrides.
   @JavaStaticMethod
   public func getAdjustedDefault() -> LocaleList!
 
+  /// Returns the system default `LocaleList`.
   @JavaStaticMethod
   public func getDefault() -> LocaleList!
 
+  /// Sets the system default `LocaleList`. Requires appropriate system permissions.
   @JavaStaticMethod
   public func setDefault(_ arg0: LocaleList?)
 }
