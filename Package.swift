@@ -543,6 +543,8 @@ var package = Package(
             dependencies: [
                 "AndroidJava",
                 "AndroidOS",
+                "AndroidUtil",
+                "AndroidContent",
             ],
             exclude: ["swift-java.config"],
             swiftSettings: [
