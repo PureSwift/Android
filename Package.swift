@@ -87,6 +87,9 @@ var package = Package(
         ),
         .library(
             name: "AndroidInput", targets: ["AndroidInput"]
+        ),
+        .library(
+            name: "AndroidLocation", targets: ["AndroidLocation"]
         )
     ],
     dependencies: [
@@ -161,7 +164,8 @@ var package = Package(
                 "AndroidHardware",
                 "AndroidFileManager",
                 "AndroidNativeActivity",
-                "AndroidInput"
+                "AndroidInput",
+                "AndroidLocation"
             ],
             swiftSettings: [
               .swiftLanguageMode(.v5),
@@ -532,6 +536,19 @@ var package = Package(
             ],
             linkerSettings: [
                 .linkedLibrary("android", .when(platforms: [.android]))
+            ]
+        ),
+        .target(
+            name: "AndroidLocation",
+            dependencies: [
+                "AndroidJava",
+                "AndroidOS",
+            ],
+            exclude: ["swift-java.config"],
+            swiftSettings: [
+              .swiftLanguageMode(.v5),
+              ndkVersionDefine,
+              sdkVersionDefine
             ]
         )
     ],
