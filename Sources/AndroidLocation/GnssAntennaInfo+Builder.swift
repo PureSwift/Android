@@ -2,7 +2,9 @@
 import CSwiftJavaJNI
 import SwiftJava
 
+@available(Android 30, *)
 extension GnssAntennaInfo {
+  @available(Android 30, *)
   @JavaClass("android.location.GnssAntennaInfo$Builder")
   open class Builder: JavaObject {
   @JavaMethod

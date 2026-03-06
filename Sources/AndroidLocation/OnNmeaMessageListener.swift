@@ -2,6 +2,7 @@
 import CSwiftJavaJNI
 import SwiftJava
 
+@available(Android 24, *)
 @JavaInterface("android.location.OnNmeaMessageListener")
 public struct OnNmeaMessageListener {
   /// Java method `onNmeaMessage`.

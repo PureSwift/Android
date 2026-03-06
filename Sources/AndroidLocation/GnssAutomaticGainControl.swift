@@ -3,6 +3,7 @@ import AndroidOS
 import CSwiftJavaJNI
 import SwiftJava
 
+@available(Android 29, *)
 @JavaClass("android.location.GnssAutomaticGainControl", implements: Parcelable.self)
 open class GnssAutomaticGainControl: JavaObject {
   /// Java method `getConstellationType`.
@@ -77,6 +78,7 @@ open class GnssAutomaticGainControl: JavaObject {
 @JavaMethod
   open override func hashCode() -> Int32
 }
+@available(Android 29, *)
 extension JavaClass<GnssAutomaticGainControl> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<GnssAutomaticGainControl>!

@@ -3,6 +3,7 @@ import AndroidOS
 import CSwiftJavaJNI
 import SwiftJava
 
+@available(Android 24, *)
 @JavaClass("android.location.GnssStatus", implements: Parcelable.self)
 open class GnssStatus: JavaObject {
   /// Java method `getConstellationType`.
@@ -29,6 +30,7 @@ open class GnssStatus: JavaObject {
   /// ```java
   /// public boolean android.location.GnssStatus.hasCarrierFrequencyHz(int)
   /// ```
+@available(Android 26, *)
 @JavaMethod
   open func hasCarrierFrequencyHz(_ arg0: Int32) -> Bool
 
@@ -38,6 +40,7 @@ open class GnssStatus: JavaObject {
   /// ```java
   /// public float android.location.GnssStatus.getCarrierFrequencyHz(int)
   /// ```
+@available(Android 26, *)
 @JavaMethod
   open func getCarrierFrequencyHz(_ arg0: Int32) -> Float
 
@@ -128,6 +131,7 @@ open class GnssStatus: JavaObject {
   /// ```java
   /// public boolean android.location.GnssStatus.hasBasebandCn0DbHz(int)
   /// ```
+@available(Android 30, *)
 @JavaMethod
   open func hasBasebandCn0DbHz(_ arg0: Int32) -> Bool
 
@@ -137,6 +141,7 @@ open class GnssStatus: JavaObject {
   /// ```java
   /// public float android.location.GnssStatus.getBasebandCn0DbHz(int)
   /// ```
+@available(Android 30, *)
 @JavaMethod
   open func getBasebandCn0DbHz(_ arg0: Int32) -> Float
 
@@ -158,6 +163,7 @@ open class GnssStatus: JavaObject {
 @JavaMethod
   open override func hashCode() -> Int32
 }
+@available(Android 24, *)
 extension JavaClass<GnssStatus> {
   @JavaStaticField(isFinal: true)
   public var CONSTELLATION_BEIDOU: Int32

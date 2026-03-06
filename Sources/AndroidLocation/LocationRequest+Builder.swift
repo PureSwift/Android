@@ -2,7 +2,9 @@
 import CSwiftJavaJNI
 import SwiftJava
 
+@available(Android 31, *)
 extension LocationRequest {
+  @available(Android 31, *)
   @JavaClass("android.location.LocationRequest$Builder")
   open class Builder: JavaObject {
   @JavaMethod

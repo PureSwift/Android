@@ -2,7 +2,9 @@
 import CSwiftJavaJNI
 import SwiftJava
 
+@available(Android 29, *)
 extension GnssAutomaticGainControl {
+  @available(Android 31, *)
   @JavaClass("android.location.GnssAutomaticGainControl$Builder")
   open class Builder: JavaObject {
   @JavaMethod

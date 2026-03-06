@@ -3,6 +3,7 @@ import AndroidOS
 import CSwiftJavaJNI
 import SwiftJava
 
+@available(Android 30, *)
 @JavaClass("android.location.GnssAntennaInfo", implements: Parcelable.self)
 open class GnssAntennaInfo: JavaObject {
   /// Java method `getCarrierFrequencyMHz`.
@@ -86,6 +87,7 @@ open class GnssAntennaInfo: JavaObject {
 @JavaMethod
   open override func hashCode() -> Int32
 }
+@available(Android 30, *)
 extension JavaClass<GnssAntennaInfo> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<GnssAntennaInfo>!

@@ -3,6 +3,7 @@ import AndroidOS
 import CSwiftJavaJNI
 import SwiftJava
 
+@available(Android 31, *)
 @JavaClass("android.location.GnssCapabilities", implements: Parcelable.self)
 open class GnssCapabilities: JavaObject {
   /// Java method `hasNavigationMessages`.
@@ -263,6 +264,7 @@ open class GnssCapabilities: JavaObject {
   /// ```java
   /// public java.util.List<android.location.GnssSignalType> android.location.GnssCapabilities.getGnssSignalTypes()
   /// ```
+@available(Android 33, *)
 @JavaMethod
   open func getGnssSignalTypes() -> List<GnssSignalType>!
 
@@ -293,6 +295,7 @@ open class GnssCapabilities: JavaObject {
 @JavaMethod
   open override func hashCode() -> Int32
 }
+@available(Android 31, *)
 extension JavaClass<GnssCapabilities> {
   @JavaStaticField(isFinal: true)
   public var CAPABILITY_SUPPORTED: Int32

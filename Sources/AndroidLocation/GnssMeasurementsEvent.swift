@@ -3,6 +3,7 @@ import AndroidOS
 import CSwiftJavaJNI
 import SwiftJava
 
+@available(Android 24, *)
 @JavaClass("android.location.GnssMeasurementsEvent", implements: Parcelable.self)
 open class GnssMeasurementsEvent: JavaObject {
   /// Java method `getGnssAutomaticGainControls`.
@@ -11,6 +12,7 @@ open class GnssMeasurementsEvent: JavaObject {
   /// ```java
   /// public java.util.Collection<android.location.GnssAutomaticGainControl> android.location.GnssMeasurementsEvent.getGnssAutomaticGainControls()
   /// ```
+@available(Android 29, *)
 @JavaMethod
   open func getGnssAutomaticGainControls() -> JavaCollection<GnssAutomaticGainControl>!
 
@@ -20,6 +22,7 @@ open class GnssMeasurementsEvent: JavaObject {
   /// ```java
   /// public boolean android.location.GnssMeasurementsEvent.isFullTracking()
   /// ```
+@available(Android 31, *)
 @JavaMethod
   open func isFullTracking() -> Bool
 
@@ -65,6 +68,7 @@ open class GnssMeasurementsEvent: JavaObject {
   /// ```java
   /// public boolean android.location.GnssMeasurementsEvent.hasIsFullTracking()
   /// ```
+@available(Android 31, *)
 @JavaMethod
   open func hasIsFullTracking() -> Bool
 
@@ -77,6 +81,7 @@ open class GnssMeasurementsEvent: JavaObject {
 @JavaMethod
   open override func toString() -> String
 }
+@available(Android 24, *)
 extension JavaClass<GnssMeasurementsEvent> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<GnssMeasurementsEvent>!

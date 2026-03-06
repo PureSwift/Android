@@ -2,7 +2,9 @@
 import CSwiftJavaJNI
 import SwiftJava
 
+@available(Android 31, *)
 extension GnssMeasurementRequest {
+  @available(Android 31, *)
   @JavaClass("android.location.GnssMeasurementRequest$Builder")
   open class Builder: JavaObject {
   @JavaMethod

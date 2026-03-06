@@ -3,6 +3,7 @@ import AndroidOS
 import CSwiftJavaJNI
 import SwiftJava
 
+@available(Android 24, *)
 @JavaClass("android.location.GnssNavigationMessage", implements: Parcelable.self)
 open class GnssNavigationMessage: JavaObject {
   /// Java method `describeContents`.
@@ -86,6 +87,7 @@ open class GnssNavigationMessage: JavaObject {
 @JavaMethod
   open func getData() -> [Int8]
 }
+@available(Android 24, *)
 extension JavaClass<GnssNavigationMessage> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<GnssNavigationMessage>!

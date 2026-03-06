@@ -119,6 +119,7 @@ open class LocationManager: JavaObject {
   /// ```java
   /// public android.location.GnssCapabilities android.location.LocationManager.getGnssCapabilities()
   /// ```
+@available(Android 31, *)
 @JavaMethod
   open func getGnssCapabilities() -> GnssCapabilities!
 
@@ -128,6 +129,7 @@ open class LocationManager: JavaObject {
   /// ```java
   /// public int android.location.LocationManager.getGnssYearOfHardware()
   /// ```
+@available(Android 28, *)
 @JavaMethod
   open func getGnssYearOfHardware() -> Int32
 
@@ -137,6 +139,7 @@ open class LocationManager: JavaObject {
   /// ```java
   /// public java.lang.String android.location.LocationManager.getGnssHardwareModelName()
   /// ```
+@available(Android 28, *)
 @JavaMethod
   open func getGnssHardwareModelName() -> String
 
@@ -146,6 +149,7 @@ open class LocationManager: JavaObject {
   /// ```java
   /// public java.util.List<android.location.GnssAntennaInfo> android.location.LocationManager.getGnssAntennaInfos()
   /// ```
+@available(Android 30, *)
 @JavaMethod
   open func getGnssAntennaInfos() -> List<GnssAntennaInfo>!
 
@@ -155,6 +159,7 @@ open class LocationManager: JavaObject {
   /// ```java
   /// public boolean android.location.LocationManager.registerGnssStatusCallback(android.location.GnssStatus$Callback,android.os.Handler)
   /// ```
+@available(Android 24, *)
 @JavaMethod
   open func registerGnssStatusCallback(_ arg0: GnssStatus.Callback?, _ arg1: Handler?) -> Bool
 
@@ -164,6 +169,7 @@ open class LocationManager: JavaObject {
   /// ```java
   /// public boolean android.location.LocationManager.registerGnssStatusCallback(android.location.GnssStatus$Callback)
   /// ```
+@available(Android 24, *)
 @JavaMethod
   open func registerGnssStatusCallback(_ arg0: GnssStatus.Callback?) -> Bool
 
@@ -173,6 +179,7 @@ open class LocationManager: JavaObject {
   /// ```java
   /// public void android.location.LocationManager.unregisterGnssStatusCallback(android.location.GnssStatus$Callback)
   /// ```
+@available(Android 24, *)
 @JavaMethod
   open func unregisterGnssStatusCallback(_ arg0: GnssStatus.Callback?)
 
@@ -182,6 +189,7 @@ open class LocationManager: JavaObject {
   /// ```java
   /// public boolean android.location.LocationManager.registerGnssMeasurementsCallback(android.location.GnssMeasurementsEvent$Callback,android.os.Handler)
   /// ```
+@available(Android 24, *)
 @JavaMethod
   open func registerGnssMeasurementsCallback(_ arg0: GnssMeasurementsEvent.Callback?, _ arg1: Handler?) -> Bool
 
@@ -191,6 +199,7 @@ open class LocationManager: JavaObject {
   /// ```java
   /// public boolean android.location.LocationManager.registerGnssMeasurementsCallback(android.location.GnssMeasurementsEvent$Callback)
   /// ```
+@available(Android 24, *)
 @JavaMethod
   open func registerGnssMeasurementsCallback(_ arg0: GnssMeasurementsEvent.Callback?) -> Bool
 
@@ -200,6 +209,7 @@ open class LocationManager: JavaObject {
   /// ```java
   /// public void android.location.LocationManager.unregisterGnssMeasurementsCallback(android.location.GnssMeasurementsEvent$Callback)
   /// ```
+@available(Android 24, *)
 @JavaMethod
   open func unregisterGnssMeasurementsCallback(_ arg0: GnssMeasurementsEvent.Callback?)
 
@@ -209,6 +219,7 @@ open class LocationManager: JavaObject {
   /// ```java
   /// public void android.location.LocationManager.unregisterAntennaInfoListener(android.location.GnssAntennaInfo$Listener)
   /// ```
+@available(Android 30, *)
 @JavaMethod
   open func unregisterAntennaInfoListener(_ arg0: GnssAntennaInfo.Listener?)
 
@@ -218,6 +229,7 @@ open class LocationManager: JavaObject {
   /// ```java
   /// public boolean android.location.LocationManager.registerGnssNavigationMessageCallback(android.location.GnssNavigationMessage$Callback,android.os.Handler)
   /// ```
+@available(Android 24, *)
 @JavaMethod
   open func registerGnssNavigationMessageCallback(_ arg0: GnssNavigationMessage.Callback?, _ arg1: Handler?) -> Bool
 
@@ -227,6 +239,7 @@ open class LocationManager: JavaObject {
   /// ```java
   /// public boolean android.location.LocationManager.registerGnssNavigationMessageCallback(android.location.GnssNavigationMessage$Callback)
   /// ```
+@available(Android 24, *)
 @JavaMethod
   open func registerGnssNavigationMessageCallback(_ arg0: GnssNavigationMessage.Callback?) -> Bool
 
@@ -236,6 +249,7 @@ open class LocationManager: JavaObject {
   /// ```java
   /// public void android.location.LocationManager.unregisterGnssNavigationMessageCallback(android.location.GnssNavigationMessage$Callback)
   /// ```
+@available(Android 24, *)
 @JavaMethod
   open func unregisterGnssNavigationMessageCallback(_ arg0: GnssNavigationMessage.Callback?)
 
@@ -245,6 +259,7 @@ open class LocationManager: JavaObject {
   /// ```java
   /// public boolean android.location.LocationManager.isLocationEnabled()
   /// ```
+@available(Android 28, *)
 @JavaMethod
   open func isLocationEnabled() -> Bool
 
@@ -263,6 +278,7 @@ open class LocationManager: JavaObject {
   /// ```java
   /// public void android.location.LocationManager.requestFlush(java.lang.String,android.location.LocationListener,int)
   /// ```
+@available(Android 31, *)
 @JavaMethod
   open func requestFlush(_ arg0: String, _ arg1: LocationListener?, _ arg2: Int32)
 
@@ -281,6 +297,7 @@ open class LocationManager: JavaObject {
   /// ```java
   /// public boolean android.location.LocationManager.hasProvider(java.lang.String)
   /// ```
+@available(Android 31, *)
 @JavaMethod
   open func hasProvider(_ arg0: String) -> Bool
 
@@ -335,6 +352,7 @@ open class LocationManager: JavaObject {
   /// ```java
   /// public boolean android.location.LocationManager.addNmeaListener(android.location.OnNmeaMessageListener)
   /// ```
+@available(Android 24, *)
 @JavaMethod
   open func addNmeaListener(_ arg0: OnNmeaMessageListener?) -> Bool
 
@@ -344,6 +362,7 @@ open class LocationManager: JavaObject {
   /// ```java
   /// public boolean android.location.LocationManager.addNmeaListener(android.location.OnNmeaMessageListener,android.os.Handler)
   /// ```
+@available(Android 24, *)
 @JavaMethod
   open func addNmeaListener(_ arg0: OnNmeaMessageListener?, _ arg1: Handler?) -> Bool
 
@@ -353,6 +372,7 @@ open class LocationManager: JavaObject {
   /// ```java
   /// public void android.location.LocationManager.removeNmeaListener(android.location.OnNmeaMessageListener)
   /// ```
+@available(Android 24, *)
 @JavaMethod
   open func removeNmeaListener(_ arg0: OnNmeaMessageListener?)
 

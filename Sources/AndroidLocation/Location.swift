@@ -18,6 +18,7 @@ open class Location: JavaObject {
     /// ```java
     /// public float android.location.Location.getVerticalAccuracyMeters()
     /// ```
+  @available(Android 26, *)
   @JavaMethod
   open func getVerticalAccuracyMeters() -> Float
 
@@ -27,6 +28,7 @@ open class Location: JavaObject {
     /// ```java
     /// public void android.location.Location.setVerticalAccuracyMeters(float)
     /// ```
+  @available(Android 26, *)
   @JavaMethod
   open func setVerticalAccuracyMeters(_ arg0: Float)
 
@@ -36,6 +38,7 @@ open class Location: JavaObject {
     /// ```java
     /// public boolean android.location.Location.hasVerticalAccuracy()
     /// ```
+  @available(Android 26, *)
   @JavaMethod
   open func hasVerticalAccuracy() -> Bool
 
@@ -45,6 +48,7 @@ open class Location: JavaObject {
     /// ```java
     /// public void android.location.Location.removeVerticalAccuracy()
     /// ```
+  @available(Android 26, *)
   @JavaMethod
   open func removeVerticalAccuracy()
 
@@ -54,6 +58,7 @@ open class Location: JavaObject {
     /// ```java
     /// public float android.location.Location.getSpeedAccuracyMetersPerSecond()
     /// ```
+  @available(Android 26, *)
   @JavaMethod
   open func getSpeedAccuracyMetersPerSecond() -> Float
 
@@ -63,6 +68,7 @@ open class Location: JavaObject {
     /// ```java
     /// public void android.location.Location.setSpeedAccuracyMetersPerSecond(float)
     /// ```
+  @available(Android 26, *)
   @JavaMethod
   open func setSpeedAccuracyMetersPerSecond(_ arg0: Float)
 
@@ -72,6 +78,7 @@ open class Location: JavaObject {
     /// ```java
     /// public void android.location.Location.removeSpeedAccuracy()
     /// ```
+  @available(Android 26, *)
   @JavaMethod
   open func removeSpeedAccuracy()
 
@@ -81,6 +88,7 @@ open class Location: JavaObject {
     /// ```java
     /// public float android.location.Location.getBearingAccuracyDegrees()
     /// ```
+  @available(Android 26, *)
   @JavaMethod
   open func getBearingAccuracyDegrees() -> Float
 
@@ -90,6 +98,7 @@ open class Location: JavaObject {
     /// ```java
     /// public void android.location.Location.setBearingAccuracyDegrees(float)
     /// ```
+  @available(Android 26, *)
   @JavaMethod
   open func setBearingAccuracyDegrees(_ arg0: Float)
 
@@ -99,6 +108,7 @@ open class Location: JavaObject {
     /// ```java
     /// public void android.location.Location.removeBearingAccuracy()
     /// ```
+  @available(Android 26, *)
   @JavaMethod
   open func removeBearingAccuracy()
 
@@ -108,6 +118,7 @@ open class Location: JavaObject {
     /// ```java
     /// public double android.location.Location.getMslAltitudeMeters()
     /// ```
+  @available(Android 34, *)
   @JavaMethod
   open func getMslAltitudeMeters() -> Double
 
@@ -117,6 +128,7 @@ open class Location: JavaObject {
     /// ```java
     /// public void android.location.Location.setMslAltitudeMeters(double)
     /// ```
+  @available(Android 34, *)
   @JavaMethod
   open func setMslAltitudeMeters(_ arg0: Double)
 
@@ -126,6 +138,7 @@ open class Location: JavaObject {
     /// ```java
     /// public float android.location.Location.getMslAltitudeAccuracyMeters()
     /// ```
+  @available(Android 34, *)
   @JavaMethod
   open func getMslAltitudeAccuracyMeters() -> Float
 
@@ -135,6 +148,7 @@ open class Location: JavaObject {
     /// ```java
     /// public void android.location.Location.setMslAltitudeAccuracyMeters(float)
     /// ```
+  @available(Android 34, *)
   @JavaMethod
   open func setMslAltitudeAccuracyMeters(_ arg0: Float)
 
@@ -144,6 +158,7 @@ open class Location: JavaObject {
     /// ```java
     /// public boolean android.location.Location.hasMslAltitudeAccuracy()
     /// ```
+  @available(Android 34, *)
   @JavaMethod
   open func hasMslAltitudeAccuracy() -> Bool
 
@@ -153,6 +168,7 @@ open class Location: JavaObject {
     /// ```java
     /// public void android.location.Location.removeMslAltitudeAccuracy()
     /// ```
+  @available(Android 34, *)
   @JavaMethod
   open func removeMslAltitudeAccuracy()
 
@@ -162,6 +178,7 @@ open class Location: JavaObject {
     /// ```java
     /// public boolean android.location.Location.hasElapsedRealtimeUncertaintyNanos()
     /// ```
+  @available(Android 29, *)
   @JavaMethod
   open func hasElapsedRealtimeUncertaintyNanos() -> Bool
 
@@ -189,6 +206,7 @@ open class Location: JavaObject {
     /// ```java
     /// public long android.location.Location.getElapsedRealtimeAgeMillis()
     /// ```
+  @available(Android 33, *)
   @JavaMethod
   open func getElapsedRealtimeAgeMillis() -> Int64
 
@@ -198,6 +216,7 @@ open class Location: JavaObject {
     /// ```java
     /// public long android.location.Location.getElapsedRealtimeAgeMillis(long)
     /// ```
+  @available(Android 33, *)
   @JavaMethod
   open func getElapsedRealtimeAgeMillis(_ arg0: Int64) -> Int64
 
@@ -216,6 +235,7 @@ open class Location: JavaObject {
     /// ```java
     /// public double android.location.Location.getElapsedRealtimeUncertaintyNanos()
     /// ```
+  @available(Android 29, *)
   @JavaMethod
   open func getElapsedRealtimeUncertaintyNanos() -> Double
 
@@ -225,6 +245,7 @@ open class Location: JavaObject {
     /// ```java
     /// public void android.location.Location.setElapsedRealtimeUncertaintyNanos(double)
     /// ```
+  @available(Android 29, *)
   @JavaMethod
   open func setElapsedRealtimeUncertaintyNanos(_ arg0: Double)
 
@@ -234,6 +255,7 @@ open class Location: JavaObject {
     /// ```java
     /// public void android.location.Location.removeElapsedRealtimeUncertaintyNanos()
     /// ```
+  @available(Android 29, *)
   @JavaMethod
   open func removeElapsedRealtimeUncertaintyNanos()
 
@@ -414,6 +436,7 @@ open class Location: JavaObject {
     /// ```java
     /// public boolean android.location.Location.hasSpeedAccuracy()
     /// ```
+  @available(Android 26, *)
   @JavaMethod
   open func hasSpeedAccuracy() -> Bool
 
@@ -459,6 +482,7 @@ open class Location: JavaObject {
     /// ```java
     /// public boolean android.location.Location.hasBearingAccuracy()
     /// ```
+  @available(Android 26, *)
   @JavaMethod
   open func hasBearingAccuracy() -> Bool
 
@@ -468,6 +492,7 @@ open class Location: JavaObject {
     /// ```java
     /// public boolean android.location.Location.hasMslAltitude()
     /// ```
+  @available(Android 34, *)
   @JavaMethod
   open func hasMslAltitude() -> Bool
 
@@ -477,6 +502,7 @@ open class Location: JavaObject {
     /// ```java
     /// public void android.location.Location.removeMslAltitude()
     /// ```
+  @available(Android 34, *)
   @JavaMethod
   open func removeMslAltitude()
 
@@ -495,6 +521,7 @@ open class Location: JavaObject {
     /// ```java
     /// public boolean android.location.Location.isMock()
     /// ```
+  @available(Android 31, *)
   @JavaMethod
   open func isMock() -> Bool
 
@@ -504,6 +531,7 @@ open class Location: JavaObject {
     /// ```java
     /// public void android.location.Location.setMock(boolean)
     /// ```
+  @available(Android 31, *)
   @JavaMethod
   open func setMock(_ arg0: Bool)
 

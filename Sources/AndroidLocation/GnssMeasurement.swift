@@ -3,6 +3,7 @@ import AndroidOS
 import CSwiftJavaJNI
 import SwiftJava
 
+@available(Android 24, *)
 @JavaClass("android.location.GnssMeasurement", implements: Parcelable.self)
 open class GnssMeasurement: JavaObject {
   /// Java method `getConstellationType`.
@@ -20,6 +21,7 @@ open class GnssMeasurement: JavaObject {
   /// ```java
   /// public boolean android.location.GnssMeasurement.hasCarrierFrequencyHz()
   /// ```
+@available(Android 26, *)
 @JavaMethod
   open func hasCarrierFrequencyHz() -> Bool
 
@@ -29,6 +31,7 @@ open class GnssMeasurement: JavaObject {
   /// ```java
   /// public float android.location.GnssMeasurement.getCarrierFrequencyHz()
   /// ```
+@available(Android 26, *)
 @JavaMethod
   open func getCarrierFrequencyHz() -> Float
 
@@ -110,6 +113,7 @@ open class GnssMeasurement: JavaObject {
   /// ```java
   /// public boolean android.location.GnssMeasurement.hasAutomaticGainControlLevelDb()
   /// ```
+@available(Android 26, *)
 @JavaMethod
   open func hasAutomaticGainControlLevelDb() -> Bool
 
@@ -119,6 +123,7 @@ open class GnssMeasurement: JavaObject {
   /// ```java
   /// public double android.location.GnssMeasurement.getAutomaticGainControlLevelDb()
   /// ```
+@available(Android 26, *)
 @JavaMethod
   open func getAutomaticGainControlLevelDb() -> Double
 
@@ -128,6 +133,7 @@ open class GnssMeasurement: JavaObject {
   /// ```java
   /// public boolean android.location.GnssMeasurement.hasFullInterSignalBiasNanos()
   /// ```
+@available(Android 31, *)
 @JavaMethod
   open func hasFullInterSignalBiasNanos() -> Bool
 
@@ -137,6 +143,7 @@ open class GnssMeasurement: JavaObject {
   /// ```java
   /// public double android.location.GnssMeasurement.getFullInterSignalBiasNanos()
   /// ```
+@available(Android 31, *)
 @JavaMethod
   open func getFullInterSignalBiasNanos() -> Double
 
@@ -146,6 +153,7 @@ open class GnssMeasurement: JavaObject {
   /// ```java
   /// public boolean android.location.GnssMeasurement.hasSatelliteInterSignalBiasNanos()
   /// ```
+@available(Android 31, *)
 @JavaMethod
   open func hasSatelliteInterSignalBiasNanos() -> Bool
 
@@ -155,6 +163,7 @@ open class GnssMeasurement: JavaObject {
   /// ```java
   /// public double android.location.GnssMeasurement.getSatelliteInterSignalBiasNanos()
   /// ```
+@available(Android 31, *)
 @JavaMethod
   open func getSatelliteInterSignalBiasNanos() -> Double
 
@@ -182,6 +191,7 @@ open class GnssMeasurement: JavaObject {
   /// ```java
   /// public boolean android.location.GnssMeasurement.hasFullInterSignalBiasUncertaintyNanos()
   /// ```
+@available(Android 31, *)
 @JavaMethod
   open func hasFullInterSignalBiasUncertaintyNanos() -> Bool
 
@@ -191,6 +201,7 @@ open class GnssMeasurement: JavaObject {
   /// ```java
   /// public double android.location.GnssMeasurement.getFullInterSignalBiasUncertaintyNanos()
   /// ```
+@available(Android 31, *)
 @JavaMethod
   open func getFullInterSignalBiasUncertaintyNanos() -> Double
 
@@ -200,6 +211,7 @@ open class GnssMeasurement: JavaObject {
   /// ```java
   /// public boolean android.location.GnssMeasurement.hasSatelliteInterSignalBiasUncertaintyNanos()
   /// ```
+@available(Android 31, *)
 @JavaMethod
   open func hasSatelliteInterSignalBiasUncertaintyNanos() -> Bool
 
@@ -209,6 +221,7 @@ open class GnssMeasurement: JavaObject {
   /// ```java
   /// public double android.location.GnssMeasurement.getSatelliteInterSignalBiasUncertaintyNanos()
   /// ```
+@available(Android 31, *)
 @JavaMethod
   open func getSatelliteInterSignalBiasUncertaintyNanos() -> Double
 
@@ -254,6 +267,7 @@ open class GnssMeasurement: JavaObject {
   /// ```java
   /// public boolean android.location.GnssMeasurement.hasBasebandCn0DbHz()
   /// ```
+@available(Android 30, *)
 @JavaMethod
   open func hasBasebandCn0DbHz() -> Bool
 
@@ -263,6 +277,7 @@ open class GnssMeasurement: JavaObject {
   /// ```java
   /// public double android.location.GnssMeasurement.getBasebandCn0DbHz()
   /// ```
+@available(Android 30, *)
 @JavaMethod
   open func getBasebandCn0DbHz() -> Double
 
@@ -272,6 +287,7 @@ open class GnssMeasurement: JavaObject {
   /// ```java
   /// public java.lang.String android.location.GnssMeasurement.getCodeType()
   /// ```
+@available(Android 29, *)
 @JavaMethod
   open func getCodeType() -> String
 
@@ -344,6 +360,7 @@ open class GnssMeasurement: JavaObject {
   /// ```java
   /// public boolean android.location.GnssMeasurement.hasCodeType()
   /// ```
+@available(Android 29, *)
 @JavaMethod
   open func hasCodeType() -> Bool
 
@@ -365,6 +382,7 @@ open class GnssMeasurement: JavaObject {
 @JavaMethod
   open func getState() -> Int32
 }
+@available(Android 24, *)
 extension JavaClass<GnssMeasurement> {
   @JavaStaticField(isFinal: true)
   public var ADR_STATE_CYCLE_SLIP: Int32

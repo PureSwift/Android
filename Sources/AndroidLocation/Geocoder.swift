@@ -27,7 +27,8 @@ open class Geocoder: JavaObject {
     /// ```java
     /// public void android.location.Geocoder.getFromLocationName(java.lang.String,int,android.location.Geocoder$GeocodeListener)
     /// ```
-  @JavaMethod
+  @available(Android 33, *)
+@JavaMethod
   open func getFromLocationName(_ arg0: String, _ arg1: Int32, _ arg2: Geocoder.GeocodeListener?)
 
     /// Java method `getFromLocationName`.
@@ -45,6 +46,7 @@ open class Geocoder: JavaObject {
     /// ```java
     /// public void android.location.Geocoder.getFromLocationName(java.lang.String,int,double,double,double,double,android.location.Geocoder$GeocodeListener)
     /// ```
+  @available(Android 33, *)
   @JavaMethod
   open func getFromLocationName(_ arg0: String, _ arg1: Int32, _ arg2: Double, _ arg3: Double, _ arg4: Double, _ arg5: Double, _ arg6: Geocoder.GeocodeListener?)
 
@@ -54,7 +56,8 @@ open class Geocoder: JavaObject {
     /// ```java
     /// public void android.location.Geocoder.getFromLocation(double,double,int,android.location.Geocoder$GeocodeListener)
     /// ```
-  @JavaMethod
+  @available(Android 33, *)
+@JavaMethod
   open func getFromLocation(_ arg0: Double, _ arg1: Double, _ arg2: Int32, _ arg3: Geocoder.GeocodeListener?)
 
     /// Java method `getFromLocation`.

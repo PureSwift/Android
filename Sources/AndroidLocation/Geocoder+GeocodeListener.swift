@@ -3,6 +3,7 @@ import CSwiftJavaJNI
 import SwiftJava
 
 extension Geocoder {
+  @available(Android 33, *)
   @JavaInterface("android.location.Geocoder$GeocodeListener")
   public struct GeocodeListener {
     /// Java method `onGeocode`.

@@ -2,7 +2,9 @@
 import CSwiftJavaJNI
 import SwiftJava
 
+@available(Android 31, *)
 extension GnssCapabilities {
+  @available(Android 31, *)
   @JavaClass("android.location.GnssCapabilities$Builder")
   open class Builder: JavaObject {
   @JavaMethod
@@ -242,7 +244,8 @@ extension GnssCapabilities {
     /// ```java
     /// public android.location.GnssCapabilities$Builder android.location.GnssCapabilities$Builder.setGnssSignalTypes(java.util.List<android.location.GnssSignalType>)
     /// ```
-  @JavaMethod
+  @available(Android 33, *)
+@JavaMethod
   open func setGnssSignalTypes(_ arg0: List<GnssSignalType>?) -> GnssCapabilities.Builder!
 
     /// Java method `build`.

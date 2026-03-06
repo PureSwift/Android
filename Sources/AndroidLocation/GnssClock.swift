@@ -3,6 +3,7 @@ import AndroidOS
 import CSwiftJavaJNI
 import SwiftJava
 
+@available(Android 24, *)
 @JavaClass("android.location.GnssClock", implements: Parcelable.self)
 open class GnssClock: JavaObject {
   /// Java method `hasTimeUncertaintyNanos`.
@@ -92,6 +93,7 @@ open class GnssClock: JavaObject {
   /// ```java
   /// public boolean android.location.GnssClock.hasReferenceCodeTypeForIsb()
   /// ```
+@available(Android 31, *)
 @JavaMethod
   open func hasReferenceCodeTypeForIsb() -> Bool
 
@@ -101,6 +103,7 @@ open class GnssClock: JavaObject {
   /// ```java
   /// public java.lang.String android.location.GnssClock.getReferenceCodeTypeForIsb()
   /// ```
+@available(Android 31, *)
 @JavaMethod
   open func getReferenceCodeTypeForIsb() -> String
 
@@ -146,6 +149,7 @@ open class GnssClock: JavaObject {
   /// ```java
   /// public int android.location.GnssClock.getReferenceConstellationTypeForIsb()
   /// ```
+@available(Android 31, *)
 @JavaMethod
   open func getReferenceConstellationTypeForIsb() -> Int32
 
@@ -155,6 +159,7 @@ open class GnssClock: JavaObject {
   /// ```java
   /// public boolean android.location.GnssClock.hasReferenceCarrierFrequencyHzForIsb()
   /// ```
+@available(Android 31, *)
 @JavaMethod
   open func hasReferenceCarrierFrequencyHzForIsb() -> Bool
 
@@ -164,6 +169,7 @@ open class GnssClock: JavaObject {
   /// ```java
   /// public boolean android.location.GnssClock.hasReferenceConstellationTypeForIsb()
   /// ```
+@available(Android 31, *)
 @JavaMethod
   open func hasReferenceConstellationTypeForIsb() -> Bool
 
@@ -173,6 +179,7 @@ open class GnssClock: JavaObject {
   /// ```java
   /// public double android.location.GnssClock.getReferenceCarrierFrequencyHzForIsb()
   /// ```
+@available(Android 31, *)
 @JavaMethod
   open func getReferenceCarrierFrequencyHzForIsb() -> Double
 
@@ -266,6 +273,7 @@ open class GnssClock: JavaObject {
 @JavaMethod
   open override func toString() -> String
 }
+@available(Android 24, *)
 extension JavaClass<GnssClock> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<GnssClock>!

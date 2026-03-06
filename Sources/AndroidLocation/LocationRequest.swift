@@ -3,6 +3,7 @@ import AndroidOS
 import CSwiftJavaJNI
 import SwiftJava
 
+@available(Android 31, *)
 @JavaClass("android.location.LocationRequest", implements: Parcelable.self)
 open class LocationRequest: JavaObject {
   /// Java method `getMinUpdateIntervalMillis`.
@@ -113,6 +114,7 @@ open class LocationRequest: JavaObject {
 @JavaMethod
   open override func hashCode() -> Int32
 }
+@available(Android 31, *)
 extension JavaClass<LocationRequest> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<LocationRequest>!

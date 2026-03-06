@@ -3,7 +3,9 @@ import AndroidOS
 import CSwiftJavaJNI
 import SwiftJava
 
+@available(Android 30, *)
 extension GnssAntennaInfo {
+  @available(Android 30, *)
   @JavaClass("android.location.GnssAntennaInfo$PhaseCenterOffset", implements: Parcelable.self)
   open class PhaseCenterOffset: JavaObject {
   @JavaMethod
@@ -109,6 +111,7 @@ extension GnssAntennaInfo {
   open override func hashCode() -> Int32
   }
 }
+@available(Android 30, *)
 extension JavaClass<GnssAntennaInfo.PhaseCenterOffset> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<GnssAntennaInfo.PhaseCenterOffset>!

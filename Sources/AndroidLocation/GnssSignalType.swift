@@ -3,6 +3,7 @@ import AndroidOS
 import CSwiftJavaJNI
 import SwiftJava
 
+@available(Android 33, *)
 @JavaClass("android.location.GnssSignalType", implements: Parcelable.self)
 open class GnssSignalType: JavaObject {
   /// Java method `getConstellationType`.
@@ -77,6 +78,7 @@ open class GnssSignalType: JavaObject {
 @JavaMethod
   open override func hashCode() -> Int32
 }
+@available(Android 33, *)
 extension JavaClass<GnssSignalType> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<GnssSignalType>!

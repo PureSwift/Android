@@ -2,7 +2,9 @@
 import CSwiftJavaJNI
 import SwiftJava
 
+@available(Android 30, *)
 extension GnssAntennaInfo {
+  @available(Android 30, *)
   @JavaInterface("android.location.GnssAntennaInfo$Listener")
   public struct Listener {
     /// Java method `onGnssAntennaInfoReceived`.

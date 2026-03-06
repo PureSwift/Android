@@ -2,7 +2,9 @@
 import CSwiftJavaJNI
 import SwiftJava
 
+@available(Android 24, *)
 extension GnssStatus {
+  @available(Android 29, *)
   @JavaClass("android.location.GnssStatus$Builder")
   open class Builder: JavaObject {
   @JavaMethod

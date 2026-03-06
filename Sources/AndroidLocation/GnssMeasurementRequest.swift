@@ -3,6 +3,7 @@ import AndroidOS
 import CSwiftJavaJNI
 import SwiftJava
 
+@available(Android 31, *)
 @JavaClass("android.location.GnssMeasurementRequest", implements: Parcelable.self)
 open class GnssMeasurementRequest: JavaObject {
   /// Java method `isFullTracking`.
@@ -68,6 +69,7 @@ open class GnssMeasurementRequest: JavaObject {
 @JavaMethod
   open override func hashCode() -> Int32
 }
+@available(Android 31, *)
 extension JavaClass<GnssMeasurementRequest> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<GnssMeasurementRequest>!

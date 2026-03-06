@@ -2,7 +2,9 @@
 import CSwiftJavaJNI
 import SwiftJava
 
+@available(Android 24, *)
 extension GnssMeasurementsEvent {
+  @available(Android 24, *)
   @JavaClass("android.location.GnssMeasurementsEvent$Callback")
   open class Callback: JavaObject {
   @JavaMethod
@@ -27,6 +29,7 @@ extension GnssMeasurementsEvent {
   open func onStatusChanged(_ arg0: Int32)
   }
 }
+@available(Android 24, *)
 extension JavaClass<GnssMeasurementsEvent.Callback> {
   @JavaStaticField(isFinal: true)
   public var STATUS_LOCATION_DISABLED: Int32

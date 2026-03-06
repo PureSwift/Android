@@ -2,7 +2,9 @@
 import CSwiftJavaJNI
 import SwiftJava
 
+@available(Android 24, *)
 extension GnssStatus {
+  @available(Android 24, *)
   @JavaClass("android.location.GnssStatus$Callback")
   open class Callback: JavaObject {
   @JavaMethod
