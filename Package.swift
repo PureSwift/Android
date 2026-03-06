@@ -90,6 +90,9 @@ var package = Package(
         ),
         .library(
             name: "AndroidLocation", targets: ["AndroidLocation"]
+        ),
+        .library(
+            name: "AndroidMedia", targets: ["AndroidMedia"]
         )
     ],
     dependencies: [
@@ -165,7 +168,8 @@ var package = Package(
                 "AndroidFileManager",
                 "AndroidNativeActivity",
                 "AndroidInput",
-                "AndroidLocation"
+                "AndroidLocation",
+                "AndroidMedia"
             ],
             swiftSettings: [
               .swiftLanguageMode(.v5),
@@ -545,6 +549,23 @@ var package = Package(
                 "AndroidOS",
                 "AndroidUtil",
                 "AndroidContent",
+            ],
+            exclude: ["swift-java.config"],
+            swiftSettings: [
+              .swiftLanguageMode(.v5),
+              ndkVersionDefine,
+              sdkVersionDefine
+            ]
+        ),
+        .target(
+            name: "AndroidMedia",
+            dependencies: [
+                "AndroidJava",
+                "AndroidOS",
+                "AndroidUtil",
+                "AndroidContent",
+                .product(name: "JavaIO", package: "swift-java"),
+                .product(name: "JavaLangUtil", package: "JavaLang"),
             ],
             exclude: ["swift-java.config"],
             swiftSettings: [
