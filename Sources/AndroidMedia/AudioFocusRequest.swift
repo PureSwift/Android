@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 26, *)
 @JavaClass("android.media.AudioFocusRequest")
 open class AudioFocusRequest: JavaObject {
   /// Java method `getAudioAttributes`.

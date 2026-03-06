@@ -6,6 +6,7 @@ import JavaLangUtil
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 16, *)
 @JavaClass("android.media.MediaExtractor")
 open class MediaExtractor: JavaObject {
   @JavaMethod
@@ -17,6 +18,7 @@ open class MediaExtractor: JavaObject {
     /// ```java
     /// public android.os.PersistableBundle android.media.MediaExtractor.getMetrics()
     /// ```
+  @available(Android 26, *)
   @JavaMethod
   open func getMetrics() -> PersistableBundle!
 
@@ -125,6 +127,7 @@ open class MediaExtractor: JavaObject {
     /// ```java
     /// public native long android.media.MediaExtractor.getSampleSize()
     /// ```
+  @available(Android 28, *)
   @JavaMethod
   open func getSampleSize() -> Int64
 
@@ -228,6 +231,7 @@ extension MediaExtractor {
 
   }
 }
+@available(Android 16, *)
 extension JavaClass<MediaExtractor.MetricsConstants> {
   @JavaStaticField(isFinal: true)
   public var FORMAT: String
@@ -238,6 +242,7 @@ extension JavaClass<MediaExtractor.MetricsConstants> {
   @JavaStaticField(isFinal: true)
   public var TRACKS: String
 }
+@available(Android 16, *)
 extension JavaClass<MediaExtractor> {
   @JavaStaticField(isFinal: true)
   public var SAMPLE_FLAG_ENCRYPTED: Int32

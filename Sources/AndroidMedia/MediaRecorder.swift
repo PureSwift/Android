@@ -10,6 +10,7 @@ open class MediaRecorder: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
+  @available(Android 31, *)
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Context?, environment: JNIEnvironment? = nil)
 
@@ -19,6 +20,7 @@ open class MediaRecorder: JavaObject {
     /// ```java
     /// public native boolean android.media.MediaRecorder.isPrivacySensitive()
     /// ```
+  @available(Android 29, *)
   @JavaMethod
   open func isPrivacySensitive() -> Bool
 
@@ -28,6 +30,7 @@ open class MediaRecorder: JavaObject {
     /// ```java
     /// public android.os.PersistableBundle android.media.MediaRecorder.getMetrics()
     /// ```
+  @available(Android 26, *)
   @JavaMethod
   open func getMetrics() -> PersistableBundle!
 
@@ -37,6 +40,7 @@ open class MediaRecorder: JavaObject {
     /// ```java
     /// public native void android.media.MediaRecorder.pause() throws java.lang.IllegalStateException
     /// ```
+  @available(Android 24, *)
   @JavaMethod
   open func pause() throws
 
@@ -73,6 +77,7 @@ open class MediaRecorder: JavaObject {
     /// ```java
     /// public void android.media.MediaRecorder.setCaptureRate(double)
     /// ```
+  @available(Android 21, *)
   @JavaMethod
   open func setCaptureRate(_ arg0: Double)
 
@@ -190,6 +195,7 @@ open class MediaRecorder: JavaObject {
     /// ```java
     /// public void android.media.MediaRecorder.setNextOutputFile(java.io.FileDescriptor) throws java.io.IOException
     /// ```
+  @available(Android 26, *)
   @JavaMethod
   open func setNextOutputFile(_ arg0: FileDescriptor?) throws
 
@@ -199,6 +205,7 @@ open class MediaRecorder: JavaObject {
     /// ```java
     /// public native void android.media.MediaRecorder.resume() throws java.lang.IllegalStateException
     /// ```
+  @available(Android 24, *)
   @JavaMethod
   open func resume() throws
 
@@ -226,6 +233,7 @@ open class MediaRecorder: JavaObject {
     /// ```java
     /// public native void android.media.MediaRecorder.setPrivacySensitive(boolean)
     /// ```
+  @available(Android 29, *)
   @JavaMethod
   open func setPrivacySensitive(_ arg0: Bool)
 

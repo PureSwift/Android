@@ -4,6 +4,7 @@ import SwiftJava
 import SwiftJavaJNICore
 
 extension SoundPool {
+  @available(Android 21, *)
   @JavaClass("android.media.SoundPool$Builder")
   open class Builder: JavaObject {
   @JavaMethod

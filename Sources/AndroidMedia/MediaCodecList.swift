@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 21, *)
 @JavaClass("android.media.MediaCodecList")
 open class MediaCodecList: JavaObject {
   @JavaMethod
@@ -34,6 +35,7 @@ open class MediaCodecList: JavaObject {
   @JavaMethod
   open func findEncoderForFormat(_ arg0: MediaFormat?) -> String
 }
+@available(Android 21, *)
 extension JavaClass<MediaCodecList> {
   @JavaStaticField(isFinal: true)
   public var ALL_CODECS: Int32

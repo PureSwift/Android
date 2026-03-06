@@ -3,7 +3,9 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 26, *)
 extension AudioFocusRequest {
+  @available(Android 26, *)
   @JavaClass("android.media.AudioFocusRequest$Builder")
   open class Builder: JavaObject {
   @JavaMethod

@@ -12,6 +12,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public boolean android.media.AudioManager.isVolumeFixed()
   /// ```
+  @available(Android 21, *)
 @JavaMethod
   open func isVolumeFixed() -> Bool
 
@@ -57,6 +58,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public int android.media.AudioManager.getStreamMinVolume(int)
   /// ```
+  @available(Android 28, *)
 @JavaMethod
   open func getStreamMinVolume(_ arg0: Int32) -> Int32
 
@@ -75,6 +77,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public float android.media.AudioManager.getStreamVolumeDb(int,int,int)
   /// ```
+  @available(Android 28, *)
 @JavaMethod
   open func getStreamVolumeDb(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32) -> Float
 
@@ -102,6 +105,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public boolean android.media.AudioManager.isVolumeGroupMuted(int)
   /// ```
+  @available(Android 31, *)
 @JavaMethod
   open func isVolumeGroupMuted(_ arg0: Int32) -> Bool
 
@@ -354,6 +358,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public int android.media.AudioManager.requestAudioFocus(android.media.AudioFocusRequest)
   /// ```
+  @available(Android 26, *)
 @JavaMethod
   open func requestAudioFocus(_ arg0: AudioFocusRequest?) -> Int32
 
@@ -381,6 +386,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public void android.media.AudioManager.registerAudioRecordingCallback(android.media.AudioManager$AudioRecordingCallback,android.os.Handler)
   /// ```
+  @available(Android 29, *)
 @JavaMethod
   open func registerAudioRecordingCallback(_ arg0: AudioManager.AudioRecordingCallback?, _ arg1: Handler?)
 
@@ -390,6 +396,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public void android.media.AudioManager.unregisterAudioRecordingCallback(android.media.AudioManager$AudioRecordingCallback)
   /// ```
+  @available(Android 29, *)
 @JavaMethod
   open func unregisterAudioRecordingCallback(_ arg0: AudioManager.AudioRecordingCallback?)
 
@@ -399,6 +406,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public int android.media.AudioManager.getAllowedCapturePolicy()
   /// ```
+  @available(Android 29, *)
 @JavaMethod
   open func getAllowedCapturePolicy() -> Int32
 
@@ -408,6 +416,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public void android.media.AudioManager.setAllowedCapturePolicy(int)
   /// ```
+  @available(Android 29, *)
 @JavaMethod
   open func setAllowedCapturePolicy(_ arg0: Int32)
 
@@ -417,6 +426,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public void android.media.AudioManager.removeOnCommunicationDeviceChangedListener(android.media.AudioManager$OnCommunicationDeviceChangedListener)
   /// ```
+  @available(Android 31, *)
 @JavaMethod
   open func removeOnCommunicationDeviceChangedListener(_ arg0: AudioManager.OnCommunicationDeviceChangedListener?)
 
@@ -426,6 +436,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public void android.media.AudioManager.removeOnPreferredMixerAttributesChangedListener(android.media.AudioManager$OnPreferredMixerAttributesChangedListener)
   /// ```
+  @available(Android 34, *)
 @JavaMethod
   open func removeOnPreferredMixerAttributesChangedListener(_ arg0: AudioManager.OnPreferredMixerAttributesChangedListener?)
 
@@ -444,6 +455,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public boolean android.media.AudioManager.isRampingRingerEnabled()
   /// ```
+  @available(Android 28, *)
 @JavaMethod
   open func isRampingRingerEnabled() -> Bool
 
@@ -453,6 +465,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public int android.media.AudioManager.getVolumeGroupIdForAttributes(android.media.AudioAttributes)
   /// ```
+  @available(Android 28, *)
 @JavaMethod
   open func getVolumeGroupIdForAttributes(_ arg0: AudioAttributes?) -> Int32
 
@@ -462,6 +475,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public void android.media.AudioManager.adjustVolumeGroupVolume(int,int,int)
   /// ```
+  @available(Android 28, *)
 @JavaMethod
   open func adjustVolumeGroupVolume(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32)
 
@@ -480,6 +494,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public void android.media.AudioManager.removeOnModeChangedListener(android.media.AudioManager$OnModeChangedListener)
   /// ```
+  @available(Android 31, *)
 @JavaMethod
   open func removeOnModeChangedListener(_ arg0: AudioManager.OnModeChangedListener?)
 
@@ -489,6 +504,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public boolean android.media.AudioManager.isCallScreeningModeSupported()
   /// ```
+  @available(Android 30, *)
 @JavaMethod
   open func isCallScreeningModeSupported() -> Bool
 
@@ -498,6 +514,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public int android.media.AudioManager.generateAudioSessionId()
   /// ```
+  @available(Android 21, *)
 @JavaMethod
   open func generateAudioSessionId() -> Int32
 
@@ -507,6 +524,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public int android.media.AudioManager.abandonAudioFocusRequest(android.media.AudioFocusRequest)
   /// ```
+  @available(Android 26, *)
 @JavaMethod
   open func abandonAudioFocusRequest(_ arg0: AudioFocusRequest?) -> Int32
 
@@ -534,6 +552,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public void android.media.AudioManager.registerAudioPlaybackCallback(android.media.AudioManager$AudioPlaybackCallback,android.os.Handler)
   /// ```
+  @available(Android 26, *)
 @JavaMethod
   open func registerAudioPlaybackCallback(_ arg0: AudioManager.AudioPlaybackCallback?, _ arg1: Handler?)
 
@@ -543,6 +562,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public void android.media.AudioManager.unregisterAudioPlaybackCallback(android.media.AudioManager$AudioPlaybackCallback)
   /// ```
+  @available(Android 26, *)
 @JavaMethod
   open func unregisterAudioPlaybackCallback(_ arg0: AudioManager.AudioPlaybackCallback?)
 
@@ -552,6 +572,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public boolean android.media.AudioManager.setEncodedSurroundMode(int)
   /// ```
+  @available(Android 28, *)
 @JavaMethod
   open func setEncodedSurroundMode(_ arg0: Int32) -> Bool
 
@@ -561,6 +582,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public int android.media.AudioManager.getEncodedSurroundMode()
   /// ```
+  @available(Android 28, *)
 @JavaMethod
   open func getEncodedSurroundMode() -> Int32
 
@@ -570,6 +592,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public boolean android.media.AudioManager.setSurroundFormatEnabled(int,boolean)
   /// ```
+  @available(Android 31, *)
 @JavaMethod
   open func setSurroundFormatEnabled(_ arg0: Int32, _ arg1: Bool) -> Bool
 
@@ -579,6 +602,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public boolean android.media.AudioManager.isSurroundFormatEnabled(int)
   /// ```
+  @available(Android 31, *)
 @JavaMethod
   open func isSurroundFormatEnabled(_ arg0: Int32) -> Bool
 
@@ -588,6 +612,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public int android.media.AudioManager.getAudioHwSyncForSession(int)
   /// ```
+  @available(Android 21, *)
 @JavaMethod
   open func getAudioHwSyncForSession(_ arg0: Int32) -> Int32
 
@@ -597,6 +622,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public void android.media.AudioManager.clearCommunicationDevice()
   /// ```
+  @available(Android 31, *)
 @JavaMethod
   open func clearCommunicationDevice()
 

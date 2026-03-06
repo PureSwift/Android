@@ -2,7 +2,9 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 21, *)
 extension AudioAttributes {
+  @available(Android 21, *)
   @JavaClass("android.media.AudioAttributes$Builder")
   open class Builder: JavaObject {
   @JavaMethod

@@ -4,6 +4,7 @@ import SwiftJava
 import SwiftJavaJNICore
 
 extension AudioTrack {
+  @available(Android 21, *)
   @JavaClass("android.media.AudioTrack$Builder")
   open class Builder: JavaObject {
   @JavaMethod

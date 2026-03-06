@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 16, *)
 @JavaClass("android.media.MediaFormat")
 open class MediaFormat: JavaObject {
   @JavaMethod
@@ -16,6 +17,7 @@ open class MediaFormat: JavaObject {
     /// ```java
     /// public boolean android.media.MediaFormat.containsFeature(java.lang.String)
     /// ```
+  @available(Android 21, *)
   @JavaMethod
   open func containsFeature(_ arg0: String) -> Bool
 
@@ -79,6 +81,7 @@ open class MediaFormat: JavaObject {
     /// ```java
     /// public void android.media.MediaFormat.setFeatureEnabled(java.lang.String,boolean)
     /// ```
+  @available(Android 21, *)
   @JavaMethod
   open func setFeatureEnabled(_ arg0: String, _ arg1: Bool)
 
@@ -106,6 +109,7 @@ open class MediaFormat: JavaObject {
     /// ```java
     /// public long android.media.MediaFormat.getLong(java.lang.String,long)
     /// ```
+  @available(Android 29, *)
   @JavaMethod
   open func getLong(_ arg0: String, _ arg1: Int64) -> Int64
 
@@ -115,6 +119,7 @@ open class MediaFormat: JavaObject {
     /// ```java
     /// public float android.media.MediaFormat.getFloat(java.lang.String,float)
     /// ```
+  @available(Android 29, *)
   @JavaMethod
   open func getFloat(_ arg0: String, _ arg1: Float) -> Float
 
@@ -169,6 +174,7 @@ open class MediaFormat: JavaObject {
     /// ```java
     /// public int android.media.MediaFormat.getInteger(java.lang.String,int)
     /// ```
+  @available(Android 29, *)
   @JavaMethod
   open func getInteger(_ arg0: String, _ arg1: Int32) -> Int32
 
@@ -187,6 +193,7 @@ open class MediaFormat: JavaObject {
     /// ```java
     /// public java.lang.String android.media.MediaFormat.getString(java.lang.String,java.lang.String)
     /// ```
+  @available(Android 29, *)
   @JavaMethod
   open func getString(_ arg0: String, _ arg1: String) -> String
 }
@@ -203,6 +210,7 @@ extension MediaFormat {
   open func flattenToString() -> String
   }
 }
+@available(Android 16, *)
 extension JavaClass<MediaFormat> {
   @JavaStaticField(isFinal: true)
   public var COLOR_RANGE_FULL: Int32

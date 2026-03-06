@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 21, *)
 @JavaClass("android.media.VolumeProvider")
 open class VolumeProvider: JavaObject {
   @JavaMethod
@@ -73,6 +74,7 @@ open class VolumeProvider: JavaObject {
   @JavaMethod
   open func onAdjustVolume(_ arg0: Int32)
 }
+@available(Android 21, *)
 extension JavaClass<VolumeProvider> {
   @JavaStaticField(isFinal: true)
   public var VOLUME_CONTROL_ABSOLUTE: Int32

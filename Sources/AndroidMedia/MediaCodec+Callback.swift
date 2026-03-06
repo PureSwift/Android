@@ -2,7 +2,9 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 16, *)
 extension MediaCodec {
+  @available(Android 21, *)
   @JavaClass("android.media.MediaCodec$Callback")
   open class Callback: JavaObject {
   @JavaMethod

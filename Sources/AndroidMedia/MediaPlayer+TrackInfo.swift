@@ -4,6 +4,7 @@ import SwiftJava
 import SwiftJavaJNICore
 
 extension MediaPlayer {
+  @available(Android 16, *)
   @JavaClass("android.media.MediaPlayer$TrackInfo", implements: Parcelable.self)
   open class TrackInfo: JavaObject {
     /// Java method `describeContents`.
@@ -61,6 +62,7 @@ extension MediaPlayer {
   open func getFormat() -> MediaFormat!
   }
 }
+@available(Android 16, *)
 extension JavaClass<MediaPlayer.TrackInfo> {
   @JavaStaticField(isFinal: true)
   public var MEDIA_TRACK_TYPE_AUDIO: Int32

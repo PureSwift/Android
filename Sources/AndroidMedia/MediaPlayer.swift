@@ -8,6 +8,7 @@ import SwiftJavaJNICore
 
 @JavaClass("android.media.MediaPlayer")
 open class MediaPlayer: JavaObject {
+  @available(Android 21, *)
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Context?, environment: JNIEnvironment? = nil)
 
@@ -20,6 +21,7 @@ open class MediaPlayer: JavaObject {
     /// ```java
     /// public void android.media.MediaPlayer.setAudioAttributes(android.media.AudioAttributes) throws java.lang.IllegalArgumentException
     /// ```
+  @available(Android 21, *)
   @JavaMethod
   open func setAudioAttributes(_ arg0: AudioAttributes?) throws
 
@@ -47,6 +49,7 @@ open class MediaPlayer: JavaObject {
     /// ```java
     /// public android.os.PersistableBundle android.media.MediaPlayer.getMetrics()
     /// ```
+  @available(Android 26, *)
   @JavaMethod
   open func getMetrics() -> PersistableBundle!
 
@@ -191,6 +194,7 @@ open class MediaPlayer: JavaObject {
     /// ```java
     /// public void android.media.MediaPlayer.seekTo(long,int)
     /// ```
+  @available(Android 26, *)
   @JavaMethod
   open func seekTo(_ arg0: Int64, _ arg1: Int32)
 

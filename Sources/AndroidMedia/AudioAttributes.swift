@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 21, *)
 @JavaClass("android.media.AudioAttributes", implements: Parcelable.self)
 open class AudioAttributes: JavaObject {
   /// Java method `getContentType`.
@@ -122,6 +123,7 @@ open class AudioAttributes: JavaObject {
 @JavaMethod
   open func getFlags() -> Int32
 }
+@available(Android 21, *)
 extension JavaClass<AudioAttributes> {
   @JavaStaticField(isFinal: true)
   public var ALLOW_CAPTURE_BY_ALL: Int32

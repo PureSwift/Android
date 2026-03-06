@@ -3,7 +3,9 @@ import AndroidUtil
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 16, *)
 extension MediaCodecInfo {
+  @available(Android 21, *)
   @JavaClass("android.media.MediaCodecInfo$EncoderCapabilities")
   open class EncoderCapabilities: JavaObject {
     /// Java method `isBitrateModeSupported`.
@@ -16,6 +18,7 @@ extension MediaCodecInfo {
   open func isBitrateModeSupported(_ arg0: Int32) -> Bool
   }
 }
+@available(Android 21, *)
 extension JavaClass<MediaCodecInfo.EncoderCapabilities> {
   @JavaStaticField(isFinal: true)
   public var BITRATE_MODE_CBR: Int32

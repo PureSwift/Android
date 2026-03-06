@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 16, *)
 @JavaClass("android.media.MediaCodecInfo")
 open class MediaCodecInfo: JavaObject {
   /// Java method `isAlias`.
@@ -10,6 +11,7 @@ open class MediaCodecInfo: JavaObject {
   /// ```java
   /// public boolean android.media.MediaCodecInfo.isAlias()
   /// ```
+  @available(Android 29, *)
 @JavaMethod
   open func isAlias() -> Bool
 
@@ -28,6 +30,7 @@ open class MediaCodecInfo: JavaObject {
   /// ```java
   /// public boolean android.media.MediaCodecInfo.isVendor()
   /// ```
+  @available(Android 29, *)
 @JavaMethod
   open func isVendor() -> Bool
 
@@ -37,6 +40,7 @@ open class MediaCodecInfo: JavaObject {
   /// ```java
   /// public boolean android.media.MediaCodecInfo.isSoftwareOnly()
   /// ```
+  @available(Android 29, *)
 @JavaMethod
   open func isSoftwareOnly() -> Bool
 
@@ -55,6 +59,7 @@ open class MediaCodecInfo: JavaObject {
   /// ```java
   /// public boolean android.media.MediaCodecInfo.isHardwareAccelerated()
   /// ```
+  @available(Android 29, *)
 @JavaMethod
   open func isHardwareAccelerated() -> Bool
 
@@ -82,6 +87,7 @@ open class MediaCodecInfo: JavaObject {
   /// ```java
   /// public java.lang.String android.media.MediaCodecInfo.getCanonicalName()
   /// ```
+  @available(Android 29, *)
 @JavaMethod
   open func getCanonicalName() -> String
 }
@@ -116,6 +122,7 @@ extension MediaCodecInfo {
   open override func hashCode() -> Int32
   }
 }
+@available(Android 16, *)
 extension JavaClass<MediaCodecInfo.CodecProfileLevel> {
   @JavaStaticField(isFinal: true)
   public var AACObjectELD: Int32

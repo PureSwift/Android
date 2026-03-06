@@ -3,6 +3,7 @@ import JavaIO
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 18, *)
 @JavaClass("android.media.MediaMuxer")
 open class MediaMuxer: JavaObject {
   @JavaMethod
@@ -26,6 +27,7 @@ open class MediaMuxer: JavaObject {
     /// ```java
     /// public void android.media.MediaMuxer.setLocation(float,float)
     /// ```
+  @available(Android 19, *)
   @JavaMethod
   open func setLocation(_ arg0: Float, _ arg1: Float)
 
@@ -80,6 +82,7 @@ extension MediaMuxer {
 
   }
 }
+@available(Android 18, *)
 extension JavaClass<MediaMuxer.OutputFormat> {
   @JavaStaticField(isFinal: true)
   public var MUXER_OUTPUT_3GPP: Int32

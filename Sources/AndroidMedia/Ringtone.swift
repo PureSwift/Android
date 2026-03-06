@@ -11,6 +11,7 @@ open class Ringtone: JavaObject {
   /// ```java
   /// public void android.media.Ringtone.setAudioAttributes(android.media.AudioAttributes) throws java.lang.IllegalArgumentException
   /// ```
+  @available(Android 21, *)
 @JavaMethod
   open func setAudioAttributes(_ arg0: AudioAttributes?) throws
 
@@ -20,6 +21,7 @@ open class Ringtone: JavaObject {
   /// ```java
   /// public android.media.AudioAttributes android.media.Ringtone.getAudioAttributes()
   /// ```
+  @available(Android 21, *)
 @JavaMethod
   open func getAudioAttributes() -> AudioAttributes!
 
@@ -38,6 +40,7 @@ open class Ringtone: JavaObject {
   /// ```java
   /// public void android.media.Ringtone.setVolume(float)
   /// ```
+  @available(Android 28, *)
 @JavaMethod
   open func setVolume(_ arg0: Float)
 
@@ -65,6 +68,7 @@ open class Ringtone: JavaObject {
   /// ```java
   /// public void android.media.Ringtone.setLooping(boolean)
   /// ```
+  @available(Android 28, *)
 @JavaMethod
   open func setLooping(_ arg0: Bool)
 
@@ -74,6 +78,7 @@ open class Ringtone: JavaObject {
   /// ```java
   /// public boolean android.media.Ringtone.isLooping()
   /// ```
+  @available(Android 28, *)
 @JavaMethod
   open func isLooping() -> Bool
 
@@ -83,6 +88,7 @@ open class Ringtone: JavaObject {
   /// ```java
   /// public float android.media.Ringtone.getVolume()
   /// ```
+  @available(Android 28, *)
 @JavaMethod
   open func getVolume() -> Float
 
@@ -110,6 +116,7 @@ open class Ringtone: JavaObject {
   /// ```java
   /// public boolean android.media.Ringtone.setHapticGeneratorEnabled(boolean)
   /// ```
+  @available(Android 31, *)
 @JavaMethod
   open func setHapticGeneratorEnabled(_ arg0: Bool) -> Bool
 
@@ -119,6 +126,7 @@ open class Ringtone: JavaObject {
   /// ```java
   /// public boolean android.media.Ringtone.isHapticGeneratorEnabled()
   /// ```
+  @available(Android 31, *)
 @JavaMethod
   open func isHapticGeneratorEnabled() -> Bool
 

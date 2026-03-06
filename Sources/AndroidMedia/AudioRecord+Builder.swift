@@ -4,6 +4,7 @@ import SwiftJava
 import SwiftJavaJNICore
 
 extension AudioRecord {
+  @available(Android 23, *)
   @JavaClass("android.media.AudioRecord$Builder")
   open class Builder: JavaObject {
   @JavaMethod

@@ -3,7 +3,9 @@ import AndroidUtil
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 16, *)
 extension MediaCodecInfo {
+  @available(Android 21, *)
   @JavaClass("android.media.MediaCodecInfo$VideoCapabilities")
   open class VideoCapabilities: JavaObject {
     /// Java method `getWidthAlignment`.

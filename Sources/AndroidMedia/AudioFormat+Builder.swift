@@ -3,6 +3,7 @@ import SwiftJava
 import SwiftJavaJNICore
 
 extension AudioFormat {
+  @available(Android 21, *)
   @JavaClass("android.media.AudioFormat$Builder")
   open class Builder: JavaObject {
   @JavaMethod

@@ -2,7 +2,9 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 16, *)
 extension MediaCodec {
+  @available(Android 16, *)
   @JavaClass("android.media.MediaCodec$BufferInfo")
   open class BufferInfo: JavaObject {
   @JavaField(isFinal: false)

@@ -70,6 +70,7 @@ open class MediaMetadataRetriever: JavaObject {
     /// ```java
     /// public void android.media.MediaMetadataRetriever.close() throws java.io.IOException
     /// ```
+  @available(Android 29, *)
   @JavaMethod
   open func close() throws
 

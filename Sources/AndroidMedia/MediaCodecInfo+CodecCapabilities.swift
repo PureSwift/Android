@@ -2,7 +2,9 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 16, *)
 extension MediaCodecInfo {
+  @available(Android 16, *)
   @JavaClass("android.media.MediaCodecInfo$CodecCapabilities")
   open class CodecCapabilities: JavaObject {
   @JavaField(isFinal: false)
@@ -20,6 +22,7 @@ extension MediaCodecInfo {
     /// ```java
     /// public boolean android.media.MediaCodecInfo$CodecCapabilities.isFeatureSupported(java.lang.String)
     /// ```
+  @available(Android 21, *)
   @JavaMethod
   open func isFeatureSupported(_ arg0: String) -> Bool
 
@@ -29,6 +32,7 @@ extension MediaCodecInfo {
     /// ```java
     /// public boolean android.media.MediaCodecInfo$CodecCapabilities.isFeatureRequired(java.lang.String)
     /// ```
+  @available(Android 21, *)
   @JavaMethod
   open func isFeatureRequired(_ arg0: String) -> Bool
 
@@ -38,6 +42,7 @@ extension MediaCodecInfo {
     /// ```java
     /// public boolean android.media.MediaCodecInfo$CodecCapabilities.isFormatSupported(android.media.MediaFormat)
     /// ```
+  @available(Android 21, *)
   @JavaMethod
   open func isFormatSupported(_ arg0: MediaFormat?) -> Bool
 
@@ -47,6 +52,7 @@ extension MediaCodecInfo {
     /// ```java
     /// public android.media.MediaFormat android.media.MediaCodecInfo$CodecCapabilities.getDefaultFormat()
     /// ```
+  @available(Android 21, *)
   @JavaMethod
   open func getDefaultFormat() -> MediaFormat!
 
@@ -56,6 +62,7 @@ extension MediaCodecInfo {
     /// ```java
     /// public java.lang.String android.media.MediaCodecInfo$CodecCapabilities.getMimeType()
     /// ```
+  @available(Android 21, *)
   @JavaMethod
   open func getMimeType() -> String
 
@@ -65,6 +72,7 @@ extension MediaCodecInfo {
     /// ```java
     /// public int android.media.MediaCodecInfo$CodecCapabilities.getMaxSupportedInstances()
     /// ```
+  @available(Android 23, *)
   @JavaMethod
   open func getMaxSupportedInstances() -> Int32
 
@@ -74,6 +82,7 @@ extension MediaCodecInfo {
     /// ```java
     /// public android.media.MediaCodecInfo$AudioCapabilities android.media.MediaCodecInfo$CodecCapabilities.getAudioCapabilities()
     /// ```
+  @available(Android 21, *)
   @JavaMethod
   open func getAudioCapabilities() -> MediaCodecInfo.AudioCapabilities!
 
@@ -83,6 +92,7 @@ extension MediaCodecInfo {
     /// ```java
     /// public android.media.MediaCodecInfo$EncoderCapabilities android.media.MediaCodecInfo$CodecCapabilities.getEncoderCapabilities()
     /// ```
+  @available(Android 21, *)
   @JavaMethod
   open func getEncoderCapabilities() -> MediaCodecInfo.EncoderCapabilities!
 
@@ -92,10 +102,12 @@ extension MediaCodecInfo {
     /// ```java
     /// public android.media.MediaCodecInfo$VideoCapabilities android.media.MediaCodecInfo$CodecCapabilities.getVideoCapabilities()
     /// ```
+  @available(Android 21, *)
   @JavaMethod
   open func getVideoCapabilities() -> MediaCodecInfo.VideoCapabilities!
   }
 }
+@available(Android 16, *)
 extension JavaClass<MediaCodecInfo.CodecCapabilities> {
   @JavaStaticField(isFinal: true)
   public var COLOR_Format12bitRGB444: Int32

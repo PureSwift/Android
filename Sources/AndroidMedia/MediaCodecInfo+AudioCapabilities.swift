@@ -3,7 +3,9 @@ import AndroidUtil
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 16, *)
 extension MediaCodecInfo {
+  @available(Android 21, *)
   @JavaClass("android.media.MediaCodecInfo$AudioCapabilities")
   open class AudioCapabilities: JavaObject {
     /// Java method `getSupportedSampleRates`.

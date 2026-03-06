@@ -5,6 +5,7 @@ import SwiftJavaJNICore
 
 @JavaClass("android.media.AudioTrack")
 open class AudioTrack: JavaObject {
+  @available(Android 21, *)
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: AudioAttributes?, _ arg1: AudioFormat?, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32, environment: JNIEnvironment? = nil) throws
 
@@ -56,6 +57,7 @@ open class AudioTrack: JavaObject {
     /// ```java
     /// public android.os.PersistableBundle android.media.AudioTrack.getMetrics()
     /// ```
+  @available(Android 28, *)
   @JavaMethod
   open func getMetrics() -> PersistableBundle!
 
@@ -65,6 +67,7 @@ open class AudioTrack: JavaObject {
     /// ```java
     /// public int android.media.AudioTrack.getOffloadDelay()
     /// ```
+  @available(Android 29, *)
   @JavaMethod
   open func getOffloadDelay() -> Int32
 
@@ -74,6 +77,7 @@ open class AudioTrack: JavaObject {
     /// ```java
     /// public int android.media.AudioTrack.getOffloadPadding()
     /// ```
+  @available(Android 29, *)
   @JavaMethod
   open func getOffloadPadding() -> Int32
 
@@ -83,6 +87,7 @@ open class AudioTrack: JavaObject {
     /// ```java
     /// public boolean android.media.AudioTrack.setDualMonoMode(int)
     /// ```
+  @available(Android 31, *)
   @JavaMethod
   open func setDualMonoMode(_ arg0: Int32) -> Bool
 
@@ -92,6 +97,7 @@ open class AudioTrack: JavaObject {
     /// ```java
     /// public int android.media.AudioTrack.getDualMonoMode()
     /// ```
+  @available(Android 31, *)
   @JavaMethod
   open func getDualMonoMode() -> Int32
 
@@ -110,6 +116,7 @@ open class AudioTrack: JavaObject {
     /// ```java
     /// public android.media.AudioAttributes android.media.AudioTrack.getAudioAttributes()
     /// ```
+  @available(Android 21, *)
   @JavaMethod
   open func getAudioAttributes() -> AudioAttributes!
 
@@ -137,6 +144,7 @@ open class AudioTrack: JavaObject {
     /// ```java
     /// public int android.media.AudioTrack.getUnderrunCount()
     /// ```
+  @available(Android 24, *)
   @JavaMethod
   open func getUnderrunCount() -> Int32
 
@@ -146,6 +154,7 @@ open class AudioTrack: JavaObject {
     /// ```java
     /// public int android.media.AudioTrack.getPerformanceMode()
     /// ```
+  @available(Android 29, *)
   @JavaMethod
   open func getPerformanceMode() -> Int32
 
@@ -164,6 +173,7 @@ open class AudioTrack: JavaObject {
     /// ```java
     /// public int android.media.AudioTrack.setVolume(float)
     /// ```
+  @available(Android 21, *)
   @JavaMethod
   open func setVolume(_ arg0: Float) -> Int32
 
@@ -236,6 +246,7 @@ open class AudioTrack: JavaObject {
     /// ```java
     /// public int android.media.AudioTrack.getBufferSizeInFrames()
     /// ```
+  @available(Android 23, *)
   @JavaMethod
   open func getBufferSizeInFrames() -> Int32
 
@@ -272,6 +283,7 @@ open class AudioTrack: JavaObject {
     /// ```java
     /// public void android.media.AudioTrack.addOnRoutingChangedListener(android.media.AudioTrack$OnRoutingChangedListener,android.os.Handler)
     /// ```
+  @available(Android 23, *)
   @JavaMethod
   open func addOnRoutingChangedListener(_ arg0: AudioTrack.OnRoutingChangedListener?, _ arg1: Handler?)
 
@@ -281,6 +293,7 @@ open class AudioTrack: JavaObject {
     /// ```java
     /// public void android.media.AudioTrack.removeOnRoutingChangedListener(android.media.AudioTrack$OnRoutingChangedListener)
     /// ```
+  @available(Android 23, *)
   @JavaMethod
   open func removeOnRoutingChangedListener(_ arg0: AudioTrack.OnRoutingChangedListener?)
 
@@ -344,6 +357,7 @@ open class AudioTrack: JavaObject {
     /// ```java
     /// public int android.media.AudioTrack.setBufferSizeInFrames(int)
     /// ```
+  @available(Android 24, *)
   @JavaMethod
   open func setBufferSizeInFrames(_ arg0: Int32) -> Int32
 
@@ -497,6 +511,7 @@ open class AudioTrack: JavaObject {
     /// ```java
     /// public int android.media.AudioTrack.write(float[],int,int,int)
     /// ```
+  @available(Android 21, *)
   @JavaMethod
   open func write(_ arg0: [Float], _ arg1: Int32, _ arg2: Int32, _ arg3: Int32) -> Int32
 
