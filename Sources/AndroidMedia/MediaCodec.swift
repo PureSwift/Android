@@ -12,106 +12,18 @@ open class MediaCodec: JavaObject {
   /// ```java
   /// public android.os.PersistableBundle android.media.MediaCodec.getMetrics()
   /// ```
-  @available(Android 26, *)
+@available(Android 26, *)
 @JavaMethod
   open func getMetrics() -> PersistableBundle!
 
-  /// Java method `queueInputBuffer`.
+  /// Java method `setVideoScalingMode`.
   ///
   /// ### Java method signature
   /// ```java
-  /// public void android.media.MediaCodec.queueInputBuffer(int,int,int,long,int) throws android.media.MediaCodec$CryptoException
+  /// public native void android.media.MediaCodec.setVideoScalingMode(int)
   /// ```
 @JavaMethod
-  open func queueInputBuffer(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int64, _ arg4: Int32) throws
-
-  /// Java method `dequeueInputBuffer`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.media.MediaCodec.dequeueInputBuffer(long)
-  /// ```
-@JavaMethod
-  open func dequeueInputBuffer(_ arg0: Int64) -> Int32
-
-  /// Java method `getQueueRequest`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.media.MediaCodec$QueueRequest android.media.MediaCodec.getQueueRequest(int)
-  /// ```
-  @available(Android 32, *)
-@JavaMethod
-  open func getQueueRequest(_ arg0: Int32) -> MediaCodec.QueueRequest!
-
-  /// Java method `getOutputFormat`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.media.MediaFormat android.media.MediaCodec.getOutputFormat()
-  /// ```
-@JavaMethod
-  open func getOutputFormat() -> MediaFormat!
-
-  /// Java method `getOutputFormat`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.media.MediaFormat android.media.MediaCodec.getOutputFormat(int)
-  /// ```
-  @available(Android 21, *)
-@JavaMethod
-  open func getOutputFormat(_ arg0: Int32) -> MediaFormat!
-
-  /// Java method `getInputFormat`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.media.MediaFormat android.media.MediaCodec.getInputFormat()
-  /// ```
-  @available(Android 21, *)
-@JavaMethod
-  open func getInputFormat() -> MediaFormat!
-
-  /// Java method `getOutputFrame`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.media.MediaCodec$OutputFrame android.media.MediaCodec.getOutputFrame(int)
-  /// ```
-  @available(Android 32, *)
-@JavaMethod
-  open func getOutputFrame(_ arg0: Int32) -> MediaCodec.OutputFrame!
-
-  /// Java method `setCallback`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.media.MediaCodec.setCallback(android.media.MediaCodec$Callback,android.os.Handler)
-  /// ```
-  @available(Android 21, *)
-@JavaMethod
-  open func setCallback(_ arg0: MediaCodec.Callback?, _ arg1: Handler?)
-
-  /// Java method `setCallback`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.media.MediaCodec.setCallback(android.media.MediaCodec$Callback)
-  /// ```
-  @available(Android 21, *)
-@JavaMethod
-  open func setCallback(_ arg0: MediaCodec.Callback?)
-
-  /// Java method `getCodecInfo`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.media.MediaCodecInfo android.media.MediaCodec.getCodecInfo()
-  /// ```
-  @available(Android 18, *)
-@JavaMethod
-  open func getCodecInfo() -> MediaCodecInfo!
+  open func setVideoScalingMode(_ arg0: Int32)
 
   /// Java method `detachOutputSurface`.
   ///
@@ -119,7 +31,7 @@ open class MediaCodec: JavaObject {
   /// ```java
   /// public void android.media.MediaCodec.detachOutputSurface()
   /// ```
-  @available(Android 35, *)
+@available(Android 35, *)
 @JavaMethod
   open func detachOutputSurface()
 
@@ -145,20 +57,20 @@ open class MediaCodec: JavaObject {
   ///
   /// ### Java method signature
   /// ```java
-  /// public void android.media.MediaCodec.releaseOutputBuffer(int,boolean)
+  /// public void android.media.MediaCodec.releaseOutputBuffer(int,long)
   /// ```
+@available(Android 21, *)
 @JavaMethod
-  open func releaseOutputBuffer(_ arg0: Int32, _ arg1: Bool)
+  open func releaseOutputBuffer(_ arg0: Int32, _ arg1: Int64)
 
   /// Java method `releaseOutputBuffer`.
   ///
   /// ### Java method signature
   /// ```java
-  /// public void android.media.MediaCodec.releaseOutputBuffer(int,long)
+  /// public void android.media.MediaCodec.releaseOutputBuffer(int,boolean)
   /// ```
-  @available(Android 21, *)
 @JavaMethod
-  open func releaseOutputBuffer(_ arg0: Int32, _ arg1: Int64)
+  open func releaseOutputBuffer(_ arg0: Int32, _ arg1: Bool)
 
   /// Java method `signalEndOfInputStream`.
   ///
@@ -166,18 +78,9 @@ open class MediaCodec: JavaObject {
   /// ```java
   /// public native void android.media.MediaCodec.signalEndOfInputStream()
   /// ```
-  @available(Android 18, *)
+@available(Android 18, *)
 @JavaMethod
   open func signalEndOfInputStream()
-
-  /// Java method `setVideoScalingMode`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public native void android.media.MediaCodec.setVideoScalingMode(int)
-  /// ```
-@JavaMethod
-  open func setVideoScalingMode(_ arg0: Int32)
 
   /// Java method `setOnFirstTunnelFrameReadyListener`.
   ///
@@ -185,7 +88,7 @@ open class MediaCodec: JavaObject {
   /// ```java
   /// public void android.media.MediaCodec.setOnFirstTunnelFrameReadyListener(android.os.Handler,android.media.MediaCodec$OnFirstTunnelFrameReadyListener)
   /// ```
-  @available(Android 30, *)
+@available(Android 30, *)
 @JavaMethod
   open func setOnFirstTunnelFrameReadyListener(_ arg0: Handler?, _ arg1: MediaCodec.OnFirstTunnelFrameReadyListener?)
 
@@ -195,7 +98,7 @@ open class MediaCodec: JavaObject {
   /// ```java
   /// public void android.media.MediaCodec.setOnFrameRenderedListener(android.media.MediaCodec$OnFrameRenderedListener,android.os.Handler)
   /// ```
-  @available(Android 23, *)
+@available(Android 23, *)
 @JavaMethod
   open func setOnFrameRenderedListener(_ arg0: MediaCodec.OnFrameRenderedListener?, _ arg1: Handler?)
 
@@ -205,9 +108,106 @@ open class MediaCodec: JavaObject {
   /// ```java
   /// public android.media.MediaCodec$ParameterDescriptor android.media.MediaCodec.getParameterDescriptor(java.lang.String)
   /// ```
-  @available(Android 33, *)
+@available(Android 33, *)
 @JavaMethod
   open func getParameterDescriptor(_ arg0: String) -> MediaCodec.ParameterDescriptor!
+
+  /// Java method `queueInputBuffer`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.media.MediaCodec.queueInputBuffer(int,int,int,long,int) throws android.media.MediaCodec$CryptoException
+  /// ```
+@JavaMethod
+  open func queueInputBuffer(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int64, _ arg4: Int32) throws
+
+  /// Java method `dequeueInputBuffer`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.media.MediaCodec.dequeueInputBuffer(long)
+  /// ```
+@JavaMethod
+  open func dequeueInputBuffer(_ arg0: Int64) -> Int32
+
+  /// Java method `getQueueRequest`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public android.media.MediaCodec$QueueRequest android.media.MediaCodec.getQueueRequest(int)
+  /// ```
+@available(Android 32, *)
+@JavaMethod
+  open func getQueueRequest(_ arg0: Int32) -> MediaCodec.QueueRequest!
+
+  /// Java method `getOutputFormat`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public android.media.MediaFormat android.media.MediaCodec.getOutputFormat()
+  /// ```
+@JavaMethod
+  open func getOutputFormat() -> MediaFormat!
+
+  /// Java method `getOutputFormat`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public android.media.MediaFormat android.media.MediaCodec.getOutputFormat(int)
+  /// ```
+@available(Android 21, *)
+@JavaMethod
+  open func getOutputFormat(_ arg0: Int32) -> MediaFormat!
+
+  /// Java method `getInputFormat`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public android.media.MediaFormat android.media.MediaCodec.getInputFormat()
+  /// ```
+@available(Android 21, *)
+@JavaMethod
+  open func getInputFormat() -> MediaFormat!
+
+  /// Java method `getOutputFrame`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public android.media.MediaCodec$OutputFrame android.media.MediaCodec.getOutputFrame(int)
+  /// ```
+@available(Android 32, *)
+@JavaMethod
+  open func getOutputFrame(_ arg0: Int32) -> MediaCodec.OutputFrame!
+
+  /// Java method `setCallback`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.media.MediaCodec.setCallback(android.media.MediaCodec$Callback,android.os.Handler)
+  /// ```
+@available(Android 21, *)
+@JavaMethod
+  open func setCallback(_ arg0: MediaCodec.Callback?, _ arg1: Handler?)
+
+  /// Java method `setCallback`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.media.MediaCodec.setCallback(android.media.MediaCodec$Callback)
+  /// ```
+@available(Android 21, *)
+@JavaMethod
+  open func setCallback(_ arg0: MediaCodec.Callback?)
+
+  /// Java method `getCodecInfo`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public android.media.MediaCodecInfo android.media.MediaCodec.getCodecInfo()
+  /// ```
+@available(Android 18, *)
+@JavaMethod
+  open func getCodecInfo() -> MediaCodecInfo!
 
   /// Java method `getName`.
   ///
@@ -215,7 +215,7 @@ open class MediaCodec: JavaObject {
   /// ```java
   /// public java.lang.String android.media.MediaCodec.getName()
   /// ```
-  @available(Android 18, *)
+@available(Android 18, *)
 @JavaMethod
   open func getName() -> String
 
@@ -234,7 +234,7 @@ open class MediaCodec: JavaObject {
   /// ```java
   /// public void android.media.MediaCodec.reset()
   /// ```
-  @available(Android 21, *)
+@available(Android 21, *)
 @JavaMethod
   open func reset()
 
@@ -253,7 +253,7 @@ open class MediaCodec: JavaObject {
   /// ```java
   /// public native java.lang.String android.media.MediaCodec.getCanonicalName()
   /// ```
-  @available(Android 29, *)
+@available(Android 29, *)
 @JavaMethod
   open func getCanonicalName() -> String
 
@@ -299,15 +299,6 @@ extension MediaCodec {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Int32, _ arg1: String, environment: JNIEnvironment? = nil)
 
-    /// Java method `getErrorCode`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.media.MediaCodec$CryptoException.getErrorCode()
-    /// ```
-  @JavaMethod
-  open func getErrorCode() -> Int32
-
     /// Java method `getCryptoInfo`.
     ///
     /// ### Java method signature
@@ -316,6 +307,15 @@ extension MediaCodec {
     /// ```
   @JavaMethod
   open func getCryptoInfo() -> MediaCodec.CryptoInfo!
+
+    /// Java method `getErrorCode`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public int android.media.MediaCodec$CryptoException.getErrorCode()
+    /// ```
+  @JavaMethod
+  open func getErrorCode() -> Int32
 
     /// Java method `getVendorError`.
     ///
@@ -347,30 +347,39 @@ extension MediaCodec {
 }
 @available(Android 16, *)
 extension JavaClass<MediaCodec.CryptoException> {
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var ERROR_FRAME_TOO_LARGE: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var ERROR_INSUFFICIENT_OUTPUT_PROTECTION: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var ERROR_INSUFFICIENT_SECURITY: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var ERROR_KEY_EXPIRED: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var ERROR_LOST_STATE: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var ERROR_NO_KEY: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var ERROR_RESOURCE_BUSY: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var ERROR_SESSION_NOT_OPENED: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var ERROR_UNSUPPORTED_OPERATION: Int32
 }
@@ -599,15 +608,6 @@ extension MediaCodec {
 extension MediaCodec {
   @JavaClass("android.media.MediaCodec$OutputFrame")
   open class OutputFrame: JavaObject {
-    /// Java method `getLinearBlock`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.media.MediaCodec$LinearBlock android.media.MediaCodec$OutputFrame.getLinearBlock()
-    /// ```
-  @JavaMethod
-  open func getLinearBlock() -> MediaCodec.LinearBlock!
-
     /// Java method `getPresentationTimeUs`.
     ///
     /// ### Java method signature
@@ -616,6 +616,15 @@ extension MediaCodec {
     /// ```
   @JavaMethod
   open func getPresentationTimeUs() -> Int64
+
+    /// Java method `getLinearBlock`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.media.MediaCodec$LinearBlock android.media.MediaCodec$OutputFrame.getLinearBlock()
+    /// ```
+  @JavaMethod
+  open func getLinearBlock() -> MediaCodec.LinearBlock!
 
     /// Java method `getFormat`.
     ///
@@ -679,6 +688,33 @@ extension MediaCodec {
 extension MediaCodec {
   @JavaClass("android.media.MediaCodec$QueueRequest")
   open class QueueRequest: JavaObject {
+    /// Java method `setEncryptedLinearBlock`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.media.MediaCodec$QueueRequest android.media.MediaCodec$QueueRequest.setEncryptedLinearBlock(android.media.MediaCodec$LinearBlock,int,int,android.media.MediaCodec$CryptoInfo)
+    /// ```
+  @JavaMethod
+  open func setEncryptedLinearBlock(_ arg0: MediaCodec.LinearBlock?, _ arg1: Int32, _ arg2: Int32, _ arg3: MediaCodec.CryptoInfo?) -> MediaCodec.QueueRequest!
+
+    /// Java method `setPresentationTimeUs`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.media.MediaCodec$QueueRequest android.media.MediaCodec$QueueRequest.setPresentationTimeUs(long)
+    /// ```
+  @JavaMethod
+  open func setPresentationTimeUs(_ arg0: Int64) -> MediaCodec.QueueRequest!
+
+    /// Java method `setIntegerParameter`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.media.MediaCodec$QueueRequest android.media.MediaCodec$QueueRequest.setIntegerParameter(java.lang.String,int)
+    /// ```
+  @JavaMethod
+  open func setIntegerParameter(_ arg0: String, _ arg1: Int32) -> MediaCodec.QueueRequest!
+
     /// Java method `setLinearBlock`.
     ///
     /// ### Java method signature
@@ -714,33 +750,6 @@ extension MediaCodec {
     /// ```
   @JavaMethod
   open func setStringParameter(_ arg0: String, _ arg1: String) -> MediaCodec.QueueRequest!
-
-    /// Java method `setEncryptedLinearBlock`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.media.MediaCodec$QueueRequest android.media.MediaCodec$QueueRequest.setEncryptedLinearBlock(android.media.MediaCodec$LinearBlock,int,int,android.media.MediaCodec$CryptoInfo)
-    /// ```
-  @JavaMethod
-  open func setEncryptedLinearBlock(_ arg0: MediaCodec.LinearBlock?, _ arg1: Int32, _ arg2: Int32, _ arg3: MediaCodec.CryptoInfo?) -> MediaCodec.QueueRequest!
-
-    /// Java method `setPresentationTimeUs`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.media.MediaCodec$QueueRequest android.media.MediaCodec$QueueRequest.setPresentationTimeUs(long)
-    /// ```
-  @JavaMethod
-  open func setPresentationTimeUs(_ arg0: Int64) -> MediaCodec.QueueRequest!
-
-    /// Java method `setIntegerParameter`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.media.MediaCodec$QueueRequest android.media.MediaCodec$QueueRequest.setIntegerParameter(java.lang.String,int)
-    /// ```
-  @JavaMethod
-  open func setIntegerParameter(_ arg0: String, _ arg1: Int32) -> MediaCodec.QueueRequest!
 
     /// Java method `queue`.
     ///
@@ -778,6 +787,7 @@ extension JavaClass<MediaCodec> {
   @JavaStaticField(isFinal: true)
   public var BUFFER_FLAG_PARTIAL_FRAME: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var BUFFER_FLAG_SYNC_FRAME: Int32
 
@@ -802,6 +812,7 @@ extension JavaClass<MediaCodec> {
   @JavaStaticField(isFinal: true)
   public var CRYPTO_MODE_UNENCRYPTED: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var INFO_OUTPUT_BUFFERS_CHANGED: Int32
 
@@ -847,15 +858,6 @@ extension JavaClass<MediaCodec> {
   @JavaStaticField(isFinal: true)
   public var VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING: Int32
 
-    /// Java method `createByCodecName`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public static android.media.MediaCodec android.media.MediaCodec.createByCodecName(java.lang.String) throws java.io.IOException
-    /// ```
-  @JavaStaticMethod
-  public func createByCodecName(_ arg0: String) throws -> MediaCodec!
-
     /// Java method `createDecoderByType`.
     ///
     /// ### Java method signature
@@ -873,4 +875,13 @@ extension JavaClass<MediaCodec> {
     /// ```
   @JavaStaticMethod
   public func createEncoderByType(_ arg0: String) throws -> MediaCodec!
+
+    /// Java method `createByCodecName`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public static android.media.MediaCodec android.media.MediaCodec.createByCodecName(java.lang.String) throws java.io.IOException
+    /// ```
+  @JavaStaticMethod
+  public func createByCodecName(_ arg0: String) throws -> MediaCodec!
 }

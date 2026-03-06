@@ -12,33 +12,14 @@ open class MediaExtractor: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
-    /// Java method `getMetrics`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.os.PersistableBundle android.media.MediaExtractor.getMetrics()
-    /// ```
-  @available(Android 26, *)
-  @JavaMethod
-  open func getMetrics() -> PersistableBundle!
-
     /// Java method `setDataSource`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public void android.media.MediaExtractor.setDataSource(java.io.FileDescriptor) throws java.io.IOException
+    /// public void android.media.MediaExtractor.setDataSource(java.lang.String) throws java.io.IOException
     /// ```
   @JavaMethod
-  open func setDataSource(_ arg0: FileDescriptor?) throws
-
-    /// Java method `setDataSource`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public native void android.media.MediaExtractor.setDataSource(java.io.FileDescriptor,long,long) throws java.io.IOException
-    /// ```
-  @JavaMethod
-  open func setDataSource(_ arg0: FileDescriptor?, _ arg1: Int64, _ arg2: Int64) throws
+  open func setDataSource(_ arg0: String) throws
 
     /// Java method `setDataSource`.
     ///
@@ -53,28 +34,19 @@ open class MediaExtractor: JavaObject {
     ///
     /// ### Java method signature
     /// ```java
-    /// public void android.media.MediaExtractor.setDataSource(java.lang.String) throws java.io.IOException
+    /// public native void android.media.MediaExtractor.setDataSource(java.io.FileDescriptor,long,long) throws java.io.IOException
     /// ```
   @JavaMethod
-  open func setDataSource(_ arg0: String) throws
+  open func setDataSource(_ arg0: FileDescriptor?, _ arg1: Int64, _ arg2: Int64) throws
 
-    /// Java method `seekTo`.
+    /// Java method `setDataSource`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public native void android.media.MediaExtractor.seekTo(long,int)
+    /// public void android.media.MediaExtractor.setDataSource(java.io.FileDescriptor) throws java.io.IOException
     /// ```
   @JavaMethod
-  open func seekTo(_ arg0: Int64, _ arg1: Int32)
-
-    /// Java method `selectTrack`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public native void android.media.MediaExtractor.selectTrack(int)
-    /// ```
-  @JavaMethod
-  open func selectTrack(_ arg0: Int32)
+  open func setDataSource(_ arg0: FileDescriptor?) throws
 
     /// Java method `getCasInfo`.
     ///
@@ -103,6 +75,15 @@ open class MediaExtractor: JavaObject {
   @JavaMethod
   open func getTrackFormat(_ arg0: Int32) -> MediaFormat!
 
+    /// Java method `selectTrack`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public native void android.media.MediaExtractor.selectTrack(int)
+    /// ```
+  @JavaMethod
+  open func selectTrack(_ arg0: Int32)
+
     /// Java method `unselectTrack`.
     ///
     /// ### Java method signature
@@ -111,6 +92,15 @@ open class MediaExtractor: JavaObject {
     /// ```
   @JavaMethod
   open func unselectTrack(_ arg0: Int32)
+
+    /// Java method `seekTo`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public native void android.media.MediaExtractor.seekTo(long,int)
+    /// ```
+  @JavaMethod
+  open func seekTo(_ arg0: Int64, _ arg1: Int32)
 
     /// Java method `getSampleTime`.
     ///
@@ -148,6 +138,16 @@ open class MediaExtractor: JavaObject {
     /// ```
   @JavaMethod
   open func getCachedDuration() -> Int64
+
+    /// Java method `getMetrics`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.os.PersistableBundle android.media.MediaExtractor.getMetrics()
+    /// ```
+  @available(Android 26, *)
+  @JavaMethod
+  open func getMetrics() -> PersistableBundle!
 
     /// Java method `getSampleTrackIndex`.
     ///

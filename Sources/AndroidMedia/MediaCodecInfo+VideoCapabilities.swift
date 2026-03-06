@@ -8,6 +8,15 @@ extension MediaCodecInfo {
   @available(Android 21, *)
   @JavaClass("android.media.MediaCodecInfo$VideoCapabilities")
   open class VideoCapabilities: JavaObject {
+    /// Java method `areSizeAndRateSupported`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public boolean android.media.MediaCodecInfo$VideoCapabilities.areSizeAndRateSupported(int,int,double)
+    /// ```
+  @JavaMethod
+  open func areSizeAndRateSupported(_ arg0: Int32, _ arg1: Int32, _ arg2: Double) -> Bool
+
     /// Java method `getWidthAlignment`.
     ///
     /// ### Java method signature
@@ -34,15 +43,6 @@ extension MediaCodecInfo {
     /// ```
   @JavaMethod
   open func isSizeSupported(_ arg0: Int32, _ arg1: Int32) -> Bool
-
-    /// Java method `areSizeAndRateSupported`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public boolean android.media.MediaCodecInfo$VideoCapabilities.areSizeAndRateSupported(int,int,double)
-    /// ```
-  @JavaMethod
-  open func areSizeAndRateSupported(_ arg0: Int32, _ arg1: Int32, _ arg2: Double) -> Bool
   }
 }
 extension MediaCodecInfo.VideoCapabilities {

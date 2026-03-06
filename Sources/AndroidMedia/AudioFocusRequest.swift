@@ -5,24 +5,6 @@ import SwiftJavaJNICore
 @available(Android 26, *)
 @JavaClass("android.media.AudioFocusRequest")
 open class AudioFocusRequest: JavaObject {
-  /// Java method `getAudioAttributes`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.media.AudioAttributes android.media.AudioFocusRequest.getAudioAttributes()
-  /// ```
-@JavaMethod
-  open func getAudioAttributes() -> AudioAttributes!
-
-  /// Java method `getFocusGain`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.media.AudioFocusRequest.getFocusGain()
-  /// ```
-@JavaMethod
-  open func getFocusGain() -> Int32
-
   /// Java method `acceptsDelayedFocusGain`.
   ///
   /// ### Java method signature
@@ -40,4 +22,22 @@ open class AudioFocusRequest: JavaObject {
   /// ```
 @JavaMethod
   open func willPauseWhenDucked() -> Bool
+
+  /// Java method `getAudioAttributes`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public android.media.AudioAttributes android.media.AudioFocusRequest.getAudioAttributes()
+  /// ```
+@JavaMethod
+  open func getAudioAttributes() -> AudioAttributes!
+
+  /// Java method `getFocusGain`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.media.AudioFocusRequest.getFocusGain()
+  /// ```
+@JavaMethod
+  open func getFocusGain() -> Int32
 }

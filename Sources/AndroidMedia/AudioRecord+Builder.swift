@@ -10,15 +10,6 @@ extension AudioRecord {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
-    /// Java method `setContext`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.media.AudioRecord$Builder android.media.AudioRecord$Builder.setContext(android.content.Context)
-    /// ```
-  @JavaMethod
-  open func setContext(_ arg0: Context?) -> AudioRecord.Builder!
-
     /// Java method `setAudioSource`.
     ///
     /// ### Java method signature
@@ -27,6 +18,15 @@ extension AudioRecord {
     /// ```
   @JavaMethod
   open func setAudioSource(_ arg0: Int32) throws -> AudioRecord.Builder!
+
+    /// Java method `setContext`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.media.AudioRecord$Builder android.media.AudioRecord$Builder.setContext(android.content.Context)
+    /// ```
+  @JavaMethod
+  open func setContext(_ arg0: Context?) -> AudioRecord.Builder!
 
     /// Java method `setAudioFormat`.
     ///

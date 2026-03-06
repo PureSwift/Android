@@ -6,13 +6,23 @@ import SwiftJavaJNICore
 
 @JavaClass("android.media.AudioManager")
 open class AudioManager: JavaObject {
+  /// Java method `removeOnCommunicationDeviceChangedListener`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.media.AudioManager.removeOnCommunicationDeviceChangedListener(android.media.AudioManager$OnCommunicationDeviceChangedListener)
+  /// ```
+@available(Android 31, *)
+@JavaMethod
+  open func removeOnCommunicationDeviceChangedListener(_ arg0: AudioManager.OnCommunicationDeviceChangedListener?)
+
   /// Java method `isVolumeFixed`.
   ///
   /// ### Java method signature
   /// ```java
   /// public boolean android.media.AudioManager.isVolumeFixed()
   /// ```
-  @available(Android 21, *)
+@available(Android 21, *)
 @JavaMethod
   open func isVolumeFixed() -> Bool
 
@@ -58,7 +68,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public int android.media.AudioManager.getStreamMinVolume(int)
   /// ```
-  @available(Android 28, *)
+@available(Android 28, *)
 @JavaMethod
   open func getStreamMinVolume(_ arg0: Int32) -> Int32
 
@@ -77,7 +87,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public float android.media.AudioManager.getStreamVolumeDb(int,int,int)
   /// ```
-  @available(Android 28, *)
+@available(Android 28, *)
 @JavaMethod
   open func getStreamVolumeDb(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32) -> Float
 
@@ -105,7 +115,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public boolean android.media.AudioManager.isVolumeGroupMuted(int)
   /// ```
-  @available(Android 31, *)
+@available(Android 31, *)
 @JavaMethod
   open func isVolumeGroupMuted(_ arg0: Int32) -> Bool
 
@@ -115,7 +125,8 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public void android.media.AudioManager.setStreamSolo(int,boolean)
   /// ```
-@JavaMethod
+@available(*, deprecated)
+  @JavaMethod
   open func setStreamSolo(_ arg0: Int32, _ arg1: Bool)
 
   /// Java method `setStreamMute`.
@@ -124,7 +135,8 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public void android.media.AudioManager.setStreamMute(int,boolean)
   /// ```
-@JavaMethod
+@available(*, deprecated)
+  @JavaMethod
   open func setStreamMute(_ arg0: Int32, _ arg1: Bool)
 
   /// Java method `isStreamMute`.
@@ -142,7 +154,8 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public boolean android.media.AudioManager.shouldVibrate(int)
   /// ```
-@JavaMethod
+@available(*, deprecated)
+  @JavaMethod
   open func shouldVibrate(_ arg0: Int32) -> Bool
 
   /// Java method `getVibrateSetting`.
@@ -151,7 +164,8 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public int android.media.AudioManager.getVibrateSetting(int)
   /// ```
-@JavaMethod
+@available(*, deprecated)
+  @JavaMethod
   open func getVibrateSetting(_ arg0: Int32) -> Int32
 
   /// Java method `setVibrateSetting`.
@@ -160,7 +174,8 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public void android.media.AudioManager.setVibrateSetting(int,int)
   /// ```
-@JavaMethod
+@available(*, deprecated)
+  @JavaMethod
   open func setVibrateSetting(_ arg0: Int32, _ arg1: Int32)
 
   /// Java method `setSpeakerphoneOn`.
@@ -169,7 +184,8 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public void android.media.AudioManager.setSpeakerphoneOn(boolean)
   /// ```
-@JavaMethod
+@available(*, deprecated)
+  @JavaMethod
   open func setSpeakerphoneOn(_ arg0: Bool)
 
   /// Java method `isSpeakerphoneOn`.
@@ -178,7 +194,8 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public boolean android.media.AudioManager.isSpeakerphoneOn()
   /// ```
-@JavaMethod
+@available(*, deprecated)
+  @JavaMethod
   open func isSpeakerphoneOn() -> Bool
 
   /// Java method `startBluetoothSco`.
@@ -187,7 +204,8 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public void android.media.AudioManager.startBluetoothSco()
   /// ```
-@JavaMethod
+@available(*, deprecated)
+  @JavaMethod
   open func startBluetoothSco()
 
   /// Java method `stopBluetoothSco`.
@@ -196,7 +214,8 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public void android.media.AudioManager.stopBluetoothSco()
   /// ```
-@JavaMethod
+@available(*, deprecated)
+  @JavaMethod
   open func stopBluetoothSco()
 
   /// Java method `setBluetoothScoOn`.
@@ -214,7 +233,8 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public boolean android.media.AudioManager.isBluetoothScoOn()
   /// ```
-@JavaMethod
+@available(*, deprecated)
+  @JavaMethod
   open func isBluetoothScoOn() -> Bool
 
   /// Java method `setBluetoothA2dpOn`.
@@ -223,7 +243,8 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public void android.media.AudioManager.setBluetoothA2dpOn(boolean)
   /// ```
-@JavaMethod
+@available(*, deprecated)
+  @JavaMethod
   open func setBluetoothA2dpOn(_ arg0: Bool)
 
   /// Java method `isBluetoothA2dpOn`.
@@ -232,7 +253,8 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public boolean android.media.AudioManager.isBluetoothA2dpOn()
   /// ```
-@JavaMethod
+@available(*, deprecated)
+  @JavaMethod
   open func isBluetoothA2dpOn() -> Bool
 
   /// Java method `setWiredHeadsetOn`.
@@ -241,7 +263,8 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public void android.media.AudioManager.setWiredHeadsetOn(boolean)
   /// ```
-@JavaMethod
+@available(*, deprecated)
+  @JavaMethod
   open func setWiredHeadsetOn(_ arg0: Bool)
 
   /// Java method `isWiredHeadsetOn`.
@@ -250,7 +273,8 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public boolean android.media.AudioManager.isWiredHeadsetOn()
   /// ```
-@JavaMethod
+@available(*, deprecated)
+  @JavaMethod
   open func isWiredHeadsetOn() -> Bool
 
   /// Java method `setMicrophoneMute`.
@@ -295,7 +319,8 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public void android.media.AudioManager.setRouting(int,int,int)
   /// ```
-@JavaMethod
+@available(*, deprecated)
+  @JavaMethod
   open func setRouting(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32)
 
   /// Java method `getRouting`.
@@ -304,7 +329,8 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public int android.media.AudioManager.getRouting(int)
   /// ```
-@JavaMethod
+@available(*, deprecated)
+  @JavaMethod
   open func getRouting(_ arg0: Int32) -> Int32
 
   /// Java method `isMusicActive`.
@@ -358,7 +384,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public int android.media.AudioManager.requestAudioFocus(android.media.AudioFocusRequest)
   /// ```
-  @available(Android 26, *)
+@available(Android 26, *)
 @JavaMethod
   open func requestAudioFocus(_ arg0: AudioFocusRequest?) -> Int32
 
@@ -368,7 +394,8 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public int android.media.AudioManager.requestAudioFocus(android.media.AudioManager$OnAudioFocusChangeListener,int,int)
   /// ```
-@JavaMethod
+@available(*, deprecated)
+  @JavaMethod
   open func requestAudioFocus(_ arg0: AudioManager.OnAudioFocusChangeListener?, _ arg1: Int32, _ arg2: Int32) -> Int32
 
   /// Java method `abandonAudioFocus`.
@@ -377,28 +404,9 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public int android.media.AudioManager.abandonAudioFocus(android.media.AudioManager$OnAudioFocusChangeListener)
   /// ```
-@JavaMethod
+@available(*, deprecated)
+  @JavaMethod
   open func abandonAudioFocus(_ arg0: AudioManager.OnAudioFocusChangeListener?) -> Int32
-
-  /// Java method `registerAudioRecordingCallback`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.media.AudioManager.registerAudioRecordingCallback(android.media.AudioManager$AudioRecordingCallback,android.os.Handler)
-  /// ```
-  @available(Android 29, *)
-@JavaMethod
-  open func registerAudioRecordingCallback(_ arg0: AudioManager.AudioRecordingCallback?, _ arg1: Handler?)
-
-  /// Java method `unregisterAudioRecordingCallback`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.media.AudioManager.unregisterAudioRecordingCallback(android.media.AudioManager$AudioRecordingCallback)
-  /// ```
-  @available(Android 29, *)
-@JavaMethod
-  open func unregisterAudioRecordingCallback(_ arg0: AudioManager.AudioRecordingCallback?)
 
   /// Java method `getAllowedCapturePolicy`.
   ///
@@ -406,39 +414,9 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public int android.media.AudioManager.getAllowedCapturePolicy()
   /// ```
-  @available(Android 29, *)
+@available(Android 29, *)
 @JavaMethod
   open func getAllowedCapturePolicy() -> Int32
-
-  /// Java method `setAllowedCapturePolicy`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.media.AudioManager.setAllowedCapturePolicy(int)
-  /// ```
-  @available(Android 29, *)
-@JavaMethod
-  open func setAllowedCapturePolicy(_ arg0: Int32)
-
-  /// Java method `removeOnCommunicationDeviceChangedListener`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.media.AudioManager.removeOnCommunicationDeviceChangedListener(android.media.AudioManager$OnCommunicationDeviceChangedListener)
-  /// ```
-  @available(Android 31, *)
-@JavaMethod
-  open func removeOnCommunicationDeviceChangedListener(_ arg0: AudioManager.OnCommunicationDeviceChangedListener?)
-
-  /// Java method `removeOnPreferredMixerAttributesChangedListener`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.media.AudioManager.removeOnPreferredMixerAttributesChangedListener(android.media.AudioManager$OnPreferredMixerAttributesChangedListener)
-  /// ```
-  @available(Android 34, *)
-@JavaMethod
-  open func removeOnPreferredMixerAttributesChangedListener(_ arg0: AudioManager.OnPreferredMixerAttributesChangedListener?)
 
   /// Java method `adjustSuggestedStreamVolume`.
   ///
@@ -455,7 +433,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public boolean android.media.AudioManager.isRampingRingerEnabled()
   /// ```
-  @available(Android 28, *)
+@available(Android 28, *)
 @JavaMethod
   open func isRampingRingerEnabled() -> Bool
 
@@ -465,7 +443,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public int android.media.AudioManager.getVolumeGroupIdForAttributes(android.media.AudioAttributes)
   /// ```
-  @available(Android 28, *)
+@available(Android 28, *)
 @JavaMethod
   open func getVolumeGroupIdForAttributes(_ arg0: AudioAttributes?) -> Int32
 
@@ -475,9 +453,19 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public void android.media.AudioManager.adjustVolumeGroupVolume(int,int,int)
   /// ```
-  @available(Android 28, *)
+@available(Android 28, *)
 @JavaMethod
   open func adjustVolumeGroupVolume(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32)
+
+  /// Java method `setAllowedCapturePolicy`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.media.AudioManager.setAllowedCapturePolicy(int)
+  /// ```
+@available(Android 29, *)
+@JavaMethod
+  open func setAllowedCapturePolicy(_ arg0: Int32)
 
   /// Java method `isBluetoothScoAvailableOffCall`.
   ///
@@ -494,7 +482,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public void android.media.AudioManager.removeOnModeChangedListener(android.media.AudioManager$OnModeChangedListener)
   /// ```
-  @available(Android 31, *)
+@available(Android 31, *)
 @JavaMethod
   open func removeOnModeChangedListener(_ arg0: AudioManager.OnModeChangedListener?)
 
@@ -504,7 +492,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public boolean android.media.AudioManager.isCallScreeningModeSupported()
   /// ```
-  @available(Android 30, *)
+@available(Android 30, *)
 @JavaMethod
   open func isCallScreeningModeSupported() -> Bool
 
@@ -514,7 +502,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public int android.media.AudioManager.generateAudioSessionId()
   /// ```
-  @available(Android 21, *)
+@available(Android 21, *)
 @JavaMethod
   open func generateAudioSessionId() -> Int32
 
@@ -524,7 +512,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public int android.media.AudioManager.abandonAudioFocusRequest(android.media.AudioFocusRequest)
   /// ```
-  @available(Android 26, *)
+@available(Android 26, *)
 @JavaMethod
   open func abandonAudioFocusRequest(_ arg0: AudioFocusRequest?) -> Int32
 
@@ -534,7 +522,8 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public void android.media.AudioManager.registerMediaButtonEventReceiver(android.content.ComponentName)
   /// ```
-@JavaMethod
+@available(*, deprecated)
+  @JavaMethod
   open func registerMediaButtonEventReceiver(_ arg0: ComponentName?)
 
   /// Java method `unregisterMediaButtonEventReceiver`.
@@ -543,7 +532,8 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public void android.media.AudioManager.unregisterMediaButtonEventReceiver(android.content.ComponentName)
   /// ```
-@JavaMethod
+@available(*, deprecated)
+  @JavaMethod
   open func unregisterMediaButtonEventReceiver(_ arg0: ComponentName?)
 
   /// Java method `registerAudioPlaybackCallback`.
@@ -552,7 +542,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public void android.media.AudioManager.registerAudioPlaybackCallback(android.media.AudioManager$AudioPlaybackCallback,android.os.Handler)
   /// ```
-  @available(Android 26, *)
+@available(Android 26, *)
 @JavaMethod
   open func registerAudioPlaybackCallback(_ arg0: AudioManager.AudioPlaybackCallback?, _ arg1: Handler?)
 
@@ -562,9 +552,29 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public void android.media.AudioManager.unregisterAudioPlaybackCallback(android.media.AudioManager$AudioPlaybackCallback)
   /// ```
-  @available(Android 26, *)
+@available(Android 26, *)
 @JavaMethod
   open func unregisterAudioPlaybackCallback(_ arg0: AudioManager.AudioPlaybackCallback?)
+
+  /// Java method `registerAudioRecordingCallback`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.media.AudioManager.registerAudioRecordingCallback(android.media.AudioManager$AudioRecordingCallback,android.os.Handler)
+  /// ```
+@available(Android 29, *)
+@JavaMethod
+  open func registerAudioRecordingCallback(_ arg0: AudioManager.AudioRecordingCallback?, _ arg1: Handler?)
+
+  /// Java method `unregisterAudioRecordingCallback`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.media.AudioManager.unregisterAudioRecordingCallback(android.media.AudioManager$AudioRecordingCallback)
+  /// ```
+@available(Android 29, *)
+@JavaMethod
+  open func unregisterAudioRecordingCallback(_ arg0: AudioManager.AudioRecordingCallback?)
 
   /// Java method `setEncodedSurroundMode`.
   ///
@@ -572,7 +582,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public boolean android.media.AudioManager.setEncodedSurroundMode(int)
   /// ```
-  @available(Android 28, *)
+@available(Android 28, *)
 @JavaMethod
   open func setEncodedSurroundMode(_ arg0: Int32) -> Bool
 
@@ -582,7 +592,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public int android.media.AudioManager.getEncodedSurroundMode()
   /// ```
-  @available(Android 28, *)
+@available(Android 28, *)
 @JavaMethod
   open func getEncodedSurroundMode() -> Int32
 
@@ -592,7 +602,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public boolean android.media.AudioManager.setSurroundFormatEnabled(int,boolean)
   /// ```
-  @available(Android 31, *)
+@available(Android 31, *)
 @JavaMethod
   open func setSurroundFormatEnabled(_ arg0: Int32, _ arg1: Bool) -> Bool
 
@@ -602,7 +612,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public boolean android.media.AudioManager.isSurroundFormatEnabled(int)
   /// ```
-  @available(Android 31, *)
+@available(Android 31, *)
 @JavaMethod
   open func isSurroundFormatEnabled(_ arg0: Int32) -> Bool
 
@@ -612,7 +622,7 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public int android.media.AudioManager.getAudioHwSyncForSession(int)
   /// ```
-  @available(Android 21, *)
+@available(Android 21, *)
 @JavaMethod
   open func getAudioHwSyncForSession(_ arg0: Int32) -> Int32
 
@@ -622,9 +632,19 @@ open class AudioManager: JavaObject {
   /// ```java
   /// public void android.media.AudioManager.clearCommunicationDevice()
   /// ```
-  @available(Android 31, *)
+@available(Android 31, *)
 @JavaMethod
   open func clearCommunicationDevice()
+
+  /// Java method `removeOnPreferredMixerAttributesChangedListener`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.media.AudioManager.removeOnPreferredMixerAttributesChangedListener(android.media.AudioManager$OnPreferredMixerAttributesChangedListener)
+  /// ```
+@available(Android 34, *)
+@JavaMethod
+  open func removeOnPreferredMixerAttributesChangedListener(_ arg0: AudioManager.OnPreferredMixerAttributesChangedListener?)
 
   /// Java method `getProperty`.
   ///
@@ -705,6 +725,7 @@ extension JavaClass<AudioManager> {
   @JavaStaticField(isFinal: true)
   public var ACTION_MICROPHONE_MUTE_CHANGED: String
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var ACTION_SCO_AUDIO_STATE_CHANGED: String
 
@@ -819,9 +840,11 @@ extension JavaClass<AudioManager> {
   @JavaStaticField(isFinal: true)
   public var EXTRA_SCO_AUDIO_STATE: String
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var EXTRA_VIBRATE_SETTING: String
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var EXTRA_VIBRATE_TYPE: String
 
@@ -909,6 +932,7 @@ extension JavaClass<AudioManager> {
   @JavaStaticField(isFinal: true)
   public var MODE_RINGTONE: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var NUM_STREAMS: Int32
 
@@ -948,24 +972,31 @@ extension JavaClass<AudioManager> {
   @JavaStaticField(isFinal: true)
   public var RINGER_MODE_VIBRATE: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var ROUTE_ALL: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var ROUTE_BLUETOOTH: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var ROUTE_BLUETOOTH_A2DP: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var ROUTE_BLUETOOTH_SCO: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var ROUTE_EARPIECE: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var ROUTE_HEADSET: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var ROUTE_SPEAKER: Int32
 
@@ -1008,21 +1039,27 @@ extension JavaClass<AudioManager> {
   @JavaStaticField(isFinal: true)
   public var USE_DEFAULT_STREAM_TYPE: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var VIBRATE_SETTING_CHANGED_ACTION: String
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var VIBRATE_SETTING_OFF: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var VIBRATE_SETTING_ON: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var VIBRATE_SETTING_ONLY_SILENT: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var VIBRATE_TYPE_NOTIFICATION: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var VIBRATE_TYPE_RINGER: Int32
 
@@ -1050,6 +1087,7 @@ extension JavaClass<AudioManager> {
     /// ```java
     /// public static int android.media.AudioManager.getPlaybackOffloadSupport(android.media.AudioFormat,android.media.AudioAttributes)
     /// ```
+  @available(*, deprecated)
   @JavaStaticMethod
   public func getPlaybackOffloadSupport(_ arg0: AudioFormat?, _ arg1: AudioAttributes?) -> Int32
 

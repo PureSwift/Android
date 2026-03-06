@@ -11,38 +11,9 @@ open class Ringtone: JavaObject {
   /// ```java
   /// public void android.media.Ringtone.setAudioAttributes(android.media.AudioAttributes) throws java.lang.IllegalArgumentException
   /// ```
-  @available(Android 21, *)
+@available(Android 21, *)
 @JavaMethod
   open func setAudioAttributes(_ arg0: AudioAttributes?) throws
-
-  /// Java method `getAudioAttributes`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.media.AudioAttributes android.media.Ringtone.getAudioAttributes()
-  /// ```
-  @available(Android 21, *)
-@JavaMethod
-  open func getAudioAttributes() -> AudioAttributes!
-
-  /// Java method `getStreamType`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.media.Ringtone.getStreamType()
-  /// ```
-@JavaMethod
-  open func getStreamType() -> Int32
-
-  /// Java method `setVolume`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.media.Ringtone.setVolume(float)
-  /// ```
-  @available(Android 28, *)
-@JavaMethod
-  open func setVolume(_ arg0: Float)
 
   /// Java method `play`.
   ///
@@ -53,14 +24,34 @@ open class Ringtone: JavaObject {
 @JavaMethod
   open func play()
 
-  /// Java method `setStreamType`.
+  /// Java method `setVolume`.
   ///
   /// ### Java method signature
   /// ```java
-  /// public void android.media.Ringtone.setStreamType(int)
+  /// public void android.media.Ringtone.setVolume(float)
+  /// ```
+@available(Android 28, *)
+@JavaMethod
+  open func setVolume(_ arg0: Float)
+
+  /// Java method `getAudioAttributes`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public android.media.AudioAttributes android.media.Ringtone.getAudioAttributes()
+  /// ```
+@available(Android 21, *)
+@JavaMethod
+  open func getAudioAttributes() -> AudioAttributes!
+
+  /// Java method `isPlaying`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.media.Ringtone.isPlaying()
   /// ```
 @JavaMethod
-  open func setStreamType(_ arg0: Int32)
+  open func isPlaying() -> Bool
 
   /// Java method `setLooping`.
   ///
@@ -68,7 +59,7 @@ open class Ringtone: JavaObject {
   /// ```java
   /// public void android.media.Ringtone.setLooping(boolean)
   /// ```
-  @available(Android 28, *)
+@available(Android 28, *)
 @JavaMethod
   open func setLooping(_ arg0: Bool)
 
@@ -78,9 +69,29 @@ open class Ringtone: JavaObject {
   /// ```java
   /// public boolean android.media.Ringtone.isLooping()
   /// ```
-  @available(Android 28, *)
+@available(Android 28, *)
 @JavaMethod
   open func isLooping() -> Bool
+
+  /// Java method `getStreamType`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.media.Ringtone.getStreamType()
+  /// ```
+@available(*, deprecated)
+  @JavaMethod
+  open func getStreamType() -> Int32
+
+  /// Java method `setStreamType`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.media.Ringtone.setStreamType(int)
+  /// ```
+@available(*, deprecated)
+  @JavaMethod
+  open func setStreamType(_ arg0: Int32)
 
   /// Java method `getVolume`.
   ///
@@ -88,7 +99,7 @@ open class Ringtone: JavaObject {
   /// ```java
   /// public float android.media.Ringtone.getVolume()
   /// ```
-  @available(Android 28, *)
+@available(Android 28, *)
 @JavaMethod
   open func getVolume() -> Float
 
@@ -101,22 +112,13 @@ open class Ringtone: JavaObject {
 @JavaMethod
   open func getTitle(_ arg0: Context?) -> String
 
-  /// Java method `isPlaying`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.media.Ringtone.isPlaying()
-  /// ```
-@JavaMethod
-  open func isPlaying() -> Bool
-
   /// Java method `setHapticGeneratorEnabled`.
   ///
   /// ### Java method signature
   /// ```java
   /// public boolean android.media.Ringtone.setHapticGeneratorEnabled(boolean)
   /// ```
-  @available(Android 31, *)
+@available(Android 31, *)
 @JavaMethod
   open func setHapticGeneratorEnabled(_ arg0: Bool) -> Bool
 
@@ -126,7 +128,7 @@ open class Ringtone: JavaObject {
   /// ```java
   /// public boolean android.media.Ringtone.isHapticGeneratorEnabled()
   /// ```
-  @available(Android 31, *)
+@available(Android 31, *)
 @JavaMethod
   open func isHapticGeneratorEnabled() -> Bool
 

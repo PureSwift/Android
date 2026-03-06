@@ -12,6 +12,15 @@ extension AudioFormat {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: AudioFormat?, environment: JNIEnvironment? = nil)
 
+    /// Java method `setChannelIndexMask`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.media.AudioFormat$Builder android.media.AudioFormat$Builder.setChannelIndexMask(int)
+    /// ```
+  @JavaMethod
+  open func setChannelIndexMask(_ arg0: Int32) -> AudioFormat.Builder!
+
     /// Java method `setChannelMask`.
     ///
     /// ### Java method signature
@@ -29,15 +38,6 @@ extension AudioFormat {
     /// ```
   @JavaMethod
   open func setSampleRate(_ arg0: Int32) throws -> AudioFormat.Builder!
-
-    /// Java method `setChannelIndexMask`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.media.AudioFormat$Builder android.media.AudioFormat$Builder.setChannelIndexMask(int)
-    /// ```
-  @JavaMethod
-  open func setChannelIndexMask(_ arg0: Int32) -> AudioFormat.Builder!
 
     /// Java method `build`.
     ///

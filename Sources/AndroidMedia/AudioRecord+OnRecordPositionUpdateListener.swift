@@ -5,15 +5,6 @@ import SwiftJavaJNICore
 extension AudioRecord {
   @JavaInterface("android.media.AudioRecord$OnRecordPositionUpdateListener")
   public struct OnRecordPositionUpdateListener {
-    /// Java method `onMarkerReached`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public abstract void android.media.AudioRecord$OnRecordPositionUpdateListener.onMarkerReached(android.media.AudioRecord)
-    /// ```
-  @JavaMethod
-  public func onMarkerReached(_ arg0: AudioRecord?)
-
     /// Java method `onPeriodicNotification`.
     ///
     /// ### Java method signature
@@ -22,5 +13,14 @@ extension AudioRecord {
     /// ```
   @JavaMethod
   public func onPeriodicNotification(_ arg0: AudioRecord?)
+
+    /// Java method `onMarkerReached`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public abstract void android.media.AudioRecord$OnRecordPositionUpdateListener.onMarkerReached(android.media.AudioRecord)
+    /// ```
+  @JavaMethod
+  public func onMarkerReached(_ arg0: AudioRecord?)
   }
 }

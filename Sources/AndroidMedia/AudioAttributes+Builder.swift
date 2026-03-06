@@ -13,24 +13,6 @@ extension AudioAttributes {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
-    /// Java method `setUsage`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.media.AudioAttributes$Builder android.media.AudioAttributes$Builder.setUsage(int)
-    /// ```
-  @JavaMethod
-  open func setUsage(_ arg0: Int32) -> AudioAttributes.Builder!
-
-    /// Java method `setContentType`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.media.AudioAttributes$Builder android.media.AudioAttributes$Builder.setContentType(int)
-    /// ```
-  @JavaMethod
-  open func setContentType(_ arg0: Int32) -> AudioAttributes.Builder!
-
     /// Java method `setAllowedCapturePolicy`.
     ///
     /// ### Java method signature
@@ -75,6 +57,24 @@ extension AudioAttributes {
     /// ```
   @JavaMethod
   open func setHapticChannelsMuted(_ arg0: Bool) -> AudioAttributes.Builder!
+
+    /// Java method `setUsage`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.media.AudioAttributes$Builder android.media.AudioAttributes$Builder.setUsage(int)
+    /// ```
+  @JavaMethod
+  open func setUsage(_ arg0: Int32) -> AudioAttributes.Builder!
+
+    /// Java method `setContentType`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.media.AudioAttributes$Builder android.media.AudioAttributes$Builder.setContentType(int)
+    /// ```
+  @JavaMethod
+  open func setContentType(_ arg0: Int32) -> AudioAttributes.Builder!
 
     /// Java method `build`.
     ///

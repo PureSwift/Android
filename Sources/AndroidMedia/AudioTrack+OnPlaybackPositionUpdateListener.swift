@@ -5,15 +5,6 @@ import SwiftJavaJNICore
 extension AudioTrack {
   @JavaInterface("android.media.AudioTrack$OnPlaybackPositionUpdateListener")
   public struct OnPlaybackPositionUpdateListener {
-    /// Java method `onMarkerReached`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public abstract void android.media.AudioTrack$OnPlaybackPositionUpdateListener.onMarkerReached(android.media.AudioTrack)
-    /// ```
-  @JavaMethod
-  public func onMarkerReached(_ arg0: AudioTrack?)
-
     /// Java method `onPeriodicNotification`.
     ///
     /// ### Java method signature
@@ -22,5 +13,14 @@ extension AudioTrack {
     /// ```
   @JavaMethod
   public func onPeriodicNotification(_ arg0: AudioTrack?)
+
+    /// Java method `onMarkerReached`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public abstract void android.media.AudioTrack$OnPlaybackPositionUpdateListener.onMarkerReached(android.media.AudioTrack)
+    /// ```
+  @JavaMethod
+  public func onMarkerReached(_ arg0: AudioTrack?)
   }
 }

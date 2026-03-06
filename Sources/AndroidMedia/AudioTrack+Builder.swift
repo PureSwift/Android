@@ -10,6 +10,15 @@ extension AudioTrack {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
+    /// Java method `setPerformanceMode`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.media.AudioTrack$Builder android.media.AudioTrack$Builder.setPerformanceMode(int)
+    /// ```
+  @JavaMethod
+  open func setPerformanceMode(_ arg0: Int32) -> AudioTrack.Builder!
+
     /// Java method `setAudioAttributes`.
     ///
     /// ### Java method signature
@@ -28,6 +37,15 @@ extension AudioTrack {
   @JavaMethod
   open func setContext(_ arg0: Context?) -> AudioTrack.Builder!
 
+    /// Java method `setAudioFormat`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.media.AudioTrack$Builder android.media.AudioTrack$Builder.setAudioFormat(android.media.AudioFormat) throws java.lang.IllegalArgumentException
+    /// ```
+  @JavaMethod
+  open func setAudioFormat(_ arg0: AudioFormat?) throws -> AudioTrack.Builder!
+
     /// Java method `setTransferMode`.
     ///
     /// ### Java method signature
@@ -45,24 +63,6 @@ extension AudioTrack {
     /// ```
   @JavaMethod
   open func setSessionId(_ arg0: Int32) throws -> AudioTrack.Builder!
-
-    /// Java method `setPerformanceMode`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.media.AudioTrack$Builder android.media.AudioTrack$Builder.setPerformanceMode(int)
-    /// ```
-  @JavaMethod
-  open func setPerformanceMode(_ arg0: Int32) -> AudioTrack.Builder!
-
-    /// Java method `setAudioFormat`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.media.AudioTrack$Builder android.media.AudioTrack$Builder.setAudioFormat(android.media.AudioFormat) throws java.lang.IllegalArgumentException
-    /// ```
-  @JavaMethod
-  open func setAudioFormat(_ arg0: AudioFormat?) throws -> AudioTrack.Builder!
 
     /// Java method `setBufferSizeInBytes`.
     ///

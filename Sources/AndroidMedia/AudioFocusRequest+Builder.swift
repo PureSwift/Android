@@ -14,32 +14,14 @@ extension AudioFocusRequest {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: AudioFocusRequest?, environment: JNIEnvironment? = nil)
 
-    /// Java method `setAudioAttributes`.
+    /// Java method `setOnAudioFocusChangeListener`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public android.media.AudioFocusRequest$Builder android.media.AudioFocusRequest$Builder.setAudioAttributes(android.media.AudioAttributes)
+    /// public android.media.AudioFocusRequest$Builder android.media.AudioFocusRequest$Builder.setOnAudioFocusChangeListener(android.media.AudioManager$OnAudioFocusChangeListener)
     /// ```
   @JavaMethod
-  open func setAudioAttributes(_ arg0: AudioAttributes?) -> AudioFocusRequest.Builder!
-
-    /// Java method `setFocusGain`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.media.AudioFocusRequest$Builder android.media.AudioFocusRequest$Builder.setFocusGain(int)
-    /// ```
-  @JavaMethod
-  open func setFocusGain(_ arg0: Int32) -> AudioFocusRequest.Builder!
-
-    /// Java method `setForceDucking`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.media.AudioFocusRequest$Builder android.media.AudioFocusRequest$Builder.setForceDucking(boolean)
-    /// ```
-  @JavaMethod
-  open func setForceDucking(_ arg0: Bool) -> AudioFocusRequest.Builder!
+  open func setOnAudioFocusChangeListener(_ arg0: AudioManager.OnAudioFocusChangeListener?) -> AudioFocusRequest.Builder!
 
     /// Java method `setOnAudioFocusChangeListener`.
     ///
@@ -49,15 +31,6 @@ extension AudioFocusRequest {
     /// ```
   @JavaMethod
   open func setOnAudioFocusChangeListener(_ arg0: AudioManager.OnAudioFocusChangeListener?, _ arg1: Handler?) -> AudioFocusRequest.Builder!
-
-    /// Java method `setOnAudioFocusChangeListener`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.media.AudioFocusRequest$Builder android.media.AudioFocusRequest$Builder.setOnAudioFocusChangeListener(android.media.AudioManager$OnAudioFocusChangeListener)
-    /// ```
-  @JavaMethod
-  open func setOnAudioFocusChangeListener(_ arg0: AudioManager.OnAudioFocusChangeListener?) -> AudioFocusRequest.Builder!
 
     /// Java method `setWillPauseWhenDucked`.
     ///
@@ -76,6 +49,33 @@ extension AudioFocusRequest {
     /// ```
   @JavaMethod
   open func setAcceptsDelayedFocusGain(_ arg0: Bool) -> AudioFocusRequest.Builder!
+
+    /// Java method `setFocusGain`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.media.AudioFocusRequest$Builder android.media.AudioFocusRequest$Builder.setFocusGain(int)
+    /// ```
+  @JavaMethod
+  open func setFocusGain(_ arg0: Int32) -> AudioFocusRequest.Builder!
+
+    /// Java method `setAudioAttributes`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.media.AudioFocusRequest$Builder android.media.AudioFocusRequest$Builder.setAudioAttributes(android.media.AudioAttributes)
+    /// ```
+  @JavaMethod
+  open func setAudioAttributes(_ arg0: AudioAttributes?) -> AudioFocusRequest.Builder!
+
+    /// Java method `setForceDucking`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.media.AudioFocusRequest$Builder android.media.AudioFocusRequest$Builder.setForceDucking(boolean)
+    /// ```
+  @JavaMethod
+  open func setForceDucking(_ arg0: Bool) -> AudioFocusRequest.Builder!
 
     /// Java method `build`.
     ///

@@ -6,17 +6,18 @@ import SwiftJavaJNICore
 
 @JavaClass("android.media.SoundPool")
 open class SoundPool: JavaObject {
+  @available(*, deprecated)
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, environment: JNIEnvironment? = nil)
 
-    /// Java method `setVolume`.
+    /// Java method `setOnLoadCompleteListener`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public final void android.media.SoundPool.setVolume(int,float,float)
+    /// public void android.media.SoundPool.setOnLoadCompleteListener(android.media.SoundPool$OnLoadCompleteListener)
     /// ```
   @JavaMethod
-  open func setVolume(_ arg0: Int32, _ arg1: Float, _ arg2: Float)
+  open func setOnLoadCompleteListener(_ arg0: SoundPool.OnLoadCompleteListener?)
 
     /// Java method `play`.
     ///
@@ -63,6 +64,15 @@ open class SoundPool: JavaObject {
   @JavaMethod
   open func autoResume()
 
+    /// Java method `setVolume`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public final void android.media.SoundPool.setVolume(int,float,float)
+    /// ```
+  @JavaMethod
+  open func setVolume(_ arg0: Int32, _ arg1: Float, _ arg2: Float)
+
     /// Java method `setLoop`.
     ///
     /// ### Java method signature
@@ -81,15 +91,6 @@ open class SoundPool: JavaObject {
   @JavaMethod
   open func setRate(_ arg0: Int32, _ arg1: Float)
 
-    /// Java method `setOnLoadCompleteListener`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.media.SoundPool.setOnLoadCompleteListener(android.media.SoundPool$OnLoadCompleteListener)
-    /// ```
-  @JavaMethod
-  open func setOnLoadCompleteListener(_ arg0: SoundPool.OnLoadCompleteListener?)
-
     /// Java method `finalize`.
     ///
     /// ### Java method signature
@@ -98,15 +99,6 @@ open class SoundPool: JavaObject {
     /// ```
   @JavaMethod
   open override func finalize()
-
-    /// Java method `load`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.media.SoundPool.load(android.content.Context,int,int)
-    /// ```
-  @JavaMethod
-  open func load(_ arg0: Context?, _ arg1: Int32, _ arg2: Int32) -> Int32
 
     /// Java method `load`.
     ///
@@ -121,19 +113,28 @@ open class SoundPool: JavaObject {
     ///
     /// ### Java method signature
     /// ```java
-    /// public int android.media.SoundPool.load(java.io.FileDescriptor,long,long,int)
+    /// public int android.media.SoundPool.load(android.content.res.AssetFileDescriptor,int)
     /// ```
   @JavaMethod
-  open func load(_ arg0: FileDescriptor?, _ arg1: Int64, _ arg2: Int64, _ arg3: Int32) -> Int32
+  open func load(_ arg0: AssetFileDescriptor?, _ arg1: Int32) -> Int32
 
     /// Java method `load`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public int android.media.SoundPool.load(android.content.res.AssetFileDescriptor,int)
+    /// public int android.media.SoundPool.load(android.content.Context,int,int)
     /// ```
   @JavaMethod
-  open func load(_ arg0: AssetFileDescriptor?, _ arg1: Int32) -> Int32
+  open func load(_ arg0: Context?, _ arg1: Int32, _ arg2: Int32) -> Int32
+
+    /// Java method `load`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public int android.media.SoundPool.load(java.io.FileDescriptor,long,long,int)
+    /// ```
+  @JavaMethod
+  open func load(_ arg0: FileDescriptor?, _ arg1: Int64, _ arg2: Int64, _ arg3: Int32) -> Int32
 
     /// Java method `setPriority`.
     ///

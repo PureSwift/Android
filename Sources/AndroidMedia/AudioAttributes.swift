@@ -158,6 +158,7 @@ extension JavaClass<AudioAttributes> {
   @JavaStaticField(isFinal: true)
   public var FLAG_HW_AV_SYNC: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var FLAG_LOW_LATENCY: Int32
 
@@ -191,12 +192,15 @@ extension JavaClass<AudioAttributes> {
   @JavaStaticField(isFinal: true)
   public var USAGE_NOTIFICATION: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var USAGE_NOTIFICATION_COMMUNICATION_DELAYED: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var USAGE_NOTIFICATION_COMMUNICATION_INSTANT: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var USAGE_NOTIFICATION_COMMUNICATION_REQUEST: Int32
 

@@ -8,60 +8,6 @@ open class RingtoneManager: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Context?, environment: JNIEnvironment? = nil)
 
-    /// Java method `setType`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.media.RingtoneManager.setType(int)
-    /// ```
-  @JavaMethod
-  open func setType(_ arg0: Int32)
-
-    /// Java method `inferStreamType`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.media.RingtoneManager.inferStreamType()
-    /// ```
-  @JavaMethod
-  open func inferStreamType() -> Int32
-
-    /// Java method `getIncludeDrm`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public boolean android.media.RingtoneManager.getIncludeDrm()
-    /// ```
-  @JavaMethod
-  open func getIncludeDrm() -> Bool
-
-    /// Java method `setIncludeDrm`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.media.RingtoneManager.setIncludeDrm(boolean)
-    /// ```
-  @JavaMethod
-  open func setIncludeDrm(_ arg0: Bool)
-
-    /// Java method `getRingtone`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.media.Ringtone android.media.RingtoneManager.getRingtone(int)
-    /// ```
-  @JavaMethod
-  open func getRingtone(_ arg0: Int32) -> Ringtone!
-
-    /// Java method `hasHapticChannels`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public boolean android.media.RingtoneManager.hasHapticChannels(int)
-    /// ```
-  @JavaMethod
-  open func hasHapticChannels(_ arg0: Int32) -> Bool
-
     /// Java method `setStopPreviousRingtone`.
     ///
     /// ### Java method signature
@@ -88,6 +34,62 @@ open class RingtoneManager: JavaObject {
     /// ```
   @JavaMethod
   open func getStopPreviousRingtone() -> Bool
+
+    /// Java method `setType`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.media.RingtoneManager.setType(int)
+    /// ```
+  @JavaMethod
+  open func setType(_ arg0: Int32)
+
+    /// Java method `inferStreamType`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public int android.media.RingtoneManager.inferStreamType()
+    /// ```
+  @JavaMethod
+  open func inferStreamType() -> Int32
+
+    /// Java method `getIncludeDrm`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public boolean android.media.RingtoneManager.getIncludeDrm()
+    /// ```
+  @available(*, deprecated)
+  @JavaMethod
+  open func getIncludeDrm() -> Bool
+
+    /// Java method `setIncludeDrm`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.media.RingtoneManager.setIncludeDrm(boolean)
+    /// ```
+  @available(*, deprecated)
+  @JavaMethod
+  open func setIncludeDrm(_ arg0: Bool)
+
+    /// Java method `getRingtone`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.media.Ringtone android.media.RingtoneManager.getRingtone(int)
+    /// ```
+  @JavaMethod
+  open func getRingtone(_ arg0: Int32) -> Ringtone!
+
+    /// Java method `hasHapticChannels`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public boolean android.media.RingtoneManager.hasHapticChannels(int)
+    /// ```
+  @JavaMethod
+  open func hasHapticChannels(_ arg0: Int32) -> Bool
 }
 extension JavaClass<RingtoneManager> {
   @JavaStaticField(isFinal: true)
@@ -99,6 +101,7 @@ extension JavaClass<RingtoneManager> {
   @JavaStaticField(isFinal: true)
   public var EXTRA_RINGTONE_EXISTING_URI: String
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var EXTRA_RINGTONE_INCLUDE_DRM: String
 

@@ -5,13 +5,32 @@ import SwiftJavaJNICore
 @available(Android 16, *)
 @JavaClass("android.media.MediaCodecInfo")
 open class MediaCodecInfo: JavaObject {
+  /// Java method `isHardwareAccelerated`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.media.MediaCodecInfo.isHardwareAccelerated()
+  /// ```
+@available(Android 29, *)
+@JavaMethod
+  open func isHardwareAccelerated() -> Bool
+
+  /// Java method `getCapabilitiesForType`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public android.media.MediaCodecInfo$CodecCapabilities android.media.MediaCodecInfo.getCapabilitiesForType(java.lang.String)
+  /// ```
+@JavaMethod
+  open func getCapabilitiesForType(_ arg0: String) -> MediaCodecInfo.CodecCapabilities!
+
   /// Java method `isAlias`.
   ///
   /// ### Java method signature
   /// ```java
   /// public boolean android.media.MediaCodecInfo.isAlias()
   /// ```
-  @available(Android 29, *)
+@available(Android 29, *)
 @JavaMethod
   open func isAlias() -> Bool
 
@@ -30,7 +49,7 @@ open class MediaCodecInfo: JavaObject {
   /// ```java
   /// public boolean android.media.MediaCodecInfo.isVendor()
   /// ```
-  @available(Android 29, *)
+@available(Android 29, *)
 @JavaMethod
   open func isVendor() -> Bool
 
@@ -40,7 +59,7 @@ open class MediaCodecInfo: JavaObject {
   /// ```java
   /// public boolean android.media.MediaCodecInfo.isSoftwareOnly()
   /// ```
-  @available(Android 29, *)
+@available(Android 29, *)
 @JavaMethod
   open func isSoftwareOnly() -> Bool
 
@@ -52,25 +71,6 @@ open class MediaCodecInfo: JavaObject {
   /// ```
 @JavaMethod
   open func getSupportedTypes() -> [String]
-
-  /// Java method `isHardwareAccelerated`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.media.MediaCodecInfo.isHardwareAccelerated()
-  /// ```
-  @available(Android 29, *)
-@JavaMethod
-  open func isHardwareAccelerated() -> Bool
-
-  /// Java method `getCapabilitiesForType`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.media.MediaCodecInfo$CodecCapabilities android.media.MediaCodecInfo.getCapabilitiesForType(java.lang.String)
-  /// ```
-@JavaMethod
-  open func getCapabilitiesForType(_ arg0: String) -> MediaCodecInfo.CodecCapabilities!
 
   /// Java method `getName`.
   ///
@@ -87,7 +87,7 @@ open class MediaCodecInfo: JavaObject {
   /// ```java
   /// public java.lang.String android.media.MediaCodecInfo.getCanonicalName()
   /// ```
-  @available(Android 29, *)
+@available(Android 29, *)
 @JavaMethod
   open func getCanonicalName() -> String
 }

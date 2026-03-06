@@ -19,15 +19,6 @@ extension MediaCodec {
   @JavaMethod
   open func onError(_ arg0: MediaCodec?, _ arg1: MediaCodec.CodecException?)
 
-    /// Java method `onCryptoError`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.media.MediaCodec$Callback.onCryptoError(android.media.MediaCodec,android.media.MediaCodec$CryptoException)
-    /// ```
-  @JavaMethod
-  open func onCryptoError(_ arg0: MediaCodec?, _ arg1: MediaCodec.CryptoException?)
-
     /// Java method `onInputBufferAvailable`.
     ///
     /// ### Java method signature
@@ -54,5 +45,14 @@ extension MediaCodec {
     /// ```
   @JavaMethod
   open func onOutputFormatChanged(_ arg0: MediaCodec?, _ arg1: MediaFormat?)
+
+    /// Java method `onCryptoError`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.media.MediaCodec$Callback.onCryptoError(android.media.MediaCodec,android.media.MediaCodec$CryptoException)
+    /// ```
+  @JavaMethod
+  open func onCryptoError(_ arg0: MediaCodec?, _ arg1: MediaCodec.CryptoException?)
   }
 }

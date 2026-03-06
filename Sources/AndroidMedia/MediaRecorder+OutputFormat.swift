@@ -30,6 +30,7 @@ extension JavaClass<MediaRecorder.OutputFormat> {
   @JavaStaticField(isFinal: true)
   public var OGG: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var RAW_AMR: Int32
 

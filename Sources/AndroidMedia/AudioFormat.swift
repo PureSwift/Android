@@ -5,24 +5,6 @@ import SwiftJavaJNICore
 
 @JavaClass("android.media.AudioFormat", implements: Parcelable.self)
 open class AudioFormat: JavaObject {
-  /// Java method `getSampleRate`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.media.AudioFormat.getSampleRate()
-  /// ```
-@JavaMethod
-  open func getSampleRate() -> Int32
-
-  /// Java method `getChannelCount`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.media.AudioFormat.getChannelCount()
-  /// ```
-@JavaMethod
-  open func getChannelCount() -> Int32
-
   /// Java method `describeContents`.
   ///
   /// ### Java method signature
@@ -41,14 +23,23 @@ open class AudioFormat: JavaObject {
 @JavaMethod
   open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
-  /// Java method `getChannelMask`.
+  /// Java method `getSampleRate`.
   ///
   /// ### Java method signature
   /// ```java
-  /// public int android.media.AudioFormat.getChannelMask()
+  /// public int android.media.AudioFormat.getSampleRate()
   /// ```
 @JavaMethod
-  open func getChannelMask() -> Int32
+  open func getSampleRate() -> Int32
+
+  /// Java method `getChannelCount`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.media.AudioFormat.getChannelCount()
+  /// ```
+@JavaMethod
+  open func getChannelCount() -> Int32
 
   /// Java method `getChannelIndexMask`.
   ///
@@ -67,6 +58,15 @@ open class AudioFormat: JavaObject {
   /// ```
 @JavaMethod
   open func getFrameSizeInBytes() -> Int32
+
+  /// Java method `getChannelMask`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.media.AudioFormat.getChannelMask()
+  /// ```
+@JavaMethod
+  open func getChannelMask() -> Int32
 
   /// Java method `equals`.
   ///
@@ -105,15 +105,19 @@ open class AudioFormat: JavaObject {
   open func getEncoding() -> Int32
 }
 extension JavaClass<AudioFormat> {
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var CHANNEL_CONFIGURATION_DEFAULT: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var CHANNEL_CONFIGURATION_INVALID: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var CHANNEL_CONFIGURATION_MONO: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var CHANNEL_CONFIGURATION_STEREO: Int32
 
@@ -183,6 +187,7 @@ extension JavaClass<AudioFormat> {
   @JavaStaticField(isFinal: true)
   public var CHANNEL_OUT_6POINT1: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var CHANNEL_OUT_7POINT1: Int32
 
@@ -342,6 +347,7 @@ extension JavaClass<AudioFormat> {
   @JavaStaticField(isFinal: true)
   public var ENCODING_DTS_HD_MA: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var ENCODING_DTS_UHD: Int32
 

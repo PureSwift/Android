@@ -16,6 +16,46 @@ extension MediaCodecInfo {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
+    /// Java method `getMaxSupportedInstances`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public int android.media.MediaCodecInfo$CodecCapabilities.getMaxSupportedInstances()
+    /// ```
+  @available(Android 23, *)
+  @JavaMethod
+  open func getMaxSupportedInstances() -> Int32
+
+    /// Java method `getAudioCapabilities`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.media.MediaCodecInfo$AudioCapabilities android.media.MediaCodecInfo$CodecCapabilities.getAudioCapabilities()
+    /// ```
+  @available(Android 21, *)
+  @JavaMethod
+  open func getAudioCapabilities() -> MediaCodecInfo.AudioCapabilities!
+
+    /// Java method `getEncoderCapabilities`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.media.MediaCodecInfo$EncoderCapabilities android.media.MediaCodecInfo$CodecCapabilities.getEncoderCapabilities()
+    /// ```
+  @available(Android 21, *)
+  @JavaMethod
+  open func getEncoderCapabilities() -> MediaCodecInfo.EncoderCapabilities!
+
+    /// Java method `getVideoCapabilities`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.media.MediaCodecInfo$VideoCapabilities android.media.MediaCodecInfo$CodecCapabilities.getVideoCapabilities()
+    /// ```
+  @available(Android 21, *)
+  @JavaMethod
+  open func getVideoCapabilities() -> MediaCodecInfo.VideoCapabilities!
+
     /// Java method `isFeatureSupported`.
     ///
     /// ### Java method signature
@@ -65,92 +105,65 @@ extension MediaCodecInfo {
   @available(Android 21, *)
   @JavaMethod
   open func getMimeType() -> String
-
-    /// Java method `getMaxSupportedInstances`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.media.MediaCodecInfo$CodecCapabilities.getMaxSupportedInstances()
-    /// ```
-  @available(Android 23, *)
-  @JavaMethod
-  open func getMaxSupportedInstances() -> Int32
-
-    /// Java method `getAudioCapabilities`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.media.MediaCodecInfo$AudioCapabilities android.media.MediaCodecInfo$CodecCapabilities.getAudioCapabilities()
-    /// ```
-  @available(Android 21, *)
-  @JavaMethod
-  open func getAudioCapabilities() -> MediaCodecInfo.AudioCapabilities!
-
-    /// Java method `getEncoderCapabilities`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.media.MediaCodecInfo$EncoderCapabilities android.media.MediaCodecInfo$CodecCapabilities.getEncoderCapabilities()
-    /// ```
-  @available(Android 21, *)
-  @JavaMethod
-  open func getEncoderCapabilities() -> MediaCodecInfo.EncoderCapabilities!
-
-    /// Java method `getVideoCapabilities`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.media.MediaCodecInfo$VideoCapabilities android.media.MediaCodecInfo$CodecCapabilities.getVideoCapabilities()
-    /// ```
-  @available(Android 21, *)
-  @JavaMethod
-  open func getVideoCapabilities() -> MediaCodecInfo.VideoCapabilities!
   }
 }
 @available(Android 16, *)
 extension JavaClass<MediaCodecInfo.CodecCapabilities> {
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var COLOR_Format12bitRGB444: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var COLOR_Format16bitARGB1555: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var COLOR_Format16bitARGB4444: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var COLOR_Format16bitBGR565: Int32
 
   @JavaStaticField(isFinal: true)
   public var COLOR_Format16bitRGB565: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var COLOR_Format18BitBGR666: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var COLOR_Format18bitARGB1665: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var COLOR_Format18bitRGB666: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var COLOR_Format19bitARGB1666: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var COLOR_Format24BitABGR6666: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var COLOR_Format24BitARGB6666: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var COLOR_Format24bitARGB1887: Int32
 
   @JavaStaticField(isFinal: true)
   public var COLOR_Format24bitBGR888: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var COLOR_Format24bitRGB888: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var COLOR_Format25bitARGB1888: Int32
 
@@ -160,42 +173,52 @@ extension JavaClass<MediaCodecInfo.CodecCapabilities> {
   @JavaStaticField(isFinal: true)
   public var COLOR_Format32bitABGR8888: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var COLOR_Format32bitARGB8888: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var COLOR_Format32bitBGRA8888: Int32
 
   @JavaStaticField(isFinal: true)
   public var COLOR_Format64bitABGRFloat: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var COLOR_Format8bitRGB332: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var COLOR_FormatCbYCrY: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var COLOR_FormatCrYCbY: Int32
 
   @JavaStaticField(isFinal: true)
   public var COLOR_FormatL16: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var COLOR_FormatL2: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var COLOR_FormatL24: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var COLOR_FormatL32: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var COLOR_FormatL4: Int32
 
   @JavaStaticField(isFinal: true)
   public var COLOR_FormatL8: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var COLOR_FormatMonochrome: Int32
 
@@ -217,60 +240,75 @@ extension JavaClass<MediaCodecInfo.CodecCapabilities> {
   @JavaStaticField(isFinal: true)
   public var COLOR_FormatSurface: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var COLOR_FormatYCbYCr: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var COLOR_FormatYCrYCb: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var COLOR_FormatYUV411PackedPlanar: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var COLOR_FormatYUV411Planar: Int32
 
   @JavaStaticField(isFinal: true)
   public var COLOR_FormatYUV420Flexible: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var COLOR_FormatYUV420PackedPlanar: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var COLOR_FormatYUV420PackedSemiPlanar: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var COLOR_FormatYUV420Planar: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var COLOR_FormatYUV420SemiPlanar: Int32
 
   @JavaStaticField(isFinal: true)
   public var COLOR_FormatYUV422Flexible: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var COLOR_FormatYUV422PackedPlanar: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var COLOR_FormatYUV422PackedSemiPlanar: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var COLOR_FormatYUV422Planar: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var COLOR_FormatYUV422SemiPlanar: Int32
 
   @JavaStaticField(isFinal: true)
   public var COLOR_FormatYUV444Flexible: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var COLOR_FormatYUV444Interleaved: Int32
 
   @JavaStaticField(isFinal: true)
   public var COLOR_FormatYUVP010: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var COLOR_QCOM_FormatYUV420SemiPlanar: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var COLOR_TI_FormatYUV420PackedSemiPlanar: Int32
 

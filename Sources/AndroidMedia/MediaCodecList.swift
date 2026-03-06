@@ -8,15 +8,6 @@ open class MediaCodecList: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Int32, environment: JNIEnvironment? = nil)
 
-    /// Java method `getCodecInfos`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.media.MediaCodecInfo[] android.media.MediaCodecList.getCodecInfos()
-    /// ```
-  @JavaMethod
-  open func getCodecInfos() -> [MediaCodecInfo?]
-
     /// Java method `findDecoderForFormat`.
     ///
     /// ### Java method signature
@@ -34,6 +25,15 @@ open class MediaCodecList: JavaObject {
     /// ```
   @JavaMethod
   open func findEncoderForFormat(_ arg0: MediaFormat?) -> String
+
+    /// Java method `getCodecInfos`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.media.MediaCodecInfo[] android.media.MediaCodecList.getCodecInfos()
+    /// ```
+  @JavaMethod
+  open func getCodecInfos() -> [MediaCodecInfo?]
 }
 @available(Android 21, *)
 extension JavaClass<MediaCodecList> {
@@ -49,6 +49,7 @@ extension JavaClass<MediaCodecList> {
     /// ```java
     /// public static int android.media.MediaCodecList.getCodecCount()
     /// ```
+  @available(*, deprecated)
   @JavaStaticMethod
   public func getCodecCount() -> Int32
 
@@ -58,6 +59,7 @@ extension JavaClass<MediaCodecList> {
     /// ```java
     /// public static android.media.MediaCodecInfo android.media.MediaCodecList.getCodecInfoAt(int)
     /// ```
+  @available(*, deprecated)
   @JavaStaticMethod
   public func getCodecInfoAt(_ arg0: Int32) -> MediaCodecInfo!
 }

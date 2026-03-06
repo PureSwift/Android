@@ -266,6 +266,7 @@ extension JavaClass<MediaFormat> {
   @JavaStaticField(isFinal: true)
   public var KEY_AAC_ENCODED_TARGET_LEVEL: String
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var KEY_AAC_MAX_OUTPUT_CHANNEL_COUNT: String
 

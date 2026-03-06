@@ -11,15 +11,6 @@ open class VolumeProvider: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, environment: JNIEnvironment? = nil)
 
-    /// Java method `getMaxVolume`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public final int android.media.VolumeProvider.getMaxVolume()
-    /// ```
-  @JavaMethod
-  open func getMaxVolume() -> Int32
-
     /// Java method `getVolumeControl`.
     ///
     /// ### Java method signature
@@ -28,6 +19,15 @@ open class VolumeProvider: JavaObject {
     /// ```
   @JavaMethod
   open func getVolumeControl() -> Int32
+
+    /// Java method `getMaxVolume`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public final int android.media.VolumeProvider.getMaxVolume()
+    /// ```
+  @JavaMethod
+  open func getMaxVolume() -> Int32
 
     /// Java method `getCurrentVolume`.
     ///

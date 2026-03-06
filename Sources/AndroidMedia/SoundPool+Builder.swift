@@ -10,15 +10,6 @@ extension SoundPool {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
-    /// Java method `setMaxStreams`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.media.SoundPool$Builder android.media.SoundPool$Builder.setMaxStreams(int) throws java.lang.IllegalArgumentException
-    /// ```
-  @JavaMethod
-  open func setMaxStreams(_ arg0: Int32) throws -> SoundPool.Builder!
-
     /// Java method `setAudioAttributes`.
     ///
     /// ### Java method signature
@@ -45,6 +36,15 @@ extension SoundPool {
     /// ```
   @JavaMethod
   open func setContext(_ arg0: Context?) -> SoundPool.Builder!
+
+    /// Java method `setMaxStreams`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.media.SoundPool$Builder android.media.SoundPool$Builder.setMaxStreams(int) throws java.lang.IllegalArgumentException
+    /// ```
+  @JavaMethod
+  open func setMaxStreams(_ arg0: Int32) throws -> SoundPool.Builder!
 
     /// Java method `build`.
     ///

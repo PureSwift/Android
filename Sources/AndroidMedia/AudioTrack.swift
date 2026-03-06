@@ -5,15 +5,82 @@ import SwiftJavaJNICore
 
 @JavaClass("android.media.AudioTrack")
 open class AudioTrack: JavaObject {
-  @available(Android 21, *)
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: AudioAttributes?, _ arg1: AudioFormat?, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32, environment: JNIEnvironment? = nil) throws
 
+  @available(*, deprecated)
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32, _ arg5: Int32, _ arg6: Int32, environment: JNIEnvironment? = nil) throws
 
+  @available(*, deprecated)
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32, _ arg5: Int32, environment: JNIEnvironment? = nil) throws
+
+    /// Java method `play`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.media.AudioTrack.play() throws java.lang.IllegalStateException
+    /// ```
+  @JavaMethod
+  open func play() throws
+
+    /// Java method `pause`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.media.AudioTrack.pause() throws java.lang.IllegalStateException
+    /// ```
+  @JavaMethod
+  open func pause() throws
+
+    /// Java method `setVolume`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public int android.media.AudioTrack.setVolume(float)
+    /// ```
+  @available(Android 21, *)
+  @JavaMethod
+  open func setVolume(_ arg0: Float) -> Int32
+
+    /// Java method `getAudioAttributes`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.media.AudioAttributes android.media.AudioTrack.getAudioAttributes()
+    /// ```
+  @available(Android 21, *)
+  @JavaMethod
+  open func getAudioAttributes() -> AudioAttributes!
+
+    /// Java method `getMetrics`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.os.PersistableBundle android.media.AudioTrack.getMetrics()
+    /// ```
+  @available(Android 28, *)
+  @JavaMethod
+  open func getMetrics() -> PersistableBundle!
+
+    /// Java method `getAudioSessionId`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public int android.media.AudioTrack.getAudioSessionId()
+    /// ```
+  @JavaMethod
+  open func getAudioSessionId() -> Int32
+
+    /// Java method `attachAuxEffect`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public int android.media.AudioTrack.attachAuxEffect(int)
+    /// ```
+  @JavaMethod
+  open func attachAuxEffect(_ arg0: Int32) -> Int32
 
     /// Java method `getSampleRate`.
     ///
@@ -21,6 +88,7 @@ open class AudioTrack: JavaObject {
     /// ```java
     /// public int android.media.AudioTrack.getSampleRate()
     /// ```
+  @available(Android 21, *)
   @JavaMethod
   open func getSampleRate() -> Int32
 
@@ -42,194 +110,36 @@ open class AudioTrack: JavaObject {
   @JavaMethod
   open func getChannelCount() -> Int32
 
-    /// Java method `getAudioSessionId`.
+    /// Java method `addOnRoutingChangedListener`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public int android.media.AudioTrack.getAudioSessionId()
+    /// public void android.media.AudioTrack.addOnRoutingChangedListener(android.media.AudioTrack$OnRoutingChangedListener,android.os.Handler)
     /// ```
+  @available(*, deprecated)
+  @available(Android 23, *)
   @JavaMethod
-  open func getAudioSessionId() -> Int32
+  open func addOnRoutingChangedListener(_ arg0: AudioTrack.OnRoutingChangedListener?, _ arg1: Handler?)
 
-    /// Java method `getMetrics`.
+    /// Java method `removeOnRoutingChangedListener`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public android.os.PersistableBundle android.media.AudioTrack.getMetrics()
+    /// public void android.media.AudioTrack.removeOnRoutingChangedListener(android.media.AudioTrack$OnRoutingChangedListener)
     /// ```
-  @available(Android 28, *)
+  @available(*, deprecated)
+  @available(Android 23, *)
   @JavaMethod
-  open func getMetrics() -> PersistableBundle!
+  open func removeOnRoutingChangedListener(_ arg0: AudioTrack.OnRoutingChangedListener?)
 
-    /// Java method `getOffloadDelay`.
+    /// Java method `setAuxEffectSendLevel`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public int android.media.AudioTrack.getOffloadDelay()
-    /// ```
-  @available(Android 29, *)
-  @JavaMethod
-  open func getOffloadDelay() -> Int32
-
-    /// Java method `getOffloadPadding`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.media.AudioTrack.getOffloadPadding()
-    /// ```
-  @available(Android 29, *)
-  @JavaMethod
-  open func getOffloadPadding() -> Int32
-
-    /// Java method `setDualMonoMode`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public boolean android.media.AudioTrack.setDualMonoMode(int)
-    /// ```
-  @available(Android 31, *)
-  @JavaMethod
-  open func setDualMonoMode(_ arg0: Int32) -> Bool
-
-    /// Java method `getDualMonoMode`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.media.AudioTrack.getDualMonoMode()
-    /// ```
-  @available(Android 31, *)
-  @JavaMethod
-  open func getDualMonoMode() -> Int32
-
-    /// Java method `getPlaybackRate`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.media.AudioTrack.getPlaybackRate()
+    /// public int android.media.AudioTrack.setAuxEffectSendLevel(float)
     /// ```
   @JavaMethod
-  open func getPlaybackRate() -> Int32
-
-    /// Java method `getAudioAttributes`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.media.AudioAttributes android.media.AudioTrack.getAudioAttributes()
-    /// ```
-  @available(Android 21, *)
-  @JavaMethod
-  open func getAudioAttributes() -> AudioAttributes!
-
-    /// Java method `getStreamType`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.media.AudioTrack.getStreamType()
-    /// ```
-  @JavaMethod
-  open func getStreamType() -> Int32
-
-    /// Java method `getPlayState`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.media.AudioTrack.getPlayState()
-    /// ```
-  @JavaMethod
-  open func getPlayState() -> Int32
-
-    /// Java method `getUnderrunCount`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.media.AudioTrack.getUnderrunCount()
-    /// ```
-  @available(Android 24, *)
-  @JavaMethod
-  open func getUnderrunCount() -> Int32
-
-    /// Java method `getPerformanceMode`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.media.AudioTrack.getPerformanceMode()
-    /// ```
-  @available(Android 29, *)
-  @JavaMethod
-  open func getPerformanceMode() -> Int32
-
-    /// Java method `setStereoVolume`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.media.AudioTrack.setStereoVolume(float,float)
-    /// ```
-  @JavaMethod
-  open func setStereoVolume(_ arg0: Float, _ arg1: Float) -> Int32
-
-    /// Java method `setVolume`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.media.AudioTrack.setVolume(float)
-    /// ```
-  @available(Android 21, *)
-  @JavaMethod
-  open func setVolume(_ arg0: Float) -> Int32
-
-    /// Java method `setPlaybackRate`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.media.AudioTrack.setPlaybackRate(int)
-    /// ```
-  @JavaMethod
-  open func setPlaybackRate(_ arg0: Int32) -> Int32
-
-    /// Java method `setLoopPoints`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.media.AudioTrack.setLoopPoints(int,int,int)
-    /// ```
-  @JavaMethod
-  open func setLoopPoints(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32) -> Int32
-
-    /// Java method `play`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.media.AudioTrack.play() throws java.lang.IllegalStateException
-    /// ```
-  @JavaMethod
-  open func play() throws
-
-    /// Java method `pause`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.media.AudioTrack.pause() throws java.lang.IllegalStateException
-    /// ```
-  @JavaMethod
-  open func pause() throws
-
-    /// Java method `reloadStaticData`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.media.AudioTrack.reloadStaticData()
-    /// ```
-  @JavaMethod
-  open func reloadStaticData() -> Int32
-
-    /// Java method `attachAuxEffect`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.media.AudioTrack.attachAuxEffect(int)
-    /// ```
-  @JavaMethod
-  open func attachAuxEffect(_ arg0: Int32) -> Int32
+  open func setAuxEffectSendLevel(_ arg0: Float) -> Int32
 
     /// Java method `getChannelConfiguration`.
     ///
@@ -276,26 +186,6 @@ open class AudioTrack: JavaObject {
     /// ```
   @JavaMethod
   open func setNotificationMarkerPosition(_ arg0: Int32) -> Int32
-
-    /// Java method `addOnRoutingChangedListener`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.media.AudioTrack.addOnRoutingChangedListener(android.media.AudioTrack$OnRoutingChangedListener,android.os.Handler)
-    /// ```
-  @available(Android 23, *)
-  @JavaMethod
-  open func addOnRoutingChangedListener(_ arg0: AudioTrack.OnRoutingChangedListener?, _ arg1: Handler?)
-
-    /// Java method `removeOnRoutingChangedListener`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.media.AudioTrack.removeOnRoutingChangedListener(android.media.AudioTrack$OnRoutingChangedListener)
-    /// ```
-  @available(Android 23, *)
-  @JavaMethod
-  open func removeOnRoutingChangedListener(_ arg0: AudioTrack.OnRoutingChangedListener?)
 
     /// Java method `setPositionNotificationPeriod`.
     ///
@@ -394,6 +284,7 @@ open class AudioTrack: JavaObject {
     /// ```java
     /// protected int android.media.AudioTrack.getNativeFrameCount()
     /// ```
+  @available(*, deprecated)
   @JavaMethod
   open func getNativeFrameCount() -> Int32
 
@@ -433,15 +324,6 @@ open class AudioTrack: JavaObject {
   @JavaMethod
   open func setPlaybackHeadPosition(_ arg0: Int32) -> Int32
 
-    /// Java method `setAuxEffectSendLevel`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.media.AudioTrack.setAuxEffectSendLevel(float)
-    /// ```
-  @JavaMethod
-  open func setAuxEffectSendLevel(_ arg0: Float) -> Int32
-
     /// Java method `removeOnCodecFormatChangedListener`.
     ///
     /// ### Java method signature
@@ -459,6 +341,130 @@ open class AudioTrack: JavaObject {
     /// ```
   @JavaMethod
   open func unregisterStreamEventCallback(_ arg0: AudioTrack.StreamEventCallback?)
+
+    /// Java method `getOffloadDelay`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public int android.media.AudioTrack.getOffloadDelay()
+    /// ```
+  @available(Android 29, *)
+  @JavaMethod
+  open func getOffloadDelay() -> Int32
+
+    /// Java method `getOffloadPadding`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public int android.media.AudioTrack.getOffloadPadding()
+    /// ```
+  @available(Android 29, *)
+  @JavaMethod
+  open func getOffloadPadding() -> Int32
+
+    /// Java method `setDualMonoMode`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public boolean android.media.AudioTrack.setDualMonoMode(int)
+    /// ```
+  @available(Android 31, *)
+  @JavaMethod
+  open func setDualMonoMode(_ arg0: Int32) -> Bool
+
+    /// Java method `getDualMonoMode`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public int android.media.AudioTrack.getDualMonoMode()
+    /// ```
+  @available(Android 31, *)
+  @JavaMethod
+  open func getDualMonoMode() -> Int32
+
+    /// Java method `getPlaybackRate`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public int android.media.AudioTrack.getPlaybackRate()
+    /// ```
+  @JavaMethod
+  open func getPlaybackRate() -> Int32
+
+    /// Java method `getStreamType`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public int android.media.AudioTrack.getStreamType()
+    /// ```
+  @JavaMethod
+  open func getStreamType() -> Int32
+
+    /// Java method `getPlayState`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public int android.media.AudioTrack.getPlayState()
+    /// ```
+  @JavaMethod
+  open func getPlayState() -> Int32
+
+    /// Java method `getUnderrunCount`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public int android.media.AudioTrack.getUnderrunCount()
+    /// ```
+  @available(Android 24, *)
+  @JavaMethod
+  open func getUnderrunCount() -> Int32
+
+    /// Java method `getPerformanceMode`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public int android.media.AudioTrack.getPerformanceMode()
+    /// ```
+  @available(Android 29, *)
+  @JavaMethod
+  open func getPerformanceMode() -> Int32
+
+    /// Java method `setStereoVolume`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public int android.media.AudioTrack.setStereoVolume(float,float)
+    /// ```
+  @available(*, deprecated)
+  @JavaMethod
+  open func setStereoVolume(_ arg0: Float, _ arg1: Float) -> Int32
+
+    /// Java method `setPlaybackRate`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public int android.media.AudioTrack.setPlaybackRate(int)
+    /// ```
+  @JavaMethod
+  open func setPlaybackRate(_ arg0: Int32) -> Int32
+
+    /// Java method `setLoopPoints`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public int android.media.AudioTrack.setLoopPoints(int,int,int)
+    /// ```
+  @JavaMethod
+  open func setLoopPoints(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32) -> Int32
+
+    /// Java method `reloadStaticData`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public int android.media.AudioTrack.reloadStaticData()
+    /// ```
+  @JavaMethod
+  open func reloadStaticData() -> Int32
 
     /// Java method `finalize`.
     ///
@@ -502,6 +508,7 @@ open class AudioTrack: JavaObject {
     /// ```java
     /// protected void android.media.AudioTrack.setState(int)
     /// ```
+  @available(*, deprecated)
   @JavaMethod
   open func setState(_ arg0: Int32)
 
@@ -576,12 +583,14 @@ extension AudioTrack {
   }
 }
 extension JavaClass<AudioTrack.MetricsConstants> {
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var CHANNELMASK: String
 
   @JavaStaticField(isFinal: true)
   public var CONTENTTYPE: String
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var SAMPLERATE: String
 
@@ -598,6 +607,7 @@ extension AudioTrack {
   }
 }
 extension AudioTrack {
+  @available(*, deprecated)
   @JavaInterface("android.media.AudioTrack$OnRoutingChangedListener")
   public struct OnRoutingChangedListener {
     /// Java method `onRoutingChanged`.
@@ -606,6 +616,7 @@ extension AudioTrack {
     /// ```java
     /// public abstract void android.media.AudioTrack$OnRoutingChangedListener.onRoutingChanged(android.media.AudioTrack)
     /// ```
+  @available(*, deprecated)
   @JavaMethod
   public func onRoutingChanged(_ arg0: AudioTrack?)
   }
@@ -615,6 +626,15 @@ extension AudioTrack {
   open class StreamEventCallback: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
+
+    /// Java method `onPresentationEnded`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.media.AudioTrack$StreamEventCallback.onPresentationEnded(android.media.AudioTrack)
+    /// ```
+  @JavaMethod
+  open func onPresentationEnded(_ arg0: AudioTrack?)
 
     /// Java method `onTearDown`.
     ///
@@ -633,15 +653,6 @@ extension AudioTrack {
     /// ```
   @JavaMethod
   open func onDataRequest(_ arg0: AudioTrack?, _ arg1: Int32)
-
-    /// Java method `onPresentationEnded`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.media.AudioTrack$StreamEventCallback.onPresentationEnded(android.media.AudioTrack)
-    /// ```
-  @JavaMethod
-  open func onPresentationEnded(_ arg0: AudioTrack?)
   }
 }
 extension JavaClass<AudioTrack> {
@@ -735,24 +746,6 @@ extension JavaClass<AudioTrack> {
   @JavaStaticField(isFinal: true)
   public var WRITE_NON_BLOCKING: Int32
 
-    /// Java method `getMinBufferSize`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public static int android.media.AudioTrack.getMinBufferSize(int,int,int)
-    /// ```
-  @JavaStaticMethod
-  public func getMinBufferSize(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32) -> Int32
-
-    /// Java method `getMinVolume`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public static float android.media.AudioTrack.getMinVolume()
-    /// ```
-  @JavaStaticMethod
-  public func getMinVolume() -> Float
-
     /// Java method `getMaxVolume`.
     ///
     /// ### Java method signature
@@ -762,12 +755,22 @@ extension JavaClass<AudioTrack> {
   @JavaStaticMethod
   public func getMaxVolume() -> Float
 
+    /// Java method `getMinBufferSize`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public static int android.media.AudioTrack.getMinBufferSize(int,int,int)
+    /// ```
+  @JavaStaticMethod
+  public func getMinBufferSize(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32) -> Int32
+
     /// Java method `isDirectPlaybackSupported`.
     ///
     /// ### Java method signature
     /// ```java
     /// public static boolean android.media.AudioTrack.isDirectPlaybackSupported(android.media.AudioFormat,android.media.AudioAttributes)
     /// ```
+  @available(*, deprecated)
   @JavaStaticMethod
   public func isDirectPlaybackSupported(_ arg0: AudioFormat?, _ arg1: AudioAttributes?) -> Bool
 
@@ -779,4 +782,13 @@ extension JavaClass<AudioTrack> {
     /// ```
   @JavaStaticMethod
   public func getNativeOutputSampleRate(_ arg0: Int32) -> Int32
+
+    /// Java method `getMinVolume`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public static float android.media.AudioTrack.getMinVolume()
+    /// ```
+  @JavaStaticMethod
+  public func getMinVolume() -> Float
 }

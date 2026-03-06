@@ -7,32 +7,30 @@ import SwiftJavaJNICore
 
 @JavaClass("android.media.MediaRecorder")
 open class MediaRecorder: JavaObject {
+  @available(*, deprecated)
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
-  @available(Android 31, *)
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Context?, environment: JNIEnvironment? = nil)
 
-    /// Java method `isPrivacySensitive`.
+    /// Java method `setOrientationHint`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public native boolean android.media.MediaRecorder.isPrivacySensitive()
+    /// public void android.media.MediaRecorder.setOrientationHint(int)
     /// ```
-  @available(Android 29, *)
   @JavaMethod
-  open func isPrivacySensitive() -> Bool
+  open func setOrientationHint(_ arg0: Int32)
 
-    /// Java method `getMetrics`.
+    /// Java method `setLocation`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public android.os.PersistableBundle android.media.MediaRecorder.getMetrics()
+    /// public void android.media.MediaRecorder.setLocation(float,float)
     /// ```
-  @available(Android 26, *)
   @JavaMethod
-  open func getMetrics() -> PersistableBundle!
+  open func setLocation(_ arg0: Float, _ arg1: Float)
 
     /// Java method `pause`.
     ///
@@ -43,6 +41,26 @@ open class MediaRecorder: JavaObject {
   @available(Android 24, *)
   @JavaMethod
   open func pause() throws
+
+    /// Java method `resume`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public native void android.media.MediaRecorder.resume() throws java.lang.IllegalStateException
+    /// ```
+  @available(Android 24, *)
+  @JavaMethod
+  open func resume() throws
+
+    /// Java method `getMetrics`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.os.PersistableBundle android.media.MediaRecorder.getMetrics()
+    /// ```
+  @available(Android 26, *)
+  @JavaMethod
+  open func getMetrics() -> PersistableBundle!
 
     /// Java method `setOnErrorListener`.
     ///
@@ -62,6 +80,63 @@ open class MediaRecorder: JavaObject {
   @JavaMethod
   open func setOnInfoListener(_ arg0: MediaRecorder.OnInfoListener?)
 
+    /// Java method `setAudioSource`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public native void android.media.MediaRecorder.setAudioSource(int) throws java.lang.IllegalStateException
+    /// ```
+  @JavaMethod
+  open func setAudioSource(_ arg0: Int32) throws
+
+    /// Java method `isPrivacySensitive`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public native boolean android.media.MediaRecorder.isPrivacySensitive()
+    /// ```
+  @available(Android 29, *)
+  @available(Android 31, *)
+  @JavaMethod
+  open func isPrivacySensitive() -> Bool
+
+    /// Java method `unregisterAudioRecordingCallback`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.media.MediaRecorder.unregisterAudioRecordingCallback(android.media.AudioManager$AudioRecordingCallback)
+    /// ```
+  @JavaMethod
+  open func unregisterAudioRecordingCallback(_ arg0: AudioManager.AudioRecordingCallback?)
+
+    /// Java method `setPrivacySensitive`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public native void android.media.MediaRecorder.setPrivacySensitive(boolean)
+    /// ```
+  @available(Android 29, *)
+  @JavaMethod
+  open func setPrivacySensitive(_ arg0: Bool)
+
+    /// Java method `setPreferredMicrophoneDirection`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public boolean android.media.MediaRecorder.setPreferredMicrophoneDirection(int)
+    /// ```
+  @JavaMethod
+  open func setPreferredMicrophoneDirection(_ arg0: Int32) -> Bool
+
+    /// Java method `setPreferredMicrophoneFieldDimension`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public boolean android.media.MediaRecorder.setPreferredMicrophoneFieldDimension(float)
+    /// ```
+  @JavaMethod
+  open func setPreferredMicrophoneFieldDimension(_ arg0: Float) -> Bool
+
     /// Java method `setVideoSource`.
     ///
     /// ### Java method signature
@@ -80,24 +155,6 @@ open class MediaRecorder: JavaObject {
   @available(Android 21, *)
   @JavaMethod
   open func setCaptureRate(_ arg0: Double)
-
-    /// Java method `setOrientationHint`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.media.MediaRecorder.setOrientationHint(int)
-    /// ```
-  @JavaMethod
-  open func setOrientationHint(_ arg0: Int32)
-
-    /// Java method `setLocation`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.media.MediaRecorder.setLocation(float,float)
-    /// ```
-  @JavaMethod
-  open func setLocation(_ arg0: Float, _ arg1: Float)
 
     /// Java method `setOutputFormat`.
     ///
@@ -175,19 +232,19 @@ open class MediaRecorder: JavaObject {
     ///
     /// ### Java method signature
     /// ```java
-    /// public void android.media.MediaRecorder.setOutputFile(java.lang.String) throws java.lang.IllegalStateException
+    /// public void android.media.MediaRecorder.setOutputFile(java.io.FileDescriptor) throws java.lang.IllegalStateException
     /// ```
   @JavaMethod
-  open func setOutputFile(_ arg0: String) throws
+  open func setOutputFile(_ arg0: FileDescriptor?) throws
 
     /// Java method `setOutputFile`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public void android.media.MediaRecorder.setOutputFile(java.io.FileDescriptor) throws java.lang.IllegalStateException
+    /// public void android.media.MediaRecorder.setOutputFile(java.lang.String) throws java.lang.IllegalStateException
     /// ```
   @JavaMethod
-  open func setOutputFile(_ arg0: FileDescriptor?) throws
+  open func setOutputFile(_ arg0: String) throws
 
     /// Java method `setNextOutputFile`.
     ///
@@ -199,16 +256,6 @@ open class MediaRecorder: JavaObject {
   @JavaMethod
   open func setNextOutputFile(_ arg0: FileDescriptor?) throws
 
-    /// Java method `resume`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public native void android.media.MediaRecorder.resume() throws java.lang.IllegalStateException
-    /// ```
-  @available(Android 24, *)
-  @JavaMethod
-  open func resume() throws
-
     /// Java method `getMaxAmplitude`.
     ///
     /// ### Java method signature
@@ -217,52 +264,6 @@ open class MediaRecorder: JavaObject {
     /// ```
   @JavaMethod
   open func getMaxAmplitude() throws -> Int32
-
-    /// Java method `setAudioSource`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public native void android.media.MediaRecorder.setAudioSource(int) throws java.lang.IllegalStateException
-    /// ```
-  @JavaMethod
-  open func setAudioSource(_ arg0: Int32) throws
-
-    /// Java method `setPrivacySensitive`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public native void android.media.MediaRecorder.setPrivacySensitive(boolean)
-    /// ```
-  @available(Android 29, *)
-  @JavaMethod
-  open func setPrivacySensitive(_ arg0: Bool)
-
-    /// Java method `setPreferredMicrophoneFieldDimension`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public boolean android.media.MediaRecorder.setPreferredMicrophoneFieldDimension(float)
-    /// ```
-  @JavaMethod
-  open func setPreferredMicrophoneFieldDimension(_ arg0: Float) -> Bool
-
-    /// Java method `unregisterAudioRecordingCallback`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.media.MediaRecorder.unregisterAudioRecordingCallback(android.media.AudioManager$AudioRecordingCallback)
-    /// ```
-  @JavaMethod
-  open func unregisterAudioRecordingCallback(_ arg0: AudioManager.AudioRecordingCallback?)
-
-    /// Java method `setPreferredMicrophoneDirection`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public boolean android.media.MediaRecorder.setPreferredMicrophoneDirection(int)
-    /// ```
-  @JavaMethod
-  open func setPreferredMicrophoneDirection(_ arg0: Int32) -> Bool
 
     /// Java method `setAudioSamplingRate`.
     ///

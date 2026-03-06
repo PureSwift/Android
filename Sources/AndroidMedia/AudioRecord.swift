@@ -8,6 +8,25 @@ open class AudioRecord: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32, _ arg4: Int32, environment: JNIEnvironment? = nil) throws
 
+    /// Java method `getMetrics`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.os.PersistableBundle android.media.AudioRecord.getMetrics()
+    /// ```
+  @available(Android 28, *)
+  @JavaMethod
+  open func getMetrics() -> PersistableBundle!
+
+    /// Java method `getAudioSessionId`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public int android.media.AudioRecord.getAudioSessionId()
+    /// ```
+  @JavaMethod
+  open func getAudioSessionId() -> Int32
+
     /// Java method `getSampleRate`.
     ///
     /// ### Java method signature
@@ -53,15 +72,6 @@ open class AudioRecord: JavaObject {
   @JavaMethod
   open func getRecordingState() -> Int32
 
-    /// Java method `getAudioSessionId`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.media.AudioRecord.getAudioSessionId()
-    /// ```
-  @JavaMethod
-  open func getAudioSessionId() -> Int32
-
     /// Java method `isPrivacySensitive`.
     ///
     /// ### Java method signature
@@ -81,25 +91,37 @@ open class AudioRecord: JavaObject {
   @JavaMethod
   open func startRecording() throws
 
-    /// Java method `getMetrics`.
+    /// Java method `unregisterAudioRecordingCallback`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public android.os.PersistableBundle android.media.AudioRecord.getMetrics()
-    /// ```
-  @available(Android 28, *)
-  @JavaMethod
-  open func getMetrics() -> PersistableBundle!
-
-    /// Java method `setPreferredMicrophoneFieldDimension`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public boolean android.media.AudioRecord.setPreferredMicrophoneFieldDimension(float)
+    /// public void android.media.AudioRecord.unregisterAudioRecordingCallback(android.media.AudioManager$AudioRecordingCallback)
     /// ```
   @available(Android 29, *)
   @JavaMethod
-  open func setPreferredMicrophoneFieldDimension(_ arg0: Float) -> Bool
+  open func unregisterAudioRecordingCallback(_ arg0: AudioManager.AudioRecordingCallback?)
+
+    /// Java method `addOnRoutingChangedListener`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.media.AudioRecord.addOnRoutingChangedListener(android.media.AudioRecord$OnRoutingChangedListener,android.os.Handler)
+    /// ```
+  @available(*, deprecated)
+  @available(Android 23, *)
+  @JavaMethod
+  open func addOnRoutingChangedListener(_ arg0: AudioRecord.OnRoutingChangedListener?, _ arg1: Handler?)
+
+    /// Java method `removeOnRoutingChangedListener`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.media.AudioRecord.removeOnRoutingChangedListener(android.media.AudioRecord$OnRoutingChangedListener)
+    /// ```
+  @available(*, deprecated)
+  @available(Android 23, *)
+  @JavaMethod
+  open func removeOnRoutingChangedListener(_ arg0: AudioRecord.OnRoutingChangedListener?)
 
     /// Java method `getChannelConfiguration`.
     ///
@@ -142,19 +164,19 @@ open class AudioRecord: JavaObject {
     ///
     /// ### Java method signature
     /// ```java
-    /// public void android.media.AudioRecord.setRecordPositionUpdateListener(android.media.AudioRecord$OnRecordPositionUpdateListener)
+    /// public void android.media.AudioRecord.setRecordPositionUpdateListener(android.media.AudioRecord$OnRecordPositionUpdateListener,android.os.Handler)
     /// ```
   @JavaMethod
-  open func setRecordPositionUpdateListener(_ arg0: AudioRecord.OnRecordPositionUpdateListener?)
+  open func setRecordPositionUpdateListener(_ arg0: AudioRecord.OnRecordPositionUpdateListener?, _ arg1: Handler?)
 
     /// Java method `setRecordPositionUpdateListener`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public void android.media.AudioRecord.setRecordPositionUpdateListener(android.media.AudioRecord$OnRecordPositionUpdateListener,android.os.Handler)
+    /// public void android.media.AudioRecord.setRecordPositionUpdateListener(android.media.AudioRecord$OnRecordPositionUpdateListener)
     /// ```
   @JavaMethod
-  open func setRecordPositionUpdateListener(_ arg0: AudioRecord.OnRecordPositionUpdateListener?, _ arg1: Handler?)
+  open func setRecordPositionUpdateListener(_ arg0: AudioRecord.OnRecordPositionUpdateListener?)
 
     /// Java method `setNotificationMarkerPosition`.
     ///
@@ -165,26 +187,6 @@ open class AudioRecord: JavaObject {
   @JavaMethod
   open func setNotificationMarkerPosition(_ arg0: Int32) -> Int32
 
-    /// Java method `addOnRoutingChangedListener`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.media.AudioRecord.addOnRoutingChangedListener(android.media.AudioRecord$OnRoutingChangedListener,android.os.Handler)
-    /// ```
-  @available(Android 23, *)
-  @JavaMethod
-  open func addOnRoutingChangedListener(_ arg0: AudioRecord.OnRoutingChangedListener?, _ arg1: Handler?)
-
-    /// Java method `removeOnRoutingChangedListener`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.media.AudioRecord.removeOnRoutingChangedListener(android.media.AudioRecord$OnRoutingChangedListener)
-    /// ```
-  @available(Android 23, *)
-  @JavaMethod
-  open func removeOnRoutingChangedListener(_ arg0: AudioRecord.OnRoutingChangedListener?)
-
     /// Java method `setPositionNotificationPeriod`.
     ///
     /// ### Java method signature
@@ -193,16 +195,6 @@ open class AudioRecord: JavaObject {
     /// ```
   @JavaMethod
   open func setPositionNotificationPeriod(_ arg0: Int32) -> Int32
-
-    /// Java method `unregisterAudioRecordingCallback`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.media.AudioRecord.unregisterAudioRecordingCallback(android.media.AudioManager$AudioRecordingCallback)
-    /// ```
-  @available(Android 29, *)
-  @JavaMethod
-  open func unregisterAudioRecordingCallback(_ arg0: AudioManager.AudioRecordingCallback?)
 
     /// Java method `setPreferredMicrophoneDirection`.
     ///
@@ -213,6 +205,16 @@ open class AudioRecord: JavaObject {
   @available(Android 29, *)
   @JavaMethod
   open func setPreferredMicrophoneDirection(_ arg0: Int32) -> Bool
+
+    /// Java method `setPreferredMicrophoneFieldDimension`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public boolean android.media.AudioRecord.setPreferredMicrophoneFieldDimension(float)
+    /// ```
+  @available(Android 29, *)
+  @JavaMethod
+  open func setPreferredMicrophoneFieldDimension(_ arg0: Float) -> Bool
 
     /// Java method `finalize`.
     ///
@@ -320,6 +322,7 @@ extension JavaClass<AudioRecord.MetricsConstants> {
   @JavaStaticField(isFinal: true)
   public var ENCODING: String
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var LATENCY: String
 
@@ -330,6 +333,7 @@ extension JavaClass<AudioRecord.MetricsConstants> {
   public var SOURCE: String
 }
 extension AudioRecord {
+  @available(*, deprecated)
   @JavaInterface("android.media.AudioRecord$OnRoutingChangedListener")
   public struct OnRoutingChangedListener {
     /// Java method `onRoutingChanged`.
@@ -338,6 +342,7 @@ extension AudioRecord {
     /// ```java
     /// public abstract void android.media.AudioRecord$OnRoutingChangedListener.onRoutingChanged(android.media.AudioRecord)
     /// ```
+  @available(*, deprecated)
   @JavaMethod
   public func onRoutingChanged(_ arg0: AudioRecord?)
   }

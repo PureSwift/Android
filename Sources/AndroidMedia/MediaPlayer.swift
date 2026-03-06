@@ -25,42 +25,23 @@ open class MediaPlayer: JavaObject {
   @JavaMethod
   open func setAudioAttributes(_ arg0: AudioAttributes?) throws
 
-    /// Java method `setAudioSessionId`.
+    /// Java method `pause`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public void android.media.MediaPlayer.setAudioSessionId(int) throws java.lang.IllegalArgumentException,java.lang.IllegalStateException
+    /// public void android.media.MediaPlayer.pause() throws java.lang.IllegalStateException
     /// ```
   @JavaMethod
-  open func setAudioSessionId(_ arg0: Int32) throws
+  open func pause() throws
 
-    /// Java method `getAudioSessionId`.
+    /// Java method `setVolume`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public native int android.media.MediaPlayer.getAudioSessionId()
+    /// public void android.media.MediaPlayer.setVolume(float,float)
     /// ```
   @JavaMethod
-  open func getAudioSessionId() -> Int32
-
-    /// Java method `getMetrics`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.os.PersistableBundle android.media.MediaPlayer.getMetrics()
-    /// ```
-  @available(Android 26, *)
-  @JavaMethod
-  open func getMetrics() -> PersistableBundle!
-
-    /// Java method `setDataSource`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.media.MediaPlayer.setDataSource(android.content.res.AssetFileDescriptor) throws java.io.IOException,java.lang.IllegalArgumentException,java.lang.IllegalStateException
-    /// ```
-  @JavaMethod
-  open func setDataSource(_ arg0: AssetFileDescriptor?) throws
+  open func setVolume(_ arg0: Float, _ arg1: Float)
 
     /// Java method `setDataSource`.
     ///
@@ -84,64 +65,57 @@ open class MediaPlayer: JavaObject {
     ///
     /// ### Java method signature
     /// ```java
+    /// public void android.media.MediaPlayer.setDataSource(android.content.res.AssetFileDescriptor) throws java.io.IOException,java.lang.IllegalArgumentException,java.lang.IllegalStateException
+    /// ```
+  @JavaMethod
+  open func setDataSource(_ arg0: AssetFileDescriptor?) throws
+
+    /// Java method `setDataSource`.
+    ///
+    /// ### Java method signature
+    /// ```java
     /// public void android.media.MediaPlayer.setDataSource(java.io.FileDescriptor,long,long) throws java.io.IOException,java.lang.IllegalArgumentException,java.lang.IllegalStateException
     /// ```
   @JavaMethod
   open func setDataSource(_ arg0: FileDescriptor?, _ arg1: Int64, _ arg2: Int64) throws
 
-    /// Java method `setVolume`.
+    /// Java method `selectTrack`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public void android.media.MediaPlayer.setVolume(float,float)
+    /// public void android.media.MediaPlayer.selectTrack(int) throws java.lang.IllegalStateException
     /// ```
   @JavaMethod
-  open func setVolume(_ arg0: Float, _ arg1: Float)
+  open func selectTrack(_ arg0: Int32) throws
 
-    /// Java method `pause`.
+    /// Java method `seekTo`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public void android.media.MediaPlayer.pause() throws java.lang.IllegalStateException
+    /// public void android.media.MediaPlayer.seekTo(long,int)
     /// ```
+  @available(Android 26, *)
   @JavaMethod
-  open func pause() throws
+  open func seekTo(_ arg0: Int64, _ arg1: Int32)
 
-    /// Java method `attachAuxEffect`.
+    /// Java method `seekTo`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public native void android.media.MediaPlayer.attachAuxEffect(int)
+    /// public void android.media.MediaPlayer.seekTo(int) throws java.lang.IllegalStateException
     /// ```
   @JavaMethod
-  open func attachAuxEffect(_ arg0: Int32)
+  open func seekTo(_ arg0: Int32) throws
 
-    /// Java method `setLooping`.
+    /// Java method `getMetrics`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public native void android.media.MediaPlayer.setLooping(boolean)
+    /// public android.os.PersistableBundle android.media.MediaPlayer.getMetrics()
     /// ```
+  @available(Android 26, *)
   @JavaMethod
-  open func setLooping(_ arg0: Bool)
-
-    /// Java method `isLooping`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public native boolean android.media.MediaPlayer.isLooping()
-    /// ```
-  @JavaMethod
-  open func isLooping() -> Bool
-
-    /// Java method `isPlaying`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public native boolean android.media.MediaPlayer.isPlaying()
-    /// ```
-  @JavaMethod
-  open func isPlaying() -> Bool
+  open func getMetrics() -> PersistableBundle!
 
     /// Java method `prepareAsync`.
     ///
@@ -179,24 +153,14 @@ open class MediaPlayer: JavaObject {
   @JavaMethod
   open func getVideoHeight() -> Int32
 
-    /// Java method `seekTo`.
+    /// Java method `isPlaying`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public void android.media.MediaPlayer.seekTo(int) throws java.lang.IllegalStateException
+    /// public native boolean android.media.MediaPlayer.isPlaying()
     /// ```
   @JavaMethod
-  open func seekTo(_ arg0: Int32) throws
-
-    /// Java method `seekTo`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.media.MediaPlayer.seekTo(long,int)
-    /// ```
-  @available(Android 26, *)
-  @JavaMethod
-  open func seekTo(_ arg0: Int64, _ arg1: Int32)
+  open func isPlaying() -> Bool
 
     /// Java method `getCurrentPosition`.
     ///
@@ -222,8 +186,54 @@ open class MediaPlayer: JavaObject {
     /// ```java
     /// public void android.media.MediaPlayer.setAudioStreamType(int)
     /// ```
+  @available(*, deprecated)
   @JavaMethod
   open func setAudioStreamType(_ arg0: Int32)
+
+    /// Java method `setLooping`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public native void android.media.MediaPlayer.setLooping(boolean)
+    /// ```
+  @JavaMethod
+  open func setLooping(_ arg0: Bool)
+
+    /// Java method `isLooping`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public native boolean android.media.MediaPlayer.isLooping()
+    /// ```
+  @JavaMethod
+  open func isLooping() -> Bool
+
+    /// Java method `setAudioSessionId`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.media.MediaPlayer.setAudioSessionId(int) throws java.lang.IllegalArgumentException,java.lang.IllegalStateException
+    /// ```
+  @JavaMethod
+  open func setAudioSessionId(_ arg0: Int32) throws
+
+    /// Java method `getAudioSessionId`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public native int android.media.MediaPlayer.getAudioSessionId()
+    /// ```
+  @JavaMethod
+  open func getAudioSessionId() -> Int32
+
+    /// Java method `attachAuxEffect`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public native void android.media.MediaPlayer.attachAuxEffect(int)
+    /// ```
+  @JavaMethod
+  open func attachAuxEffect(_ arg0: Int32)
 
     /// Java method `getTrackInfo`.
     ///
@@ -233,6 +243,15 @@ open class MediaPlayer: JavaObject {
     /// ```
   @JavaMethod
   open func getTrackInfo() throws -> [MediaPlayer.TrackInfo?]
+
+    /// Java method `addTimedTextSource`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.media.MediaPlayer.addTimedTextSource(java.io.FileDescriptor,java.lang.String) throws java.lang.IllegalArgumentException,java.lang.IllegalStateException
+    /// ```
+  @JavaMethod
+  open func addTimedTextSource(_ arg0: FileDescriptor?, _ arg1: String) throws
 
     /// Java method `addTimedTextSource`.
     ///
@@ -252,15 +271,6 @@ open class MediaPlayer: JavaObject {
   @JavaMethod
   open func addTimedTextSource(_ arg0: FileDescriptor?, _ arg1: Int64, _ arg2: Int64, _ arg3: String) throws
 
-    /// Java method `addTimedTextSource`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.media.MediaPlayer.addTimedTextSource(java.io.FileDescriptor,java.lang.String) throws java.lang.IllegalArgumentException,java.lang.IllegalStateException
-    /// ```
-  @JavaMethod
-  open func addTimedTextSource(_ arg0: FileDescriptor?, _ arg1: String) throws
-
     /// Java method `getSelectedTrack`.
     ///
     /// ### Java method signature
@@ -269,15 +279,6 @@ open class MediaPlayer: JavaObject {
     /// ```
   @JavaMethod
   open func getSelectedTrack(_ arg0: Int32) throws -> Int32
-
-    /// Java method `selectTrack`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.media.MediaPlayer.selectTrack(int) throws java.lang.IllegalStateException
-    /// ```
-  @JavaMethod
-  open func selectTrack(_ arg0: Int32) throws
 
     /// Java method `deselectTrack`.
     ///
@@ -351,15 +352,6 @@ open class MediaPlayer: JavaObject {
   @JavaMethod
   open func restoreKeys(_ arg0: [Int8]) throws
 
-    /// Java method `setAuxEffectSendLevel`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.media.MediaPlayer.setAuxEffectSendLevel(float)
-    /// ```
-  @JavaMethod
-  open func setAuxEffectSendLevel(_ arg0: Float)
-
     /// Java method `setVideoScalingMode`.
     ///
     /// ### Java method signature
@@ -369,42 +361,6 @@ open class MediaPlayer: JavaObject {
   @JavaMethod
   open func setVideoScalingMode(_ arg0: Int32)
 
-    /// Java method `setOnMediaTimeDiscontinuityListener`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.media.MediaPlayer.setOnMediaTimeDiscontinuityListener(android.media.MediaPlayer$OnMediaTimeDiscontinuityListener)
-    /// ```
-  @JavaMethod
-  open func setOnMediaTimeDiscontinuityListener(_ arg0: MediaPlayer.OnMediaTimeDiscontinuityListener?)
-
-    /// Java method `setOnMediaTimeDiscontinuityListener`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.media.MediaPlayer.setOnMediaTimeDiscontinuityListener(android.media.MediaPlayer$OnMediaTimeDiscontinuityListener,android.os.Handler)
-    /// ```
-  @JavaMethod
-  open func setOnMediaTimeDiscontinuityListener(_ arg0: MediaPlayer.OnMediaTimeDiscontinuityListener?, _ arg1: Handler?)
-
-    /// Java method `clearOnMediaTimeDiscontinuityListener`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.media.MediaPlayer.clearOnMediaTimeDiscontinuityListener()
-    /// ```
-  @JavaMethod
-  open func clearOnMediaTimeDiscontinuityListener()
-
-    /// Java method `setOnTimedMetaDataAvailableListener`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.media.MediaPlayer.setOnTimedMetaDataAvailableListener(android.media.MediaPlayer$OnTimedMetaDataAvailableListener)
-    /// ```
-  @JavaMethod
-  open func setOnTimedMetaDataAvailableListener(_ arg0: MediaPlayer.OnTimedMetaDataAvailableListener?)
-
     /// Java method `setScreenOnWhilePlaying`.
     ///
     /// ### Java method signature
@@ -413,6 +369,15 @@ open class MediaPlayer: JavaObject {
     /// ```
   @JavaMethod
   open func setScreenOnWhilePlaying(_ arg0: Bool)
+
+    /// Java method `setAuxEffectSendLevel`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.media.MediaPlayer.setAuxEffectSendLevel(float)
+    /// ```
+  @JavaMethod
+  open func setAuxEffectSendLevel(_ arg0: Float)
 
     /// Java method `setOnPreparedListener`.
     ///
@@ -508,28 +473,19 @@ open class MediaPlayer: JavaObject {
     ///
     /// ### Java method signature
     /// ```java
-    /// public void android.media.MediaPlayer.setOnDrmInfoListener(android.media.MediaPlayer$OnDrmInfoListener)
-    /// ```
-  @JavaMethod
-  open func setOnDrmInfoListener(_ arg0: MediaPlayer.OnDrmInfoListener?)
-
-    /// Java method `setOnDrmInfoListener`.
-    ///
-    /// ### Java method signature
-    /// ```java
     /// public void android.media.MediaPlayer.setOnDrmInfoListener(android.media.MediaPlayer$OnDrmInfoListener,android.os.Handler)
     /// ```
   @JavaMethod
   open func setOnDrmInfoListener(_ arg0: MediaPlayer.OnDrmInfoListener?, _ arg1: Handler?)
 
-    /// Java method `setOnDrmPreparedListener`.
+    /// Java method `setOnDrmInfoListener`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public void android.media.MediaPlayer.setOnDrmPreparedListener(android.media.MediaPlayer$OnDrmPreparedListener,android.os.Handler)
+    /// public void android.media.MediaPlayer.setOnDrmInfoListener(android.media.MediaPlayer$OnDrmInfoListener)
     /// ```
   @JavaMethod
-  open func setOnDrmPreparedListener(_ arg0: MediaPlayer.OnDrmPreparedListener?, _ arg1: Handler?)
+  open func setOnDrmInfoListener(_ arg0: MediaPlayer.OnDrmInfoListener?)
 
     /// Java method `setOnDrmPreparedListener`.
     ///
@@ -539,6 +495,15 @@ open class MediaPlayer: JavaObject {
     /// ```
   @JavaMethod
   open func setOnDrmPreparedListener(_ arg0: MediaPlayer.OnDrmPreparedListener?)
+
+    /// Java method `setOnDrmPreparedListener`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.media.MediaPlayer.setOnDrmPreparedListener(android.media.MediaPlayer$OnDrmPreparedListener,android.os.Handler)
+    /// ```
+  @JavaMethod
+  open func setOnDrmPreparedListener(_ arg0: MediaPlayer.OnDrmPreparedListener?, _ arg1: Handler?)
 
     /// Java method `getDrmPropertyString`.
     ///
@@ -557,6 +522,42 @@ open class MediaPlayer: JavaObject {
     /// ```
   @JavaMethod
   open func setDrmPropertyString(_ arg0: String, _ arg1: String) throws
+
+    /// Java method `setOnMediaTimeDiscontinuityListener`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.media.MediaPlayer.setOnMediaTimeDiscontinuityListener(android.media.MediaPlayer$OnMediaTimeDiscontinuityListener)
+    /// ```
+  @JavaMethod
+  open func setOnMediaTimeDiscontinuityListener(_ arg0: MediaPlayer.OnMediaTimeDiscontinuityListener?)
+
+    /// Java method `setOnMediaTimeDiscontinuityListener`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.media.MediaPlayer.setOnMediaTimeDiscontinuityListener(android.media.MediaPlayer$OnMediaTimeDiscontinuityListener,android.os.Handler)
+    /// ```
+  @JavaMethod
+  open func setOnMediaTimeDiscontinuityListener(_ arg0: MediaPlayer.OnMediaTimeDiscontinuityListener?, _ arg1: Handler?)
+
+    /// Java method `clearOnMediaTimeDiscontinuityListener`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.media.MediaPlayer.clearOnMediaTimeDiscontinuityListener()
+    /// ```
+  @JavaMethod
+  open func clearOnMediaTimeDiscontinuityListener()
+
+    /// Java method `setOnTimedMetaDataAvailableListener`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.media.MediaPlayer.setOnTimedMetaDataAvailableListener(android.media.MediaPlayer$OnTimedMetaDataAvailableListener)
+    /// ```
+  @JavaMethod
+  open func setOnTimedMetaDataAvailableListener(_ arg0: MediaPlayer.OnTimedMetaDataAvailableListener?)
 
     /// Java method `finalize`.
     ///
@@ -822,6 +823,7 @@ extension JavaClass<MediaPlayer> {
   @JavaStaticField(isFinal: true)
   public var MEDIA_INFO_VIDEO_TRACK_LAGGING: Int32
 
+  @available(*, deprecated)
   @JavaStaticField(isFinal: true)
   public var MEDIA_MIMETYPE_TEXT_SUBRIP: String
 
