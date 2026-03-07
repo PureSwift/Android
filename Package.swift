@@ -586,8 +586,7 @@ var package = Package(
                 "AndroidUtil",
                 "AndroidContent",
                 "AndroidApp",
-                .product(name: "JavaIO", package: "swift-java"),
-                .product(name: "JavaLangUtil", package: "JavaLang"),
+                .product(name: "JavaLangIO", package: "JavaLang"),
             ],
             exclude: ["swift-java.config"],
             swiftSettings: [
