@@ -2,6 +2,9 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+/// Thrown when an NDEF message cannot be parsed or is not a valid NDEF format.
+///
+/// See also: [android.nfc.FormatException](https://developer.android.com/reference/android/nfc/FormatException)
 @JavaClass("android.nfc.FormatException")
 open class FormatException: JavaObject {
   @JavaMethod

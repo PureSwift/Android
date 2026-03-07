@@ -4,162 +4,138 @@ import AndroidContent
 import SwiftJava
 import SwiftJavaJNICore
 
+/// Manages NFC card emulation services, AID routing, and payment preferences.
+///
+/// Card emulation allows Android devices to act as NFC cards. Obtain an instance via
+/// `CardEmulation.getInstance(_:)`. Requires the `FEATURE_NFC_HOST_CARD_EMULATION` feature.
+///
+/// See also: [android.nfc.cardemulation.CardEmulation](https://developer.android.com/reference/android/nfc/cardemulation/CardEmulation)
 @available(Android 19, *)
 @JavaClass("android.nfc.cardemulation.CardEmulation")
 open class CardEmulation: JavaObject {
-  /// Java method `setShouldDefaultToObserveModeForService`.
+  /// Sets whether the given service should default to observe mode.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.cardemulation.CardEmulation.setShouldDefaultToObserveModeForService(android.content.ComponentName,boolean)
-  /// ```
+  /// - Parameter arg0: The component name of the card emulation service.
+  /// - Parameter arg1: `true` to default to observe mode.
+  /// - Returns: `true` if the setting was applied.
   @available(Android 35, *)
-@JavaMethod
+  @JavaMethod
   open func setShouldDefaultToObserveModeForService(_ arg0: ComponentName?, _ arg1: Bool) -> Bool
 
-  /// Java method `registerPollingLoopFilterForService`.
+  /// Registers a polling loop filter for the given service.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.cardemulation.CardEmulation.registerPollingLoopFilterForService(android.content.ComponentName,java.lang.String,boolean)
-  /// ```
+  /// - Parameter arg0: The component name of the card emulation service.
+  /// - Parameter arg1: A hex string filter for matching polling loop data.
+  /// - Parameter arg2: `true` to auto-transact when the filter matches.
+  /// - Returns: `true` if the filter was registered.
   @available(Android 35, *)
-@JavaMethod
+  @JavaMethod
   open func registerPollingLoopFilterForService(_ arg0: ComponentName?, _ arg1: String, _ arg2: Bool) -> Bool
 
-  /// Java method `registerPollingLoopPatternFilterForService`.
+  /// Registers a regex pattern filter for the given service's polling loop data.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.cardemulation.CardEmulation.registerPollingLoopPatternFilterForService(android.content.ComponentName,java.lang.String,boolean)
-  /// ```
+  /// - Parameter arg0: The component name of the card emulation service.
+  /// - Parameter arg1: A regex pattern to match against polling loop data.
+  /// - Parameter arg2: `true` to auto-transact when the pattern matches.
+  /// - Returns: `true` if the filter was registered.
   @available(Android 35, *)
-@JavaMethod
+  @JavaMethod
   open func registerPollingLoopPatternFilterForService(_ arg0: ComponentName?, _ arg1: String, _ arg2: Bool) -> Bool
 
-  /// Java method `removePollingLoopPatternFilterForService`.
+  /// Removes a previously registered polling loop pattern filter.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.cardemulation.CardEmulation.removePollingLoopPatternFilterForService(android.content.ComponentName,java.lang.String)
-  /// ```
+  /// - Parameter arg0: The component name of the card emulation service.
+  /// - Parameter arg1: The pattern string to remove.
+  /// - Returns: `true` if the filter was removed.
   @available(Android 35, *)
-@JavaMethod
+  @JavaMethod
   open func removePollingLoopPatternFilterForService(_ arg0: ComponentName?, _ arg1: String) -> Bool
 
-  /// Java method `getRouteDestinationForPreferredPaymentService`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public java.lang.String android.nfc.cardemulation.CardEmulation.getRouteDestinationForPreferredPaymentService()
-  /// ```
+  /// Returns the route destination (e.g., `"HCE"`, `"OffHost"`) for the preferred payment service.
   @available(Android 35, *)
-@JavaMethod
+  @JavaMethod
   open func getRouteDestinationForPreferredPaymentService() -> String
 
-  /// Java method `isDefaultServiceForCategory`.
+  /// Returns `true` if the given service is the default for the specified category.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.cardemulation.CardEmulation.isDefaultServiceForCategory(android.content.ComponentName,java.lang.String)
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: The component name of the card emulation service.
+  /// - Parameter arg1: One of `CATEGORY_PAYMENT` or `CATEGORY_OTHER`.
+  @JavaMethod
   open func isDefaultServiceForCategory(_ arg0: ComponentName?, _ arg1: String) -> Bool
 
-  /// Java method `isDefaultServiceForAid`.
+  /// Returns `true` if the given service is the default handler for the specified AID.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.cardemulation.CardEmulation.isDefaultServiceForAid(android.content.ComponentName,java.lang.String)
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: The component name of the card emulation service.
+  /// - Parameter arg1: The AID as a hex string.
+  @JavaMethod
   open func isDefaultServiceForAid(_ arg0: ComponentName?, _ arg1: String) -> Bool
 
-  /// Java method `categoryAllowsForegroundPreference`.
+  /// Returns `true` if the given category allows foreground preference selection.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.cardemulation.CardEmulation.categoryAllowsForegroundPreference(java.lang.String)
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: One of `CATEGORY_PAYMENT` or `CATEGORY_OTHER`.
+  @JavaMethod
   open func categoryAllowsForegroundPreference(_ arg0: String) -> Bool
 
-  /// Java method `getSelectionModeForCategory`.
+  /// Returns the selection mode for the given category (e.g., `SELECTION_MODE_PREFER_DEFAULT`).
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.nfc.cardemulation.CardEmulation.getSelectionModeForCategory(java.lang.String)
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: One of `CATEGORY_PAYMENT` or `CATEGORY_OTHER`.
+  @JavaMethod
   open func getSelectionModeForCategory(_ arg0: String) -> Int32
 
-  /// Java method `removePollingLoopFilterForService`.
+  /// Removes a previously registered polling loop filter for the given service.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.cardemulation.CardEmulation.removePollingLoopFilterForService(android.content.ComponentName,java.lang.String)
-  /// ```
+  /// - Parameter arg0: The component name of the card emulation service.
+  /// - Parameter arg1: The hex string filter to remove.
+  /// - Returns: `true` if the filter was removed.
   @available(Android 35, *)
-@JavaMethod
+  @JavaMethod
   open func removePollingLoopFilterForService(_ arg0: ComponentName?, _ arg1: String) -> Bool
 
-  /// Java method `unsetOffHostForService`.
+  /// Clears the off-host secure element association for the given service.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.cardemulation.CardEmulation.unsetOffHostForService(android.content.ComponentName)
-  /// ```
+  /// - Parameter arg0: The component name of the card emulation service.
+  /// - Returns: `true` if the association was cleared.
   @available(Android 26, *)
-@JavaMethod
+  @JavaMethod
   open func unsetOffHostForService(_ arg0: ComponentName?) -> Bool
 
-  /// Java method `setOffHostForService`.
+  /// Binds the given service to a specific off-host secure element.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.cardemulation.CardEmulation.setOffHostForService(android.content.ComponentName,java.lang.String)
-  /// ```
+  /// - Parameter arg0: The component name of the card emulation service.
+  /// - Parameter arg1: The off-host secure element name (e.g., `"eSE"`, `"SIM"`).
+  /// - Returns: `true` if the binding was applied.
   @available(Android 26, *)
-@JavaMethod
+  @JavaMethod
   open func setOffHostForService(_ arg0: ComponentName?, _ arg1: String) -> Bool
 
-  /// Java method `removeAidsForService`.
+  /// Removes AIDs registered by the given service for the specified category.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.cardemulation.CardEmulation.removeAidsForService(android.content.ComponentName,java.lang.String)
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: The component name of the card emulation service.
+  /// - Parameter arg1: One of `CATEGORY_PAYMENT` or `CATEGORY_OTHER`.
+  /// - Returns: `true` if the AIDs were removed.
+  @JavaMethod
   open func removeAidsForService(_ arg0: ComponentName?, _ arg1: String) -> Bool
 
-  /// Java method `setPreferredService`.
+  /// Sets the given service as the preferred card emulation service while the activity is foreground.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.cardemulation.CardEmulation.setPreferredService(android.app.Activity,android.content.ComponentName)
-  /// ```
+  /// - Parameter arg0: The foreground activity.
+  /// - Parameter arg1: The component name of the service to prefer.
+  /// - Returns: `true` if the preference was set.
   @available(Android 21, *)
-@JavaMethod
+  @JavaMethod
   open func setPreferredService(_ arg0: Activity?, _ arg1: ComponentName?) -> Bool
 
-  /// Java method `unsetPreferredService`.
+  /// Clears the preferred card emulation service set by `setPreferredService(_:_:)`.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.cardemulation.CardEmulation.unsetPreferredService(android.app.Activity)
-  /// ```
+  /// - Parameter arg0: The foreground activity.
+  /// - Returns: `true` if the preference was cleared.
   @available(Android 21, *)
-@JavaMethod
+  @JavaMethod
   open func unsetPreferredService(_ arg0: Activity?) -> Bool
 
-  /// Java method `supportsAidPrefixRegistration`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.cardemulation.CardEmulation.supportsAidPrefixRegistration()
-  /// ```
+  /// Returns `true` if the device supports AID prefix and subset registration.
   @available(Android 23, *)
-@JavaMethod
+  @JavaMethod
   open func supportsAidPrefixRegistration() -> Bool
 }
 @available(Android 19, *)
@@ -189,12 +165,10 @@ extension JavaClass<CardEmulation> {
   @JavaStaticField(isFinal: true)
   public var SELECTION_MODE_PREFER_DEFAULT: Int32
 
-    /// Java method `getInstance`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public static synchronized android.nfc.cardemulation.CardEmulation android.nfc.cardemulation.CardEmulation.getInstance(android.nfc.NfcAdapter)
-    /// ```
+  /// Returns a `CardEmulation` instance for the given NFC adapter.
+  ///
+  /// - Parameter arg0: The `NfcAdapter` for this device.
+  /// - Returns: A `CardEmulation` instance.
   @JavaStaticMethod
   public func getInstance(_ arg0: NfcAdapter?) -> CardEmulation!
 }

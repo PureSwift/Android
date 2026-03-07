@@ -5,54 +5,54 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+/// Abstract service for host-based NFC card emulation (HCE) using ISO 7816-4 APDUs.
+///
+/// Subclass this to handle APDU commands from an NFC reader. Register in the manifest
+/// with the `SERVICE_INTERFACE` action and provide an AID list in `SERVICE_META_DATA`.
+///
+/// Override `processCommandApdu(_:_:)` to handle commands, and call
+/// `sendResponseApdu(_:)` from any thread to send a response.
+///
+/// See also: [android.nfc.cardemulation.HostApduService](https://developer.android.com/reference/android/nfc/cardemulation/HostApduService)
 @available(Android 19, *)
 @JavaClass("android.nfc.cardemulation.HostApduService")
 open class HostApduService: Service {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
-    /// Java method `onBind`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public final android.os.IBinder android.nfc.cardemulation.HostApduService.onBind(android.content.Intent)
-    /// ```
+  /// Returns the `IBinder` used by the NFC service to communicate with this service.
   @JavaMethod
   open func onBind(_ arg0: Intent?) -> IBinder!
 
-    /// Java method `sendResponseApdu`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public final void android.nfc.cardemulation.HostApduService.sendResponseApdu(byte[])
-    /// ```
+  /// Sends a response APDU back to the NFC reader.
+  ///
+  /// May be called from any thread. If `processCommandApdu(_:_:)` returns `nil`,
+  /// this must be called later to provide the response.
+  ///
+  /// - Parameter arg0: The response APDU bytes to send.
   @JavaMethod
   open func sendResponseApdu(_ arg0: [Int8])
 
-    /// Java method `notifyUnhandled`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public final void android.nfc.cardemulation.HostApduService.notifyUnhandled()
-    /// ```
+  /// Signals to the NFC service that this service could not handle the last APDU.
+  ///
+  /// The NFC service may then route the command to another registered service.
   @JavaMethod
   open func notifyUnhandled()
 
-    /// Java method `processCommandApdu`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public abstract byte[] android.nfc.cardemulation.HostApduService.processCommandApdu(byte[],android.os.Bundle)
-    /// ```
+  /// Called when the NFC reader sends a command APDU.
+  ///
+  /// Return the response APDU synchronously, or return `nil` and call
+  /// `sendResponseApdu(_:)` from a background thread later.
+  ///
+  /// - Parameter arg0: The command APDU bytes received from the reader.
+  /// - Parameter arg1: Optional extras (currently unused, may be `nil`).
+  /// - Returns: The response APDU bytes, or `nil` if the response will be sent asynchronously.
   @JavaMethod
   open func processCommandApdu(_ arg0: [Int8], _ arg1: Bundle?) -> [Int8]
 
-    /// Java method `onDeactivated`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public abstract void android.nfc.cardemulation.HostApduService.onDeactivated(int)
-    /// ```
+  /// Called when the NFC link is deactivated or another AID is selected.
+  ///
+  /// - Parameter arg0: One of `DEACTIVATION_LINK_LOSS` or `DEACTIVATION_DESELECTED`.
   @JavaMethod
   open func onDeactivated(_ arg0: Int32)
 }

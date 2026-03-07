@@ -3,52 +3,33 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+/// Contains information about the NFC antenna(s) available on this device.
+///
+/// Obtain an instance via `NfcAdapter.getNfcAntennaInfo()`. The coordinates and device
+/// dimensions are provided in millimeters relative to the top-left corner of the device.
+///
+/// See also: [android.nfc.NfcAntennaInfo](https://developer.android.com/reference/android/nfc/NfcAntennaInfo)
 @available(Android 31, *)
 @JavaClass("android.nfc.NfcAntennaInfo", implements: Parcelable.self)
 open class NfcAntennaInfo: JavaObject {
-  /// Java method `describeContents`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.nfc.NfcAntennaInfo.describeContents()
-  /// ```
-@JavaMethod
+  /// Describes the kinds of special objects contained in this `Parcelable` instance.
+  @JavaMethod
   open func describeContents() -> Int32
 
-  /// Java method `writeToParcel`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.nfc.NfcAntennaInfo.writeToParcel(android.os.Parcel,int)
-  /// ```
-@JavaMethod
+  /// Flattens this object into a `Parcel`.
+  @JavaMethod
   open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
-  /// Java method `getDeviceWidth`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.nfc.NfcAntennaInfo.getDeviceWidth()
-  /// ```
-@JavaMethod
+  /// Returns the width of the device in millimeters.
+  @JavaMethod
   open func getDeviceWidth() -> Int32
 
-  /// Java method `getDeviceHeight`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.nfc.NfcAntennaInfo.getDeviceHeight()
-  /// ```
-@JavaMethod
+  /// Returns the height of the device in millimeters.
+  @JavaMethod
   open func getDeviceHeight() -> Int32
 
-  /// Java method `isDeviceFoldable`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.NfcAntennaInfo.isDeviceFoldable()
-  /// ```
-@JavaMethod
+  /// Returns `true` if the device is foldable (and may have multiple antenna positions).
+  @JavaMethod
   open func isDeviceFoldable() -> Bool
 }
 @available(Android 31, *)

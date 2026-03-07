@@ -4,15 +4,13 @@ import SwiftJavaJNICore
 
 @available(Android 24, *)
 extension NfcAdapter {
+  /// Listener invoked when a previously ignored NFC tag is removed from the field.
+  ///
+  /// Pass to `NfcAdapter.ignore(_:_:_:_:)`.
   @JavaInterface("android.nfc.NfcAdapter$OnTagRemovedListener")
   public struct OnTagRemovedListener {
-    /// Java method `onTagRemoved`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public abstract void android.nfc.NfcAdapter$OnTagRemovedListener.onTagRemoved()
-    /// ```
-  @JavaMethod
-  public func onTagRemoved()
+    /// Called when the ignored tag leaves the NFC field.
+    @JavaMethod
+    public func onTagRemoved()
   }
 }

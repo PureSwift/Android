@@ -4,15 +4,16 @@ import SwiftJavaJNICore
 
 @available(Android 19, *)
 extension NfcAdapter {
+  /// Callback interface for receiving discovered NFC tags in reader mode.
+  ///
+  /// Implement and pass to `NfcAdapter.enableReaderMode(_:_:_:_:)` to receive tags without
+  /// relying on the standard intent dispatch mechanism.
   @JavaInterface("android.nfc.NfcAdapter$ReaderCallback")
   public struct ReaderCallback {
-    /// Java method `onTagDiscovered`.
+    /// Called when a new NFC tag is discovered.
     ///
-    /// ### Java method signature
-    /// ```java
-    /// public abstract void android.nfc.NfcAdapter$ReaderCallback.onTagDiscovered(android.nfc.Tag)
-    /// ```
-  @JavaMethod
-  public func onTagDiscovered(_ arg0: Tag?)
+    /// - Parameter arg0: The discovered `Tag`.
+    @JavaMethod
+    public func onTagDiscovered(_ arg0: Tag?)
   }
 }

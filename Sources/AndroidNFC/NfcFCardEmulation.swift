@@ -4,80 +4,80 @@ import AndroidContent
 import SwiftJava
 import SwiftJavaJNICore
 
+/// Manages NFC-F (FeliCa) host card emulation services and system code registration.
+///
+/// Obtain an instance via `NfcFCardEmulation.getInstance(_:)`. Requires the
+/// `FEATURE_NFC_HOST_CARD_EMULATION_NFCF` feature.
+///
+/// See also: [android.nfc.cardemulation.NfcFCardEmulation](https://developer.android.com/reference/android/nfc/cardemulation/NfcFCardEmulation)
 @available(Android 24, *)
 @JavaClass("android.nfc.cardemulation.NfcFCardEmulation")
 open class NfcFCardEmulation: JavaObject {
-  /// Java method `enableService`.
+  /// Enables the given NFC-F service while the activity is in the foreground.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.cardemulation.NfcFCardEmulation.enableService(android.app.Activity,android.content.ComponentName) throws java.lang.RuntimeException
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: The foreground activity.
+  /// - Parameter arg1: The component name of the NFC-F service.
+  /// - Returns: `true` if the service was enabled.
+  /// - Throws: `RuntimeException` if called from a background thread.
+  @JavaMethod
   open func enableService(_ arg0: Activity?, _ arg1: ComponentName?) throws -> Bool
 
-  /// Java method `disableService`.
+  /// Disables the NFC-F service for the given activity.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.cardemulation.NfcFCardEmulation.disableService(android.app.Activity) throws java.lang.RuntimeException
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: The foreground activity.
+  /// - Returns: `true` if the service was disabled.
+  /// - Throws: `RuntimeException` if called from a background thread.
+  @JavaMethod
   open func disableService(_ arg0: Activity?) throws -> Bool
 
-  /// Java method `getSystemCodeForService`.
+  /// Returns the NFC-F system code registered for the given service.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public java.lang.String android.nfc.cardemulation.NfcFCardEmulation.getSystemCodeForService(android.content.ComponentName) throws java.lang.RuntimeException
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: The component name of the NFC-F service.
+  /// - Returns: The 4-character hex system code, or `nil` if none is registered.
+  /// - Throws: `RuntimeException` if called from a background thread.
+  @JavaMethod
   open func getSystemCodeForService(_ arg0: ComponentName?) throws -> String
 
-  /// Java method `registerSystemCodeForService`.
+  /// Registers a system code for the given NFC-F service.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.cardemulation.NfcFCardEmulation.registerSystemCodeForService(android.content.ComponentName,java.lang.String) throws java.lang.RuntimeException
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: The component name of the NFC-F service.
+  /// - Parameter arg1: A 4-character hex system code.
+  /// - Returns: `true` if the registration succeeded.
+  /// - Throws: `RuntimeException` if called from a background thread.
+  @JavaMethod
   open func registerSystemCodeForService(_ arg0: ComponentName?, _ arg1: String) throws -> Bool
 
-  /// Java method `unregisterSystemCodeForService`.
+  /// Unregisters the system code previously registered for the given NFC-F service.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.cardemulation.NfcFCardEmulation.unregisterSystemCodeForService(android.content.ComponentName) throws java.lang.RuntimeException
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: The component name of the NFC-F service.
+  /// - Returns: `true` if the unregistration succeeded.
+  /// - Throws: `RuntimeException` if called from a background thread.
+  @JavaMethod
   open func unregisterSystemCodeForService(_ arg0: ComponentName?) throws -> Bool
 
-  /// Java method `getNfcid2ForService`.
+  /// Returns the NFCID2 registered for the given NFC-F service.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public java.lang.String android.nfc.cardemulation.NfcFCardEmulation.getNfcid2ForService(android.content.ComponentName) throws java.lang.RuntimeException
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: The component name of the NFC-F service.
+  /// - Returns: A 16-character hex NFCID2, or `nil` if a random one is being used.
+  /// - Throws: `RuntimeException` if called from a background thread.
+  @JavaMethod
   open func getNfcid2ForService(_ arg0: ComponentName?) throws -> String
 
-  /// Java method `setNfcid2ForService`.
+  /// Sets the NFCID2 for the given NFC-F service.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.cardemulation.NfcFCardEmulation.setNfcid2ForService(android.content.ComponentName,java.lang.String) throws java.lang.RuntimeException
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: The component name of the NFC-F service.
+  /// - Parameter arg1: A 16-character hex NFCID2.
+  /// - Returns: `true` if the NFCID2 was set.
+  /// - Throws: `RuntimeException` if called from a background thread.
+  @JavaMethod
   open func setNfcid2ForService(_ arg0: ComponentName?, _ arg1: String) throws -> Bool
 }
 @available(Android 24, *)
 extension JavaClass<NfcFCardEmulation> {
-  /// Java method `getInstance`.
+  /// Returns an `NfcFCardEmulation` instance for the given NFC adapter.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public static synchronized android.nfc.cardemulation.NfcFCardEmulation android.nfc.cardemulation.NfcFCardEmulation.getInstance(android.nfc.NfcAdapter)
-  /// ```
-@JavaStaticMethod
+  /// - Parameter arg0: The `NfcAdapter` for this device.
+  /// - Returns: An `NfcFCardEmulation` instance.
+  @JavaStaticMethod
   public func getInstance(_ arg0: NfcAdapter?) -> NfcFCardEmulation!
 }

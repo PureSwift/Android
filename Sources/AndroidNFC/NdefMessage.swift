@@ -3,86 +3,63 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+/// Represents an immutable NFC Data Exchange Format (NDEF) message.
+///
+/// An NDEF message is composed of one or more `NdefRecord`s. NDEF is a lightweight binary
+/// format used to encapsulate typed data for exchange over NFC.
+///
+/// See also: [android.nfc.NdefMessage](https://developer.android.com/reference/android/nfc/NdefMessage)
 @JavaClass("android.nfc.NdefMessage", implements: Parcelable.self)
 open class NdefMessage: JavaObject {
+  /// Creates an NDEF message from a raw byte array.
+  ///
+  /// - Throws: `FormatException` if the byte array is not a valid NDEF message.
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: [Int8], environment: JNIEnvironment? = nil) throws
 
+  /// Creates an NDEF message from a first record and zero or more additional records.
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: NdefRecord?, _ arg1: [NdefRecord?], environment: JNIEnvironment? = nil)
 
+  /// Creates an NDEF message from an array of records.
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: [NdefRecord?], environment: JNIEnvironment? = nil)
 
-    /// Java method `describeContents`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.nfc.NdefMessage.describeContents()
-    /// ```
+  /// Describes the kinds of special objects contained in this `Parcelable` instance.
   @JavaMethod
   open func describeContents() -> Int32
 
-    /// Java method `writeToParcel`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.nfc.NdefMessage.writeToParcel(android.os.Parcel,int)
-    /// ```
+  /// Flattens this object into a `Parcel`.
   @JavaMethod
   open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
-    /// Java method `getRecords`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.nfc.NdefRecord[] android.nfc.NdefMessage.getRecords()
-    /// ```
+  /// Returns the NDEF records contained in this message.
+  ///
+  /// - Returns: An array of `NdefRecord`s; never empty.
   @JavaMethod
   open func getRecords() -> [NdefRecord?]
 
-    /// Java method `getByteArrayLength`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.nfc.NdefMessage.getByteArrayLength()
-    /// ```
+  /// Returns the total length of this NDEF message when serialized to a byte array.
+  ///
+  /// - Returns: The byte length of the serialized message.
   @JavaMethod
   open func getByteArrayLength() -> Int32
 
-    /// Java method `equals`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public boolean android.nfc.NdefMessage.equals(java.lang.Object)
-    /// ```
+  /// Returns `true` if this message equals the given object.
   @JavaMethod
   open override func equals(_ arg0: JavaObject?) -> Bool
 
-    /// Java method `toString`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public java.lang.String android.nfc.NdefMessage.toString()
-    /// ```
+  /// Returns a string representation of this NDEF message.
   @JavaMethod
   open override func toString() -> String
 
-    /// Java method `hashCode`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.nfc.NdefMessage.hashCode()
-    /// ```
+  /// Returns a hash code for this NDEF message.
   @JavaMethod
   open override func hashCode() -> Int32
 
-    /// Java method `toByteArray`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public byte[] android.nfc.NdefMessage.toByteArray()
-    /// ```
+  /// Serializes this NDEF message to a byte array.
+  ///
+  /// - Returns: The raw bytes of this message.
   @JavaMethod
   open func toByteArray() -> [Int8]
 }

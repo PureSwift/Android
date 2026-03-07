@@ -3,111 +3,84 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+/// Represents an immutable NFC Data Exchange Format (NDEF) record.
+///
+/// Each record contains a TNF (Type Name Format), type, ID, and payload. Use the static
+/// factory methods (`createUri(_:)`, `createMime(_:_:)`, etc.) to construct records,
+/// or use `NdefRecord.TNF_*` and `NdefRecord.RTD_*` constants when constructing manually.
+///
+/// See also: [android.nfc.NdefRecord](https://developer.android.com/reference/android/nfc/NdefRecord)
 @JavaClass("android.nfc.NdefRecord", implements: Parcelable.self)
 open class NdefRecord: JavaObject {
+  /// Creates an NDEF record with the specified TNF, type, ID, and payload.
+  ///
+  /// - Parameter arg0: The Type Name Format (one of the `TNF_*` constants).
+  /// - Parameter arg1: The record type, interpreted according to the TNF.
+  /// - Parameter arg2: The record ID, or an empty array.
+  /// - Parameter arg3: The record payload.
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Int16, _ arg1: [Int8], _ arg2: [Int8], _ arg3: [Int8], environment: JNIEnvironment? = nil)
 
+  /// Creates an NDEF record by parsing raw bytes.
+  ///
+  /// - Note: Deprecated. Construct records using the typed factory methods instead.
   @available(*, deprecated)
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: [Int8], environment: JNIEnvironment? = nil) throws
 
-    /// Java method `describeContents`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.nfc.NdefRecord.describeContents()
-    /// ```
+  /// Describes the kinds of special objects contained in this `Parcelable` instance.
   @JavaMethod
   open func describeContents() -> Int32
 
-    /// Java method `writeToParcel`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.nfc.NdefRecord.writeToParcel(android.os.Parcel,int)
-    /// ```
+  /// Flattens this object into a `Parcel`.
   @JavaMethod
   open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
-    /// Java method `getTnf`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public short android.nfc.NdefRecord.getTnf()
-    /// ```
+  /// Returns the Type Name Format (TNF) of this record.
+  ///
+  /// - Returns: One of the `TNF_*` constants.
   @JavaMethod
   open func getTnf() -> Int16
 
-    /// Java method `toMimeType`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public java.lang.String android.nfc.NdefRecord.toMimeType()
-    /// ```
+  /// Maps this record to a MIME type, if applicable.
+  ///
+  /// - Returns: A MIME type string, or `nil` if the record cannot be mapped.
   @JavaMethod
   open func toMimeType() -> String
 
-    /// Java method `equals`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public boolean android.nfc.NdefRecord.equals(java.lang.Object)
-    /// ```
+  /// Returns `true` if this record equals the given object.
   @JavaMethod
   open override func equals(_ arg0: JavaObject?) -> Bool
 
-    /// Java method `toString`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public java.lang.String android.nfc.NdefRecord.toString()
-    /// ```
+  /// Returns a string representation of this NDEF record.
   @JavaMethod
   open override func toString() -> String
 
-    /// Java method `hashCode`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.nfc.NdefRecord.hashCode()
-    /// ```
+  /// Returns a hash code for this NDEF record.
   @JavaMethod
   open override func hashCode() -> Int32
 
-    /// Java method `getId`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public byte[] android.nfc.NdefRecord.getId()
-    /// ```
+  /// Returns the record's ID field.
+  ///
+  /// - Returns: The ID as a byte array, or an empty array if no ID is present.
   @JavaMethod
   open func getId() -> [Int8]
 
-    /// Java method `getType`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public byte[] android.nfc.NdefRecord.getType()
-    /// ```
+  /// Returns the record's type field.
+  ///
+  /// - Returns: The type as a byte array, interpreted according to the TNF.
   @JavaMethod
   open func getType() -> [Int8]
 
-    /// Java method `getPayload`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public byte[] android.nfc.NdefRecord.getPayload()
-    /// ```
+  /// Returns the record's payload.
+  ///
+  /// - Returns: The payload as a byte array.
   @JavaMethod
   open func getPayload() -> [Int8]
 
-    /// Java method `toByteArray`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public byte[] android.nfc.NdefRecord.toByteArray()
-    /// ```
+  /// Serializes this record to a byte array.
+  ///
+  /// - Note: Deprecated. Use the containing `NdefMessage.toByteArray()` instead.
   @available(*, deprecated)
   @JavaMethod
   open func toByteArray() -> [Int8]
@@ -158,52 +131,49 @@ extension JavaClass<NdefRecord> {
   @JavaStaticField(isFinal: true)
   public var TNF_WELL_KNOWN: Int16
 
-    /// Java method `createUri`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public static android.nfc.NdefRecord android.nfc.NdefRecord.createUri(java.lang.String)
-    /// ```
+  /// Creates a URI record from a URI string.
+  ///
+  /// - Parameter arg0: The URI string to encode.
+  /// - Returns: A new NDEF record containing the URI.
   @available(Android 16, *)
   @JavaStaticMethod
   public func createUri(_ arg0: String) -> NdefRecord!
 
-    /// Java method `createMime`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public static android.nfc.NdefRecord android.nfc.NdefRecord.createMime(java.lang.String,byte[])
-    /// ```
+  /// Creates a MIME record with the specified MIME type and payload.
+  ///
+  /// - Parameter arg0: A valid MIME type string.
+  /// - Parameter arg1: The payload bytes.
+  /// - Returns: A new NDEF record with TNF_MIME_MEDIA.
   @available(Android 16, *)
   @JavaStaticMethod
   public func createMime(_ arg0: String, _ arg1: [Int8]) -> NdefRecord!
 
-    /// Java method `createExternal`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public static android.nfc.NdefRecord android.nfc.NdefRecord.createExternal(java.lang.String,java.lang.String,byte[])
-    /// ```
+  /// Creates an external (application-defined) type record.
+  ///
+  /// - Parameter arg0: The domain name (e.g., `"com.example"`).
+  /// - Parameter arg1: The type within the domain.
+  /// - Parameter arg2: The payload bytes.
+  /// - Returns: A new NDEF record with TNF_EXTERNAL_TYPE.
   @available(Android 16, *)
   @JavaStaticMethod
   public func createExternal(_ arg0: String, _ arg1: String, _ arg2: [Int8]) -> NdefRecord!
 
-    /// Java method `createTextRecord`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public static android.nfc.NdefRecord android.nfc.NdefRecord.createTextRecord(java.lang.String,java.lang.String)
-    /// ```
+  /// Creates a well-known plain text record.
+  ///
+  /// - Parameter arg0: The ISO/IANA language code (e.g., `"en"`).
+  /// - Parameter arg1: The text to encode.
+  /// - Returns: A new NDEF text record.
   @available(Android 21, *)
   @JavaStaticMethod
   public func createTextRecord(_ arg0: String, _ arg1: String) -> NdefRecord!
 
-    /// Java method `createApplicationRecord`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public static android.nfc.NdefRecord android.nfc.NdefRecord.createApplicationRecord(java.lang.String)
-    /// ```
+  /// Creates an Android Application Record (AAR) for the given package name.
+  ///
+  /// An AAR causes Android to launch the specified application when the tag is scanned,
+  /// even if another application would normally handle the tag.
+  ///
+  /// - Parameter arg0: The fully-qualified package name of the application.
+  /// - Returns: A new Android Application Record.
   @available(Android 14, *)
   @JavaStaticMethod
   public func createApplicationRecord(_ arg0: String) -> NdefRecord!

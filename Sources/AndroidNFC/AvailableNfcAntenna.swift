@@ -3,72 +3,47 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+/// Represents a single NFC antenna location on the device.
+///
+/// Coordinates are expressed in millimeters relative to the top-left corner of the device
+/// as reported by `NfcAntennaInfo`. Used to help users align their device with an NFC tag.
+///
+/// See also: [android.nfc.AvailableNfcAntenna](https://developer.android.com/reference/android/nfc/AvailableNfcAntenna)
 @available(Android 31, *)
 @JavaClass("android.nfc.AvailableNfcAntenna", implements: Parcelable.self)
 open class AvailableNfcAntenna: JavaObject {
+  /// Creates an antenna location at the given coordinates.
+  ///
+  /// - Parameter arg0: X coordinate in millimeters from the top-left of the device.
+  /// - Parameter arg1: Y coordinate in millimeters from the top-left of the device.
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Int32, _ arg1: Int32, environment: JNIEnvironment? = nil)
 
-    /// Java method `getLocationX`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.nfc.AvailableNfcAntenna.getLocationX()
-    /// ```
+  /// Returns the X coordinate of this antenna in millimeters from the top-left of the device.
   @JavaMethod
   open func getLocationX() -> Int32
 
-    /// Java method `getLocationY`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.nfc.AvailableNfcAntenna.getLocationY()
-    /// ```
+  /// Returns the Y coordinate of this antenna in millimeters from the top-left of the device.
   @JavaMethod
   open func getLocationY() -> Int32
 
-    /// Java method `describeContents`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.nfc.AvailableNfcAntenna.describeContents()
-    /// ```
+  /// Describes the kinds of special objects contained in this `Parcelable` instance.
   @JavaMethod
   open func describeContents() -> Int32
 
-    /// Java method `writeToParcel`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.nfc.AvailableNfcAntenna.writeToParcel(android.os.Parcel,int)
-    /// ```
+  /// Flattens this object into a `Parcel`.
   @JavaMethod
   open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
-    /// Java method `equals`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public boolean android.nfc.AvailableNfcAntenna.equals(java.lang.Object)
-    /// ```
+  /// Returns `true` if this antenna location equals the given object.
   @JavaMethod
   open override func equals(_ arg0: JavaObject?) -> Bool
 
-    /// Java method `toString`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public java.lang.String android.nfc.AvailableNfcAntenna.toString()
-    /// ```
+  /// Returns a string representation of this antenna location.
   @JavaMethod
   open override func toString() -> String
 
-    /// Java method `hashCode`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.nfc.AvailableNfcAntenna.hashCode()
-    /// ```
+  /// Returns a hash code for this antenna location.
   @JavaMethod
   open override func hashCode() -> Int32
 }

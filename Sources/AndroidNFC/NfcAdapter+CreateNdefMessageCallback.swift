@@ -4,17 +4,18 @@ import SwiftJavaJNICore
 
 @available(Android 14, *)
 extension NfcAdapter {
+  /// Callback for providing an NDEF message to push via Android Beam.
+  ///
+  /// - Note: Deprecated. Android Beam was removed in API 29.
   @available(*, deprecated)
   @JavaInterface("android.nfc.NfcAdapter$CreateNdefMessageCallback")
   public struct CreateNdefMessageCallback {
-    /// Java method `createNdefMessage`.
+    /// Called when Android Beam is about to send an NDEF message to another device.
     ///
-    /// ### Java method signature
-    /// ```java
-    /// public abstract android.nfc.NdefMessage android.nfc.NfcAdapter$CreateNdefMessageCallback.createNdefMessage(android.nfc.NfcEvent)
-    /// ```
-  @available(*, deprecated)
-  @JavaMethod
-  public func createNdefMessage(_ arg0: NfcEvent?) -> NdefMessage!
+    /// - Parameter arg0: The `NfcEvent` containing information about the peer device.
+    /// - Returns: The NDEF message to send.
+    @available(*, deprecated)
+    @JavaMethod
+    public func createNdefMessage(_ arg0: NfcEvent?) -> NdefMessage!
   }
 }

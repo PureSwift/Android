@@ -2,213 +2,156 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+/// Provides access to MIFARE Classic (NXP) tag properties and I/O operations.
+///
+/// MIFARE Classic tags are organized into sectors, each containing multiple 16-byte blocks.
+/// Access to each sector requires authentication with either Key A or Key B.
+/// Acquire an instance via `MifareClassic.get(_:)` and open a connection with `connect()`.
+///
+/// See also: [android.nfc.tech.MifareClassic](https://developer.android.com/reference/android/nfc/tech/MifareClassic)
 @JavaClass("android.nfc.tech.MifareClassic", implements: TagTechnology.self)
 open class MifareClassic: JavaObject {
-  /// Java method `setTimeout`.
+  /// Sets the transceive timeout in milliseconds.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.nfc.tech.MifareClassic.setTimeout(int)
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: Timeout in milliseconds.
+  @JavaMethod
   open func setTimeout(_ arg0: Int32)
 
-  /// Java method `getTimeout`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.nfc.tech.MifareClassic.getTimeout()
-  /// ```
-@JavaMethod
+  /// Returns the current transceive timeout in milliseconds.
+  @JavaMethod
   open func getTimeout() -> Int32
 
-  /// Java method `transceive`.
+  /// Sends raw MIFARE Classic commands to the tag and returns the response.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public byte[] android.nfc.tech.MifareClassic.transceive(byte[]) throws java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: The bytes to send.
+  /// - Returns: The response bytes from the tag.
+  /// - Throws: `IOException` if the tag is lost or the operation fails.
+  @JavaMethod
   open func transceive(_ arg0: [Int8]) throws -> [Int8]
 
-  /// Java method `isConnected`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.tech.MifareClassic.isConnected()
-  /// ```
-@JavaMethod
+  /// Returns `true` if the tag is connected.
+  @JavaMethod
   open func isConnected() -> Bool
 
-  /// Java method `getTag`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.nfc.Tag android.nfc.tech.MifareClassic.getTag()
-  /// ```
-@JavaMethod
+  /// Returns the `Tag` associated with this technology object.
+  @JavaMethod
   open func getTag() -> Tag!
 
-  /// Java method `connect`.
+  /// Establishes a connection to the tag.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.nfc.tech.MifareClassic.connect() throws java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Throws: `IOException` if the connection cannot be established.
+  @JavaMethod
   open func connect() throws
 
-  /// Java method `getSectorCount`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.nfc.tech.MifareClassic.getSectorCount()
-  /// ```
-@JavaMethod
+  /// Returns the total number of sectors on the tag.
+  @JavaMethod
   open func getSectorCount() -> Int32
 
-  /// Java method `getBlockCount`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.nfc.tech.MifareClassic.getBlockCount()
-  /// ```
-@JavaMethod
+  /// Returns the total number of 16-byte blocks on the tag.
+  @JavaMethod
   open func getBlockCount() -> Int32
 
-  /// Java method `blockToSector`.
+  /// Returns the sector index that contains the given block index.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.nfc.tech.MifareClassic.blockToSector(int)
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: A block index.
+  /// - Returns: The sector index containing that block.
+  @JavaMethod
   open func blockToSector(_ arg0: Int32) -> Int32
 
-  /// Java method `sectorToBlock`.
+  /// Returns the index of the first block in the given sector.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.nfc.tech.MifareClassic.sectorToBlock(int)
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: A sector index.
+  /// - Returns: The block index of the first block in that sector.
+  @JavaMethod
   open func sectorToBlock(_ arg0: Int32) -> Int32
 
-  /// Java method `readBlock`.
+  /// Reads a 16-byte block from the tag.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public byte[] android.nfc.tech.MifareClassic.readBlock(int) throws java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: The block index to read.
+  /// - Returns: 16 bytes of data.
+  /// - Throws: `IOException` if the read fails or the tag is not authenticated.
+  @JavaMethod
   open func readBlock(_ arg0: Int32) throws -> [Int8]
 
-  /// Java method `writeBlock`.
+  /// Writes 16 bytes to a block on the tag.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.nfc.tech.MifareClassic.writeBlock(int,byte[]) throws java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: The block index to write.
+  /// - Parameter arg1: Exactly 16 bytes to write.
+  /// - Throws: `IOException` if the write fails or the tag is not authenticated.
+  @JavaMethod
   open func writeBlock(_ arg0: Int32, _ arg1: [Int8]) throws
 
-  /// Java method `restore`.
+  /// Copies the value block at the given index to the internal transfer buffer.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.nfc.tech.MifareClassic.restore(int) throws java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: The block index of the value block to restore.
+  /// - Throws: `IOException` if the operation fails.
+  @JavaMethod
   open func restore(_ arg0: Int32) throws
 
-  /// Java method `getMaxTransceiveLength`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.nfc.tech.MifareClassic.getMaxTransceiveLength()
-  /// ```
-@JavaMethod
+  /// Returns the maximum number of bytes that can be sent in a single `transceive(_:)` call.
+  @JavaMethod
   open func getMaxTransceiveLength() -> Int32
 
-  /// Java method `getBlockCountInSector`.
+  /// Returns the number of blocks in a given sector.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.nfc.tech.MifareClassic.getBlockCountInSector(int)
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: The sector index.
+  /// - Returns: The number of blocks in that sector.
+  @JavaMethod
   open func getBlockCountInSector(_ arg0: Int32) -> Int32
 
-  /// Java method `authenticateSectorWithKeyA`.
+  /// Authenticates the given sector using Key A.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.tech.MifareClassic.authenticateSectorWithKeyA(int,byte[]) throws java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: The sector index to authenticate.
+  /// - Parameter arg1: The 6-byte Key A.
+  /// - Returns: `true` if authentication succeeded.
+  /// - Throws: `IOException` on I/O error.
+  @JavaMethod
   open func authenticateSectorWithKeyA(_ arg0: Int32, _ arg1: [Int8]) throws -> Bool
 
-  /// Java method `authenticateSectorWithKeyB`.
+  /// Authenticates the given sector using Key B.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.tech.MifareClassic.authenticateSectorWithKeyB(int,byte[]) throws java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: The sector index to authenticate.
+  /// - Parameter arg1: The 6-byte Key B.
+  /// - Returns: `true` if authentication succeeded.
+  /// - Throws: `IOException` on I/O error.
+  @JavaMethod
   open func authenticateSectorWithKeyB(_ arg0: Int32, _ arg1: [Int8]) throws -> Bool
 
-  /// Java method `increment`.
+  /// Increments a value block by the given amount and stores the result in the transfer buffer.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.nfc.tech.MifareClassic.increment(int,int) throws java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: The block index of the value block.
+  /// - Parameter arg1: The amount to add.
+  /// - Throws: `IOException` if the operation fails.
+  @JavaMethod
   open func increment(_ arg0: Int32, _ arg1: Int32) throws
 
-  /// Java method `close`.
+  /// Closes the connection to the tag.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.nfc.tech.MifareClassic.close() throws java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Throws: `IOException` if an error occurs.
+  @JavaMethod
   open func close() throws
 
-  /// Java method `getType`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.nfc.tech.MifareClassic.getType()
-  /// ```
-@JavaMethod
+  /// Returns the MIFARE Classic type (e.g., `TYPE_CLASSIC`, `TYPE_PLUS`).
+  @JavaMethod
   open func getType() -> Int32
 
-  /// Java method `getSize`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.nfc.tech.MifareClassic.getSize()
-  /// ```
-@JavaMethod
+  /// Returns the total storage size of the tag in bytes.
+  @JavaMethod
   open func getSize() -> Int32
 
-  /// Java method `transfer`.
+  /// Copies the value in the internal transfer buffer to the given block.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.nfc.tech.MifareClassic.transfer(int) throws java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: The destination block index.
+  /// - Throws: `IOException` if the operation fails.
+  @JavaMethod
   open func transfer(_ arg0: Int32) throws
 
-  /// Java method `decrement`.
+  /// Decrements a value block by the given amount and stores the result in the transfer buffer.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.nfc.tech.MifareClassic.decrement(int,int) throws java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: The block index of the value block.
+  /// - Parameter arg1: The amount to subtract.
+  /// - Throws: `IOException` if the operation fails.
+  @JavaMethod
   open func decrement(_ arg0: Int32, _ arg1: Int32) throws
 }
 extension JavaClass<MifareClassic> {
@@ -248,12 +191,9 @@ extension JavaClass<MifareClassic> {
   @JavaStaticField(isFinal: true)
   public var TYPE_UNKNOWN: Int32
 
-    /// Java method `get`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public static android.nfc.tech.MifareClassic android.nfc.tech.MifareClassic.get(android.nfc.Tag)
-    /// ```
+  /// Returns a `MifareClassic` object for the given tag, or `nil` if MIFARE Classic is not supported.
+  ///
+  /// - Parameter arg0: The discovered tag.
   @JavaStaticMethod
   public func get(_ arg0: Tag?) -> MifareClassic!
 }

@@ -2,105 +2,72 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+/// Provides access to NFC-A (ISO 14443-3A) properties and I/O operations on a `Tag`.
+///
+/// Acquire an instance via `NfcA.get(_:)`. The connection must be opened with `connect()`
+/// before calling `transceive(_:)`, and closed with `close()` when done.
+///
+/// See also: [android.nfc.tech.NfcA](https://developer.android.com/reference/android/nfc/tech/NfcA)
 @JavaClass("android.nfc.tech.NfcA", implements: TagTechnology.self)
 open class NfcA: JavaObject {
-  /// Java method `setTimeout`.
+  /// Sets the transceive timeout in milliseconds.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.nfc.tech.NfcA.setTimeout(int)
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: Timeout in milliseconds.
+  @JavaMethod
   open func setTimeout(_ arg0: Int32)
 
-  /// Java method `getTimeout`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.nfc.tech.NfcA.getTimeout()
-  /// ```
-@JavaMethod
+  /// Returns the current transceive timeout in milliseconds.
+  @JavaMethod
   open func getTimeout() -> Int32
 
-  /// Java method `transceive`.
+  /// Sends raw NFC-A commands to the tag and returns the response.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public byte[] android.nfc.tech.NfcA.transceive(byte[]) throws java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: The bytes to send.
+  /// - Returns: The response bytes from the tag.
+  /// - Throws: `IOException` if the tag is lost or the operation fails.
+  @JavaMethod
   open func transceive(_ arg0: [Int8]) throws -> [Int8]
 
-  /// Java method `isConnected`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.tech.NfcA.isConnected()
-  /// ```
-@JavaMethod
+  /// Returns `true` if the tag is connected.
+  @JavaMethod
   open func isConnected() -> Bool
 
-  /// Java method `getTag`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.nfc.Tag android.nfc.tech.NfcA.getTag()
-  /// ```
-@JavaMethod
+  /// Returns the `Tag` associated with this technology object.
+  @JavaMethod
   open func getTag() -> Tag!
 
-  /// Java method `connect`.
+  /// Establishes a connection to the tag.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.nfc.tech.NfcA.connect() throws java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Throws: `IOException` if the connection cannot be established.
+  @JavaMethod
   open func connect() throws
 
-  /// Java method `getAtqa`.
+  /// Returns the ATQA (Answer to Request, Type A) bytes from the tag.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public byte[] android.nfc.tech.NfcA.getAtqa()
-  /// ```
-@JavaMethod
+  /// - Returns: 2-byte ATQA value.
+  @JavaMethod
   open func getAtqa() -> [Int8]
 
-  /// Java method `getSak`.
+  /// Returns the SAK (Select Acknowledge) byte from the tag.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public short android.nfc.tech.NfcA.getSak()
-  /// ```
-@JavaMethod
+  /// - Returns: 1-byte SAK value.
+  @JavaMethod
   open func getSak() -> Int16
 
-  /// Java method `getMaxTransceiveLength`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.nfc.tech.NfcA.getMaxTransceiveLength()
-  /// ```
-@JavaMethod
+  /// Returns the maximum number of bytes that can be sent in a single `transceive(_:)` call.
+  @JavaMethod
   open func getMaxTransceiveLength() -> Int32
 
-  /// Java method `close`.
+  /// Closes the connection to the tag.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.nfc.tech.NfcA.close() throws java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Throws: `IOException` if an error occurs.
+  @JavaMethod
   open func close() throws
 }
 extension JavaClass<NfcA> {
-  /// Java method `get`.
+  /// Returns an `NfcA` object for the given tag, or `nil` if NFC-A is not supported.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public static android.nfc.tech.NfcA android.nfc.tech.NfcA.get(android.nfc.Tag)
-  /// ```
-@JavaStaticMethod
+  /// - Parameter arg0: The discovered tag.
+  @JavaStaticMethod
   public func get(_ arg0: Tag?) -> NfcA!
 }

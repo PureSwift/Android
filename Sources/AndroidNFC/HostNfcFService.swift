@@ -5,45 +5,48 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+/// Abstract service for host-based NFC-F (FeliCa) card emulation.
+///
+/// Subclass this to handle NFC-F packet commands from an NFC-F reader. Register your
+/// subclass in the manifest with the `SERVICE_INTERFACE` action and set up a system code
+/// via `NfcFCardEmulation`.
+///
+/// Override `processNfcFPacket(_:_:)` to handle incoming packets, and call
+/// `sendResponsePacket(_:)` to send the response.
+///
+/// See also: [android.nfc.cardemulation.HostNfcFService](https://developer.android.com/reference/android/nfc/cardemulation/HostNfcFService)
 @available(Android 24, *)
 @JavaClass("android.nfc.cardemulation.HostNfcFService")
 open class HostNfcFService: Service {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
-    /// Java method `onBind`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public final android.os.IBinder android.nfc.cardemulation.HostNfcFService.onBind(android.content.Intent)
-    /// ```
+  /// Returns the `IBinder` used by the NFC service to communicate with this service.
   @JavaMethod
   open func onBind(_ arg0: Intent?) -> IBinder!
 
-    /// Java method `onDeactivated`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public abstract void android.nfc.cardemulation.HostNfcFService.onDeactivated(int)
-    /// ```
+  /// Called when the NFC-F link is deactivated.
+  ///
+  /// - Parameter arg0: Currently always `DEACTIVATION_LINK_LOSS`.
   @JavaMethod
   open func onDeactivated(_ arg0: Int32)
 
-    /// Java method `sendResponsePacket`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public final void android.nfc.cardemulation.HostNfcFService.sendResponsePacket(byte[])
-    /// ```
+  /// Sends a response NFC-F packet back to the reader.
+  ///
+  /// May be called from any thread.
+  ///
+  /// - Parameter arg0: The response packet bytes to send.
   @JavaMethod
   open func sendResponsePacket(_ arg0: [Int8])
 
-    /// Java method `processNfcFPacket`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public abstract byte[] android.nfc.cardemulation.HostNfcFService.processNfcFPacket(byte[],android.os.Bundle)
-    /// ```
+  /// Called when the NFC-F reader sends a packet to this service.
+  ///
+  /// Return the response packet synchronously, or return `nil` and call
+  /// `sendResponsePacket(_:)` from a background thread later.
+  ///
+  /// - Parameter arg0: The NFC-F command packet bytes.
+  /// - Parameter arg1: Optional extras (currently unused, may be `nil`).
+  /// - Returns: The response packet bytes, or `nil` if sending asynchronously.
   @JavaMethod
   open func processNfcFPacket(_ arg0: [Int8], _ arg1: Bundle?) -> [Int8]
 }

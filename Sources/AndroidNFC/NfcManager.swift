@@ -2,14 +2,17 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+/// High-level manager for NFC hardware on the device.
+///
+/// Obtain an instance via `Context.getSystemService(Context.NFC_SERVICE)`.
+/// In most cases, use `NfcAdapter.getDefaultAdapter(Context)` directly.
+///
+/// See also: [android.nfc.NfcManager](https://developer.android.com/reference/android/nfc/NfcManager)
 @JavaClass("android.nfc.NfcManager")
 open class NfcManager: JavaObject {
-  /// Java method `getDefaultAdapter`.
+  /// Returns the default NFC Adapter for this device.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.nfc.NfcAdapter android.nfc.NfcManager.getDefaultAdapter()
-  /// ```
-@JavaMethod
+  /// - Returns: The default NFC adapter, or `nil` if NFC is not available on this device.
+  @JavaMethod
   open func getDefaultAdapter() -> NfcAdapter!
 }

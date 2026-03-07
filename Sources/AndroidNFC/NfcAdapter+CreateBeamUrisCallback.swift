@@ -4,6 +4,9 @@ import SwiftJavaJNICore
 
 @available(Android 14, *)
 extension NfcAdapter {
+  /// Callback for providing URIs to share via Android Beam.
+  ///
+  /// - Note: Deprecated. Android Beam was removed in API 29.
   @available(*, deprecated)
   @JavaInterface("android.nfc.NfcAdapter$CreateBeamUrisCallback")
   public struct CreateBeamUrisCallback {

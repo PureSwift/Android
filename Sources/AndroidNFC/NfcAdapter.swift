@@ -5,163 +5,138 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+/// Represents the local NFC adapter and is the entry point for NFC operations.
+///
+/// Obtain the default adapter via `NfcAdapter.getDefaultAdapter(_:)` or through
+/// `NfcManager.getDefaultAdapter()`. Use `isEnabled()` to check whether NFC is currently
+/// enabled on the device.
+///
+/// See also: [android.nfc.NfcAdapter](https://developer.android.com/reference/android/nfc/NfcAdapter)
 @JavaClass("android.nfc.NfcAdapter")
 open class NfcAdapter: JavaObject {
-  /// Java method `enableReaderMode`.
+  /// Enables NFC reader mode for the given activity.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.nfc.NfcAdapter.enableReaderMode(android.app.Activity,android.nfc.NfcAdapter$ReaderCallback,int,android.os.Bundle)
-  /// ```
+  /// In reader mode the activity receives `Tag` objects via the `ReaderCallback` instead
+  /// of through the standard intent dispatch. This is the preferred way to read tags.
+  ///
+  /// - Parameter arg0: The foreground activity to enable reader mode for.
+  /// - Parameter arg1: The callback to receive discovered tags.
+  /// - Parameter arg2: A bitmask of `FLAG_READER_*` values indicating which technologies to poll for.
+  /// - Parameter arg3: Optional extra parameters (e.g., `EXTRA_READER_PRESENCE_CHECK_DELAY`).
   @available(Android 19, *)
-@JavaMethod
+  @JavaMethod
   open func enableReaderMode(_ arg0: Activity?, _ arg1: NfcAdapter.ReaderCallback?, _ arg2: Int32, _ arg3: Bundle?)
 
-  /// Java method `disableReaderMode`.
+  /// Disables NFC reader mode for the given activity.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.nfc.NfcAdapter.disableReaderMode(android.app.Activity)
-  /// ```
+  /// - Parameter arg0: The foreground activity to disable reader mode for.
   @available(Android 19, *)
-@JavaMethod
+  @JavaMethod
   open func disableReaderMode(_ arg0: Activity?)
 
-  /// Java method `getNfcAntennaInfo`.
+  /// Returns information about the NFC antenna(s) on this device.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.nfc.NfcAntennaInfo android.nfc.NfcAdapter.getNfcAntennaInfo()
-  /// ```
+  /// - Returns: An `NfcAntennaInfo` object, or `nil` if unavailable.
   @available(Android 31, *)
-@JavaMethod
+  @JavaMethod
   open func getNfcAntennaInfo() -> NfcAntennaInfo!
 
-  /// Java method `isSecureNfcEnabled`.
+  /// Returns whether Secure NFC is currently enabled.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.NfcAdapter.isSecureNfcEnabled()
-  /// ```
+  /// - Returns: `true` if Secure NFC is enabled.
   @available(Android 30, *)
-@JavaMethod
+  @JavaMethod
   open func isSecureNfcEnabled() -> Bool
 
-  /// Java method `isObserveModeSupported`.
+  /// Returns whether observe mode is supported on this device.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.NfcAdapter.isObserveModeSupported()
-  /// ```
+  /// - Returns: `true` if observe mode is supported.
   @available(Android 35, *)
-@JavaMethod
+  @JavaMethod
   open func isObserveModeSupported() -> Bool
 
-  /// Java method `isObserveModeEnabled`.
+  /// Returns whether observe mode is currently enabled.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.NfcAdapter.isObserveModeEnabled()
-  /// ```
+  /// - Returns: `true` if observe mode is currently enabled.
   @available(Android 35, *)
-@JavaMethod
+  @JavaMethod
   open func isObserveModeEnabled() -> Bool
 
-  /// Java method `setObserveModeEnabled`.
+  /// Enables or disables observe mode.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.NfcAdapter.setObserveModeEnabled(boolean)
-  /// ```
+  /// - Parameter arg0: `true` to enable observe mode, `false` to disable.
+  /// - Returns: `true` if the mode was set successfully.
   @available(Android 35, *)
-@JavaMethod
+  @JavaMethod
   open func setObserveModeEnabled(_ arg0: Bool) -> Bool
 
-  /// Java method `enableForegroundDispatch`.
+  /// Enables foreground dispatch for NFC tags while the given activity is in the foreground.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.nfc.NfcAdapter.enableForegroundDispatch(android.app.Activity,android.app.PendingIntent,android.content.IntentFilter[],java.lang.String[][])
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: The foreground activity.
+  /// - Parameter arg1: A `PendingIntent` to start when a tag is discovered.
+  /// - Parameter arg2: An array of `IntentFilter`s to match, or `nil` to match all tags.
+  /// - Parameter arg3: An array of tech lists; a tag must match at least one list.
+  @JavaMethod
   open func enableForegroundDispatch(_ arg0: Activity?, _ arg1: PendingIntent?, _ arg2: [IntentFilter?], _ arg3: [[String]])
 
-  /// Java method `disableForegroundDispatch`.
+  /// Disables foreground dispatch for the given activity.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.nfc.NfcAdapter.disableForegroundDispatch(android.app.Activity)
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: The foreground activity for which to disable dispatch.
+  @JavaMethod
   open func disableForegroundDispatch(_ arg0: Activity?)
 
-  /// Java method `setDiscoveryTechnology`.
+  /// Sets the NFC polling and listening technologies for the given activity.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.nfc.NfcAdapter.setDiscoveryTechnology(android.app.Activity,int,int)
-  /// ```
+  /// - Parameter arg0: The foreground activity.
+  /// - Parameter arg1: A bitmask of `FLAG_READER_*` values for NFC reader/polling.
+  /// - Parameter arg2: A bitmask of `FLAG_LISTEN_*` values for NFC listening/card emulation.
   @available(Android 35, *)
-@JavaMethod
+  @JavaMethod
   open func setDiscoveryTechnology(_ arg0: Activity?, _ arg1: Int32, _ arg2: Int32)
 
-  /// Java method `resetDiscoveryTechnology`.
+  /// Resets the NFC discovery technology settings set by `setDiscoveryTechnology(_:_:_:)`.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.nfc.NfcAdapter.resetDiscoveryTechnology(android.app.Activity)
-  /// ```
+  /// - Parameter arg0: The foreground activity.
   @available(Android 35, *)
-@JavaMethod
+  @JavaMethod
   open func resetDiscoveryTechnology(_ arg0: Activity?)
 
-  /// Java method `isSecureNfcSupported`.
+  /// Returns whether Secure NFC is supported by the device hardware.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.NfcAdapter.isSecureNfcSupported()
-  /// ```
+  /// - Returns: `true` if Secure NFC is supported.
   @available(Android 29, *)
-@JavaMethod
+  @JavaMethod
   open func isSecureNfcSupported() -> Bool
 
-  /// Java method `isReaderOptionSupported`.
+  /// Returns whether the reader option feature is supported on this device.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.NfcAdapter.isReaderOptionSupported()
-  /// ```
+  /// - Returns: `true` if reader option is supported.
   @available(Android 35, *)
-@JavaMethod
+  @JavaMethod
   open func isReaderOptionSupported() -> Bool
 
-  /// Java method `isReaderOptionEnabled`.
+  /// Returns whether the reader option feature is currently enabled.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.NfcAdapter.isReaderOptionEnabled()
-  /// ```
+  /// - Returns: `true` if reader option is enabled.
   @available(Android 35, *)
-@JavaMethod
+  @JavaMethod
   open func isReaderOptionEnabled() -> Bool
 
-  /// Java method `isEnabled`.
+  /// Returns whether NFC is currently enabled on the device.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.NfcAdapter.isEnabled()
-  /// ```
-@JavaMethod
+  /// - Returns: `true` if NFC is enabled.
+  @JavaMethod
   open func isEnabled() -> Bool
 
-  /// Java method `ignore`.
+  /// Sets a `Tag` to be ignored for a specified duration.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.NfcAdapter.ignore(android.nfc.Tag,int,android.nfc.NfcAdapter$OnTagRemovedListener,android.os.Handler)
-  /// ```
+  /// - Parameter arg0: The tag to ignore.
+  /// - Parameter arg1: The duration in milliseconds to ignore the tag.
+  /// - Parameter arg2: An optional listener invoked when the tag is removed.
+  /// - Parameter arg3: A `Handler` on which to invoke the listener, or `nil` for the main thread.
+  /// - Returns: `true` if the tag was successfully set to be ignored.
   @available(Android 24, *)
-@JavaMethod
+  @JavaMethod
   open func ignore(_ arg0: Tag?, _ arg1: Int32, _ arg2: NfcAdapter.OnTagRemovedListener?, _ arg3: Handler?) -> Bool
 }
 extension JavaClass<NfcAdapter> {
@@ -292,12 +267,10 @@ extension JavaClass<NfcAdapter> {
   @JavaStaticField(isFinal: true)
   public var STATE_TURNING_ON: Int32
 
-    /// Java method `getDefaultAdapter`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public static android.nfc.NfcAdapter android.nfc.NfcAdapter.getDefaultAdapter(android.content.Context)
-    /// ```
+  /// Returns the default NFC adapter for the given context's device.
+  ///
+  /// - Parameter arg0: The calling context.
+  /// - Returns: The default NFC adapter, or `nil` if NFC is not available on this device.
   @JavaStaticMethod
   public func getDefaultAdapter(_ arg0: Context?) -> NfcAdapter!
 }

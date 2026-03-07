@@ -2,87 +2,58 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+/// Provides access to NFC-B (ISO 14443-3B) properties and I/O operations on a `Tag`.
+///
+/// Acquire an instance via `NfcB.get(_:)`. The connection must be opened with `connect()`
+/// before calling `transceive(_:)`, and closed with `close()` when done.
+///
+/// See also: [android.nfc.tech.NfcB](https://developer.android.com/reference/android/nfc/tech/NfcB)
 @JavaClass("android.nfc.tech.NfcB", implements: TagTechnology.self)
 open class NfcB: JavaObject {
-  /// Java method `transceive`.
+  /// Sends raw NFC-B commands to the tag and returns the response.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public byte[] android.nfc.tech.NfcB.transceive(byte[]) throws java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: The bytes to send.
+  /// - Returns: The response bytes from the tag.
+  /// - Throws: `IOException` if the tag is lost or the operation fails.
+  @JavaMethod
   open func transceive(_ arg0: [Int8]) throws -> [Int8]
 
-  /// Java method `isConnected`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.tech.NfcB.isConnected()
-  /// ```
-@JavaMethod
+  /// Returns `true` if the tag is connected.
+  @JavaMethod
   open func isConnected() -> Bool
 
-  /// Java method `getTag`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.nfc.Tag android.nfc.tech.NfcB.getTag()
-  /// ```
-@JavaMethod
+  /// Returns the `Tag` associated with this technology object.
+  @JavaMethod
   open func getTag() -> Tag!
 
-  /// Java method `connect`.
+  /// Establishes a connection to the tag.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.nfc.tech.NfcB.connect() throws java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Throws: `IOException` if the connection cannot be established.
+  @JavaMethod
   open func connect() throws
 
-  /// Java method `getApplicationData`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public byte[] android.nfc.tech.NfcB.getApplicationData()
-  /// ```
-@JavaMethod
+  /// Returns the Application Data bytes from the ATQB response (bytes 5–8).
+  @JavaMethod
   open func getApplicationData() -> [Int8]
 
-  /// Java method `getProtocolInfo`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public byte[] android.nfc.tech.NfcB.getProtocolInfo()
-  /// ```
-@JavaMethod
+  /// Returns the Protocol Info bytes from the ATQB response (bytes 9–12).
+  @JavaMethod
   open func getProtocolInfo() -> [Int8]
 
-  /// Java method `getMaxTransceiveLength`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.nfc.tech.NfcB.getMaxTransceiveLength()
-  /// ```
-@JavaMethod
+  /// Returns the maximum number of bytes that can be sent in a single `transceive(_:)` call.
+  @JavaMethod
   open func getMaxTransceiveLength() -> Int32
 
-  /// Java method `close`.
+  /// Closes the connection to the tag.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.nfc.tech.NfcB.close() throws java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Throws: `IOException` if an error occurs.
+  @JavaMethod
   open func close() throws
 }
 extension JavaClass<NfcB> {
-  /// Java method `get`.
+  /// Returns an `NfcB` object for the given tag, or `nil` if NFC-B is not supported.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public static android.nfc.tech.NfcB android.nfc.tech.NfcB.get(android.nfc.Tag)
-  /// ```
-@JavaStaticMethod
+  /// - Parameter arg0: The discovered tag.
+  @JavaStaticMethod
   public func get(_ arg0: Tag?) -> NfcB!
 }

@@ -2,114 +2,78 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+/// Provides access to NDEF content and operations on an NDEF-formatted `Tag`.
+///
+/// Use `getCachedNdefMessage()` to read the NDEF message discovered during tag detection
+/// (no connection required), or open a connection with `connect()` and call
+/// `getNdefMessage()` to read live content from the tag.
+///
+/// See also: [android.nfc.tech.Ndef](https://developer.android.com/reference/android/nfc/tech/Ndef)
 @JavaClass("android.nfc.tech.Ndef", implements: TagTechnology.self)
 open class Ndef: JavaObject {
-  /// Java method `isConnected`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.tech.Ndef.isConnected()
-  /// ```
-@JavaMethod
+  /// Returns `true` if the tag is connected.
+  @JavaMethod
   open func isConnected() -> Bool
 
-  /// Java method `getTag`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.nfc.Tag android.nfc.tech.Ndef.getTag()
-  /// ```
-@JavaMethod
+  /// Returns the `Tag` associated with this technology object.
+  @JavaMethod
   open func getTag() -> Tag!
 
-  /// Java method `connect`.
+  /// Establishes a connection to the tag.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.nfc.tech.Ndef.connect() throws java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Throws: `IOException` if the connection cannot be established.
+  @JavaMethod
   open func connect() throws
 
-  /// Java method `getMaxSize`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.nfc.tech.Ndef.getMaxSize()
-  /// ```
-@JavaMethod
+  /// Returns the maximum message size in bytes that can be stored on this tag.
+  @JavaMethod
   open func getMaxSize() -> Int32
 
-  /// Java method `getNdefMessage`.
+  /// Reads the current NDEF message from the tag over the air.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.nfc.NdefMessage android.nfc.tech.Ndef.getNdefMessage() throws android.nfc.FormatException,java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Returns: The NDEF message stored on the tag.
+  /// - Throws: `FormatException` if the message is malformed, or `IOException` on I/O error.
+  @JavaMethod
   open func getNdefMessage() throws -> NdefMessage!
 
-  /// Java method `writeNdefMessage`.
+  /// Overwrites the NDEF message on the tag.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.nfc.tech.Ndef.writeNdefMessage(android.nfc.NdefMessage) throws android.nfc.FormatException,java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: The NDEF message to write.
+  /// - Throws: `FormatException` if the message is too large, or `IOException` on I/O error.
+  @JavaMethod
   open func writeNdefMessage(_ arg0: NdefMessage?) throws
 
-  /// Java method `canMakeReadOnly`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.tech.Ndef.canMakeReadOnly()
-  /// ```
-@JavaMethod
+  /// Returns `true` if the tag supports being made permanently read-only.
+  @JavaMethod
   open func canMakeReadOnly() -> Bool
 
-  /// Java method `makeReadOnly`.
+  /// Makes the tag permanently read-only.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.tech.Ndef.makeReadOnly() throws java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Returns: `true` if the operation succeeded.
+  /// - Throws: `IOException` if an I/O error occurs.
+  @JavaMethod
   open func makeReadOnly() throws -> Bool
 
-  /// Java method `getCachedNdefMessage`.
+  /// Returns the NDEF message that was read when the tag was first discovered.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.nfc.NdefMessage android.nfc.tech.Ndef.getCachedNdefMessage()
-  /// ```
-@JavaMethod
+  /// This does not require a connection; the message is cached from the initial scan.
+  ///
+  /// - Returns: The cached `NdefMessage`, or `nil` if none was present.
+  @JavaMethod
   open func getCachedNdefMessage() -> NdefMessage!
 
-  /// Java method `close`.
+  /// Closes the connection to the tag.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.nfc.tech.Ndef.close() throws java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Throws: `IOException` if an error occurs.
+  @JavaMethod
   open func close() throws
 
-  /// Java method `getType`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public java.lang.String android.nfc.tech.Ndef.getType()
-  /// ```
-@JavaMethod
+  /// Returns the NDEF type string for this tag (e.g., `NFC_FORUM_TYPE_2`).
+  @JavaMethod
   open func getType() -> String
 
-  /// Java method `isWritable`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.tech.Ndef.isWritable()
-  /// ```
-@JavaMethod
+  /// Returns `true` if the NDEF data on this tag is writable.
+  @JavaMethod
   open func isWritable() -> Bool
 }
 extension JavaClass<Ndef> {
@@ -128,12 +92,9 @@ extension JavaClass<Ndef> {
   @JavaStaticField(isFinal: true)
   public var NFC_FORUM_TYPE_4: String
 
-    /// Java method `get`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public static android.nfc.tech.Ndef android.nfc.tech.Ndef.get(android.nfc.Tag)
-    /// ```
+  /// Returns an `Ndef` object for the given tag, or `nil` if NDEF is not supported.
+  ///
+  /// - Parameter arg0: The discovered tag.
   @JavaStaticMethod
   public func get(_ arg0: Tag?) -> Ndef!
 }

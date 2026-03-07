@@ -2,69 +2,54 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+/// Provides formatting operations for NFC tags that are not yet NDEF-formatted.
+///
+/// A tag must be formatted before NDEF content can be written using `Ndef`. Acquire an
+/// instance via `NdefFormatable.get(_:)` and open a connection with `connect()` before
+/// calling `format(_:)` or `formatReadOnly(_:)`.
+///
+/// See also: [android.nfc.tech.NdefFormatable](https://developer.android.com/reference/android/nfc/tech/NdefFormatable)
 @JavaClass("android.nfc.tech.NdefFormatable", implements: TagTechnology.self)
 open class NdefFormatable: JavaObject {
-  /// Java method `isConnected`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.tech.NdefFormatable.isConnected()
-  /// ```
-@JavaMethod
+  /// Returns `true` if the tag is connected.
+  @JavaMethod
   open func isConnected() -> Bool
 
-  /// Java method `getTag`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.nfc.Tag android.nfc.tech.NdefFormatable.getTag()
-  /// ```
-@JavaMethod
+  /// Returns the `Tag` associated with this technology object.
+  @JavaMethod
   open func getTag() -> Tag!
 
-  /// Java method `connect`.
+  /// Establishes a connection to the tag.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.nfc.tech.NdefFormatable.connect() throws java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Throws: `IOException` if the connection cannot be established.
+  @JavaMethod
   open func connect() throws
 
-  /// Java method `formatReadOnly`.
+  /// Formats the tag as NDEF, writes an initial message, and makes it permanently read-only.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.nfc.tech.NdefFormatable.formatReadOnly(android.nfc.NdefMessage) throws android.nfc.FormatException,java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: The initial NDEF message to write, or `nil` for an empty message.
+  /// - Throws: `FormatException` if the format fails, or `IOException` on I/O error.
+  @JavaMethod
   open func formatReadOnly(_ arg0: NdefMessage?) throws
 
-  /// Java method `format`.
+  /// Formats the tag as NDEF and writes an initial NDEF message.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.nfc.tech.NdefFormatable.format(android.nfc.NdefMessage) throws android.nfc.FormatException,java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: The initial NDEF message to write, or `nil` for an empty message.
+  /// - Throws: `FormatException` if the format fails, or `IOException` on I/O error.
+  @JavaMethod
   open func format(_ arg0: NdefMessage?) throws
 
-  /// Java method `close`.
+  /// Closes the connection to the tag.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.nfc.tech.NdefFormatable.close() throws java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Throws: `IOException` if an error occurs.
+  @JavaMethod
   open func close() throws
 }
 extension JavaClass<NdefFormatable> {
-  /// Java method `get`.
+  /// Returns an `NdefFormatable` object for the given tag, or `nil` if NDEF formatting
+  /// is not supported.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public static android.nfc.tech.NdefFormatable android.nfc.tech.NdefFormatable.get(android.nfc.Tag)
-  /// ```
-@JavaStaticMethod
+  /// - Parameter arg0: The discovered tag.
+  @JavaStaticMethod
   public func get(_ arg0: Tag?) -> NdefFormatable!
 }

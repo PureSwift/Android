@@ -2,114 +2,74 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+/// Provides access to ISO-DEP (ISO 14443-4) properties and I/O operations on a `Tag`.
+///
+/// ISO-DEP is supported by NFC-A (contact interface) and NFC-B tags. Acquire an instance
+/// via `IsoDep.get(_:)`. Open a connection with `connect()` before performing I/O, then
+/// call `close()` when finished.
+///
+/// See also: [android.nfc.tech.IsoDep](https://developer.android.com/reference/android/nfc/tech/IsoDep)
 @JavaClass("android.nfc.tech.IsoDep", implements: TagTechnology.self)
 open class IsoDep: JavaObject {
-  /// Java method `setTimeout`.
+  /// Sets the transceive timeout in milliseconds.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.nfc.tech.IsoDep.setTimeout(int)
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: Timeout in milliseconds.
+  @JavaMethod
   open func setTimeout(_ arg0: Int32)
 
-  /// Java method `getTimeout`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.nfc.tech.IsoDep.getTimeout()
-  /// ```
-@JavaMethod
+  /// Returns the current transceive timeout in milliseconds.
+  @JavaMethod
   open func getTimeout() -> Int32
 
-  /// Java method `getHistoricalBytes`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public byte[] android.nfc.tech.IsoDep.getHistoricalBytes()
-  /// ```
-@JavaMethod
+  /// Returns the historical bytes from an NFC-A tag's ATS response, or `nil` for NFC-B tags.
+  @JavaMethod
   open func getHistoricalBytes() -> [Int8]
 
-  /// Java method `getHiLayerResponse`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public byte[] android.nfc.tech.IsoDep.getHiLayerResponse()
-  /// ```
-@JavaMethod
+  /// Returns the higher layer response bytes from an NFC-B tag's ATTRIB response,
+  /// or `nil` for NFC-A tags.
+  @JavaMethod
   open func getHiLayerResponse() -> [Int8]
 
-  /// Java method `transceive`.
+  /// Sends an APDU to the tag and returns the response APDU.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public byte[] android.nfc.tech.IsoDep.transceive(byte[]) throws java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: The command APDU bytes to send.
+  /// - Returns: The response APDU bytes from the tag.
+  /// - Throws: `IOException` if the tag is lost or the operation fails.
+  @JavaMethod
   open func transceive(_ arg0: [Int8]) throws -> [Int8]
 
-  /// Java method `isConnected`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.tech.IsoDep.isConnected()
-  /// ```
-@JavaMethod
+  /// Returns `true` if the tag is connected.
+  @JavaMethod
   open func isConnected() -> Bool
 
-  /// Java method `getTag`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.nfc.Tag android.nfc.tech.IsoDep.getTag()
-  /// ```
-@JavaMethod
+  /// Returns the `Tag` associated with this technology object.
+  @JavaMethod
   open func getTag() -> Tag!
 
-  /// Java method `connect`.
+  /// Establishes a connection to the tag.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.nfc.tech.IsoDep.connect() throws java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Throws: `IOException` if the connection cannot be established.
+  @JavaMethod
   open func connect() throws
 
-  /// Java method `getMaxTransceiveLength`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.nfc.tech.IsoDep.getMaxTransceiveLength()
-  /// ```
-@JavaMethod
+  /// Returns the maximum number of bytes that can be sent in a single `transceive(_:)` call.
+  @JavaMethod
   open func getMaxTransceiveLength() -> Int32
 
-  /// Java method `isExtendedLengthApduSupported`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.tech.IsoDep.isExtendedLengthApduSupported()
-  /// ```
-@JavaMethod
+  /// Returns `true` if the tag and device both support extended length APDUs (over 261 bytes).
+  @JavaMethod
   open func isExtendedLengthApduSupported() -> Bool
 
-  /// Java method `close`.
+  /// Closes the connection to the tag.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.nfc.tech.IsoDep.close() throws java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Throws: `IOException` if an error occurs.
+  @JavaMethod
   open func close() throws
 }
 extension JavaClass<IsoDep> {
-  /// Java method `get`.
+  /// Returns an `IsoDep` object for the given tag, or `nil` if ISO-DEP is not supported.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public static android.nfc.tech.IsoDep android.nfc.tech.IsoDep.get(android.nfc.Tag)
-  /// ```
-@JavaStaticMethod
+  /// - Parameter arg0: The discovered tag.
+  @JavaStaticMethod
   public func get(_ arg0: Tag?) -> IsoDep!
 }

@@ -2,87 +2,58 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+/// Provides access to NFC-V (ISO 15693) properties and I/O operations on a `Tag`.
+///
+/// Acquire an instance via `NfcV.get(_:)`. The connection must be opened with `connect()`
+/// before calling `transceive(_:)`, and closed with `close()` when done.
+///
+/// See also: [android.nfc.tech.NfcV](https://developer.android.com/reference/android/nfc/tech/NfcV)
 @JavaClass("android.nfc.tech.NfcV", implements: TagTechnology.self)
 open class NfcV: JavaObject {
-  /// Java method `transceive`.
+  /// Sends raw NFC-V commands to the tag and returns the response.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public byte[] android.nfc.tech.NfcV.transceive(byte[]) throws java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: The bytes to send.
+  /// - Returns: The response bytes from the tag.
+  /// - Throws: `IOException` if the tag is lost or the operation fails.
+  @JavaMethod
   open func transceive(_ arg0: [Int8]) throws -> [Int8]
 
-  /// Java method `isConnected`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.tech.NfcV.isConnected()
-  /// ```
-@JavaMethod
+  /// Returns `true` if the tag is connected.
+  @JavaMethod
   open func isConnected() -> Bool
 
-  /// Java method `getTag`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.nfc.Tag android.nfc.tech.NfcV.getTag()
-  /// ```
-@JavaMethod
+  /// Returns the `Tag` associated with this technology object.
+  @JavaMethod
   open func getTag() -> Tag!
 
-  /// Java method `connect`.
+  /// Establishes a connection to the tag.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.nfc.tech.NfcV.connect() throws java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Throws: `IOException` if the connection cannot be established.
+  @JavaMethod
   open func connect() throws
 
-  /// Java method `getDsfId`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public byte android.nfc.tech.NfcV.getDsfId()
-  /// ```
-@JavaMethod
+  /// Returns the DSF ID (Data Storage Format Identifier) byte from the tag.
+  @JavaMethod
   open func getDsfId() -> Int8
 
-  /// Java method `getResponseFlags`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public byte android.nfc.tech.NfcV.getResponseFlags()
-  /// ```
-@JavaMethod
+  /// Returns the response flags byte from the tag's inventory response.
+  @JavaMethod
   open func getResponseFlags() -> Int8
 
-  /// Java method `getMaxTransceiveLength`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.nfc.tech.NfcV.getMaxTransceiveLength()
-  /// ```
-@JavaMethod
+  /// Returns the maximum number of bytes that can be sent in a single `transceive(_:)` call.
+  @JavaMethod
   open func getMaxTransceiveLength() -> Int32
 
-  /// Java method `close`.
+  /// Closes the connection to the tag.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.nfc.tech.NfcV.close() throws java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Throws: `IOException` if an error occurs.
+  @JavaMethod
   open func close() throws
 }
 extension JavaClass<NfcV> {
-  /// Java method `get`.
+  /// Returns an `NfcV` object for the given tag, or `nil` if NFC-V is not supported.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public static android.nfc.tech.NfcV android.nfc.tech.NfcV.get(android.nfc.Tag)
-  /// ```
-@JavaStaticMethod
+  /// - Parameter arg0: The discovered tag.
+  @JavaStaticMethod
   public func get(_ arg0: Tag?) -> NfcV!
 }

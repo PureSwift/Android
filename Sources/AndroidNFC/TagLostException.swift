@@ -3,6 +3,9 @@ import JavaLangIO
 import SwiftJava
 import SwiftJavaJNICore
 
+/// Thrown when a tag is removed from the field while an I/O operation is in progress.
+///
+/// See also: [android.nfc.TagLostException](https://developer.android.com/reference/android/nfc/TagLostException)
 @JavaClass("android.nfc.TagLostException")
 open class TagLostException: IOException {
   @JavaMethod

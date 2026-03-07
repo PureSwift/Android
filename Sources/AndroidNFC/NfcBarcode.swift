@@ -2,61 +2,41 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+/// Provides access to NFC Barcode tag properties.
+///
+/// NFC Barcodes (such as Kovio tags) contain a fixed barcode payload set at manufacture
+/// time. Acquire an instance via `NfcBarcode.get(_:)`.
+///
+/// See also: [android.nfc.tech.NfcBarcode](https://developer.android.com/reference/android/nfc/tech/NfcBarcode)
 @available(Android 17, *)
 @JavaClass("android.nfc.tech.NfcBarcode", implements: TagTechnology.self)
 open class NfcBarcode: JavaObject {
-  /// Java method `isConnected`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.tech.NfcBarcode.isConnected()
-  /// ```
-@JavaMethod
+  /// Returns `true` if the tag is connected.
+  @JavaMethod
   open func isConnected() -> Bool
 
-  /// Java method `getTag`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.nfc.Tag android.nfc.tech.NfcBarcode.getTag()
-  /// ```
-@JavaMethod
+  /// Returns the `Tag` associated with this technology object.
+  @JavaMethod
   open func getTag() -> Tag!
 
-  /// Java method `connect`.
+  /// Establishes a connection to the tag.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.nfc.tech.NfcBarcode.connect() throws java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Throws: `IOException` if the connection cannot be established.
+  @JavaMethod
   open func connect() throws
 
-  /// Java method `getBarcode`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public byte[] android.nfc.tech.NfcBarcode.getBarcode()
-  /// ```
-@JavaMethod
+  /// Returns the barcode payload bytes from the tag.
+  @JavaMethod
   open func getBarcode() -> [Int8]
 
-  /// Java method `close`.
+  /// Closes the connection to the tag.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.nfc.tech.NfcBarcode.close() throws java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Throws: `IOException` if an error occurs.
+  @JavaMethod
   open func close() throws
 
-  /// Java method `getType`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.nfc.tech.NfcBarcode.getType()
-  /// ```
-@JavaMethod
+  /// Returns the barcode type (e.g., `TYPE_KOVIO`).
+  @JavaMethod
   open func getType() -> Int32
 }
 @available(Android 17, *)
@@ -67,12 +47,9 @@ extension JavaClass<NfcBarcode> {
   @JavaStaticField(isFinal: true)
   public var TYPE_UNKNOWN: Int32
 
-    /// Java method `get`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public static android.nfc.tech.NfcBarcode android.nfc.tech.NfcBarcode.get(android.nfc.Tag)
-    /// ```
+  /// Returns an `NfcBarcode` object for the given tag, or `nil` if NFC Barcode is not supported.
+  ///
+  /// - Parameter arg0: The discovered tag.
   @JavaStaticMethod
   public func get(_ arg0: Tag?) -> NfcBarcode!
 }

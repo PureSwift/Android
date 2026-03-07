@@ -2,105 +2,75 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+/// Provides access to MIFARE Ultralight (NXP) tag properties and I/O operations.
+///
+/// MIFARE Ultralight tags are organized into 4-byte pages. Acquire an instance via
+/// `MifareUltralight.get(_:)` and open a connection with `connect()` before performing
+/// page reads or writes.
+///
+/// See also: [android.nfc.tech.MifareUltralight](https://developer.android.com/reference/android/nfc/tech/MifareUltralight)
 @JavaClass("android.nfc.tech.MifareUltralight", implements: TagTechnology.self)
 open class MifareUltralight: JavaObject {
-  /// Java method `setTimeout`.
+  /// Sets the transceive timeout in milliseconds.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.nfc.tech.MifareUltralight.setTimeout(int)
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: Timeout in milliseconds.
+  @JavaMethod
   open func setTimeout(_ arg0: Int32)
 
-  /// Java method `getTimeout`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.nfc.tech.MifareUltralight.getTimeout()
-  /// ```
-@JavaMethod
+  /// Returns the current transceive timeout in milliseconds.
+  @JavaMethod
   open func getTimeout() -> Int32
 
-  /// Java method `transceive`.
+  /// Sends raw MIFARE Ultralight commands to the tag and returns the response.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public byte[] android.nfc.tech.MifareUltralight.transceive(byte[]) throws java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: The bytes to send.
+  /// - Returns: The response bytes from the tag.
+  /// - Throws: `IOException` if the tag is lost or the operation fails.
+  @JavaMethod
   open func transceive(_ arg0: [Int8]) throws -> [Int8]
 
-  /// Java method `isConnected`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.tech.MifareUltralight.isConnected()
-  /// ```
-@JavaMethod
+  /// Returns `true` if the tag is connected.
+  @JavaMethod
   open func isConnected() -> Bool
 
-  /// Java method `getTag`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.nfc.Tag android.nfc.tech.MifareUltralight.getTag()
-  /// ```
-@JavaMethod
+  /// Returns the `Tag` associated with this technology object.
+  @JavaMethod
   open func getTag() -> Tag!
 
-  /// Java method `connect`.
+  /// Establishes a connection to the tag.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.nfc.tech.MifareUltralight.connect() throws java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Throws: `IOException` if the connection cannot be established.
+  @JavaMethod
   open func connect() throws
 
-  /// Java method `readPages`.
+  /// Reads 4 pages (16 bytes total) starting at the given page index.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public byte[] android.nfc.tech.MifareUltralight.readPages(int) throws java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: The starting page index.
+  /// - Returns: 16 bytes of data (4 consecutive pages).
+  /// - Throws: `IOException` if the read fails.
+  @JavaMethod
   open func readPages(_ arg0: Int32) throws -> [Int8]
 
-  /// Java method `writePage`.
+  /// Writes 4 bytes to a single page on the tag.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.nfc.tech.MifareUltralight.writePage(int,byte[]) throws java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Parameter arg0: The page index to write.
+  /// - Parameter arg1: Exactly 4 bytes to write.
+  /// - Throws: `IOException` if the write fails.
+  @JavaMethod
   open func writePage(_ arg0: Int32, _ arg1: [Int8]) throws
 
-  /// Java method `getMaxTransceiveLength`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.nfc.tech.MifareUltralight.getMaxTransceiveLength()
-  /// ```
-@JavaMethod
+  /// Returns the maximum number of bytes that can be sent in a single `transceive(_:)` call.
+  @JavaMethod
   open func getMaxTransceiveLength() -> Int32
 
-  /// Java method `close`.
+  /// Closes the connection to the tag.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.nfc.tech.MifareUltralight.close() throws java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Throws: `IOException` if an error occurs.
+  @JavaMethod
   open func close() throws
 
-  /// Java method `getType`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.nfc.tech.MifareUltralight.getType()
-  /// ```
-@JavaMethod
+  /// Returns the MIFARE Ultralight type (e.g., `TYPE_ULTRALIGHT`, `TYPE_ULTRALIGHT_C`).
+  @JavaMethod
   open func getType() -> Int32
 }
 extension JavaClass<MifareUltralight> {
@@ -116,12 +86,10 @@ extension JavaClass<MifareUltralight> {
   @JavaStaticField(isFinal: true)
   public var TYPE_UNKNOWN: Int32
 
-    /// Java method `get`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public static android.nfc.tech.MifareUltralight android.nfc.tech.MifareUltralight.get(android.nfc.Tag)
-    /// ```
+  /// Returns a `MifareUltralight` object for the given tag, or `nil` if MIFARE Ultralight
+  /// is not supported.
+  ///
+  /// - Parameter arg0: The discovered tag.
   @JavaStaticMethod
   public func get(_ arg0: Tag?) -> MifareUltralight!
 }

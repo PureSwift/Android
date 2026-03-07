@@ -4,17 +4,17 @@ import SwiftJavaJNICore
 
 @available(Android 14, *)
 extension NfcAdapter {
+  /// Callback invoked when an Android Beam NDEF push completes successfully.
+  ///
+  /// - Note: Deprecated. Android Beam was removed in API 29.
   @available(*, deprecated)
   @JavaInterface("android.nfc.NfcAdapter$OnNdefPushCompleteCallback")
   public struct OnNdefPushCompleteCallback {
-    /// Java method `onNdefPushComplete`.
+    /// Called when an NDEF push operation completes.
     ///
-    /// ### Java method signature
-    /// ```java
-    /// public abstract void android.nfc.NfcAdapter$OnNdefPushCompleteCallback.onNdefPushComplete(android.nfc.NfcEvent)
-    /// ```
-  @available(*, deprecated)
-  @JavaMethod
-  public func onNdefPushComplete(_ arg0: NfcEvent?)
+    /// - Parameter arg0: The `NfcEvent` associated with the completed push.
+    @available(*, deprecated)
+    @JavaMethod
+    public func onNdefPushComplete(_ arg0: NfcEvent?)
   }
 }

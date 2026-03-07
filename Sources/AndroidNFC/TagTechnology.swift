@@ -2,41 +2,32 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+/// A common interface to NFC tag technology classes.
+///
+/// Each `TagTechnology` object connects to a `Tag` for I/O operations. All I/O must be
+/// performed while the connection is open. Only one technology may be connected to a tag
+/// at a time. Use `connect()` to open a connection and `close()` to release it.
+///
+/// See also: [android.nfc.tech.TagTechnology](https://developer.android.com/reference/android/nfc/tech/TagTechnology)
 @JavaInterface("android.nfc.tech.TagTechnology")
 public struct TagTechnology {
-  /// Java method `isConnected`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public abstract boolean android.nfc.tech.TagTechnology.isConnected()
-  /// ```
-@JavaMethod
+  /// Returns `true` if the tag is connected to this technology.
+  @JavaMethod
   public func isConnected() -> Bool
 
-  /// Java method `getTag`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public abstract android.nfc.Tag android.nfc.tech.TagTechnology.getTag()
-  /// ```
-@JavaMethod
+  /// Returns the `Tag` this technology object is associated with.
+  @JavaMethod
   public func getTag() -> Tag!
 
-  /// Java method `connect`.
+  /// Establishes a connection to the tag.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public abstract void android.nfc.tech.TagTechnology.connect() throws java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Throws: `IOException` if there is an I/O error or the tag is lost.
+  @JavaMethod
   public func connect() throws
 
-  /// Java method `close`.
+  /// Closes the connection to the tag and releases resources.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public abstract void android.nfc.tech.TagTechnology.close() throws java.io.IOException
-  /// ```
-@JavaMethod
+  /// - Throws: `IOException` if there is an I/O error.
+  @JavaMethod
   public func close() throws
 }

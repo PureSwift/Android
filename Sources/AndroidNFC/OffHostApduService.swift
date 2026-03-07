@@ -5,18 +5,23 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+/// Abstract service for off-host NFC card emulation via a secure element.
+///
+/// Use this when APDU routing is handled by a Secure Element (SE) or SIM rather than
+/// the Android host CPU. Unlike `HostApduService`, this service does not receive or
+/// process APDUs; it only declares AID routing configuration in the manifest.
+///
+/// Register in the manifest with the `SERVICE_INTERFACE` action and provide an AID list
+/// in the `SERVICE_META_DATA` XML resource.
+///
+/// See also: [android.nfc.cardemulation.OffHostApduService](https://developer.android.com/reference/android/nfc/cardemulation/OffHostApduService)
 @available(Android 19, *)
 @JavaClass("android.nfc.cardemulation.OffHostApduService")
 open class OffHostApduService: Service {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
-    /// Java method `onBind`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public abstract android.os.IBinder android.nfc.cardemulation.OffHostApduService.onBind(android.content.Intent)
-    /// ```
+  /// Returns the `IBinder` for this service.
   @JavaMethod
   open func onBind(_ arg0: Intent?) -> IBinder!
 }

@@ -3,79 +3,46 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+/// Represents a single NFC polling loop frame received during card emulation observe mode.
+///
+/// Instances of this class are delivered to `HostApduService` implementations registered
+/// to receive polling loop data. Use `getType()` to determine the frame type (NFC-A, NFC-B,
+/// NFC-F, or power state transitions).
+///
+/// See also: [android.nfc.cardemulation.PollingFrame](https://developer.android.com/reference/android/nfc/cardemulation/PollingFrame)
 @available(Android 35, *)
 @JavaClass("android.nfc.cardemulation.PollingFrame", implements: Parcelable.self)
 open class PollingFrame: JavaObject {
-  /// Java method `describeContents`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.nfc.cardemulation.PollingFrame.describeContents()
-  /// ```
-@JavaMethod
+  /// Describes the kinds of special objects contained in this `Parcelable` instance.
+  @JavaMethod
   open func describeContents() -> Int32
 
-  /// Java method `writeToParcel`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.nfc.cardemulation.PollingFrame.writeToParcel(android.os.Parcel,int)
-  /// ```
-@JavaMethod
+  /// Flattens this object into a `Parcel`.
+  @JavaMethod
   open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
-  /// Java method `getVendorSpecificGain`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.nfc.cardemulation.PollingFrame.getVendorSpecificGain()
-  /// ```
-@JavaMethod
+  /// Returns the vendor-specific signal gain measured for this polling frame.
+  @JavaMethod
   open func getVendorSpecificGain() -> Int32
 
-  /// Java method `getTriggeredAutoTransact`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.nfc.cardemulation.PollingFrame.getTriggeredAutoTransact()
-  /// ```
-@JavaMethod
+  /// Returns `true` if this frame triggered an automatic transaction.
+  @JavaMethod
   open func getTriggeredAutoTransact() -> Bool
 
-  /// Java method `toString`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public java.lang.String android.nfc.cardemulation.PollingFrame.toString()
-  /// ```
-@JavaMethod
+  /// Returns a string representation of this polling frame.
+  @JavaMethod
   open override func toString() -> String
 
-  /// Java method `getType`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.nfc.cardemulation.PollingFrame.getType()
-  /// ```
-@JavaMethod
+  /// Returns the polling loop frame type (e.g., `POLLING_LOOP_TYPE_A`).
+  @JavaMethod
   open func getType() -> Int32
 
-  /// Java method `getData`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public byte[] android.nfc.cardemulation.PollingFrame.getData()
-  /// ```
-@JavaMethod
+  /// Returns the raw data bytes captured in this polling frame.
+  @JavaMethod
   open func getData() -> [Int8]
 
-  /// Java method `getTimestamp`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public long android.nfc.cardemulation.PollingFrame.getTimestamp()
-  /// ```
-@JavaMethod
+  /// Returns the timestamp of this polling frame in nanoseconds (monotonic clock).
+  @JavaMethod
   open func getTimestamp() -> Int64
 }
 @available(Android 35, *)
