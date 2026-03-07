@@ -18,7 +18,7 @@ open class OffHostApduService: Service {
     /// public abstract android.os.IBinder android.nfc.cardemulation.OffHostApduService.onBind(android.content.Intent)
     /// ```
   @JavaMethod
-  open override func onBind(_ arg0: Intent?) -> IBinder!
+  open func onBind(_ arg0: Intent?) -> IBinder!
 }
 @available(Android 19, *)
 extension JavaClass<OffHostApduService> {

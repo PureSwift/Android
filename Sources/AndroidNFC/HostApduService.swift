@@ -18,7 +18,7 @@ open class HostApduService: Service {
     /// public final android.os.IBinder android.nfc.cardemulation.HostApduService.onBind(android.content.Intent)
     /// ```
   @JavaMethod
-  open override func onBind(_ arg0: Intent?) -> IBinder!
+  open func onBind(_ arg0: Intent?) -> IBinder!
 
     /// Java method `sendResponseApdu`.
     ///
