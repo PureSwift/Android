@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 17, *)
 @JavaClass("android.nfc.tech.NfcBarcode", implements: TagTechnology.self)
 open class NfcBarcode: JavaObject {
   /// Java method `isConnected`.
@@ -58,6 +59,7 @@ open class NfcBarcode: JavaObject {
 @JavaMethod
   open func getType() -> Int32
 }
+@available(Android 17, *)
 extension JavaClass<NfcBarcode> {
   @JavaStaticField(isFinal: true)
   public var TYPE_KOVIO: Int32

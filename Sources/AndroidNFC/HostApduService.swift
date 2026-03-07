@@ -5,6 +5,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 19, *)
 @JavaClass("android.nfc.cardemulation.HostApduService")
 open class HostApduService: Service {
   @JavaMethod
@@ -55,6 +56,7 @@ open class HostApduService: Service {
   @JavaMethod
   open func onDeactivated(_ arg0: Int32)
 }
+@available(Android 19, *)
 extension JavaClass<HostApduService> {
   @JavaStaticField(isFinal: true)
   public var DEACTIVATION_DESELECTED: Int32

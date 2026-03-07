@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 24, *)
 extension NfcAdapter {
   @JavaInterface("android.nfc.NfcAdapter$OnTagRemovedListener")
   public struct OnTagRemovedListener {

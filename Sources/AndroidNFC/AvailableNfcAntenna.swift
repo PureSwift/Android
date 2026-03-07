@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 31, *)
 @JavaClass("android.nfc.AvailableNfcAntenna", implements: Parcelable.self)
 open class AvailableNfcAntenna: JavaObject {
   @JavaMethod
@@ -71,6 +72,7 @@ open class AvailableNfcAntenna: JavaObject {
   @JavaMethod
   open override func hashCode() -> Int32
 }
+@available(Android 31, *)
 extension JavaClass<AvailableNfcAntenna> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<AvailableNfcAntenna>!

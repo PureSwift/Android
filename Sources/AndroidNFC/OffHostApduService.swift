@@ -5,6 +5,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 19, *)
 @JavaClass("android.nfc.cardemulation.OffHostApduService")
 open class OffHostApduService: Service {
   @JavaMethod
@@ -19,6 +20,7 @@ open class OffHostApduService: Service {
   @JavaMethod
   open override func onBind(_ arg0: Intent?) -> IBinder!
 }
+@available(Android 19, *)
 extension JavaClass<OffHostApduService> {
   @JavaStaticField(isFinal: true)
   public var SERVICE_INTERFACE: String

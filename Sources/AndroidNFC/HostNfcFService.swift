@@ -5,6 +5,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 24, *)
 @JavaClass("android.nfc.cardemulation.HostNfcFService")
 open class HostNfcFService: Service {
   @JavaMethod
@@ -46,6 +47,7 @@ open class HostNfcFService: Service {
   @JavaMethod
   open func processNfcFPacket(_ arg0: [Int8], _ arg1: Bundle?) -> [Int8]
 }
+@available(Android 24, *)
 extension JavaClass<HostNfcFService> {
   @JavaStaticField(isFinal: true)
   public var DEACTIVATION_LINK_LOSS: Int32

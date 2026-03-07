@@ -13,6 +13,7 @@ open class NfcAdapter: JavaObject {
   /// ```java
   /// public void android.nfc.NfcAdapter.enableReaderMode(android.app.Activity,android.nfc.NfcAdapter$ReaderCallback,int,android.os.Bundle)
   /// ```
+  @available(Android 19, *)
 @JavaMethod
   open func enableReaderMode(_ arg0: Activity?, _ arg1: NfcAdapter.ReaderCallback?, _ arg2: Int32, _ arg3: Bundle?)
 
@@ -22,6 +23,7 @@ open class NfcAdapter: JavaObject {
   /// ```java
   /// public void android.nfc.NfcAdapter.disableReaderMode(android.app.Activity)
   /// ```
+  @available(Android 19, *)
 @JavaMethod
   open func disableReaderMode(_ arg0: Activity?)
 
@@ -31,6 +33,7 @@ open class NfcAdapter: JavaObject {
   /// ```java
   /// public android.nfc.NfcAntennaInfo android.nfc.NfcAdapter.getNfcAntennaInfo()
   /// ```
+  @available(Android 31, *)
 @JavaMethod
   open func getNfcAntennaInfo() -> NfcAntennaInfo!
 
@@ -40,6 +43,7 @@ open class NfcAdapter: JavaObject {
   /// ```java
   /// public boolean android.nfc.NfcAdapter.isSecureNfcEnabled()
   /// ```
+  @available(Android 30, *)
 @JavaMethod
   open func isSecureNfcEnabled() -> Bool
 
@@ -49,6 +53,7 @@ open class NfcAdapter: JavaObject {
   /// ```java
   /// public boolean android.nfc.NfcAdapter.isObserveModeSupported()
   /// ```
+  @available(Android 35, *)
 @JavaMethod
   open func isObserveModeSupported() -> Bool
 
@@ -58,6 +63,7 @@ open class NfcAdapter: JavaObject {
   /// ```java
   /// public boolean android.nfc.NfcAdapter.isObserveModeEnabled()
   /// ```
+  @available(Android 35, *)
 @JavaMethod
   open func isObserveModeEnabled() -> Bool
 
@@ -67,6 +73,7 @@ open class NfcAdapter: JavaObject {
   /// ```java
   /// public boolean android.nfc.NfcAdapter.setObserveModeEnabled(boolean)
   /// ```
+  @available(Android 35, *)
 @JavaMethod
   open func setObserveModeEnabled(_ arg0: Bool) -> Bool
 
@@ -94,6 +101,7 @@ open class NfcAdapter: JavaObject {
   /// ```java
   /// public void android.nfc.NfcAdapter.setDiscoveryTechnology(android.app.Activity,int,int)
   /// ```
+  @available(Android 35, *)
 @JavaMethod
   open func setDiscoveryTechnology(_ arg0: Activity?, _ arg1: Int32, _ arg2: Int32)
 
@@ -103,6 +111,7 @@ open class NfcAdapter: JavaObject {
   /// ```java
   /// public void android.nfc.NfcAdapter.resetDiscoveryTechnology(android.app.Activity)
   /// ```
+  @available(Android 35, *)
 @JavaMethod
   open func resetDiscoveryTechnology(_ arg0: Activity?)
 
@@ -112,6 +121,7 @@ open class NfcAdapter: JavaObject {
   /// ```java
   /// public boolean android.nfc.NfcAdapter.isSecureNfcSupported()
   /// ```
+  @available(Android 29, *)
 @JavaMethod
   open func isSecureNfcSupported() -> Bool
 
@@ -121,6 +131,7 @@ open class NfcAdapter: JavaObject {
   /// ```java
   /// public boolean android.nfc.NfcAdapter.isReaderOptionSupported()
   /// ```
+  @available(Android 35, *)
 @JavaMethod
   open func isReaderOptionSupported() -> Bool
 
@@ -130,6 +141,7 @@ open class NfcAdapter: JavaObject {
   /// ```java
   /// public boolean android.nfc.NfcAdapter.isReaderOptionEnabled()
   /// ```
+  @available(Android 35, *)
 @JavaMethod
   open func isReaderOptionEnabled() -> Bool
 
@@ -148,6 +160,7 @@ open class NfcAdapter: JavaObject {
   /// ```java
   /// public boolean android.nfc.NfcAdapter.ignore(android.nfc.Tag,int,android.nfc.NfcAdapter$OnTagRemovedListener,android.os.Handler)
   /// ```
+  @available(Android 24, *)
 @JavaMethod
   open func ignore(_ arg0: Tag?, _ arg1: Int32, _ arg2: NfcAdapter.OnTagRemovedListener?, _ arg3: Handler?) -> Bool
 }
@@ -158,6 +171,7 @@ extension JavaClass<NfcAdapter> {
   @JavaStaticField(isFinal: true)
   public var ACTION_NDEF_DISCOVERED: String
 
+  @available(Android 21, *)
   @JavaStaticField(isFinal: true)
   public var ACTION_PREFERRED_PAYMENT_CHANGED: String
 
@@ -167,12 +181,14 @@ extension JavaClass<NfcAdapter> {
   @JavaStaticField(isFinal: true)
   public var ACTION_TECH_DISCOVERED: String
 
+  @available(Android 28, *)
   @JavaStaticField(isFinal: true)
   public var ACTION_TRANSACTION_DETECTED: String
 
   @JavaStaticField(isFinal: true)
   public var EXTRA_ADAPTER_STATE: String
 
+  @available(Android 28, *)
   @JavaStaticField(isFinal: true)
   public var EXTRA_AID: String
 
@@ -185,36 +201,45 @@ extension JavaClass<NfcAdapter> {
   @JavaStaticField(isFinal: true)
   public var EXTRA_NDEF_MESSAGES: String
 
+  @available(Android 29, *)
   @JavaStaticField(isFinal: true)
   public var EXTRA_PREFERRED_PAYMENT_CHANGED_REASON: String
 
   @JavaStaticField(isFinal: true)
   public var EXTRA_READER_PRESENCE_CHECK_DELAY: String
 
+  @available(Android 35, *)
   @JavaStaticField(isFinal: true)
   public var EXTRA_SECURE_ELEMENT_NAME: String
 
   @JavaStaticField(isFinal: true)
   public var EXTRA_TAG: String
 
+  @available(Android 35, *)
   @JavaStaticField(isFinal: true)
   public var FLAG_LISTEN_DISABLE: Int32
 
+  @available(Android 35, *)
   @JavaStaticField(isFinal: true)
   public var FLAG_LISTEN_KEEP: Int32
 
+  @available(Android 35, *)
   @JavaStaticField(isFinal: true)
   public var FLAG_LISTEN_NFC_PASSIVE_A: Int32
 
+  @available(Android 35, *)
   @JavaStaticField(isFinal: true)
   public var FLAG_LISTEN_NFC_PASSIVE_B: Int32
 
+  @available(Android 35, *)
   @JavaStaticField(isFinal: true)
   public var FLAG_LISTEN_NFC_PASSIVE_F: Int32
 
+  @available(Android 35, *)
   @JavaStaticField(isFinal: true)
   public var FLAG_READER_DISABLE: Int32
 
+  @available(Android 35, *)
   @JavaStaticField(isFinal: true)
   public var FLAG_READER_KEEP: Int32
 
@@ -239,24 +264,31 @@ extension JavaClass<NfcAdapter> {
   @JavaStaticField(isFinal: true)
   public var FLAG_READER_SKIP_NDEF_CHECK: Int32
 
+  @available(Android 21, *)
   @JavaStaticField(isFinal: true)
   public var PREFERRED_PAYMENT_CHANGED: Int32
 
+  @available(Android 21, *)
   @JavaStaticField(isFinal: true)
   public var PREFERRED_PAYMENT_LOADED: Int32
 
+  @available(Android 21, *)
   @JavaStaticField(isFinal: true)
   public var PREFERRED_PAYMENT_UPDATED: Int32
 
+  @available(Android 18, *)
   @JavaStaticField(isFinal: true)
   public var STATE_OFF: Int32
 
+  @available(Android 18, *)
   @JavaStaticField(isFinal: true)
   public var STATE_ON: Int32
 
+  @available(Android 18, *)
   @JavaStaticField(isFinal: true)
   public var STATE_TURNING_OFF: Int32
 
+  @available(Android 18, *)
   @JavaStaticField(isFinal: true)
   public var STATE_TURNING_ON: Int32
 

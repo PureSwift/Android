@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 14, *)
 extension NfcAdapter {
   @available(*, deprecated)
   @JavaInterface("android.nfc.NfcAdapter$OnNdefPushCompleteCallback")

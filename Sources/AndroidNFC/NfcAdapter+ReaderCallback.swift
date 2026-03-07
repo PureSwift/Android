@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 19, *)
 extension NfcAdapter {
   @JavaInterface("android.nfc.NfcAdapter$ReaderCallback")
   public struct ReaderCallback {

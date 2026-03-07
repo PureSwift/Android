@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 31, *)
 @JavaClass("android.nfc.NfcAntennaInfo", implements: Parcelable.self)
 open class NfcAntennaInfo: JavaObject {
   /// Java method `describeContents`.
@@ -50,6 +51,7 @@ open class NfcAntennaInfo: JavaObject {
 @JavaMethod
   open func isDeviceFoldable() -> Bool
 }
+@available(Android 31, *)
 extension JavaClass<NfcAntennaInfo> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<NfcAntennaInfo>!

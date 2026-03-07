@@ -4,6 +4,7 @@ import AndroidContent
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 24, *)
 @JavaClass("android.nfc.cardemulation.NfcFCardEmulation")
 open class NfcFCardEmulation: JavaObject {
   /// Java method `enableService`.
@@ -69,6 +70,7 @@ open class NfcFCardEmulation: JavaObject {
 @JavaMethod
   open func setNfcid2ForService(_ arg0: ComponentName?, _ arg1: String) throws -> Bool
 }
+@available(Android 24, *)
 extension JavaClass<NfcFCardEmulation> {
   /// Java method `getInstance`.
   ///

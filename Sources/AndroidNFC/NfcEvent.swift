@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 14, *)
 @JavaClass("android.nfc.NfcEvent")
 open class NfcEvent: JavaObject {
   @JavaField(isFinal: true)

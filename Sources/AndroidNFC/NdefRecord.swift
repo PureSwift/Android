@@ -164,6 +164,7 @@ extension JavaClass<NdefRecord> {
     /// ```java
     /// public static android.nfc.NdefRecord android.nfc.NdefRecord.createUri(java.lang.String)
     /// ```
+  @available(Android 16, *)
   @JavaStaticMethod
   public func createUri(_ arg0: String) -> NdefRecord!
 
@@ -173,6 +174,7 @@ extension JavaClass<NdefRecord> {
     /// ```java
     /// public static android.nfc.NdefRecord android.nfc.NdefRecord.createMime(java.lang.String,byte[])
     /// ```
+  @available(Android 16, *)
   @JavaStaticMethod
   public func createMime(_ arg0: String, _ arg1: [Int8]) -> NdefRecord!
 
@@ -182,6 +184,7 @@ extension JavaClass<NdefRecord> {
     /// ```java
     /// public static android.nfc.NdefRecord android.nfc.NdefRecord.createExternal(java.lang.String,java.lang.String,byte[])
     /// ```
+  @available(Android 16, *)
   @JavaStaticMethod
   public func createExternal(_ arg0: String, _ arg1: String, _ arg2: [Int8]) -> NdefRecord!
 
@@ -191,6 +194,7 @@ extension JavaClass<NdefRecord> {
     /// ```java
     /// public static android.nfc.NdefRecord android.nfc.NdefRecord.createTextRecord(java.lang.String,java.lang.String)
     /// ```
+  @available(Android 21, *)
   @JavaStaticMethod
   public func createTextRecord(_ arg0: String, _ arg1: String) -> NdefRecord!
 
@@ -200,6 +204,7 @@ extension JavaClass<NdefRecord> {
     /// ```java
     /// public static android.nfc.NdefRecord android.nfc.NdefRecord.createApplicationRecord(java.lang.String)
     /// ```
+  @available(Android 14, *)
   @JavaStaticMethod
   public func createApplicationRecord(_ arg0: String) -> NdefRecord!
 }

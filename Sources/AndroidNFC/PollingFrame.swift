@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 35, *)
 @JavaClass("android.nfc.cardemulation.PollingFrame", implements: Parcelable.self)
 open class PollingFrame: JavaObject {
   /// Java method `describeContents`.
@@ -77,6 +78,7 @@ open class PollingFrame: JavaObject {
 @JavaMethod
   open func getTimestamp() -> Int64
 }
+@available(Android 35, *)
 extension JavaClass<PollingFrame> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<PollingFrame>!

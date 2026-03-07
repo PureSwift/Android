@@ -4,6 +4,7 @@ import AndroidContent
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 19, *)
 @JavaClass("android.nfc.cardemulation.CardEmulation")
 open class CardEmulation: JavaObject {
   /// Java method `setShouldDefaultToObserveModeForService`.
@@ -12,6 +13,7 @@ open class CardEmulation: JavaObject {
   /// ```java
   /// public boolean android.nfc.cardemulation.CardEmulation.setShouldDefaultToObserveModeForService(android.content.ComponentName,boolean)
   /// ```
+  @available(Android 35, *)
 @JavaMethod
   open func setShouldDefaultToObserveModeForService(_ arg0: ComponentName?, _ arg1: Bool) -> Bool
 
@@ -21,6 +23,7 @@ open class CardEmulation: JavaObject {
   /// ```java
   /// public boolean android.nfc.cardemulation.CardEmulation.registerPollingLoopFilterForService(android.content.ComponentName,java.lang.String,boolean)
   /// ```
+  @available(Android 35, *)
 @JavaMethod
   open func registerPollingLoopFilterForService(_ arg0: ComponentName?, _ arg1: String, _ arg2: Bool) -> Bool
 
@@ -30,6 +33,7 @@ open class CardEmulation: JavaObject {
   /// ```java
   /// public boolean android.nfc.cardemulation.CardEmulation.registerPollingLoopPatternFilterForService(android.content.ComponentName,java.lang.String,boolean)
   /// ```
+  @available(Android 35, *)
 @JavaMethod
   open func registerPollingLoopPatternFilterForService(_ arg0: ComponentName?, _ arg1: String, _ arg2: Bool) -> Bool
 
@@ -39,6 +43,7 @@ open class CardEmulation: JavaObject {
   /// ```java
   /// public boolean android.nfc.cardemulation.CardEmulation.removePollingLoopPatternFilterForService(android.content.ComponentName,java.lang.String)
   /// ```
+  @available(Android 35, *)
 @JavaMethod
   open func removePollingLoopPatternFilterForService(_ arg0: ComponentName?, _ arg1: String) -> Bool
 
@@ -48,6 +53,7 @@ open class CardEmulation: JavaObject {
   /// ```java
   /// public java.lang.String android.nfc.cardemulation.CardEmulation.getRouteDestinationForPreferredPaymentService()
   /// ```
+  @available(Android 35, *)
 @JavaMethod
   open func getRouteDestinationForPreferredPaymentService() -> String
 
@@ -93,6 +99,7 @@ open class CardEmulation: JavaObject {
   /// ```java
   /// public boolean android.nfc.cardemulation.CardEmulation.removePollingLoopFilterForService(android.content.ComponentName,java.lang.String)
   /// ```
+  @available(Android 35, *)
 @JavaMethod
   open func removePollingLoopFilterForService(_ arg0: ComponentName?, _ arg1: String) -> Bool
 
@@ -102,6 +109,7 @@ open class CardEmulation: JavaObject {
   /// ```java
   /// public boolean android.nfc.cardemulation.CardEmulation.unsetOffHostForService(android.content.ComponentName)
   /// ```
+  @available(Android 26, *)
 @JavaMethod
   open func unsetOffHostForService(_ arg0: ComponentName?) -> Bool
 
@@ -111,6 +119,7 @@ open class CardEmulation: JavaObject {
   /// ```java
   /// public boolean android.nfc.cardemulation.CardEmulation.setOffHostForService(android.content.ComponentName,java.lang.String)
   /// ```
+  @available(Android 26, *)
 @JavaMethod
   open func setOffHostForService(_ arg0: ComponentName?, _ arg1: String) -> Bool
 
@@ -129,6 +138,7 @@ open class CardEmulation: JavaObject {
   /// ```java
   /// public boolean android.nfc.cardemulation.CardEmulation.setPreferredService(android.app.Activity,android.content.ComponentName)
   /// ```
+  @available(Android 21, *)
 @JavaMethod
   open func setPreferredService(_ arg0: Activity?, _ arg1: ComponentName?) -> Bool
 
@@ -138,6 +148,7 @@ open class CardEmulation: JavaObject {
   /// ```java
   /// public boolean android.nfc.cardemulation.CardEmulation.unsetPreferredService(android.app.Activity)
   /// ```
+  @available(Android 21, *)
 @JavaMethod
   open func unsetPreferredService(_ arg0: Activity?) -> Bool
 
@@ -147,9 +158,11 @@ open class CardEmulation: JavaObject {
   /// ```java
   /// public boolean android.nfc.cardemulation.CardEmulation.supportsAidPrefixRegistration()
   /// ```
+  @available(Android 23, *)
 @JavaMethod
   open func supportsAidPrefixRegistration() -> Bool
 }
+@available(Android 19, *)
 extension JavaClass<CardEmulation> {
   @available(*, deprecated)
   @JavaStaticField(isFinal: true)
