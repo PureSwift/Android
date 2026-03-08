@@ -4,6 +4,7 @@ import AndroidUtil
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 28, *)
 @JavaClass("android.net.wifi.rtt.ResponderLocation", implements: Parcelable.self)
 open class ResponderLocation: JavaObject {
   /// Java method `isLciSubelementValid`.
@@ -204,6 +205,7 @@ open class ResponderLocation: JavaObject {
 @JavaMethod
   open override func hashCode() -> Int32
 }
+@available(Android 28, *)
 extension JavaClass<ResponderLocation> {
   @JavaStaticField(isFinal: true)
   public var ALTITUDE_FLOORS: Int32

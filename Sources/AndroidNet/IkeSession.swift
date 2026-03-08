@@ -3,6 +3,7 @@ import AndroidContent
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 31, *)
 @JavaClass("android.net.ipsec.ike.IkeSession")
 open class IkeSession: JavaObject {
   /// Java method `openChildSession`.

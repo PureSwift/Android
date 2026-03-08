@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 30, *)
 extension ConnectivityDiagnosticsManager {
   @JavaClass("android.net.ConnectivityDiagnosticsManager$DataStallReport", implements: Parcelable.self)
   open class DataStallReport: JavaObject {
@@ -100,6 +101,7 @@ extension ConnectivityDiagnosticsManager {
   open override func hashCode() -> Int32
   }
 }
+@available(Android 30, *)
 extension JavaClass<ConnectivityDiagnosticsManager.DataStallReport> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<ConnectivityDiagnosticsManager.DataStallReport>!

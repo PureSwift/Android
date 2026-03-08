@@ -3,6 +3,7 @@ import AndroidContent
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 30, *)
 @JavaClass("android.net.VpnManager")
 open class VpnManager: JavaObject {
   /// Java method `provisionVpnProfile`.
@@ -57,9 +58,11 @@ open class VpnManager: JavaObject {
   /// ```java
   /// public android.net.VpnProfileState android.net.VpnManager.getProvisionedVpnProfileState()
   /// ```
-@JavaMethod
+@available(Android 33, *)
+  @JavaMethod
   open func getProvisionedVpnProfileState() -> VpnProfileState!
 }
+@available(Android 30, *)
 extension JavaClass<VpnManager> {
   @JavaStaticField(isFinal: true)
   public var ACTION_VPN_MANAGER_EVENT: String

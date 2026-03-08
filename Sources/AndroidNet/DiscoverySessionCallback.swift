@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 26, *)
 @JavaClass("android.net.wifi.aware.DiscoverySessionCallback")
 open class DiscoverySessionCallback: JavaObject {
   @JavaMethod
@@ -40,6 +41,7 @@ open class DiscoverySessionCallback: JavaObject {
     /// ```java
     /// public void android.net.wifi.aware.DiscoverySessionCallback.onServiceDiscovered(android.net.wifi.aware.ServiceDiscoveryInfo)
     /// ```
+  @available(Android 33, *)
   @JavaMethod
   open func onServiceDiscovered(_ arg0: ServiceDiscoveryInfo?)
 
@@ -49,6 +51,7 @@ open class DiscoverySessionCallback: JavaObject {
     /// ```java
     /// public void android.net.wifi.aware.DiscoverySessionCallback.onServiceDiscoveredWithinRange(android.net.wifi.aware.ServiceDiscoveryInfo,int)
     /// ```
+  @available(Android 33, *)
   @JavaMethod
   open func onServiceDiscoveredWithinRange(_ arg0: ServiceDiscoveryInfo?, _ arg1: Int32)
 

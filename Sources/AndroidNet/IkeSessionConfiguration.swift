@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 31, *)
 @JavaClass("android.net.ipsec.ike.IkeSessionConfiguration")
 open class IkeSessionConfiguration: JavaObject {
   /// Java method `getRemoteApplicationVersion`.
@@ -40,6 +41,7 @@ open class IkeSessionConfiguration: JavaObject {
 @JavaMethod
   open func getEapInfo() -> EapInfo!
 }
+@available(Android 31, *)
 extension JavaClass<IkeSessionConfiguration> {
   @JavaStaticField(isFinal: true)
   public var EXTENSION_TYPE_FRAGMENTATION: Int32

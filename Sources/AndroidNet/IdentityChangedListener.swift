@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 26, *)
 @JavaClass("android.net.wifi.aware.IdentityChangedListener")
 open class IdentityChangedListener: JavaObject {
   @JavaMethod
@@ -25,6 +26,7 @@ open class IdentityChangedListener: JavaObject {
   @JavaMethod
   open func onClusterIdChanged(_ arg0: Int32, _ arg1: MacAddress?)
 }
+@available(Android 26, *)
 extension JavaClass<IdentityChangedListener> {
   @JavaStaticField(isFinal: true)
   public var CLUSTER_CHANGE_EVENT_JOINED: Int32

@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 18, *)
 @JavaClass("android.net.wifi.WifiEnterpriseConfig", implements: Parcelable.self)
 open class WifiEnterpriseConfig: JavaObject {
   @JavaMethod
@@ -328,6 +329,7 @@ open class WifiEnterpriseConfig: JavaObject {
   @JavaMethod
   open override func toString() -> String
 }
+@available(Android 18, *)
 extension JavaClass<WifiEnterpriseConfig> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<WifiEnterpriseConfig>!

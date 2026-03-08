@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 31, *)
 @JavaClass("android.net.eap.EapAkaInfo")
 open class EapAkaInfo: EapInfo {
   /// Java method `getReauthId`.

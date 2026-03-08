@@ -3,6 +3,7 @@ import SwiftJava
 import SwiftJavaJNICore
 
 @available(*, deprecated)
+@available(Android 12, *)
 @JavaClass("android.net.rtp.AudioCodec")
 open class AudioCodec: JavaObject {
   @available(*, deprecated)
@@ -17,6 +18,7 @@ open class AudioCodec: JavaObject {
   @JavaField(isFinal: true)
   public var type: Int32
 }
+@available(Android 12, *)
 extension JavaClass<AudioCodec> {
   @available(*, deprecated)
   @JavaStaticField(isFinal: true)

@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 14, *)
 extension WifiP2pConfig {
   @JavaClass("android.net.wifi.p2p.WifiP2pConfig$Builder")
   open class Builder: JavaObject {

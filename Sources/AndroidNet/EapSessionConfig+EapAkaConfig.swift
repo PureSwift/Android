@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 31, *)
 extension EapSessionConfig {
   @JavaClass("android.net.eap.EapSessionConfig$EapAkaConfig")
   open class EapAkaConfig: EapSessionConfig.EapMethodConfig {

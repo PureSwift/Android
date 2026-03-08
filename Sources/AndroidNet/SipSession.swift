@@ -3,6 +3,7 @@ import SwiftJava
 import SwiftJavaJNICore
 
 @available(*, deprecated)
+@available(Android 9, *)
 @JavaClass("android.net.sip.SipSession")
 open class SipSession: JavaObject {
   /// Java method `getLocalIp`.

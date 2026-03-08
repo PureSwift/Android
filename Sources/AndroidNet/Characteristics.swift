@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 26, *)
 @JavaClass("android.net.wifi.aware.Characteristics", implements: Parcelable.self)
 open class Characteristics: JavaObject {
   /// Java method `getSupportedCipherSuites`.
@@ -131,6 +132,7 @@ open class Characteristics: JavaObject {
 @JavaMethod
   open func isInstantCommunicationModeSupported() -> Bool
 }
+@available(Android 26, *)
 extension JavaClass<Characteristics> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<Characteristics>!

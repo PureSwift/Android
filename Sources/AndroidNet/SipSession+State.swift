@@ -9,6 +9,7 @@ extension SipSession {
 
   }
 }
+@available(Android 9, *)
 extension JavaClass<SipSession.State> {
   @available(*, deprecated)
   @JavaStaticField(isFinal: true)

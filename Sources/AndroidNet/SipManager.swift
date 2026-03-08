@@ -4,6 +4,7 @@ import SwiftJava
 import SwiftJavaJNICore
 
 @available(*, deprecated)
+@available(Android 9, *)
 @JavaClass("android.net.sip.SipManager")
 open class SipManager: JavaObject {
   /// Java method `setRegistrationListener`.
@@ -126,6 +127,7 @@ open class SipManager: JavaObject {
   @JavaMethod
   open func unregister(_ arg0: SipProfile?, _ arg1: SipRegistrationListener?) throws
 }
+@available(Android 9, *)
 extension JavaClass<SipManager> {
   @available(*, deprecated)
   @JavaStaticField(isFinal: true)

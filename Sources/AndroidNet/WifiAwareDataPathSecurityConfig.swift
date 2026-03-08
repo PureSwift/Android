@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 29, *)
 @JavaClass("android.net.wifi.aware.WifiAwareDataPathSecurityConfig", implements: Parcelable.self)
 open class WifiAwareDataPathSecurityConfig: JavaObject {
   /// Java method `describeContents`.
@@ -86,6 +87,7 @@ open class WifiAwareDataPathSecurityConfig: JavaObject {
 @JavaMethod
   open override func hashCode() -> Int32
 }
+@available(Android 29, *)
 extension JavaClass<WifiAwareDataPathSecurityConfig> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<WifiAwareDataPathSecurityConfig>!

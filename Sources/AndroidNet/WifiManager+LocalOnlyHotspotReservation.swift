@@ -21,6 +21,7 @@ extension WifiManager {
     /// ```java
     /// public android.net.wifi.SoftApConfiguration android.net.wifi.WifiManager$LocalOnlyHotspotReservation.getSoftApConfiguration()
     /// ```
+  @available(Android 30, *)
   @JavaMethod
   open func getSoftApConfiguration() -> SoftApConfiguration!
 

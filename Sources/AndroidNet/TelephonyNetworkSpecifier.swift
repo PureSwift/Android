@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 26, *)
 @JavaClass("android.net.TelephonyNetworkSpecifier", implements: Parcelable.self)
 open class TelephonyNetworkSpecifier: NetworkSpecifier {
   /// Java method `describeContents`.
@@ -59,6 +60,7 @@ open class TelephonyNetworkSpecifier: NetworkSpecifier {
 @JavaMethod
   open override func hashCode() -> Int32
 }
+@available(Android 26, *)
 extension JavaClass<TelephonyNetworkSpecifier> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<TelephonyNetworkSpecifier>!

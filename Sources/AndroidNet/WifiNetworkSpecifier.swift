@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 29, *)
 @JavaClass("android.net.wifi.WifiNetworkSpecifier", implements: Parcelable.self)
 open class WifiNetworkSpecifier: NetworkSpecifier {
   /// Java method `getPreferredChannelFrequenciesMhz`.
@@ -86,6 +87,7 @@ open class WifiNetworkSpecifier: NetworkSpecifier {
 @JavaMethod
   open override func hashCode() -> Int32
 }
+@available(Android 29, *)
 extension JavaClass<WifiNetworkSpecifier> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<WifiNetworkSpecifier>!

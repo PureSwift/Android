@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 26, *)
 extension Credential {
   @JavaClass("android.net.wifi.hotspot2.pps.Credential$UserCredential", implements: Parcelable.self)
   open class UserCredential: JavaObject {
@@ -130,6 +131,7 @@ extension Credential {
   open override func hashCode() -> Int32
   }
 }
+@available(Android 26, *)
 extension JavaClass<Credential.UserCredential> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<Credential.UserCredential>!

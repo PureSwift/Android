@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 29, *)
 extension DnsResolver {
   @JavaInterface("android.net.DnsResolver$Callback")
   public struct Callback<T: AnyJavaObject> {

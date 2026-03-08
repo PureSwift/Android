@@ -4,6 +4,7 @@ import JavaLangNet
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 21, *)
 @JavaClass("android.net.RouteInfo", implements: Parcelable.self)
 open class RouteInfo: JavaObject {
   /// Java method `describeContents`.
@@ -114,6 +115,7 @@ open class RouteInfo: JavaObject {
 @JavaMethod
   open func getType() -> Int32
 }
+@available(Android 21, *)
 extension JavaClass<RouteInfo> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<RouteInfo>!

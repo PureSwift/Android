@@ -3,6 +3,7 @@ import JavaLangUtil
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 14, *)
 extension WifiP2pManager {
   @JavaInterface("android.net.wifi.p2p.WifiP2pManager$DnsSdTxtRecordListener")
   public struct DnsSdTxtRecordListener {

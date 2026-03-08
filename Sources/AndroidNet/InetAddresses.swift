@@ -3,10 +3,12 @@ import JavaLangNet
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 29, *)
 @JavaClass("android.net.InetAddresses")
 open class InetAddresses: JavaObject {
 
 }
+@available(Android 29, *)
 extension JavaClass<InetAddresses> {
   /// Java method `parseNumericAddress`.
   ///

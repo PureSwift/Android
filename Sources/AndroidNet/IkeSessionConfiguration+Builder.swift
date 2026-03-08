@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 31, *)
 extension IkeSessionConfiguration {
   @JavaClass("android.net.ipsec.ike.IkeSessionConfiguration$Builder")
   open class Builder: JavaObject {

@@ -4,6 +4,7 @@ import JavaLangNet
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 28, *)
 @JavaClass("android.net.MacAddress", implements: Parcelable.self)
 open class MacAddress: JavaObject {
   /// Java method `getLinkLocalIpv6FromEui48Mac`.
@@ -105,6 +106,7 @@ open class MacAddress: JavaObject {
 @JavaMethod
   open func toByteArray() -> [Int8]
 }
+@available(Android 28, *)
 extension JavaClass<MacAddress> {
   @JavaStaticField(isFinal: true)
   public var BROADCAST_ADDRESS: MacAddress!

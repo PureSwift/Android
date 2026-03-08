@@ -177,7 +177,8 @@ open class WifiManager: JavaObject {
   /// ```java
   /// public boolean android.net.wifi.WifiManager.validateSoftApConfiguration(android.net.wifi.SoftApConfiguration)
   /// ```
-@JavaMethod
+@available(Android 30, *)
+  @JavaMethod
   open func validateSoftApConfiguration(_ arg0: SoftApConfiguration?) -> Bool
 
   /// Java method `startLocalOnlyHotspot`.
@@ -402,7 +403,8 @@ open class WifiManager: JavaObject {
   /// ```java
   /// public void android.net.wifi.WifiManager.setPerSsidRoamingMode(android.net.wifi.WifiSsid,int)
   /// ```
-@JavaMethod
+@available(Android 33, *)
+  @JavaMethod
   open func setPerSsidRoamingMode(_ arg0: WifiSsid?, _ arg1: Int32)
 
   /// Java method `removePerSsidRoamingMode`.
@@ -411,7 +413,8 @@ open class WifiManager: JavaObject {
   /// ```java
   /// public void android.net.wifi.WifiManager.removePerSsidRoamingMode(android.net.wifi.WifiSsid)
   /// ```
-@JavaMethod
+@available(Android 33, *)
+  @JavaMethod
   open func removePerSsidRoamingMode(_ arg0: WifiSsid?)
 
   /// Java method `addNetwork`.
@@ -761,7 +764,8 @@ open class WifiManager: JavaObject {
   /// ```java
   /// public void android.net.wifi.WifiManager.removeSuggestionConnectionStatusListener(android.net.wifi.WifiManager$SuggestionConnectionStatusListener)
   /// ```
-@JavaMethod
+@available(Android 29, *)
+  @JavaMethod
   open func removeSuggestionConnectionStatusListener(_ arg0: WifiManager.SuggestionConnectionStatusListener?)
 
   /// Java method `removeLocalOnlyConnectionFailureListener`.
@@ -770,7 +774,8 @@ open class WifiManager: JavaObject {
   /// ```java
   /// public void android.net.wifi.WifiManager.removeLocalOnlyConnectionFailureListener(android.net.wifi.WifiManager$LocalOnlyConnectionFailureListener)
   /// ```
-@JavaMethod
+@available(Android 33, *)
+  @JavaMethod
   open func removeLocalOnlyConnectionFailureListener(_ arg0: WifiManager.LocalOnlyConnectionFailureListener?)
 
   /// Java method `removeSuggestionUserApprovalStatusListener`.
@@ -801,6 +806,7 @@ open class WifiManager: JavaObject {
   open func getMaxNumberOfChannelsPerNetworkSpecifierRequest() -> Int32
 }
 extension WifiManager {
+  @available(Android 33, *)
   @JavaInterface("android.net.wifi.WifiManager$LocalOnlyConnectionFailureListener")
   public struct LocalOnlyConnectionFailureListener {
     /// Java method `onConnectionFailed`.

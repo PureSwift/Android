@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 31, *)
 @JavaClass("android.net.vcn.VcnUnderlyingNetworkTemplate")
 open class VcnUnderlyingNetworkTemplate: JavaObject {
   /// Java method `getMinEntryUpstreamBandwidthKbps`.
@@ -67,6 +68,7 @@ open class VcnUnderlyingNetworkTemplate: JavaObject {
 @JavaMethod
   open override func hashCode() -> Int32
 }
+@available(Android 31, *)
 extension JavaClass<VcnUnderlyingNetworkTemplate> {
   @JavaStaticField(isFinal: true)
   public var MATCH_ANY: Int32

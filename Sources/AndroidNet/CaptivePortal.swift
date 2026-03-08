@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 23, *)
 @JavaClass("android.net.CaptivePortal", implements: Parcelable.self)
 open class CaptivePortal: JavaObject {
   /// Java method `reportCaptivePortalDismissed`.
@@ -41,6 +42,7 @@ open class CaptivePortal: JavaObject {
 @JavaMethod
   open func ignoreNetwork()
 }
+@available(Android 23, *)
 extension JavaClass<CaptivePortal> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<CaptivePortal>!

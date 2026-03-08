@@ -3,6 +3,7 @@ import JavaLangIO
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 31, *)
 @JavaClass("android.net.ipsec.ike.exceptions.IkeIOException")
 open class IkeIOException: IkeNonProtocolException {
   @JavaMethod

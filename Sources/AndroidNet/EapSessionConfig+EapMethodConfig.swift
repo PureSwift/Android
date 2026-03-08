@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 31, *)
 extension EapSessionConfig {
   @JavaClass("android.net.eap.EapSessionConfig$EapMethodConfig")
   open class EapMethodConfig: JavaObject {
@@ -33,6 +34,7 @@ extension EapSessionConfig {
   open func getMethodType() -> Int32
   }
 }
+@available(Android 31, *)
 extension JavaClass<EapSessionConfig.EapMethodConfig> {
   @JavaStaticField(isFinal: true)
   public var EAP_TYPE_AKA: Int32

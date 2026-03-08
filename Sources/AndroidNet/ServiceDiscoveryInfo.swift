@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 33, *)
 @JavaClass("android.net.wifi.aware.ServiceDiscoveryInfo")
 open class ServiceDiscoveryInfo: JavaObject {
   /// Java method `getServiceSpecificInfo`.

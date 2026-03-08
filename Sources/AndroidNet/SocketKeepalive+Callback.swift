@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 29, *)
 extension SocketKeepalive {
   @JavaClass("android.net.SocketKeepalive$Callback")
   open class Callback: JavaObject {

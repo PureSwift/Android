@@ -3,6 +3,7 @@ import JavaLangNet
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 31, *)
 extension TunnelModeChildSessionParams {
   @JavaClass("android.net.ipsec.ike.TunnelModeChildSessionParams$Builder")
   open class Builder: JavaObject {

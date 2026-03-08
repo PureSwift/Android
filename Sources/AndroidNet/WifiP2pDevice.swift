@@ -4,6 +4,7 @@ import JavaLangNet
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 14, *)
 @JavaClass("android.net.wifi.p2p.WifiP2pDevice", implements: Parcelable.self)
 open class WifiP2pDevice: JavaObject {
   @JavaField(isFinal: false)
@@ -144,6 +145,7 @@ open class WifiP2pDevice: JavaObject {
   @JavaMethod
   open func update(_ arg0: WifiP2pDevice?)
 }
+@available(Android 14, *)
 extension JavaClass<WifiP2pDevice> {
   @JavaStaticField(isFinal: true)
   public var AVAILABLE: Int32

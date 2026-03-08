@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 14, *)
 @JavaClass("android.net.wifi.p2p.WifiP2pGroup", implements: Parcelable.self)
 open class WifiP2pGroup: JavaObject {
   @JavaMethod
@@ -101,6 +102,7 @@ open class WifiP2pGroup: JavaObject {
   @JavaMethod
   open func getOwner() -> WifiP2pDevice!
 }
+@available(Android 14, *)
 extension JavaClass<WifiP2pGroup> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<WifiP2pGroup>!

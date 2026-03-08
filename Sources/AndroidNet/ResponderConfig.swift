@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 28, *)
 @JavaClass("android.net.wifi.rtt.ResponderConfig", implements: Parcelable.self)
 open class ResponderConfig: JavaObject {
   /// Java method `is80211azNtbSupported`.
@@ -131,6 +132,7 @@ open class ResponderConfig: JavaObject {
 @JavaMethod
   open override func hashCode() -> Int32
 }
+@available(Android 28, *)
 extension JavaClass<ResponderConfig> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<ResponderConfig>!

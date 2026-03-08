@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 30, *)
 @JavaClass("android.net.PlatformVpnProfile")
 open class PlatformVpnProfile: JavaObject {
   /// Java method `areLocalRoutesExcluded`.
@@ -40,6 +41,7 @@ open class PlatformVpnProfile: JavaObject {
 @JavaMethod
   open func getTypeString() -> String
 }
+@available(Android 30, *)
 extension JavaClass<PlatformVpnProfile> {
   @JavaStaticField(isFinal: true)
   public var TYPE_IKEV2_IPSEC_PSK: Int32

@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 29, *)
 extension WifiAwareNetworkSpecifier {
   @JavaClass("android.net.wifi.aware.WifiAwareNetworkSpecifier$Builder")
   open class Builder: JavaObject {

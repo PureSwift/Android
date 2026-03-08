@@ -3,6 +3,7 @@ import AndroidUtil
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 28, *)
 extension IpSecManager {
   @JavaClass("android.net.IpSecManager$SpiUnavailableException")
   open class SpiUnavailableException: AndroidException {

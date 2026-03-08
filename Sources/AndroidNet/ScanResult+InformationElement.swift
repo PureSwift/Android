@@ -67,6 +67,7 @@ extension ScanResult {
   open func getId() -> Int32
   }
 }
+@available(Android 30, *)
 extension JavaClass<ScanResult.InformationElement> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<ScanResult.InformationElement>!

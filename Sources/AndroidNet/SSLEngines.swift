@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 29, *)
 @JavaClass("android.net.ssl.SSLEngines")
 open class SSLEngines: JavaObject {
 

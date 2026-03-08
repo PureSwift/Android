@@ -4,6 +4,7 @@ import JavaLangNet
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 33, *)
 @JavaClass("android.net.StaticIpConfiguration", implements: Parcelable.self)
 open class StaticIpConfiguration: JavaObject {
   /// Java method `describeContents`.
@@ -78,6 +79,7 @@ open class StaticIpConfiguration: JavaObject {
 @JavaMethod
   open override func hashCode() -> Int32
 }
+@available(Android 33, *)
 extension JavaClass<StaticIpConfiguration> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<StaticIpConfiguration>!

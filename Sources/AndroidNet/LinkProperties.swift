@@ -4,6 +4,7 @@ import JavaLangNet
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 21, *)
 @JavaClass("android.net.LinkProperties", implements: Parcelable.self)
 open class LinkProperties: JavaObject {
   @JavaMethod
@@ -207,6 +208,7 @@ open class LinkProperties: JavaObject {
   @JavaMethod
   open func clear()
 }
+@available(Android 21, *)
 extension JavaClass<LinkProperties> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<LinkProperties>!

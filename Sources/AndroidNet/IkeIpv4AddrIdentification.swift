@@ -3,6 +3,7 @@ import JavaLangNet
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 31, *)
 @JavaClass("android.net.ipsec.ike.IkeIpv4AddrIdentification")
 open class IkeIpv4AddrIdentification: IkeIdentification {
   @JavaField(isFinal: true)

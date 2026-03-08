@@ -3,6 +3,7 @@ import JavaIO
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 28, *)
 extension IpSecManager {
   @JavaClass("android.net.IpSecManager$UdpEncapsulationSocket")
   open class UdpEncapsulationSocket: JavaObject {

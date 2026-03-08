@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 21, *)
 @JavaClass("android.net.NetworkRequest", implements: Parcelable.self)
 open class NetworkRequest: JavaObject {
   /// Java method `getNetworkSpecifier`.
@@ -104,6 +105,7 @@ open class NetworkRequest: JavaObject {
 @JavaMethod
   open override func hashCode() -> Int32
 }
+@available(Android 21, *)
 extension JavaClass<NetworkRequest> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<NetworkRequest>!

@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 31, *)
 extension ChildSessionConfiguration {
   @JavaClass("android.net.ipsec.ike.ChildSessionConfiguration$Builder")
   open class Builder: JavaObject {

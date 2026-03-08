@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 31, *)
 @JavaClass("android.net.ipsec.ike.IkeDerAsn1DnIdentification")
 open class IkeDerAsn1DnIdentification: IkeIdentification {
   /// Java method `equals`.

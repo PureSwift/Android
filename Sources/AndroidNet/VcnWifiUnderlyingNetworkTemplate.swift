@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 31, *)
 @JavaClass("android.net.vcn.VcnWifiUnderlyingNetworkTemplate")
 open class VcnWifiUnderlyingNetworkTemplate: VcnUnderlyingNetworkTemplate {
   /// Java method `equals`.

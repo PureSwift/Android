@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 26, *)
 extension PublishConfig {
   @JavaClass("android.net.wifi.aware.PublishConfig$Builder")
   open class Builder: JavaObject {
@@ -41,6 +42,7 @@ extension PublishConfig {
     /// ```java
     /// public android.net.wifi.aware.PublishConfig$Builder android.net.wifi.aware.PublishConfig$Builder.setDataPathSecurityConfig(android.net.wifi.aware.WifiAwareDataPathSecurityConfig)
     /// ```
+  @available(Android 29, *)
   @JavaMethod
   open func setDataPathSecurityConfig(_ arg0: WifiAwareDataPathSecurityConfig?) -> PublishConfig.Builder!
 

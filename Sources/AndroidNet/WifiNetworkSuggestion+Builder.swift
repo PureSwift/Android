@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 29, *)
 extension WifiNetworkSuggestion {
   @JavaClass("android.net.wifi.WifiNetworkSuggestion$Builder")
   open class Builder: JavaObject {
@@ -124,6 +125,7 @@ extension WifiNetworkSuggestion {
     /// ```java
     /// public android.net.wifi.WifiNetworkSuggestion$Builder android.net.wifi.WifiNetworkSuggestion$Builder.setWifiSsid(android.net.wifi.WifiSsid)
     /// ```
+  @available(Android 33, *)
   @JavaMethod
   open func setWifiSsid(_ arg0: WifiSsid?) -> WifiNetworkSuggestion.Builder!
 

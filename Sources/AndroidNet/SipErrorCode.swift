@@ -3,10 +3,12 @@ import SwiftJava
 import SwiftJavaJNICore
 
 @available(*, deprecated)
+@available(Android 9, *)
 @JavaClass("android.net.sip.SipErrorCode")
 open class SipErrorCode: JavaObject {
 
 }
+@available(Android 9, *)
 extension JavaClass<SipErrorCode> {
   @available(*, deprecated)
   @JavaStaticField(isFinal: true)

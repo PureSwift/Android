@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 31, *)
 extension ChildSaProposal {
   @JavaClass("android.net.ipsec.ike.ChildSaProposal$Builder")
   open class Builder: JavaObject {

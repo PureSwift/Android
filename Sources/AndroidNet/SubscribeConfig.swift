@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 26, *)
 @JavaClass("android.net.wifi.aware.SubscribeConfig", implements: Parcelable.self)
 open class SubscribeConfig: JavaObject {
   /// Java method `isInstantCommunicationModeEnabled`.
@@ -68,6 +69,7 @@ open class SubscribeConfig: JavaObject {
 @JavaMethod
   open override func hashCode() -> Int32
 }
+@available(Android 26, *)
 extension JavaClass<SubscribeConfig> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<SubscribeConfig>!

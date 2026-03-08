@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 31, *)
 @JavaClass("android.net.ipsec.ike.TunnelModeChildSessionParams")
 open class TunnelModeChildSessionParams: ChildSessionParams {
   /// Java method `equals`.

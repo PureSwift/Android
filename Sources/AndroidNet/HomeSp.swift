@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 26, *)
 @JavaClass("android.net.wifi.hotspot2.pps.HomeSp", implements: Parcelable.self)
 open class HomeSp: JavaObject {
   @JavaMethod
@@ -146,6 +147,7 @@ open class HomeSp: JavaObject {
   @JavaMethod
   open override func hashCode() -> Int32
 }
+@available(Android 26, *)
 extension JavaClass<HomeSp> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<HomeSp>!

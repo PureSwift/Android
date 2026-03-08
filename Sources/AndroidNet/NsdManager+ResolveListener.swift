@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 16, *)
 extension NsdManager {
   @JavaInterface("android.net.nsd.NsdManager$ResolveListener")
   public struct ResolveListener {

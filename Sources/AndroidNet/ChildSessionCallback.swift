@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 31, *)
 @JavaInterface("android.net.ipsec.ike.ChildSessionCallback")
 public struct ChildSessionCallback {
   /// Java method `onClosedWithException`.

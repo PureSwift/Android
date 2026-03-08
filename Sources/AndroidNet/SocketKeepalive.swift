@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 29, *)
 @JavaClass("android.net.SocketKeepalive")
 open class SocketKeepalive: JavaObject {
   /// Java method `start`.
@@ -31,6 +32,7 @@ open class SocketKeepalive: JavaObject {
 @JavaMethod
   open func close()
 }
+@available(Android 29, *)
 extension JavaClass<SocketKeepalive> {
   @JavaStaticField(isFinal: true)
   public var ERROR_HARDWARE_ERROR: Int32

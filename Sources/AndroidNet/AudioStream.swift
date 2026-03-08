@@ -4,6 +4,7 @@ import SwiftJava
 import SwiftJavaJNICore
 
 @available(*, deprecated)
+@available(Android 12, *)
 @JavaClass("android.net.rtp.AudioStream")
 open class AudioStream: RtpStream {
   @available(*, deprecated)

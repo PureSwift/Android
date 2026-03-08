@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 33, *)
 extension IpConfiguration {
   @JavaClass("android.net.IpConfiguration$Builder")
   open class Builder: JavaObject {

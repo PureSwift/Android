@@ -4,6 +4,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 14, *)
 @JavaClass("android.net.wifi.p2p.WifiP2pManager")
 open class WifiP2pManager: JavaObject {
   /// Java method `unregisterWifiP2pListener`.
@@ -487,6 +488,7 @@ extension WifiP2pManager {
   public func onGroupRemoved()
   }
 }
+@available(Android 14, *)
 extension JavaClass<WifiP2pManager> {
   @JavaStaticField(isFinal: true)
   public var ACTION_WIFI_P2P_LISTEN_STATE_CHANGED: String

@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 14, *)
 extension WifiP2pManager {
   @JavaInterface("android.net.wifi.p2p.WifiP2pManager$ChannelListener")
   public struct ChannelListener {

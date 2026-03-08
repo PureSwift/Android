@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 31, *)
 extension VcnManager {
   @JavaClass("android.net.vcn.VcnManager$VcnStatusCallback")
   open class VcnStatusCallback: JavaObject {

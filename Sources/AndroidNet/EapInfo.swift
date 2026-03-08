@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 31, *)
 @JavaClass("android.net.eap.EapInfo")
 open class EapInfo: JavaObject {
   /// Java method `getEapMethodType`.

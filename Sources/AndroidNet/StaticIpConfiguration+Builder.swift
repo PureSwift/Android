@@ -3,6 +3,7 @@ import JavaLangNet
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 33, *)
 extension StaticIpConfiguration {
   @JavaClass("android.net.StaticIpConfiguration$Builder")
   open class Builder: JavaObject {

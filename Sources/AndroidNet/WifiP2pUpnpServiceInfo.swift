@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 14, *)
 @JavaClass("android.net.wifi.p2p.nsd.WifiP2pUpnpServiceInfo")
 open class WifiP2pUpnpServiceInfo: WifiP2pServiceInfo {
 

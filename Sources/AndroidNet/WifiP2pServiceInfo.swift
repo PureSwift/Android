@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 14, *)
 @JavaClass("android.net.wifi.p2p.nsd.WifiP2pServiceInfo", implements: Parcelable.self)
 open class WifiP2pServiceInfo: JavaObject {
   /// Java method `describeContents`.
@@ -41,6 +42,7 @@ open class WifiP2pServiceInfo: JavaObject {
 @JavaMethod
   open override func hashCode() -> Int32
 }
+@available(Android 14, *)
 extension JavaClass<WifiP2pServiceInfo> {
   @JavaStaticField(isFinal: true)
   public var SERVICE_TYPE_ALL: Int32

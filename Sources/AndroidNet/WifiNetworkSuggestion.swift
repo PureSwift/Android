@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 29, *)
 @JavaClass("android.net.wifi.WifiNetworkSuggestion", implements: Parcelable.self)
 open class WifiNetworkSuggestion: JavaObject {
   /// Java method `isAppInteractionRequired`.
@@ -101,7 +102,8 @@ open class WifiNetworkSuggestion: JavaObject {
   /// ```java
   /// public android.net.wifi.WifiSsid android.net.wifi.WifiNetworkSuggestion.getWifiSsid()
   /// ```
-@JavaMethod
+@available(Android 33, *)
+  @JavaMethod
   open func getWifiSsid() -> WifiSsid!
 
   /// Java method `getBssid`.
@@ -248,6 +250,7 @@ open class WifiNetworkSuggestion: JavaObject {
 @JavaMethod
   open func getPriority() -> Int32
 }
+@available(Android 29, *)
 extension JavaClass<WifiNetworkSuggestion> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<WifiNetworkSuggestion>!

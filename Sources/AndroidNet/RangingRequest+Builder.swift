@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 28, *)
 extension RangingRequest {
   @JavaClass("android.net.wifi.rtt.RangingRequest$Builder")
   open class Builder: JavaObject {

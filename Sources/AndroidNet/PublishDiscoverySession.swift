@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 26, *)
 @JavaClass("android.net.wifi.aware.PublishDiscoverySession")
 open class PublishDiscoverySession: DiscoverySession {
   /// Java method `updatePublish`.

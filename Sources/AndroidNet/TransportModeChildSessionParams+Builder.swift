@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 31, *)
 extension TransportModeChildSessionParams {
   @JavaClass("android.net.ipsec.ike.TransportModeChildSessionParams$Builder")
   open class Builder: JavaObject {

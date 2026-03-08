@@ -72,6 +72,7 @@ open class ScanResult: JavaObject {
     /// ```java
     /// public android.net.wifi.WifiSsid android.net.wifi.ScanResult.getWifiSsid()
     /// ```
+  @available(Android 33, *)
   @JavaMethod
   open func getWifiSsid() -> WifiSsid!
 

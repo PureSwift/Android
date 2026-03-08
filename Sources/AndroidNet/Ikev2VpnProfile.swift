@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 30, *)
 @JavaClass("android.net.Ikev2VpnProfile")
 open class Ikev2VpnProfile: PlatformVpnProfile {
   /// Java method `getIkeTunnelConnectionParams`.
@@ -10,7 +11,8 @@ open class Ikev2VpnProfile: PlatformVpnProfile {
   /// ```java
   /// public android.net.ipsec.ike.IkeTunnelConnectionParams android.net.Ikev2VpnProfile.getIkeTunnelConnectionParams()
   /// ```
-@JavaMethod
+@available(Android 31, *)
+  @JavaMethod
   open func getIkeTunnelConnectionParams() -> IkeTunnelConnectionParams!
 
   /// Java method `getPassword`.

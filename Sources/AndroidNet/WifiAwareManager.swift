@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 26, *)
 @JavaClass("android.net.wifi.aware.WifiAwareManager")
 open class WifiAwareManager: JavaObject {
   /// Java method `isInstantCommunicationModeEnabled`.
@@ -29,7 +30,8 @@ open class WifiAwareManager: JavaObject {
   /// ```java
   /// public android.net.wifi.aware.AwareResources android.net.wifi.aware.WifiAwareManager.getAvailableAwareResources()
   /// ```
-@JavaMethod
+@available(Android 30, *)
+  @JavaMethod
   open func getAvailableAwareResources() -> AwareResources!
 
   /// Java method `setOpportunisticModeEnabled`.
@@ -104,6 +106,7 @@ open class WifiAwareManager: JavaObject {
 @JavaMethod
   open func attach(_ arg0: AttachCallback?, _ arg1: Handler?)
 }
+@available(Android 26, *)
 extension JavaClass<WifiAwareManager> {
   @JavaStaticField(isFinal: true)
   public var ACTION_WIFI_AWARE_RESOURCE_CHANGED: String

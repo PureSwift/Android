@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 26, *)
 @JavaClass("android.net.wifi.aware.ParcelablePeerHandle", implements: Parcelable.self)
 open class ParcelablePeerHandle: PeerHandle {
   @JavaMethod
@@ -26,6 +27,7 @@ open class ParcelablePeerHandle: PeerHandle {
   @JavaMethod
   open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 }
+@available(Android 26, *)
 extension JavaClass<ParcelablePeerHandle> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<ParcelablePeerHandle>!

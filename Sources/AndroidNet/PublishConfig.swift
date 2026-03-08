@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 26, *)
 @JavaClass("android.net.wifi.aware.PublishConfig", implements: Parcelable.self)
 open class PublishConfig: JavaObject {
   /// Java method `isInstantCommunicationModeEnabled`.
@@ -47,7 +48,8 @@ open class PublishConfig: JavaObject {
   /// ```java
   /// public android.net.wifi.aware.WifiAwareDataPathSecurityConfig android.net.wifi.aware.PublishConfig.getSecurityConfig()
   /// ```
-@JavaMethod
+@available(Android 29, *)
+  @JavaMethod
   open func getSecurityConfig() -> WifiAwareDataPathSecurityConfig!
 
   /// Java method `equals`.
@@ -77,6 +79,7 @@ open class PublishConfig: JavaObject {
 @JavaMethod
   open override func hashCode() -> Int32
 }
+@available(Android 26, *)
 extension JavaClass<PublishConfig> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<PublishConfig>!

@@ -2,10 +2,12 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 28, *)
 @JavaClass("android.net.wifi.rtt.CivicLocationKeys")
 open class CivicLocationKeys: JavaObject {
 
 }
+@available(Android 28, *)
 extension JavaClass<CivicLocationKeys> {
   @JavaStaticField(isFinal: true)
   public var ADDITIONAL_CODE: Int32

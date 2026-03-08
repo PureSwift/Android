@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 33, *)
 @JavaClass("android.net.wifi.WifiSsid", implements: Parcelable.self)
 open class WifiSsid: JavaObject {
   /// Java method `describeContents`.
@@ -59,6 +60,7 @@ open class WifiSsid: JavaObject {
 @JavaMethod
   open func getBytes() -> [Int8]
 }
+@available(Android 33, *)
 extension JavaClass<WifiSsid> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<WifiSsid>!

@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 33, *)
 @JavaClass("android.net.wifi.MloLink", implements: Parcelable.self)
 open class MloLink: JavaObject {
   @JavaMethod
@@ -134,6 +135,7 @@ open class MloLink: JavaObject {
   @JavaMethod
   open func getChannel() -> Int32
 }
+@available(Android 33, *)
 extension JavaClass<MloLink> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<MloLink>!

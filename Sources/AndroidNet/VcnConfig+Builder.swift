@@ -3,6 +3,7 @@ import AndroidContent
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 31, *)
 extension VcnConfig {
   @JavaClass("android.net.vcn.VcnConfig$Builder")
   open class Builder: JavaObject {

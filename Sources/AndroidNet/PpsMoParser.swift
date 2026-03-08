@@ -2,10 +2,12 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 26, *)
 @JavaClass("android.net.wifi.hotspot2.omadm.PpsMoParser")
 open class PpsMoParser: JavaObject {
 
 }
+@available(Android 26, *)
 extension JavaClass<PpsMoParser> {
   /// Java method `parseMoText`.
   ///

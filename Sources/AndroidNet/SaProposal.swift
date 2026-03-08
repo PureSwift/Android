@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 31, *)
 @JavaClass("android.net.ipsec.ike.SaProposal")
 open class SaProposal: JavaObject {
   /// Java method `equals`.
@@ -31,6 +32,7 @@ open class SaProposal: JavaObject {
 @JavaMethod
   open override func hashCode() -> Int32
 }
+@available(Android 31, *)
 extension JavaClass<SaProposal> {
   @JavaStaticField(isFinal: true)
   public var DH_GROUP_1024_BIT_MODP: Int32

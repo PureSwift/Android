@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 31, *)
 extension EapAkaInfo {
   @JavaClass("android.net.eap.EapAkaInfo$Builder")
   open class Builder: JavaObject {

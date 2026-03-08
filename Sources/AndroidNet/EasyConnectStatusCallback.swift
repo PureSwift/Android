@@ -2,10 +2,12 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 31, *)
 @JavaClass("android.net.wifi.EasyConnectStatusCallback")
 open class EasyConnectStatusCallback: JavaObject {
 
 }
+@available(Android 31, *)
 extension JavaClass<EasyConnectStatusCallback> {
   @JavaStaticField(isFinal: true)
   public var EASY_CONNECT_EVENT_FAILURE_AUTHENTICATION: Int32

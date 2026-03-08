@@ -34,6 +34,7 @@ extension WifiManager {
   open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
   }
 }
+@available(Android 30, *)
 extension JavaClass<WifiManager.AddNetworkResult> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<WifiManager.AddNetworkResult>!

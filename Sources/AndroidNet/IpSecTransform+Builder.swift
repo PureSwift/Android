@@ -4,6 +4,7 @@ import JavaLangNet
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 28, *)
 extension IpSecTransform {
   @JavaClass("android.net.IpSecTransform$Builder")
   open class Builder: JavaObject {

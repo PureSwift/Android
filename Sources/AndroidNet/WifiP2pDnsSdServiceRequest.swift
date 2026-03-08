@@ -2,10 +2,12 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 14, *)
 @JavaClass("android.net.wifi.p2p.nsd.WifiP2pDnsSdServiceRequest")
 open class WifiP2pDnsSdServiceRequest: WifiP2pServiceRequest {
 
 }
+@available(Android 14, *)
 extension JavaClass<WifiP2pDnsSdServiceRequest> {
   /// Java method `newInstance`.
   ///

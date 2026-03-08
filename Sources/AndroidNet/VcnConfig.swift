@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 31, *)
 @JavaClass("android.net.vcn.VcnConfig", implements: Parcelable.self)
 open class VcnConfig: JavaObject {
   /// Java method `describeContents`.
@@ -41,6 +42,7 @@ open class VcnConfig: JavaObject {
 @JavaMethod
   open override func hashCode() -> Int32
 }
+@available(Android 31, *)
 extension JavaClass<VcnConfig> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<VcnConfig>!

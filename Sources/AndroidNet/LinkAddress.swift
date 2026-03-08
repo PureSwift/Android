@@ -4,6 +4,7 @@ import JavaLangNet
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 21, *)
 @JavaClass("android.net.LinkAddress", implements: Parcelable.self)
 open class LinkAddress: JavaObject {
   /// Java method `describeContents`.
@@ -87,6 +88,7 @@ open class LinkAddress: JavaObject {
 @JavaMethod
   open func getFlags() -> Int32
 }
+@available(Android 21, *)
 extension JavaClass<LinkAddress> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<LinkAddress>!

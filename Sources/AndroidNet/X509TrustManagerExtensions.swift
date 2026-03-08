@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 17, *)
 @JavaClass("android.net.http.X509TrustManagerExtensions")
 open class X509TrustManagerExtensions: JavaObject {
   /// Java method `isSameTrustConfiguration`.

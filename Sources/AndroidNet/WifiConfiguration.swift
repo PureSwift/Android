@@ -156,6 +156,7 @@ open class WifiConfiguration: JavaObject {
     /// ```java
     /// public void android.net.wifi.WifiConfiguration.setIpConfiguration(android.net.IpConfiguration)
     /// ```
+  @available(Android 33, *)
   @available(*, deprecated)
   @JavaMethod
   open func setIpConfiguration(_ arg0: IpConfiguration?)

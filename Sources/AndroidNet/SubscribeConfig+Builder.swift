@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 26, *)
 extension SubscribeConfig {
   @JavaClass("android.net.wifi.aware.SubscribeConfig$Builder")
   open class Builder: JavaObject {

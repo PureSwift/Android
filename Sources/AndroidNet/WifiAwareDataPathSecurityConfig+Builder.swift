@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 29, *)
 extension WifiAwareDataPathSecurityConfig {
   @JavaClass("android.net.wifi.aware.WifiAwareDataPathSecurityConfig$Builder")
   open class Builder: JavaObject {

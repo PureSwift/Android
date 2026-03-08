@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 28, *)
 extension IpSecManager {
   @JavaClass("android.net.IpSecManager$SecurityParameterIndex")
   open class SecurityParameterIndex: JavaObject {

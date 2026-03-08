@@ -4,6 +4,7 @@ import SwiftJava
 import SwiftJavaJNICore
 
 @available(*, deprecated)
+@available(Android 12, *)
 @JavaClass("android.net.rtp.AudioGroup")
 open class AudioGroup: JavaObject {
   @available(*, deprecated)
@@ -74,6 +75,7 @@ open class AudioGroup: JavaObject {
   @JavaMethod
   open func clear()
 }
+@available(Android 12, *)
 extension JavaClass<AudioGroup> {
   @available(*, deprecated)
   @JavaStaticField(isFinal: true)

@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 30, *)
 @JavaClass("android.net.wifi.SoftApConfiguration", implements: Parcelable.self)
 open class SoftApConfiguration: JavaObject {
   /// Java method `describeContents`.
@@ -39,7 +40,8 @@ open class SoftApConfiguration: JavaObject {
   /// ```java
   /// public android.net.wifi.WifiSsid android.net.wifi.SoftApConfiguration.getWifiSsid()
   /// ```
-@JavaMethod
+@available(Android 33, *)
+  @JavaMethod
   open func getWifiSsid() -> WifiSsid!
 
   /// Java method `getBssid`.
@@ -105,6 +107,7 @@ open class SoftApConfiguration: JavaObject {
 @JavaMethod
   open override func hashCode() -> Int32
 }
+@available(Android 30, *)
 extension JavaClass<SoftApConfiguration> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<SoftApConfiguration>!

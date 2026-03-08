@@ -2,10 +2,12 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 29, *)
 @JavaClass("android.net.DnsResolver")
 open class DnsResolver: JavaObject {
 
 }
+@available(Android 29, *)
 extension JavaClass<DnsResolver> {
   @JavaStaticField(isFinal: true)
   public var CLASS_IN: Int32

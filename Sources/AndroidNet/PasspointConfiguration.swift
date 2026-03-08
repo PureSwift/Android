@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 26, *)
 @JavaClass("android.net.wifi.hotspot2.PasspointConfiguration", implements: Parcelable.self)
 open class PasspointConfiguration: JavaObject {
   @JavaMethod
@@ -146,6 +147,7 @@ open class PasspointConfiguration: JavaObject {
   @JavaMethod
   open override func hashCode() -> Int32
 }
+@available(Android 26, *)
 extension JavaClass<PasspointConfiguration> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<PasspointConfiguration>!

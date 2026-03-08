@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 29, *)
 extension DnsResolver {
   @JavaClass("android.net.DnsResolver$DnsException")
   open class DnsException: JavaObject {

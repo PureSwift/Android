@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 31, *)
 @JavaClass("android.net.ipsec.ike.IkeFqdnIdentification")
 open class IkeFqdnIdentification: IkeIdentification {
   @JavaField(isFinal: true)

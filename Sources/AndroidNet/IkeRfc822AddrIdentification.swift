@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 31, *)
 @JavaClass("android.net.ipsec.ike.IkeRfc822AddrIdentification")
 open class IkeRfc822AddrIdentification: IkeIdentification {
   @JavaField(isFinal: true)

@@ -3,6 +3,7 @@ import JavaLangNet
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 31, *)
 @JavaClass("android.net.ipsec.ike.IkeTrafficSelector")
 open class IkeTrafficSelector: JavaObject {
   @JavaField(isFinal: true)

@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 14, *)
 extension WifiP2pManager {
   @JavaInterface("android.net.wifi.p2p.WifiP2pManager$ExternalApproverRequestListener")
   public struct ExternalApproverRequestListener {
@@ -42,6 +43,7 @@ extension WifiP2pManager {
   public func onPinGenerated(_ arg0: MacAddress?, _ arg1: String)
   }
 }
+@available(Android 14, *)
 extension JavaClass<WifiP2pManager.ExternalApproverRequestListener> {
   @JavaStaticField(isFinal: true)
   public var APPROVER_DETACH_REASON_CLOSE: Int32

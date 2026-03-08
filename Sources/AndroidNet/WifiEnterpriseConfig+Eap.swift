@@ -2,12 +2,14 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 18, *)
 extension WifiEnterpriseConfig {
   @JavaClass("android.net.wifi.WifiEnterpriseConfig$Eap")
   open class Eap: JavaObject {
 
   }
 }
+@available(Android 18, *)
 extension JavaClass<WifiEnterpriseConfig.Eap> {
   @JavaStaticField(isFinal: true)
   public var AKA: Int32

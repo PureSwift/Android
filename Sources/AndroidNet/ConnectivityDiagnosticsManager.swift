@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 30, *)
 @JavaClass("android.net.ConnectivityDiagnosticsManager")
 open class ConnectivityDiagnosticsManager: JavaObject {
   /// Java method `unregisterConnectivityDiagnosticsCallback`.

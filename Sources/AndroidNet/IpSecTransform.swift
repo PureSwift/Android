@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 28, *)
 @JavaClass("android.net.IpSecTransform")
 open class IpSecTransform: JavaObject {
   /// Java method `finalize`.

@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 31, *)
 @JavaClass("android.net.vcn.VcnGatewayConnectionConfig")
 open class VcnGatewayConnectionConfig: JavaObject {
   /// Java method `getGatewayConnectionName`.
@@ -85,6 +86,7 @@ open class VcnGatewayConnectionConfig: JavaObject {
 @JavaMethod
   open override func hashCode() -> Int32
 }
+@available(Android 31, *)
 extension JavaClass<VcnGatewayConnectionConfig> {
   @JavaStaticField(isFinal: true)
   public var VCN_GATEWAY_OPTION_ENABLE_DATA_STALL_RECOVERY_WITH_MOBILITY: Int32

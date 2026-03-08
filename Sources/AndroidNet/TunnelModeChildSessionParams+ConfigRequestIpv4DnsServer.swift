@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 31, *)
 extension TunnelModeChildSessionParams {
   @JavaInterface("android.net.ipsec.ike.TunnelModeChildSessionParams$ConfigRequestIpv4DnsServer", extends: TunnelModeChildSessionParams.TunnelModeChildConfigRequest.self)
   public struct ConfigRequestIpv4DnsServer {

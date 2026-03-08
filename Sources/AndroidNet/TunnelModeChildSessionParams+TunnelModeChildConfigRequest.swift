@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 31, *)
 extension TunnelModeChildSessionParams {
   @JavaInterface("android.net.ipsec.ike.TunnelModeChildSessionParams$TunnelModeChildConfigRequest")
   public struct TunnelModeChildConfigRequest {

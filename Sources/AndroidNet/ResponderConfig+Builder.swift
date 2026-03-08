@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 28, *)
 extension ResponderConfig {
   @JavaClass("android.net.wifi.rtt.ResponderConfig$Builder")
   open class Builder: JavaObject {

@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 26, *)
 @JavaClass("android.net.wifi.aware.PeerHandle")
 open class PeerHandle: JavaObject {
   /// Java method `equals`.

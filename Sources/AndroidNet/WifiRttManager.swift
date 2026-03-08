@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 28, *)
 @JavaClass("android.net.wifi.rtt.WifiRttManager")
 open class WifiRttManager: JavaObject {
   /// Java method `getRttCharacteristics`.
@@ -23,6 +24,7 @@ open class WifiRttManager: JavaObject {
 @JavaMethod
   open func isAvailable() -> Bool
 }
+@available(Android 28, *)
 extension JavaClass<WifiRttManager> {
   @JavaStaticField(isFinal: true)
   public var ACTION_WIFI_RTT_STATE_CHANGED: String

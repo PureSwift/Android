@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 30, *)
 extension ConnectivityDiagnosticsManager {
   @JavaClass("android.net.ConnectivityDiagnosticsManager$ConnectivityDiagnosticsCallback")
   open class ConnectivityDiagnosticsCallback: JavaObject {

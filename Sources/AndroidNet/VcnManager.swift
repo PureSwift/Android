@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 31, *)
 @JavaClass("android.net.vcn.VcnManager")
 open class VcnManager: JavaObject {
   /// Java method `unregisterVcnStatusCallback`.
@@ -32,6 +33,7 @@ open class VcnManager: JavaObject {
 @JavaMethod
   open func clearVcnConfig(_ arg0: ParcelUuid?) throws
 }
+@available(Android 31, *)
 extension JavaClass<VcnManager> {
   @JavaStaticField(isFinal: true)
   public var VCN_ERROR_CODE_CONFIG_ERROR: Int32

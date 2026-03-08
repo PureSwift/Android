@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 30, *)
 @JavaClass("android.net.wifi.aware.AwareResources", implements: Parcelable.self)
 open class AwareResources: JavaObject {
   @JavaMethod
@@ -53,6 +54,7 @@ open class AwareResources: JavaObject {
   @JavaMethod
   open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 }
+@available(Android 30, *)
 extension JavaClass<AwareResources> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<AwareResources>!

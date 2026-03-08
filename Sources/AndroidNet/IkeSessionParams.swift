@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 31, *)
 @JavaClass("android.net.ipsec.ike.IkeSessionParams")
 open class IkeSessionParams: JavaObject {
   /// Java method `getHardLifetimeSeconds`.
@@ -130,6 +131,7 @@ open class IkeSessionParams: JavaObject {
 @JavaMethod
   open override func hashCode() -> Int32
 }
+@available(Android 31, *)
 extension JavaClass<IkeSessionParams> {
   @JavaStaticField(isFinal: true)
   public var IKE_DPD_DELAY_SEC_DISABLED: Int32

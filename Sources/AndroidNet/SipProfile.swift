@@ -5,6 +5,7 @@ import SwiftJava
 import SwiftJavaJNICore
 
 @available(*, deprecated)
+@available(Android 9, *)
 @JavaClass("android.net.sip.SipProfile", implements: Parcelable.self, Serializable.self)
 open class SipProfile: JavaObject {
   /// Java method `getAutoRegistration`.
@@ -157,6 +158,7 @@ open class SipProfile: JavaObject {
   @JavaMethod
   open func getDisplayName() -> String
 }
+@available(Android 9, *)
 extension JavaClass<SipProfile> {
   @available(*, deprecated)
   @JavaStaticField(isFinal: true)

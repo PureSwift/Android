@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 33, *)
 @JavaClass("android.net.VpnProfileState", implements: Parcelable.self)
 open class VpnProfileState: JavaObject {
   @JavaMethod
@@ -89,6 +90,7 @@ open class VpnProfileState: JavaObject {
   @JavaMethod
   open func getState() -> Int32
 }
+@available(Android 33, *)
 extension JavaClass<VpnProfileState> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<VpnProfileState>!

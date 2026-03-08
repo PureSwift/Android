@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 28, *)
 @JavaClass("android.net.wifi.rtt.RangingRequest", implements: Parcelable.self)
 open class RangingRequest: JavaObject {
   /// Java method `describeContents`.
@@ -59,6 +60,7 @@ open class RangingRequest: JavaObject {
 @JavaMethod
   open override func hashCode() -> Int32
 }
+@available(Android 28, *)
 extension JavaClass<RangingRequest> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<RangingRequest>!

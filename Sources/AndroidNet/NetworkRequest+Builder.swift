@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 21, *)
 extension NetworkRequest {
   @JavaClass("android.net.NetworkRequest$Builder")
   open class Builder: JavaObject {

@@ -5,6 +5,7 @@ import JavaLangUtil
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 16, *)
 @JavaClass("android.net.nsd.NsdServiceInfo", implements: Parcelable.self)
 open class NsdServiceInfo: JavaObject {
   @JavaMethod
@@ -147,6 +148,7 @@ open class NsdServiceInfo: JavaObject {
   @JavaMethod
   open func setAttribute(_ arg0: String, _ arg1: String)
 }
+@available(Android 16, *)
 extension JavaClass<NsdServiceInfo> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<NsdServiceInfo>!

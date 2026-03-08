@@ -4,6 +4,7 @@ import JavaLangNet
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 28, *)
 @JavaClass("android.net.IpSecManager")
 open class IpSecManager: JavaObject {
   /// Java method `allocateSecurityParameterIndex`.
@@ -96,6 +97,7 @@ open class IpSecManager: JavaObject {
 @JavaMethod
   open func openUdpEncapsulationSocket() throws -> IpSecManager.UdpEncapsulationSocket!
 }
+@available(Android 28, *)
 extension JavaClass<IpSecManager> {
   @JavaStaticField(isFinal: true)
   public var DIRECTION_IN: Int32

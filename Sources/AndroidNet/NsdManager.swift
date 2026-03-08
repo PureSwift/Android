@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 16, *)
 @JavaClass("android.net.nsd.NsdManager")
 open class NsdManager: JavaObject {
   /// Java method `stopServiceDiscovery`.
@@ -68,6 +69,9 @@ open class NsdManager: JavaObject {
   @JavaMethod
   open func resolveService(_ arg0: NsdServiceInfo?, _ arg1: NsdManager.ResolveListener?)
 }
+@available(Android 16, *)
+@available(Android 16, *)
+@available(Android 16, *)
 extension NsdManager {
   @JavaInterface("android.net.nsd.NsdManager$ServiceInfoCallback")
   public struct ServiceInfoCallback {
@@ -108,6 +112,7 @@ extension NsdManager {
   public func onServiceInfoCallbackRegistrationFailed(_ arg0: Int32)
   }
 }
+@available(Android 16, *)
 extension JavaClass<NsdManager> {
   @JavaStaticField(isFinal: true)
   public var ACTION_NSD_STATE_CHANGED: String

@@ -4,6 +4,7 @@ import JavaLangNet
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 21, *)
 @JavaClass("android.net.IpPrefix", implements: Parcelable.self)
 open class IpPrefix: JavaObject {
   @JavaMethod
@@ -90,6 +91,7 @@ open class IpPrefix: JavaObject {
   @JavaMethod
   open func getPrefixLength() -> Int32
 }
+@available(Android 21, *)
 extension JavaClass<IpPrefix> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<IpPrefix>!

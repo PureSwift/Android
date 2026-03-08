@@ -4,6 +4,7 @@ import JavaLangNet
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 29, *)
 @JavaClass("android.net.wifi.aware.WifiAwareNetworkInfo", implements: TransportInfo.self, Parcelable.self)
 open class WifiAwareNetworkInfo: JavaObject {
   /// Java method `getTransportProtocol`.
@@ -78,6 +79,7 @@ open class WifiAwareNetworkInfo: JavaObject {
 @JavaMethod
   open func getPort() -> Int32
 }
+@available(Android 29, *)
 extension JavaClass<WifiAwareNetworkInfo> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<WifiAwareNetworkInfo>!

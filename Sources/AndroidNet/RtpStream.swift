@@ -4,6 +4,7 @@ import SwiftJava
 import SwiftJavaJNICore
 
 @available(*, deprecated)
+@available(Android 12, *)
 @JavaClass("android.net.rtp.RtpStream")
 open class RtpStream: JavaObject {
   /// Java method `getMode`.
@@ -106,6 +107,7 @@ open class RtpStream: JavaObject {
   @JavaMethod
   open func release()
 }
+@available(Android 12, *)
 extension JavaClass<RtpStream> {
   @available(*, deprecated)
   @JavaStaticField(isFinal: true)

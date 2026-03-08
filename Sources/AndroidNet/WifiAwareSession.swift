@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 26, *)
 @JavaClass("android.net.wifi.aware.WifiAwareSession")
 open class WifiAwareSession: JavaObject {
   /// Java method `createNetworkSpecifierOpen`.

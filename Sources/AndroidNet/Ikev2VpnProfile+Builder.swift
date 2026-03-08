@@ -2,12 +2,14 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 30, *)
 extension Ikev2VpnProfile {
   @JavaClass("android.net.Ikev2VpnProfile$Builder")
   open class Builder: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: String, _ arg1: String, environment: JNIEnvironment? = nil)
 
+  @available(Android 31, *)
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: IkeTunnelConnectionParams?, environment: JNIEnvironment? = nil)
 

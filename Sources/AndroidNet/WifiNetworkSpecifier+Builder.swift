@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 29, *)
 extension WifiNetworkSpecifier {
   @JavaClass("android.net.wifi.WifiNetworkSpecifier$Builder")
   open class Builder: JavaObject {

@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 14, *)
 @JavaClass("android.net.wifi.p2p.WifiP2pDeviceList", implements: Parcelable.self)
 open class WifiP2pDeviceList: JavaObject {
   @JavaMethod
@@ -47,6 +48,7 @@ open class WifiP2pDeviceList: JavaObject {
   @JavaMethod
   open override func toString() -> String
 }
+@available(Android 14, *)
 extension JavaClass<WifiP2pDeviceList> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<WifiP2pDeviceList>!

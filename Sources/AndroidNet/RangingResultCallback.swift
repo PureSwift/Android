@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 28, *)
 @JavaClass("android.net.wifi.rtt.RangingResultCallback")
 open class RangingResultCallback: JavaObject {
   @JavaMethod
@@ -16,6 +17,7 @@ open class RangingResultCallback: JavaObject {
   @JavaMethod
   open func onRangingFailure(_ arg0: Int32)
 }
+@available(Android 28, *)
 extension JavaClass<RangingResultCallback> {
   @JavaStaticField(isFinal: true)
   public var STATUS_CODE_FAIL: Int32

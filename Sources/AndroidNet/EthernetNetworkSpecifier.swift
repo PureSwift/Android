@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 30, *)
 @JavaClass("android.net.EthernetNetworkSpecifier", implements: Parcelable.self)
 open class EthernetNetworkSpecifier: NetworkSpecifier {
   @JavaMethod
@@ -71,6 +72,7 @@ open class EthernetNetworkSpecifier: NetworkSpecifier {
   @JavaMethod
   open override func hashCode() -> Int32
 }
+@available(Android 30, *)
 extension JavaClass<EthernetNetworkSpecifier> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<EthernetNetworkSpecifier>!

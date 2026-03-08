@@ -2,10 +2,12 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 14, *)
 @JavaClass("android.net.wifi.p2p.nsd.WifiP2pUpnpServiceRequest")
 open class WifiP2pUpnpServiceRequest: WifiP2pServiceRequest {
 
 }
+@available(Android 14, *)
 extension JavaClass<WifiP2pUpnpServiceRequest> {
   /// Java method `newInstance`.
   ///

@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 31, *)
 extension VcnGatewayConnectionConfig {
   @JavaClass("android.net.vcn.VcnGatewayConnectionConfig$Builder")
   open class Builder: JavaObject {

@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 21, *)
 @JavaClass("android.net.NetworkCapabilities", implements: Parcelable.self)
 open class NetworkCapabilities: JavaObject {
   @JavaMethod
@@ -155,6 +156,7 @@ open class NetworkCapabilities: JavaObject {
   @JavaMethod
   open override func hashCode() -> Int32
 }
+@available(Android 21, *)
 extension JavaClass<NetworkCapabilities> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<NetworkCapabilities>!

@@ -75,6 +75,7 @@ extension ConnectivityManager {
   open func onUnavailable()
   }
 }
+@available(Android 21, *)
 extension JavaClass<ConnectivityManager.NetworkCallback> {
   @JavaStaticField(isFinal: true)
   public var FLAG_INCLUDE_LOCATION_INFO: Int32

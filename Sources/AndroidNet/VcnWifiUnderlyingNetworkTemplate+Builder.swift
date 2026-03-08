@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 31, *)
 extension VcnWifiUnderlyingNetworkTemplate {
   @JavaClass("android.net.vcn.VcnWifiUnderlyingNetworkTemplate$Builder")
   open class Builder: JavaObject {

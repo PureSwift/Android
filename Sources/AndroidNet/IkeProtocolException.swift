@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 31, *)
 @JavaClass("android.net.ipsec.ike.exceptions.IkeProtocolException")
 open class IkeProtocolException: IkeException {
   /// Java method `getErrorType`.
@@ -13,6 +14,7 @@ open class IkeProtocolException: IkeException {
 @JavaMethod
   open func getErrorType() -> Int32
 }
+@available(Android 31, *)
 extension JavaClass<IkeProtocolException> {
   @JavaStaticField(isFinal: true)
   public var ERROR_TYPE_AUTHENTICATION_FAILED: Int32

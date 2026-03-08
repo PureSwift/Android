@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 28, *)
 @JavaClass("android.net.wifi.rtt.RangingResult", implements: Parcelable.self)
 open class RangingResult: JavaObject {
   /// Java method `getDistanceStdDevMm`.
@@ -462,6 +463,7 @@ extension RangingResult {
   open func build() -> RangingResult!
   }
 }
+@available(Android 28, *)
 extension JavaClass<RangingResult> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<RangingResult>!

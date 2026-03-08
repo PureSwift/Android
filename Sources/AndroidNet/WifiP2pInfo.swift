@@ -4,6 +4,7 @@ import JavaLangNet
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 14, *)
 @JavaClass("android.net.wifi.p2p.WifiP2pInfo", implements: Parcelable.self)
 open class WifiP2pInfo: JavaObject {
   @JavaField(isFinal: false)
@@ -48,6 +49,7 @@ open class WifiP2pInfo: JavaObject {
   @JavaMethod
   open override func toString() -> String
 }
+@available(Android 14, *)
 extension JavaClass<WifiP2pInfo> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<WifiP2pInfo>!

@@ -36,6 +36,7 @@ extension WifiManager {
   open func onFailed(_ arg0: Int32)
   }
 }
+@available(Android 26, *)
 extension JavaClass<WifiManager.LocalOnlyHotspotCallback> {
   @JavaStaticField(isFinal: true)
   public var ERROR_GENERIC: Int32

@@ -3,6 +3,7 @@ import SwiftJava
 import SwiftJavaJNICore
 
 extension WifiManager {
+  @available(Android 29, *)
   @JavaInterface("android.net.wifi.WifiManager$SuggestionConnectionStatusListener")
   public struct SuggestionConnectionStatusListener {
     /// Java method `onConnectionStatus`.

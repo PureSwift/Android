@@ -3,6 +3,7 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 28, *)
 @JavaClass("android.net.IpSecAlgorithm", implements: Parcelable.self)
 open class IpSecAlgorithm: JavaObject {
   @JavaMethod
@@ -65,6 +66,7 @@ open class IpSecAlgorithm: JavaObject {
   @JavaMethod
   open func getKey() -> [Int8]
 }
+@available(Android 28, *)
 extension JavaClass<IpSecAlgorithm> {
   @JavaStaticField(isFinal: true)
   public var AUTH_AES_CMAC: String

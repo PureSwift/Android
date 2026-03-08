@@ -2,10 +2,12 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 26, *)
 @JavaClass("android.net.wifi.hotspot2.ConfigParser")
 open class ConfigParser: JavaObject {
 
 }
+@available(Android 26, *)
 extension JavaClass<ConfigParser> {
   /// Java method `parsePasspointConfig`.
   ///

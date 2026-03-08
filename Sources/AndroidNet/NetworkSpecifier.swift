@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 21, *)
 @JavaClass("android.net.NetworkSpecifier")
 open class NetworkSpecifier: JavaObject {
   @JavaMethod

@@ -2,6 +2,7 @@
 import SwiftJava
 import SwiftJavaJNICore
 
+@available(Android 31, *)
 extension VcnCellUnderlyingNetworkTemplate {
   @JavaClass("android.net.vcn.VcnCellUnderlyingNetworkTemplate$Builder")
   open class Builder: JavaObject {
