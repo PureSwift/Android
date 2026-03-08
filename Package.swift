@@ -95,6 +95,9 @@ var package = Package(
             name: "AndroidMedia", targets: ["AndroidMedia"]
         ),
         .library(
+            name: "AndroidNet", targets: ["AndroidNet"]
+        ),
+        .library(
             name: "AndroidNFC", targets: ["AndroidNFC"]
         )
     ],
@@ -173,7 +176,8 @@ var package = Package(
                 "AndroidInput",
                 "AndroidLocation",
                 "AndroidMedia",
-                "AndroidNFC"
+                "AndroidNFC",
+                "AndroidNet"
             ],
             swiftSettings: [
               .swiftLanguageMode(.v5),
@@ -579,6 +583,25 @@ var package = Package(
             ]
         ),
         .target(
+            name: "AndroidNet",
+            dependencies: [
+                "AndroidJava",
+                "AndroidOS",
+                "AndroidUtil",
+                "AndroidContent",
+                .product(name: "JavaLangUtil", package: "JavaLang"),
+                .product(name: "JavaLangIO", package: "JavaLang"),
+                .product(name: "JavaLangNet", package: "JavaLang"),
+                .product(name: "JavaIO", package: "swift-java"),
+            ],
+            exclude: ["swift-java.config"],
+            swiftSettings: [
+              .swiftLanguageMode(.v5),
+              ndkVersionDefine,
+              sdkVersionDefine
+            ]
+        ),
+        .target(
             name: "AndroidNFC",
             dependencies: [
                 "AndroidJava",
@@ -586,6 +609,7 @@ var package = Package(
                 "AndroidUtil",
                 "AndroidContent",
                 "AndroidApp",
+                "AndroidNet",
                 .product(name: "JavaLangIO", package: "JavaLang"),
             ],
             exclude: ["swift-java.config"],
