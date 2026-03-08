@@ -592,6 +592,7 @@ var package = Package(
                 .product(name: "JavaLangUtil", package: "JavaLang"),
                 .product(name: "JavaLangIO", package: "JavaLang"),
                 .product(name: "JavaLangNet", package: "JavaLang"),
+                .product(name: "JavaIO", package: "swift-java"),
             ],
             exclude: ["swift-java.config"],
             swiftSettings: [
