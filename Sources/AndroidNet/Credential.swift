@@ -11,6 +11,24 @@ open class Credential: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Credential?, environment: JNIEnvironment? = nil)
 
+    /// Java method `setMinimumTlsVersion`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.wifi.hotspot2.pps.Credential.setMinimumTlsVersion(int) throws java.lang.IllegalArgumentException
+    /// ```
+  @JavaMethod
+  open func setMinimumTlsVersion(_ arg0: Int32) throws
+
+    /// Java method `getMinimumTlsVersion`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public int android.net.wifi.hotspot2.pps.Credential.getMinimumTlsVersion()
+    /// ```
+  @JavaMethod
+  open func getMinimumTlsVersion() -> Int32
+
     /// Java method `describeContents`.
     ///
     /// ### Java method signature
@@ -100,24 +118,6 @@ open class Credential: JavaObject {
     /// ```
   @JavaMethod
   open func getSimCredential() -> Credential.SimCredential!
-
-    /// Java method `setMinimumTlsVersion`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.net.wifi.hotspot2.pps.Credential.setMinimumTlsVersion(int) throws java.lang.IllegalArgumentException
-    /// ```
-  @JavaMethod
-  open func setMinimumTlsVersion(_ arg0: Int32) throws
-
-    /// Java method `getMinimumTlsVersion`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.net.wifi.hotspot2.pps.Credential.getMinimumTlsVersion()
-    /// ```
-  @JavaMethod
-  open func getMinimumTlsVersion() -> Int32
 
     /// Java method `equals`.
     ///

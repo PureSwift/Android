@@ -5,14 +5,68 @@ import SwiftJavaJNICore
 
 @JavaClass("android.net.wifi.WifiNetworkSuggestion", implements: Parcelable.self)
 open class WifiNetworkSuggestion: JavaObject {
-  /// Java method `getPassphrase`.
+  /// Java method `isAppInteractionRequired`.
   ///
   /// ### Java method signature
   /// ```java
-  /// public java.lang.String android.net.wifi.WifiNetworkSuggestion.getPassphrase()
+  /// public boolean android.net.wifi.WifiNetworkSuggestion.isAppInteractionRequired()
   /// ```
 @JavaMethod
-  open func getPassphrase() -> String
+  open func isAppInteractionRequired() -> Bool
+
+  /// Java method `isUserInteractionRequired`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.wifi.WifiNetworkSuggestion.isUserInteractionRequired()
+  /// ```
+@JavaMethod
+  open func isUserInteractionRequired() -> Bool
+
+  /// Java method `getMacRandomizationSetting`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.net.wifi.WifiNetworkSuggestion.getMacRandomizationSetting()
+  /// ```
+@JavaMethod
+  open func getMacRandomizationSetting() -> Int32
+
+  /// Java method `isCredentialSharedWithUser`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.wifi.WifiNetworkSuggestion.isCredentialSharedWithUser()
+  /// ```
+@JavaMethod
+  open func isCredentialSharedWithUser() -> Bool
+
+  /// Java method `isInitialAutojoinEnabled`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.wifi.WifiNetworkSuggestion.isInitialAutojoinEnabled()
+  /// ```
+@JavaMethod
+  open func isInitialAutojoinEnabled() -> Bool
+
+  /// Java method `getEnterpriseConfig`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public android.net.wifi.WifiEnterpriseConfig android.net.wifi.WifiNetworkSuggestion.getEnterpriseConfig()
+  /// ```
+@JavaMethod
+  open func getEnterpriseConfig() -> WifiEnterpriseConfig!
+
+  /// Java method `getSubscriptionGroup`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public android.os.ParcelUuid android.net.wifi.WifiNetworkSuggestion.getSubscriptionGroup()
+  /// ```
+@JavaMethod
+  open func getSubscriptionGroup() -> ParcelUuid!
 
   /// Java method `describeContents`.
   ///
@@ -32,14 +86,14 @@ open class WifiNetworkSuggestion: JavaObject {
 @JavaMethod
   open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
-  /// Java method `isMetered`.
+  /// Java method `getSsid`.
   ///
   /// ### Java method signature
   /// ```java
-  /// public boolean android.net.wifi.WifiNetworkSuggestion.isMetered()
+  /// public java.lang.String android.net.wifi.WifiNetworkSuggestion.getSsid()
   /// ```
 @JavaMethod
-  open func isMetered() -> Bool
+  open func getSsid() -> String
 
   /// Java method `getWifiSsid`.
   ///
@@ -50,69 +104,6 @@ open class WifiNetworkSuggestion: JavaObject {
 @JavaMethod
   open func getWifiSsid() -> WifiSsid!
 
-  /// Java method `isCredentialSharedWithUser`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.wifi.WifiNetworkSuggestion.isCredentialSharedWithUser()
-  /// ```
-@JavaMethod
-  open func isCredentialSharedWithUser() -> Bool
-
-  /// Java method `isAppInteractionRequired`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.wifi.WifiNetworkSuggestion.isAppInteractionRequired()
-  /// ```
-@JavaMethod
-  open func isAppInteractionRequired() -> Bool
-
-  /// Java method `isInitialAutojoinEnabled`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.wifi.WifiNetworkSuggestion.isInitialAutojoinEnabled()
-  /// ```
-@JavaMethod
-  open func isInitialAutojoinEnabled() -> Bool
-
-  /// Java method `isUserInteractionRequired`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.wifi.WifiNetworkSuggestion.isUserInteractionRequired()
-  /// ```
-@JavaMethod
-  open func isUserInteractionRequired() -> Bool
-
-  /// Java method `getEnterpriseConfig`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.net.wifi.WifiEnterpriseConfig android.net.wifi.WifiNetworkSuggestion.getEnterpriseConfig()
-  /// ```
-@JavaMethod
-  open func getEnterpriseConfig() -> WifiEnterpriseConfig!
-
-  /// Java method `getMacRandomizationSetting`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.net.wifi.WifiNetworkSuggestion.getMacRandomizationSetting()
-  /// ```
-@JavaMethod
-  open func getMacRandomizationSetting() -> Int32
-
-  /// Java method `getSubscriptionGroup`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.os.ParcelUuid android.net.wifi.WifiNetworkSuggestion.getSubscriptionGroup()
-  /// ```
-@JavaMethod
-  open func getSubscriptionGroup() -> ParcelUuid!
-
   /// Java method `getBssid`.
   ///
   /// ### Java method signature
@@ -122,14 +113,14 @@ open class WifiNetworkSuggestion: JavaObject {
 @JavaMethod
   open func getBssid() -> MacAddress!
 
-  /// Java method `isEnhancedOpen`.
+  /// Java method `getPassphrase`.
   ///
   /// ### Java method signature
   /// ```java
-  /// public boolean android.net.wifi.WifiNetworkSuggestion.isEnhancedOpen()
+  /// public java.lang.String android.net.wifi.WifiNetworkSuggestion.getPassphrase()
   /// ```
 @JavaMethod
-  open func isEnhancedOpen() -> Bool
+  open func getPassphrase() -> String
 
   /// Java method `isHiddenSsid`.
   ///
@@ -140,23 +131,23 @@ open class WifiNetworkSuggestion: JavaObject {
 @JavaMethod
   open func isHiddenSsid() -> Bool
 
-  /// Java method `getPasspointConfig`.
+  /// Java method `isEnhancedOpen`.
   ///
   /// ### Java method signature
   /// ```java
-  /// public android.net.wifi.hotspot2.PasspointConfiguration android.net.wifi.WifiNetworkSuggestion.getPasspointConfig()
+  /// public boolean android.net.wifi.WifiNetworkSuggestion.isEnhancedOpen()
   /// ```
 @JavaMethod
-  open func getPasspointConfig() -> PasspointConfiguration!
+  open func isEnhancedOpen() -> Bool
 
-  /// Java method `getSsid`.
+  /// Java method `isMetered`.
   ///
   /// ### Java method signature
   /// ```java
-  /// public java.lang.String android.net.wifi.WifiNetworkSuggestion.getSsid()
+  /// public boolean android.net.wifi.WifiNetworkSuggestion.isMetered()
   /// ```
 @JavaMethod
-  open func getSsid() -> String
+  open func isMetered() -> Bool
 
   /// Java method `isUntrusted`.
   ///
@@ -185,15 +176,6 @@ open class WifiNetworkSuggestion: JavaObject {
 @JavaMethod
   open func isCarrierMerged() -> Bool
 
-  /// Java method `getPriorityGroup`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.net.wifi.WifiNetworkSuggestion.getPriorityGroup()
-  /// ```
-@JavaMethod
-  open func getPriorityGroup() -> Int32
-
   /// Java method `getSubscriptionId`.
   ///
   /// ### Java method signature
@@ -202,6 +184,24 @@ open class WifiNetworkSuggestion: JavaObject {
   /// ```
 @JavaMethod
   open func getSubscriptionId() -> Int32
+
+  /// Java method `getPasspointConfig`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public android.net.wifi.hotspot2.PasspointConfiguration android.net.wifi.WifiNetworkSuggestion.getPasspointConfig()
+  /// ```
+@JavaMethod
+  open func getPasspointConfig() -> PasspointConfiguration!
+
+  /// Java method `getPriorityGroup`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.net.wifi.WifiNetworkSuggestion.getPriorityGroup()
+  /// ```
+@JavaMethod
+  open func getPriorityGroup() -> Int32
 
   /// Java method `isWifi7Enabled`.
   ///

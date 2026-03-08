@@ -5,6 +5,15 @@ import SwiftJavaJNICore
 
 @JavaClass("android.net.wifi.aware.WifiAwareManager")
 open class WifiAwareManager: JavaObject {
+  /// Java method `isInstantCommunicationModeEnabled`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.wifi.aware.WifiAwareManager.isInstantCommunicationModeEnabled()
+  /// ```
+@JavaMethod
+  open func isInstantCommunicationModeEnabled() -> Bool
+
   /// Java method `isSetChannelOnDataPathSupported`.
   ///
   /// ### Java method signature
@@ -31,6 +40,15 @@ open class WifiAwareManager: JavaObject {
   /// ```
 @JavaMethod
   open func setOpportunisticModeEnabled(_ arg0: Bool)
+
+  /// Java method `isAvailable`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.wifi.aware.WifiAwareManager.isAvailable()
+  /// ```
+@JavaMethod
+  open func isAvailable() -> Bool
 
   /// Java method `isDeviceAttached`.
   ///
@@ -67,24 +85,6 @@ open class WifiAwareManager: JavaObject {
   /// ```
 @JavaMethod
   open func removePairedDevice(_ arg0: String)
-
-  /// Java method `isAvailable`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.wifi.aware.WifiAwareManager.isAvailable()
-  /// ```
-@JavaMethod
-  open func isAvailable() -> Bool
-
-  /// Java method `isInstantCommunicationModeEnabled`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.wifi.aware.WifiAwareManager.isInstantCommunicationModeEnabled()
-  /// ```
-@JavaMethod
-  open func isInstantCommunicationModeEnabled() -> Bool
 
   /// Java method `attach`.
   ///

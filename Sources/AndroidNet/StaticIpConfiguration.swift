@@ -6,24 +6,6 @@ import SwiftJavaJNICore
 
 @JavaClass("android.net.StaticIpConfiguration", implements: Parcelable.self)
 open class StaticIpConfiguration: JavaObject {
-  /// Java method `getGateway`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public java.net.InetAddress android.net.StaticIpConfiguration.getGateway()
-  /// ```
-@JavaMethod
-  open func getGateway() -> InetAddress!
-
-  /// Java method `getIpAddress`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.net.LinkAddress android.net.StaticIpConfiguration.getIpAddress()
-  /// ```
-@JavaMethod
-  open func getIpAddress() -> LinkAddress!
-
   /// Java method `describeContents`.
   ///
   /// ### Java method signature
@@ -42,6 +24,15 @@ open class StaticIpConfiguration: JavaObject {
 @JavaMethod
   open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
+  /// Java method `getIpAddress`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public android.net.LinkAddress android.net.StaticIpConfiguration.getIpAddress()
+  /// ```
+@JavaMethod
+  open func getIpAddress() -> LinkAddress!
+
   /// Java method `getDomains`.
   ///
   /// ### Java method signature
@@ -50,6 +41,15 @@ open class StaticIpConfiguration: JavaObject {
   /// ```
 @JavaMethod
   open func getDomains() -> String
+
+  /// Java method `getGateway`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public java.net.InetAddress android.net.StaticIpConfiguration.getGateway()
+  /// ```
+@JavaMethod
+  open func getGateway() -> InetAddress!
 
   /// Java method `equals`.
   ///

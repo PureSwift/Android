@@ -10,16 +10,6 @@ open class AudioStream: RtpStream {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: InetAddress?, environment: JNIEnvironment? = nil) throws
 
-    /// Java method `getCodec`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.rtp.AudioCodec android.net.rtp.AudioStream.getCodec()
-    /// ```
-  @available(*, deprecated)
-  @JavaMethod
-  open func getCodec() -> AudioCodec!
-
     /// Java method `isBusy`.
     ///
     /// ### Java method signature
@@ -29,6 +19,16 @@ open class AudioStream: RtpStream {
   @available(*, deprecated)
   @JavaMethod
   open override func isBusy() -> Bool
+
+    /// Java method `getCodec`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.rtp.AudioCodec android.net.rtp.AudioStream.getCodec()
+    /// ```
+  @available(*, deprecated)
+  @JavaMethod
+  open func getCodec() -> AudioCodec!
 
     /// Java method `getGroup`.
     ///

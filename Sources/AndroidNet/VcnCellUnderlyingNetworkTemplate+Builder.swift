@@ -8,6 +8,24 @@ extension VcnCellUnderlyingNetworkTemplate {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
+    /// Java method `setMinUpstreamBandwidthKbps`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.vcn.VcnCellUnderlyingNetworkTemplate$Builder android.net.vcn.VcnCellUnderlyingNetworkTemplate$Builder.setMinUpstreamBandwidthKbps(int,int)
+    /// ```
+  @JavaMethod
+  open func setMinUpstreamBandwidthKbps(_ arg0: Int32, _ arg1: Int32) -> VcnCellUnderlyingNetworkTemplate.Builder!
+
+    /// Java method `setMinDownstreamBandwidthKbps`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.vcn.VcnCellUnderlyingNetworkTemplate$Builder android.net.vcn.VcnCellUnderlyingNetworkTemplate$Builder.setMinDownstreamBandwidthKbps(int,int)
+    /// ```
+  @JavaMethod
+  open func setMinDownstreamBandwidthKbps(_ arg0: Int32, _ arg1: Int32) -> VcnCellUnderlyingNetworkTemplate.Builder!
+
     /// Java method `setMetered`.
     ///
     /// ### Java method signature
@@ -88,24 +106,6 @@ extension VcnCellUnderlyingNetworkTemplate {
     /// ```
   @JavaMethod
   open func setRcs(_ arg0: Int32) -> VcnCellUnderlyingNetworkTemplate.Builder!
-
-    /// Java method `setMinUpstreamBandwidthKbps`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.vcn.VcnCellUnderlyingNetworkTemplate$Builder android.net.vcn.VcnCellUnderlyingNetworkTemplate$Builder.setMinUpstreamBandwidthKbps(int,int)
-    /// ```
-  @JavaMethod
-  open func setMinUpstreamBandwidthKbps(_ arg0: Int32, _ arg1: Int32) -> VcnCellUnderlyingNetworkTemplate.Builder!
-
-    /// Java method `setMinDownstreamBandwidthKbps`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.vcn.VcnCellUnderlyingNetworkTemplate$Builder android.net.vcn.VcnCellUnderlyingNetworkTemplate$Builder.setMinDownstreamBandwidthKbps(int,int)
-    /// ```
-  @JavaMethod
-  open func setMinDownstreamBandwidthKbps(_ arg0: Int32, _ arg1: Int32) -> VcnCellUnderlyingNetworkTemplate.Builder!
 
     /// Java method `build`.
     ///

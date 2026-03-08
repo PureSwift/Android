@@ -12,24 +12,6 @@ extension TunnelModeChildSessionParams {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: TunnelModeChildSessionParams?, environment: JNIEnvironment? = nil)
 
-    /// Java method `setLifetimeSeconds`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.ipsec.ike.TunnelModeChildSessionParams$Builder android.net.ipsec.ike.TunnelModeChildSessionParams$Builder.setLifetimeSeconds(int,int)
-    /// ```
-  @JavaMethod
-  open func setLifetimeSeconds(_ arg0: Int32, _ arg1: Int32) -> TunnelModeChildSessionParams.Builder!
-
-    /// Java method `addChildSaProposal`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.ipsec.ike.TunnelModeChildSessionParams$Builder android.net.ipsec.ike.TunnelModeChildSessionParams$Builder.addChildSaProposal(android.net.ipsec.ike.ChildSaProposal)
-    /// ```
-  @JavaMethod
-  open func addChildSaProposal(_ arg0: ChildSaProposal?) -> TunnelModeChildSessionParams.Builder!
-
     /// Java method `addInboundTrafficSelectors`.
     ///
     /// ### Java method signature
@@ -52,6 +34,15 @@ extension TunnelModeChildSessionParams {
     ///
     /// ### Java method signature
     /// ```java
+    /// public android.net.ipsec.ike.TunnelModeChildSessionParams$Builder android.net.ipsec.ike.TunnelModeChildSessionParams$Builder.addInternalAddressRequest(int)
+    /// ```
+  @JavaMethod
+  open func addInternalAddressRequest(_ arg0: Int32) -> TunnelModeChildSessionParams.Builder!
+
+    /// Java method `addInternalAddressRequest`.
+    ///
+    /// ### Java method signature
+    /// ```java
     /// public android.net.ipsec.ike.TunnelModeChildSessionParams$Builder android.net.ipsec.ike.TunnelModeChildSessionParams$Builder.addInternalAddressRequest(java.net.Inet4Address)
     /// ```
   @JavaMethod
@@ -65,15 +56,6 @@ extension TunnelModeChildSessionParams {
     /// ```
   @JavaMethod
   open func addInternalAddressRequest(_ arg0: Inet6Address?, _ arg1: Int32) -> TunnelModeChildSessionParams.Builder!
-
-    /// Java method `addInternalAddressRequest`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.ipsec.ike.TunnelModeChildSessionParams$Builder android.net.ipsec.ike.TunnelModeChildSessionParams$Builder.addInternalAddressRequest(int)
-    /// ```
-  @JavaMethod
-  open func addInternalAddressRequest(_ arg0: Int32) -> TunnelModeChildSessionParams.Builder!
 
     /// Java method `addInternalDnsServerRequest`.
     ///
@@ -92,6 +74,24 @@ extension TunnelModeChildSessionParams {
     /// ```
   @JavaMethod
   open func addInternalDhcpServerRequest(_ arg0: Int32) -> TunnelModeChildSessionParams.Builder!
+
+    /// Java method `addChildSaProposal`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.ipsec.ike.TunnelModeChildSessionParams$Builder android.net.ipsec.ike.TunnelModeChildSessionParams$Builder.addChildSaProposal(android.net.ipsec.ike.ChildSaProposal)
+    /// ```
+  @JavaMethod
+  open func addChildSaProposal(_ arg0: ChildSaProposal?) -> TunnelModeChildSessionParams.Builder!
+
+    /// Java method `setLifetimeSeconds`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.ipsec.ike.TunnelModeChildSessionParams$Builder android.net.ipsec.ike.TunnelModeChildSessionParams$Builder.setLifetimeSeconds(int,int)
+    /// ```
+  @JavaMethod
+  open func setLifetimeSeconds(_ arg0: Int32, _ arg1: Int32) -> TunnelModeChildSessionParams.Builder!
 
     /// Java method `build`.
     ///

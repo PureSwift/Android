@@ -6,392 +6,6 @@ import SwiftJavaJNICore
 
 @JavaClass("android.net.wifi.WifiManager")
 open class WifiManager: JavaObject {
-  /// Java method `getMaxNumberOfNetworkSuggestionsPerApp`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.net.wifi.WifiManager.getMaxNumberOfNetworkSuggestionsPerApp()
-  /// ```
-@JavaMethod
-  open func getMaxNumberOfNetworkSuggestionsPerApp() -> Int32
-
-  /// Java method `isStaConcurrencyForLocalOnlyConnectionsSupported`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.wifi.WifiManager.isStaConcurrencyForLocalOnlyConnectionsSupported()
-  /// ```
-@JavaMethod
-  open func isStaConcurrencyForLocalOnlyConnectionsSupported() -> Bool
-
-  /// Java method `isMakeBeforeBreakWifiSwitchingSupported`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.wifi.WifiManager.isMakeBeforeBreakWifiSwitchingSupported()
-  /// ```
-@JavaMethod
-  open func isMakeBeforeBreakWifiSwitchingSupported() -> Bool
-
-  /// Java method `isStaConcurrencyForMultiInternetSupported`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.wifi.WifiManager.isStaConcurrencyForMultiInternetSupported()
-  /// ```
-@JavaMethod
-  open func isStaConcurrencyForMultiInternetSupported() -> Bool
-
-  /// Java method `unregisterSubsystemRestartTrackingCallback`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.wifi.WifiManager.unregisterSubsystemRestartTrackingCallback(android.net.wifi.WifiManager$SubsystemRestartTrackingCallback)
-  /// ```
-@JavaMethod
-  open func unregisterSubsystemRestartTrackingCallback(_ arg0: WifiManager.SubsystemRestartTrackingCallback?)
-
-  /// Java method `isEasyConnectEnrolleeResponderModeSupported`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.wifi.WifiManager.isEasyConnectEnrolleeResponderModeSupported()
-  /// ```
-@JavaMethod
-  open func isEasyConnectEnrolleeResponderModeSupported() -> Bool
-
-  /// Java method `isPasspointTermsAndConditionsSupported`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.wifi.WifiManager.isPasspointTermsAndConditionsSupported()
-  /// ```
-@JavaMethod
-  open func isPasspointTermsAndConditionsSupported() -> Bool
-
-  /// Java method `isTidToLinkMappingNegotiationSupported`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.wifi.WifiManager.isTidToLinkMappingNegotiationSupported()
-  /// ```
-@JavaMethod
-  open func isTidToLinkMappingNegotiationSupported() -> Bool
-
-  /// Java method `removeSuggestionConnectionStatusListener`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.wifi.WifiManager.removeSuggestionConnectionStatusListener(android.net.wifi.WifiManager$SuggestionConnectionStatusListener)
-  /// ```
-@JavaMethod
-  open func removeSuggestionConnectionStatusListener(_ arg0: WifiManager.SuggestionConnectionStatusListener?)
-
-  /// Java method `removeLocalOnlyConnectionFailureListener`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.wifi.WifiManager.removeLocalOnlyConnectionFailureListener(android.net.wifi.WifiManager$LocalOnlyConnectionFailureListener)
-  /// ```
-@JavaMethod
-  open func removeLocalOnlyConnectionFailureListener(_ arg0: WifiManager.LocalOnlyConnectionFailureListener?)
-
-  /// Java method `removeSuggestionUserApprovalStatusListener`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.wifi.WifiManager.removeSuggestionUserApprovalStatusListener(android.net.wifi.WifiManager$SuggestionUserApprovalStatusListener)
-  /// ```
-@JavaMethod
-  open func removeSuggestionUserApprovalStatusListener(_ arg0: WifiManager.SuggestionUserApprovalStatusListener?)
-
-  /// Java method `getStaConcurrencyForMultiInternetMode`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.net.wifi.WifiManager.getStaConcurrencyForMultiInternetMode()
-  /// ```
-@JavaMethod
-  open func getStaConcurrencyForMultiInternetMode() -> Int32
-
-  /// Java method `getMaxNumberOfChannelsPerNetworkSpecifierRequest`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.net.wifi.WifiManager.getMaxNumberOfChannelsPerNetworkSpecifierRequest()
-  /// ```
-@JavaMethod
-  open func getMaxNumberOfChannelsPerNetworkSpecifierRequest() -> Int32
-
-  /// Java method `addNetwork`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.net.wifi.WifiManager.addNetwork(android.net.wifi.WifiConfiguration)
-  /// ```
-@available(*, deprecated)
-  @JavaMethod
-  open func addNetwork(_ arg0: WifiConfiguration?) -> Int32
-
-  /// Java method `updateNetwork`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.net.wifi.WifiManager.updateNetwork(android.net.wifi.WifiConfiguration)
-  /// ```
-@available(*, deprecated)
-  @JavaMethod
-  open func updateNetwork(_ arg0: WifiConfiguration?) -> Int32
-
-  /// Java method `removeNetwork`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.wifi.WifiManager.removeNetwork(int)
-  /// ```
-@available(*, deprecated)
-  @JavaMethod
-  open func removeNetwork(_ arg0: Int32) -> Bool
-
-  /// Java method `enableNetwork`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.wifi.WifiManager.enableNetwork(int,boolean)
-  /// ```
-@available(*, deprecated)
-  @JavaMethod
-  open func enableNetwork(_ arg0: Int32, _ arg1: Bool) -> Bool
-
-  /// Java method `disableNetwork`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.wifi.WifiManager.disableNetwork(int)
-  /// ```
-@available(*, deprecated)
-  @JavaMethod
-  open func disableNetwork(_ arg0: Int32) -> Bool
-
-  /// Java method `disconnect`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.wifi.WifiManager.disconnect()
-  /// ```
-@available(*, deprecated)
-  @JavaMethod
-  open func disconnect() -> Bool
-
-  /// Java method `reconnect`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.wifi.WifiManager.reconnect()
-  /// ```
-@available(*, deprecated)
-  @JavaMethod
-  open func reconnect() -> Bool
-
-  /// Java method `reassociate`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.wifi.WifiManager.reassociate()
-  /// ```
-@available(*, deprecated)
-  @JavaMethod
-  open func reassociate() -> Bool
-
-  /// Java method `pingSupplicant`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.wifi.WifiManager.pingSupplicant()
-  /// ```
-@available(*, deprecated)
-  @JavaMethod
-  open func pingSupplicant() -> Bool
-
-  /// Java method `isP2pSupported`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.wifi.WifiManager.isP2pSupported()
-  /// ```
-@JavaMethod
-  open func isP2pSupported() -> Bool
-
-  /// Java method `isTdlsSupported`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.wifi.WifiManager.isTdlsSupported()
-  /// ```
-@JavaMethod
-  open func isTdlsSupported() -> Bool
-
-  /// Java method `startScan`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.wifi.WifiManager.startScan()
-  /// ```
-@available(*, deprecated)
-  @JavaMethod
-  open func startScan() -> Bool
-
-  /// Java method `getConnectionInfo`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.net.wifi.WifiInfo android.net.wifi.WifiManager.getConnectionInfo()
-  /// ```
-@available(*, deprecated)
-  @JavaMethod
-  open func getConnectionInfo() -> WifiInfo!
-
-  /// Java method `saveConfiguration`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.wifi.WifiManager.saveConfiguration()
-  /// ```
-@available(*, deprecated)
-  @JavaMethod
-  open func saveConfiguration() -> Bool
-
-  /// Java method `getDhcpInfo`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.net.DhcpInfo android.net.wifi.WifiManager.getDhcpInfo()
-  /// ```
-@available(*, deprecated)
-  @JavaMethod
-  open func getDhcpInfo() -> DhcpInfo!
-
-  /// Java method `setWifiEnabled`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.wifi.WifiManager.setWifiEnabled(boolean)
-  /// ```
-@available(*, deprecated)
-  @JavaMethod
-  open func setWifiEnabled(_ arg0: Bool) -> Bool
-
-  /// Java method `getWifiState`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.net.wifi.WifiManager.getWifiState()
-  /// ```
-@JavaMethod
-  open func getWifiState() -> Int32
-
-  /// Java method `isWifiEnabled`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.wifi.WifiManager.isWifiEnabled()
-  /// ```
-@JavaMethod
-  open func isWifiEnabled() -> Bool
-
-  /// Java method `getMaxSignalLevel`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.net.wifi.WifiManager.getMaxSignalLevel()
-  /// ```
-@JavaMethod
-  open func getMaxSignalLevel() -> Int32
-
-  /// Java method `setTdlsEnabled`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.wifi.WifiManager.setTdlsEnabled(java.net.InetAddress,boolean)
-  /// ```
-@JavaMethod
-  open func setTdlsEnabled(_ arg0: InetAddress?, _ arg1: Bool)
-
-  /// Java method `startWps`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.wifi.WifiManager.startWps(android.net.wifi.WpsInfo,android.net.wifi.WifiManager$WpsCallback)
-  /// ```
-@available(*, deprecated)
-  @JavaMethod
-  open func startWps(_ arg0: WpsInfo?, _ arg1: WifiManager.WpsCallback?)
-
-  /// Java method `cancelWps`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.wifi.WifiManager.cancelWps(android.net.wifi.WifiManager$WpsCallback)
-  /// ```
-@available(*, deprecated)
-  @JavaMethod
-  open func cancelWps(_ arg0: WifiManager.WpsCallback?)
-
-  /// Java method `createWifiLock`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.net.wifi.WifiManager$WifiLock android.net.wifi.WifiManager.createWifiLock(java.lang.String)
-  /// ```
-@available(*, deprecated)
-  @JavaMethod
-  open func createWifiLock(_ arg0: String) -> WifiManager.WifiLock!
-
-  /// Java method `createWifiLock`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.net.wifi.WifiManager$WifiLock android.net.wifi.WifiManager.createWifiLock(int,java.lang.String)
-  /// ```
-@JavaMethod
-  open func createWifiLock(_ arg0: Int32, _ arg1: String) -> WifiManager.WifiLock!
-
-  /// Java method `isWpa3SaeSupported`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.wifi.WifiManager.isWpa3SaeSupported()
-  /// ```
-@JavaMethod
-  open func isWpa3SaeSupported() -> Bool
-
-  /// Java method `isWapiSupported`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.wifi.WifiManager.isWapiSupported()
-  /// ```
-@JavaMethod
-  open func isWapiSupported() -> Bool
-
-  /// Java method `isTlsV13Supported`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.wifi.WifiManager.isTlsV13Supported()
-  /// ```
-@JavaMethod
-  open func isTlsV13Supported() -> Bool
-
-  /// Java method `isWepSupported`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.wifi.WifiManager.isWepSupported()
-  /// ```
-@JavaMethod
-  open func isWepSupported() -> Bool
-
   /// Java method `addNetworkPrivileged`.
   ///
   /// ### Java method signature
@@ -799,6 +413,392 @@ open class WifiManager: JavaObject {
   /// ```
 @JavaMethod
   open func removePerSsidRoamingMode(_ arg0: WifiSsid?)
+
+  /// Java method `addNetwork`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.net.wifi.WifiManager.addNetwork(android.net.wifi.WifiConfiguration)
+  /// ```
+@available(*, deprecated)
+  @JavaMethod
+  open func addNetwork(_ arg0: WifiConfiguration?) -> Int32
+
+  /// Java method `updateNetwork`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.net.wifi.WifiManager.updateNetwork(android.net.wifi.WifiConfiguration)
+  /// ```
+@available(*, deprecated)
+  @JavaMethod
+  open func updateNetwork(_ arg0: WifiConfiguration?) -> Int32
+
+  /// Java method `removeNetwork`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.wifi.WifiManager.removeNetwork(int)
+  /// ```
+@available(*, deprecated)
+  @JavaMethod
+  open func removeNetwork(_ arg0: Int32) -> Bool
+
+  /// Java method `enableNetwork`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.wifi.WifiManager.enableNetwork(int,boolean)
+  /// ```
+@available(*, deprecated)
+  @JavaMethod
+  open func enableNetwork(_ arg0: Int32, _ arg1: Bool) -> Bool
+
+  /// Java method `disableNetwork`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.wifi.WifiManager.disableNetwork(int)
+  /// ```
+@available(*, deprecated)
+  @JavaMethod
+  open func disableNetwork(_ arg0: Int32) -> Bool
+
+  /// Java method `disconnect`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.wifi.WifiManager.disconnect()
+  /// ```
+@available(*, deprecated)
+  @JavaMethod
+  open func disconnect() -> Bool
+
+  /// Java method `reconnect`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.wifi.WifiManager.reconnect()
+  /// ```
+@available(*, deprecated)
+  @JavaMethod
+  open func reconnect() -> Bool
+
+  /// Java method `reassociate`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.wifi.WifiManager.reassociate()
+  /// ```
+@available(*, deprecated)
+  @JavaMethod
+  open func reassociate() -> Bool
+
+  /// Java method `pingSupplicant`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.wifi.WifiManager.pingSupplicant()
+  /// ```
+@available(*, deprecated)
+  @JavaMethod
+  open func pingSupplicant() -> Bool
+
+  /// Java method `isP2pSupported`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.wifi.WifiManager.isP2pSupported()
+  /// ```
+@JavaMethod
+  open func isP2pSupported() -> Bool
+
+  /// Java method `isTdlsSupported`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.wifi.WifiManager.isTdlsSupported()
+  /// ```
+@JavaMethod
+  open func isTdlsSupported() -> Bool
+
+  /// Java method `startScan`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.wifi.WifiManager.startScan()
+  /// ```
+@available(*, deprecated)
+  @JavaMethod
+  open func startScan() -> Bool
+
+  /// Java method `getConnectionInfo`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public android.net.wifi.WifiInfo android.net.wifi.WifiManager.getConnectionInfo()
+  /// ```
+@available(*, deprecated)
+  @JavaMethod
+  open func getConnectionInfo() -> WifiInfo!
+
+  /// Java method `saveConfiguration`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.wifi.WifiManager.saveConfiguration()
+  /// ```
+@available(*, deprecated)
+  @JavaMethod
+  open func saveConfiguration() -> Bool
+
+  /// Java method `getDhcpInfo`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public android.net.DhcpInfo android.net.wifi.WifiManager.getDhcpInfo()
+  /// ```
+@available(*, deprecated)
+  @JavaMethod
+  open func getDhcpInfo() -> DhcpInfo!
+
+  /// Java method `setWifiEnabled`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.wifi.WifiManager.setWifiEnabled(boolean)
+  /// ```
+@available(*, deprecated)
+  @JavaMethod
+  open func setWifiEnabled(_ arg0: Bool) -> Bool
+
+  /// Java method `getWifiState`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.net.wifi.WifiManager.getWifiState()
+  /// ```
+@JavaMethod
+  open func getWifiState() -> Int32
+
+  /// Java method `isWifiEnabled`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.wifi.WifiManager.isWifiEnabled()
+  /// ```
+@JavaMethod
+  open func isWifiEnabled() -> Bool
+
+  /// Java method `getMaxSignalLevel`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.net.wifi.WifiManager.getMaxSignalLevel()
+  /// ```
+@JavaMethod
+  open func getMaxSignalLevel() -> Int32
+
+  /// Java method `setTdlsEnabled`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.wifi.WifiManager.setTdlsEnabled(java.net.InetAddress,boolean)
+  /// ```
+@JavaMethod
+  open func setTdlsEnabled(_ arg0: InetAddress?, _ arg1: Bool)
+
+  /// Java method `startWps`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.wifi.WifiManager.startWps(android.net.wifi.WpsInfo,android.net.wifi.WifiManager$WpsCallback)
+  /// ```
+@available(*, deprecated)
+  @JavaMethod
+  open func startWps(_ arg0: WpsInfo?, _ arg1: WifiManager.WpsCallback?)
+
+  /// Java method `cancelWps`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.wifi.WifiManager.cancelWps(android.net.wifi.WifiManager$WpsCallback)
+  /// ```
+@available(*, deprecated)
+  @JavaMethod
+  open func cancelWps(_ arg0: WifiManager.WpsCallback?)
+
+  /// Java method `createWifiLock`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public android.net.wifi.WifiManager$WifiLock android.net.wifi.WifiManager.createWifiLock(int,java.lang.String)
+  /// ```
+@JavaMethod
+  open func createWifiLock(_ arg0: Int32, _ arg1: String) -> WifiManager.WifiLock!
+
+  /// Java method `createWifiLock`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public android.net.wifi.WifiManager$WifiLock android.net.wifi.WifiManager.createWifiLock(java.lang.String)
+  /// ```
+@available(*, deprecated)
+  @JavaMethod
+  open func createWifiLock(_ arg0: String) -> WifiManager.WifiLock!
+
+  /// Java method `isWpa3SaeSupported`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.wifi.WifiManager.isWpa3SaeSupported()
+  /// ```
+@JavaMethod
+  open func isWpa3SaeSupported() -> Bool
+
+  /// Java method `isWapiSupported`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.wifi.WifiManager.isWapiSupported()
+  /// ```
+@JavaMethod
+  open func isWapiSupported() -> Bool
+
+  /// Java method `isTlsV13Supported`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.wifi.WifiManager.isTlsV13Supported()
+  /// ```
+@JavaMethod
+  open func isTlsV13Supported() -> Bool
+
+  /// Java method `isWepSupported`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.wifi.WifiManager.isWepSupported()
+  /// ```
+@JavaMethod
+  open func isWepSupported() -> Bool
+
+  /// Java method `getMaxNumberOfNetworkSuggestionsPerApp`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.net.wifi.WifiManager.getMaxNumberOfNetworkSuggestionsPerApp()
+  /// ```
+@JavaMethod
+  open func getMaxNumberOfNetworkSuggestionsPerApp() -> Int32
+
+  /// Java method `isStaConcurrencyForLocalOnlyConnectionsSupported`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.wifi.WifiManager.isStaConcurrencyForLocalOnlyConnectionsSupported()
+  /// ```
+@JavaMethod
+  open func isStaConcurrencyForLocalOnlyConnectionsSupported() -> Bool
+
+  /// Java method `isMakeBeforeBreakWifiSwitchingSupported`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.wifi.WifiManager.isMakeBeforeBreakWifiSwitchingSupported()
+  /// ```
+@JavaMethod
+  open func isMakeBeforeBreakWifiSwitchingSupported() -> Bool
+
+  /// Java method `isStaConcurrencyForMultiInternetSupported`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.wifi.WifiManager.isStaConcurrencyForMultiInternetSupported()
+  /// ```
+@JavaMethod
+  open func isStaConcurrencyForMultiInternetSupported() -> Bool
+
+  /// Java method `unregisterSubsystemRestartTrackingCallback`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.wifi.WifiManager.unregisterSubsystemRestartTrackingCallback(android.net.wifi.WifiManager$SubsystemRestartTrackingCallback)
+  /// ```
+@JavaMethod
+  open func unregisterSubsystemRestartTrackingCallback(_ arg0: WifiManager.SubsystemRestartTrackingCallback?)
+
+  /// Java method `isEasyConnectEnrolleeResponderModeSupported`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.wifi.WifiManager.isEasyConnectEnrolleeResponderModeSupported()
+  /// ```
+@JavaMethod
+  open func isEasyConnectEnrolleeResponderModeSupported() -> Bool
+
+  /// Java method `isPasspointTermsAndConditionsSupported`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.wifi.WifiManager.isPasspointTermsAndConditionsSupported()
+  /// ```
+@JavaMethod
+  open func isPasspointTermsAndConditionsSupported() -> Bool
+
+  /// Java method `isTidToLinkMappingNegotiationSupported`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.wifi.WifiManager.isTidToLinkMappingNegotiationSupported()
+  /// ```
+@JavaMethod
+  open func isTidToLinkMappingNegotiationSupported() -> Bool
+
+  /// Java method `removeSuggestionConnectionStatusListener`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.wifi.WifiManager.removeSuggestionConnectionStatusListener(android.net.wifi.WifiManager$SuggestionConnectionStatusListener)
+  /// ```
+@JavaMethod
+  open func removeSuggestionConnectionStatusListener(_ arg0: WifiManager.SuggestionConnectionStatusListener?)
+
+  /// Java method `removeLocalOnlyConnectionFailureListener`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.wifi.WifiManager.removeLocalOnlyConnectionFailureListener(android.net.wifi.WifiManager$LocalOnlyConnectionFailureListener)
+  /// ```
+@JavaMethod
+  open func removeLocalOnlyConnectionFailureListener(_ arg0: WifiManager.LocalOnlyConnectionFailureListener?)
+
+  /// Java method `removeSuggestionUserApprovalStatusListener`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.wifi.WifiManager.removeSuggestionUserApprovalStatusListener(android.net.wifi.WifiManager$SuggestionUserApprovalStatusListener)
+  /// ```
+@JavaMethod
+  open func removeSuggestionUserApprovalStatusListener(_ arg0: WifiManager.SuggestionUserApprovalStatusListener?)
+
+  /// Java method `getStaConcurrencyForMultiInternetMode`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.net.wifi.WifiManager.getStaConcurrencyForMultiInternetMode()
+  /// ```
+@JavaMethod
+  open func getStaConcurrencyForMultiInternetMode() -> Int32
+
+  /// Java method `getMaxNumberOfChannelsPerNetworkSpecifierRequest`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.net.wifi.WifiManager.getMaxNumberOfChannelsPerNetworkSpecifierRequest()
+  /// ```
+@JavaMethod
+  open func getMaxNumberOfChannelsPerNetworkSpecifierRequest() -> Int32
 }
 extension WifiManager {
   @JavaInterface("android.net.wifi.WifiManager$LocalOnlyConnectionFailureListener")
@@ -1067,15 +1067,6 @@ extension JavaClass<WifiManager> {
   @JavaStaticField(isFinal: true)
   public var WPS_WEP_PROHIBITED: Int32
 
-    /// Java method `compareSignalLevel`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public static int android.net.wifi.WifiManager.compareSignalLevel(int,int)
-    /// ```
-  @JavaStaticMethod
-  public func compareSignalLevel(_ arg0: Int32, _ arg1: Int32) -> Int32
-
     /// Java method `calculateSignalLevel`.
     ///
     /// ### Java method signature
@@ -1085,4 +1076,13 @@ extension JavaClass<WifiManager> {
   @available(*, deprecated)
   @JavaStaticMethod
   public func calculateSignalLevel(_ arg0: Int32, _ arg1: Int32) -> Int32
+
+    /// Java method `compareSignalLevel`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public static int android.net.wifi.WifiManager.compareSignalLevel(int,int)
+    /// ```
+  @JavaStaticMethod
+  public func compareSignalLevel(_ arg0: Int32, _ arg1: Int32) -> Int32
 }

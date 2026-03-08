@@ -5,87 +5,6 @@ import SwiftJavaJNICore
 
 @JavaClass("android.net.wifi.rtt.RangingResult", implements: Parcelable.self)
 open class RangingResult: JavaObject {
-  /// Java method `describeContents`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.net.wifi.rtt.RangingResult.describeContents()
-  /// ```
-@JavaMethod
-  open func describeContents() -> Int32
-
-  /// Java method `writeToParcel`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.wifi.rtt.RangingResult.writeToParcel(android.os.Parcel,int)
-  /// ```
-@JavaMethod
-  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
-
-  /// Java method `getMacAddress`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.net.MacAddress android.net.wifi.rtt.RangingResult.getMacAddress()
-  /// ```
-@JavaMethod
-  open func getMacAddress() -> MacAddress!
-
-  /// Java method `getPeerHandle`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.net.wifi.aware.PeerHandle android.net.wifi.rtt.RangingResult.getPeerHandle()
-  /// ```
-@JavaMethod
-  open func getPeerHandle() -> PeerHandle!
-
-  /// Java method `getStatus`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.net.wifi.rtt.RangingResult.getStatus()
-  /// ```
-@JavaMethod
-  open func getStatus() -> Int32
-
-  /// Java method `getDistanceMm`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.net.wifi.rtt.RangingResult.getDistanceMm()
-  /// ```
-@JavaMethod
-  open func getDistanceMm() -> Int32
-
-  /// Java method `getRssi`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.net.wifi.rtt.RangingResult.getRssi()
-  /// ```
-@JavaMethod
-  open func getRssi() -> Int32
-
-  /// Java method `getLci`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public byte[] android.net.wifi.rtt.RangingResult.getLci()
-  /// ```
-@JavaMethod
-  open func getLci() -> [Int8]
-
-  /// Java method `getLcr`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public byte[] android.net.wifi.rtt.RangingResult.getLcr()
-  /// ```
-@JavaMethod
-  open func getLcr() -> [Int8]
-
   /// Java method `getDistanceStdDevMm`.
   ///
   /// ### Java method signature
@@ -185,6 +104,87 @@ open class RangingResult: JavaObject {
 @JavaMethod
   open func getMeasurementBandwidth() -> Int32
 
+  /// Java method `describeContents`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.net.wifi.rtt.RangingResult.describeContents()
+  /// ```
+@JavaMethod
+  open func describeContents() -> Int32
+
+  /// Java method `writeToParcel`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.wifi.rtt.RangingResult.writeToParcel(android.os.Parcel,int)
+  /// ```
+@JavaMethod
+  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
+
+  /// Java method `getMacAddress`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public android.net.MacAddress android.net.wifi.rtt.RangingResult.getMacAddress()
+  /// ```
+@JavaMethod
+  open func getMacAddress() -> MacAddress!
+
+  /// Java method `getStatus`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.net.wifi.rtt.RangingResult.getStatus()
+  /// ```
+@JavaMethod
+  open func getStatus() -> Int32
+
+  /// Java method `getPeerHandle`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public android.net.wifi.aware.PeerHandle android.net.wifi.rtt.RangingResult.getPeerHandle()
+  /// ```
+@JavaMethod
+  open func getPeerHandle() -> PeerHandle!
+
+  /// Java method `getDistanceMm`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.net.wifi.rtt.RangingResult.getDistanceMm()
+  /// ```
+@JavaMethod
+  open func getDistanceMm() -> Int32
+
+  /// Java method `getRssi`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.net.wifi.rtt.RangingResult.getRssi()
+  /// ```
+@JavaMethod
+  open func getRssi() -> Int32
+
+  /// Java method `getLci`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public byte[] android.net.wifi.rtt.RangingResult.getLci()
+  /// ```
+@JavaMethod
+  open func getLci() -> [Int8]
+
+  /// Java method `getLcr`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public byte[] android.net.wifi.rtt.RangingResult.getLcr()
+  /// ```
+@JavaMethod
+  open func getLcr() -> [Int8]
+
   /// Java method `getMinTimeBetweenNtbMeasurementsMicros`.
   ///
   /// ### Java method signature
@@ -253,60 +253,6 @@ extension RangingResult {
   open class Builder: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
-
-    /// Java method `setMacAddress`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.wifi.rtt.RangingResult$Builder android.net.wifi.rtt.RangingResult$Builder.setMacAddress(android.net.MacAddress)
-    /// ```
-  @JavaMethod
-  open func setMacAddress(_ arg0: MacAddress?) -> RangingResult.Builder!
-
-    /// Java method `setRssi`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.wifi.rtt.RangingResult$Builder android.net.wifi.rtt.RangingResult$Builder.setRssi(int)
-    /// ```
-  @JavaMethod
-  open func setRssi(_ arg0: Int32) -> RangingResult.Builder!
-
-    /// Java method `setMinTimeBetweenNtbMeasurementsMicros`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.wifi.rtt.RangingResult$Builder android.net.wifi.rtt.RangingResult$Builder.setMinTimeBetweenNtbMeasurementsMicros(long)
-    /// ```
-  @JavaMethod
-  open func setMinTimeBetweenNtbMeasurementsMicros(_ arg0: Int64) -> RangingResult.Builder!
-
-    /// Java method `setMaxTimeBetweenNtbMeasurementsMicros`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.wifi.rtt.RangingResult$Builder android.net.wifi.rtt.RangingResult$Builder.setMaxTimeBetweenNtbMeasurementsMicros(long)
-    /// ```
-  @JavaMethod
-  open func setMaxTimeBetweenNtbMeasurementsMicros(_ arg0: Int64) -> RangingResult.Builder!
-
-    /// Java method `set80211azInitiatorTxLtfRepetitionsCount`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.wifi.rtt.RangingResult$Builder android.net.wifi.rtt.RangingResult$Builder.set80211azInitiatorTxLtfRepetitionsCount(int)
-    /// ```
-  @JavaMethod
-  open func set80211azInitiatorTxLtfRepetitionsCount(_ arg0: Int32) -> RangingResult.Builder!
-
-    /// Java method `set80211azResponderTxLtfRepetitionsCount`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.wifi.rtt.RangingResult$Builder android.net.wifi.rtt.RangingResult$Builder.set80211azResponderTxLtfRepetitionsCount(int)
-    /// ```
-  @JavaMethod
-  open func set80211azResponderTxLtfRepetitionsCount(_ arg0: Int32) -> RangingResult.Builder!
 
     /// Java method `setDistanceStdDevMm`.
     ///
@@ -407,14 +353,23 @@ extension RangingResult {
   @JavaMethod
   open func set80211azNumberOfRxSpatialStreams(_ arg0: Int32) -> RangingResult.Builder!
 
-    /// Java method `setPeerHandle`.
+    /// Java method `setMacAddress`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public android.net.wifi.rtt.RangingResult$Builder android.net.wifi.rtt.RangingResult$Builder.setPeerHandle(android.net.wifi.aware.PeerHandle)
+    /// public android.net.wifi.rtt.RangingResult$Builder android.net.wifi.rtt.RangingResult$Builder.setMacAddress(android.net.MacAddress)
     /// ```
   @JavaMethod
-  open func setPeerHandle(_ arg0: PeerHandle?) -> RangingResult.Builder!
+  open func setMacAddress(_ arg0: MacAddress?) -> RangingResult.Builder!
+
+    /// Java method `setRssi`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.wifi.rtt.RangingResult$Builder android.net.wifi.rtt.RangingResult$Builder.setRssi(int)
+    /// ```
+  @JavaMethod
+  open func setRssi(_ arg0: Int32) -> RangingResult.Builder!
 
     /// Java method `setStatus`.
     ///
@@ -424,6 +379,15 @@ extension RangingResult {
     /// ```
   @JavaMethod
   open func setStatus(_ arg0: Int32) -> RangingResult.Builder!
+
+    /// Java method `setPeerHandle`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.wifi.rtt.RangingResult$Builder android.net.wifi.rtt.RangingResult$Builder.setPeerHandle(android.net.wifi.aware.PeerHandle)
+    /// ```
+  @JavaMethod
+  open func setPeerHandle(_ arg0: PeerHandle?) -> RangingResult.Builder!
 
     /// Java method `setDistanceMm`.
     ///
@@ -451,6 +415,42 @@ extension RangingResult {
     /// ```
   @JavaMethod
   open func setLcr(_ arg0: [Int8]) -> RangingResult.Builder!
+
+    /// Java method `setMinTimeBetweenNtbMeasurementsMicros`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.wifi.rtt.RangingResult$Builder android.net.wifi.rtt.RangingResult$Builder.setMinTimeBetweenNtbMeasurementsMicros(long)
+    /// ```
+  @JavaMethod
+  open func setMinTimeBetweenNtbMeasurementsMicros(_ arg0: Int64) -> RangingResult.Builder!
+
+    /// Java method `setMaxTimeBetweenNtbMeasurementsMicros`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.wifi.rtt.RangingResult$Builder android.net.wifi.rtt.RangingResult$Builder.setMaxTimeBetweenNtbMeasurementsMicros(long)
+    /// ```
+  @JavaMethod
+  open func setMaxTimeBetweenNtbMeasurementsMicros(_ arg0: Int64) -> RangingResult.Builder!
+
+    /// Java method `set80211azInitiatorTxLtfRepetitionsCount`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.wifi.rtt.RangingResult$Builder android.net.wifi.rtt.RangingResult$Builder.set80211azInitiatorTxLtfRepetitionsCount(int)
+    /// ```
+  @JavaMethod
+  open func set80211azInitiatorTxLtfRepetitionsCount(_ arg0: Int32) -> RangingResult.Builder!
+
+    /// Java method `set80211azResponderTxLtfRepetitionsCount`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.wifi.rtt.RangingResult$Builder android.net.wifi.rtt.RangingResult$Builder.set80211azResponderTxLtfRepetitionsCount(int)
+    /// ```
+  @JavaMethod
+  open func set80211azResponderTxLtfRepetitionsCount(_ arg0: Int32) -> RangingResult.Builder!
 
     /// Java method `build`.
     ///

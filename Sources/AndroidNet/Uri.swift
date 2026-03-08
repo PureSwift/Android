@@ -273,6 +273,15 @@ extension JavaClass<Uri> {
   @JavaStaticField(isFinal: true)
   public var EMPTY: Uri!
 
+    /// Java method `writeToParcel`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public static void android.net.Uri.writeToParcel(android.os.Parcel,android.net.Uri)
+    /// ```
+  @JavaStaticMethod
+  public func writeToParcel(_ arg0: Parcel?, _ arg1: Uri?)
+
     /// Java method `fromParts`.
     ///
     /// ### Java method signature
@@ -290,15 +299,6 @@ extension JavaClass<Uri> {
     /// ```
   @JavaStaticMethod
   public func withAppendedPath(_ arg0: Uri?, _ arg1: String) -> Uri!
-
-    /// Java method `writeToParcel`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public static void android.net.Uri.writeToParcel(android.os.Parcel,android.net.Uri)
-    /// ```
-  @JavaStaticMethod
-  public func writeToParcel(_ arg0: Parcel?, _ arg1: Uri?)
 
     /// Java method `decode`.
     ///

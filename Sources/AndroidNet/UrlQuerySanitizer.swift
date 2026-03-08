@@ -10,23 +10,50 @@ open class UrlQuerySanitizer: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
-    /// Java method `getUnregisteredParameterValueSanitizer`.
+    /// Java method `setAllowUnregisteredParamaters`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public android.net.UrlQuerySanitizer$ValueSanitizer android.net.UrlQuerySanitizer.getUnregisteredParameterValueSanitizer()
+    /// public void android.net.UrlQuerySanitizer.setAllowUnregisteredParamaters(boolean)
     /// ```
   @JavaMethod
-  open func getUnregisteredParameterValueSanitizer() -> UrlQuerySanitizer.ValueSanitizer!
+  open func setAllowUnregisteredParamaters(_ arg0: Bool)
 
-    /// Java method `setUnregisteredParameterValueSanitizer`.
+    /// Java method `getAllowUnregisteredParamaters`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public void android.net.UrlQuerySanitizer.setUnregisteredParameterValueSanitizer(android.net.UrlQuerySanitizer$ValueSanitizer)
+    /// public boolean android.net.UrlQuerySanitizer.getAllowUnregisteredParamaters()
     /// ```
   @JavaMethod
-  open func setUnregisteredParameterValueSanitizer(_ arg0: UrlQuerySanitizer.ValueSanitizer?)
+  open func getAllowUnregisteredParamaters() -> Bool
+
+    /// Java method `setPreferFirstRepeatedParameter`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.UrlQuerySanitizer.setPreferFirstRepeatedParameter(boolean)
+    /// ```
+  @JavaMethod
+  open func setPreferFirstRepeatedParameter(_ arg0: Bool)
+
+    /// Java method `getPreferFirstRepeatedParameter`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public boolean android.net.UrlQuerySanitizer.getPreferFirstRepeatedParameter()
+    /// ```
+  @JavaMethod
+  open func getPreferFirstRepeatedParameter() -> Bool
+
+    /// Java method `getEffectiveValueSanitizer`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.UrlQuerySanitizer$ValueSanitizer android.net.UrlQuerySanitizer.getEffectiveValueSanitizer(java.lang.String)
+    /// ```
+  @JavaMethod
+  open func getEffectiveValueSanitizer(_ arg0: String) -> UrlQuerySanitizer.ValueSanitizer!
 
     /// Java method `parseUrl`.
     ///
@@ -100,50 +127,23 @@ open class UrlQuerySanitizer: JavaObject {
   @JavaMethod
   open func decodeHexDigit(_ arg0: UInt16) -> Int32
 
-    /// Java method `setAllowUnregisteredParamaters`.
+    /// Java method `getUnregisteredParameterValueSanitizer`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public void android.net.UrlQuerySanitizer.setAllowUnregisteredParamaters(boolean)
+    /// public android.net.UrlQuerySanitizer$ValueSanitizer android.net.UrlQuerySanitizer.getUnregisteredParameterValueSanitizer()
     /// ```
   @JavaMethod
-  open func setAllowUnregisteredParamaters(_ arg0: Bool)
+  open func getUnregisteredParameterValueSanitizer() -> UrlQuerySanitizer.ValueSanitizer!
 
-    /// Java method `getAllowUnregisteredParamaters`.
+    /// Java method `setUnregisteredParameterValueSanitizer`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public boolean android.net.UrlQuerySanitizer.getAllowUnregisteredParamaters()
+    /// public void android.net.UrlQuerySanitizer.setUnregisteredParameterValueSanitizer(android.net.UrlQuerySanitizer$ValueSanitizer)
     /// ```
   @JavaMethod
-  open func getAllowUnregisteredParamaters() -> Bool
-
-    /// Java method `setPreferFirstRepeatedParameter`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.net.UrlQuerySanitizer.setPreferFirstRepeatedParameter(boolean)
-    /// ```
-  @JavaMethod
-  open func setPreferFirstRepeatedParameter(_ arg0: Bool)
-
-    /// Java method `getPreferFirstRepeatedParameter`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public boolean android.net.UrlQuerySanitizer.getPreferFirstRepeatedParameter()
-    /// ```
-  @JavaMethod
-  open func getPreferFirstRepeatedParameter() -> Bool
-
-    /// Java method `getEffectiveValueSanitizer`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.UrlQuerySanitizer$ValueSanitizer android.net.UrlQuerySanitizer.getEffectiveValueSanitizer(java.lang.String)
-    /// ```
-  @JavaMethod
-  open func getEffectiveValueSanitizer(_ arg0: String) -> UrlQuerySanitizer.ValueSanitizer!
+  open func setUnregisteredParameterValueSanitizer(_ arg0: UrlQuerySanitizer.ValueSanitizer?)
 
     /// Java method `clear`.
     ///
@@ -191,6 +191,42 @@ open class UrlQuerySanitizer: JavaObject {
   open func parseQuery(_ arg0: String)
 }
 extension JavaClass<UrlQuerySanitizer> {
+  /// Java method `getAllButWhitespaceLegal`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public static final android.net.UrlQuerySanitizer$ValueSanitizer android.net.UrlQuerySanitizer.getAllButWhitespaceLegal()
+  /// ```
+@JavaStaticMethod
+  public func getAllButWhitespaceLegal() -> UrlQuerySanitizer.ValueSanitizer!
+
+  /// Java method `getUrlAndSpaceLegal`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public static final android.net.UrlQuerySanitizer$ValueSanitizer android.net.UrlQuerySanitizer.getUrlAndSpaceLegal()
+  /// ```
+@JavaStaticMethod
+  public func getUrlAndSpaceLegal() -> UrlQuerySanitizer.ValueSanitizer!
+
+  /// Java method `getAmpAndSpaceLegal`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public static final android.net.UrlQuerySanitizer$ValueSanitizer android.net.UrlQuerySanitizer.getAmpAndSpaceLegal()
+  /// ```
+@JavaStaticMethod
+  public func getAmpAndSpaceLegal() -> UrlQuerySanitizer.ValueSanitizer!
+
+  /// Java method `getAllButNulAndAngleBracketsLegal`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public static final android.net.UrlQuerySanitizer$ValueSanitizer android.net.UrlQuerySanitizer.getAllButNulAndAngleBracketsLegal()
+  /// ```
+@JavaStaticMethod
+  public func getAllButNulAndAngleBracketsLegal() -> UrlQuerySanitizer.ValueSanitizer!
+
   /// Java method `getAllIllegal`.
   ///
   /// ### Java method signature
@@ -235,40 +271,4 @@ extension JavaClass<UrlQuerySanitizer> {
   /// ```
 @JavaStaticMethod
   public func getSpaceLegal() -> UrlQuerySanitizer.ValueSanitizer!
-
-  /// Java method `getAllButWhitespaceLegal`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public static final android.net.UrlQuerySanitizer$ValueSanitizer android.net.UrlQuerySanitizer.getAllButWhitespaceLegal()
-  /// ```
-@JavaStaticMethod
-  public func getAllButWhitespaceLegal() -> UrlQuerySanitizer.ValueSanitizer!
-
-  /// Java method `getUrlAndSpaceLegal`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public static final android.net.UrlQuerySanitizer$ValueSanitizer android.net.UrlQuerySanitizer.getUrlAndSpaceLegal()
-  /// ```
-@JavaStaticMethod
-  public func getUrlAndSpaceLegal() -> UrlQuerySanitizer.ValueSanitizer!
-
-  /// Java method `getAmpAndSpaceLegal`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public static final android.net.UrlQuerySanitizer$ValueSanitizer android.net.UrlQuerySanitizer.getAmpAndSpaceLegal()
-  /// ```
-@JavaStaticMethod
-  public func getAmpAndSpaceLegal() -> UrlQuerySanitizer.ValueSanitizer!
-
-  /// Java method `getAllButNulAndAngleBracketsLegal`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public static final android.net.UrlQuerySanitizer$ValueSanitizer android.net.UrlQuerySanitizer.getAllButNulAndAngleBracketsLegal()
-  /// ```
-@JavaStaticMethod
-  public func getAllButNulAndAngleBracketsLegal() -> UrlQuerySanitizer.ValueSanitizer!
 }

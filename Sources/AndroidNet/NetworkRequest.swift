@@ -5,6 +5,24 @@ import SwiftJavaJNICore
 
 @JavaClass("android.net.NetworkRequest", implements: Parcelable.self)
 open class NetworkRequest: JavaObject {
+  /// Java method `getNetworkSpecifier`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public android.net.NetworkSpecifier android.net.NetworkRequest.getNetworkSpecifier()
+  /// ```
+@JavaMethod
+  open func getNetworkSpecifier() -> NetworkSpecifier!
+
+  /// Java method `canBeSatisfiedBy`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.NetworkRequest.canBeSatisfiedBy(android.net.NetworkCapabilities)
+  /// ```
+@JavaMethod
+  open func canBeSatisfiedBy(_ arg0: NetworkCapabilities?) -> Bool
+
   /// Java method `describeContents`.
   ///
   /// ### Java method signature
@@ -23,14 +41,14 @@ open class NetworkRequest: JavaObject {
 @JavaMethod
   open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
-  /// Java method `canBeSatisfiedBy`.
+  /// Java method `getCapabilities`.
   ///
   /// ### Java method signature
   /// ```java
-  /// public boolean android.net.NetworkRequest.canBeSatisfiedBy(android.net.NetworkCapabilities)
+  /// public int[] android.net.NetworkRequest.getCapabilities()
   /// ```
 @JavaMethod
-  open func canBeSatisfiedBy(_ arg0: NetworkCapabilities?) -> Bool
+  open func getCapabilities() -> [Int32]
 
   /// Java method `hasCapability`.
   ///
@@ -50,15 +68,6 @@ open class NetworkRequest: JavaObject {
 @JavaMethod
   open func hasTransport(_ arg0: Int32) -> Bool
 
-  /// Java method `getCapabilities`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int[] android.net.NetworkRequest.getCapabilities()
-  /// ```
-@JavaMethod
-  open func getCapabilities() -> [Int32]
-
   /// Java method `getTransportTypes`.
   ///
   /// ### Java method signature
@@ -67,15 +76,6 @@ open class NetworkRequest: JavaObject {
   /// ```
 @JavaMethod
   open func getTransportTypes() -> [Int32]
-
-  /// Java method `getNetworkSpecifier`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.net.NetworkSpecifier android.net.NetworkRequest.getNetworkSpecifier()
-  /// ```
-@JavaMethod
-  open func getNetworkSpecifier() -> NetworkSpecifier!
 
   /// Java method `equals`.
   ///

@@ -40,6 +40,15 @@ open class VcnGatewayConnectionConfig: JavaObject {
 @JavaMethod
   open func getMinUdpPort4500NatTimeoutSeconds() -> Int32
 
+  /// Java method `getMaxMtu`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.net.vcn.VcnGatewayConnectionConfig.getMaxMtu()
+  /// ```
+@JavaMethod
+  open func getMaxMtu() -> Int32
+
   /// Java method `isSafeModeEnabled`.
   ///
   /// ### Java method signature
@@ -57,15 +66,6 @@ open class VcnGatewayConnectionConfig: JavaObject {
   /// ```
 @JavaMethod
   open func hasGatewayOption(_ arg0: Int32) -> Bool
-
-  /// Java method `getMaxMtu`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.net.vcn.VcnGatewayConnectionConfig.getMaxMtu()
-  /// ```
-@JavaMethod
-  open func getMaxMtu() -> Int32
 
   /// Java method `equals`.
   ///

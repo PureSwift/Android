@@ -11,6 +11,69 @@ open class WifiP2pWfdInfo: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: WifiP2pWfdInfo?, environment: JNIEnvironment? = nil)
 
+    /// Java method `setSessionAvailable`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.wifi.p2p.WifiP2pWfdInfo.setSessionAvailable(boolean)
+    /// ```
+  @JavaMethod
+  open func setSessionAvailable(_ arg0: Bool)
+
+    /// Java method `isContentProtectionSupported`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public boolean android.net.wifi.p2p.WifiP2pWfdInfo.isContentProtectionSupported()
+    /// ```
+  @JavaMethod
+  open func isContentProtectionSupported() -> Bool
+
+    /// Java method `setContentProtectionSupported`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.wifi.p2p.WifiP2pWfdInfo.setContentProtectionSupported(boolean)
+    /// ```
+  @JavaMethod
+  open func setContentProtectionSupported(_ arg0: Bool)
+
+    /// Java method `isCoupledSinkSupportedAtSource`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public boolean android.net.wifi.p2p.WifiP2pWfdInfo.isCoupledSinkSupportedAtSource()
+    /// ```
+  @JavaMethod
+  open func isCoupledSinkSupportedAtSource() -> Bool
+
+    /// Java method `setCoupledSinkSupportAtSource`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.wifi.p2p.WifiP2pWfdInfo.setCoupledSinkSupportAtSource(boolean)
+    /// ```
+  @JavaMethod
+  open func setCoupledSinkSupportAtSource(_ arg0: Bool)
+
+    /// Java method `isCoupledSinkSupportedAtSink`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public boolean android.net.wifi.p2p.WifiP2pWfdInfo.isCoupledSinkSupportedAtSink()
+    /// ```
+  @JavaMethod
+  open func isCoupledSinkSupportedAtSink() -> Bool
+
+    /// Java method `setCoupledSinkSupportAtSink`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.wifi.p2p.WifiP2pWfdInfo.setCoupledSinkSupportAtSink(boolean)
+    /// ```
+  @JavaMethod
+  open func setCoupledSinkSupportAtSink(_ arg0: Bool)
+
     /// Java method `describeContents`.
     ///
     /// ### Java method signature
@@ -145,69 +208,6 @@ open class WifiP2pWfdInfo: JavaObject {
     /// ```
   @JavaMethod
   open func getMaxThroughput() -> Int32
-
-    /// Java method `setSessionAvailable`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.net.wifi.p2p.WifiP2pWfdInfo.setSessionAvailable(boolean)
-    /// ```
-  @JavaMethod
-  open func setSessionAvailable(_ arg0: Bool)
-
-    /// Java method `isContentProtectionSupported`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public boolean android.net.wifi.p2p.WifiP2pWfdInfo.isContentProtectionSupported()
-    /// ```
-  @JavaMethod
-  open func isContentProtectionSupported() -> Bool
-
-    /// Java method `setContentProtectionSupported`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.net.wifi.p2p.WifiP2pWfdInfo.setContentProtectionSupported(boolean)
-    /// ```
-  @JavaMethod
-  open func setContentProtectionSupported(_ arg0: Bool)
-
-    /// Java method `isCoupledSinkSupportedAtSource`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public boolean android.net.wifi.p2p.WifiP2pWfdInfo.isCoupledSinkSupportedAtSource()
-    /// ```
-  @JavaMethod
-  open func isCoupledSinkSupportedAtSource() -> Bool
-
-    /// Java method `setCoupledSinkSupportAtSource`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.net.wifi.p2p.WifiP2pWfdInfo.setCoupledSinkSupportAtSource(boolean)
-    /// ```
-  @JavaMethod
-  open func setCoupledSinkSupportAtSource(_ arg0: Bool)
-
-    /// Java method `isCoupledSinkSupportedAtSink`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public boolean android.net.wifi.p2p.WifiP2pWfdInfo.isCoupledSinkSupportedAtSink()
-    /// ```
-  @JavaMethod
-  open func isCoupledSinkSupportedAtSink() -> Bool
-
-    /// Java method `setCoupledSinkSupportAtSink`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.net.wifi.p2p.WifiP2pWfdInfo.setCoupledSinkSupportAtSink(boolean)
-    /// ```
-  @JavaMethod
-  open func setCoupledSinkSupportAtSink(_ arg0: Bool)
 
     /// Java method `toString`.
     ///

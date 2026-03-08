@@ -4,6 +4,78 @@ import SwiftJavaJNICore
 
 @JavaClass("android.net.ipsec.ike.IkeSessionParams")
 open class IkeSessionParams: JavaObject {
+  /// Java method `getHardLifetimeSeconds`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.net.ipsec.ike.IkeSessionParams.getHardLifetimeSeconds()
+  /// ```
+@JavaMethod
+  open func getHardLifetimeSeconds() -> Int32
+
+  /// Java method `getSoftLifetimeSeconds`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.net.ipsec.ike.IkeSessionParams.getSoftLifetimeSeconds()
+  /// ```
+@JavaMethod
+  open func getSoftLifetimeSeconds() -> Int32
+
+  /// Java method `getLocalIdentification`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public android.net.ipsec.ike.IkeIdentification android.net.ipsec.ike.IkeSessionParams.getLocalIdentification()
+  /// ```
+@JavaMethod
+  open func getLocalIdentification() -> IkeIdentification!
+
+  /// Java method `getRemoteIdentification`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public android.net.ipsec.ike.IkeIdentification android.net.ipsec.ike.IkeSessionParams.getRemoteIdentification()
+  /// ```
+@JavaMethod
+  open func getRemoteIdentification() -> IkeIdentification!
+
+  /// Java method `getRemoteAuthConfig`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public android.net.ipsec.ike.IkeSessionParams$IkeAuthConfig android.net.ipsec.ike.IkeSessionParams.getRemoteAuthConfig()
+  /// ```
+@JavaMethod
+  open func getRemoteAuthConfig() -> IkeSessionParams.IkeAuthConfig!
+
+  /// Java method `getNattKeepAliveDelaySeconds`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.net.ipsec.ike.IkeSessionParams.getNattKeepAliveDelaySeconds()
+  /// ```
+@JavaMethod
+  open func getNattKeepAliveDelaySeconds() -> Int32
+
+  /// Java method `getRetransmissionTimeoutsMillis`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int[] android.net.ipsec.ike.IkeSessionParams.getRetransmissionTimeoutsMillis()
+  /// ```
+@JavaMethod
+  open func getRetransmissionTimeoutsMillis() -> [Int32]
+
+  /// Java method `getNetwork`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public android.net.Network android.net.ipsec.ike.IkeSessionParams.getNetwork()
+  /// ```
+@JavaMethod
+  open func getNetwork() -> Network!
+
   /// Java method `getServerHostname`.
   ///
   /// ### Java method signature
@@ -39,78 +111,6 @@ open class IkeSessionParams: JavaObject {
   /// ```
 @JavaMethod
   open func hasIkeOption(_ arg0: Int32) -> Bool
-
-  /// Java method `getLocalIdentification`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.net.ipsec.ike.IkeIdentification android.net.ipsec.ike.IkeSessionParams.getLocalIdentification()
-  /// ```
-@JavaMethod
-  open func getLocalIdentification() -> IkeIdentification!
-
-  /// Java method `getRemoteIdentification`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.net.ipsec.ike.IkeIdentification android.net.ipsec.ike.IkeSessionParams.getRemoteIdentification()
-  /// ```
-@JavaMethod
-  open func getRemoteIdentification() -> IkeIdentification!
-
-  /// Java method `getRemoteAuthConfig`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.net.ipsec.ike.IkeSessionParams$IkeAuthConfig android.net.ipsec.ike.IkeSessionParams.getRemoteAuthConfig()
-  /// ```
-@JavaMethod
-  open func getRemoteAuthConfig() -> IkeSessionParams.IkeAuthConfig!
-
-  /// Java method `getHardLifetimeSeconds`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.net.ipsec.ike.IkeSessionParams.getHardLifetimeSeconds()
-  /// ```
-@JavaMethod
-  open func getHardLifetimeSeconds() -> Int32
-
-  /// Java method `getSoftLifetimeSeconds`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.net.ipsec.ike.IkeSessionParams.getSoftLifetimeSeconds()
-  /// ```
-@JavaMethod
-  open func getSoftLifetimeSeconds() -> Int32
-
-  /// Java method `getNattKeepAliveDelaySeconds`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.net.ipsec.ike.IkeSessionParams.getNattKeepAliveDelaySeconds()
-  /// ```
-@JavaMethod
-  open func getNattKeepAliveDelaySeconds() -> Int32
-
-  /// Java method `getRetransmissionTimeoutsMillis`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int[] android.net.ipsec.ike.IkeSessionParams.getRetransmissionTimeoutsMillis()
-  /// ```
-@JavaMethod
-  open func getRetransmissionTimeoutsMillis() -> [Int32]
-
-  /// Java method `getNetwork`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.net.Network android.net.ipsec.ike.IkeSessionParams.getNetwork()
-  /// ```
-@JavaMethod
-  open func getNetwork() -> Network!
 
   /// Java method `equals`.
   ///

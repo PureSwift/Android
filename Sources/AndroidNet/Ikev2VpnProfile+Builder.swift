@@ -11,6 +11,24 @@ extension Ikev2VpnProfile {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: IkeTunnelConnectionParams?, environment: JNIEnvironment? = nil)
 
+    /// Java method `setRequiresInternetValidation`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.Ikev2VpnProfile$Builder android.net.Ikev2VpnProfile$Builder.setRequiresInternetValidation(boolean)
+    /// ```
+  @JavaMethod
+  open func setRequiresInternetValidation(_ arg0: Bool) -> Ikev2VpnProfile.Builder!
+
+    /// Java method `setLocalRoutesExcluded`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.Ikev2VpnProfile$Builder android.net.Ikev2VpnProfile$Builder.setLocalRoutesExcluded(boolean)
+    /// ```
+  @JavaMethod
+  open func setLocalRoutesExcluded(_ arg0: Bool) -> Ikev2VpnProfile.Builder!
+
     /// Java method `setMetered`.
     ///
     /// ### Java method signature
@@ -19,6 +37,24 @@ extension Ikev2VpnProfile {
     /// ```
   @JavaMethod
   open func setMetered(_ arg0: Bool) -> Ikev2VpnProfile.Builder!
+
+    /// Java method `setAutomaticNattKeepaliveTimerEnabled`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.Ikev2VpnProfile$Builder android.net.Ikev2VpnProfile$Builder.setAutomaticNattKeepaliveTimerEnabled(boolean)
+    /// ```
+  @JavaMethod
+  open func setAutomaticNattKeepaliveTimerEnabled(_ arg0: Bool) -> Ikev2VpnProfile.Builder!
+
+    /// Java method `setAutomaticIpVersionSelectionEnabled`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.Ikev2VpnProfile$Builder android.net.Ikev2VpnProfile$Builder.setAutomaticIpVersionSelectionEnabled(boolean)
+    /// ```
+  @JavaMethod
+  open func setAutomaticIpVersionSelectionEnabled(_ arg0: Bool) -> Ikev2VpnProfile.Builder!
 
     /// Java method `setAuthPsk`.
     ///
@@ -55,42 +91,6 @@ extension Ikev2VpnProfile {
     /// ```
   @JavaMethod
   open func setMaxMtu(_ arg0: Int32) -> Ikev2VpnProfile.Builder!
-
-    /// Java method `setAutomaticNattKeepaliveTimerEnabled`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.Ikev2VpnProfile$Builder android.net.Ikev2VpnProfile$Builder.setAutomaticNattKeepaliveTimerEnabled(boolean)
-    /// ```
-  @JavaMethod
-  open func setAutomaticNattKeepaliveTimerEnabled(_ arg0: Bool) -> Ikev2VpnProfile.Builder!
-
-    /// Java method `setAutomaticIpVersionSelectionEnabled`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.Ikev2VpnProfile$Builder android.net.Ikev2VpnProfile$Builder.setAutomaticIpVersionSelectionEnabled(boolean)
-    /// ```
-  @JavaMethod
-  open func setAutomaticIpVersionSelectionEnabled(_ arg0: Bool) -> Ikev2VpnProfile.Builder!
-
-    /// Java method `setRequiresInternetValidation`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.Ikev2VpnProfile$Builder android.net.Ikev2VpnProfile$Builder.setRequiresInternetValidation(boolean)
-    /// ```
-  @JavaMethod
-  open func setRequiresInternetValidation(_ arg0: Bool) -> Ikev2VpnProfile.Builder!
-
-    /// Java method `setLocalRoutesExcluded`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.Ikev2VpnProfile$Builder android.net.Ikev2VpnProfile$Builder.setLocalRoutesExcluded(boolean)
-    /// ```
-  @JavaMethod
-  open func setLocalRoutesExcluded(_ arg0: Bool) -> Ikev2VpnProfile.Builder!
 
     /// Java method `build`.
     ///

@@ -8,15 +8,6 @@ extension ChildSaProposal {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
-    /// Java method `addDhGroup`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.ipsec.ike.ChildSaProposal$Builder android.net.ipsec.ike.ChildSaProposal$Builder.addDhGroup(int)
-    /// ```
-  @JavaMethod
-  open func addDhGroup(_ arg0: Int32) -> ChildSaProposal.Builder!
-
     /// Java method `addEncryptionAlgorithm`.
     ///
     /// ### Java method signature
@@ -34,6 +25,15 @@ extension ChildSaProposal {
     /// ```
   @JavaMethod
   open func addIntegrityAlgorithm(_ arg0: Int32) -> ChildSaProposal.Builder!
+
+    /// Java method `addDhGroup`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.ipsec.ike.ChildSaProposal$Builder android.net.ipsec.ike.ChildSaProposal$Builder.addDhGroup(int)
+    /// ```
+  @JavaMethod
+  open func addDhGroup(_ arg0: Int32) -> ChildSaProposal.Builder!
 
     /// Java method `build`.
     ///

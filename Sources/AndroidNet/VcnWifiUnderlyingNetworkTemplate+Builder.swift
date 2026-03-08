@@ -8,15 +8,6 @@ extension VcnWifiUnderlyingNetworkTemplate {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
-    /// Java method `setMetered`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.vcn.VcnWifiUnderlyingNetworkTemplate$Builder android.net.vcn.VcnWifiUnderlyingNetworkTemplate$Builder.setMetered(int)
-    /// ```
-  @JavaMethod
-  open func setMetered(_ arg0: Int32) -> VcnWifiUnderlyingNetworkTemplate.Builder!
-
     /// Java method `setMinUpstreamBandwidthKbps`.
     ///
     /// ### Java method signature
@@ -34,6 +25,15 @@ extension VcnWifiUnderlyingNetworkTemplate {
     /// ```
   @JavaMethod
   open func setMinDownstreamBandwidthKbps(_ arg0: Int32, _ arg1: Int32) -> VcnWifiUnderlyingNetworkTemplate.Builder!
+
+    /// Java method `setMetered`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.vcn.VcnWifiUnderlyingNetworkTemplate$Builder android.net.vcn.VcnWifiUnderlyingNetworkTemplate$Builder.setMetered(int)
+    /// ```
+  @JavaMethod
+  open func setMetered(_ arg0: Int32) -> VcnWifiUnderlyingNetworkTemplate.Builder!
 
     /// Java method `build`.
     ///

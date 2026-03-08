@@ -5,6 +5,24 @@ import SwiftJavaJNICore
 
 @JavaClass("android.net.wifi.aware.WifiAwareDataPathSecurityConfig", implements: Parcelable.self)
 open class WifiAwareDataPathSecurityConfig: JavaObject {
+  /// Java method `describeContents`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.net.wifi.aware.WifiAwareDataPathSecurityConfig.describeContents()
+  /// ```
+@JavaMethod
+  open func describeContents() -> Int32
+
+  /// Java method `writeToParcel`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.wifi.aware.WifiAwareDataPathSecurityConfig.writeToParcel(android.os.Parcel,int)
+  /// ```
+@JavaMethod
+  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
+
   /// Java method `getCipherSuite`.
   ///
   /// ### Java method signature
@@ -40,24 +58,6 @@ open class WifiAwareDataPathSecurityConfig: JavaObject {
   /// ```
 @JavaMethod
   open func getPskPassphrase() -> String
-
-  /// Java method `describeContents`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.net.wifi.aware.WifiAwareDataPathSecurityConfig.describeContents()
-  /// ```
-@JavaMethod
-  open func describeContents() -> Int32
-
-  /// Java method `writeToParcel`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.wifi.aware.WifiAwareDataPathSecurityConfig.writeToParcel(android.os.Parcel,int)
-  /// ```
-@JavaMethod
-  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
   /// Java method `equals`.
   ///

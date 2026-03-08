@@ -6,6 +6,15 @@ import SwiftJavaJNICore
 extension WifiManager {
   @JavaClass("android.net.wifi.WifiManager$WifiLock")
   open class WifiLock: JavaObject {
+    /// Java method `setReferenceCounted`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.wifi.WifiManager$WifiLock.setReferenceCounted(boolean)
+    /// ```
+  @JavaMethod
+  open func setReferenceCounted(_ arg0: Bool)
+
     /// Java method `isHeld`.
     ///
     /// ### Java method signature
@@ -23,15 +32,6 @@ extension WifiManager {
     /// ```
   @JavaMethod
   open func setWorkSource(_ arg0: WorkSource?)
-
-    /// Java method `setReferenceCounted`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.net.wifi.WifiManager$WifiLock.setReferenceCounted(boolean)
-    /// ```
-  @JavaMethod
-  open func setReferenceCounted(_ arg0: Bool)
 
     /// Java method `finalize`.
     ///

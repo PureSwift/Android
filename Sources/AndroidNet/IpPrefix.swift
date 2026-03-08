@@ -9,15 +9,6 @@ open class IpPrefix: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: InetAddress?, _ arg1: Int32, environment: JNIEnvironment? = nil)
 
-    /// Java method `getRawAddress`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public byte[] android.net.IpPrefix.getRawAddress()
-    /// ```
-  @JavaMethod
-  open func getRawAddress() -> [Int8]
-
     /// Java method `describeContents`.
     ///
     /// ### Java method signature
@@ -35,6 +26,15 @@ open class IpPrefix: JavaObject {
     /// ```
   @JavaMethod
   open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
+
+    /// Java method `getRawAddress`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public byte[] android.net.IpPrefix.getRawAddress()
+    /// ```
+  @JavaMethod
+  open func getRawAddress() -> [Int8]
 
     /// Java method `equals`.
     ///

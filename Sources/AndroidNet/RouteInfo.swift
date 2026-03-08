@@ -6,6 +6,24 @@ import SwiftJavaJNICore
 
 @JavaClass("android.net.RouteInfo", implements: Parcelable.self)
 open class RouteInfo: JavaObject {
+  /// Java method `describeContents`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.net.RouteInfo.describeContents()
+  /// ```
+@JavaMethod
+  open func describeContents() -> Int32
+
+  /// Java method `writeToParcel`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.RouteInfo.writeToParcel(android.os.Parcel,int)
+  /// ```
+@JavaMethod
+  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
+
   /// Java method `getInterface`.
   ///
   /// ### Java method signature
@@ -50,24 +68,6 @@ open class RouteInfo: JavaObject {
   /// ```
 @JavaMethod
   open func hasGateway() -> Bool
-
-  /// Java method `describeContents`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.net.RouteInfo.describeContents()
-  /// ```
-@JavaMethod
-  open func describeContents() -> Int32
-
-  /// Java method `writeToParcel`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.RouteInfo.writeToParcel(android.os.Parcel,int)
-  /// ```
-@JavaMethod
-  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
   /// Java method `equals`.
   ///

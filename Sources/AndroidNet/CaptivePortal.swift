@@ -5,6 +5,15 @@ import SwiftJavaJNICore
 
 @JavaClass("android.net.CaptivePortal", implements: Parcelable.self)
 open class CaptivePortal: JavaObject {
+  /// Java method `reportCaptivePortalDismissed`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.CaptivePortal.reportCaptivePortalDismissed()
+  /// ```
+@JavaMethod
+  open func reportCaptivePortalDismissed()
+
   /// Java method `describeContents`.
   ///
   /// ### Java method signature
@@ -22,15 +31,6 @@ open class CaptivePortal: JavaObject {
   /// ```
 @JavaMethod
   open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
-
-  /// Java method `reportCaptivePortalDismissed`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.CaptivePortal.reportCaptivePortalDismissed()
-  /// ```
-@JavaMethod
-  open func reportCaptivePortalDismissed()
 
   /// Java method `ignoreNetwork`.
   ///

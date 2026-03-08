@@ -11,69 +11,6 @@ extension IkeSessionParams {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: IkeSessionParams?, environment: JNIEnvironment? = nil)
 
-    /// Java method `setAuthPsk`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.ipsec.ike.IkeSessionParams$Builder android.net.ipsec.ike.IkeSessionParams$Builder.setAuthPsk(byte[])
-    /// ```
-  @JavaMethod
-  open func setAuthPsk(_ arg0: [Int8]) -> IkeSessionParams.Builder!
-
-    /// Java method `setServerHostname`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.ipsec.ike.IkeSessionParams$Builder android.net.ipsec.ike.IkeSessionParams$Builder.setServerHostname(java.lang.String)
-    /// ```
-  @JavaMethod
-  open func setServerHostname(_ arg0: String) -> IkeSessionParams.Builder!
-
-    /// Java method `addIkeSaProposal`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.ipsec.ike.IkeSessionParams$Builder android.net.ipsec.ike.IkeSessionParams$Builder.addIkeSaProposal(android.net.ipsec.ike.IkeSaProposal)
-    /// ```
-  @JavaMethod
-  open func addIkeSaProposal(_ arg0: IkeSaProposal?) -> IkeSessionParams.Builder!
-
-    /// Java method `setLifetimeSeconds`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.ipsec.ike.IkeSessionParams$Builder android.net.ipsec.ike.IkeSessionParams$Builder.setLifetimeSeconds(int,int)
-    /// ```
-  @JavaMethod
-  open func setLifetimeSeconds(_ arg0: Int32, _ arg1: Int32) -> IkeSessionParams.Builder!
-
-    /// Java method `setDpdDelaySeconds`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.ipsec.ike.IkeSessionParams$Builder android.net.ipsec.ike.IkeSessionParams$Builder.setDpdDelaySeconds(int)
-    /// ```
-  @JavaMethod
-  open func setDpdDelaySeconds(_ arg0: Int32) -> IkeSessionParams.Builder!
-
-    /// Java method `addIkeOption`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.ipsec.ike.IkeSessionParams$Builder android.net.ipsec.ike.IkeSessionParams$Builder.addIkeOption(int)
-    /// ```
-  @JavaMethod
-  open func addIkeOption(_ arg0: Int32) -> IkeSessionParams.Builder!
-
-    /// Java method `removeIkeOption`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.ipsec.ike.IkeSessionParams$Builder android.net.ipsec.ike.IkeSessionParams$Builder.removeIkeOption(int)
-    /// ```
-  @JavaMethod
-  open func removeIkeOption(_ arg0: Int32) -> IkeSessionParams.Builder!
-
     /// Java method `setLocalIdentification`.
     ///
     /// ### Java method signature
@@ -110,6 +47,60 @@ extension IkeSessionParams {
   @JavaMethod
   open func setRetransmissionTimeoutsMillis(_ arg0: [Int32]) -> IkeSessionParams.Builder!
 
+    /// Java method `setLifetimeSeconds`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.ipsec.ike.IkeSessionParams$Builder android.net.ipsec.ike.IkeSessionParams$Builder.setLifetimeSeconds(int,int)
+    /// ```
+  @JavaMethod
+  open func setLifetimeSeconds(_ arg0: Int32, _ arg1: Int32) -> IkeSessionParams.Builder!
+
+    /// Java method `setServerHostname`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.ipsec.ike.IkeSessionParams$Builder android.net.ipsec.ike.IkeSessionParams$Builder.setServerHostname(java.lang.String)
+    /// ```
+  @JavaMethod
+  open func setServerHostname(_ arg0: String) -> IkeSessionParams.Builder!
+
+    /// Java method `addIkeSaProposal`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.ipsec.ike.IkeSessionParams$Builder android.net.ipsec.ike.IkeSessionParams$Builder.addIkeSaProposal(android.net.ipsec.ike.IkeSaProposal)
+    /// ```
+  @JavaMethod
+  open func addIkeSaProposal(_ arg0: IkeSaProposal?) -> IkeSessionParams.Builder!
+
+    /// Java method `setDpdDelaySeconds`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.ipsec.ike.IkeSessionParams$Builder android.net.ipsec.ike.IkeSessionParams$Builder.setDpdDelaySeconds(int)
+    /// ```
+  @JavaMethod
+  open func setDpdDelaySeconds(_ arg0: Int32) -> IkeSessionParams.Builder!
+
+    /// Java method `addIkeOption`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.ipsec.ike.IkeSessionParams$Builder android.net.ipsec.ike.IkeSessionParams$Builder.addIkeOption(int)
+    /// ```
+  @JavaMethod
+  open func addIkeOption(_ arg0: Int32) -> IkeSessionParams.Builder!
+
+    /// Java method `removeIkeOption`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.ipsec.ike.IkeSessionParams$Builder android.net.ipsec.ike.IkeSessionParams$Builder.removeIkeOption(int)
+    /// ```
+  @JavaMethod
+  open func removeIkeOption(_ arg0: Int32) -> IkeSessionParams.Builder!
+
     /// Java method `setNetwork`.
     ///
     /// ### Java method signature
@@ -118,6 +109,15 @@ extension IkeSessionParams {
     /// ```
   @JavaMethod
   open func setNetwork(_ arg0: Network?) -> IkeSessionParams.Builder!
+
+    /// Java method `setAuthPsk`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.ipsec.ike.IkeSessionParams$Builder android.net.ipsec.ike.IkeSessionParams$Builder.setAuthPsk(byte[])
+    /// ```
+  @JavaMethod
+  open func setAuthPsk(_ arg0: [Int8]) -> IkeSessionParams.Builder!
 
     /// Java method `build`.
     ///

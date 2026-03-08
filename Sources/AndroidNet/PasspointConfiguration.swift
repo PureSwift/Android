@@ -11,6 +11,24 @@ open class PasspointConfiguration: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: PasspointConfiguration?, environment: JNIEnvironment? = nil)
 
+    /// Java method `setDecoratedIdentityPrefix`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.wifi.hotspot2.PasspointConfiguration.setDecoratedIdentityPrefix(java.lang.String)
+    /// ```
+  @JavaMethod
+  open func setDecoratedIdentityPrefix(_ arg0: String)
+
+    /// Java method `getDecoratedIdentityPrefix`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public java.lang.String android.net.wifi.hotspot2.PasspointConfiguration.getDecoratedIdentityPrefix()
+    /// ```
+  @JavaMethod
+  open func getDecoratedIdentityPrefix() -> String
+
     /// Java method `describeContents`.
     ///
     /// ### Java method signature
@@ -100,24 +118,6 @@ open class PasspointConfiguration: JavaObject {
     /// ```
   @JavaMethod
   open func getUniqueId() -> String
-
-    /// Java method `setDecoratedIdentityPrefix`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.net.wifi.hotspot2.PasspointConfiguration.setDecoratedIdentityPrefix(java.lang.String)
-    /// ```
-  @JavaMethod
-  open func setDecoratedIdentityPrefix(_ arg0: String)
-
-    /// Java method `getDecoratedIdentityPrefix`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public java.lang.String android.net.wifi.hotspot2.PasspointConfiguration.getDecoratedIdentityPrefix()
-    /// ```
-  @JavaMethod
-  open func getDecoratedIdentityPrefix() -> String
 
     /// Java method `equals`.
     ///

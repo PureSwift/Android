@@ -5,6 +5,15 @@ import SwiftJavaJNICore
 
 @JavaClass("android.net.wifi.aware.WifiAwareNetworkSpecifier", implements: Parcelable.self)
 open class WifiAwareNetworkSpecifier: NetworkSpecifier {
+  /// Java method `getChannelFrequencyMhz`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.net.wifi.aware.WifiAwareNetworkSpecifier.getChannelFrequencyMhz()
+  /// ```
+@JavaMethod
+  open func getChannelFrequencyMhz() -> Int32
+
   /// Java method `getWifiAwareDataPathSecurityConfig`.
   ///
   /// ### Java method signature
@@ -14,14 +23,14 @@ open class WifiAwareNetworkSpecifier: NetworkSpecifier {
 @JavaMethod
   open func getWifiAwareDataPathSecurityConfig() -> WifiAwareDataPathSecurityConfig!
 
-  /// Java method `isChannelRequired`.
+  /// Java method `canBeSatisfiedBy`.
   ///
   /// ### Java method signature
   /// ```java
-  /// public boolean android.net.wifi.aware.WifiAwareNetworkSpecifier.isChannelRequired()
+  /// public boolean android.net.wifi.aware.WifiAwareNetworkSpecifier.canBeSatisfiedBy(android.net.NetworkSpecifier)
   /// ```
 @JavaMethod
-  open func isChannelRequired() -> Bool
+  open func canBeSatisfiedBy(_ arg0: NetworkSpecifier?) -> Bool
 
   /// Java method `describeContents`.
   ///
@@ -41,23 +50,14 @@ open class WifiAwareNetworkSpecifier: NetworkSpecifier {
 @JavaMethod
   open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
-  /// Java method `canBeSatisfiedBy`.
+  /// Java method `isChannelRequired`.
   ///
   /// ### Java method signature
   /// ```java
-  /// public boolean android.net.wifi.aware.WifiAwareNetworkSpecifier.canBeSatisfiedBy(android.net.NetworkSpecifier)
+  /// public boolean android.net.wifi.aware.WifiAwareNetworkSpecifier.isChannelRequired()
   /// ```
 @JavaMethod
-  open func canBeSatisfiedBy(_ arg0: NetworkSpecifier?) -> Bool
-
-  /// Java method `getChannelFrequencyMhz`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.net.wifi.aware.WifiAwareNetworkSpecifier.getChannelFrequencyMhz()
-  /// ```
-@JavaMethod
-  open func getChannelFrequencyMhz() -> Int32
+  open func isChannelRequired() -> Bool
 
   /// Java method `equals`.
   ///

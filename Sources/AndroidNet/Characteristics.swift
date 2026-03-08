@@ -5,32 +5,14 @@ import SwiftJavaJNICore
 
 @JavaClass("android.net.wifi.aware.Characteristics", implements: Parcelable.self)
 open class Characteristics: JavaObject {
-  /// Java method `getNumberOfSupportedPublishSessions`.
+  /// Java method `getSupportedCipherSuites`.
   ///
   /// ### Java method signature
   /// ```java
-  /// public int android.net.wifi.aware.Characteristics.getNumberOfSupportedPublishSessions()
+  /// public int android.net.wifi.aware.Characteristics.getSupportedCipherSuites()
   /// ```
 @JavaMethod
-  open func getNumberOfSupportedPublishSessions() -> Int32
-
-  /// Java method `getNumberOfSupportedSubscribeSessions`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.net.wifi.aware.Characteristics.getNumberOfSupportedSubscribeSessions()
-  /// ```
-@JavaMethod
-  open func getNumberOfSupportedSubscribeSessions() -> Int32
-
-  /// Java method `isInstantCommunicationModeSupported`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.wifi.aware.Characteristics.isInstantCommunicationModeSupported()
-  /// ```
-@JavaMethod
-  open func isInstantCommunicationModeSupported() -> Bool
+  open func getSupportedCipherSuites() -> Int32
 
   /// Java method `getMaxServiceNameLength`.
   ///
@@ -95,15 +77,6 @@ open class Characteristics: JavaObject {
 @JavaMethod
   open func isSuspensionSupported() -> Bool
 
-  /// Java method `getSupportedCipherSuites`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.net.wifi.aware.Characteristics.getSupportedCipherSuites()
-  /// ```
-@JavaMethod
-  open func getSupportedCipherSuites() -> Int32
-
   /// Java method `getSupportedPairingCipherSuites`.
   ///
   /// ### Java method signature
@@ -130,6 +103,33 @@ open class Characteristics: JavaObject {
   /// ```
 @JavaMethod
   open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
+
+  /// Java method `getNumberOfSupportedPublishSessions`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.net.wifi.aware.Characteristics.getNumberOfSupportedPublishSessions()
+  /// ```
+@JavaMethod
+  open func getNumberOfSupportedPublishSessions() -> Int32
+
+  /// Java method `getNumberOfSupportedSubscribeSessions`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.net.wifi.aware.Characteristics.getNumberOfSupportedSubscribeSessions()
+  /// ```
+@JavaMethod
+  open func getNumberOfSupportedSubscribeSessions() -> Int32
+
+  /// Java method `isInstantCommunicationModeSupported`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.wifi.aware.Characteristics.isInstantCommunicationModeSupported()
+  /// ```
+@JavaMethod
+  open func isInstantCommunicationModeSupported() -> Bool
 }
 extension JavaClass<Characteristics> {
   @JavaStaticField(isFinal: true)

@@ -30,24 +30,6 @@ extension Credential {
   @JavaMethod
   open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
-    /// Java method `setEapType`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.net.wifi.hotspot2.pps.Credential$SimCredential.setEapType(int)
-    /// ```
-  @JavaMethod
-  open func setEapType(_ arg0: Int32)
-
-    /// Java method `getEapType`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.net.wifi.hotspot2.pps.Credential$SimCredential.getEapType()
-    /// ```
-  @JavaMethod
-  open func getEapType() -> Int32
-
     /// Java method `setImsi`.
     ///
     /// ### Java method signature
@@ -65,6 +47,24 @@ extension Credential {
     /// ```
   @JavaMethod
   open func getImsi() -> String
+
+    /// Java method `setEapType`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.wifi.hotspot2.pps.Credential$SimCredential.setEapType(int)
+    /// ```
+  @JavaMethod
+  open func setEapType(_ arg0: Int32)
+
+    /// Java method `getEapType`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public int android.net.wifi.hotspot2.pps.Credential$SimCredential.getEapType()
+    /// ```
+  @JavaMethod
+  open func getEapType() -> Int32
 
     /// Java method `equals`.
     ///

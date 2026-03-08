@@ -8,24 +8,6 @@ open class AwareResources: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, environment: JNIEnvironment? = nil)
 
-    /// Java method `describeContents`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.net.wifi.aware.AwareResources.describeContents()
-    /// ```
-  @JavaMethod
-  open func describeContents() -> Int32
-
-    /// Java method `writeToParcel`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.net.wifi.aware.AwareResources.writeToParcel(android.os.Parcel,int)
-    /// ```
-  @JavaMethod
-  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
-
     /// Java method `getAvailableDataPathsCount`.
     ///
     /// ### Java method signature
@@ -52,6 +34,24 @@ open class AwareResources: JavaObject {
     /// ```
   @JavaMethod
   open func getAvailableSubscribeSessionsCount() -> Int32
+
+    /// Java method `describeContents`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public int android.net.wifi.aware.AwareResources.describeContents()
+    /// ```
+  @JavaMethod
+  open func describeContents() -> Int32
+
+    /// Java method `writeToParcel`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.wifi.aware.AwareResources.writeToParcel(android.os.Parcel,int)
+    /// ```
+  @JavaMethod
+  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 }
 extension JavaClass<AwareResources> {
   @JavaStaticField(isFinal: true)

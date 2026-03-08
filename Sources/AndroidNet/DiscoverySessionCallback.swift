@@ -7,42 +7,6 @@ open class DiscoverySessionCallback: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
-    /// Java method `onServiceLost`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.net.wifi.aware.DiscoverySessionCallback.onServiceLost(android.net.wifi.aware.PeerHandle,int)
-    /// ```
-  @JavaMethod
-  open func onServiceLost(_ arg0: PeerHandle?, _ arg1: Int32)
-
-    /// Java method `onPublishStarted`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.net.wifi.aware.DiscoverySessionCallback.onPublishStarted(android.net.wifi.aware.PublishDiscoverySession)
-    /// ```
-  @JavaMethod
-  open func onPublishStarted(_ arg0: PublishDiscoverySession?)
-
-    /// Java method `onSubscribeStarted`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.net.wifi.aware.DiscoverySessionCallback.onSubscribeStarted(android.net.wifi.aware.SubscribeDiscoverySession)
-    /// ```
-  @JavaMethod
-  open func onSubscribeStarted(_ arg0: SubscribeDiscoverySession?)
-
-    /// Java method `onMessageReceived`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.net.wifi.aware.DiscoverySessionCallback.onMessageReceived(android.net.wifi.aware.PeerHandle,byte[])
-    /// ```
-  @JavaMethod
-  open func onMessageReceived(_ arg0: PeerHandle?, _ arg1: [Int8])
-
     /// Java method `onSessionConfigUpdated`.
     ///
     /// ### Java method signature
@@ -168,4 +132,40 @@ open class DiscoverySessionCallback: JavaObject {
     /// ```
   @JavaMethod
   open func onBootstrappingFailed(_ arg0: PeerHandle?)
+
+    /// Java method `onPublishStarted`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.wifi.aware.DiscoverySessionCallback.onPublishStarted(android.net.wifi.aware.PublishDiscoverySession)
+    /// ```
+  @JavaMethod
+  open func onPublishStarted(_ arg0: PublishDiscoverySession?)
+
+    /// Java method `onSubscribeStarted`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.wifi.aware.DiscoverySessionCallback.onSubscribeStarted(android.net.wifi.aware.SubscribeDiscoverySession)
+    /// ```
+  @JavaMethod
+  open func onSubscribeStarted(_ arg0: SubscribeDiscoverySession?)
+
+    /// Java method `onMessageReceived`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.wifi.aware.DiscoverySessionCallback.onMessageReceived(android.net.wifi.aware.PeerHandle,byte[])
+    /// ```
+  @JavaMethod
+  open func onMessageReceived(_ arg0: PeerHandle?, _ arg1: [Int8])
+
+    /// Java method `onServiceLost`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.wifi.aware.DiscoverySessionCallback.onServiceLost(android.net.wifi.aware.PeerHandle,int)
+    /// ```
+  @JavaMethod
+  open func onServiceLost(_ arg0: PeerHandle?, _ arg1: Int32)
 }

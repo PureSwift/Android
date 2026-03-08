@@ -10,23 +10,14 @@ extension VpnService {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: VpnService?, environment: JNIEnvironment? = nil)
 
-    /// Java method `setMetered`.
+    /// Java method `setUnderlyingNetworks`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public android.net.VpnService$Builder android.net.VpnService$Builder.setMetered(boolean)
+    /// public android.net.VpnService$Builder android.net.VpnService$Builder.setUnderlyingNetworks(android.net.Network[])
     /// ```
   @JavaMethod
-  open func setMetered(_ arg0: Bool) -> VpnService.Builder!
-
-    /// Java method `setHttpProxy`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.VpnService$Builder android.net.VpnService$Builder.setHttpProxy(android.net.ProxyInfo)
-    /// ```
-  @JavaMethod
-  open func setHttpProxy(_ arg0: ProxyInfo?) -> VpnService.Builder!
+  open func setUnderlyingNetworks(_ arg0: [Network?]) -> VpnService.Builder!
 
     /// Java method `addAllowedApplication`.
     ///
@@ -46,14 +37,23 @@ extension VpnService {
   @JavaMethod
   open func addDisallowedApplication(_ arg0: String) throws -> VpnService.Builder!
 
-    /// Java method `setUnderlyingNetworks`.
+    /// Java method `setMetered`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public android.net.VpnService$Builder android.net.VpnService$Builder.setUnderlyingNetworks(android.net.Network[])
+    /// public android.net.VpnService$Builder android.net.VpnService$Builder.setMetered(boolean)
     /// ```
   @JavaMethod
-  open func setUnderlyingNetworks(_ arg0: [Network?]) -> VpnService.Builder!
+  open func setMetered(_ arg0: Bool) -> VpnService.Builder!
+
+    /// Java method `setHttpProxy`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.VpnService$Builder android.net.VpnService$Builder.setHttpProxy(android.net.ProxyInfo)
+    /// ```
+  @JavaMethod
+  open func setHttpProxy(_ arg0: ProxyInfo?) -> VpnService.Builder!
 
     /// Java method `setSession`.
     ///
@@ -95,10 +95,10 @@ extension VpnService {
     ///
     /// ### Java method signature
     /// ```java
-    /// public android.net.VpnService$Builder android.net.VpnService$Builder.addRoute(java.lang.String,int)
+    /// public android.net.VpnService$Builder android.net.VpnService$Builder.addRoute(java.net.InetAddress,int)
     /// ```
   @JavaMethod
-  open func addRoute(_ arg0: String, _ arg1: Int32) -> VpnService.Builder!
+  open func addRoute(_ arg0: InetAddress?, _ arg1: Int32) -> VpnService.Builder!
 
     /// Java method `addRoute`.
     ///
@@ -113,10 +113,10 @@ extension VpnService {
     ///
     /// ### Java method signature
     /// ```java
-    /// public android.net.VpnService$Builder android.net.VpnService$Builder.addRoute(java.net.InetAddress,int)
+    /// public android.net.VpnService$Builder android.net.VpnService$Builder.addRoute(java.lang.String,int)
     /// ```
   @JavaMethod
-  open func addRoute(_ arg0: InetAddress?, _ arg1: Int32) -> VpnService.Builder!
+  open func addRoute(_ arg0: String, _ arg1: Int32) -> VpnService.Builder!
 
     /// Java method `excludeRoute`.
     ///

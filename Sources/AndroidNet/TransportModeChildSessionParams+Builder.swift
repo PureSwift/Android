@@ -11,24 +11,6 @@ extension TransportModeChildSessionParams {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: TransportModeChildSessionParams?, environment: JNIEnvironment? = nil)
 
-    /// Java method `setLifetimeSeconds`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.ipsec.ike.TransportModeChildSessionParams$Builder android.net.ipsec.ike.TransportModeChildSessionParams$Builder.setLifetimeSeconds(int,int)
-    /// ```
-  @JavaMethod
-  open func setLifetimeSeconds(_ arg0: Int32, _ arg1: Int32) -> TransportModeChildSessionParams.Builder!
-
-    /// Java method `addChildSaProposal`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.ipsec.ike.TransportModeChildSessionParams$Builder android.net.ipsec.ike.TransportModeChildSessionParams$Builder.addChildSaProposal(android.net.ipsec.ike.ChildSaProposal)
-    /// ```
-  @JavaMethod
-  open func addChildSaProposal(_ arg0: ChildSaProposal?) -> TransportModeChildSessionParams.Builder!
-
     /// Java method `addInboundTrafficSelectors`.
     ///
     /// ### Java method signature
@@ -46,6 +28,24 @@ extension TransportModeChildSessionParams {
     /// ```
   @JavaMethod
   open func addOutboundTrafficSelectors(_ arg0: IkeTrafficSelector?) -> TransportModeChildSessionParams.Builder!
+
+    /// Java method `addChildSaProposal`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.ipsec.ike.TransportModeChildSessionParams$Builder android.net.ipsec.ike.TransportModeChildSessionParams$Builder.addChildSaProposal(android.net.ipsec.ike.ChildSaProposal)
+    /// ```
+  @JavaMethod
+  open func addChildSaProposal(_ arg0: ChildSaProposal?) -> TransportModeChildSessionParams.Builder!
+
+    /// Java method `setLifetimeSeconds`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.ipsec.ike.TransportModeChildSessionParams$Builder android.net.ipsec.ike.TransportModeChildSessionParams$Builder.setLifetimeSeconds(int,int)
+    /// ```
+  @JavaMethod
+  open func setLifetimeSeconds(_ arg0: Int32, _ arg1: Int32) -> TransportModeChildSessionParams.Builder!
 
     /// Java method `build`.
     ///

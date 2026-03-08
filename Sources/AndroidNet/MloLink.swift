@@ -8,6 +8,24 @@ open class MloLink: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
+    /// Java method `describeContents`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public int android.net.wifi.MloLink.describeContents()
+    /// ```
+  @JavaMethod
+  open func describeContents() -> Int32
+
+    /// Java method `writeToParcel`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.wifi.MloLink.writeToParcel(android.os.Parcel,int)
+    /// ```
+  @JavaMethod
+  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
+
     /// Java method `getBand`.
     ///
     /// ### Java method signature
@@ -16,6 +34,33 @@ open class MloLink: JavaObject {
     /// ```
   @JavaMethod
   open func getBand() -> Int32
+
+    /// Java method `getRssi`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public int android.net.wifi.MloLink.getRssi()
+    /// ```
+  @JavaMethod
+  open func getRssi() -> Int32
+
+    /// Java method `getTxLinkSpeedMbps`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public int android.net.wifi.MloLink.getTxLinkSpeedMbps()
+    /// ```
+  @JavaMethod
+  open func getTxLinkSpeedMbps() -> Int32
+
+    /// Java method `getRxLinkSpeedMbps`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public int android.net.wifi.MloLink.getRxLinkSpeedMbps()
+    /// ```
+  @JavaMethod
+  open func getRxLinkSpeedMbps() -> Int32
 
     /// Java method `getLinkId`.
     ///
@@ -43,51 +88,6 @@ open class MloLink: JavaObject {
     /// ```
   @JavaMethod
   open func getStaMacAddress() -> MacAddress!
-
-    /// Java method `getRxLinkSpeedMbps`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.net.wifi.MloLink.getRxLinkSpeedMbps()
-    /// ```
-  @JavaMethod
-  open func getRxLinkSpeedMbps() -> Int32
-
-    /// Java method `getTxLinkSpeedMbps`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.net.wifi.MloLink.getTxLinkSpeedMbps()
-    /// ```
-  @JavaMethod
-  open func getTxLinkSpeedMbps() -> Int32
-
-    /// Java method `describeContents`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.net.wifi.MloLink.describeContents()
-    /// ```
-  @JavaMethod
-  open func describeContents() -> Int32
-
-    /// Java method `writeToParcel`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.net.wifi.MloLink.writeToParcel(android.os.Parcel,int)
-    /// ```
-  @JavaMethod
-  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
-
-    /// Java method `getRssi`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.net.wifi.MloLink.getRssi()
-    /// ```
-  @JavaMethod
-  open func getRssi() -> Int32
 
     /// Java method `equals`.
     ///

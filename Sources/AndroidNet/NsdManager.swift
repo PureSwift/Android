@@ -4,15 +4,6 @@ import SwiftJavaJNICore
 
 @JavaClass("android.net.nsd.NsdManager")
 open class NsdManager: JavaObject {
-  /// Java method `discoverServices`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.nsd.NsdManager.discoverServices(java.lang.String,int,android.net.nsd.NsdManager$DiscoveryListener)
-  /// ```
-@JavaMethod
-  open func discoverServices(_ arg0: String, _ arg1: Int32, _ arg2: NsdManager.DiscoveryListener?)
-
   /// Java method `stopServiceDiscovery`.
   ///
   /// ### Java method signature
@@ -39,6 +30,15 @@ open class NsdManager: JavaObject {
   /// ```
 @JavaMethod
   open func unregisterServiceInfoCallback(_ arg0: NsdManager.ServiceInfoCallback?)
+
+  /// Java method `discoverServices`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.nsd.NsdManager.discoverServices(java.lang.String,int,android.net.nsd.NsdManager$DiscoveryListener)
+  /// ```
+@JavaMethod
+  open func discoverServices(_ arg0: String, _ arg1: Int32, _ arg2: NsdManager.DiscoveryListener?)
 
   /// Java method `registerService`.
   ///
@@ -71,24 +71,6 @@ open class NsdManager: JavaObject {
 extension NsdManager {
   @JavaInterface("android.net.nsd.NsdManager$ServiceInfoCallback")
   public struct ServiceInfoCallback {
-    /// Java method `onServiceLost`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public abstract void android.net.nsd.NsdManager$ServiceInfoCallback.onServiceLost()
-    /// ```
-  @JavaMethod
-  public func onServiceLost()
-
-    /// Java method `onServiceInfoCallbackRegistrationFailed`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public abstract void android.net.nsd.NsdManager$ServiceInfoCallback.onServiceInfoCallbackRegistrationFailed(int)
-    /// ```
-  @JavaMethod
-  public func onServiceInfoCallbackRegistrationFailed(_ arg0: Int32)
-
     /// Java method `onServiceInfoCallbackUnregistered`.
     ///
     /// ### Java method signature
@@ -98,6 +80,15 @@ extension NsdManager {
   @JavaMethod
   public func onServiceInfoCallbackUnregistered()
 
+    /// Java method `onServiceLost`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public abstract void android.net.nsd.NsdManager$ServiceInfoCallback.onServiceLost()
+    /// ```
+  @JavaMethod
+  public func onServiceLost()
+
     /// Java method `onServiceUpdated`.
     ///
     /// ### Java method signature
@@ -106,6 +97,15 @@ extension NsdManager {
     /// ```
   @JavaMethod
   public func onServiceUpdated(_ arg0: NsdServiceInfo?)
+
+    /// Java method `onServiceInfoCallbackRegistrationFailed`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public abstract void android.net.nsd.NsdManager$ServiceInfoCallback.onServiceInfoCallbackRegistrationFailed(int)
+    /// ```
+  @JavaMethod
+  public func onServiceInfoCallbackRegistrationFailed(_ arg0: Int32)
   }
 }
 extension JavaClass<NsdManager> {

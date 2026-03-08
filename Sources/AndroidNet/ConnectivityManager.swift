@@ -6,127 +6,14 @@ import SwiftJavaJNICore
 
 @JavaClass("android.net.ConnectivityManager")
 open class ConnectivityManager: JavaObject {
-  /// Java method `registerBestMatchingNetworkCallback`.
+  /// Java method `getNetworkCapabilities`.
   ///
   /// ### Java method signature
   /// ```java
-  /// public void android.net.ConnectivityManager.registerBestMatchingNetworkCallback(android.net.NetworkRequest,android.net.ConnectivityManager$NetworkCallback,android.os.Handler)
+  /// public android.net.NetworkCapabilities android.net.ConnectivityManager.getNetworkCapabilities(android.net.Network)
   /// ```
 @JavaMethod
-  open func registerBestMatchingNetworkCallback(_ arg0: NetworkRequest?, _ arg1: ConnectivityManager.NetworkCallback?, _ arg2: Handler?)
-
-  /// Java method `getActiveNetwork`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.net.Network android.net.ConnectivityManager.getActiveNetwork()
-  /// ```
-@JavaMethod
-  open func getActiveNetwork() -> Network!
-
-  /// Java method `getNetworkInfo`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.net.NetworkInfo android.net.ConnectivityManager.getNetworkInfo(int)
-  /// ```
-@available(*, deprecated)
-  @JavaMethod
-  open func getNetworkInfo(_ arg0: Int32) -> NetworkInfo!
-
-  /// Java method `getNetworkInfo`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.net.NetworkInfo android.net.ConnectivityManager.getNetworkInfo(android.net.Network)
-  /// ```
-@available(*, deprecated)
-  @JavaMethod
-  open func getNetworkInfo(_ arg0: Network?) -> NetworkInfo!
-
-  /// Java method `getAllNetworkInfo`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.net.NetworkInfo[] android.net.ConnectivityManager.getAllNetworkInfo()
-  /// ```
-@available(*, deprecated)
-  @JavaMethod
-  open func getAllNetworkInfo() -> [NetworkInfo?]
-
-  /// Java method `getAllNetworks`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.net.Network[] android.net.ConnectivityManager.getAllNetworks()
-  /// ```
-@available(*, deprecated)
-  @JavaMethod
-  open func getAllNetworks() -> [Network?]
-
-  /// Java method `getLinkProperties`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.net.LinkProperties android.net.ConnectivityManager.getLinkProperties(android.net.Network)
-  /// ```
-@JavaMethod
-  open func getLinkProperties(_ arg0: Network?) -> LinkProperties!
-
-  /// Java method `reportBadNetwork`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.ConnectivityManager.reportBadNetwork(android.net.Network)
-  /// ```
-@available(*, deprecated)
-  @JavaMethod
-  open func reportBadNetwork(_ arg0: Network?)
-
-  /// Java method `getDefaultProxy`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.net.ProxyInfo android.net.ConnectivityManager.getDefaultProxy()
-  /// ```
-@JavaMethod
-  open func getDefaultProxy() -> ProxyInfo!
-
-  /// Java method `requestNetwork`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.ConnectivityManager.requestNetwork(android.net.NetworkRequest,android.net.ConnectivityManager$NetworkCallback,int)
-  /// ```
-@JavaMethod
-  open func requestNetwork(_ arg0: NetworkRequest?, _ arg1: ConnectivityManager.NetworkCallback?, _ arg2: Int32)
-
-  /// Java method `requestNetwork`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.ConnectivityManager.requestNetwork(android.net.NetworkRequest,android.net.ConnectivityManager$NetworkCallback)
-  /// ```
-@JavaMethod
-  open func requestNetwork(_ arg0: NetworkRequest?, _ arg1: ConnectivityManager.NetworkCallback?)
-
-  /// Java method `requestNetwork`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.ConnectivityManager.requestNetwork(android.net.NetworkRequest,android.net.ConnectivityManager$NetworkCallback,android.os.Handler,int)
-  /// ```
-@JavaMethod
-  open func requestNetwork(_ arg0: NetworkRequest?, _ arg1: ConnectivityManager.NetworkCallback?, _ arg2: Handler?, _ arg3: Int32)
-
-  /// Java method `requestNetwork`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.ConnectivityManager.requestNetwork(android.net.NetworkRequest,android.net.ConnectivityManager$NetworkCallback,android.os.Handler)
-  /// ```
-@JavaMethod
-  open func requestNetwork(_ arg0: NetworkRequest?, _ arg1: ConnectivityManager.NetworkCallback?, _ arg2: Handler?)
+  open func getNetworkCapabilities(_ arg0: Network?) -> NetworkCapabilities!
 
   /// Java method `setNetworkPreference`.
   ///
@@ -157,15 +44,6 @@ open class ConnectivityManager: JavaObject {
 @available(*, deprecated)
   @JavaMethod
   open func getActiveNetworkInfo() -> NetworkInfo!
-
-  /// Java method `getNetworkCapabilities`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.net.NetworkCapabilities android.net.ConnectivityManager.getNetworkCapabilities(android.net.Network)
-  /// ```
-@JavaMethod
-  open func getNetworkCapabilities(_ arg0: Network?) -> NetworkCapabilities!
 
   /// Java method `getBackgroundDataSetting`.
   ///
@@ -226,28 +104,19 @@ open class ConnectivityManager: JavaObject {
   ///
   /// ### Java method signature
   /// ```java
-  /// public void android.net.ConnectivityManager.registerNetworkCallback(android.net.NetworkRequest,android.net.ConnectivityManager$NetworkCallback,android.os.Handler)
-  /// ```
-@JavaMethod
-  open func registerNetworkCallback(_ arg0: NetworkRequest?, _ arg1: ConnectivityManager.NetworkCallback?, _ arg2: Handler?)
-
-  /// Java method `registerNetworkCallback`.
-  ///
-  /// ### Java method signature
-  /// ```java
   /// public void android.net.ConnectivityManager.registerNetworkCallback(android.net.NetworkRequest,android.net.ConnectivityManager$NetworkCallback)
   /// ```
 @JavaMethod
   open func registerNetworkCallback(_ arg0: NetworkRequest?, _ arg1: ConnectivityManager.NetworkCallback?)
 
-  /// Java method `registerDefaultNetworkCallback`.
+  /// Java method `registerNetworkCallback`.
   ///
   /// ### Java method signature
   /// ```java
-  /// public void android.net.ConnectivityManager.registerDefaultNetworkCallback(android.net.ConnectivityManager$NetworkCallback,android.os.Handler)
+  /// public void android.net.ConnectivityManager.registerNetworkCallback(android.net.NetworkRequest,android.net.ConnectivityManager$NetworkCallback,android.os.Handler)
   /// ```
 @JavaMethod
-  open func registerDefaultNetworkCallback(_ arg0: ConnectivityManager.NetworkCallback?, _ arg1: Handler?)
+  open func registerNetworkCallback(_ arg0: NetworkRequest?, _ arg1: ConnectivityManager.NetworkCallback?, _ arg2: Handler?)
 
   /// Java method `registerDefaultNetworkCallback`.
   ///
@@ -257,6 +126,15 @@ open class ConnectivityManager: JavaObject {
   /// ```
 @JavaMethod
   open func registerDefaultNetworkCallback(_ arg0: ConnectivityManager.NetworkCallback?)
+
+  /// Java method `registerDefaultNetworkCallback`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.ConnectivityManager.registerDefaultNetworkCallback(android.net.ConnectivityManager$NetworkCallback,android.os.Handler)
+  /// ```
+@JavaMethod
+  open func registerDefaultNetworkCallback(_ arg0: ConnectivityManager.NetworkCallback?, _ arg1: Handler?)
 
   /// Java method `requestBandwidthUpdate`.
   ///
@@ -329,6 +207,128 @@ open class ConnectivityManager: JavaObject {
   /// ```
 @JavaMethod
   open func getConnectionOwnerUid(_ arg0: Int32, _ arg1: InetSocketAddress?, _ arg2: InetSocketAddress?) -> Int32
+
+  /// Java method `getLinkProperties`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public android.net.LinkProperties android.net.ConnectivityManager.getLinkProperties(android.net.Network)
+  /// ```
+@JavaMethod
+  open func getLinkProperties(_ arg0: Network?) -> LinkProperties!
+
+  /// Java method `registerBestMatchingNetworkCallback`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.ConnectivityManager.registerBestMatchingNetworkCallback(android.net.NetworkRequest,android.net.ConnectivityManager$NetworkCallback,android.os.Handler)
+  /// ```
+@JavaMethod
+  open func registerBestMatchingNetworkCallback(_ arg0: NetworkRequest?, _ arg1: ConnectivityManager.NetworkCallback?, _ arg2: Handler?)
+
+  /// Java method `getActiveNetwork`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public android.net.Network android.net.ConnectivityManager.getActiveNetwork()
+  /// ```
+@JavaMethod
+  open func getActiveNetwork() -> Network!
+
+  /// Java method `getNetworkInfo`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public android.net.NetworkInfo android.net.ConnectivityManager.getNetworkInfo(android.net.Network)
+  /// ```
+@available(*, deprecated)
+  @JavaMethod
+  open func getNetworkInfo(_ arg0: Network?) -> NetworkInfo!
+
+  /// Java method `getNetworkInfo`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public android.net.NetworkInfo android.net.ConnectivityManager.getNetworkInfo(int)
+  /// ```
+@available(*, deprecated)
+  @JavaMethod
+  open func getNetworkInfo(_ arg0: Int32) -> NetworkInfo!
+
+  /// Java method `getAllNetworkInfo`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public android.net.NetworkInfo[] android.net.ConnectivityManager.getAllNetworkInfo()
+  /// ```
+@available(*, deprecated)
+  @JavaMethod
+  open func getAllNetworkInfo() -> [NetworkInfo?]
+
+  /// Java method `getAllNetworks`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public android.net.Network[] android.net.ConnectivityManager.getAllNetworks()
+  /// ```
+@available(*, deprecated)
+  @JavaMethod
+  open func getAllNetworks() -> [Network?]
+
+  /// Java method `reportBadNetwork`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.ConnectivityManager.reportBadNetwork(android.net.Network)
+  /// ```
+@available(*, deprecated)
+  @JavaMethod
+  open func reportBadNetwork(_ arg0: Network?)
+
+  /// Java method `getDefaultProxy`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public android.net.ProxyInfo android.net.ConnectivityManager.getDefaultProxy()
+  /// ```
+@JavaMethod
+  open func getDefaultProxy() -> ProxyInfo!
+
+  /// Java method `requestNetwork`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.ConnectivityManager.requestNetwork(android.net.NetworkRequest,android.net.ConnectivityManager$NetworkCallback)
+  /// ```
+@JavaMethod
+  open func requestNetwork(_ arg0: NetworkRequest?, _ arg1: ConnectivityManager.NetworkCallback?)
+
+  /// Java method `requestNetwork`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.ConnectivityManager.requestNetwork(android.net.NetworkRequest,android.net.ConnectivityManager$NetworkCallback,android.os.Handler)
+  /// ```
+@JavaMethod
+  open func requestNetwork(_ arg0: NetworkRequest?, _ arg1: ConnectivityManager.NetworkCallback?, _ arg2: Handler?)
+
+  /// Java method `requestNetwork`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.ConnectivityManager.requestNetwork(android.net.NetworkRequest,android.net.ConnectivityManager$NetworkCallback,int)
+  /// ```
+@JavaMethod
+  open func requestNetwork(_ arg0: NetworkRequest?, _ arg1: ConnectivityManager.NetworkCallback?, _ arg2: Int32)
+
+  /// Java method `requestNetwork`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.ConnectivityManager.requestNetwork(android.net.NetworkRequest,android.net.ConnectivityManager$NetworkCallback,android.os.Handler,int)
+  /// ```
+@JavaMethod
+  open func requestNetwork(_ arg0: NetworkRequest?, _ arg1: ConnectivityManager.NetworkCallback?, _ arg2: Handler?, _ arg3: Int32)
 }
 extension JavaClass<ConnectivityManager> {
   @available(*, deprecated)
@@ -449,16 +449,6 @@ extension JavaClass<ConnectivityManager> {
   @JavaStaticField(isFinal: true)
   public var TYPE_WIMAX: Int32
 
-    /// Java method `isNetworkTypeValid`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public static boolean android.net.ConnectivityManager.isNetworkTypeValid(int)
-    /// ```
-  @available(*, deprecated)
-  @JavaStaticMethod
-  public func isNetworkTypeValid(_ arg0: Int32) -> Bool
-
     /// Java method `setProcessDefaultNetwork`.
     ///
     /// ### Java method signature
@@ -478,4 +468,14 @@ extension JavaClass<ConnectivityManager> {
   @available(*, deprecated)
   @JavaStaticMethod
   public func getProcessDefaultNetwork() -> Network!
+
+    /// Java method `isNetworkTypeValid`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public static boolean android.net.ConnectivityManager.isNetworkTypeValid(int)
+    /// ```
+  @available(*, deprecated)
+  @JavaStaticMethod
+  public func isNetworkTypeValid(_ arg0: Int32) -> Bool
 }

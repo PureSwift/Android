@@ -64,21 +64,41 @@ open class WifiConfiguration: JavaObject {
 
   @available(*, deprecated)
   @JavaMethod
-  @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
+  @_nonoverride public convenience init(_ arg0: WifiConfiguration?, environment: JNIEnvironment? = nil)
 
   @available(*, deprecated)
   @JavaMethod
-  @_nonoverride public convenience init(_ arg0: WifiConfiguration?, environment: JNIEnvironment? = nil)
+  @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
-    /// Java method `setHttpProxy`.
+    /// Java method `setMacRandomizationSetting`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public void android.net.wifi.WifiConfiguration.setHttpProxy(android.net.ProxyInfo)
+    /// public void android.net.wifi.WifiConfiguration.setMacRandomizationSetting(int)
     /// ```
   @available(*, deprecated)
   @JavaMethod
-  open func setHttpProxy(_ arg0: ProxyInfo?)
+  open func setMacRandomizationSetting(_ arg0: Int32)
+
+    /// Java method `getMacRandomizationSetting`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public int android.net.wifi.WifiConfiguration.getMacRandomizationSetting()
+    /// ```
+  @available(*, deprecated)
+  @JavaMethod
+  open func getMacRandomizationSetting() -> Int32
+
+    /// Java method `getRandomizedMacAddress`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.MacAddress android.net.wifi.WifiConfiguration.getRandomizedMacAddress()
+    /// ```
+  @available(*, deprecated)
+  @JavaMethod
+  open func getRandomizedMacAddress() -> MacAddress!
 
     /// Java method `describeContents`.
     ///
@@ -99,46 +119,6 @@ open class WifiConfiguration: JavaObject {
   @available(*, deprecated)
   @JavaMethod
   open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
-
-    /// Java method `getHttpProxy`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.ProxyInfo android.net.wifi.WifiConfiguration.getHttpProxy()
-    /// ```
-  @available(*, deprecated)
-  @JavaMethod
-  open func getHttpProxy() -> ProxyInfo!
-
-    /// Java method `getMacRandomizationSetting`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.net.wifi.WifiConfiguration.getMacRandomizationSetting()
-    /// ```
-  @available(*, deprecated)
-  @JavaMethod
-  open func getMacRandomizationSetting() -> Int32
-
-    /// Java method `setMacRandomizationSetting`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.net.wifi.WifiConfiguration.setMacRandomizationSetting(int)
-    /// ```
-  @available(*, deprecated)
-  @JavaMethod
-  open func setMacRandomizationSetting(_ arg0: Int32)
-
-    /// Java method `getRandomizedMacAddress`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.MacAddress android.net.wifi.WifiConfiguration.getRandomizedMacAddress()
-    /// ```
-  @available(*, deprecated)
-  @JavaMethod
-  open func getRandomizedMacAddress() -> MacAddress!
 
     /// Java method `setSecurityParams`.
     ///
@@ -179,6 +159,26 @@ open class WifiConfiguration: JavaObject {
   @available(*, deprecated)
   @JavaMethod
   open func setIpConfiguration(_ arg0: IpConfiguration?)
+
+    /// Java method `getHttpProxy`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.ProxyInfo android.net.wifi.WifiConfiguration.getHttpProxy()
+    /// ```
+  @available(*, deprecated)
+  @JavaMethod
+  open func getHttpProxy() -> ProxyInfo!
+
+    /// Java method `setHttpProxy`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.wifi.WifiConfiguration.setHttpProxy(android.net.ProxyInfo)
+    /// ```
+  @available(*, deprecated)
+  @JavaMethod
+  open func setHttpProxy(_ arg0: ProxyInfo?)
 
     /// Java method `toString`.
     ///

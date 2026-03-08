@@ -28,14 +28,14 @@ open class NsdServiceInfo: JavaObject {
   @JavaMethod
   open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
-    /// Java method `getServiceName`.
+    /// Java method `setPort`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public java.lang.String android.net.nsd.NsdServiceInfo.getServiceName()
+    /// public void android.net.nsd.NsdServiceInfo.setPort(int)
     /// ```
   @JavaMethod
-  open func getServiceName() -> String
+  open func setPort(_ arg0: Int32)
 
     /// Java method `setServiceName`.
     ///
@@ -45,6 +45,24 @@ open class NsdServiceInfo: JavaObject {
     /// ```
   @JavaMethod
   open func setServiceName(_ arg0: String)
+
+    /// Java method `getNetwork`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.Network android.net.nsd.NsdServiceInfo.getNetwork()
+    /// ```
+  @JavaMethod
+  open func getNetwork() -> Network!
+
+    /// Java method `getServiceName`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public java.lang.String android.net.nsd.NsdServiceInfo.getServiceName()
+    /// ```
+  @JavaMethod
+  open func getServiceName() -> String
 
     /// Java method `getServiceType`.
     ///
@@ -74,15 +92,6 @@ open class NsdServiceInfo: JavaObject {
   @JavaMethod
   open func setHost(_ arg0: InetAddress?)
 
-    /// Java method `setPort`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.net.nsd.NsdServiceInfo.setPort(int)
-    /// ```
-  @JavaMethod
-  open func setPort(_ arg0: Int32)
-
     /// Java method `removeAttribute`.
     ///
     /// ### Java method signature
@@ -91,15 +100,6 @@ open class NsdServiceInfo: JavaObject {
     /// ```
   @JavaMethod
   open func removeAttribute(_ arg0: String)
-
-    /// Java method `getNetwork`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.Network android.net.nsd.NsdServiceInfo.getNetwork()
-    /// ```
-  @JavaMethod
-  open func getNetwork() -> Network!
 
     /// Java method `setNetwork`.
     ///

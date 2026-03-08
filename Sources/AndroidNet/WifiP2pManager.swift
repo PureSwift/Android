@@ -6,195 +6,6 @@ import SwiftJavaJNICore
 
 @JavaClass("android.net.wifi.p2p.WifiP2pManager")
 open class WifiP2pManager: JavaObject {
-  /// Java method `isChannelConstrainedDiscoverySupported`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.wifi.p2p.WifiP2pManager.isChannelConstrainedDiscoverySupported()
-  /// ```
-@JavaMethod
-  open func isChannelConstrainedDiscoverySupported() -> Bool
-
-  /// Java method `isGroupOwnerIPv6LinkLocalAddressProvided`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.wifi.p2p.WifiP2pManager.isGroupOwnerIPv6LinkLocalAddressProvided()
-  /// ```
-@JavaMethod
-  open func isGroupOwnerIPv6LinkLocalAddressProvided() -> Bool
-
-  /// Java method `discoverPeers`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.wifi.p2p.WifiP2pManager.discoverPeers(android.net.wifi.p2p.WifiP2pManager$Channel,android.net.wifi.p2p.WifiP2pManager$ActionListener)
-  /// ```
-@JavaMethod
-  open func discoverPeers(_ arg0: WifiP2pManager.Channel?, _ arg1: WifiP2pManager.ActionListener?)
-
-  /// Java method `stopPeerDiscovery`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.wifi.p2p.WifiP2pManager.stopPeerDiscovery(android.net.wifi.p2p.WifiP2pManager$Channel,android.net.wifi.p2p.WifiP2pManager$ActionListener)
-  /// ```
-@JavaMethod
-  open func stopPeerDiscovery(_ arg0: WifiP2pManager.Channel?, _ arg1: WifiP2pManager.ActionListener?)
-
-  /// Java method `connect`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.wifi.p2p.WifiP2pManager.connect(android.net.wifi.p2p.WifiP2pManager$Channel,android.net.wifi.p2p.WifiP2pConfig,android.net.wifi.p2p.WifiP2pManager$ActionListener)
-  /// ```
-@JavaMethod
-  open func connect(_ arg0: WifiP2pManager.Channel?, _ arg1: WifiP2pConfig?, _ arg2: WifiP2pManager.ActionListener?)
-
-  /// Java method `cancelConnect`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.wifi.p2p.WifiP2pManager.cancelConnect(android.net.wifi.p2p.WifiP2pManager$Channel,android.net.wifi.p2p.WifiP2pManager$ActionListener)
-  /// ```
-@JavaMethod
-  open func cancelConnect(_ arg0: WifiP2pManager.Channel?, _ arg1: WifiP2pManager.ActionListener?)
-
-  /// Java method `removeGroup`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.wifi.p2p.WifiP2pManager.removeGroup(android.net.wifi.p2p.WifiP2pManager$Channel,android.net.wifi.p2p.WifiP2pManager$ActionListener)
-  /// ```
-@JavaMethod
-  open func removeGroup(_ arg0: WifiP2pManager.Channel?, _ arg1: WifiP2pManager.ActionListener?)
-
-  /// Java method `startListening`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.wifi.p2p.WifiP2pManager.startListening(android.net.wifi.p2p.WifiP2pManager$Channel,android.net.wifi.p2p.WifiP2pManager$ActionListener)
-  /// ```
-@JavaMethod
-  open func startListening(_ arg0: WifiP2pManager.Channel?, _ arg1: WifiP2pManager.ActionListener?)
-
-  /// Java method `stopListening`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.wifi.p2p.WifiP2pManager.stopListening(android.net.wifi.p2p.WifiP2pManager$Channel,android.net.wifi.p2p.WifiP2pManager$ActionListener)
-  /// ```
-@JavaMethod
-  open func stopListening(_ arg0: WifiP2pManager.Channel?, _ arg1: WifiP2pManager.ActionListener?)
-
-  /// Java method `addLocalService`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.wifi.p2p.WifiP2pManager.addLocalService(android.net.wifi.p2p.WifiP2pManager$Channel,android.net.wifi.p2p.nsd.WifiP2pServiceInfo,android.net.wifi.p2p.WifiP2pManager$ActionListener)
-  /// ```
-@JavaMethod
-  open func addLocalService(_ arg0: WifiP2pManager.Channel?, _ arg1: WifiP2pServiceInfo?, _ arg2: WifiP2pManager.ActionListener?)
-
-  /// Java method `removeLocalService`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.wifi.p2p.WifiP2pManager.removeLocalService(android.net.wifi.p2p.WifiP2pManager$Channel,android.net.wifi.p2p.nsd.WifiP2pServiceInfo,android.net.wifi.p2p.WifiP2pManager$ActionListener)
-  /// ```
-@JavaMethod
-  open func removeLocalService(_ arg0: WifiP2pManager.Channel?, _ arg1: WifiP2pServiceInfo?, _ arg2: WifiP2pManager.ActionListener?)
-
-  /// Java method `clearLocalServices`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.wifi.p2p.WifiP2pManager.clearLocalServices(android.net.wifi.p2p.WifiP2pManager$Channel,android.net.wifi.p2p.WifiP2pManager$ActionListener)
-  /// ```
-@JavaMethod
-  open func clearLocalServices(_ arg0: WifiP2pManager.Channel?, _ arg1: WifiP2pManager.ActionListener?)
-
-  /// Java method `discoverServices`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.wifi.p2p.WifiP2pManager.discoverServices(android.net.wifi.p2p.WifiP2pManager$Channel,android.net.wifi.p2p.WifiP2pManager$ActionListener)
-  /// ```
-@JavaMethod
-  open func discoverServices(_ arg0: WifiP2pManager.Channel?, _ arg1: WifiP2pManager.ActionListener?)
-
-  /// Java method `addServiceRequest`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.wifi.p2p.WifiP2pManager.addServiceRequest(android.net.wifi.p2p.WifiP2pManager$Channel,android.net.wifi.p2p.nsd.WifiP2pServiceRequest,android.net.wifi.p2p.WifiP2pManager$ActionListener)
-  /// ```
-@JavaMethod
-  open func addServiceRequest(_ arg0: WifiP2pManager.Channel?, _ arg1: WifiP2pServiceRequest?, _ arg2: WifiP2pManager.ActionListener?)
-
-  /// Java method `requestPeers`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.wifi.p2p.WifiP2pManager.requestPeers(android.net.wifi.p2p.WifiP2pManager$Channel,android.net.wifi.p2p.WifiP2pManager$PeerListListener)
-  /// ```
-@JavaMethod
-  open func requestPeers(_ arg0: WifiP2pManager.Channel?, _ arg1: WifiP2pManager.PeerListListener?)
-
-  /// Java method `requestGroupInfo`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.wifi.p2p.WifiP2pManager.requestGroupInfo(android.net.wifi.p2p.WifiP2pManager$Channel,android.net.wifi.p2p.WifiP2pManager$GroupInfoListener)
-  /// ```
-@JavaMethod
-  open func requestGroupInfo(_ arg0: WifiP2pManager.Channel?, _ arg1: WifiP2pManager.GroupInfoListener?)
-
-  /// Java method `setWfdInfo`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.wifi.p2p.WifiP2pManager.setWfdInfo(android.net.wifi.p2p.WifiP2pManager$Channel,android.net.wifi.p2p.WifiP2pWfdInfo,android.net.wifi.p2p.WifiP2pManager$ActionListener)
-  /// ```
-@JavaMethod
-  open func setWfdInfo(_ arg0: WifiP2pManager.Channel?, _ arg1: WifiP2pWfdInfo?, _ arg2: WifiP2pManager.ActionListener?)
-
-  /// Java method `removeClient`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.wifi.p2p.WifiP2pManager.removeClient(android.net.wifi.p2p.WifiP2pManager$Channel,android.net.MacAddress,android.net.wifi.p2p.WifiP2pManager$ActionListener)
-  /// ```
-@JavaMethod
-  open func removeClient(_ arg0: WifiP2pManager.Channel?, _ arg1: MacAddress?, _ arg2: WifiP2pManager.ActionListener?)
-
-  /// Java method `requestP2pState`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.wifi.p2p.WifiP2pManager.requestP2pState(android.net.wifi.p2p.WifiP2pManager$Channel,android.net.wifi.p2p.WifiP2pManager$P2pStateListener)
-  /// ```
-@JavaMethod
-  open func requestP2pState(_ arg0: WifiP2pManager.Channel?, _ arg1: WifiP2pManager.P2pStateListener?)
-
-  /// Java method `requestNetworkInfo`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.wifi.p2p.WifiP2pManager.requestNetworkInfo(android.net.wifi.p2p.WifiP2pManager$Channel,android.net.wifi.p2p.WifiP2pManager$NetworkInfoListener)
-  /// ```
-@JavaMethod
-  open func requestNetworkInfo(_ arg0: WifiP2pManager.Channel?, _ arg1: WifiP2pManager.NetworkInfoListener?)
-
-  /// Java method `requestDeviceInfo`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.wifi.p2p.WifiP2pManager.requestDeviceInfo(android.net.wifi.p2p.WifiP2pManager$Channel,android.net.wifi.p2p.WifiP2pManager$DeviceInfoListener)
-  /// ```
-@JavaMethod
-  open func requestDeviceInfo(_ arg0: WifiP2pManager.Channel?, _ arg1: WifiP2pManager.DeviceInfoListener?)
-
   /// Java method `unregisterWifiP2pListener`.
   ///
   /// ### Java method signature
@@ -339,6 +150,195 @@ open class WifiP2pManager: JavaObject {
 @JavaMethod
   open func setConnectionRequestResult(_ arg0: WifiP2pManager.Channel?, _ arg1: MacAddress?, _ arg2: Int32, _ arg3: String, _ arg4: WifiP2pManager.ActionListener?)
 
+  /// Java method `stopListening`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.wifi.p2p.WifiP2pManager.stopListening(android.net.wifi.p2p.WifiP2pManager$Channel,android.net.wifi.p2p.WifiP2pManager$ActionListener)
+  /// ```
+@JavaMethod
+  open func stopListening(_ arg0: WifiP2pManager.Channel?, _ arg1: WifiP2pManager.ActionListener?)
+
+  /// Java method `addLocalService`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.wifi.p2p.WifiP2pManager.addLocalService(android.net.wifi.p2p.WifiP2pManager$Channel,android.net.wifi.p2p.nsd.WifiP2pServiceInfo,android.net.wifi.p2p.WifiP2pManager$ActionListener)
+  /// ```
+@JavaMethod
+  open func addLocalService(_ arg0: WifiP2pManager.Channel?, _ arg1: WifiP2pServiceInfo?, _ arg2: WifiP2pManager.ActionListener?)
+
+  /// Java method `discoverPeers`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.wifi.p2p.WifiP2pManager.discoverPeers(android.net.wifi.p2p.WifiP2pManager$Channel,android.net.wifi.p2p.WifiP2pManager$ActionListener)
+  /// ```
+@JavaMethod
+  open func discoverPeers(_ arg0: WifiP2pManager.Channel?, _ arg1: WifiP2pManager.ActionListener?)
+
+  /// Java method `stopPeerDiscovery`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.wifi.p2p.WifiP2pManager.stopPeerDiscovery(android.net.wifi.p2p.WifiP2pManager$Channel,android.net.wifi.p2p.WifiP2pManager$ActionListener)
+  /// ```
+@JavaMethod
+  open func stopPeerDiscovery(_ arg0: WifiP2pManager.Channel?, _ arg1: WifiP2pManager.ActionListener?)
+
+  /// Java method `connect`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.wifi.p2p.WifiP2pManager.connect(android.net.wifi.p2p.WifiP2pManager$Channel,android.net.wifi.p2p.WifiP2pConfig,android.net.wifi.p2p.WifiP2pManager$ActionListener)
+  /// ```
+@JavaMethod
+  open func connect(_ arg0: WifiP2pManager.Channel?, _ arg1: WifiP2pConfig?, _ arg2: WifiP2pManager.ActionListener?)
+
+  /// Java method `cancelConnect`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.wifi.p2p.WifiP2pManager.cancelConnect(android.net.wifi.p2p.WifiP2pManager$Channel,android.net.wifi.p2p.WifiP2pManager$ActionListener)
+  /// ```
+@JavaMethod
+  open func cancelConnect(_ arg0: WifiP2pManager.Channel?, _ arg1: WifiP2pManager.ActionListener?)
+
+  /// Java method `removeGroup`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.wifi.p2p.WifiP2pManager.removeGroup(android.net.wifi.p2p.WifiP2pManager$Channel,android.net.wifi.p2p.WifiP2pManager$ActionListener)
+  /// ```
+@JavaMethod
+  open func removeGroup(_ arg0: WifiP2pManager.Channel?, _ arg1: WifiP2pManager.ActionListener?)
+
+  /// Java method `startListening`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.wifi.p2p.WifiP2pManager.startListening(android.net.wifi.p2p.WifiP2pManager$Channel,android.net.wifi.p2p.WifiP2pManager$ActionListener)
+  /// ```
+@JavaMethod
+  open func startListening(_ arg0: WifiP2pManager.Channel?, _ arg1: WifiP2pManager.ActionListener?)
+
+  /// Java method `isChannelConstrainedDiscoverySupported`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.wifi.p2p.WifiP2pManager.isChannelConstrainedDiscoverySupported()
+  /// ```
+@JavaMethod
+  open func isChannelConstrainedDiscoverySupported() -> Bool
+
+  /// Java method `isGroupOwnerIPv6LinkLocalAddressProvided`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.wifi.p2p.WifiP2pManager.isGroupOwnerIPv6LinkLocalAddressProvided()
+  /// ```
+@JavaMethod
+  open func isGroupOwnerIPv6LinkLocalAddressProvided() -> Bool
+
+  /// Java method `removeLocalService`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.wifi.p2p.WifiP2pManager.removeLocalService(android.net.wifi.p2p.WifiP2pManager$Channel,android.net.wifi.p2p.nsd.WifiP2pServiceInfo,android.net.wifi.p2p.WifiP2pManager$ActionListener)
+  /// ```
+@JavaMethod
+  open func removeLocalService(_ arg0: WifiP2pManager.Channel?, _ arg1: WifiP2pServiceInfo?, _ arg2: WifiP2pManager.ActionListener?)
+
+  /// Java method `clearLocalServices`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.wifi.p2p.WifiP2pManager.clearLocalServices(android.net.wifi.p2p.WifiP2pManager$Channel,android.net.wifi.p2p.WifiP2pManager$ActionListener)
+  /// ```
+@JavaMethod
+  open func clearLocalServices(_ arg0: WifiP2pManager.Channel?, _ arg1: WifiP2pManager.ActionListener?)
+
+  /// Java method `discoverServices`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.wifi.p2p.WifiP2pManager.discoverServices(android.net.wifi.p2p.WifiP2pManager$Channel,android.net.wifi.p2p.WifiP2pManager$ActionListener)
+  /// ```
+@JavaMethod
+  open func discoverServices(_ arg0: WifiP2pManager.Channel?, _ arg1: WifiP2pManager.ActionListener?)
+
+  /// Java method `addServiceRequest`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.wifi.p2p.WifiP2pManager.addServiceRequest(android.net.wifi.p2p.WifiP2pManager$Channel,android.net.wifi.p2p.nsd.WifiP2pServiceRequest,android.net.wifi.p2p.WifiP2pManager$ActionListener)
+  /// ```
+@JavaMethod
+  open func addServiceRequest(_ arg0: WifiP2pManager.Channel?, _ arg1: WifiP2pServiceRequest?, _ arg2: WifiP2pManager.ActionListener?)
+
+  /// Java method `requestPeers`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.wifi.p2p.WifiP2pManager.requestPeers(android.net.wifi.p2p.WifiP2pManager$Channel,android.net.wifi.p2p.WifiP2pManager$PeerListListener)
+  /// ```
+@JavaMethod
+  open func requestPeers(_ arg0: WifiP2pManager.Channel?, _ arg1: WifiP2pManager.PeerListListener?)
+
+  /// Java method `requestGroupInfo`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.wifi.p2p.WifiP2pManager.requestGroupInfo(android.net.wifi.p2p.WifiP2pManager$Channel,android.net.wifi.p2p.WifiP2pManager$GroupInfoListener)
+  /// ```
+@JavaMethod
+  open func requestGroupInfo(_ arg0: WifiP2pManager.Channel?, _ arg1: WifiP2pManager.GroupInfoListener?)
+
+  /// Java method `setWfdInfo`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.wifi.p2p.WifiP2pManager.setWfdInfo(android.net.wifi.p2p.WifiP2pManager$Channel,android.net.wifi.p2p.WifiP2pWfdInfo,android.net.wifi.p2p.WifiP2pManager$ActionListener)
+  /// ```
+@JavaMethod
+  open func setWfdInfo(_ arg0: WifiP2pManager.Channel?, _ arg1: WifiP2pWfdInfo?, _ arg2: WifiP2pManager.ActionListener?)
+
+  /// Java method `removeClient`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.wifi.p2p.WifiP2pManager.removeClient(android.net.wifi.p2p.WifiP2pManager$Channel,android.net.MacAddress,android.net.wifi.p2p.WifiP2pManager$ActionListener)
+  /// ```
+@JavaMethod
+  open func removeClient(_ arg0: WifiP2pManager.Channel?, _ arg1: MacAddress?, _ arg2: WifiP2pManager.ActionListener?)
+
+  /// Java method `requestP2pState`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.wifi.p2p.WifiP2pManager.requestP2pState(android.net.wifi.p2p.WifiP2pManager$Channel,android.net.wifi.p2p.WifiP2pManager$P2pStateListener)
+  /// ```
+@JavaMethod
+  open func requestP2pState(_ arg0: WifiP2pManager.Channel?, _ arg1: WifiP2pManager.P2pStateListener?)
+
+  /// Java method `requestNetworkInfo`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.wifi.p2p.WifiP2pManager.requestNetworkInfo(android.net.wifi.p2p.WifiP2pManager$Channel,android.net.wifi.p2p.WifiP2pManager$NetworkInfoListener)
+  /// ```
+@JavaMethod
+  open func requestNetworkInfo(_ arg0: WifiP2pManager.Channel?, _ arg1: WifiP2pManager.NetworkInfoListener?)
+
+  /// Java method `requestDeviceInfo`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.wifi.p2p.WifiP2pManager.requestDeviceInfo(android.net.wifi.p2p.WifiP2pManager$Channel,android.net.wifi.p2p.WifiP2pManager$DeviceInfoListener)
+  /// ```
+@JavaMethod
+  open func requestDeviceInfo(_ arg0: WifiP2pManager.Channel?, _ arg1: WifiP2pManager.DeviceInfoListener?)
+
   /// Java method `initialize`.
   ///
   /// ### Java method signature
@@ -423,23 +423,14 @@ extension WifiP2pManager {
   @JavaMethod
   public func onPeerClientDisconnected(_ arg0: WifiP2pInfo?, _ arg1: WifiP2pGroup?)
 
-    /// Java method `onGroupCreated`.
+    /// Java method `onP2pStateChanged`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public default void android.net.wifi.p2p.WifiP2pManager$WifiP2pListener.onGroupCreated(android.net.wifi.p2p.WifiP2pInfo,android.net.wifi.p2p.WifiP2pGroup)
+    /// public default void android.net.wifi.p2p.WifiP2pManager$WifiP2pListener.onP2pStateChanged(int)
     /// ```
   @JavaMethod
-  public func onGroupCreated(_ arg0: WifiP2pInfo?, _ arg1: WifiP2pGroup?)
-
-    /// Java method `onGroupCreating`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public default void android.net.wifi.p2p.WifiP2pManager$WifiP2pListener.onGroupCreating()
-    /// ```
-  @JavaMethod
-  public func onGroupCreating()
+  public func onP2pStateChanged(_ arg0: Int32)
 
     /// Java method `onPeerListChanged`.
     ///
@@ -450,14 +441,23 @@ extension WifiP2pManager {
   @JavaMethod
   public func onPeerListChanged(_ arg0: WifiP2pDeviceList?)
 
-    /// Java method `onP2pStateChanged`.
+    /// Java method `onGroupCreating`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public default void android.net.wifi.p2p.WifiP2pManager$WifiP2pListener.onP2pStateChanged(int)
+    /// public default void android.net.wifi.p2p.WifiP2pManager$WifiP2pListener.onGroupCreating()
     /// ```
   @JavaMethod
-  public func onP2pStateChanged(_ arg0: Int32)
+  public func onGroupCreating()
+
+    /// Java method `onGroupCreated`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public default void android.net.wifi.p2p.WifiP2pManager$WifiP2pListener.onGroupCreated(android.net.wifi.p2p.WifiP2pInfo,android.net.wifi.p2p.WifiP2pGroup)
+    /// ```
+  @JavaMethod
+  public func onGroupCreated(_ arg0: WifiP2pInfo?, _ arg1: WifiP2pGroup?)
 
     /// Java method `onPeerClientJoined`.
     ///

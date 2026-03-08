@@ -11,6 +11,33 @@ open class WifiP2pGroup: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: WifiP2pGroup?, environment: JNIEnvironment? = nil)
 
+    /// Java method `describeContents`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public int android.net.wifi.p2p.WifiP2pGroup.describeContents()
+    /// ```
+  @JavaMethod
+  open func describeContents() -> Int32
+
+    /// Java method `writeToParcel`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.wifi.p2p.WifiP2pGroup.writeToParcel(android.os.Parcel,int)
+    /// ```
+  @JavaMethod
+  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
+
+    /// Java method `getPassphrase`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public java.lang.String android.net.wifi.p2p.WifiP2pGroup.getPassphrase()
+    /// ```
+  @JavaMethod
+  open func getPassphrase() -> String
+
     /// Java method `getNetworkName`.
     ///
     /// ### Java method signature
@@ -28,15 +55,6 @@ open class WifiP2pGroup: JavaObject {
     /// ```
   @JavaMethod
   open func isGroupOwner() -> Bool
-
-    /// Java method `getPassphrase`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public java.lang.String android.net.wifi.p2p.WifiP2pGroup.getPassphrase()
-    /// ```
-  @JavaMethod
-  open func getPassphrase() -> String
 
     /// Java method `getInterface`.
     ///
@@ -64,24 +82,6 @@ open class WifiP2pGroup: JavaObject {
     /// ```
   @JavaMethod
   open func getFrequency() -> Int32
-
-    /// Java method `describeContents`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.net.wifi.p2p.WifiP2pGroup.describeContents()
-    /// ```
-  @JavaMethod
-  open func describeContents() -> Int32
-
-    /// Java method `writeToParcel`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.net.wifi.p2p.WifiP2pGroup.writeToParcel(android.os.Parcel,int)
-    /// ```
-  @JavaMethod
-  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
     /// Java method `toString`.
     ///

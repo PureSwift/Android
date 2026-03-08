@@ -11,6 +11,51 @@ open class NetworkCapabilities: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
+    /// Java method `getLinkUpstreamBandwidthKbps`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public int android.net.NetworkCapabilities.getLinkUpstreamBandwidthKbps()
+    /// ```
+  @JavaMethod
+  open func getLinkUpstreamBandwidthKbps() -> Int32
+
+    /// Java method `getLinkDownstreamBandwidthKbps`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public int android.net.NetworkCapabilities.getLinkDownstreamBandwidthKbps()
+    /// ```
+  @JavaMethod
+  open func getLinkDownstreamBandwidthKbps() -> Int32
+
+    /// Java method `getNetworkSpecifier`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.NetworkSpecifier android.net.NetworkCapabilities.getNetworkSpecifier()
+    /// ```
+  @JavaMethod
+  open func getNetworkSpecifier() -> NetworkSpecifier!
+
+    /// Java method `describeContents`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public int android.net.NetworkCapabilities.describeContents()
+    /// ```
+  @JavaMethod
+  open func describeContents() -> Int32
+
+    /// Java method `writeToParcel`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.NetworkCapabilities.writeToParcel(android.os.Parcel,int)
+    /// ```
+  @JavaMethod
+  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
+
     /// Java method `getEnterpriseIds`.
     ///
     /// ### Java method signature
@@ -28,6 +73,33 @@ open class NetworkCapabilities: JavaObject {
     /// ```
   @JavaMethod
   open func hasEnterpriseId(_ arg0: Int32) -> Bool
+
+    /// Java method `getCapabilities`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public int[] android.net.NetworkCapabilities.getCapabilities()
+    /// ```
+  @JavaMethod
+  open func getCapabilities() -> [Int32]
+
+    /// Java method `hasCapability`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public boolean android.net.NetworkCapabilities.hasCapability(int)
+    /// ```
+  @JavaMethod
+  open func hasCapability(_ arg0: Int32) -> Bool
+
+    /// Java method `hasTransport`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public boolean android.net.NetworkCapabilities.hasTransport(int)
+    /// ```
+  @JavaMethod
+  open func hasTransport(_ arg0: Int32) -> Bool
 
     /// Java method `getOwnerUid`.
     ///
@@ -55,78 +127,6 @@ open class NetworkCapabilities: JavaObject {
     /// ```
   @JavaMethod
   open func getSignalStrength() -> Int32
-
-    /// Java method `getLinkUpstreamBandwidthKbps`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.net.NetworkCapabilities.getLinkUpstreamBandwidthKbps()
-    /// ```
-  @JavaMethod
-  open func getLinkUpstreamBandwidthKbps() -> Int32
-
-    /// Java method `getLinkDownstreamBandwidthKbps`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.net.NetworkCapabilities.getLinkDownstreamBandwidthKbps()
-    /// ```
-  @JavaMethod
-  open func getLinkDownstreamBandwidthKbps() -> Int32
-
-    /// Java method `describeContents`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.net.NetworkCapabilities.describeContents()
-    /// ```
-  @JavaMethod
-  open func describeContents() -> Int32
-
-    /// Java method `writeToParcel`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.net.NetworkCapabilities.writeToParcel(android.os.Parcel,int)
-    /// ```
-  @JavaMethod
-  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
-
-    /// Java method `hasCapability`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public boolean android.net.NetworkCapabilities.hasCapability(int)
-    /// ```
-  @JavaMethod
-  open func hasCapability(_ arg0: Int32) -> Bool
-
-    /// Java method `hasTransport`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public boolean android.net.NetworkCapabilities.hasTransport(int)
-    /// ```
-  @JavaMethod
-  open func hasTransport(_ arg0: Int32) -> Bool
-
-    /// Java method `getCapabilities`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int[] android.net.NetworkCapabilities.getCapabilities()
-    /// ```
-  @JavaMethod
-  open func getCapabilities() -> [Int32]
-
-    /// Java method `getNetworkSpecifier`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.NetworkSpecifier android.net.NetworkCapabilities.getNetworkSpecifier()
-    /// ```
-  @JavaMethod
-  open func getNetworkSpecifier() -> NetworkSpecifier!
 
     /// Java method `equals`.
     ///

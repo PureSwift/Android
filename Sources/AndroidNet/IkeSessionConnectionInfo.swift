@@ -8,15 +8,6 @@ open class IkeSessionConnectionInfo: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: InetAddress?, _ arg1: InetAddress?, _ arg2: Network?, environment: JNIEnvironment? = nil)
 
-    /// Java method `getNetwork`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.Network android.net.ipsec.ike.IkeSessionConnectionInfo.getNetwork()
-    /// ```
-  @JavaMethod
-  open func getNetwork() -> Network!
-
     /// Java method `getLocalAddress`.
     ///
     /// ### Java method signature
@@ -34,4 +25,13 @@ open class IkeSessionConnectionInfo: JavaObject {
     /// ```
   @JavaMethod
   open func getRemoteAddress() -> InetAddress!
+
+    /// Java method `getNetwork`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.Network android.net.ipsec.ike.IkeSessionConnectionInfo.getNetwork()
+    /// ```
+  @JavaMethod
+  open func getNetwork() -> Network!
 }

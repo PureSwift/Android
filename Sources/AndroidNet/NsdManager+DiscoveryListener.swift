@@ -5,6 +5,33 @@ import SwiftJavaJNICore
 extension NsdManager {
   @JavaInterface("android.net.nsd.NsdManager$DiscoveryListener")
   public struct DiscoveryListener {
+    /// Java method `onStartDiscoveryFailed`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public abstract void android.net.nsd.NsdManager$DiscoveryListener.onStartDiscoveryFailed(java.lang.String,int)
+    /// ```
+  @JavaMethod
+  public func onStartDiscoveryFailed(_ arg0: String, _ arg1: Int32)
+
+    /// Java method `onStopDiscoveryFailed`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public abstract void android.net.nsd.NsdManager$DiscoveryListener.onStopDiscoveryFailed(java.lang.String,int)
+    /// ```
+  @JavaMethod
+  public func onStopDiscoveryFailed(_ arg0: String, _ arg1: Int32)
+
+    /// Java method `onServiceLost`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public abstract void android.net.nsd.NsdManager$DiscoveryListener.onServiceLost(android.net.nsd.NsdServiceInfo)
+    /// ```
+  @JavaMethod
+  public func onServiceLost(_ arg0: NsdServiceInfo?)
+
     /// Java method `onDiscoveryStarted`.
     ///
     /// ### Java method signature
@@ -31,32 +58,5 @@ extension NsdManager {
     /// ```
   @JavaMethod
   public func onServiceFound(_ arg0: NsdServiceInfo?)
-
-    /// Java method `onServiceLost`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public abstract void android.net.nsd.NsdManager$DiscoveryListener.onServiceLost(android.net.nsd.NsdServiceInfo)
-    /// ```
-  @JavaMethod
-  public func onServiceLost(_ arg0: NsdServiceInfo?)
-
-    /// Java method `onStartDiscoveryFailed`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public abstract void android.net.nsd.NsdManager$DiscoveryListener.onStartDiscoveryFailed(java.lang.String,int)
-    /// ```
-  @JavaMethod
-  public func onStartDiscoveryFailed(_ arg0: String, _ arg1: Int32)
-
-    /// Java method `onStopDiscoveryFailed`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public abstract void android.net.nsd.NsdManager$DiscoveryListener.onStopDiscoveryFailed(java.lang.String,int)
-    /// ```
-  @JavaMethod
-  public func onStopDiscoveryFailed(_ arg0: String, _ arg1: Int32)
   }
 }

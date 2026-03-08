@@ -8,6 +8,15 @@ extension WifiInfo {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
+    /// Java method `setCurrentSecurityType`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.wifi.WifiInfo$Builder android.net.wifi.WifiInfo$Builder.setCurrentSecurityType(int)
+    /// ```
+  @JavaMethod
+  open func setCurrentSecurityType(_ arg0: Int32) -> WifiInfo.Builder!
+
     /// Java method `setSsid`.
     ///
     /// ### Java method signature
@@ -26,6 +35,15 @@ extension WifiInfo {
   @JavaMethod
   open func setBssid(_ arg0: String) -> WifiInfo.Builder!
 
+    /// Java method `setSubscriptionId`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.wifi.WifiInfo$Builder android.net.wifi.WifiInfo$Builder.setSubscriptionId(int)
+    /// ```
+  @JavaMethod
+  open func setSubscriptionId(_ arg0: Int32) -> WifiInfo.Builder!
+
     /// Java method `setRssi`.
     ///
     /// ### Java method signature
@@ -43,24 +61,6 @@ extension WifiInfo {
     /// ```
   @JavaMethod
   open func setNetworkId(_ arg0: Int32) -> WifiInfo.Builder!
-
-    /// Java method `setSubscriptionId`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.wifi.WifiInfo$Builder android.net.wifi.WifiInfo$Builder.setSubscriptionId(int)
-    /// ```
-  @JavaMethod
-  open func setSubscriptionId(_ arg0: Int32) -> WifiInfo.Builder!
-
-    /// Java method `setCurrentSecurityType`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.wifi.WifiInfo$Builder android.net.wifi.WifiInfo$Builder.setCurrentSecurityType(int)
-    /// ```
-  @JavaMethod
-  open func setCurrentSecurityType(_ arg0: Int32) -> WifiInfo.Builder!
 
     /// Java method `build`.
     ///

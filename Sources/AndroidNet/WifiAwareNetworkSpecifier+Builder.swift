@@ -11,14 +11,14 @@ extension WifiAwareNetworkSpecifier {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: PublishDiscoverySession?, environment: JNIEnvironment? = nil)
 
-    /// Java method `setPort`.
+    /// Java method `setDataPathSecurityConfig`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public android.net.wifi.aware.WifiAwareNetworkSpecifier$Builder android.net.wifi.aware.WifiAwareNetworkSpecifier$Builder.setPort(int)
+    /// public android.net.wifi.aware.WifiAwareNetworkSpecifier$Builder android.net.wifi.aware.WifiAwareNetworkSpecifier$Builder.setDataPathSecurityConfig(android.net.wifi.aware.WifiAwareDataPathSecurityConfig)
     /// ```
   @JavaMethod
-  open func setPort(_ arg0: Int32) -> WifiAwareNetworkSpecifier.Builder!
+  open func setDataPathSecurityConfig(_ arg0: WifiAwareDataPathSecurityConfig?) -> WifiAwareNetworkSpecifier.Builder!
 
     /// Java method `setTransportProtocol`.
     ///
@@ -38,14 +38,14 @@ extension WifiAwareNetworkSpecifier {
   @JavaMethod
   open func setChannelFrequencyMhz(_ arg0: Int32, _ arg1: Bool) -> WifiAwareNetworkSpecifier.Builder!
 
-    /// Java method `setDataPathSecurityConfig`.
+    /// Java method `setPort`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public android.net.wifi.aware.WifiAwareNetworkSpecifier$Builder android.net.wifi.aware.WifiAwareNetworkSpecifier$Builder.setDataPathSecurityConfig(android.net.wifi.aware.WifiAwareDataPathSecurityConfig)
+    /// public android.net.wifi.aware.WifiAwareNetworkSpecifier$Builder android.net.wifi.aware.WifiAwareNetworkSpecifier$Builder.setPort(int)
     /// ```
   @JavaMethod
-  open func setDataPathSecurityConfig(_ arg0: WifiAwareDataPathSecurityConfig?) -> WifiAwareNetworkSpecifier.Builder!
+  open func setPort(_ arg0: Int32) -> WifiAwareNetworkSpecifier.Builder!
 
     /// Java method `setPskPassphrase`.
     ///

@@ -8,33 +8,6 @@ extension VcnGatewayConnectionConfig {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: String, _ arg1: IkeTunnelConnectionParams?, environment: JNIEnvironment? = nil)
 
-    /// Java method `setMaxMtu`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.vcn.VcnGatewayConnectionConfig$Builder android.net.vcn.VcnGatewayConnectionConfig$Builder.setMaxMtu(int)
-    /// ```
-  @JavaMethod
-  open func setMaxMtu(_ arg0: Int32) -> VcnGatewayConnectionConfig.Builder!
-
-    /// Java method `addGatewayOption`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.vcn.VcnGatewayConnectionConfig$Builder android.net.vcn.VcnGatewayConnectionConfig$Builder.addGatewayOption(int)
-    /// ```
-  @JavaMethod
-  open func addGatewayOption(_ arg0: Int32) -> VcnGatewayConnectionConfig.Builder!
-
-    /// Java method `setSafeModeEnabled`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.vcn.VcnGatewayConnectionConfig$Builder android.net.vcn.VcnGatewayConnectionConfig$Builder.setSafeModeEnabled(boolean)
-    /// ```
-  @JavaMethod
-  open func setSafeModeEnabled(_ arg0: Bool) -> VcnGatewayConnectionConfig.Builder!
-
     /// Java method `addExposedCapability`.
     ///
     /// ### Java method signature
@@ -79,6 +52,33 @@ extension VcnGatewayConnectionConfig {
     /// ```
   @JavaMethod
   open func removeGatewayOption(_ arg0: Int32) -> VcnGatewayConnectionConfig.Builder!
+
+    /// Java method `addGatewayOption`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.vcn.VcnGatewayConnectionConfig$Builder android.net.vcn.VcnGatewayConnectionConfig$Builder.addGatewayOption(int)
+    /// ```
+  @JavaMethod
+  open func addGatewayOption(_ arg0: Int32) -> VcnGatewayConnectionConfig.Builder!
+
+    /// Java method `setSafeModeEnabled`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.vcn.VcnGatewayConnectionConfig$Builder android.net.vcn.VcnGatewayConnectionConfig$Builder.setSafeModeEnabled(boolean)
+    /// ```
+  @JavaMethod
+  open func setSafeModeEnabled(_ arg0: Bool) -> VcnGatewayConnectionConfig.Builder!
+
+    /// Java method `setMaxMtu`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.vcn.VcnGatewayConnectionConfig$Builder android.net.vcn.VcnGatewayConnectionConfig$Builder.setMaxMtu(int)
+    /// ```
+  @JavaMethod
+  open func setMaxMtu(_ arg0: Int32) -> VcnGatewayConnectionConfig.Builder!
 
     /// Java method `build`.
     ///

@@ -5,24 +5,6 @@ import SwiftJavaJNICore
 
 @JavaClass("android.net.wifi.aware.WifiAwareChannelInfo", implements: Parcelable.self)
 open class WifiAwareChannelInfo: JavaObject {
-  /// Java method `describeContents`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.net.wifi.aware.WifiAwareChannelInfo.describeContents()
-  /// ```
-@JavaMethod
-  open func describeContents() -> Int32
-
-  /// Java method `writeToParcel`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.wifi.aware.WifiAwareChannelInfo.writeToParcel(android.os.Parcel,int)
-  /// ```
-@JavaMethod
-  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
-
   /// Java method `getChannelFrequencyMhz`.
   ///
   /// ### Java method signature
@@ -49,6 +31,24 @@ open class WifiAwareChannelInfo: JavaObject {
   /// ```
 @JavaMethod
   open func getSpatialStreamCount() -> Int32
+
+  /// Java method `describeContents`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.net.wifi.aware.WifiAwareChannelInfo.describeContents()
+  /// ```
+@JavaMethod
+  open func describeContents() -> Int32
+
+  /// Java method `writeToParcel`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.wifi.aware.WifiAwareChannelInfo.writeToParcel(android.os.Parcel,int)
+  /// ```
+@JavaMethod
+  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
   /// Java method `equals`.
   ///

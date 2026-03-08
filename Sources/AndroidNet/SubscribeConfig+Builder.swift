@@ -8,15 +8,6 @@ extension SubscribeConfig {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
-    /// Java method `setServiceName`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.wifi.aware.SubscribeConfig$Builder android.net.wifi.aware.SubscribeConfig$Builder.setServiceName(java.lang.String)
-    /// ```
-  @JavaMethod
-  open func setServiceName(_ arg0: String) -> SubscribeConfig.Builder!
-
     /// Java method `setServiceSpecificInfo`.
     ///
     /// ### Java method signature
@@ -44,14 +35,14 @@ extension SubscribeConfig {
   @JavaMethod
   open func setInstantCommunicationModeEnabled(_ arg0: Bool, _ arg1: Int32) -> SubscribeConfig.Builder!
 
-    /// Java method `setSubscribeType`.
+    /// Java method `setServiceName`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public android.net.wifi.aware.SubscribeConfig$Builder android.net.wifi.aware.SubscribeConfig$Builder.setSubscribeType(int)
+    /// public android.net.wifi.aware.SubscribeConfig$Builder android.net.wifi.aware.SubscribeConfig$Builder.setServiceName(java.lang.String)
     /// ```
   @JavaMethod
-  open func setSubscribeType(_ arg0: Int32) -> SubscribeConfig.Builder!
+  open func setServiceName(_ arg0: String) -> SubscribeConfig.Builder!
 
     /// Java method `setTtlSec`.
     ///
@@ -61,6 +52,15 @@ extension SubscribeConfig {
     /// ```
   @JavaMethod
   open func setTtlSec(_ arg0: Int32) -> SubscribeConfig.Builder!
+
+    /// Java method `setSubscribeType`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.wifi.aware.SubscribeConfig$Builder android.net.wifi.aware.SubscribeConfig$Builder.setSubscribeType(int)
+    /// ```
+  @JavaMethod
+  open func setSubscribeType(_ arg0: Int32) -> SubscribeConfig.Builder!
 
     /// Java method `setMinDistanceMm`.
     ///

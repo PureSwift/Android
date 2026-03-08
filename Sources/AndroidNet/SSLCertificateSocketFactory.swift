@@ -10,16 +10,6 @@ open class SSLCertificateSocketFactory: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Int32, environment: JNIEnvironment? = nil)
 
-    /// Java method `getSupportedCipherSuites`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public java.lang.String[] android.net.SSLCertificateSocketFactory.getSupportedCipherSuites()
-    /// ```
-  @available(*, deprecated)
-  @JavaMethod
-  open func getSupportedCipherSuites() -> [String]
-
     /// Java method `setUseSessionTickets`.
     ///
     /// ### Java method signature
@@ -29,6 +19,36 @@ open class SSLCertificateSocketFactory: JavaObject {
   @available(*, deprecated)
   @JavaMethod
   open func setUseSessionTickets(_ arg0: Socket?, _ arg1: Bool)
+
+    /// Java method `getNpnSelectedProtocol`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public byte[] android.net.SSLCertificateSocketFactory.getNpnSelectedProtocol(java.net.Socket)
+    /// ```
+  @available(*, deprecated)
+  @JavaMethod
+  open func getNpnSelectedProtocol(_ arg0: Socket?) -> [Int8]
+
+    /// Java method `getDefaultCipherSuites`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public java.lang.String[] android.net.SSLCertificateSocketFactory.getDefaultCipherSuites()
+    /// ```
+  @available(*, deprecated)
+  @JavaMethod
+  open func getDefaultCipherSuites() -> [String]
+
+    /// Java method `getSupportedCipherSuites`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public java.lang.String[] android.net.SSLCertificateSocketFactory.getSupportedCipherSuites()
+    /// ```
+  @available(*, deprecated)
+  @JavaMethod
+  open func getSupportedCipherSuites() -> [String]
 
     /// Java method `setNpnProtocols`.
     ///
@@ -49,36 +69,6 @@ open class SSLCertificateSocketFactory: JavaObject {
   @available(*, deprecated)
   @JavaMethod
   open func setHostname(_ arg0: Socket?, _ arg1: String)
-
-    /// Java method `createSocket`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public java.net.Socket android.net.SSLCertificateSocketFactory.createSocket(java.net.InetAddress,int) throws java.io.IOException
-    /// ```
-  @available(*, deprecated)
-  @JavaMethod
-  open func createSocket(_ arg0: InetAddress?, _ arg1: Int32) throws -> Socket!
-
-    /// Java method `createSocket`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public java.net.Socket android.net.SSLCertificateSocketFactory.createSocket() throws java.io.IOException
-    /// ```
-  @available(*, deprecated)
-  @JavaMethod
-  open func createSocket() throws -> Socket!
-
-    /// Java method `createSocket`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public java.net.Socket android.net.SSLCertificateSocketFactory.createSocket(java.net.Socket,java.lang.String,int,boolean) throws java.io.IOException
-    /// ```
-  @available(*, deprecated)
-  @JavaMethod
-  open func createSocket(_ arg0: Socket?, _ arg1: String, _ arg2: Int32, _ arg3: Bool) throws -> Socket!
 
     /// Java method `createSocket`.
     ///
@@ -110,23 +100,33 @@ open class SSLCertificateSocketFactory: JavaObject {
   @JavaMethod
   open func createSocket(_ arg0: InetAddress?, _ arg1: Int32, _ arg2: InetAddress?, _ arg3: Int32) throws -> Socket!
 
-    /// Java method `getNpnSelectedProtocol`.
+    /// Java method `createSocket`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public byte[] android.net.SSLCertificateSocketFactory.getNpnSelectedProtocol(java.net.Socket)
+    /// public java.net.Socket android.net.SSLCertificateSocketFactory.createSocket() throws java.io.IOException
     /// ```
   @available(*, deprecated)
   @JavaMethod
-  open func getNpnSelectedProtocol(_ arg0: Socket?) -> [Int8]
+  open func createSocket() throws -> Socket!
 
-    /// Java method `getDefaultCipherSuites`.
+    /// Java method `createSocket`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public java.lang.String[] android.net.SSLCertificateSocketFactory.getDefaultCipherSuites()
+    /// public java.net.Socket android.net.SSLCertificateSocketFactory.createSocket(java.net.Socket,java.lang.String,int,boolean) throws java.io.IOException
     /// ```
   @available(*, deprecated)
   @JavaMethod
-  open func getDefaultCipherSuites() -> [String]
+  open func createSocket(_ arg0: Socket?, _ arg1: String, _ arg2: Int32, _ arg3: Bool) throws -> Socket!
+
+    /// Java method `createSocket`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public java.net.Socket android.net.SSLCertificateSocketFactory.createSocket(java.net.InetAddress,int) throws java.io.IOException
+    /// ```
+  @available(*, deprecated)
+  @JavaMethod
+  open func createSocket(_ arg0: InetAddress?, _ arg1: Int32) throws -> Socket!
 }

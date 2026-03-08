@@ -28,6 +28,16 @@ extension SipProfile {
   @JavaMethod
   open func setAutoRegistration(_ arg0: Bool) -> SipProfile.Builder!
 
+    /// Java method `setPassword`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.sip.SipProfile$Builder android.net.sip.SipProfile$Builder.setPassword(java.lang.String)
+    /// ```
+  @available(*, deprecated)
+  @JavaMethod
+  open func setPassword(_ arg0: String) -> SipProfile.Builder!
+
     /// Java method `setAuthUserName`.
     ///
     /// ### Java method signature
@@ -47,6 +57,16 @@ extension SipProfile {
   @available(*, deprecated)
   @JavaMethod
   open func setProfileName(_ arg0: String) -> SipProfile.Builder!
+
+    /// Java method `setPort`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.sip.SipProfile$Builder android.net.sip.SipProfile$Builder.setPort(int) throws java.lang.IllegalArgumentException
+    /// ```
+  @available(*, deprecated)
+  @JavaMethod
+  open func setPort(_ arg0: Int32) throws -> SipProfile.Builder!
 
     /// Java method `setProtocol`.
     ///
@@ -87,26 +107,6 @@ extension SipProfile {
   @available(*, deprecated)
   @JavaMethod
   open func setSendKeepAlive(_ arg0: Bool) -> SipProfile.Builder!
-
-    /// Java method `setPassword`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.sip.SipProfile$Builder android.net.sip.SipProfile$Builder.setPassword(java.lang.String)
-    /// ```
-  @available(*, deprecated)
-  @JavaMethod
-  open func setPassword(_ arg0: String) -> SipProfile.Builder!
-
-    /// Java method `setPort`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.sip.SipProfile$Builder android.net.sip.SipProfile$Builder.setPort(int) throws java.lang.IllegalArgumentException
-    /// ```
-  @available(*, deprecated)
-  @JavaMethod
-  open func setPort(_ arg0: Int32) throws -> SipProfile.Builder!
 
     /// Java method `build`.
     ///

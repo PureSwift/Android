@@ -5,15 +5,6 @@ import SwiftJavaJNICore
 
 @JavaClass("android.net.wifi.SoftApConfiguration", implements: Parcelable.self)
 open class SoftApConfiguration: JavaObject {
-  /// Java method `getPassphrase`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public java.lang.String android.net.wifi.SoftApConfiguration.getPassphrase()
-  /// ```
-@JavaMethod
-  open func getPassphrase() -> String
-
   /// Java method `describeContents`.
   ///
   /// ### Java method signature
@@ -31,6 +22,16 @@ open class SoftApConfiguration: JavaObject {
   /// ```
 @JavaMethod
   open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
+
+  /// Java method `getSsid`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public java.lang.String android.net.wifi.SoftApConfiguration.getSsid()
+  /// ```
+@available(*, deprecated)
+  @JavaMethod
+  open func getSsid() -> String
 
   /// Java method `getWifiSsid`.
   ///
@@ -50,6 +51,15 @@ open class SoftApConfiguration: JavaObject {
 @JavaMethod
   open func getBssid() -> MacAddress!
 
+  /// Java method `getPassphrase`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public java.lang.String android.net.wifi.SoftApConfiguration.getPassphrase()
+  /// ```
+@JavaMethod
+  open func getPassphrase() -> String
+
   /// Java method `isHiddenSsid`.
   ///
   /// ### Java method signature
@@ -58,16 +68,6 @@ open class SoftApConfiguration: JavaObject {
   /// ```
 @JavaMethod
   open func isHiddenSsid() -> Bool
-
-  /// Java method `getSsid`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public java.lang.String android.net.wifi.SoftApConfiguration.getSsid()
-  /// ```
-@available(*, deprecated)
-  @JavaMethod
-  open func getSsid() -> String
 
   /// Java method `getSecurityType`.
   ///

@@ -4,32 +4,14 @@ import SwiftJavaJNICore
 
 @JavaClass("android.net.Ikev2VpnProfile")
 open class Ikev2VpnProfile: PlatformVpnProfile {
-  /// Java method `isAutomaticNattKeepaliveTimerEnabled`.
+  /// Java method `getIkeTunnelConnectionParams`.
   ///
   /// ### Java method signature
   /// ```java
-  /// public boolean android.net.Ikev2VpnProfile.isAutomaticNattKeepaliveTimerEnabled()
+  /// public android.net.ipsec.ike.IkeTunnelConnectionParams android.net.Ikev2VpnProfile.getIkeTunnelConnectionParams()
   /// ```
 @JavaMethod
-  open func isAutomaticNattKeepaliveTimerEnabled() -> Bool
-
-  /// Java method `isAutomaticIpVersionSelectionEnabled`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.Ikev2VpnProfile.isAutomaticIpVersionSelectionEnabled()
-  /// ```
-@JavaMethod
-  open func isAutomaticIpVersionSelectionEnabled() -> Bool
-
-  /// Java method `getUsername`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public java.lang.String android.net.Ikev2VpnProfile.getUsername()
-  /// ```
-@JavaMethod
-  open func getUsername() -> String
+  open func getIkeTunnelConnectionParams() -> IkeTunnelConnectionParams!
 
   /// Java method `getPassword`.
   ///
@@ -39,6 +21,15 @@ open class Ikev2VpnProfile: PlatformVpnProfile {
   /// ```
 @JavaMethod
   open func getPassword() -> String
+
+  /// Java method `isMetered`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.Ikev2VpnProfile.isMetered()
+  /// ```
+@JavaMethod
+  open func isMetered() -> Bool
 
   /// Java method `getServerAddr`.
   ///
@@ -67,6 +58,15 @@ open class Ikev2VpnProfile: PlatformVpnProfile {
 @JavaMethod
   open func getPresharedKey() -> [Int8]
 
+  /// Java method `getUsername`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public java.lang.String android.net.Ikev2VpnProfile.getUsername()
+  /// ```
+@JavaMethod
+  open func getUsername() -> String
+
   /// Java method `getProxyInfo`.
   ///
   /// ### Java method signature
@@ -85,15 +85,6 @@ open class Ikev2VpnProfile: PlatformVpnProfile {
 @JavaMethod
   open func isBypassable() -> Bool
 
-  /// Java method `isMetered`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.Ikev2VpnProfile.isMetered()
-  /// ```
-@JavaMethod
-  open func isMetered() -> Bool
-
   /// Java method `getMaxMtu`.
   ///
   /// ### Java method signature
@@ -103,14 +94,23 @@ open class Ikev2VpnProfile: PlatformVpnProfile {
 @JavaMethod
   open func getMaxMtu() -> Int32
 
-  /// Java method `getIkeTunnelConnectionParams`.
+  /// Java method `isAutomaticNattKeepaliveTimerEnabled`.
   ///
   /// ### Java method signature
   /// ```java
-  /// public android.net.ipsec.ike.IkeTunnelConnectionParams android.net.Ikev2VpnProfile.getIkeTunnelConnectionParams()
+  /// public boolean android.net.Ikev2VpnProfile.isAutomaticNattKeepaliveTimerEnabled()
   /// ```
 @JavaMethod
-  open func getIkeTunnelConnectionParams() -> IkeTunnelConnectionParams!
+  open func isAutomaticNattKeepaliveTimerEnabled() -> Bool
+
+  /// Java method `isAutomaticIpVersionSelectionEnabled`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.Ikev2VpnProfile.isAutomaticIpVersionSelectionEnabled()
+  /// ```
+@JavaMethod
+  open func isAutomaticIpVersionSelectionEnabled() -> Bool
 
   /// Java method `equals`.
   ///

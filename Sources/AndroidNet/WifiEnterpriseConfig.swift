@@ -92,6 +92,24 @@ open class WifiEnterpriseConfig: JavaObject {
   @JavaMethod
   open func isServerCertValidationEnabled() -> Bool
 
+    /// Java method `setDecoratedIdentityPrefix`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.wifi.WifiEnterpriseConfig.setDecoratedIdentityPrefix(java.lang.String)
+    /// ```
+  @JavaMethod
+  open func setDecoratedIdentityPrefix(_ arg0: String)
+
+    /// Java method `getDecoratedIdentityPrefix`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public java.lang.String android.net.wifi.WifiEnterpriseConfig.getDecoratedIdentityPrefix()
+    /// ```
+  @JavaMethod
+  open func getDecoratedIdentityPrefix() -> String
+
     /// Java method `enableTrustOnFirstUse`.
     ///
     /// ### Java method signature
@@ -109,6 +127,51 @@ open class WifiEnterpriseConfig: JavaObject {
     /// ```
   @JavaMethod
   open func isTrustOnFirstUseEnabled() -> Bool
+
+    /// Java method `setMinimumTlsVersion`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.wifi.WifiEnterpriseConfig.setMinimumTlsVersion(int) throws java.lang.IllegalArgumentException
+    /// ```
+  @JavaMethod
+  open func setMinimumTlsVersion(_ arg0: Int32) throws
+
+    /// Java method `getMinimumTlsVersion`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public int android.net.wifi.WifiEnterpriseConfig.getMinimumTlsVersion()
+    /// ```
+  @JavaMethod
+  open func getMinimumTlsVersion() -> Int32
+
+    /// Java method `describeContents`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public int android.net.wifi.WifiEnterpriseConfig.describeContents()
+    /// ```
+  @JavaMethod
+  open func describeContents() -> Int32
+
+    /// Java method `writeToParcel`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.wifi.WifiEnterpriseConfig.writeToParcel(android.os.Parcel,int)
+    /// ```
+  @JavaMethod
+  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
+
+    /// Java method `getPassword`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public java.lang.String android.net.wifi.WifiEnterpriseConfig.getPassword()
+    /// ```
+  @JavaMethod
+  open func getPassword() -> String
 
     /// Java method `setEapMethod`.
     ///
@@ -164,6 +227,15 @@ open class WifiEnterpriseConfig: JavaObject {
   @JavaMethod
   open func getIdentity() -> String
 
+    /// Java method `setPassword`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.wifi.WifiEnterpriseConfig.setPassword(java.lang.String)
+    /// ```
+  @JavaMethod
+  open func setPassword(_ arg0: String)
+
     /// Java method `hasCaCertificate`.
     ///
     /// ### Java method signature
@@ -211,60 +283,6 @@ open class WifiEnterpriseConfig: JavaObject {
   @JavaMethod
   open func getAltSubjectMatch() -> String
 
-    /// Java method `setPlmn`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.net.wifi.WifiEnterpriseConfig.setPlmn(java.lang.String)
-    /// ```
-  @JavaMethod
-  open func setPlmn(_ arg0: String)
-
-    /// Java method `getPlmn`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public java.lang.String android.net.wifi.WifiEnterpriseConfig.getPlmn()
-    /// ```
-  @JavaMethod
-  open func getPlmn() -> String
-
-    /// Java method `describeContents`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.net.wifi.WifiEnterpriseConfig.describeContents()
-    /// ```
-  @JavaMethod
-  open func describeContents() -> Int32
-
-    /// Java method `writeToParcel`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.net.wifi.WifiEnterpriseConfig.writeToParcel(android.os.Parcel,int)
-    /// ```
-  @JavaMethod
-  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
-
-    /// Java method `setPassword`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.net.wifi.WifiEnterpriseConfig.setPassword(java.lang.String)
-    /// ```
-  @JavaMethod
-  open func setPassword(_ arg0: String)
-
-    /// Java method `getPassword`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public java.lang.String android.net.wifi.WifiEnterpriseConfig.getPassword()
-    /// ```
-  @JavaMethod
-  open func getPassword() -> String
-
     /// Java method `setRealm`.
     ///
     /// ### Java method signature
@@ -283,41 +301,23 @@ open class WifiEnterpriseConfig: JavaObject {
   @JavaMethod
   open func getRealm() -> String
 
-    /// Java method `setMinimumTlsVersion`.
+    /// Java method `setPlmn`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public void android.net.wifi.WifiEnterpriseConfig.setMinimumTlsVersion(int) throws java.lang.IllegalArgumentException
+    /// public void android.net.wifi.WifiEnterpriseConfig.setPlmn(java.lang.String)
     /// ```
   @JavaMethod
-  open func setMinimumTlsVersion(_ arg0: Int32) throws
+  open func setPlmn(_ arg0: String)
 
-    /// Java method `getMinimumTlsVersion`.
+    /// Java method `getPlmn`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public int android.net.wifi.WifiEnterpriseConfig.getMinimumTlsVersion()
+    /// public java.lang.String android.net.wifi.WifiEnterpriseConfig.getPlmn()
     /// ```
   @JavaMethod
-  open func getMinimumTlsVersion() -> Int32
-
-    /// Java method `setDecoratedIdentityPrefix`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.net.wifi.WifiEnterpriseConfig.setDecoratedIdentityPrefix(java.lang.String)
-    /// ```
-  @JavaMethod
-  open func setDecoratedIdentityPrefix(_ arg0: String)
-
-    /// Java method `getDecoratedIdentityPrefix`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public java.lang.String android.net.wifi.WifiEnterpriseConfig.getDecoratedIdentityPrefix()
-    /// ```
-  @JavaMethod
-  open func getDecoratedIdentityPrefix() -> String
+  open func getPlmn() -> String
 
     /// Java method `toString`.
     ///

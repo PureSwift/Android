@@ -9,14 +9,14 @@ extension ConnectivityDiagnosticsManager {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Network?, _ arg1: Int64, _ arg2: LinkProperties?, _ arg3: NetworkCapabilities?, _ arg4: PersistableBundle?, environment: JNIEnvironment? = nil)
 
-    /// Java method `getAdditionalInfo`.
+    /// Java method `getNetworkCapabilities`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public android.os.PersistableBundle android.net.ConnectivityDiagnosticsManager$ConnectivityReport.getAdditionalInfo()
+    /// public android.net.NetworkCapabilities android.net.ConnectivityDiagnosticsManager$ConnectivityReport.getNetworkCapabilities()
     /// ```
   @JavaMethod
-  open func getAdditionalInfo() -> PersistableBundle!
+  open func getNetworkCapabilities() -> NetworkCapabilities!
 
     /// Java method `describeContents`.
     ///
@@ -36,14 +36,14 @@ extension ConnectivityDiagnosticsManager {
   @JavaMethod
   open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
-    /// Java method `getNetwork`.
+    /// Java method `getReportTimestamp`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public android.net.Network android.net.ConnectivityDiagnosticsManager$ConnectivityReport.getNetwork()
+    /// public long android.net.ConnectivityDiagnosticsManager$ConnectivityReport.getReportTimestamp()
     /// ```
   @JavaMethod
-  open func getNetwork() -> Network!
+  open func getReportTimestamp() -> Int64
 
     /// Java method `getLinkProperties`.
     ///
@@ -54,23 +54,23 @@ extension ConnectivityDiagnosticsManager {
   @JavaMethod
   open func getLinkProperties() -> LinkProperties!
 
-    /// Java method `getNetworkCapabilities`.
+    /// Java method `getAdditionalInfo`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public android.net.NetworkCapabilities android.net.ConnectivityDiagnosticsManager$ConnectivityReport.getNetworkCapabilities()
+    /// public android.os.PersistableBundle android.net.ConnectivityDiagnosticsManager$ConnectivityReport.getAdditionalInfo()
     /// ```
   @JavaMethod
-  open func getNetworkCapabilities() -> NetworkCapabilities!
+  open func getAdditionalInfo() -> PersistableBundle!
 
-    /// Java method `getReportTimestamp`.
+    /// Java method `getNetwork`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public long android.net.ConnectivityDiagnosticsManager$ConnectivityReport.getReportTimestamp()
+    /// public android.net.Network android.net.ConnectivityDiagnosticsManager$ConnectivityReport.getNetwork()
     /// ```
   @JavaMethod
-  open func getReportTimestamp() -> Int64
+  open func getNetwork() -> Network!
 
     /// Java method `equals`.
     ///

@@ -5,14 +5,23 @@ import SwiftJavaJNICore
 
 @JavaClass("android.net.wifi.WifiNetworkSpecifier", implements: Parcelable.self)
 open class WifiNetworkSpecifier: NetworkSpecifier {
-  /// Java method `getBand`.
+  /// Java method `getPreferredChannelFrequenciesMhz`.
   ///
   /// ### Java method signature
   /// ```java
-  /// public int android.net.wifi.WifiNetworkSpecifier.getBand()
+  /// public int[] android.net.wifi.WifiNetworkSpecifier.getPreferredChannelFrequenciesMhz()
   /// ```
 @JavaMethod
-  open func getBand() -> Int32
+  open func getPreferredChannelFrequenciesMhz() -> [Int32]
+
+  /// Java method `canBeSatisfiedBy`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.wifi.WifiNetworkSpecifier.canBeSatisfiedBy(android.net.NetworkSpecifier)
+  /// ```
+@JavaMethod
+  open func canBeSatisfiedBy(_ arg0: NetworkSpecifier?) -> Bool
 
   /// Java method `describeContents`.
   ///
@@ -32,23 +41,14 @@ open class WifiNetworkSpecifier: NetworkSpecifier {
 @JavaMethod
   open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
-  /// Java method `canBeSatisfiedBy`.
+  /// Java method `getBand`.
   ///
   /// ### Java method signature
   /// ```java
-  /// public boolean android.net.wifi.WifiNetworkSpecifier.canBeSatisfiedBy(android.net.NetworkSpecifier)
+  /// public int android.net.wifi.WifiNetworkSpecifier.getBand()
   /// ```
 @JavaMethod
-  open func canBeSatisfiedBy(_ arg0: NetworkSpecifier?) -> Bool
-
-  /// Java method `getPreferredChannelFrequenciesMhz`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int[] android.net.wifi.WifiNetworkSpecifier.getPreferredChannelFrequenciesMhz()
-  /// ```
-@JavaMethod
-  open func getPreferredChannelFrequenciesMhz() -> [Int32]
+  open func getBand() -> Int32
 
   /// Java method `redact`.
   ///

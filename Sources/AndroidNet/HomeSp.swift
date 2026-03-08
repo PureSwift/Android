@@ -11,6 +11,24 @@ open class HomeSp: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: HomeSp?, environment: JNIEnvironment? = nil)
 
+    /// Java method `setRoamingConsortiumOis`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.wifi.hotspot2.pps.HomeSp.setRoamingConsortiumOis(long[])
+    /// ```
+  @JavaMethod
+  open func setRoamingConsortiumOis(_ arg0: [Int64])
+
+    /// Java method `getRoamingConsortiumOis`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public long[] android.net.wifi.hotspot2.pps.HomeSp.getRoamingConsortiumOis()
+    /// ```
+  @JavaMethod
+  open func getRoamingConsortiumOis() -> [Int64]
+
     /// Java method `describeContents`.
     ///
     /// ### Java method signature
@@ -100,24 +118,6 @@ open class HomeSp: JavaObject {
     /// ```
   @JavaMethod
   open func getMatchAnyOis() -> [Int64]
-
-    /// Java method `setRoamingConsortiumOis`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.net.wifi.hotspot2.pps.HomeSp.setRoamingConsortiumOis(long[])
-    /// ```
-  @JavaMethod
-  open func setRoamingConsortiumOis(_ arg0: [Int64])
-
-    /// Java method `getRoamingConsortiumOis`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public long[] android.net.wifi.hotspot2.pps.HomeSp.getRoamingConsortiumOis()
-    /// ```
-  @JavaMethod
-  open func getRoamingConsortiumOis() -> [Int64]
 
     /// Java method `equals`.
     ///

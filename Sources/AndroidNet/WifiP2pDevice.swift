@@ -27,51 +27,6 @@ open class WifiP2pDevice: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: WifiP2pDevice?, environment: JNIEnvironment? = nil)
 
-    /// Java method `isGroupOwner`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public boolean android.net.wifi.p2p.WifiP2pDevice.isGroupOwner()
-    /// ```
-  @JavaMethod
-  open func isGroupOwner() -> Bool
-
-    /// Java method `getWfdInfo`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.wifi.p2p.WifiP2pWfdInfo android.net.wifi.p2p.WifiP2pDevice.getWfdInfo()
-    /// ```
-  @JavaMethod
-  open func getWfdInfo() -> WifiP2pWfdInfo!
-
-    /// Java method `wpsPbcSupported`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public boolean android.net.wifi.p2p.WifiP2pDevice.wpsPbcSupported()
-    /// ```
-  @JavaMethod
-  open func wpsPbcSupported() -> Bool
-
-    /// Java method `wpsKeypadSupported`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public boolean android.net.wifi.p2p.WifiP2pDevice.wpsKeypadSupported()
-    /// ```
-  @JavaMethod
-  open func wpsKeypadSupported() -> Bool
-
-    /// Java method `getIpAddress`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public java.net.InetAddress android.net.wifi.p2p.WifiP2pDevice.getIpAddress()
-    /// ```
-  @JavaMethod
-  open func getIpAddress() -> InetAddress!
-
     /// Java method `wpsDisplaySupported`.
     ///
     /// ### Java method signature
@@ -107,6 +62,51 @@ open class WifiP2pDevice: JavaObject {
     /// ```
   @JavaMethod
   open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
+
+    /// Java method `isGroupOwner`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public boolean android.net.wifi.p2p.WifiP2pDevice.isGroupOwner()
+    /// ```
+  @JavaMethod
+  open func isGroupOwner() -> Bool
+
+    /// Java method `getIpAddress`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public java.net.InetAddress android.net.wifi.p2p.WifiP2pDevice.getIpAddress()
+    /// ```
+  @JavaMethod
+  open func getIpAddress() -> InetAddress!
+
+    /// Java method `getWfdInfo`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.wifi.p2p.WifiP2pWfdInfo android.net.wifi.p2p.WifiP2pDevice.getWfdInfo()
+    /// ```
+  @JavaMethod
+  open func getWfdInfo() -> WifiP2pWfdInfo!
+
+    /// Java method `wpsPbcSupported`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public boolean android.net.wifi.p2p.WifiP2pDevice.wpsPbcSupported()
+    /// ```
+  @JavaMethod
+  open func wpsPbcSupported() -> Bool
+
+    /// Java method `wpsKeypadSupported`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public boolean android.net.wifi.p2p.WifiP2pDevice.wpsKeypadSupported()
+    /// ```
+  @JavaMethod
+  open func wpsKeypadSupported() -> Bool
 
     /// Java method `equals`.
     ///

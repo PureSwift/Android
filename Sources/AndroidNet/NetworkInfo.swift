@@ -10,6 +10,16 @@ open class NetworkInfo: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Int32, _ arg1: Int32, _ arg2: String, _ arg3: String, environment: JNIEnvironment? = nil)
 
+    /// Java method `isConnectedOrConnecting`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public boolean android.net.NetworkInfo.isConnectedOrConnecting()
+    /// ```
+  @available(*, deprecated)
+  @JavaMethod
+  open func isConnectedOrConnecting() -> Bool
+
     /// Java method `describeContents`.
     ///
     /// ### Java method signature
@@ -99,16 +109,6 @@ open class NetworkInfo: JavaObject {
   @available(*, deprecated)
   @JavaMethod
   open func getExtraInfo() -> String
-
-    /// Java method `isConnectedOrConnecting`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public boolean android.net.NetworkInfo.isConnectedOrConnecting()
-    /// ```
-  @available(*, deprecated)
-  @JavaMethod
-  open func isConnectedOrConnecting() -> Bool
 
     /// Java method `toString`.
     ///

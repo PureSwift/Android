@@ -45,6 +45,87 @@ open class LinkProperties: JavaObject {
   @JavaMethod
   open func isWakeOnLanSupported() -> Bool
 
+    /// Java method `getInterfaceName`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public java.lang.String android.net.LinkProperties.getInterfaceName()
+    /// ```
+  @JavaMethod
+  open func getInterfaceName() -> String
+
+    /// Java method `describeContents`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public int android.net.LinkProperties.describeContents()
+    /// ```
+  @JavaMethod
+  open func describeContents() -> Int32
+
+    /// Java method `writeToParcel`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.LinkProperties.writeToParcel(android.os.Parcel,int)
+    /// ```
+  @JavaMethod
+  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
+
+    /// Java method `setDomains`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.LinkProperties.setDomains(java.lang.String)
+    /// ```
+  @JavaMethod
+  open func setDomains(_ arg0: String)
+
+    /// Java method `getHttpProxy`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.ProxyInfo android.net.LinkProperties.getHttpProxy()
+    /// ```
+  @JavaMethod
+  open func getHttpProxy() -> ProxyInfo!
+
+    /// Java method `setHttpProxy`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.LinkProperties.setHttpProxy(android.net.ProxyInfo)
+    /// ```
+  @JavaMethod
+  open func setHttpProxy(_ arg0: ProxyInfo?)
+
+    /// Java method `setMtu`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.LinkProperties.setMtu(int)
+    /// ```
+  @JavaMethod
+  open func setMtu(_ arg0: Int32)
+
+    /// Java method `addRoute`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public boolean android.net.LinkProperties.addRoute(android.net.RouteInfo)
+    /// ```
+  @JavaMethod
+  open func addRoute(_ arg0: RouteInfo?) -> Bool
+
+    /// Java method `getDomains`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public java.lang.String android.net.LinkProperties.getDomains()
+    /// ```
+  @JavaMethod
+  open func getDomains() -> String
+
     /// Java method `setInterfaceName`.
     ///
     /// ### Java method signature
@@ -89,87 +170,6 @@ open class LinkProperties: JavaObject {
     /// ```
   @JavaMethod
   open func setNat64Prefix(_ arg0: IpPrefix?)
-
-    /// Java method `setHttpProxy`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.net.LinkProperties.setHttpProxy(android.net.ProxyInfo)
-    /// ```
-  @JavaMethod
-  open func setHttpProxy(_ arg0: ProxyInfo?)
-
-    /// Java method `describeContents`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.net.LinkProperties.describeContents()
-    /// ```
-  @JavaMethod
-  open func describeContents() -> Int32
-
-    /// Java method `writeToParcel`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.net.LinkProperties.writeToParcel(android.os.Parcel,int)
-    /// ```
-  @JavaMethod
-  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
-
-    /// Java method `getInterfaceName`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public java.lang.String android.net.LinkProperties.getInterfaceName()
-    /// ```
-  @JavaMethod
-  open func getInterfaceName() -> String
-
-    /// Java method `getHttpProxy`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.ProxyInfo android.net.LinkProperties.getHttpProxy()
-    /// ```
-  @JavaMethod
-  open func getHttpProxy() -> ProxyInfo!
-
-    /// Java method `setMtu`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.net.LinkProperties.setMtu(int)
-    /// ```
-  @JavaMethod
-  open func setMtu(_ arg0: Int32)
-
-    /// Java method `addRoute`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public boolean android.net.LinkProperties.addRoute(android.net.RouteInfo)
-    /// ```
-  @JavaMethod
-  open func addRoute(_ arg0: RouteInfo?) -> Bool
-
-    /// Java method `setDomains`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.net.LinkProperties.setDomains(java.lang.String)
-    /// ```
-  @JavaMethod
-  open func setDomains(_ arg0: String)
-
-    /// Java method `getDomains`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public java.lang.String android.net.LinkProperties.getDomains()
-    /// ```
-  @JavaMethod
-  open func getDomains() -> String
 
     /// Java method `equals`.
     ///

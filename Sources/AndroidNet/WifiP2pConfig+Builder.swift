@@ -8,33 +8,6 @@ extension WifiP2pConfig {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
-    /// Java method `setDeviceAddress`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.wifi.p2p.WifiP2pConfig$Builder android.net.wifi.p2p.WifiP2pConfig$Builder.setDeviceAddress(android.net.MacAddress)
-    /// ```
-  @JavaMethod
-  open func setDeviceAddress(_ arg0: MacAddress?) -> WifiP2pConfig.Builder!
-
-    /// Java method `setNetworkName`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.wifi.p2p.WifiP2pConfig$Builder android.net.wifi.p2p.WifiP2pConfig$Builder.setNetworkName(java.lang.String)
-    /// ```
-  @JavaMethod
-  open func setNetworkName(_ arg0: String) -> WifiP2pConfig.Builder!
-
-    /// Java method `setPassphrase`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.wifi.p2p.WifiP2pConfig$Builder android.net.wifi.p2p.WifiP2pConfig$Builder.setPassphrase(java.lang.String)
-    /// ```
-  @JavaMethod
-  open func setPassphrase(_ arg0: String) -> WifiP2pConfig.Builder!
-
     /// Java method `setGroupOperatingBand`.
     ///
     /// ### Java method signature
@@ -70,6 +43,33 @@ extension WifiP2pConfig {
     /// ```
   @JavaMethod
   open func setGroupClientIpProvisioningMode(_ arg0: Int32) -> WifiP2pConfig.Builder!
+
+    /// Java method `setDeviceAddress`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.wifi.p2p.WifiP2pConfig$Builder android.net.wifi.p2p.WifiP2pConfig$Builder.setDeviceAddress(android.net.MacAddress)
+    /// ```
+  @JavaMethod
+  open func setDeviceAddress(_ arg0: MacAddress?) -> WifiP2pConfig.Builder!
+
+    /// Java method `setNetworkName`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.wifi.p2p.WifiP2pConfig$Builder android.net.wifi.p2p.WifiP2pConfig$Builder.setNetworkName(java.lang.String)
+    /// ```
+  @JavaMethod
+  open func setNetworkName(_ arg0: String) -> WifiP2pConfig.Builder!
+
+    /// Java method `setPassphrase`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.wifi.p2p.WifiP2pConfig$Builder android.net.wifi.p2p.WifiP2pConfig$Builder.setPassphrase(java.lang.String)
+    /// ```
+  @JavaMethod
+  open func setPassphrase(_ arg0: String) -> WifiP2pConfig.Builder!
 
     /// Java method `build`.
     ///

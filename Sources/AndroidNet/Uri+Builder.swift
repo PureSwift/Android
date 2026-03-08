@@ -8,6 +8,15 @@ extension Uri {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
+    /// Java method `appendQueryParameter`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.Uri$Builder android.net.Uri$Builder.appendQueryParameter(java.lang.String,java.lang.String)
+    /// ```
+  @JavaMethod
+  open func appendQueryParameter(_ arg0: String, _ arg1: String) -> Uri.Builder!
+
     /// Java method `encodedOpaquePart`.
     ///
     /// ### Java method signature
@@ -79,15 +88,6 @@ extension Uri {
     /// ```
   @JavaMethod
   open func clearQuery() -> Uri.Builder!
-
-    /// Java method `appendQueryParameter`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.Uri$Builder android.net.Uri$Builder.appendQueryParameter(java.lang.String,java.lang.String)
-    /// ```
-  @JavaMethod
-  open func appendQueryParameter(_ arg0: String, _ arg1: String) -> Uri.Builder!
 
     /// Java method `toString`.
     ///

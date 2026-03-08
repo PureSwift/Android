@@ -20,32 +20,14 @@ open class WifiP2pConfig: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
-    /// Java method `getNetworkName`.
+    /// Java method `getGroupClientIpProvisioningMode`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public java.lang.String android.net.wifi.p2p.WifiP2pConfig.getNetworkName()
+    /// public int android.net.wifi.p2p.WifiP2pConfig.getGroupClientIpProvisioningMode()
     /// ```
   @JavaMethod
-  open func getNetworkName() -> String
-
-    /// Java method `getPassphrase`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public java.lang.String android.net.wifi.p2p.WifiP2pConfig.getPassphrase()
-    /// ```
-  @JavaMethod
-  open func getPassphrase() -> String
-
-    /// Java method `getNetworkId`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.net.wifi.p2p.WifiP2pConfig.getNetworkId()
-    /// ```
-  @JavaMethod
-  open func getNetworkId() -> Int32
+  open func getGroupClientIpProvisioningMode() -> Int32
 
     /// Java method `describeContents`.
     ///
@@ -65,6 +47,33 @@ open class WifiP2pConfig: JavaObject {
   @JavaMethod
   open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
+    /// Java method `getPassphrase`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public java.lang.String android.net.wifi.p2p.WifiP2pConfig.getPassphrase()
+    /// ```
+  @JavaMethod
+  open func getPassphrase() -> String
+
+    /// Java method `getNetworkName`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public java.lang.String android.net.wifi.p2p.WifiP2pConfig.getNetworkName()
+    /// ```
+  @JavaMethod
+  open func getNetworkName() -> String
+
+    /// Java method `getNetworkId`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public int android.net.wifi.p2p.WifiP2pConfig.getNetworkId()
+    /// ```
+  @JavaMethod
+  open func getNetworkId() -> Int32
+
     /// Java method `getGroupOwnerBand`.
     ///
     /// ### Java method signature
@@ -73,15 +82,6 @@ open class WifiP2pConfig: JavaObject {
     /// ```
   @JavaMethod
   open func getGroupOwnerBand() -> Int32
-
-    /// Java method `getGroupClientIpProvisioningMode`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.net.wifi.p2p.WifiP2pConfig.getGroupClientIpProvisioningMode()
-    /// ```
-  @JavaMethod
-  open func getGroupClientIpProvisioningMode() -> Int32
 
     /// Java method `toString`.
     ///

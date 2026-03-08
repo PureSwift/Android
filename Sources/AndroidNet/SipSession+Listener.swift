@@ -10,6 +10,16 @@ extension SipSession {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
+    /// Java method `onRegistrationFailed`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.sip.SipSession$Listener.onRegistrationFailed(android.net.sip.SipSession,int,java.lang.String)
+    /// ```
+  @available(*, deprecated)
+  @JavaMethod
+  open func onRegistrationFailed(_ arg0: SipSession?, _ arg1: Int32, _ arg2: String)
+
     /// Java method `onRegistrationTimeout`.
     ///
     /// ### Java method signature
@@ -20,15 +30,15 @@ extension SipSession {
   @JavaMethod
   open func onRegistrationTimeout(_ arg0: SipSession?)
 
-    /// Java method `onCallChangeFailed`.
+    /// Java method `onError`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public void android.net.sip.SipSession$Listener.onCallChangeFailed(android.net.sip.SipSession,int,java.lang.String)
+    /// public void android.net.sip.SipSession$Listener.onError(android.net.sip.SipSession,int,java.lang.String)
     /// ```
   @available(*, deprecated)
   @JavaMethod
-  open func onCallChangeFailed(_ arg0: SipSession?, _ arg1: Int32, _ arg2: String)
+  open func onError(_ arg0: SipSession?, _ arg1: Int32, _ arg2: String)
 
     /// Java method `onRegistering`.
     ///
@@ -49,26 +59,6 @@ extension SipSession {
   @available(*, deprecated)
   @JavaMethod
   open func onRegistrationDone(_ arg0: SipSession?, _ arg1: Int32)
-
-    /// Java method `onError`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.net.sip.SipSession$Listener.onError(android.net.sip.SipSession,int,java.lang.String)
-    /// ```
-  @available(*, deprecated)
-  @JavaMethod
-  open func onError(_ arg0: SipSession?, _ arg1: Int32, _ arg2: String)
-
-    /// Java method `onRegistrationFailed`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.net.sip.SipSession$Listener.onRegistrationFailed(android.net.sip.SipSession,int,java.lang.String)
-    /// ```
-  @available(*, deprecated)
-  @JavaMethod
-  open func onRegistrationFailed(_ arg0: SipSession?, _ arg1: Int32, _ arg2: String)
 
     /// Java method `onCalling`.
     ///
@@ -129,5 +119,15 @@ extension SipSession {
   @available(*, deprecated)
   @JavaMethod
   open func onCallBusy(_ arg0: SipSession?)
+
+    /// Java method `onCallChangeFailed`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.sip.SipSession$Listener.onCallChangeFailed(android.net.sip.SipSession,int,java.lang.String)
+    /// ```
+  @available(*, deprecated)
+  @JavaMethod
+  open func onCallChangeFailed(_ arg0: SipSession?, _ arg1: Int32, _ arg2: String)
   }
 }

@@ -8,15 +8,6 @@ extension IpConfiguration {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
-    /// Java method `setHttpProxy`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.IpConfiguration$Builder android.net.IpConfiguration$Builder.setHttpProxy(android.net.ProxyInfo)
-    /// ```
-  @JavaMethod
-  open func setHttpProxy(_ arg0: ProxyInfo?) -> IpConfiguration.Builder!
-
     /// Java method `setStaticIpConfiguration`.
     ///
     /// ### Java method signature
@@ -25,6 +16,15 @@ extension IpConfiguration {
     /// ```
   @JavaMethod
   open func setStaticIpConfiguration(_ arg0: StaticIpConfiguration?) -> IpConfiguration.Builder!
+
+    /// Java method `setHttpProxy`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.IpConfiguration$Builder android.net.IpConfiguration$Builder.setHttpProxy(android.net.ProxyInfo)
+    /// ```
+  @JavaMethod
+  open func setHttpProxy(_ arg0: ProxyInfo?) -> IpConfiguration.Builder!
 
     /// Java method `build`.
     ///

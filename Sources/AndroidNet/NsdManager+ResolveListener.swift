@@ -5,24 +5,6 @@ import SwiftJavaJNICore
 extension NsdManager {
   @JavaInterface("android.net.nsd.NsdManager$ResolveListener")
   public struct ResolveListener {
-    /// Java method `onResolveFailed`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public abstract void android.net.nsd.NsdManager$ResolveListener.onResolveFailed(android.net.nsd.NsdServiceInfo,int)
-    /// ```
-  @JavaMethod
-  public func onResolveFailed(_ arg0: NsdServiceInfo?, _ arg1: Int32)
-
-    /// Java method `onServiceResolved`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public abstract void android.net.nsd.NsdManager$ResolveListener.onServiceResolved(android.net.nsd.NsdServiceInfo)
-    /// ```
-  @JavaMethod
-  public func onServiceResolved(_ arg0: NsdServiceInfo?)
-
     /// Java method `onResolutionStopped`.
     ///
     /// ### Java method signature
@@ -40,5 +22,23 @@ extension NsdManager {
     /// ```
   @JavaMethod
   public func onStopResolutionFailed(_ arg0: NsdServiceInfo?, _ arg1: Int32)
+
+    /// Java method `onResolveFailed`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public abstract void android.net.nsd.NsdManager$ResolveListener.onResolveFailed(android.net.nsd.NsdServiceInfo,int)
+    /// ```
+  @JavaMethod
+  public func onResolveFailed(_ arg0: NsdServiceInfo?, _ arg1: Int32)
+
+    /// Java method `onServiceResolved`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public abstract void android.net.nsd.NsdManager$ResolveListener.onServiceResolved(android.net.nsd.NsdServiceInfo)
+    /// ```
+  @JavaMethod
+  public func onServiceResolved(_ arg0: NsdServiceInfo?)
   }
 }

@@ -5,24 +5,6 @@ import SwiftJavaJNICore
 
 @JavaClass("android.net.wifi.aware.PublishConfig", implements: Parcelable.self)
 open class PublishConfig: JavaObject {
-  /// Java method `describeContents`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.net.wifi.aware.PublishConfig.describeContents()
-  /// ```
-@JavaMethod
-  open func describeContents() -> Int32
-
-  /// Java method `writeToParcel`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.wifi.aware.PublishConfig.writeToParcel(android.os.Parcel,int)
-  /// ```
-@JavaMethod
-  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
-
   /// Java method `isInstantCommunicationModeEnabled`.
   ///
   /// ### Java method signature
@@ -40,6 +22,24 @@ open class PublishConfig: JavaObject {
   /// ```
 @JavaMethod
   open func getInstantCommunicationBand() -> Int32
+
+  /// Java method `describeContents`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.net.wifi.aware.PublishConfig.describeContents()
+  /// ```
+@JavaMethod
+  open func describeContents() -> Int32
+
+  /// Java method `writeToParcel`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.wifi.aware.PublishConfig.writeToParcel(android.os.Parcel,int)
+  /// ```
+@JavaMethod
+  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
   /// Java method `getSecurityConfig`.
   ///

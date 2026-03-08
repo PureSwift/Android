@@ -11,6 +11,26 @@ open class SipAudioCall: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Context?, _ arg1: SipProfile?, environment: JNIEnvironment? = nil)
 
+    /// Java method `sendDtmf`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.sip.SipAudioCall.sendDtmf(int,android.os.Message)
+    /// ```
+  @available(*, deprecated)
+  @JavaMethod
+  open func sendDtmf(_ arg0: Int32, _ arg1: Message?)
+
+    /// Java method `sendDtmf`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.sip.SipAudioCall.sendDtmf(int)
+    /// ```
+  @available(*, deprecated)
+  @JavaMethod
+  open func sendDtmf(_ arg0: Int32)
+
     /// Java method `getLocalProfile`.
     ///
     /// ### Java method signature
@@ -45,21 +65,21 @@ open class SipAudioCall: JavaObject {
     ///
     /// ### Java method signature
     /// ```java
-    /// public void android.net.sip.SipAudioCall.setListener(android.net.sip.SipAudioCall$Listener,boolean)
-    /// ```
-  @available(*, deprecated)
-  @JavaMethod
-  open func setListener(_ arg0: SipAudioCall.Listener?, _ arg1: Bool)
-
-    /// Java method `setListener`.
-    ///
-    /// ### Java method signature
-    /// ```java
     /// public void android.net.sip.SipAudioCall.setListener(android.net.sip.SipAudioCall$Listener)
     /// ```
   @available(*, deprecated)
   @JavaMethod
   open func setListener(_ arg0: SipAudioCall.Listener?)
+
+    /// Java method `setListener`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.sip.SipAudioCall.setListener(android.net.sip.SipAudioCall$Listener,boolean)
+    /// ```
+  @available(*, deprecated)
+  @JavaMethod
+  open func setListener(_ arg0: SipAudioCall.Listener?, _ arg1: Bool)
 
     /// Java method `makeCall`.
     ///
@@ -160,26 +180,6 @@ open class SipAudioCall: JavaObject {
   @available(*, deprecated)
   @JavaMethod
   open func setSpeakerMode(_ arg0: Bool)
-
-    /// Java method `sendDtmf`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.net.sip.SipAudioCall.sendDtmf(int)
-    /// ```
-  @available(*, deprecated)
-  @JavaMethod
-  open func sendDtmf(_ arg0: Int32)
-
-    /// Java method `sendDtmf`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.net.sip.SipAudioCall.sendDtmf(int,android.os.Message)
-    /// ```
-  @available(*, deprecated)
-  @JavaMethod
-  open func sendDtmf(_ arg0: Int32, _ arg1: Message?)
 
     /// Java method `startAudio`.
     ///

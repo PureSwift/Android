@@ -9,33 +9,6 @@ extension WifiNetworkSuggestion {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
-    /// Java method `setSsid`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.wifi.WifiNetworkSuggestion$Builder android.net.wifi.WifiNetworkSuggestion$Builder.setSsid(java.lang.String)
-    /// ```
-  @JavaMethod
-  open func setSsid(_ arg0: String) -> WifiNetworkSuggestion.Builder!
-
-    /// Java method `setBssid`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.wifi.WifiNetworkSuggestion$Builder android.net.wifi.WifiNetworkSuggestion$Builder.setBssid(android.net.MacAddress)
-    /// ```
-  @JavaMethod
-  open func setBssid(_ arg0: MacAddress?) -> WifiNetworkSuggestion.Builder!
-
-    /// Java method `setSubscriptionId`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.wifi.WifiNetworkSuggestion$Builder android.net.wifi.WifiNetworkSuggestion$Builder.setSubscriptionId(int)
-    /// ```
-  @JavaMethod
-  open func setSubscriptionId(_ arg0: Int32) -> WifiNetworkSuggestion.Builder!
-
     /// Java method `setWpa2EnterpriseConfig`.
     ///
     /// ### Java method signature
@@ -64,60 +37,6 @@ extension WifiNetworkSuggestion {
   @JavaMethod
   open func setWpa3Enterprise192BitModeConfig(_ arg0: WifiEnterpriseConfig?) -> WifiNetworkSuggestion.Builder!
 
-    /// Java method `setWpa3EnterpriseStandardModeConfig`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.wifi.WifiNetworkSuggestion$Builder android.net.wifi.WifiNetworkSuggestion$Builder.setWpa3EnterpriseStandardModeConfig(android.net.wifi.WifiEnterpriseConfig)
-    /// ```
-  @JavaMethod
-  open func setWpa3EnterpriseStandardModeConfig(_ arg0: WifiEnterpriseConfig?) -> WifiNetworkSuggestion.Builder!
-
-    /// Java method `setIsEnhancedOpen`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.wifi.WifiNetworkSuggestion$Builder android.net.wifi.WifiNetworkSuggestion$Builder.setIsEnhancedOpen(boolean)
-    /// ```
-  @JavaMethod
-  open func setIsEnhancedOpen(_ arg0: Bool) -> WifiNetworkSuggestion.Builder!
-
-    /// Java method `setWpa2Passphrase`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.wifi.WifiNetworkSuggestion$Builder android.net.wifi.WifiNetworkSuggestion$Builder.setWpa2Passphrase(java.lang.String)
-    /// ```
-  @JavaMethod
-  open func setWpa2Passphrase(_ arg0: String) -> WifiNetworkSuggestion.Builder!
-
-    /// Java method `setWpa3Passphrase`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.wifi.WifiNetworkSuggestion$Builder android.net.wifi.WifiNetworkSuggestion$Builder.setWpa3Passphrase(java.lang.String)
-    /// ```
-  @JavaMethod
-  open func setWpa3Passphrase(_ arg0: String) -> WifiNetworkSuggestion.Builder!
-
-    /// Java method `setIsHiddenSsid`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.wifi.WifiNetworkSuggestion$Builder android.net.wifi.WifiNetworkSuggestion$Builder.setIsHiddenSsid(boolean)
-    /// ```
-  @JavaMethod
-  open func setIsHiddenSsid(_ arg0: Bool) -> WifiNetworkSuggestion.Builder!
-
-    /// Java method `setMacRandomizationSetting`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.wifi.WifiNetworkSuggestion$Builder android.net.wifi.WifiNetworkSuggestion$Builder.setMacRandomizationSetting(int)
-    /// ```
-  @JavaMethod
-  open func setMacRandomizationSetting(_ arg0: Int32) -> WifiNetworkSuggestion.Builder!
-
     /// Java method `setSubscriptionGroup`.
     ///
     /// ### Java method signature
@@ -135,6 +54,15 @@ extension WifiNetworkSuggestion {
     /// ```
   @JavaMethod
   open func setWapiEnterpriseConfig(_ arg0: WifiEnterpriseConfig?) -> WifiNetworkSuggestion.Builder!
+
+    /// Java method `setMacRandomizationSetting`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.wifi.WifiNetworkSuggestion$Builder android.net.wifi.WifiNetworkSuggestion$Builder.setMacRandomizationSetting(int)
+    /// ```
+  @JavaMethod
+  open func setMacRandomizationSetting(_ arg0: Int32) -> WifiNetworkSuggestion.Builder!
 
     /// Java method `setIsAppInteractionRequired`.
     ///
@@ -181,6 +109,15 @@ extension WifiNetworkSuggestion {
   @JavaMethod
   open func setIsWpa3SaeH2eOnlyModeEnabled(_ arg0: Bool) -> WifiNetworkSuggestion.Builder!
 
+    /// Java method `setSsid`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.wifi.WifiNetworkSuggestion$Builder android.net.wifi.WifiNetworkSuggestion$Builder.setSsid(java.lang.String)
+    /// ```
+  @JavaMethod
+  open func setSsid(_ arg0: String) -> WifiNetworkSuggestion.Builder!
+
     /// Java method `setWifiSsid`.
     ///
     /// ### Java method signature
@@ -190,6 +127,42 @@ extension WifiNetworkSuggestion {
   @JavaMethod
   open func setWifiSsid(_ arg0: WifiSsid?) -> WifiNetworkSuggestion.Builder!
 
+    /// Java method `setBssid`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.wifi.WifiNetworkSuggestion$Builder android.net.wifi.WifiNetworkSuggestion$Builder.setBssid(android.net.MacAddress)
+    /// ```
+  @JavaMethod
+  open func setBssid(_ arg0: MacAddress?) -> WifiNetworkSuggestion.Builder!
+
+    /// Java method `setIsEnhancedOpen`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.wifi.WifiNetworkSuggestion$Builder android.net.wifi.WifiNetworkSuggestion$Builder.setIsEnhancedOpen(boolean)
+    /// ```
+  @JavaMethod
+  open func setIsEnhancedOpen(_ arg0: Bool) -> WifiNetworkSuggestion.Builder!
+
+    /// Java method `setWpa2Passphrase`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.wifi.WifiNetworkSuggestion$Builder android.net.wifi.WifiNetworkSuggestion$Builder.setWpa2Passphrase(java.lang.String)
+    /// ```
+  @JavaMethod
+  open func setWpa2Passphrase(_ arg0: String) -> WifiNetworkSuggestion.Builder!
+
+    /// Java method `setWpa3Passphrase`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.wifi.WifiNetworkSuggestion$Builder android.net.wifi.WifiNetworkSuggestion$Builder.setWpa3Passphrase(java.lang.String)
+    /// ```
+  @JavaMethod
+  open func setWpa3Passphrase(_ arg0: String) -> WifiNetworkSuggestion.Builder!
+
     /// Java method `setPasspointConfig`.
     ///
     /// ### Java method signature
@@ -198,6 +171,15 @@ extension WifiNetworkSuggestion {
     /// ```
   @JavaMethod
   open func setPasspointConfig(_ arg0: PasspointConfiguration?) -> WifiNetworkSuggestion.Builder!
+
+    /// Java method `setSubscriptionId`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.wifi.WifiNetworkSuggestion$Builder android.net.wifi.WifiNetworkSuggestion$Builder.setSubscriptionId(int)
+    /// ```
+  @JavaMethod
+  open func setSubscriptionId(_ arg0: Int32) -> WifiNetworkSuggestion.Builder!
 
     /// Java method `setPriorityGroup`.
     ///
@@ -216,6 +198,15 @@ extension WifiNetworkSuggestion {
     /// ```
   @JavaMethod
   open func setWapiPassphrase(_ arg0: String) -> WifiNetworkSuggestion.Builder!
+
+    /// Java method `setIsHiddenSsid`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.wifi.WifiNetworkSuggestion$Builder android.net.wifi.WifiNetworkSuggestion$Builder.setIsHiddenSsid(boolean)
+    /// ```
+  @JavaMethod
+  open func setIsHiddenSsid(_ arg0: Bool) -> WifiNetworkSuggestion.Builder!
 
     /// Java method `setIsMetered`.
     ///
@@ -261,6 +252,15 @@ extension WifiNetworkSuggestion {
     /// ```
   @JavaMethod
   open func setCarrierMerged(_ arg0: Bool) -> WifiNetworkSuggestion.Builder!
+
+    /// Java method `setWpa3EnterpriseStandardModeConfig`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.wifi.WifiNetworkSuggestion$Builder android.net.wifi.WifiNetworkSuggestion$Builder.setWpa3EnterpriseStandardModeConfig(android.net.wifi.WifiEnterpriseConfig)
+    /// ```
+  @JavaMethod
+  open func setWpa3EnterpriseStandardModeConfig(_ arg0: WifiEnterpriseConfig?) -> WifiNetworkSuggestion.Builder!
 
     /// Java method `setPriority`.
     ///

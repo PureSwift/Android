@@ -5,6 +5,15 @@ import SwiftJavaJNICore
 
 @JavaClass("android.net.vcn.VcnManager")
 open class VcnManager: JavaObject {
+  /// Java method `unregisterVcnStatusCallback`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.vcn.VcnManager.unregisterVcnStatusCallback(android.net.vcn.VcnManager$VcnStatusCallback)
+  /// ```
+@JavaMethod
+  open func unregisterVcnStatusCallback(_ arg0: VcnManager.VcnStatusCallback?)
+
   /// Java method `setVcnConfig`.
   ///
   /// ### Java method signature
@@ -22,15 +31,6 @@ open class VcnManager: JavaObject {
   /// ```
 @JavaMethod
   open func clearVcnConfig(_ arg0: ParcelUuid?) throws
-
-  /// Java method `unregisterVcnStatusCallback`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.vcn.VcnManager.unregisterVcnStatusCallback(android.net.vcn.VcnManager$VcnStatusCallback)
-  /// ```
-@JavaMethod
-  open func unregisterVcnStatusCallback(_ arg0: VcnManager.VcnStatusCallback?)
 }
 extension JavaClass<VcnManager> {
   @JavaStaticField(isFinal: true)

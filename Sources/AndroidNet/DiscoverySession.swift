@@ -4,15 +4,6 @@ import SwiftJavaJNICore
 
 @JavaClass("android.net.wifi.aware.DiscoverySession")
 open class DiscoverySession: JavaObject {
-  /// Java method `sendMessage`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.wifi.aware.DiscoverySession.sendMessage(android.net.wifi.aware.PeerHandle,int,byte[])
-  /// ```
-@JavaMethod
-  open func sendMessage(_ arg0: PeerHandle?, _ arg1: Int32, _ arg2: [Int8])
-
   /// Java method `initiatePairingRequest`.
   ///
   /// ### Java method signature
@@ -68,6 +59,15 @@ open class DiscoverySession: JavaObject {
 @available(*, deprecated)
   @JavaMethod
   open func createNetworkSpecifierPassphrase(_ arg0: PeerHandle?, _ arg1: String) -> NetworkSpecifier!
+
+  /// Java method `sendMessage`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.wifi.aware.DiscoverySession.sendMessage(android.net.wifi.aware.PeerHandle,int,byte[])
+  /// ```
+@JavaMethod
+  open func sendMessage(_ arg0: PeerHandle?, _ arg1: Int32, _ arg2: [Int8])
 
   /// Java method `finalize`.
   ///

@@ -5,15 +5,6 @@ import SwiftJavaJNICore
 extension EapSessionConfig {
   @JavaClass("android.net.eap.EapSessionConfig$EapMsChapV2Config")
   open class EapMsChapV2Config: EapSessionConfig.EapMethodConfig {
-    /// Java method `getUsername`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public java.lang.String android.net.eap.EapSessionConfig$EapMsChapV2Config.getUsername()
-    /// ```
-  @JavaMethod
-  open func getUsername() -> String
-
     /// Java method `getPassword`.
     ///
     /// ### Java method signature
@@ -22,6 +13,15 @@ extension EapSessionConfig {
     /// ```
   @JavaMethod
   open func getPassword() -> String
+
+    /// Java method `getUsername`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public java.lang.String android.net.eap.EapSessionConfig$EapMsChapV2Config.getUsername()
+    /// ```
+  @JavaMethod
+  open func getUsername() -> String
 
     /// Java method `equals`.
     ///

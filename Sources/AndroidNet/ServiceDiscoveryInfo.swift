@@ -4,6 +4,15 @@ import SwiftJavaJNICore
 
 @JavaClass("android.net.wifi.aware.ServiceDiscoveryInfo")
 open class ServiceDiscoveryInfo: JavaObject {
+  /// Java method `getServiceSpecificInfo`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public byte[] android.net.wifi.aware.ServiceDiscoveryInfo.getServiceSpecificInfo()
+  /// ```
+@JavaMethod
+  open func getServiceSpecificInfo() -> [Int8]
+
   /// Java method `getPeerHandle`.
   ///
   /// ### Java method signature
@@ -39,13 +48,4 @@ open class ServiceDiscoveryInfo: JavaObject {
   /// ```
 @JavaMethod
   open func getPairedAlias() -> String
-
-  /// Java method `getServiceSpecificInfo`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public byte[] android.net.wifi.aware.ServiceDiscoveryInfo.getServiceSpecificInfo()
-  /// ```
-@JavaMethod
-  open func getServiceSpecificInfo() -> [Int8]
 }

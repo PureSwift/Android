@@ -8,15 +8,6 @@ open class InetAddresses: JavaObject {
 
 }
 extension JavaClass<InetAddresses> {
-  /// Java method `isNumericAddress`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public static boolean android.net.InetAddresses.isNumericAddress(java.lang.String)
-  /// ```
-@JavaStaticMethod
-  public func isNumericAddress(_ arg0: String) -> Bool
-
   /// Java method `parseNumericAddress`.
   ///
   /// ### Java method signature
@@ -25,4 +16,13 @@ extension JavaClass<InetAddresses> {
   /// ```
 @JavaStaticMethod
   public func parseNumericAddress(_ arg0: String) -> InetAddress!
+
+  /// Java method `isNumericAddress`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public static boolean android.net.InetAddresses.isNumericAddress(java.lang.String)
+  /// ```
+@JavaStaticMethod
+  public func isNumericAddress(_ arg0: String) -> Bool
 }

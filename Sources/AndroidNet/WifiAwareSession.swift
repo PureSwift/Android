@@ -5,15 +5,6 @@ import SwiftJavaJNICore
 
 @JavaClass("android.net.wifi.aware.WifiAwareSession")
 open class WifiAwareSession: JavaObject {
-  /// Java method `subscribe`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.wifi.aware.WifiAwareSession.subscribe(android.net.wifi.aware.SubscribeConfig,android.net.wifi.aware.DiscoverySessionCallback,android.os.Handler)
-  /// ```
-@JavaMethod
-  open func subscribe(_ arg0: SubscribeConfig?, _ arg1: DiscoverySessionCallback?, _ arg2: Handler?)
-
   /// Java method `createNetworkSpecifierOpen`.
   ///
   /// ### Java method signature
@@ -33,6 +24,15 @@ open class WifiAwareSession: JavaObject {
 @available(*, deprecated)
   @JavaMethod
   open func createNetworkSpecifierPassphrase(_ arg0: Int32, _ arg1: [Int8], _ arg2: String) -> NetworkSpecifier!
+
+  /// Java method `subscribe`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.wifi.aware.WifiAwareSession.subscribe(android.net.wifi.aware.SubscribeConfig,android.net.wifi.aware.DiscoverySessionCallback,android.os.Handler)
+  /// ```
+@JavaMethod
+  open func subscribe(_ arg0: SubscribeConfig?, _ arg1: DiscoverySessionCallback?, _ arg2: Handler?)
 
   /// Java method `finalize`.
   ///

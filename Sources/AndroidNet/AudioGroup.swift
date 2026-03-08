@@ -14,16 +14,6 @@ open class AudioGroup: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Context?, environment: JNIEnvironment? = nil)
 
-    /// Java method `sendDtmf`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.net.rtp.AudioGroup.sendDtmf(int)
-    /// ```
-  @available(*, deprecated)
-  @JavaMethod
-  open func sendDtmf(_ arg0: Int32)
-
     /// Java method `getStreams`.
     ///
     /// ### Java method signature
@@ -53,6 +43,16 @@ open class AudioGroup: JavaObject {
   @available(*, deprecated)
   @JavaMethod
   open func setMode(_ arg0: Int32)
+
+    /// Java method `sendDtmf`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.rtp.AudioGroup.sendDtmf(int)
+    /// ```
+  @available(*, deprecated)
+  @JavaMethod
+  open func sendDtmf(_ arg0: Int32)
 
     /// Java method `finalize`.
     ///

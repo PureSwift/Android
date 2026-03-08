@@ -5,15 +5,6 @@ import SwiftJavaJNICore
 extension EapSessionConfig {
   @JavaClass("android.net.eap.EapSessionConfig$EapAkaPrimeConfig")
   open class EapAkaPrimeConfig: EapSessionConfig.EapAkaConfig {
-    /// Java method `getNetworkName`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public java.lang.String android.net.eap.EapSessionConfig$EapAkaPrimeConfig.getNetworkName()
-    /// ```
-  @JavaMethod
-  open func getNetworkName() -> String
-
     /// Java method `allowsMismatchedNetworkNames`.
     ///
     /// ### Java method signature
@@ -22,6 +13,15 @@ extension EapSessionConfig {
     /// ```
   @JavaMethod
   open func allowsMismatchedNetworkNames() -> Bool
+
+    /// Java method `getNetworkName`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public java.lang.String android.net.eap.EapSessionConfig$EapAkaPrimeConfig.getNetworkName()
+    /// ```
+  @JavaMethod
+  open func getNetworkName() -> String
 
     /// Java method `equals`.
     ///

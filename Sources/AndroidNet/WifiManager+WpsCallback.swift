@@ -20,16 +20,6 @@ extension WifiManager {
   @JavaMethod
   open func onStarted(_ arg0: String)
 
-    /// Java method `onSucceeded`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public abstract void android.net.wifi.WifiManager$WpsCallback.onSucceeded()
-    /// ```
-  @available(*, deprecated)
-  @JavaMethod
-  open func onSucceeded()
-
     /// Java method `onFailed`.
     ///
     /// ### Java method signature
@@ -39,5 +29,15 @@ extension WifiManager {
   @available(*, deprecated)
   @JavaMethod
   open func onFailed(_ arg0: Int32)
+
+    /// Java method `onSucceeded`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public abstract void android.net.wifi.WifiManager$WpsCallback.onSucceeded()
+    /// ```
+  @available(*, deprecated)
+  @JavaMethod
+  open func onSucceeded()
   }
 }

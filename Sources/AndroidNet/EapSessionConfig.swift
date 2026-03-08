@@ -4,6 +4,24 @@ import SwiftJavaJNICore
 
 @JavaClass("android.net.eap.EapSessionConfig")
 open class EapSessionConfig: JavaObject {
+  /// Java method `getEapAkaPrimeConfig`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public android.net.eap.EapSessionConfig$EapAkaPrimeConfig android.net.eap.EapSessionConfig.getEapAkaPrimeConfig()
+  /// ```
+@JavaMethod
+  open func getEapAkaPrimeConfig() -> EapSessionConfig.EapAkaPrimeConfig!
+
+  /// Java method `getEapMsChapV2Config`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public android.net.eap.EapSessionConfig$EapMsChapV2Config android.net.eap.EapSessionConfig.getEapMsChapV2Config()
+  /// ```
+@JavaMethod
+  open func getEapMsChapV2Config() -> EapSessionConfig.EapMsChapV2Config!
+
   /// Java method `getEapIdentity`.
   ///
   /// ### Java method signature
@@ -39,24 +57,6 @@ open class EapSessionConfig: JavaObject {
   /// ```
 @JavaMethod
   open func getEapTtlsConfig() -> EapSessionConfig.EapTtlsConfig!
-
-  /// Java method `getEapAkaPrimeConfig`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.net.eap.EapSessionConfig$EapAkaPrimeConfig android.net.eap.EapSessionConfig.getEapAkaPrimeConfig()
-  /// ```
-@JavaMethod
-  open func getEapAkaPrimeConfig() -> EapSessionConfig.EapAkaPrimeConfig!
-
-  /// Java method `getEapMsChapV2Config`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.net.eap.EapSessionConfig$EapMsChapV2Config android.net.eap.EapSessionConfig.getEapMsChapV2Config()
-  /// ```
-@JavaMethod
-  open func getEapMsChapV2Config() -> EapSessionConfig.EapMsChapV2Config!
 
   /// Java method `equals`.
   ///

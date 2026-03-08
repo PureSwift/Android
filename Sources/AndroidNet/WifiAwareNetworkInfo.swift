@@ -6,6 +6,15 @@ import SwiftJavaJNICore
 
 @JavaClass("android.net.wifi.aware.WifiAwareNetworkInfo", implements: TransportInfo.self, Parcelable.self)
 open class WifiAwareNetworkInfo: JavaObject {
+  /// Java method `getTransportProtocol`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.net.wifi.aware.WifiAwareNetworkInfo.getTransportProtocol()
+  /// ```
+@JavaMethod
+  open func getTransportProtocol() -> Int32
+
   /// Java method `describeContents`.
   ///
   /// ### Java method signature
@@ -23,15 +32,6 @@ open class WifiAwareNetworkInfo: JavaObject {
   /// ```
 @JavaMethod
   open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
-
-  /// Java method `getTransportProtocol`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.net.wifi.aware.WifiAwareNetworkInfo.getTransportProtocol()
-  /// ```
-@JavaMethod
-  open func getTransportProtocol() -> Int32
 
   /// Java method `getPeerIpv6Addr`.
   ///

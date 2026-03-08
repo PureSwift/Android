@@ -8,6 +8,24 @@ extension ResponderConfig {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
+    /// Java method `set80211mcSupported`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.wifi.rtt.ResponderConfig$Builder android.net.wifi.rtt.ResponderConfig$Builder.set80211mcSupported(boolean)
+    /// ```
+  @JavaMethod
+  open func set80211mcSupported(_ arg0: Bool) -> ResponderConfig.Builder!
+
+    /// Java method `set80211azNtbSupported`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.wifi.rtt.ResponderConfig$Builder android.net.wifi.rtt.ResponderConfig$Builder.set80211azNtbSupported(boolean)
+    /// ```
+  @JavaMethod
+  open func set80211azNtbSupported(_ arg0: Bool) -> ResponderConfig.Builder!
+
     /// Java method `setMacAddress`.
     ///
     /// ### Java method signature
@@ -70,24 +88,6 @@ extension ResponderConfig {
     /// ```
   @JavaMethod
   open func setResponderType(_ arg0: Int32) -> ResponderConfig.Builder!
-
-    /// Java method `set80211mcSupported`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.wifi.rtt.ResponderConfig$Builder android.net.wifi.rtt.ResponderConfig$Builder.set80211mcSupported(boolean)
-    /// ```
-  @JavaMethod
-  open func set80211mcSupported(_ arg0: Bool) -> ResponderConfig.Builder!
-
-    /// Java method `set80211azNtbSupported`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.wifi.rtt.ResponderConfig$Builder android.net.wifi.rtt.ResponderConfig$Builder.set80211azNtbSupported(boolean)
-    /// ```
-  @JavaMethod
-  open func set80211azNtbSupported(_ arg0: Bool) -> ResponderConfig.Builder!
 
     /// Java method `build`.
     ///

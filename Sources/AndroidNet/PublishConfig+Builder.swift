@@ -8,42 +8,6 @@ extension PublishConfig {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
-    /// Java method `setPublishType`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.wifi.aware.PublishConfig$Builder android.net.wifi.aware.PublishConfig$Builder.setPublishType(int)
-    /// ```
-  @JavaMethod
-  open func setPublishType(_ arg0: Int32) -> PublishConfig.Builder!
-
-    /// Java method `setRangingEnabled`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.wifi.aware.PublishConfig$Builder android.net.wifi.aware.PublishConfig$Builder.setRangingEnabled(boolean)
-    /// ```
-  @JavaMethod
-  open func setRangingEnabled(_ arg0: Bool) -> PublishConfig.Builder!
-
-    /// Java method `setServiceName`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.wifi.aware.PublishConfig$Builder android.net.wifi.aware.PublishConfig$Builder.setServiceName(java.lang.String)
-    /// ```
-  @JavaMethod
-  open func setServiceName(_ arg0: String) -> PublishConfig.Builder!
-
-    /// Java method `setDataPathSecurityConfig`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.wifi.aware.PublishConfig$Builder android.net.wifi.aware.PublishConfig$Builder.setDataPathSecurityConfig(android.net.wifi.aware.WifiAwareDataPathSecurityConfig)
-    /// ```
-  @JavaMethod
-  open func setDataPathSecurityConfig(_ arg0: WifiAwareDataPathSecurityConfig?) -> PublishConfig.Builder!
-
     /// Java method `setServiceSpecificInfo`.
     ///
     /// ### Java method signature
@@ -71,6 +35,33 @@ extension PublishConfig {
   @JavaMethod
   open func setInstantCommunicationModeEnabled(_ arg0: Bool, _ arg1: Int32) -> PublishConfig.Builder!
 
+    /// Java method `setDataPathSecurityConfig`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.wifi.aware.PublishConfig$Builder android.net.wifi.aware.PublishConfig$Builder.setDataPathSecurityConfig(android.net.wifi.aware.WifiAwareDataPathSecurityConfig)
+    /// ```
+  @JavaMethod
+  open func setDataPathSecurityConfig(_ arg0: WifiAwareDataPathSecurityConfig?) -> PublishConfig.Builder!
+
+    /// Java method `setServiceName`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.wifi.aware.PublishConfig$Builder android.net.wifi.aware.PublishConfig$Builder.setServiceName(java.lang.String)
+    /// ```
+  @JavaMethod
+  open func setServiceName(_ arg0: String) -> PublishConfig.Builder!
+
+    /// Java method `setPublishType`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.wifi.aware.PublishConfig$Builder android.net.wifi.aware.PublishConfig$Builder.setPublishType(int)
+    /// ```
+  @JavaMethod
+  open func setPublishType(_ arg0: Int32) -> PublishConfig.Builder!
+
     /// Java method `setTtlSec`.
     ///
     /// ### Java method signature
@@ -79,6 +70,15 @@ extension PublishConfig {
     /// ```
   @JavaMethod
   open func setTtlSec(_ arg0: Int32) -> PublishConfig.Builder!
+
+    /// Java method `setRangingEnabled`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.wifi.aware.PublishConfig$Builder android.net.wifi.aware.PublishConfig$Builder.setRangingEnabled(boolean)
+    /// ```
+  @JavaMethod
+  open func setRangingEnabled(_ arg0: Bool) -> PublishConfig.Builder!
 
     /// Java method `build`.
     ///

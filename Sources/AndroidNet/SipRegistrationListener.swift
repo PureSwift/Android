@@ -5,6 +5,16 @@ import SwiftJavaJNICore
 @available(*, deprecated)
 @JavaInterface("android.net.sip.SipRegistrationListener")
 public struct SipRegistrationListener {
+  /// Java method `onRegistrationFailed`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public abstract void android.net.sip.SipRegistrationListener.onRegistrationFailed(java.lang.String,int,java.lang.String)
+  /// ```
+@available(*, deprecated)
+  @JavaMethod
+  public func onRegistrationFailed(_ arg0: String, _ arg1: Int32, _ arg2: String)
+
   /// Java method `onRegistering`.
   ///
   /// ### Java method signature
@@ -24,14 +34,4 @@ public struct SipRegistrationListener {
 @available(*, deprecated)
   @JavaMethod
   public func onRegistrationDone(_ arg0: String, _ arg1: Int64)
-
-  /// Java method `onRegistrationFailed`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public abstract void android.net.sip.SipRegistrationListener.onRegistrationFailed(java.lang.String,int,java.lang.String)
-  /// ```
-@available(*, deprecated)
-  @JavaMethod
-  public func onRegistrationFailed(_ arg0: String, _ arg1: Int32, _ arg2: String)
 }

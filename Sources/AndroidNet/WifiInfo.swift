@@ -5,115 +5,6 @@ import SwiftJavaJNICore
 
 @JavaClass("android.net.wifi.WifiInfo", implements: TransportInfo.self, Parcelable.self)
 open class WifiInfo: JavaObject {
-  /// Java method `getNetworkId`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.net.wifi.WifiInfo.getNetworkId()
-  /// ```
-@JavaMethod
-  open func getNetworkId() -> Int32
-
-  /// Java method `getFrequency`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.net.wifi.WifiInfo.getFrequency()
-  /// ```
-@JavaMethod
-  open func getFrequency() -> Int32
-
-  /// Java method `getRxLinkSpeedMbps`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.net.wifi.WifiInfo.getRxLinkSpeedMbps()
-  /// ```
-@JavaMethod
-  open func getRxLinkSpeedMbps() -> Int32
-
-  /// Java method `getTxLinkSpeedMbps`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.net.wifi.WifiInfo.getTxLinkSpeedMbps()
-  /// ```
-@JavaMethod
-  open func getTxLinkSpeedMbps() -> Int32
-
-  /// Java method `getIpAddress`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.net.wifi.WifiInfo.getIpAddress()
-  /// ```
-@available(*, deprecated)
-  @JavaMethod
-  open func getIpAddress() -> Int32
-
-  /// Java method `describeContents`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.net.wifi.WifiInfo.describeContents()
-  /// ```
-@JavaMethod
-  open func describeContents() -> Int32
-
-  /// Java method `writeToParcel`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.wifi.WifiInfo.writeToParcel(android.os.Parcel,int)
-  /// ```
-@JavaMethod
-  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
-
-  /// Java method `getMacAddress`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public java.lang.String android.net.wifi.WifiInfo.getMacAddress()
-  /// ```
-@JavaMethod
-  open func getMacAddress() -> String
-
-  /// Java method `getRssi`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.net.wifi.WifiInfo.getRssi()
-  /// ```
-@JavaMethod
-  open func getRssi() -> Int32
-
-  /// Java method `getApMldMacAddress`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.net.MacAddress android.net.wifi.WifiInfo.getApMldMacAddress()
-  /// ```
-@JavaMethod
-  open func getApMldMacAddress() -> MacAddress!
-
-  /// Java method `getApMloLinkId`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.net.wifi.WifiInfo.getApMloLinkId()
-  /// ```
-@JavaMethod
-  open func getApMloLinkId() -> Int32
-
-  /// Java method `getWifiStandard`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.net.wifi.WifiInfo.getWifiStandard()
-  /// ```
-@JavaMethod
-  open func getWifiStandard() -> Int32
-
   /// Java method `getMaxSupportedTxLinkSpeedMbps`.
   ///
   /// ### Java method signature
@@ -168,6 +59,51 @@ open class WifiInfo: JavaObject {
 @JavaMethod
   open func getCurrentSecurityType() -> Int32
 
+  /// Java method `getPasspointFqdn`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public java.lang.String android.net.wifi.WifiInfo.getPasspointFqdn()
+  /// ```
+@JavaMethod
+  open func getPasspointFqdn() -> String
+
+  /// Java method `describeContents`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.net.wifi.WifiInfo.describeContents()
+  /// ```
+@JavaMethod
+  open func describeContents() -> Int32
+
+  /// Java method `writeToParcel`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.wifi.WifiInfo.writeToParcel(android.os.Parcel,int)
+  /// ```
+@JavaMethod
+  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
+
+  /// Java method `getNetworkId`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.net.wifi.WifiInfo.getNetworkId()
+  /// ```
+@JavaMethod
+  open func getNetworkId() -> Int32
+
+  /// Java method `getFrequency`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.net.wifi.WifiInfo.getFrequency()
+  /// ```
+@JavaMethod
+  open func getFrequency() -> Int32
+
   /// Java method `isRestricted`.
   ///
   /// ### Java method signature
@@ -177,6 +113,16 @@ open class WifiInfo: JavaObject {
 @JavaMethod
   open func isRestricted() -> Bool
 
+  /// Java method `getIpAddress`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.net.wifi.WifiInfo.getIpAddress()
+  /// ```
+@available(*, deprecated)
+  @JavaMethod
+  open func getIpAddress() -> Int32
+
   /// Java method `getSubscriptionId`.
   ///
   /// ### Java method signature
@@ -185,6 +131,24 @@ open class WifiInfo: JavaObject {
   /// ```
 @JavaMethod
   open func getSubscriptionId() -> Int32
+
+  /// Java method `getMacAddress`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public java.lang.String android.net.wifi.WifiInfo.getMacAddress()
+  /// ```
+@JavaMethod
+  open func getMacAddress() -> String
+
+  /// Java method `getRssi`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.net.wifi.WifiInfo.getRssi()
+  /// ```
+@JavaMethod
+  open func getRssi() -> Int32
 
   /// Java method `getSSID`.
   ///
@@ -204,6 +168,33 @@ open class WifiInfo: JavaObject {
 @JavaMethod
   open func getBSSID() -> String
 
+  /// Java method `getApMldMacAddress`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public android.net.MacAddress android.net.wifi.WifiInfo.getApMldMacAddress()
+  /// ```
+@JavaMethod
+  open func getApMldMacAddress() -> MacAddress!
+
+  /// Java method `getApMloLinkId`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.net.wifi.WifiInfo.getApMloLinkId()
+  /// ```
+@JavaMethod
+  open func getApMloLinkId() -> Int32
+
+  /// Java method `getWifiStandard`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.net.wifi.WifiInfo.getWifiStandard()
+  /// ```
+@JavaMethod
+  open func getWifiStandard() -> Int32
+
   /// Java method `getLinkSpeed`.
   ///
   /// ### Java method signature
@@ -213,14 +204,23 @@ open class WifiInfo: JavaObject {
 @JavaMethod
   open func getLinkSpeed() -> Int32
 
-  /// Java method `getPasspointFqdn`.
+  /// Java method `getTxLinkSpeedMbps`.
   ///
   /// ### Java method signature
   /// ```java
-  /// public java.lang.String android.net.wifi.WifiInfo.getPasspointFqdn()
+  /// public int android.net.wifi.WifiInfo.getTxLinkSpeedMbps()
   /// ```
 @JavaMethod
-  open func getPasspointFqdn() -> String
+  open func getTxLinkSpeedMbps() -> Int32
+
+  /// Java method `getRxLinkSpeedMbps`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.net.wifi.WifiInfo.getRxLinkSpeedMbps()
+  /// ```
+@JavaMethod
+  open func getRxLinkSpeedMbps() -> Int32
 
   /// Java method `getHiddenSSID`.
   ///

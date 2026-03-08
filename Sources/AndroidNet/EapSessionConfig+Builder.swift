@@ -8,6 +8,24 @@ extension EapSessionConfig {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
+    /// Java method `setEapAkaPrimeConfig`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.eap.EapSessionConfig$Builder android.net.eap.EapSessionConfig$Builder.setEapAkaPrimeConfig(int,int,java.lang.String,boolean)
+    /// ```
+  @JavaMethod
+  open func setEapAkaPrimeConfig(_ arg0: Int32, _ arg1: Int32, _ arg2: String, _ arg3: Bool) -> EapSessionConfig.Builder!
+
+    /// Java method `setEapMsChapV2Config`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.eap.EapSessionConfig$Builder android.net.eap.EapSessionConfig$Builder.setEapMsChapV2Config(java.lang.String,java.lang.String)
+    /// ```
+  @JavaMethod
+  open func setEapMsChapV2Config(_ arg0: String, _ arg1: String) -> EapSessionConfig.Builder!
+
     /// Java method `setEapIdentity`.
     ///
     /// ### Java method signature
@@ -30,37 +48,19 @@ extension EapSessionConfig {
     ///
     /// ### Java method signature
     /// ```java
-    /// public android.net.eap.EapSessionConfig$Builder android.net.eap.EapSessionConfig$Builder.setEapAkaConfig(int,int)
-    /// ```
-  @JavaMethod
-  open func setEapAkaConfig(_ arg0: Int32, _ arg1: Int32) -> EapSessionConfig.Builder!
-
-    /// Java method `setEapAkaConfig`.
-    ///
-    /// ### Java method signature
-    /// ```java
     /// public android.net.eap.EapSessionConfig$Builder android.net.eap.EapSessionConfig$Builder.setEapAkaConfig(int,int,android.net.eap.EapSessionConfig$EapAkaOption)
     /// ```
   @JavaMethod
   open func setEapAkaConfig(_ arg0: Int32, _ arg1: Int32, _ arg2: EapSessionConfig.EapAkaOption?) -> EapSessionConfig.Builder!
 
-    /// Java method `setEapAkaPrimeConfig`.
+    /// Java method `setEapAkaConfig`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public android.net.eap.EapSessionConfig$Builder android.net.eap.EapSessionConfig$Builder.setEapAkaPrimeConfig(int,int,java.lang.String,boolean)
+    /// public android.net.eap.EapSessionConfig$Builder android.net.eap.EapSessionConfig$Builder.setEapAkaConfig(int,int)
     /// ```
   @JavaMethod
-  open func setEapAkaPrimeConfig(_ arg0: Int32, _ arg1: Int32, _ arg2: String, _ arg3: Bool) -> EapSessionConfig.Builder!
-
-    /// Java method `setEapMsChapV2Config`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.eap.EapSessionConfig$Builder android.net.eap.EapSessionConfig$Builder.setEapMsChapV2Config(java.lang.String,java.lang.String)
-    /// ```
-  @JavaMethod
-  open func setEapMsChapV2Config(_ arg0: String, _ arg1: String) -> EapSessionConfig.Builder!
+  open func setEapAkaConfig(_ arg0: Int32, _ arg1: Int32) -> EapSessionConfig.Builder!
 
     /// Java method `build`.
     ///

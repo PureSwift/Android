@@ -20,16 +20,6 @@ extension SipAudioCall {
   @JavaMethod
   open func onError(_ arg0: SipAudioCall?, _ arg1: Int32, _ arg2: String)
 
-    /// Java method `onReadyToCall`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.net.sip.SipAudioCall$Listener.onReadyToCall(android.net.sip.SipAudioCall)
-    /// ```
-  @available(*, deprecated)
-  @JavaMethod
-  open func onReadyToCall(_ arg0: SipAudioCall?)
-
     /// Java method `onCalling`.
     ///
     /// ### Java method signature
@@ -89,6 +79,16 @@ extension SipAudioCall {
   @available(*, deprecated)
   @JavaMethod
   open func onCallBusy(_ arg0: SipAudioCall?)
+
+    /// Java method `onReadyToCall`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.sip.SipAudioCall$Listener.onReadyToCall(android.net.sip.SipAudioCall)
+    /// ```
+  @available(*, deprecated)
+  @JavaMethod
+  open func onReadyToCall(_ arg0: SipAudioCall?)
 
     /// Java method `onCallHeld`.
     ///

@@ -8,6 +8,33 @@ extension IkeSessionConfiguration {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: IkeSessionConnectionInfo?, environment: JNIEnvironment? = nil)
 
+    /// Java method `clearRemoteVendorIds`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.ipsec.ike.IkeSessionConfiguration$Builder android.net.ipsec.ike.IkeSessionConfiguration$Builder.clearRemoteVendorIds()
+    /// ```
+  @JavaMethod
+  open func clearRemoteVendorIds() -> IkeSessionConfiguration.Builder!
+
+    /// Java method `setRemoteApplicationVersion`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.ipsec.ike.IkeSessionConfiguration$Builder android.net.ipsec.ike.IkeSessionConfiguration$Builder.setRemoteApplicationVersion(java.lang.String)
+    /// ```
+  @JavaMethod
+  open func setRemoteApplicationVersion(_ arg0: String) -> IkeSessionConfiguration.Builder!
+
+    /// Java method `clearRemoteApplicationVersion`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.ipsec.ike.IkeSessionConfiguration$Builder android.net.ipsec.ike.IkeSessionConfiguration$Builder.clearRemoteApplicationVersion()
+    /// ```
+  @JavaMethod
+  open func clearRemoteApplicationVersion() -> IkeSessionConfiguration.Builder!
+
     /// Java method `addRemoteVendorId`.
     ///
     /// ### Java method signature
@@ -43,33 +70,6 @@ extension IkeSessionConfiguration {
     /// ```
   @JavaMethod
   open func setEapInfo(_ arg0: EapInfo?) -> IkeSessionConfiguration.Builder!
-
-    /// Java method `clearRemoteVendorIds`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.ipsec.ike.IkeSessionConfiguration$Builder android.net.ipsec.ike.IkeSessionConfiguration$Builder.clearRemoteVendorIds()
-    /// ```
-  @JavaMethod
-  open func clearRemoteVendorIds() -> IkeSessionConfiguration.Builder!
-
-    /// Java method `setRemoteApplicationVersion`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.ipsec.ike.IkeSessionConfiguration$Builder android.net.ipsec.ike.IkeSessionConfiguration$Builder.setRemoteApplicationVersion(java.lang.String)
-    /// ```
-  @JavaMethod
-  open func setRemoteApplicationVersion(_ arg0: String) -> IkeSessionConfiguration.Builder!
-
-    /// Java method `clearRemoteApplicationVersion`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.ipsec.ike.IkeSessionConfiguration$Builder android.net.ipsec.ike.IkeSessionConfiguration$Builder.clearRemoteApplicationVersion()
-    /// ```
-  @JavaMethod
-  open func clearRemoteApplicationVersion() -> IkeSessionConfiguration.Builder!
 
     /// Java method `build`.
     ///

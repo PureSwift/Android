@@ -4,15 +4,6 @@ import SwiftJavaJNICore
 
 @JavaInterface("android.net.ipsec.ike.IkeSessionCallback")
 public struct IkeSessionCallback {
-  /// Java method `onError`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public default void android.net.ipsec.ike.IkeSessionCallback.onError(android.net.ipsec.ike.exceptions.IkeException)
-  /// ```
-@JavaMethod
-  public func onError(_ arg0: IkeException?)
-
   /// Java method `onClosedWithException`.
   ///
   /// ### Java method signature
@@ -39,4 +30,13 @@ public struct IkeSessionCallback {
   /// ```
 @JavaMethod
   public func onClosed()
+
+  /// Java method `onError`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public default void android.net.ipsec.ike.IkeSessionCallback.onError(android.net.ipsec.ike.exceptions.IkeException)
+  /// ```
+@JavaMethod
+  public func onError(_ arg0: IkeException?)
 }

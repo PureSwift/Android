@@ -5,6 +5,15 @@ import SwiftJavaJNICore
 
 @JavaClass("android.net.IpConfiguration", implements: Parcelable.self)
 open class IpConfiguration: JavaObject {
+  /// Java method `getStaticIpConfiguration`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public android.net.StaticIpConfiguration android.net.IpConfiguration.getStaticIpConfiguration()
+  /// ```
+@JavaMethod
+  open func getStaticIpConfiguration() -> StaticIpConfiguration!
+
   /// Java method `describeContents`.
   ///
   /// ### Java method signature
@@ -31,15 +40,6 @@ open class IpConfiguration: JavaObject {
   /// ```
 @JavaMethod
   open func getHttpProxy() -> ProxyInfo!
-
-  /// Java method `getStaticIpConfiguration`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.net.StaticIpConfiguration android.net.IpConfiguration.getStaticIpConfiguration()
-  /// ```
-@JavaMethod
-  open func getStaticIpConfiguration() -> StaticIpConfiguration!
 
   /// Java method `equals`.
   ///

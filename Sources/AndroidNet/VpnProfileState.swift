@@ -26,15 +26,6 @@ open class VpnProfileState: JavaObject {
   @JavaMethod
   open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
-    /// Java method `getSessionId`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public java.lang.String android.net.VpnProfileState.getSessionId()
-    /// ```
-  @JavaMethod
-  open func getSessionId() -> String
-
     /// Java method `isAlwaysOn`.
     ///
     /// ### Java method signature
@@ -52,6 +43,15 @@ open class VpnProfileState: JavaObject {
     /// ```
   @JavaMethod
   open func isLockdownEnabled() -> Bool
+
+    /// Java method `getSessionId`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public java.lang.String android.net.VpnProfileState.getSessionId()
+    /// ```
+  @JavaMethod
+  open func getSessionId() -> String
 
     /// Java method `equals`.
     ///

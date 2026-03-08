@@ -13,24 +13,6 @@ public struct ChildSessionCallback {
 @JavaMethod
   public func onClosedWithException(_ arg0: IkeException?)
 
-  /// Java method `onOpened`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public abstract void android.net.ipsec.ike.ChildSessionCallback.onOpened(android.net.ipsec.ike.ChildSessionConfiguration)
-  /// ```
-@JavaMethod
-  public func onOpened(_ arg0: ChildSessionConfiguration?)
-
-  /// Java method `onClosed`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public abstract void android.net.ipsec.ike.ChildSessionCallback.onClosed()
-  /// ```
-@JavaMethod
-  public func onClosed()
-
   /// Java method `onIpSecTransformCreated`.
   ///
   /// ### Java method signature
@@ -48,4 +30,22 @@ public struct ChildSessionCallback {
   /// ```
 @JavaMethod
   public func onIpSecTransformDeleted(_ arg0: IpSecTransform?, _ arg1: Int32)
+
+  /// Java method `onOpened`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public abstract void android.net.ipsec.ike.ChildSessionCallback.onOpened(android.net.ipsec.ike.ChildSessionConfiguration)
+  /// ```
+@JavaMethod
+  public func onOpened(_ arg0: ChildSessionConfiguration?)
+
+  /// Java method `onClosed`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public abstract void android.net.ipsec.ike.ChildSessionCallback.onClosed()
+  /// ```
+@JavaMethod
+  public func onClosed()
 }

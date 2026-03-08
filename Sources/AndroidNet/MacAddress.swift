@@ -6,6 +6,15 @@ import SwiftJavaJNICore
 
 @JavaClass("android.net.MacAddress", implements: Parcelable.self)
 open class MacAddress: JavaObject {
+  /// Java method `getLinkLocalIpv6FromEui48Mac`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public java.net.Inet6Address android.net.MacAddress.getLinkLocalIpv6FromEui48Mac()
+  /// ```
+@JavaMethod
+  open func getLinkLocalIpv6FromEui48Mac() -> Inet6Address!
+
   /// Java method `describeContents`.
   ///
   /// ### Java method signature
@@ -23,15 +32,6 @@ open class MacAddress: JavaObject {
   /// ```
 @JavaMethod
   open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
-
-  /// Java method `getLinkLocalIpv6FromEui48Mac`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public java.net.Inet6Address android.net.MacAddress.getLinkLocalIpv6FromEui48Mac()
-  /// ```
-@JavaMethod
-  open func getLinkLocalIpv6FromEui48Mac() -> Inet6Address!
 
   /// Java method `getAddressType`.
   ///
@@ -121,15 +121,6 @@ extension JavaClass<MacAddress> {
   @JavaStaticField(isFinal: true)
   public var TYPE_UNICAST: Int32
 
-    /// Java method `fromString`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public static android.net.MacAddress android.net.MacAddress.fromString(java.lang.String)
-    /// ```
-  @JavaStaticMethod
-  public func fromString(_ arg0: String) -> MacAddress!
-
     /// Java method `fromBytes`.
     ///
     /// ### Java method signature
@@ -138,4 +129,13 @@ extension JavaClass<MacAddress> {
     /// ```
   @JavaStaticMethod
   public func fromBytes(_ arg0: [Int8]) -> MacAddress!
+
+    /// Java method `fromString`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public static android.net.MacAddress android.net.MacAddress.fromString(java.lang.String)
+    /// ```
+  @JavaStaticMethod
+  public func fromString(_ arg0: String) -> MacAddress!
 }

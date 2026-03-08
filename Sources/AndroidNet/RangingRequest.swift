@@ -63,6 +63,15 @@ extension JavaClass<RangingRequest> {
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<RangingRequest>!
 
+    /// Java method `getDefaultRttBurstSize`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public static int android.net.wifi.rtt.RangingRequest.getDefaultRttBurstSize()
+    /// ```
+  @JavaStaticMethod
+  public func getDefaultRttBurstSize() -> Int32
+
     /// Java method `getMaxPeers`.
     ///
     /// ### Java method signature
@@ -89,13 +98,4 @@ extension JavaClass<RangingRequest> {
     /// ```
   @JavaStaticMethod
   public func getMaxRttBurstSize() -> Int32
-
-    /// Java method `getDefaultRttBurstSize`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public static int android.net.wifi.rtt.RangingRequest.getDefaultRttBurstSize()
-    /// ```
-  @JavaStaticMethod
-  public func getDefaultRttBurstSize() -> Int32
 }

@@ -9,6 +9,15 @@ extension ConnectivityDiagnosticsManager {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Network?, _ arg1: Int64, _ arg2: Int32, _ arg3: LinkProperties?, _ arg4: NetworkCapabilities?, _ arg5: PersistableBundle?, environment: JNIEnvironment? = nil)
 
+    /// Java method `getNetworkCapabilities`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.NetworkCapabilities android.net.ConnectivityDiagnosticsManager$DataStallReport.getNetworkCapabilities()
+    /// ```
+  @JavaMethod
+  open func getNetworkCapabilities() -> NetworkCapabilities!
+
     /// Java method `describeContents`.
     ///
     /// ### Java method signature
@@ -27,14 +36,14 @@ extension ConnectivityDiagnosticsManager {
   @JavaMethod
   open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
-    /// Java method `getNetwork`.
+    /// Java method `getReportTimestamp`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public android.net.Network android.net.ConnectivityDiagnosticsManager$DataStallReport.getNetwork()
+    /// public long android.net.ConnectivityDiagnosticsManager$DataStallReport.getReportTimestamp()
     /// ```
   @JavaMethod
-  open func getNetwork() -> Network!
+  open func getReportTimestamp() -> Int64
 
     /// Java method `getLinkProperties`.
     ///
@@ -44,24 +53,6 @@ extension ConnectivityDiagnosticsManager {
     /// ```
   @JavaMethod
   open func getLinkProperties() -> LinkProperties!
-
-    /// Java method `getNetworkCapabilities`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.NetworkCapabilities android.net.ConnectivityDiagnosticsManager$DataStallReport.getNetworkCapabilities()
-    /// ```
-  @JavaMethod
-  open func getNetworkCapabilities() -> NetworkCapabilities!
-
-    /// Java method `getReportTimestamp`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public long android.net.ConnectivityDiagnosticsManager$DataStallReport.getReportTimestamp()
-    /// ```
-  @JavaMethod
-  open func getReportTimestamp() -> Int64
 
     /// Java method `getDetectionMethod`.
     ///
@@ -80,6 +71,15 @@ extension ConnectivityDiagnosticsManager {
     /// ```
   @JavaMethod
   open func getStallDetails() -> PersistableBundle!
+
+    /// Java method `getNetwork`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.Network android.net.ConnectivityDiagnosticsManager$DataStallReport.getNetwork()
+    /// ```
+  @JavaMethod
+  open func getNetwork() -> Network!
 
     /// Java method `equals`.
     ///

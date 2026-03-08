@@ -8,6 +8,15 @@ extension SocketKeepalive {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
+    /// Java method `onError`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.SocketKeepalive$Callback.onError(int)
+    /// ```
+  @JavaMethod
+  open func onError(_ arg0: Int32)
+
     /// Java method `onStarted`.
     ///
     /// ### Java method signature
@@ -25,15 +34,6 @@ extension SocketKeepalive {
     /// ```
   @JavaMethod
   open func onStopped()
-
-    /// Java method `onError`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.net.SocketKeepalive$Callback.onError(int)
-    /// ```
-  @JavaMethod
-  open func onError(_ arg0: Int32)
 
     /// Java method `onDataReceived`.
     ///

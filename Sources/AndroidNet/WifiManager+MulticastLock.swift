@@ -5,15 +5,6 @@ import SwiftJavaJNICore
 extension WifiManager {
   @JavaClass("android.net.wifi.WifiManager$MulticastLock")
   open class MulticastLock: JavaObject {
-    /// Java method `isHeld`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public boolean android.net.wifi.WifiManager$MulticastLock.isHeld()
-    /// ```
-  @JavaMethod
-  open func isHeld() -> Bool
-
     /// Java method `setReferenceCounted`.
     ///
     /// ### Java method signature
@@ -22,6 +13,15 @@ extension WifiManager {
     /// ```
   @JavaMethod
   open func setReferenceCounted(_ arg0: Bool)
+
+    /// Java method `isHeld`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public boolean android.net.wifi.WifiManager$MulticastLock.isHeld()
+    /// ```
+  @JavaMethod
+  open func isHeld() -> Bool
 
     /// Java method `finalize`.
     ///

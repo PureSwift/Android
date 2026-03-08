@@ -5,6 +5,15 @@ import SwiftJavaJNICore
 extension WifiP2pManager {
   @JavaInterface("android.net.wifi.p2p.WifiP2pManager$ExternalApproverRequestListener")
   public struct ExternalApproverRequestListener {
+    /// Java method `onConnectionRequested`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public abstract void android.net.wifi.p2p.WifiP2pManager$ExternalApproverRequestListener.onConnectionRequested(int,android.net.wifi.p2p.WifiP2pConfig,android.net.wifi.p2p.WifiP2pDevice)
+    /// ```
+  @JavaMethod
+  public func onConnectionRequested(_ arg0: Int32, _ arg1: WifiP2pConfig?, _ arg2: WifiP2pDevice?)
+
     /// Java method `onAttached`.
     ///
     /// ### Java method signature
@@ -31,15 +40,6 @@ extension WifiP2pManager {
     /// ```
   @JavaMethod
   public func onPinGenerated(_ arg0: MacAddress?, _ arg1: String)
-
-    /// Java method `onConnectionRequested`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public abstract void android.net.wifi.p2p.WifiP2pManager$ExternalApproverRequestListener.onConnectionRequested(int,android.net.wifi.p2p.WifiP2pConfig,android.net.wifi.p2p.WifiP2pDevice)
-    /// ```
-  @JavaMethod
-  public func onConnectionRequested(_ arg0: Int32, _ arg1: WifiP2pConfig?, _ arg2: WifiP2pDevice?)
   }
 }
 extension JavaClass<WifiP2pManager.ExternalApproverRequestListener> {

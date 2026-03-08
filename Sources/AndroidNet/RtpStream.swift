@@ -26,26 +26,6 @@ open class RtpStream: JavaObject {
   @JavaMethod
   open func setMode(_ arg0: Int32)
 
-  /// Java method `isBusy`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.rtp.RtpStream.isBusy()
-  /// ```
-@available(*, deprecated)
-  @JavaMethod
-  open func isBusy() -> Bool
-
-  /// Java method `getLocalAddress`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public java.net.InetAddress android.net.rtp.RtpStream.getLocalAddress()
-  /// ```
-@available(*, deprecated)
-  @JavaMethod
-  open func getLocalAddress() -> InetAddress!
-
   /// Java method `getLocalPort`.
   ///
   /// ### Java method signature
@@ -55,16 +35,6 @@ open class RtpStream: JavaObject {
 @available(*, deprecated)
   @JavaMethod
   open func getLocalPort() -> Int32
-
-  /// Java method `getRemoteAddress`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public java.net.InetAddress android.net.rtp.RtpStream.getRemoteAddress()
-  /// ```
-@available(*, deprecated)
-  @JavaMethod
-  open func getRemoteAddress() -> InetAddress!
 
   /// Java method `getRemotePort`.
   ///
@@ -76,6 +46,16 @@ open class RtpStream: JavaObject {
   @JavaMethod
   open func getRemotePort() -> Int32
 
+  /// Java method `isBusy`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.rtp.RtpStream.isBusy()
+  /// ```
+@available(*, deprecated)
+  @JavaMethod
+  open func isBusy() -> Bool
+
   /// Java method `associate`.
   ///
   /// ### Java method signature
@@ -85,6 +65,26 @@ open class RtpStream: JavaObject {
 @available(*, deprecated)
   @JavaMethod
   open func associate(_ arg0: InetAddress?, _ arg1: Int32)
+
+  /// Java method `getLocalAddress`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public java.net.InetAddress android.net.rtp.RtpStream.getLocalAddress()
+  /// ```
+@available(*, deprecated)
+  @JavaMethod
+  open func getLocalAddress() -> InetAddress!
+
+  /// Java method `getRemoteAddress`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public java.net.InetAddress android.net.rtp.RtpStream.getRemoteAddress()
+  /// ```
+@available(*, deprecated)
+  @JavaMethod
+  open func getRemoteAddress() -> InetAddress!
 
   /// Java method `finalize`.
   ///

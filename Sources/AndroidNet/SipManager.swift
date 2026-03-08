@@ -6,6 +6,16 @@ import SwiftJavaJNICore
 @available(*, deprecated)
 @JavaClass("android.net.sip.SipManager")
 open class SipManager: JavaObject {
+  /// Java method `setRegistrationListener`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.sip.SipManager.setRegistrationListener(java.lang.String,android.net.sip.SipRegistrationListener) throws android.net.sip.SipException
+  /// ```
+@available(*, deprecated)
+  @JavaMethod
+  open func setRegistrationListener(_ arg0: String, _ arg1: SipRegistrationListener?) throws
+
   /// Java method `isOpened`.
   ///
   /// ### Java method signature
@@ -20,21 +30,21 @@ open class SipManager: JavaObject {
   ///
   /// ### Java method signature
   /// ```java
-  /// public android.net.sip.SipAudioCall android.net.sip.SipManager.makeAudioCall(java.lang.String,java.lang.String,android.net.sip.SipAudioCall$Listener,int) throws android.net.sip.SipException
-  /// ```
-@available(*, deprecated)
-  @JavaMethod
-  open func makeAudioCall(_ arg0: String, _ arg1: String, _ arg2: SipAudioCall.Listener?, _ arg3: Int32) throws -> SipAudioCall!
-
-  /// Java method `makeAudioCall`.
-  ///
-  /// ### Java method signature
-  /// ```java
   /// public android.net.sip.SipAudioCall android.net.sip.SipManager.makeAudioCall(android.net.sip.SipProfile,android.net.sip.SipProfile,android.net.sip.SipAudioCall$Listener,int) throws android.net.sip.SipException
   /// ```
 @available(*, deprecated)
   @JavaMethod
   open func makeAudioCall(_ arg0: SipProfile?, _ arg1: SipProfile?, _ arg2: SipAudioCall.Listener?, _ arg3: Int32) throws -> SipAudioCall!
+
+  /// Java method `makeAudioCall`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public android.net.sip.SipAudioCall android.net.sip.SipManager.makeAudioCall(java.lang.String,java.lang.String,android.net.sip.SipAudioCall$Listener,int) throws android.net.sip.SipException
+  /// ```
+@available(*, deprecated)
+  @JavaMethod
+  open func makeAudioCall(_ arg0: String, _ arg1: String, _ arg2: SipAudioCall.Listener?, _ arg3: Int32) throws -> SipAudioCall!
 
   /// Java method `takeAudioCall`.
   ///
@@ -65,16 +75,6 @@ open class SipManager: JavaObject {
 @available(*, deprecated)
   @JavaMethod
   open func createSipSession(_ arg0: SipProfile?, _ arg1: SipSession.Listener?) throws -> SipSession!
-
-  /// Java method `setRegistrationListener`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.sip.SipManager.setRegistrationListener(java.lang.String,android.net.sip.SipRegistrationListener) throws android.net.sip.SipException
-  /// ```
-@available(*, deprecated)
-  @JavaMethod
-  open func setRegistrationListener(_ arg0: String, _ arg1: SipRegistrationListener?) throws
 
   /// Java method `isRegistered`.
   ///
@@ -139,6 +139,26 @@ extension JavaClass<SipManager> {
   @JavaStaticField(isFinal: true)
   public var INCOMING_CALL_RESULT_CODE: Int32
 
+    /// Java method `isIncomingCallIntent`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public static boolean android.net.sip.SipManager.isIncomingCallIntent(android.content.Intent)
+    /// ```
+  @available(*, deprecated)
+  @JavaStaticMethod
+  public func isIncomingCallIntent(_ arg0: Intent?) -> Bool
+
+    /// Java method `getOfferSessionDescription`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public static java.lang.String android.net.sip.SipManager.getOfferSessionDescription(android.content.Intent)
+    /// ```
+  @available(*, deprecated)
+  @JavaStaticMethod
+  public func getOfferSessionDescription(_ arg0: Intent?) -> String
+
     /// Java method `getCallId`.
     ///
     /// ### Java method signature
@@ -178,26 +198,6 @@ extension JavaClass<SipManager> {
   @available(*, deprecated)
   @JavaStaticMethod
   public func isSipWifiOnly(_ arg0: Context?) -> Bool
-
-    /// Java method `isIncomingCallIntent`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public static boolean android.net.sip.SipManager.isIncomingCallIntent(android.content.Intent)
-    /// ```
-  @available(*, deprecated)
-  @JavaStaticMethod
-  public func isIncomingCallIntent(_ arg0: Intent?) -> Bool
-
-    /// Java method `getOfferSessionDescription`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public static java.lang.String android.net.sip.SipManager.getOfferSessionDescription(android.content.Intent)
-    /// ```
-  @available(*, deprecated)
-  @JavaStaticMethod
-  public func getOfferSessionDescription(_ arg0: Intent?) -> String
 
     /// Java method `newInstance`.
     ///

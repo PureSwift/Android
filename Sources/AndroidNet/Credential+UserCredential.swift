@@ -12,6 +12,24 @@ extension Credential {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Credential.UserCredential?, environment: JNIEnvironment? = nil)
 
+    /// Java method `setNonEapInnerMethod`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.wifi.hotspot2.pps.Credential$UserCredential.setNonEapInnerMethod(java.lang.String)
+    /// ```
+  @JavaMethod
+  open func setNonEapInnerMethod(_ arg0: String)
+
+    /// Java method `getNonEapInnerMethod`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public java.lang.String android.net.wifi.hotspot2.pps.Credential$UserCredential.getNonEapInnerMethod()
+    /// ```
+  @JavaMethod
+  open func getNonEapInnerMethod() -> String
+
     /// Java method `describeContents`.
     ///
     /// ### Java method signature
@@ -30,23 +48,14 @@ extension Credential {
   @JavaMethod
   open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
-    /// Java method `setUsername`.
+    /// Java method `getPassword`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public void android.net.wifi.hotspot2.pps.Credential$UserCredential.setUsername(java.lang.String)
+    /// public java.lang.String android.net.wifi.hotspot2.pps.Credential$UserCredential.getPassword()
     /// ```
   @JavaMethod
-  open func setUsername(_ arg0: String)
-
-    /// Java method `getUsername`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public java.lang.String android.net.wifi.hotspot2.pps.Credential$UserCredential.getUsername()
-    /// ```
-  @JavaMethod
-  open func getUsername() -> String
+  open func getPassword() -> String
 
     /// Java method `setPassword`.
     ///
@@ -56,15 +65,6 @@ extension Credential {
     /// ```
   @JavaMethod
   open func setPassword(_ arg0: String)
-
-    /// Java method `getPassword`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public java.lang.String android.net.wifi.hotspot2.pps.Credential$UserCredential.getPassword()
-    /// ```
-  @JavaMethod
-  open func getPassword() -> String
 
     /// Java method `setEapType`.
     ///
@@ -84,23 +84,23 @@ extension Credential {
   @JavaMethod
   open func getEapType() -> Int32
 
-    /// Java method `setNonEapInnerMethod`.
+    /// Java method `getUsername`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public void android.net.wifi.hotspot2.pps.Credential$UserCredential.setNonEapInnerMethod(java.lang.String)
+    /// public java.lang.String android.net.wifi.hotspot2.pps.Credential$UserCredential.getUsername()
     /// ```
   @JavaMethod
-  open func setNonEapInnerMethod(_ arg0: String)
+  open func getUsername() -> String
 
-    /// Java method `getNonEapInnerMethod`.
+    /// Java method `setUsername`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public java.lang.String android.net.wifi.hotspot2.pps.Credential$UserCredential.getNonEapInnerMethod()
+    /// public void android.net.wifi.hotspot2.pps.Credential$UserCredential.setUsername(java.lang.String)
     /// ```
   @JavaMethod
-  open func getNonEapInnerMethod() -> String
+  open func setUsername(_ arg0: String)
 
     /// Java method `equals`.
     ///

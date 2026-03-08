@@ -7,6 +7,36 @@ import SwiftJavaJNICore
 @available(*, deprecated)
 @JavaClass("android.net.sip.SipProfile", implements: Parcelable.self, Serializable.self)
 open class SipProfile: JavaObject {
+  /// Java method `getAutoRegistration`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.sip.SipProfile.getAutoRegistration()
+  /// ```
+@available(*, deprecated)
+  @JavaMethod
+  open func getAutoRegistration() -> Bool
+
+  /// Java method `describeContents`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.net.sip.SipProfile.describeContents()
+  /// ```
+@available(*, deprecated)
+  @JavaMethod
+  open func describeContents() -> Int32
+
+  /// Java method `writeToParcel`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public void android.net.sip.SipProfile.writeToParcel(android.os.Parcel,int)
+  /// ```
+@available(*, deprecated)
+  @JavaMethod
+  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
+
   /// Java method `getUriString`.
   ///
   /// ### Java method signature
@@ -37,26 +67,6 @@ open class SipProfile: JavaObject {
   @JavaMethod
   open func getAuthUserName() -> String
 
-  /// Java method `describeContents`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.net.sip.SipProfile.describeContents()
-  /// ```
-@available(*, deprecated)
-  @JavaMethod
-  open func describeContents() -> Int32
-
-  /// Java method `writeToParcel`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public void android.net.sip.SipProfile.writeToParcel(android.os.Parcel,int)
-  /// ```
-@available(*, deprecated)
-  @JavaMethod
-  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
-
   /// Java method `getPassword`.
   ///
   /// ### Java method signature
@@ -66,16 +76,6 @@ open class SipProfile: JavaObject {
 @available(*, deprecated)
   @JavaMethod
   open func getPassword() -> String
-
-  /// Java method `getAutoRegistration`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.sip.SipProfile.getAutoRegistration()
-  /// ```
-@available(*, deprecated)
-  @JavaMethod
-  open func getAutoRegistration() -> Bool
 
   /// Java method `getSipDomain`.
   ///

@@ -12,6 +12,24 @@ extension Credential {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: Credential.CertificateCredential?, environment: JNIEnvironment? = nil)
 
+    /// Java method `setCertSha256Fingerprint`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.wifi.hotspot2.pps.Credential$CertificateCredential.setCertSha256Fingerprint(byte[])
+    /// ```
+  @JavaMethod
+  open func setCertSha256Fingerprint(_ arg0: [Int8])
+
+    /// Java method `getCertSha256Fingerprint`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public byte[] android.net.wifi.hotspot2.pps.Credential$CertificateCredential.getCertSha256Fingerprint()
+    /// ```
+  @JavaMethod
+  open func getCertSha256Fingerprint() -> [Int8]
+
     /// Java method `describeContents`.
     ///
     /// ### Java method signature
@@ -47,24 +65,6 @@ extension Credential {
     /// ```
   @JavaMethod
   open func getCertType() -> String
-
-    /// Java method `setCertSha256Fingerprint`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.net.wifi.hotspot2.pps.Credential$CertificateCredential.setCertSha256Fingerprint(byte[])
-    /// ```
-  @JavaMethod
-  open func setCertSha256Fingerprint(_ arg0: [Int8])
-
-    /// Java method `getCertSha256Fingerprint`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public byte[] android.net.wifi.hotspot2.pps.Credential$CertificateCredential.getCertSha256Fingerprint()
-    /// ```
-  @JavaMethod
-  open func getCertSha256Fingerprint() -> [Int8]
 
     /// Java method `equals`.
     ///

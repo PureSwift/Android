@@ -11,6 +11,15 @@ open class IpSecAlgorithm: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: String, _ arg1: [Int8], _ arg2: Int32, environment: JNIEnvironment? = nil)
 
+    /// Java method `getTruncationLengthBits`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public int android.net.IpSecAlgorithm.getTruncationLengthBits()
+    /// ```
+  @JavaMethod
+  open func getTruncationLengthBits() -> Int32
+
     /// Java method `describeContents`.
     ///
     /// ### Java method signature
@@ -28,15 +37,6 @@ open class IpSecAlgorithm: JavaObject {
     /// ```
   @JavaMethod
   open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
-
-    /// Java method `getTruncationLengthBits`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.net.IpSecAlgorithm.getTruncationLengthBits()
-    /// ```
-  @JavaMethod
-  open func getTruncationLengthBits() -> Int32
 
     /// Java method `getName`.
     ///

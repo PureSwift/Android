@@ -8,24 +8,6 @@ open class EthernetNetworkSpecifier: NetworkSpecifier {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: String, environment: JNIEnvironment? = nil)
 
-    /// Java method `describeContents`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public int android.net.EthernetNetworkSpecifier.describeContents()
-    /// ```
-  @JavaMethod
-  open func describeContents() -> Int32
-
-    /// Java method `writeToParcel`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.net.EthernetNetworkSpecifier.writeToParcel(android.os.Parcel,int)
-    /// ```
-  @JavaMethod
-  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
-
     /// Java method `getInterfaceName`.
     ///
     /// ### Java method signature
@@ -43,6 +25,24 @@ open class EthernetNetworkSpecifier: NetworkSpecifier {
     /// ```
   @JavaMethod
   open func canBeSatisfiedBy(_ arg0: NetworkSpecifier?) -> Bool
+
+    /// Java method `describeContents`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public int android.net.EthernetNetworkSpecifier.describeContents()
+    /// ```
+  @JavaMethod
+  open func describeContents() -> Int32
+
+    /// Java method `writeToParcel`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.EthernetNetworkSpecifier.writeToParcel(android.os.Parcel,int)
+    /// ```
+  @JavaMethod
+  open func writeToParcel(_ arg0: Parcel?, _ arg1: Int32)
 
     /// Java method `equals`.
     ///

@@ -5,15 +5,6 @@ import SwiftJavaJNICore
 
 @JavaClass("android.net.wifi.rtt.WifiRttManager")
 open class WifiRttManager: JavaObject {
-  /// Java method `isAvailable`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.wifi.rtt.WifiRttManager.isAvailable()
-  /// ```
-@JavaMethod
-  open func isAvailable() -> Bool
-
   /// Java method `getRttCharacteristics`.
   ///
   /// ### Java method signature
@@ -22,6 +13,15 @@ open class WifiRttManager: JavaObject {
   /// ```
 @JavaMethod
   open func getRttCharacteristics() -> Bundle!
+
+  /// Java method `isAvailable`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.wifi.rtt.WifiRttManager.isAvailable()
+  /// ```
+@JavaMethod
+  open func isAvailable() -> Bool
 }
 extension JavaClass<WifiRttManager> {
   @JavaStaticField(isFinal: true)

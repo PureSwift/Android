@@ -10,6 +10,15 @@ open class VpnService: ContextWrapper {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
+    /// Java method `setUnderlyingNetworks`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public boolean android.net.VpnService.setUnderlyingNetworks(android.net.Network[])
+    /// ```
+  @JavaMethod
+  open func setUnderlyingNetworks(_ arg0: [Network?]) -> Bool
+
     /// Java method `protect`.
     ///
     /// ### Java method signature
@@ -23,46 +32,19 @@ open class VpnService: ContextWrapper {
     ///
     /// ### Java method signature
     /// ```java
-    /// public boolean android.net.VpnService.protect(int)
-    /// ```
-  @JavaMethod
-  open func protect(_ arg0: Int32) -> Bool
-
-    /// Java method `protect`.
-    ///
-    /// ### Java method signature
-    /// ```java
     /// public boolean android.net.VpnService.protect(java.net.Socket)
     /// ```
   @JavaMethod
   open func protect(_ arg0: Socket?) -> Bool
 
-    /// Java method `onBind`.
+    /// Java method `protect`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public android.os.IBinder android.net.VpnService.onBind(android.content.Intent)
+    /// public boolean android.net.VpnService.protect(int)
     /// ```
   @JavaMethod
-  open func onBind(_ arg0: Intent?) -> IBinder!
-
-    /// Java method `onRevoke`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.net.VpnService.onRevoke()
-    /// ```
-  @JavaMethod
-  open func onRevoke()
-
-    /// Java method `setUnderlyingNetworks`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public boolean android.net.VpnService.setUnderlyingNetworks(android.net.Network[])
-    /// ```
-  @JavaMethod
-  open func setUnderlyingNetworks(_ arg0: [Network?]) -> Bool
+  open func protect(_ arg0: Int32) -> Bool
 
     /// Java method `isAlwaysOn`.
     ///
@@ -81,6 +63,24 @@ open class VpnService: ContextWrapper {
     /// ```
   @JavaMethod
   open func isLockdownEnabled() -> Bool
+
+    /// Java method `onBind`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.os.IBinder android.net.VpnService.onBind(android.content.Intent)
+    /// ```
+  @JavaMethod
+  open func onBind(_ arg0: Intent?) -> IBinder!
+
+    /// Java method `onRevoke`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.VpnService.onRevoke()
+    /// ```
+  @JavaMethod
+  open func onRevoke()
 }
 extension JavaClass<VpnService> {
   @JavaStaticField(isFinal: true)

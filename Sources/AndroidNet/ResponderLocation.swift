@@ -6,6 +6,69 @@ import SwiftJavaJNICore
 
 @JavaClass("android.net.wifi.rtt.ResponderLocation", implements: Parcelable.self)
 open class ResponderLocation: JavaObject {
+  /// Java method `isLciSubelementValid`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.wifi.rtt.ResponderLocation.isLciSubelementValid()
+  /// ```
+@JavaMethod
+  open func isLciSubelementValid() -> Bool
+
+  /// Java method `getLatitudeUncertainty`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public double android.net.wifi.rtt.ResponderLocation.getLatitudeUncertainty()
+  /// ```
+@JavaMethod
+  open func getLatitudeUncertainty() -> Double
+
+  /// Java method `getLongitudeUncertainty`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public double android.net.wifi.rtt.ResponderLocation.getLongitudeUncertainty()
+  /// ```
+@JavaMethod
+  open func getLongitudeUncertainty() -> Double
+
+  /// Java method `getAltitudeUncertainty`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public double android.net.wifi.rtt.ResponderLocation.getAltitudeUncertainty()
+  /// ```
+@JavaMethod
+  open func getAltitudeUncertainty() -> Double
+
+  /// Java method `isZaxisSubelementValid`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.wifi.rtt.ResponderLocation.isZaxisSubelementValid()
+  /// ```
+@JavaMethod
+  open func isZaxisSubelementValid() -> Bool
+
+  /// Java method `getHeightAboveFloorMeters`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public double android.net.wifi.rtt.ResponderLocation.getHeightAboveFloorMeters()
+  /// ```
+@JavaMethod
+  open func getHeightAboveFloorMeters() -> Double
+
+  /// Java method `getMapImageMimeType`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public java.lang.String android.net.wifi.rtt.ResponderLocation.getMapImageMimeType()
+  /// ```
+@JavaMethod
+  open func getMapImageMimeType() -> String
+
   /// Java method `describeContents`.
   ///
   /// ### Java method signature
@@ -122,69 +185,6 @@ open class ResponderLocation: JavaObject {
   /// ```
 @JavaMethod
   open func getMapImageUri() -> Uri!
-
-  /// Java method `isLciSubelementValid`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.wifi.rtt.ResponderLocation.isLciSubelementValid()
-  /// ```
-@JavaMethod
-  open func isLciSubelementValid() -> Bool
-
-  /// Java method `getLatitudeUncertainty`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public double android.net.wifi.rtt.ResponderLocation.getLatitudeUncertainty()
-  /// ```
-@JavaMethod
-  open func getLatitudeUncertainty() -> Double
-
-  /// Java method `getLongitudeUncertainty`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public double android.net.wifi.rtt.ResponderLocation.getLongitudeUncertainty()
-  /// ```
-@JavaMethod
-  open func getLongitudeUncertainty() -> Double
-
-  /// Java method `getAltitudeUncertainty`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public double android.net.wifi.rtt.ResponderLocation.getAltitudeUncertainty()
-  /// ```
-@JavaMethod
-  open func getAltitudeUncertainty() -> Double
-
-  /// Java method `isZaxisSubelementValid`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.wifi.rtt.ResponderLocation.isZaxisSubelementValid()
-  /// ```
-@JavaMethod
-  open func isZaxisSubelementValid() -> Bool
-
-  /// Java method `getHeightAboveFloorMeters`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public double android.net.wifi.rtt.ResponderLocation.getHeightAboveFloorMeters()
-  /// ```
-@JavaMethod
-  open func getHeightAboveFloorMeters() -> Double
-
-  /// Java method `getMapImageMimeType`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public java.lang.String android.net.wifi.rtt.ResponderLocation.getMapImageMimeType()
-  /// ```
-@JavaMethod
-  open func getMapImageMimeType() -> String
 
   /// Java method `equals`.
   ///

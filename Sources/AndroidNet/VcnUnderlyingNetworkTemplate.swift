@@ -4,15 +4,6 @@ import SwiftJavaJNICore
 
 @JavaClass("android.net.vcn.VcnUnderlyingNetworkTemplate")
 open class VcnUnderlyingNetworkTemplate: JavaObject {
-  /// Java method `getMetered`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.net.vcn.VcnUnderlyingNetworkTemplate.getMetered()
-  /// ```
-@JavaMethod
-  open func getMetered() -> Int32
-
   /// Java method `getMinEntryUpstreamBandwidthKbps`.
   ///
   /// ### Java method signature
@@ -48,6 +39,15 @@ open class VcnUnderlyingNetworkTemplate: JavaObject {
   /// ```
 @JavaMethod
   open func getMinExitDownstreamBandwidthKbps() -> Int32
+
+  /// Java method `getMetered`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public int android.net.vcn.VcnUnderlyingNetworkTemplate.getMetered()
+  /// ```
+@JavaMethod
+  open func getMetered() -> Int32
 
   /// Java method `equals`.
   ///

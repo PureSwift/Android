@@ -39,6 +39,15 @@ open class ScanResult: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(_ arg0: ScanResult?, environment: JNIEnvironment? = nil)
 
+    /// Java method `is80211azNtbResponder`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public boolean android.net.wifi.ScanResult.is80211azNtbResponder()
+    /// ```
+  @JavaMethod
+  open func is80211azNtbResponder() -> Bool
+
     /// Java method `describeContents`.
     ///
     /// ### Java method signature
@@ -128,15 +137,6 @@ open class ScanResult: JavaObject {
     /// ```
   @JavaMethod
   open func getSecurityTypes() -> [Int32]
-
-    /// Java method `is80211azNtbResponder`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public boolean android.net.wifi.ScanResult.is80211azNtbResponder()
-    /// ```
-  @JavaMethod
-  open func is80211azNtbResponder() -> Bool
 
     /// Java method `toString`.
     ///

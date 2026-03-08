@@ -7,6 +7,15 @@ open class AttachCallback: JavaObject {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
+    /// Java method `onAwareSessionTerminated`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public void android.net.wifi.aware.AttachCallback.onAwareSessionTerminated()
+    /// ```
+  @JavaMethod
+  open func onAwareSessionTerminated()
+
     /// Java method `onAttached`.
     ///
     /// ### Java method signature
@@ -24,13 +33,4 @@ open class AttachCallback: JavaObject {
     /// ```
   @JavaMethod
   open func onAttachFailed()
-
-    /// Java method `onAwareSessionTerminated`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public void android.net.wifi.aware.AttachCallback.onAwareSessionTerminated()
-    /// ```
-  @JavaMethod
-  open func onAwareSessionTerminated()
 }

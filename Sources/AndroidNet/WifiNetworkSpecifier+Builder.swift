@@ -9,24 +9,6 @@ extension WifiNetworkSpecifier {
   @JavaMethod
   @_nonoverride public convenience init(environment: JNIEnvironment? = nil)
 
-    /// Java method `setSsid`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.wifi.WifiNetworkSpecifier$Builder android.net.wifi.WifiNetworkSpecifier$Builder.setSsid(java.lang.String)
-    /// ```
-  @JavaMethod
-  open func setSsid(_ arg0: String) -> WifiNetworkSpecifier.Builder!
-
-    /// Java method `setBssid`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.wifi.WifiNetworkSpecifier$Builder android.net.wifi.WifiNetworkSpecifier$Builder.setBssid(android.net.MacAddress)
-    /// ```
-  @JavaMethod
-  open func setBssid(_ arg0: MacAddress?) -> WifiNetworkSpecifier.Builder!
-
     /// Java method `setWpa2EnterpriseConfig`.
     ///
     /// ### Java method signature
@@ -64,32 +46,23 @@ extension WifiNetworkSpecifier {
   @JavaMethod
   open func setPreferredChannelsFrequenciesMhz(_ arg0: [Int32]) -> WifiNetworkSpecifier.Builder!
 
-    /// Java method `setWpa3EnterpriseStandardModeConfig`.
+    /// Java method `setSsid`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public android.net.wifi.WifiNetworkSpecifier$Builder android.net.wifi.WifiNetworkSpecifier$Builder.setWpa3EnterpriseStandardModeConfig(android.net.wifi.WifiEnterpriseConfig)
+    /// public android.net.wifi.WifiNetworkSpecifier$Builder android.net.wifi.WifiNetworkSpecifier$Builder.setSsid(java.lang.String)
     /// ```
   @JavaMethod
-  open func setWpa3EnterpriseStandardModeConfig(_ arg0: WifiEnterpriseConfig?) -> WifiNetworkSpecifier.Builder!
+  open func setSsid(_ arg0: String) -> WifiNetworkSpecifier.Builder!
 
-    /// Java method `setSsidPattern`.
+    /// Java method `setBssid`.
     ///
     /// ### Java method signature
     /// ```java
-    /// public android.net.wifi.WifiNetworkSpecifier$Builder android.net.wifi.WifiNetworkSpecifier$Builder.setSsidPattern(android.os.PatternMatcher)
+    /// public android.net.wifi.WifiNetworkSpecifier$Builder android.net.wifi.WifiNetworkSpecifier$Builder.setBssid(android.net.MacAddress)
     /// ```
   @JavaMethod
-  open func setSsidPattern(_ arg0: PatternMatcher?) -> WifiNetworkSpecifier.Builder!
-
-    /// Java method `setBssidPattern`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public android.net.wifi.WifiNetworkSpecifier$Builder android.net.wifi.WifiNetworkSpecifier$Builder.setBssidPattern(android.net.MacAddress,android.net.MacAddress)
-    /// ```
-  @JavaMethod
-  open func setBssidPattern(_ arg0: MacAddress?, _ arg1: MacAddress?) -> WifiNetworkSpecifier.Builder!
+  open func setBssid(_ arg0: MacAddress?) -> WifiNetworkSpecifier.Builder!
 
     /// Java method `setIsEnhancedOpen`.
     ///
@@ -126,6 +99,33 @@ extension WifiNetworkSpecifier {
     /// ```
   @JavaMethod
   open func setIsHiddenSsid(_ arg0: Bool) -> WifiNetworkSpecifier.Builder!
+
+    /// Java method `setWpa3EnterpriseStandardModeConfig`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.wifi.WifiNetworkSpecifier$Builder android.net.wifi.WifiNetworkSpecifier$Builder.setWpa3EnterpriseStandardModeConfig(android.net.wifi.WifiEnterpriseConfig)
+    /// ```
+  @JavaMethod
+  open func setWpa3EnterpriseStandardModeConfig(_ arg0: WifiEnterpriseConfig?) -> WifiNetworkSpecifier.Builder!
+
+    /// Java method `setSsidPattern`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.wifi.WifiNetworkSpecifier$Builder android.net.wifi.WifiNetworkSpecifier$Builder.setSsidPattern(android.os.PatternMatcher)
+    /// ```
+  @JavaMethod
+  open func setSsidPattern(_ arg0: PatternMatcher?) -> WifiNetworkSpecifier.Builder!
+
+    /// Java method `setBssidPattern`.
+    ///
+    /// ### Java method signature
+    /// ```java
+    /// public android.net.wifi.WifiNetworkSpecifier$Builder android.net.wifi.WifiNetworkSpecifier$Builder.setBssidPattern(android.net.MacAddress,android.net.MacAddress)
+    /// ```
+  @JavaMethod
+  open func setBssidPattern(_ arg0: MacAddress?, _ arg1: MacAddress?) -> WifiNetworkSpecifier.Builder!
 
     /// Java method `setBand`.
     ///

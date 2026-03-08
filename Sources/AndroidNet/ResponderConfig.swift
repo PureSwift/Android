@@ -5,6 +5,15 @@ import SwiftJavaJNICore
 
 @JavaClass("android.net.wifi.rtt.ResponderConfig", implements: Parcelable.self)
 open class ResponderConfig: JavaObject {
+  /// Java method `is80211azNtbSupported`.
+  ///
+  /// ### Java method signature
+  /// ```java
+  /// public boolean android.net.wifi.rtt.ResponderConfig.is80211azNtbSupported()
+  /// ```
+@JavaMethod
+  open func is80211azNtbSupported() -> Bool
+
   /// Java method `describeContents`.
   ///
   /// ### Java method signature
@@ -94,15 +103,6 @@ open class ResponderConfig: JavaObject {
   /// ```
 @JavaMethod
   open func getResponderType() -> Int32
-
-  /// Java method `is80211azNtbSupported`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.wifi.rtt.ResponderConfig.is80211azNtbSupported()
-  /// ```
-@JavaMethod
-  open func is80211azNtbSupported() -> Bool
 
   /// Java method `equals`.
   ///
