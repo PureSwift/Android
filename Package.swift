@@ -93,6 +93,9 @@ var package = Package(
         ),
         .library(
             name: "AndroidMedia", targets: ["AndroidMedia"]
+        ),
+        .library(
+            name: "AndroidNFC", targets: ["AndroidNFC"]
         )
     ],
     dependencies: [
@@ -169,7 +172,8 @@ var package = Package(
                 "AndroidNativeActivity",
                 "AndroidInput",
                 "AndroidLocation",
-                "AndroidMedia"
+                "AndroidMedia",
+                "AndroidNFC"
             ],
             swiftSettings: [
               .swiftLanguageMode(.v5),
@@ -566,6 +570,23 @@ var package = Package(
                 "AndroidContent",
                 .product(name: "JavaIO", package: "swift-java"),
                 .product(name: "JavaLangUtil", package: "JavaLang"),
+            ],
+            exclude: ["swift-java.config"],
+            swiftSettings: [
+              .swiftLanguageMode(.v5),
+              ndkVersionDefine,
+              sdkVersionDefine
+            ]
+        ),
+        .target(
+            name: "AndroidNFC",
+            dependencies: [
+                "AndroidJava",
+                "AndroidOS",
+                "AndroidUtil",
+                "AndroidContent",
+                "AndroidApp",
+                .product(name: "JavaLangIO", package: "JavaLang"),
             ],
             exclude: ["swift-java.config"],
             swiftSettings: [
