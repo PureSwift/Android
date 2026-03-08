@@ -3,336 +3,256 @@ import AndroidOS
 import SwiftJava
 import SwiftJavaJNICore
 
+/// An immutable URI reference following RFC 2396.
+///
+/// `Uri` wraps `android.net.Uri` and represents a Uniform Resource Identifier
+/// as defined by [RFC 2396](http://www.ietf.org/rfc/rfc2396.txt). Unlike
+/// `java.net.URL`, `Uri` does not attempt to validate or connect to the URI;
+/// it is simply a parsed representation of the string.
+///
+/// Use the static factory methods on `JavaClass<Uri>` to construct instances:
+/// - ``parse(_:)`` — parse an encoded URI string
+/// - ``fromParts(_:_:_:)`` — create from scheme, scheme-specific part, and fragment
+/// - ``withAppendedPath(_:_:)`` — append a path segment to an existing URI
+///
+/// ## Example
+/// ```swift
+/// let uri = JavaClass<Uri>().parse("https://www.example.com/path?q=1#frag")
+/// uri.getScheme()    // "https"
+/// uri.getHost()      // "www.example.com"
+/// uri.getPath()      // "/path"
+/// uri.getQuery()     // "q=1"
+/// uri.getFragment()  // "frag"
+/// ```
+///
+/// - SeeAlso: `Uri.Builder` for constructing URIs incrementally.
 @JavaClass("android.net.Uri", implements: Parcelable.self)
 open class Uri: JavaObject {
-  /// Java method `getEncodedSchemeSpecificPart`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public abstract java.lang.String android.net.Uri.getEncodedSchemeSpecificPart()
-  /// ```
+  /// Returns the encoded scheme-specific part of this URI, i.e. everything
+  /// between the scheme separator `:` and the fragment separator `#`.
 @JavaMethod
   open func getEncodedSchemeSpecificPart() -> String
 
-  /// Java method `getEncodedAuthority`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public abstract java.lang.String android.net.Uri.getEncodedAuthority()
-  /// ```
+  /// Returns the encoded authority component of this URI, or an empty string
+  /// if not present. The authority appears after `//` and before the path.
 @JavaMethod
   open func getEncodedAuthority() -> String
 
-  /// Java method `getBooleanQueryParameter`.
+  /// Searches the query string for the first value with the given key and
+  /// interprets it as a boolean. `"false"` and `"0"` are `false`; any other
+  /// non-empty value is `true`. Returns `defaultValue` when the key is absent.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.Uri.getBooleanQueryParameter(java.lang.String,boolean)
-  /// ```
+  /// - Parameters:
+  ///   - arg0: The query parameter key to search for.
+  ///   - arg1: The value to return when the key is not found.
+  /// - Returns: The boolean value of the parameter, or `defaultValue`.
 @JavaMethod
   open func getBooleanQueryParameter(_ arg0: String, _ arg1: Bool) -> Bool
 
-  /// Java method `isHierarchical`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public abstract boolean android.net.Uri.isHierarchical()
-  /// ```
+  /// Returns `true` if this URI is hierarchical (i.e. not opaque).
+  /// Hierarchical URIs have a path component and may have an authority.
+  /// For example, `http:` and `file:` URIs are hierarchical.
 @JavaMethod
   open func isHierarchical() -> Bool
 
-  /// Java method `getEncodedUserInfo`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public abstract java.lang.String android.net.Uri.getEncodedUserInfo()
-  /// ```
+  /// Returns the encoded user-information component from the authority,
+  /// i.e. everything before the first `@` in the authority, or an empty
+  /// string if not present.
 @JavaMethod
   open func getEncodedUserInfo() -> String
 
-  /// Java method `getEncodedPath`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public abstract java.lang.String android.net.Uri.getEncodedPath()
-  /// ```
+  /// Returns the encoded path component of this URI, or an empty string
+  /// if the path is absent. For hierarchical URIs, the path begins after
+  /// the authority (if any) and ends before the query or fragment.
 @JavaMethod
   open func getEncodedPath() -> String
 
-  /// Java method `getEncodedQuery`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public abstract java.lang.String android.net.Uri.getEncodedQuery()
-  /// ```
+  /// Returns the encoded query component of this URI (everything after `?`
+  /// and before `#`), or an empty string if no query is present.
 @JavaMethod
   open func getEncodedQuery() -> String
 
-  /// Java method `getEncodedFragment`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public abstract java.lang.String android.net.Uri.getEncodedFragment()
-  /// ```
+  /// Returns the encoded fragment component of this URI (everything after
+  /// `#`), or an empty string if no fragment is present.
 @JavaMethod
   open func getEncodedFragment() -> String
 
-  /// Java method `getLastPathSegment`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public abstract java.lang.String android.net.Uri.getLastPathSegment()
-  /// ```
+  /// Returns the decoded last segment of the path, or an empty string
+  /// if the path is empty. For example, the last segment of
+  /// `"content://com.example/data/42"` is `"42"`.
 @JavaMethod
   open func getLastPathSegment() -> String
 
-  /// Java method `buildUpon`.
+  /// Constructs a new `Uri.Builder` pre-populated with all components of
+  /// this URI. Use the builder to create a modified copy.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public abstract android.net.Uri$Builder android.net.Uri.buildUpon()
-  /// ```
+  /// - Returns: A new builder initialized from this URI.
 @JavaMethod
   open func buildUpon() -> Uri.Builder!
 
-  /// Java method `getQueryParameter`.
+  /// Returns the decoded value of the first query parameter with the given key,
+  /// or an empty string if the key is not present.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public java.lang.String android.net.Uri.getQueryParameter(java.lang.String)
-  /// ```
+  /// - Parameter arg0: The query parameter key.
+  /// - Returns: The decoded parameter value, or an empty string.
 @JavaMethod
   open func getQueryParameter(_ arg0: String) -> String
 
-  /// Java method `normalizeScheme`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public android.net.Uri android.net.Uri.normalizeScheme()
-  /// ```
+  /// Returns a URI with a normalized scheme (lowercased). Returns `self`
+  /// unchanged if the scheme is already lowercase or absent.
 @JavaMethod
   open func normalizeScheme() -> Uri!
 
-  /// Java method `equals`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.Uri.equals(java.lang.Object)
-  /// ```
+  /// Returns `true` if `arg0` is a `Uri` with the same string representation
+  /// as this URI.
 @JavaMethod
   open override func equals(_ arg0: JavaObject?) -> Bool
 
-  /// Java method `toString`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public abstract java.lang.String android.net.Uri.toString()
-  /// ```
+  /// Returns the encoded string representation of this URI.
 @JavaMethod
   open override func toString() -> String
 
-  /// Java method `hashCode`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.net.Uri.hashCode()
-  /// ```
+  /// Returns a hash code derived from the encoded string representation.
 @JavaMethod
   open override func hashCode() -> Int32
 
-  /// Java method `compareTo`.
+  /// Compares this URI to another lexicographically by their encoded string
+  /// representations.
   ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.net.Uri.compareTo(android.net.Uri)
-  /// ```
+  /// - Parameter arg0: The URI to compare against.
+  /// - Returns: A negative integer, zero, or positive integer.
 @JavaMethod
   open func compareTo(_ arg0: Uri?) -> Int32
 
-  /// Java method `compareTo`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public int android.net.Uri.compareTo(java.lang.Object)
-  /// ```
+  /// Compares this URI to an arbitrary object. The object must be a `Uri`.
 @JavaMethod
   open func compareTo(_ arg0: JavaObject?) -> Int32
 
-  /// Java method `isAbsolute`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.Uri.isAbsolute()
-  /// ```
+  /// Returns `true` if this URI has a scheme component (i.e. is not relative).
 @JavaMethod
   open func isAbsolute() -> Bool
 
-  /// Java method `getScheme`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public abstract java.lang.String android.net.Uri.getScheme()
-  /// ```
+  /// Returns the scheme of this URI (e.g. `"http"`, `"content"`), or an
+  /// empty string if the URI is relative or has no scheme.
 @JavaMethod
   open func getScheme() -> String
 
-  /// Java method `isOpaque`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public boolean android.net.Uri.isOpaque()
-  /// ```
+  /// Returns `true` if this URI is opaque (i.e. its scheme-specific part
+  /// does not begin with `/`). For example, `mailto:user@example.com` is opaque.
 @JavaMethod
   open func isOpaque() -> Bool
 
-  /// Java method `getHost`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public abstract java.lang.String android.net.Uri.getHost()
-  /// ```
+  /// Returns the decoded host from the authority component, or an empty
+  /// string if the host is absent. For IPv6 addresses the brackets are included.
 @JavaMethod
   open func getHost() -> String
 
-  /// Java method `getPort`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public abstract int android.net.Uri.getPort()
-  /// ```
+  /// Returns the port from the authority component, or `-1` if no port
+  /// is specified.
 @JavaMethod
   open func getPort() -> Int32
 
-  /// Java method `getAuthority`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public abstract java.lang.String android.net.Uri.getAuthority()
-  /// ```
+  /// Returns the decoded authority component (host and optional port), or
+  /// an empty string if not present.
 @JavaMethod
   open func getAuthority() -> String
 
-  /// Java method `isRelative`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public abstract boolean android.net.Uri.isRelative()
-  /// ```
+  /// Returns `true` if this URI is relative (has no scheme).
 @JavaMethod
   open func isRelative() -> Bool
 
-  /// Java method `getQuery`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public abstract java.lang.String android.net.Uri.getQuery()
-  /// ```
+  /// Returns the decoded query component of this URI, or an empty string
+  /// if no query is present.
 @JavaMethod
   open func getQuery() -> String
 
-  /// Java method `getPath`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public abstract java.lang.String android.net.Uri.getPath()
-  /// ```
+  /// Returns the decoded path component of this URI, or an empty string
+  /// if the path is absent.
 @JavaMethod
   open func getPath() -> String
 
-  /// Java method `getUserInfo`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public abstract java.lang.String android.net.Uri.getUserInfo()
-  /// ```
+  /// Returns the decoded user-information from the authority (everything
+  /// before `@`), or an empty string if not present.
 @JavaMethod
   open func getUserInfo() -> String
 
-  /// Java method `getSchemeSpecificPart`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public abstract java.lang.String android.net.Uri.getSchemeSpecificPart()
-  /// ```
+  /// Returns the decoded scheme-specific part of this URI.
 @JavaMethod
   open func getSchemeSpecificPart() -> String
 
-  /// Java method `getFragment`.
-  ///
-  /// ### Java method signature
-  /// ```java
-  /// public abstract java.lang.String android.net.Uri.getFragment()
-  /// ```
+  /// Returns the decoded fragment component (everything after `#`), or an
+  /// empty string if no fragment is present.
 @JavaMethod
   open func getFragment() -> String
 }
 extension JavaClass<Uri> {
+  /// Parcelable creator for restoring `Uri` instances from a `Parcel`.
   @JavaStaticField(isFinal: true)
   public var CREATOR: Parcelable.Creator<Uri>!
 
+  /// The empty URI (`""`).
   @JavaStaticField(isFinal: true)
   public var EMPTY: Uri!
 
-    /// Java method `writeToParcel`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public static void android.net.Uri.writeToParcel(android.os.Parcel,android.net.Uri)
-    /// ```
+  /// Writes a `Uri` to a `Parcel`. Pass `nil` to write a `null` URI.
+  ///
+  /// - Parameters:
+  ///   - arg0: The destination parcel.
+  ///   - arg1: The URI to write, or `nil`.
   @JavaStaticMethod
   public func writeToParcel(_ arg0: Parcel?, _ arg1: Uri?)
 
-    /// Java method `fromParts`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public static android.net.Uri android.net.Uri.fromParts(java.lang.String,java.lang.String,java.lang.String)
-    /// ```
+  /// Creates a URI from an already-encoded scheme, scheme-specific part,
+  /// and fragment. None of the components are encoded by this method.
+  ///
+  /// - Parameters:
+  ///   - arg0: The URI scheme (e.g. `"mailto"`).
+  ///   - arg1: The scheme-specific part (already encoded).
+  ///   - arg2: The fragment (already encoded), or `nil`.
+  /// - Returns: A new `Uri`.
   @JavaStaticMethod
   public func fromParts(_ arg0: String, _ arg1: String, _ arg2: String) -> Uri!
 
-    /// Java method `withAppendedPath`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public static android.net.Uri android.net.Uri.withAppendedPath(android.net.Uri,java.lang.String)
-    /// ```
+  /// Appends an already-encoded path segment to the end of `arg0`'s path.
+  ///
+  /// - Parameters:
+  ///   - arg0: The base URI.
+  ///   - arg1: The encoded path segment to append.
+  /// - Returns: A new `Uri` with the segment appended, or `nil` if `arg0` is `nil`.
   @JavaStaticMethod
   public func withAppendedPath(_ arg0: Uri?, _ arg1: String) -> Uri!
 
-    /// Java method `decode`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public static java.lang.String android.net.Uri.decode(java.lang.String)
-    /// ```
+  /// Decodes `'%'`-escaped octets in `arg0` using UTF-8, returning the
+  /// decoded string. Invalid sequences are left as-is.
+  ///
+  /// - Parameter arg0: The encoded string to decode.
+  /// - Returns: The decoded string.
   @JavaStaticMethod
   public func decode(_ arg0: String) -> String
 
-    /// Java method `encode`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public static java.lang.String android.net.Uri.encode(java.lang.String)
-    /// ```
+  /// Encodes characters in `arg0` as `'%'`-escaped octets using UTF-8,
+  /// leaving unreserved characters (letters, digits, `_-!.~'()*`) unencoded.
+  ///
+  /// - Parameter arg0: The string to encode.
+  /// - Returns: The encoded string.
   @JavaStaticMethod
   public func encode(_ arg0: String) -> String
 
-    /// Java method `encode`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public static java.lang.String android.net.Uri.encode(java.lang.String,java.lang.String)
-    /// ```
+  /// Encodes characters in `arg0` as `'%'`-escaped octets using UTF-8,
+  /// but allows characters in `arg1` to pass through unencoded in addition
+  /// to the standard unreserved set.
+  ///
+  /// - Parameters:
+  ///   - arg0: The string to encode.
+  ///   - arg1: Additional characters to allow unencoded, or `nil`.
+  /// - Returns: The encoded string.
   @JavaStaticMethod
   public func encode(_ arg0: String, _ arg1: String) -> String
 
-    /// Java method `parse`.
-    ///
-    /// ### Java method signature
-    /// ```java
-    /// public static android.net.Uri android.net.Uri.parse(java.lang.String)
-    /// ```
+  /// Parses an encoded URI string into a `Uri`.
+  ///
+  /// - Parameter arg0: A fully-encoded URI string (e.g. `"https://example.com/path"`).
+  /// - Returns: A parsed `Uri`.
   @JavaStaticMethod
   public func parse(_ arg0: String) -> Uri!
 }
