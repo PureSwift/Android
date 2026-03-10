@@ -87,6 +87,18 @@ var package = Package(
         ),
         .library(
             name: "AndroidInput", targets: ["AndroidInput"]
+        ),
+        .library(
+            name: "AndroidLocation", targets: ["AndroidLocation"]
+        ),
+        .library(
+            name: "AndroidMedia", targets: ["AndroidMedia"]
+        ),
+        .library(
+            name: "AndroidNet", targets: ["AndroidNet"]
+        ),
+        .library(
+            name: "AndroidNFC", targets: ["AndroidNFC"]
         )
     ],
     dependencies: [
@@ -161,7 +173,11 @@ var package = Package(
                 "AndroidHardware",
                 "AndroidFileManager",
                 "AndroidNativeActivity",
-                "AndroidInput"
+                "AndroidInput",
+                "AndroidLocation",
+                "AndroidMedia",
+                "AndroidNFC",
+                "AndroidNet"
             ],
             swiftSettings: [
               .swiftLanguageMode(.v5),
@@ -532,6 +548,75 @@ var package = Package(
             ],
             linkerSettings: [
                 .linkedLibrary("android", .when(platforms: [.android]))
+            ]
+        ),
+        .target(
+            name: "AndroidLocation",
+            dependencies: [
+                "AndroidJava",
+                "AndroidOS",
+                "AndroidUtil",
+                "AndroidContent",
+            ],
+            exclude: ["swift-java.config"],
+            swiftSettings: [
+              .swiftLanguageMode(.v5),
+              ndkVersionDefine,
+              sdkVersionDefine
+            ]
+        ),
+        .target(
+            name: "AndroidMedia",
+            dependencies: [
+                "AndroidJava",
+                "AndroidOS",
+                "AndroidUtil",
+                "AndroidContent",
+                .product(name: "JavaIO", package: "swift-java"),
+                .product(name: "JavaLangUtil", package: "JavaLang"),
+            ],
+            exclude: ["swift-java.config"],
+            swiftSettings: [
+              .swiftLanguageMode(.v5),
+              ndkVersionDefine,
+              sdkVersionDefine
+            ]
+        ),
+        .target(
+            name: "AndroidNet",
+            dependencies: [
+                "AndroidJava",
+                "AndroidOS",
+                "AndroidUtil",
+                "AndroidContent",
+                .product(name: "JavaLangUtil", package: "JavaLang"),
+                .product(name: "JavaLangIO", package: "JavaLang"),
+                .product(name: "JavaLangNet", package: "JavaLang"),
+                .product(name: "JavaIO", package: "swift-java"),
+            ],
+            exclude: ["swift-java.config"],
+            swiftSettings: [
+              .swiftLanguageMode(.v5),
+              ndkVersionDefine,
+              sdkVersionDefine
+            ]
+        ),
+        .target(
+            name: "AndroidNFC",
+            dependencies: [
+                "AndroidJava",
+                "AndroidOS",
+                "AndroidUtil",
+                "AndroidContent",
+                "AndroidApp",
+                "AndroidNet",
+                .product(name: "JavaLangIO", package: "JavaLang"),
+            ],
+            exclude: ["swift-java.config"],
+            swiftSettings: [
+              .swiftLanguageMode(.v5),
+              ndkVersionDefine,
+              sdkVersionDefine
             ]
         )
     ],
