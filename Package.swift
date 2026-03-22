@@ -29,9 +29,6 @@ var package = Package(
             name: "AndroidJava", targets: ["AndroidJava"]
         ),
         .library(
-            name: "AndroidManifest", targets: ["AndroidManifest"]
-        ),
-        .library(
             name: "AndroidR", targets: ["AndroidR"]
         ),
         .library(
@@ -68,27 +65,6 @@ var package = Package(
             name: "AndroidWebKit", targets: ["AndroidWebKit"]
         ),
         .library(
-            name: "AndroidLogging", targets: ["AndroidLogging"]
-        ),
-        .library(
-            name: "AndroidLooper", targets: ["AndroidLooper"]
-        ),
-        .library(
-            name: "CAndroidNDK", targets: ["CAndroidNDK"]
-        ),
-        .library(
-            name: "AndroidHardware", targets: ["AndroidHardware"]
-        ),
-        .library(
-            name: "AndroidFileManager", targets: ["AndroidFileManager"]
-        ),
-        .library(
-            name: "AndroidNativeActivity", targets: ["AndroidNativeActivity"]
-        ),
-        .library(
-            name: "AndroidInput", targets: ["AndroidInput"]
-        ),
-        .library(
             name: "AndroidLocation", targets: ["AndroidLocation"]
         ),
         .library(
@@ -115,21 +91,9 @@ var package = Package(
             branch: "master"
         ),
         .package(
-            url: "https://github.com/PureSwift/Binder.git",
-            branch: "master"
-        ),
-        .package(
-            url: "https://github.com/PureSwift/Socket.git",
+            url: "https://github.com/swift-android-sdk/swift-android-native.git",
             branch: "main"
         ),
-        .package(
-            url: "https://github.com/apple/swift-log",
-            from: "1.6.3"
-        ),
-        .package(
-            url: "https://github.com/apple/swift-system",
-            from: "1.5.0"
-        )
     ],
     targets: [
         .target(
@@ -155,9 +119,7 @@ var package = Package(
                     name: "JavaLangReflect",
                     package: "swift-java"
                 ),
-                "CAndroidNDK",
                 "AndroidJava",
-                "AndroidManifest",
                 "AndroidR",
                 "AndroidGraphics",
                 "AndroidAnimation",
@@ -168,12 +130,6 @@ var package = Package(
                 "AndroidMaterial",
                 "AndroidWidget",
                 "AndroidWebKit",
-                "AndroidLogging",
-                "AndroidLooper",
-                "AndroidHardware",
-                "AndroidFileManager",
-                "AndroidNativeActivity",
-                "AndroidInput",
                 "AndroidLocation",
                 "AndroidMedia",
                 "AndroidNFC",
@@ -419,138 +375,6 @@ var package = Package(
             ]
         ),
         .target(
-            name: "AndroidLogging",
-            dependencies: [
-                .product(
-                    name: "SystemPackage",
-                    package: "swift-system"
-                ),
-                .product(
-                    name: "Logging",
-                    package: "swift-log"
-                )
-            ],
-            swiftSettings: [
-              .swiftLanguageMode(.v6),
-              ndkVersionDefine,
-              sdkVersionDefine
-            ],
-            linkerSettings: [
-                .linkedLibrary("log", .when(platforms: [.android]))
-            ]
-        ),
-        .target(
-            name: "AndroidLooper",
-            dependencies: [
-                .product(
-                    name: "SystemPackage",
-                    package: "swift-system"
-                ),
-                .product(
-                    name: "Socket",
-                    package: "Socket"
-                ),
-                "CAndroidNDK"
-            ],
-            swiftSettings: [
-              .swiftLanguageMode(.v6),
-              ndkVersionDefine,
-              sdkVersionDefine
-            ],
-            linkerSettings: [
-                .linkedLibrary("android", .when(platforms: [.android]))
-            ]
-        ),
-        .target(
-            name: "CAndroidNDK",
-            cxxSettings: [
-                .define("ANDROID_NDK_VERSION", to: ndkVersion.description),
-                .define("ANDROID_SDK_VERSION", to: sdkVersion.description)
-            ],
-            linkerSettings: [
-                .linkedLibrary("android", .when(platforms: [.android]))
-            ]
-        ),
-        .target(
-            name: "AndroidHardware",
-            dependencies: [
-                "CAndroidNDK",
-                "AndroidLooper"
-            ],
-            swiftSettings: [
-              .swiftLanguageMode(.v6),
-              ndkVersionDefine,
-              sdkVersionDefine
-            ],
-            linkerSettings: [
-                .linkedLibrary("android", .when(platforms: [.android]))
-            ]
-        ),
-        .target(
-            name: "AndroidFileManager",
-            dependencies: [
-                "CAndroidNDK"
-            ],
-            swiftSettings: [
-              .swiftLanguageMode(.v6),
-              ndkVersionDefine,
-              sdkVersionDefine
-            ],
-            linkerSettings: [
-                .linkedLibrary("android", .when(platforms: [.android]))
-            ]
-        ),
-        .target(
-            name: "AndroidManifest",
-            dependencies: [
-                "CAndroidNDK"
-            ],
-            swiftSettings: [
-              .swiftLanguageMode(.v6),
-              ndkVersionDefine,
-              sdkVersionDefine
-            ],
-            linkerSettings: [
-                .linkedLibrary("android", .when(platforms: [.android]))
-            ]
-        ),
-        .target(
-            name: "AndroidNativeActivity",
-            dependencies: [
-                "CAndroidNDK",
-                "AndroidLooper",
-                "AndroidFileManager",
-                "AndroidInput",
-                .product(
-                    name: "SystemPackage",
-                    package: "swift-system"
-                )
-            ],
-            swiftSettings: [
-              .swiftLanguageMode(.v6),
-              ndkVersionDefine,
-              sdkVersionDefine
-            ],
-            linkerSettings: [
-                .linkedLibrary("android", .when(platforms: [.android]))
-            ]
-        ),
-        .target(
-            name: "AndroidInput",
-            dependencies: [
-                "CAndroidNDK",
-                "AndroidLooper"
-            ],
-            swiftSettings: [
-              .swiftLanguageMode(.v6),
-              ndkVersionDefine,
-              sdkVersionDefine
-            ],
-            linkerSettings: [
-                .linkedLibrary("android", .when(platforms: [.android]))
-            ]
-        ),
-        .target(
             name: "AndroidLocation",
             dependencies: [
                 "AndroidJava",
@@ -624,42 +448,13 @@ var package = Package(
 )
 
 if ndkBinder {
-    // Add the binder target
-    let binderTarget = Target.target(
-        name: "AndroidBinder",
-        dependencies: [
-            .product(
-                name: "SystemPackage",
-                package: "swift-system"
-            ),
-            .product(
-                name: "Binder",
-                package: "Binder"
-            ),
-            "CAndroidNDK"
-        ],
-        swiftSettings: [
-          .swiftLanguageMode(.v6)
-        ],
-        linkerSettings: [
-            .linkedLibrary("binder_ndk", .when(platforms: [.android]))
-        ]
-    )
-    package.targets.append(binderTarget)
-    
-    // Add the binder product
-    let binderProduct = Product.library(
-        name: "AndroidBinder",
-        targets: ["AndroidBinder"]
-    )
-    package.products.append(binderProduct)
-    
+    let binderDependency: Target.Dependency = .product(name: "AndroidBinder", package: "swift-android-native")
     // add as dependency to AndroidOS
     if let index = package.targets.firstIndex(where: { $0.name == "AndroidOS" }) {
-        package.targets[index].dependencies.append("AndroidBinder")
+        package.targets[index].dependencies.append(binderDependency)
     }
     // add as dependency to AndroidKit
     if let index = package.targets.firstIndex(where: { $0.name == "AndroidKit" }) {
-        package.targets[index].dependencies.append("AndroidBinder")
+        package.targets[index].dependencies.append(binderDependency)
     }
 }
