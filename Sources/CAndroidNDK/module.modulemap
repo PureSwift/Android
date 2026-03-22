@@ -1,5 +1,0 @@
-module CAndroidNDK [system] {
-  link "log"
-  header "ndk.h"
-  export *
-}
