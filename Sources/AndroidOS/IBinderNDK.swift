@@ -8,7 +8,6 @@
 #if canImport(AndroidBinder)
 #if canImport(Android)
 import Android
-import CAndroidNDK
 #endif
 import SwiftJava
 import CSwiftJavaJNI
