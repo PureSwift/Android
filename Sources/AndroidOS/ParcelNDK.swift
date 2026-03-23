@@ -8,7 +8,6 @@
 #if canImport(AndroidBinder)
 #if canImport(Android)
 import Android
-import CAndroidNDK
 #endif
 import SwiftJava
 import CSwiftJavaJNI
@@ -31,32 +30,4 @@ public extension AndroidOS.Parcel {
     }
 }
 
-internal extension AndroidBinder.Parcel {
-    
-    /**
-     * Converts an android.os.Parcel object into an AParcel* object.
-     *
-     * If the parcel is null, null is returned.
-     *
-     * Available since API level 30.
-     *
-     * \param env Java environment. Must not be null.
-     * \param parcel android.os.Parcel java object.
-     *
-     * \return an AParcel object representing the Java parcel object. If either parameter is null, this
-     * will return null. This must be deleted with AParcel_delete. This does not take ownership of the
-     * jobject and is only good for as long as the jobject is alive.
-     */
-    @available(Android 30, *)
-    static func fromJava(_ javaObject: jobject, environment: JNIEnvironment) -> AndroidBinder.Parcel {
-        guard let pointer = AParcel_fromJavaParcel(environment, javaObject) else {
-            fatalError("Unable to initialize from Java object")
-        }
-        return AndroidBinder.Parcel(pointer)
-    }
-}
-
-#if !os(Android)
-func AParcel_fromJavaParcel(_ environment: JNIEnvironment?, _ javaObject: jobject) -> OpaquePointer? { fatalError("stub") }
-#endif
 #endif
