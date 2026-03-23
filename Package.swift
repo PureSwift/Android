@@ -121,6 +121,30 @@ var package = Package(
           name: "JavaLangReflect",
           package: "swift-java"
         ),
+        .product(
+            name: "AndroidLogging",
+            package: "swift-android-native"
+        ),
+        .product(
+            name: "AndroidLooper",
+            package: "swift-android-native"
+        ),
+        .product(
+            name: "AndroidManifest",
+            package: "swift-android-native"
+        ),
+        .product(
+            name: "AndroidHardware",
+            package: "swift-android-native"
+        ),
+        .product(
+            name: "AndroidFileManager",
+            package: "swift-android-native"
+        ),
+        .product(
+            name: "AndroidInput",
+            package: "swift-android-native"
+        ),
         "AndroidJava",
         "AndroidR",
         "AndroidGraphics",
@@ -238,7 +262,11 @@ var package = Package(
     .target(
       name: "AndroidOS",
       dependencies: [
-        "AndroidJava"
+        "AndroidJava",
+        .product(
+            name: "AndroidSystem",
+            package: "swift-android-native"
+        ),
       ],
       exclude: ["swift-java.config"],
       swiftSettings: [
