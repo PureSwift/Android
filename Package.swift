@@ -288,6 +288,12 @@ var package = Package(
         sdkVersionDefine,
       ]
     ),
+    .testTarget(
+        name: "AndroidAppTests",
+        dependencies: [
+            "AndroidApp",
+        ]
+    ),
     .target(
       name: "AndroidContent",
       dependencies: [
