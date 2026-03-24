@@ -24,7 +24,7 @@ extension AndroidContent.Context {
     /// The shared `android.content.Context` for the current application
     public static func applicationContext() throws -> Context {
         // simply cast the Application to a Context
-        return Context(javaHolder: try Application.currentApplication().javaHolder)
+        try Application.currentApplication().as(AndroidContent.Context.self)!
     }
 }
 
