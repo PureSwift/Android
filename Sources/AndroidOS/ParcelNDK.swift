@@ -8,10 +8,9 @@
 #if canImport(AndroidBinder)
 #if canImport(Android)
 import Android
-import CAndroidNDK
 #endif
 import SwiftJava
-import CSwiftJavaJNI
+import SwiftJavaJNICore
 import struct AndroidBinder.Parcel
 
 // MARK: - NDK Parcel
@@ -26,37 +25,11 @@ public extension AndroidOS.Parcel {
     /// Create a temporary NDK object and perform operatios on it.
     @available(Android 30, *)
     func withNDK<E, Result>(_ body: (borrowing NDK) throws(E) -> Result) throws(E) -> Result where E: Error {
-        let ndk = NDK.fromJava(javaThis, environment: javaEnvironment)
+        guard let ndk = NDK.fromJava(javaThis, environment: javaEnvironment) else {
+            fatalError("Unable to create NDK type")
+        }
         return try body(ndk)
     }
 }
 
-internal extension AndroidBinder.Parcel {
-    
-    /**
-     * Converts an android.os.Parcel object into an AParcel* object.
-     *
-     * If the parcel is null, null is returned.
-     *
-     * Available since API level 30.
-     *
-     * \param env Java environment. Must not be null.
-     * \param parcel android.os.Parcel java object.
-     *
-     * \return an AParcel object representing the Java parcel object. If either parameter is null, this
-     * will return null. This must be deleted with AParcel_delete. This does not take ownership of the
-     * jobject and is only good for as long as the jobject is alive.
-     */
-    @available(Android 30, *)
-    static func fromJava(_ javaObject: jobject, environment: JNIEnvironment) -> AndroidBinder.Parcel {
-        guard let pointer = AParcel_fromJavaParcel(environment, javaObject) else {
-            fatalError("Unable to initialize from Java object")
-        }
-        return AndroidBinder.Parcel(pointer)
-    }
-}
-
-#if !os(Android)
-func AParcel_fromJavaParcel(_ environment: JNIEnvironment?, _ javaObject: jobject) -> OpaquePointer? { fatalError("stub") }
-#endif
 #endif
