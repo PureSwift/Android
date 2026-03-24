@@ -94,7 +94,9 @@ var package = Package(
     ),
     .package(
       url: "https://github.com/swift-android-sdk/swift-android-native.git",
-      branch: "main"
+      // TODO: restore main after https://github.com/swift-android-sdk/swift-android-native/pull/24 is resolved
+      // branch: "main"
+      branch: "weak-binder-symbol"
     ),
   ],
   targets: [
