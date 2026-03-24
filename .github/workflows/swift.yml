@@ -17,7 +17,7 @@ jobs:
         android-api: ['28', '29', '31', '33']
         android-ndk: ['r27d']
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 30
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v6
       - uses: skiptools/actions/setup-skip@v1
@@ -26,12 +26,21 @@ jobs:
           install-swift-android-sdk: true
           swift-android-sdk-version: ${{ matrix.android-sdk }}
           swift-android-ndk-version: ${{ matrix.android-ndk }}
-      - name: "Build Swift Package for Android"
+
+      - name: "Build Swift Package for Android (aarch64)"
         run: |
-          ANDROID_SDK_VERSION=${{ matrix.android-api }} skip android build --arch aarch64 --arch armv7 --arch x86_64 --android-api-level ${{ matrix.android-api }}
+          ANDROID_SDK_VERSION=${{ matrix.android-api }} skip android build --arch aarch64 --android-api-level ${{ matrix.android-api }}
+
+      - name: "Build Swift Package for Android (armv7)"
+        run: |
+          ANDROID_SDK_VERSION=${{ matrix.android-api }} skip android build --arch armv7--android-api-level ${{ matrix.android-api }}
+
+      - name: "Build Swift Package for Android (x86_64)"
+        run: |
+          ANDROID_SDK_VERSION=${{ matrix.android-api }} skip android build --arch x86_64 --android-api-level ${{ matrix.android-api }}
 
       - name: "Test Swift Package on Android"
-        # can only lookup the current JavaVirtualMachine on SDK >= 31
+        # can only lookup the current JavaVirtualMachine on API >= 31
         # https://github.com/swiftlang/swift-java/issues/419
         if: ${{ matrix.android-api >= 31 }}
         uses: reactivecircus/android-emulator-runner@v2
