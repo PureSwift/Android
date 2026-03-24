@@ -23,8 +23,8 @@ jobs:
       - uses: actions/checkout@v6
       - uses: skiptools/actions/setup-skip@v1
         with:
-          install-swift-android-sdk: true
           gradle-version: 'none'
+          install-swift-android-sdk: true
           swift-android-sdk-version: ${{ matrix.android-sdk }}
           swift-android-ndk-version: ${{ matrix.android-ndk }}
       - name: "Build Swift Package for Android"
