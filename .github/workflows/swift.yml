@@ -25,7 +25,6 @@ jobs:
         with:
           install-swift-android-sdk: true
           gradle-version: 'none'
-          swift-version: '6.2.4'
           swift-android-sdk-version: ${{ matrix.android-sdk }}
           swift-android-ndk-version: ${{ matrix.android-ndk }}
       - name: "Build Swift Package for Android"
