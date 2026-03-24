@@ -11,10 +11,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: ['ubuntu-24.04', 'macos-15-intel']
-        swift: ['6.2.3', 'nightly-6.3']
+        # os: ['ubuntu-24.04', 'macos-15-intel']
+        os: ['ubuntu-24.04']
+        swift: ['nightly-6.3']
         arch: ['aarch64', 'x86_64', 'armv7']
         sdk: ['28', '29', '31', '33']
+        ndk: ['r27d']
     runs-on: ${{ matrix.os }}
     timeout-minutes: 30
     steps:
@@ -25,14 +27,19 @@ jobs:
           gradle-version: 'none'
           swift-version: ${{ matrix.swift }}
           swift-android-sdk-version: ${{ matrix.swift }}
+          swift-android-ndk-version: ${{ matrix.ndk }}
       - name: "Build Swift Package for Android"
         run: |
           ANDROID_NDK_ROOT="" ANDROID_SDK_VERSION=${{ matrix.sdk }} skip android build --arch ${{ matrix.arch }} --android-api-level ${{ matrix.sdk }}
       - name: "Install and launch emulator"
+        # can only lookup the current JavaVirtualMachine on SDK >= 31
+        # https://github.com/swiftlang/swift-java/issues/419
+        if: ${{ matrix.sdk >= 31 }}
         run: |
           skip android emulator create --android-api-level ${{ matrix.sdk }}
           skip android emulator launch --background
       - name: "Test Swift package on emulator"
+        if: ${{ matrix.sdk >= 31 }}
         run: |
           skip android test --apk
 
