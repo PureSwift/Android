@@ -33,7 +33,7 @@ jobs:
 
       - name: "Build Swift Package for Android (armv7)"
         run: |
-          ANDROID_SDK_VERSION=${{ matrix.android-api }} skip android build --arch armv7--android-api-level ${{ matrix.android-api }}
+          ANDROID_SDK_VERSION=${{ matrix.android-api }} skip android build --arch armv7 --android-api-level ${{ matrix.android-api }}
 
       - name: "Build Swift Package for Android (x86_64)"
         run: |
