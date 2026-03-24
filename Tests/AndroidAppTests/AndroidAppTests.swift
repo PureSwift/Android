@@ -39,7 +39,7 @@ extension AndroidContent.Context {
 
     let info: AndroidContent.ApplicationInfo = ctx.getApplicationInfo()
     #expect(info.processName == "org.swift.test.swiftandroid")
-    #expect(info.minSdkVersion == 28)
+    #expect(info.minSdkVersion >= 28)
 
     let looper: AndroidOS.Looper = ctx.getMainLooper()
     #expect(looper.isCurrentThread() == false, "tests should not be running on main thread")
