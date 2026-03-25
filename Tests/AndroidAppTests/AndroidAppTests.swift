@@ -29,9 +29,6 @@ extension AndroidContent.Context {
 }
 
 @Test func testAndroidAppContext() throws {
-    let jvm = try JavaVirtualMachine.shared()
-    let env = try jvm.environment()
-
     let ctx = try Context.applicationContext()
 
     let name = ctx.getPackageName()
