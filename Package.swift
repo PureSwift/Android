@@ -288,6 +288,21 @@ var package = Package(
         sdkVersionDefine,
       ]
     ),
+    .testTarget(
+        name: "AndroidAppTests",
+        dependencies: [
+            "AndroidJava",
+            "AndroidApp",
+            .product(
+                name: "AndroidContext",
+                package: "swift-android-native"
+            ),
+            .product(
+              name: "SwiftJava",
+              package: "swift-java"
+            ),
+        ]
+    ),
     .target(
       name: "AndroidContent",
       dependencies: [
