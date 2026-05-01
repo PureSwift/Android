@@ -82,19 +82,19 @@ var package = Package(
   dependencies: [
     .package(
       url: "https://github.com/swiftlang/swift-java.git",
-      branch: "main"
+      .upToNextMinor(from: "0.2.0")
     ),
     .package(
-      url: "https://github.com/PureSwift/JavaLang.git",
-      branch: "master"
+      url: "https://github.com/stackotter/SwiftJavaLang.git",
+      .upToNextMinor(from: "0.2.1")
     ),
     .package(
-      url: "https://github.com/PureSwift/Kotlin.git",
-      branch: "master"
+      url: "https://github.com/stackotter/SwiftKotlin.git",
+      .upToNextMinor(from: "0.2.1")
     ),
     .package(
       url: "https://github.com/swift-android-sdk/swift-android-native.git",
-      branch: "main"
+      from: "2.0.0"
     ),
   ],
   targets: [
@@ -196,27 +196,27 @@ var package = Package(
         ),
         .product(
           name: "JavaLang",
-          package: "JavaLang"
+          package: "SwiftJavaLang"
         ),
         .product(
           name: "JavaLangUtil",
-          package: "JavaLang"
+          package: "SwiftJavaLang"
         ),
         .product(
           name: "JavaLangIO",
-          package: "JavaLang"
+          package: "SwiftJavaLang"
         ),
         .product(
           name: "JavaLangNet",
-          package: "JavaLang"
+          package: "SwiftJavaLang"
         ),
         .product(
           name: "JavaTime",
-          package: "JavaLang"
+          package: "SwiftJavaLang"
         ),
         .product(
           name: "JavaAWT",
-          package: "JavaLang"
+          package: "SwiftJavaLang"
         ),
       ],
       swiftSettings: [
@@ -373,7 +373,7 @@ var package = Package(
       dependencies: [
         .product(
           name: "Kotlin",
-          package: "Kotlin"
+          package: "SwiftKotlin"
         ),
         "AndroidJava",
         "AndroidUtil",
@@ -444,7 +444,7 @@ var package = Package(
         "AndroidUtil",
         "AndroidContent",
         .product(name: "JavaIO", package: "swift-java"),
-        .product(name: "JavaLangUtil", package: "JavaLang"),
+        .product(name: "JavaLangUtil", package: "SwiftJavaLang"),
       ],
       exclude: ["swift-java.config"],
       swiftSettings: [
@@ -460,9 +460,9 @@ var package = Package(
         "AndroidOS",
         "AndroidUtil",
         "AndroidContent",
-        .product(name: "JavaLangUtil", package: "JavaLang"),
-        .product(name: "JavaLangIO", package: "JavaLang"),
-        .product(name: "JavaLangNet", package: "JavaLang"),
+        .product(name: "JavaLangUtil", package: "SwiftJavaLang"),
+        .product(name: "JavaLangIO", package: "SwiftJavaLang"),
+        .product(name: "JavaLangNet", package: "SwiftJavaLang"),
         .product(name: "JavaIO", package: "swift-java"),
       ],
       exclude: ["swift-java.config"],
@@ -481,7 +481,7 @@ var package = Package(
         "AndroidContent",
         "AndroidApp",
         "AndroidNet",
-        .product(name: "JavaLangIO", package: "JavaLang"),
+        .product(name: "JavaLangIO", package: "SwiftJavaLang"),
       ],
       exclude: ["swift-java.config"],
       swiftSettings: [
