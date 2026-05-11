@@ -9,7 +9,7 @@ open class ProgressBar: JavaObject {
   @JavaMethod
   @_nonoverride convenience init(
     _ context: AndroidContent.Context?,
-    _ attrs: AndroidKit.AttributeSet?,
+    _ attrs: AndroidUtil.AttributeSet?,
     _ defStyleAttr: Int32,
     _ defStyleRes: Int32,
     environment: UnsafeMutablePointer<JNIEnv?>!
