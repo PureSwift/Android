@@ -7,7 +7,7 @@ import AndroidUtil
 @JavaClass("android.widget.ProgressBar")
 open class ProgressBar: JavaObject {
   @JavaMethod
-  @_nonoverride convenience init(
+  @_nonoverride public convenience init(
     _ context: AndroidContent.Context?,
     _ attrs: AndroidUtil.AttributeSet?,
     _ defStyleAttr: Int32,
