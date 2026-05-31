@@ -81,16 +81,16 @@ var package = Package(
   ],
   dependencies: [
     .package(
-      url: "https://github.com/swiftlang/swift-java.git",
-      .upToNextMinor(from: "0.2.0")
+      url: "https://github.com/stackotter/swift-java.git",
+      .upToNextMinor(from: "0.5.1")
     ),
     .package(
       url: "https://github.com/stackotter/SwiftJavaLang.git",
-      .upToNextMinor(from: "0.2.1")
+      .upToNextMinor(from: "0.3.0")
     ),
     .package(
       url: "https://github.com/stackotter/SwiftKotlin.git",
-      .upToNextMinor(from: "0.2.1")
+      .upToNextMinor(from: "0.3.0")
     ),
     .package(
       url: "https://github.com/swift-android-sdk/swift-android-native.git",
