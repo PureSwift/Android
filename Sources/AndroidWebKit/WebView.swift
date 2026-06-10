@@ -79,21 +79,6 @@ open class WebView: AbsoluteLayout {
   open func createWebMessageChannel() -> [WebMessagePort?]
 
   @JavaMethod
-  open func onStartTemporaryDetach()
-
-  @JavaMethod
-  open func onFinishTemporaryDetach()
-
-  @JavaMethod
-  open func onCheckIsTextEditor() -> Bool
-
-  @JavaMethod
-  open func onWindowVisibilityChanged(_ arg0: Int32)
-
-  @JavaMethod
-  open func onWindowFocusChanged(_ arg0: Bool)
-
-  @JavaMethod
   open func setHttpAuthUsernamePassword(_ arg0: String, _ arg1: String, _ arg2: String, _ arg3: String)
 
   @JavaMethod
@@ -109,34 +94,7 @@ open class WebView: AbsoluteLayout {
   open func getRendererRequestedPriority() -> Int32
 
   @JavaMethod
-  open func computeHorizontalScrollRange() -> Int32
-
-  @JavaMethod
-  open func computeHorizontalScrollOffset() -> Int32
-
-  @JavaMethod
-  open func computeVerticalScrollRange() -> Int32
-
-  @JavaMethod
-  open func computeVerticalScrollOffset() -> Int32
-
-  @JavaMethod
-  open func computeVerticalScrollExtent() -> Int32
-
-  @JavaMethod
   open override func shouldDelayChildPressedState() -> Bool
-
-  @JavaMethod
-  open func getAccessibilityClassName() -> CharSequence!
-
-  @JavaMethod
-  open func isVisibleToUserForAutofill(_ arg0: Int32) -> Bool
-
-  @JavaMethod
-  open func onOverScrolled(_ arg0: Int32, _ arg1: Int32, _ arg2: Bool, _ arg3: Bool)
-
-  @JavaMethod
-  open func performLongClick() -> Bool
 
   @JavaMethod
   open func getUrl() -> String
@@ -268,16 +226,7 @@ open class WebView: AbsoluteLayout {
   open func getSettings() -> WebSettings!
 
   @JavaMethod
-  open func onSizeChanged(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
-
-  @JavaMethod
-  open func onScrollChanged(_ arg0: Int32, _ arg1: Int32, _ arg2: Int32, _ arg3: Int32)
-
-  @JavaMethod
   open override func onMeasure(_ arg0: Int32, _ arg1: Int32)
-
-  @JavaMethod
-  open func setBackgroundColor(_ arg0: Int32)
 
   @JavaMethod
   open func clearFormData()
@@ -301,19 +250,7 @@ open class WebView: AbsoluteLayout {
   open func zoomOut() -> Bool
 
   @JavaMethod
-  open func onAttachedToWindow()
-
-  @JavaMethod
   open func setLayoutParams(_ arg0: WebView.LayoutParams?)
-
-  @JavaMethod
-  open func setOverScrollMode(_ arg0: Int32)
-
-  @JavaMethod
-  open func setScrollBarStyle(_ arg0: Int32)
-
-  @JavaMethod
-  open func computeScroll()
 }
 extension WebView {
   @JavaClass("android.view.View$AccessibilityDelegate")
