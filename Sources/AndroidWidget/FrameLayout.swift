@@ -3,6 +3,7 @@ import SwiftJava
 import CSwiftJavaJNI
 import AndroidView
 import AndroidContent
+import AndroidUtil
 
 @JavaClass("android.widget.FrameLayout")
 open class FrameLayout: ViewGroup {
@@ -24,6 +25,9 @@ open class FrameLayout: ViewGroup {
 
   @JavaMethod
   open func getMeasureAllChildren() -> Bool
+
+  @JavaMethod
+  open func generateLayoutParams(_ arg0: AttributeSet?) -> FrameLayout.LayoutParams!
 
   @JavaMethod
   open func generateLayoutParams(_ arg0: ViewSwitcher.LayoutParams?) -> ViewSwitcher.LayoutParams!

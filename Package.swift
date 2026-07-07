@@ -78,6 +78,9 @@ var package = Package(
     .library(
       name: "AndroidNFC", targets: ["AndroidNFC"]
     ),
+    .library(
+      name: "AndroidAppWidget", targets: ["AndroidAppWidget"]
+    ),
   ],
   dependencies: [
     .package(
@@ -481,6 +484,25 @@ var package = Package(
         "AndroidContent",
         "AndroidApp",
         "AndroidNet",
+        .product(name: "JavaLangIO", package: "SwiftJavaLang"),
+      ],
+      exclude: ["swift-java.config"],
+      swiftSettings: [
+        .swiftLanguageMode(.v5),
+        ndkVersionDefine,
+        sdkVersionDefine,
+      ]
+    ),
+    .target(
+      name: "AndroidAppWidget",
+      dependencies: [
+        "AndroidJava",
+        "AndroidApp",
+        "AndroidContent",
+        "AndroidView",
+        "AndroidGraphics",
+        "AndroidUtil",
+        "AndroidWidget",
         .product(name: "JavaLangIO", package: "SwiftJavaLang"),
       ],
       exclude: ["swift-java.config"],
