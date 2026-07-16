@@ -102,7 +102,7 @@ var package = Package(
       name: "AndroidKit",
       dependencies: [
         .product(
-          name: "SwiftJava",
+          name: "SwiftJavaStatic",
           package: "swift-java"
         ),
         .product(
@@ -171,7 +171,7 @@ var package = Package(
       name: "AndroidJava",
       dependencies: [
         .product(
-          name: "SwiftJava",
+          name: "SwiftJavaStatic",
           package: "swift-java"
         ),
         .product(
