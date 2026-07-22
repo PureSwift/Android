@@ -12,4 +12,10 @@ RUN apt-get update \
 RUN swift sdk install "$SWIFT_SDK_URL" --checksum "$SWIFT_SDK_CHECKSUM" \
     && swift sdk list
 
+# record the triples the installed Swift SDK supports, so a build can select one by architecture
+RUN find / -path '*swift-sdks*' -name 'swift-sdk.json' -exec cat {} + \
+    | grep -o '"[a-z0-9_]*-unknown-linux-android[a-z]*[0-9]*"' \
+    | tr -d '"' | sort -u > /usr/local/share/swift-android-triples \
+    && cat /usr/local/share/swift-android-triples
+
 WORKDIR /package
