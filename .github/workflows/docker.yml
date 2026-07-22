@@ -41,10 +41,10 @@ jobs:
             swift-android-sdk:${{ matrix.swift }} \
             bash -c '
               set -eu
-              # the installed Swift SDK identifier carries its own minimum API level,
-              # so look it up by architecture and override the target triple below
+              # the Swift SDK ships a fixed minimum API level per triple,
+              # so select it by architecture and override the target triple below
               PREFIX=$(echo "$TRIPLE" | sed "s/[0-9]*$//")
-              SDK=$(swift sdk list | grep -m1 "^$PREFIX")
+              SDK=$(grep -m1 "^$PREFIX" /usr/local/share/swift-android-triples)
               echo "Using Swift SDK: $SDK (target $TRIPLE)"
               swift build \
                 --swift-sdk "$SDK" \
