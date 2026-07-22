@@ -21,7 +21,14 @@ let ndkBinder = sdkVersion >= 29  // binder_ndk Requires API 29
 var package = Package(
   name: "SwiftAndroid",
   platforms: [
-    .macOS(.v15)
+    .macOS(.v15),
+    // Declared to match the Socket/Bluetooth dependencies. This package only ever builds for
+    // Android, but SwiftPM validates platform requirements across the whole graph, and leaving
+    // these unspecified defaults them to iOS 12 — which conflicts with dependencies requiring
+    // iOS 13 and breaks any Apple-platform resolve of a package that includes it.
+    .iOS(.v13),
+    .watchOS(.v6),
+    .tvOS(.v13)
   ],
   products: [
     .library(
@@ -92,9 +99,12 @@ var package = Package(
       url: "https://github.com/PureSwift/Kotlin.git",
       branch: "master"
     ),
+    // Must match the source skip-android-bridge uses: SwiftPM resolves by package identity, so
+    // pointing at the upstream URL here while skip-android-bridge points at the fork makes the
+    // identity `swift-android-native` unresolvable ("two different revision-based requirements").
     .package(
-      url: "https://github.com/swift-android-sdk/swift-android-native.git",
-      branch: "main"
+      url: "https://github.com/MillerTechnologyPeru/swift-android-native.git",
+      branch: "feature/pureswift"
     ),
   ],
   targets: [
