@@ -8,7 +8,7 @@ on:
 
 jobs:
   android:
-    name: Android (Swift SDK ${{ matrix.swift }} / API ${{ matrix.android-api }})
+    name: Android (Swift SDK ${{ matrix.swift }} / API ${{ matrix.android-api }} / ${{ matrix.arch }})
     runs-on: ubuntu-24.04
     timeout-minutes: 90
     strategy:
@@ -34,12 +34,20 @@ jobs:
             armv7)   TRIPLE="armv7-unknown-linux-androideabi${{ matrix.android-api }}" ;;
             x86_64)  TRIPLE="x86_64-unknown-linux-android${{ matrix.android-api }}" ;;
           esac
-          SDK="$(echo "$TRIPLE" | sed 's/[0-9]*$/24/')"
           docker run --rm \
             --volume "$PWD:/package" \
             --env ANDROID_SDK_VERSION=${{ matrix.android-api }} \
+            --env TRIPLE="$TRIPLE" \
             swift-android-sdk:${{ matrix.swift }} \
-            swift build \
-              --swift-sdk "$SDK" \
-              -Xswiftc -target -Xswiftc "$TRIPLE" \
-              -Xcc -target -Xcc "$TRIPLE"
+            bash -c '
+              set -eu
+              # the installed Swift SDK identifier carries its own minimum API level,
+              # so look it up by architecture and override the target triple below
+              PREFIX=$(echo "$TRIPLE" | sed "s/[0-9]*$//")
+              SDK=$(swift sdk list | grep -m1 "^$PREFIX")
+              echo "Using Swift SDK: $SDK (target $TRIPLE)"
+              swift build \
+                --swift-sdk "$SDK" \
+                -Xswiftc -target -Xswiftc "$TRIPLE" \
+                -Xcc -target -Xcc "$TRIPLE"
+            '
