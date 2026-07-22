@@ -30,24 +30,20 @@ jobs:
       - name: "Build Swift Package for Android (${{ matrix.arch }})"
         run: |
           case "${{ matrix.arch }}" in
-            aarch64) TRIPLE="aarch64-unknown-linux-android${{ matrix.android-api }}" ;;
-            armv7)   TRIPLE="armv7-unknown-linux-androideabi${{ matrix.android-api }}" ;;
-            x86_64)  TRIPLE="x86_64-unknown-linux-android${{ matrix.android-api }}" ;;
+            aarch64) PREFIX="aarch64-unknown-linux-android" ;;
+            armv7)   PREFIX="armv7-unknown-linux-androideabi" ;;
+            x86_64)  PREFIX="x86_64-unknown-linux-android" ;;
           esac
           docker run --rm \
             --volume "$PWD:/package" \
             --env ANDROID_SDK_VERSION=${{ matrix.android-api }} \
-            --env TRIPLE="$TRIPLE" \
+            --env PREFIX="$PREFIX" \
             swift-android-sdk:${{ matrix.swift }} \
             bash -c '
               set -eu
-              # the Swift SDK ships a fixed minimum API level per triple,
-              # so select it by architecture and override the target triple below
-              PREFIX=$(echo "$TRIPLE" | sed "s/[0-9]*$//")
+              # the Swift SDK bundles one sysroot per architecture with its own
+              # minimum API level; ANDROID_SDK_VERSION selects the package features
               SDK=$(grep -m1 "^$PREFIX" /usr/local/share/swift-android-triples)
-              echo "Using Swift SDK: $SDK (target $TRIPLE)"
-              swift build \
-                --swift-sdk "$SDK" \
-                -Xswiftc -target -Xswiftc "$TRIPLE" \
-                -Xcc -target -Xcc "$TRIPLE"
+              echo "Using Swift SDK: $SDK (ANDROID_SDK_VERSION=$ANDROID_SDK_VERSION)"
+              swift build --swift-sdk "$SDK"
             '
