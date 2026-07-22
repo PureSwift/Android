@@ -5,7 +5,7 @@ import CSwiftJavaJNI
 @JavaClass("android.widget.AbsSeekBar")
 open class AbsSeekBar: ProgressBar {
   @JavaMethod
-  open func onRtlPropertiesChanged(_ arg0: Int32)
+  open override func onRtlPropertiesChanged(_ arg0: Int32)
 
   @JavaMethod
   open override func drawableHotspotChanged(_ arg0: Float, _ arg1: Float)
