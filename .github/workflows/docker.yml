@@ -1,0 +1,45 @@
+name: Docker
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+  pull_request:
+
+jobs:
+  android:
+    name: Android (Swift SDK ${{ matrix.swift }} / API ${{ matrix.android-api }})
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        swift: ['6.3.2']
+        android-api: ['28', '29', '31', '33']
+        arch: ['aarch64', 'armv7', 'x86_64']
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: "Build Docker image"
+        run: |
+          docker build \
+            --tag swift-android-sdk:${{ matrix.swift }} \
+            --file .github/docker/Dockerfile \
+            .github/docker
+
+      - name: "Build Swift Package for Android (${{ matrix.arch }})"
+        run: |
+          case "${{ matrix.arch }}" in
+            aarch64) TRIPLE="aarch64-unknown-linux-android${{ matrix.android-api }}" ;;
+            armv7)   TRIPLE="armv7-unknown-linux-androideabi${{ matrix.android-api }}" ;;
+            x86_64)  TRIPLE="x86_64-unknown-linux-android${{ matrix.android-api }}" ;;
+          esac
+          SDK="$(echo "$TRIPLE" | sed 's/[0-9]*$/24/')"
+          docker run --rm \
+            --volume "$PWD:/package" \
+            --env ANDROID_SDK_VERSION=${{ matrix.android-api }} \
+            swift-android-sdk:${{ matrix.swift }} \
+            swift build \
+              --swift-sdk "$SDK" \
+              -Xswiftc -target -Xswiftc "$TRIPLE" \
+              -Xcc -target -Xcc "$TRIPLE"
