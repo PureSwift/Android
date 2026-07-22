@@ -42,5 +42,5 @@ jobs:
             bash -c '
               set -eu
               # the prebuilt swift-syntax bundle omits SwiftIfConfig, which swift-java needs
-              swift build --swift-sdk "$TRIPLE" --disable-prebuilts
+              swift build --swift-sdk "$TRIPLE" --disable-experimental-prebuilts
             '
