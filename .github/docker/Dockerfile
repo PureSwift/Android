@@ -23,9 +23,10 @@ RUN mkdir -p "$(dirname "$ANDROID_NDK_HOME")" \
 RUN swift sdk install "$SWIFT_SDK_URL" --checksum "$SWIFT_SDK_CHECKSUM" \
     && swift sdk list
 
-# the artifact bundle expects the NDK sysroot at `ndk-sysroot` inside the bundle
+# the bundle ships a script that links the NDK sysroot, the clang resource
+# directory and swiftrt.o into place, using ANDROID_NDK_HOME
 RUN BUNDLE=$(dirname "$(find / -path '*swift-sdks*' -name 'swift-sdk.json' | head -1)") \
-    && ln -s "$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/linux-x86_64/sysroot" "$BUNDLE/ndk-sysroot" \
+    && "$BUNDLE/scripts/setup-android-sdk.sh" \
     && test -f "$BUNDLE/ndk-sysroot/usr/include/jni.h"
 
 WORKDIR /package
