@@ -30,20 +30,17 @@ jobs:
       - name: "Build Swift Package for Android (${{ matrix.arch }})"
         run: |
           case "${{ matrix.arch }}" in
-            aarch64) PREFIX="aarch64-unknown-linux-android" ;;
-            armv7)   PREFIX="armv7-unknown-linux-androideabi" ;;
-            x86_64)  PREFIX="x86_64-unknown-linux-android" ;;
+            aarch64) TRIPLE="aarch64-unknown-linux-android${{ matrix.android-api }}" ;;
+            armv7)   TRIPLE="armv7-unknown-linux-android${{ matrix.android-api }}" ;;
+            x86_64)  TRIPLE="x86_64-unknown-linux-android${{ matrix.android-api }}" ;;
           esac
           docker run --rm \
             --volume "$PWD:/package" \
             --env ANDROID_SDK_VERSION=${{ matrix.android-api }} \
-            --env PREFIX="$PREFIX" \
+            --env TRIPLE="$TRIPLE" \
             swift-android-sdk:${{ matrix.swift }} \
             bash -c '
               set -eu
-              # the Swift SDK bundles one sysroot per architecture with its own
-              # minimum API level; ANDROID_SDK_VERSION selects the package features
-              SDK=$(grep -m1 "^$PREFIX" /usr/local/share/swift-android-triples)
-              echo "Using Swift SDK: $SDK (ANDROID_SDK_VERSION=$ANDROID_SDK_VERSION)"
-              swift build --swift-sdk "$SDK"
+              # the prebuilt swift-syntax bundle omits SwiftIfConfig, which swift-java needs
+              swift build --swift-sdk "$TRIPLE" --disable-prebuilts
             '
