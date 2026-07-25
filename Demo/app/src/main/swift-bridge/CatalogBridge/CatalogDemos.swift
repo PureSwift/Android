@@ -7,10 +7,14 @@
 //
 
 import AndroidKit
+import AndroidApp
+import AndroidGraphics
 import AndroidLocation
 import AndroidMedia
 import AndroidNet
 import AndroidNFC
+import AndroidUtil
+import AndroidView
 
 enum CatalogDemos {
 
@@ -27,9 +31,106 @@ enum CatalogDemos {
             let clock = try JavaClass<AndroidOS.SystemClock>()
             out("Uptime: \(clock.uptimeMillis() / 1000)s")
             out("Elapsed realtime: \(clock.elapsedRealtime() / 1000)s")
+
+            if let context = Catalog.context {
+                let contextClass = try JavaClass<AndroidContent.Context>()
+                if let battery = context.getSystemService(contextClass.BATTERY_SERVICE)?
+                    .as(AndroidOS.BatteryManager.self) {
+                    let capacity = try JavaClass<AndroidOS.BatteryManager>().BATTERY_PROPERTY_CAPACITY
+                    out("Battery level: \(battery.getIntProperty(capacity))%")
+                    out("Charging: \(battery.isCharging())")
+                }
+                if let power = context.getSystemService(contextClass.POWER_SERVICE)?
+                    .as(AndroidOS.PowerManager.self) {
+                    out("Screen interactive: \(power.isInteractive())")
+                }
+            }
         } catch {
             out("Error: \(error)")
         }
+    }
+
+    // MARK: - AndroidApp
+
+    static func androidApp(_ out: (String) -> Void) {
+        guard let context = Catalog.context else {
+            out("No Android Context available")
+            return
+        }
+        do {
+            let serviceName = try JavaClass<AndroidContent.Context>().ACTIVITY_SERVICE
+            guard let manager = context.getSystemService(serviceName)?
+                .as(AndroidApp.ActivityManager.self) else {
+                out("ActivityManager unavailable")
+                return
+            }
+            out("Memory class: \(manager.getMemoryClass()) MB")
+            out("Low RAM device: \(manager.isLowRamDevice())")
+            let info = AndroidApp.ActivityManager.MemoryInfo()
+            manager.getMemoryInfo(info)
+            let mb: Int64 = 1024 * 1024
+            out("Available memory: \(info.availMem / mb) MB")
+            out("Total memory: \(info.totalMem / mb) MB")
+            out("Low memory: \(info.lowMemory)")
+        } catch {
+            out("Error: \(error)")
+        }
+    }
+
+    // MARK: - AndroidGraphics
+
+    static func androidGraphics(_ out: (String) -> Void) {
+        do {
+            let config = AndroidGraphics.Bitmap.Config(.ARGB_8888)
+            guard let bitmap = try JavaClass<AndroidGraphics.Bitmap>()
+                .createBitmap(64, 64, config) else {
+                out("Unable to create bitmap")
+                return
+            }
+            out("Bitmap: \(bitmap.getWidth())×\(bitmap.getHeight()) ARGB_8888")
+            out("Byte count: \(bitmap.getByteCount())")
+            bitmap.recycle()
+
+            let colorClass = try JavaClass<AndroidGraphics.Color>()
+            let magenta = colorClass.rgb(Int32(255), Int32(0), Int32(128))
+            out("Color.rgb(255, 0, 128) = #\(String(UInt32(bitPattern: magenta), radix: 16, uppercase: true))")
+        } catch {
+            out("Error: \(error)")
+        }
+    }
+
+    // MARK: - AndroidView
+
+    static func androidView(_ out: (String) -> Void) {
+        guard let context = Catalog.context else {
+            out("No Android Context available")
+            return
+        }
+        do {
+            let configClass = try JavaClass<AndroidView.ViewConfiguration>()
+            if let configuration = configClass.get(context) {
+                out("Scaled touch slop: \(configuration.getScaledTouchSlop()) px")
+            }
+            out("Long press timeout: \(configClass.getLongPressTimeout()) ms")
+            out("Double tap timeout: \(configClass.getDoubleTapTimeout()) ms")
+        } catch {
+            out("Error: \(error)")
+        }
+    }
+
+    // MARK: - AndroidUtil
+
+    static func androidUtil(_ out: (String) -> Void) {
+        guard let context = Catalog.context else {
+            out("No Android Context available")
+            return
+        }
+        guard let metrics = context.getResources()?.getDisplayMetrics() else {
+            out("DisplayMetrics unavailable")
+            return
+        }
+        out("Display: \(metrics.widthPixels)×\(metrics.heightPixels) px")
+        out("Density: \(metrics.density) (\(metrics.densityDpi) dpi)")
     }
 
     // MARK: - AndroidContent
