@@ -68,6 +68,8 @@ val jextract = tasks.register<Exec>("jextract") {
     outputs.dir(generatedJavaDir)
     outputs.file(File(swiftBuildDir, "libSwiftAndroidApp.so"))
     outputs.file(File(swiftBuildDir, "libCatalogBridge.so"))
+    // `swift build` is incremental itself; let it decide what is stale.
+    outputs.upToDateWhen { false }
 }
 
 // Stage the cross-compiled libraries, the swift-java runtime, the Swift
@@ -152,8 +154,12 @@ android {
     }
 }
 
-// Ensure Swift is built + bindings generated + libs staged before Java compiles.
+// Ensure Swift is built + bindings generated + libs staged before Java or
+// Kotlin compiles (Kotlin also consumes the generated Java bindings).
 tasks.withType<JavaCompile>().configureEach {
+    dependsOn(jextract)
+}
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
     dependsOn(jextract)
 }
 tasks.named("preBuild") {

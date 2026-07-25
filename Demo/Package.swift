@@ -25,6 +25,10 @@ let package = Package(
         .package(
             url: "https://github.com/swiftlang/swift-java.git",
             branch: "main"
+        ),
+        .package(
+            url: "https://github.com/swift-android-sdk/swift-android-native.git",
+            from: "2.1.0"
         )
     ],
     targets: [
@@ -48,6 +52,14 @@ let package = Package(
                 .product(
                     name: "SwiftJava",
                     package: "swift-java"
+                ),
+                .product(
+                    name: "AndroidKit",
+                    package: "Android"
+                ),
+                .product(
+                    name: "AndroidContext",
+                    package: "swift-android-native"
                 )
             ],
             path: "./app/src/main/swift-bridge/CatalogBridge",

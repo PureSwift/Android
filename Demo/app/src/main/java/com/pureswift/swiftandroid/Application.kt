@@ -19,8 +19,8 @@ class Application: android.app.Application() {
     /// Smoke test for the jextract JNI bridge: a Java->Swift downcall and a
     /// Swift->Java callback (closure/Runnable block).
     private fun testCatalogBridge() {
-        val sum = CatalogBridge.addOne(41)
-        Log.d("CatalogBridge", "addOne(41) = $sum")
+        val count = CatalogBridge.catalogEntryCount()
+        Log.d("CatalogBridge", "catalogEntryCount() = $count")
         CatalogBridge.runBlock {
             Log.d("CatalogBridge", "runBlock callback invoked from Swift")
         }
