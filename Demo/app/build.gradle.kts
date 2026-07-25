@@ -67,7 +67,6 @@ val jextract = tasks.register<Exec>("jextract") {
     )
     outputs.dir(generatedJavaDir)
     outputs.file(File(swiftBuildDir, "libSwiftAndroidApp.so"))
-    outputs.file(File(swiftBuildDir, "libCatalogBridge.so"))
     // `swift build` is incremental itself; let it decide what is stale.
     outputs.upToDateWhen { false }
 }

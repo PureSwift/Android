@@ -12,11 +12,6 @@ let package = Package(
             type: .dynamic,
             targets: ["SwiftAndroidApp"]
         ),
-        .library(
-            name: "CatalogBridge",
-            type: .dynamic,
-            targets: ["CatalogBridge"]
-        ),
     ],
     dependencies: [
         .package(
