@@ -36,7 +36,7 @@ private extension Application {
     func printAPIVersion() {
         
         do {
-            let api = try AndroidOS.AndroidAPI.current
+            let api = try AndroidSystem.AndroidAPI.current
             Self.logInfo("Running on Android API \(api)")
         }
         catch {
