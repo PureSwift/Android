@@ -8,10 +8,10 @@ SWIFT_COMPILATION_MODE="${SWIFT_COMPILATION_MODE:=debug}"
 
 # Version
 ANDROID_SDK_VERSION=28
-SWIFT_VERSION_SHORT=6.2.3
+SWIFT_VERSION_SHORT=6.3.3
 SWIFT_VERSION=swift-$SWIFT_VERSION_SHORT-RELEASE
+# Swift SDK target triple used by `swift build --swift-sdk`.
 SWIFT_TARGET_NAME=$SWIFT_TARGET_ARCH-unknown-linux-android$ANDROID_SDK_VERSION
-XCTOOLCHAIN=/Library/Developer/Toolchains/$SWIFT_VERSION.xctoolchain
 SWIFT_ARTIFACT_BUNDLE="${SWIFT_ARTIFACT_BUNDLE:=swift-$SWIFT_VERSION_SHORT-RELEASE_android.artifactbundle}"
 SWIFT_SDKS_ROOT="${SWIFT_SDKS_ROOT:=$HOME/Library/org.swift.swiftpm/swift-sdks}"
 if [[ ! -d "$SWIFT_SDKS_ROOT/$SWIFT_ARTIFACT_BUNDLE" ]]; then
@@ -24,7 +24,15 @@ SWIFT_ANDROID_SYSROOT="$SWIFT_SDKS_ROOT/$SWIFT_ARTIFACT_BUNDLE/swift-android/ndk
 SWIFT_ANDROID_LIBS="$SWIFT_SDKS_ROOT/$SWIFT_ARTIFACT_BUNDLE/swift-android/swift-resources/usr/lib/swift-$SWIFT_TARGET_ARCH"
 SWIFT_ANDROID_RUNTIME_LIBS="$SWIFT_ANDROID_LIBS/android"
 SWIFT_PACKAGE_SRC=$SRC_ROOT
-JAVA_HOME=$SWIFT_ANDROID_SYSROOT/usr
 
-# Configurable
-SWIFT_NATIVE_PATH="${SWIFT_NATIVE_PATH:=$XCTOOLCHAIN/usr/bin}"
+# JDK for the swift-java plugin's nested Gradle/javac invocations and the
+# Android Gradle build (Kotlin compiler rejects JDK 25+). Prefer Android
+# Studio's bundled JBR (21) when no explicit JAVA_HOME is set.
+if [[ -z "${JAVA_HOME:-}" || ! -x "${JAVA_HOME:-}/bin/java" ]]; then
+    if [[ -x "/Applications/Android Studio.app/Contents/jbr/Contents/Home/bin/java" ]]; then
+        export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
+    fi
+fi
+
+# Host Swift toolchain (defaults to the active Xcode toolchain).
+SWIFT_NATIVE_PATH="${SWIFT_NATIVE_PATH:=$(dirname "$(xcrun --find swift 2>/dev/null)")}"
