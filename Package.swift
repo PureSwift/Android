@@ -99,12 +99,9 @@ var package = Package(
       url: "https://github.com/PureSwift/Kotlin.git",
       branch: "master"
     ),
-    // Must match the source skip-android-bridge uses: SwiftPM resolves by package identity, so
-    // pointing at the upstream URL here while skip-android-bridge points at the fork makes the
-    // identity `swift-android-native` unresolvable ("two different revision-based requirements").
     .package(
-      url: "https://github.com/MillerTechnologyPeru/swift-android-native.git",
-      branch: "feature/pureswift"
+      url: "https://github.com/swift-android-sdk/swift-android-native.git",
+      from: "2.1.0"
     ),
   ],
   targets: [
