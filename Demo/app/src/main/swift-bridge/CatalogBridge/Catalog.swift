@@ -54,19 +54,9 @@ package enum Catalog {
             demo: CatalogDemos.androidOS
         ),
         CatalogEntry(
-            name: "AndroidApp",
-            summary: "ActivityManager memory info (android.app)",
-            demo: CatalogDemos.androidApp
-        ),
-        CatalogEntry(
             name: "AndroidContent",
             summary: "Package and application info via Context (android.content)",
             demo: CatalogDemos.androidContent
-        ),
-        CatalogEntry(
-            name: "AndroidGraphics",
-            summary: "Bitmap creation and colors (android.graphics)",
-            demo: CatalogDemos.androidGraphics
         ),
         CatalogEntry(
             name: "AndroidLocation",
@@ -87,16 +77,6 @@ package enum Catalog {
             name: "AndroidNFC",
             summary: "NFC adapter availability (android.nfc)",
             demo: CatalogDemos.androidNFC
-        ),
-        CatalogEntry(
-            name: "AndroidUtil",
-            summary: "Display metrics and density (android.util)",
-            demo: CatalogDemos.androidUtil
-        ),
-        CatalogEntry(
-            name: "AndroidView",
-            summary: "ViewConfiguration touch and gesture constants (android.view)",
-            demo: CatalogDemos.androidView
         ),
     ]
 }
