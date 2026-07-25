@@ -16,6 +16,9 @@ import Android
 @_exported import JavaLangUtil
 @_exported import JavaLangIO
 @_exported import JavaLangNet
+@_exported import AndroidLogging
+@_exported import AndroidLooper
+@_exported import AndroidSystem
 @_exported import AndroidOS
 @_exported import AndroidContent
 @_exported import AndroidUtil
