@@ -12,10 +12,19 @@ let package = Package(
             type: .dynamic,
             targets: ["SwiftAndroidApp"]
         ),
+        .library(
+            name: "CatalogBridge",
+            type: .dynamic,
+            targets: ["CatalogBridge"]
+        ),
     ],
     dependencies: [
         .package(
             path: "../"
+        ),
+        .package(
+            url: "https://github.com/swiftlang/swift-java.git",
+            branch: "main"
         )
     ],
     targets: [
@@ -25,11 +34,34 @@ let package = Package(
                 .product(
                     name: "AndroidKit",
                     package: "Android"
-                )
+                ),
+                "CatalogBridge"
             ],
             path: "./app/src/main/swift",
             swiftSettings: [
               .swiftLanguageMode(.v5)
+            ]
+        ),
+        .target(
+            name: "CatalogBridge",
+            dependencies: [
+                .product(
+                    name: "SwiftJava",
+                    package: "swift-java"
+                )
+            ],
+            path: "./app/src/main/swift-bridge/CatalogBridge",
+            exclude: [
+              "swift-java.config"
+            ],
+            swiftSettings: [
+              .swiftLanguageMode(.v5)
+            ],
+            plugins: [
+              .plugin(
+                name: "JExtractSwiftPlugin",
+                package: "swift-java"
+              )
             ]
         )
     ]
