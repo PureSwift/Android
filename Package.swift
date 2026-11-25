@@ -110,7 +110,9 @@ var package = Package(
     ),
     .package(
       url: "https://github.com/PureSwift/Silica.git",
-      branch: "master"
+      branch: "master",
+      // only the Silica module: not its Cairo or web renderers' packages
+      traits: []
     ),
   ],
   targets: [
