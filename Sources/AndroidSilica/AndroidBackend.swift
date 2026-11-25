@@ -16,64 +16,52 @@ import Foundation
 import Silica
 
 /// Android Canvas rendering backend.
+/// The Android rendering backend: fonts from `Typeface`, PNG codecs from
+/// `BitmapFactory` and `Bitmap`, and bitmaps drawn with `Canvas`.
 public enum AndroidBackend: SilicaBackendProtocol {
 
-    /// Registers Android as the default rendering backend.
+    /// Makes Android the default rendering backend.
     public static func register() {
-
-        SilicaBackend.default = AndroidBackend.self
+        SilicaBackend.register(AndroidBackend.self, name: "Android")
     }
 
     internal static func registerIfNeeded() {
-
-        guard SilicaBackend.default == nil else { return }
-        register()
+        SilicaBackend.registerIfNeeded(AndroidBackend.self, name: "Android")
     }
 
     // MARK: - SilicaBackendProtocol
 
-    public static func font(named name: String) -> Silica.CGFont? {
-
-        guard let handle = AndroidFontHandle(name: name)
-            else { return nil }
-
-        return Silica.CGFont(name: name, family: handle.familyName, handle: handle)
+    public static func fontFace(named name: String) -> (any Silica.FontFace)? {
+        AndroidFontHandle(name: name)
     }
 
-    public static func decodePNG(_ data: Data) -> Silica.CGImage? {
-
+    public static func decodePNG(_ data: Data) -> Silica.Image? {
         let bytes = data.map { Int8(bitPattern: $0) }
-
         guard let factoryClass = try? JavaClass<BitmapFactory>(),
             let bitmap = factoryClass.decodeByteArray(bytes, 0, Int32(bytes.count))
             else { return nil }
-
-        return Silica.CGImage(bitmap)
+        return Silica.Image(bitmap)
     }
 
-    public static func encodePNG(_ image: Silica.CGImage) -> Data? {
-
-        guard let bitmap = image.toAndroidBitmap()
-            else { return nil }
-
+    public static func encodePNG(_ image: Silica.Image) -> Data? {
+        guard let bitmap = image.toAndroidBitmap() else { return nil }
         let stream = ByteArrayOutputStream()
-
-        guard bitmap.compress(Bitmap.CompressFormat(.PNG), 100, stream)
-            else { return nil }
-
+        guard bitmap.compress(Bitmap.CompressFormat(.PNG), 100, stream) else { return nil }
         let bytes = stream.toByteArray()
-
         return Data(bytes.map { UInt8(bitPattern: $0) })
+    }
+
+    public static func makeBitmapRenderer(size: Silica.Size, scale: Double) -> (any Renderer)? {
+        try? AndroidCanvasRenderer(bitmap: size, scale: scale)
     }
 }
 
-// MARK: - CGImage Conversion
 
-public extension Silica.CGImage {
+public extension Silica.Image {
 
-    /// Creates a Silica bitmap image from an Android bitmap,
+    /// An image of an Android bitmap's pixels,
     /// normalizing the pixel format to premultiplied RGBA.
-    convenience init?(_ bitmap: AndroidGraphics.Bitmap) {
+    convenience init?(_ bitmap: AndroidGraphics.Bitmap, scale: Double = 1) {
 
         let width = Int(bitmap.getWidth())
         let height = Int(bitmap.getHeight())
@@ -114,7 +102,7 @@ public extension Silica.CGImage {
             }
         }
 
-        self.init(width: width, height: height, bytesPerRow: bytesPerRow, data: data)
+        self.init(width: width, height: height, bytesPerRow: bytesPerRow, data: data, scale: scale)
     }
 
     /// Converts to an Android bitmap (`ARGB_8888`).
