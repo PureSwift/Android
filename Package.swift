@@ -78,6 +78,11 @@ var package = Package(
     .library(
       name: "AndroidNFC", targets: ["AndroidNFC"]
     ),
+    // Silica's drawing API on android.graphics.Canvas. Not part of AndroidKit,
+    // so AndroidKit doesn't bring Silica in.
+    .library(
+      name: "AndroidSilica", targets: ["AndroidSilica"]
+    ),
   ],
   dependencies: [
     .package(
@@ -95,6 +100,10 @@ var package = Package(
     .package(
       url: "https://github.com/swift-android-sdk/swift-android-native.git",
       branch: "main"
+    ),
+    .package(
+      url: "https://github.com/PureSwift/Silica.git",
+      branch: "master"
     ),
   ],
   targets: [
@@ -487,6 +496,57 @@ var package = Package(
         .swiftLanguageMode(.v5),
         ndkVersionDefine,
         sdkVersionDefine,
+      ]
+    ),
+    .target(
+      name: "AndroidSilica",
+      dependencies: [
+        .product(
+          name: "Silica",
+          package: "Silica"
+        ),
+        "AndroidGraphics",
+        .product(
+          name: "SwiftJava",
+          package: "swift-java"
+        ),
+        .product(
+          name: "JavaIO",
+          package: "swift-java"
+        ),
+        .product(
+          name: "JavaLangIO",
+          package: "JavaLang"
+        ),
+      ],
+      swiftSettings: [
+        .swiftLanguageMode(.v6),
+        ndkVersionDefine,
+        sdkVersionDefine,
+      ]
+    ),
+    .testTarget(
+      name: "AndroidSilicaTests",
+      dependencies: [
+        "AndroidSilica",
+        "AndroidOS",
+        "AndroidApp",
+        "AndroidContent",
+        .product(
+          name: "SilicaTestSupport",
+          package: "Silica"
+        ),
+        .product(
+          name: "AndroidContext",
+          package: "swift-android-native"
+        ),
+        .product(
+          name: "SwiftJava",
+          package: "swift-java"
+        ),
+      ],
+      swiftSettings: [
+        .swiftLanguageMode(.v6),
       ]
     ),
   ],
