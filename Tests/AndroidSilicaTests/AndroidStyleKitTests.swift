@@ -27,32 +27,32 @@ import SilicaTestSupport
 struct AndroidStyleKitTests {
 
     @Test func simpleShapes() throws {
-        let data = try render(TestStyleKit.drawSimpleShapes(), name: "android_simpleShapes", size: CGSize(width: 240, height: 120))
+        let data = try render(name: "android_simpleShapes", size: Silica.Size(width: 240, height: 120)) { TestStyleKit.drawSimpleShapes(in: $0) }
         try expectPDF(data)
     }
 
     @Test func advancedShapes() throws {
-        let data = try render(TestStyleKit.drawAdvancedShapes(), name: "android_advancedShapes", size: CGSize(width: 240, height: 120))
+        let data = try render(name: "android_advancedShapes", size: Silica.Size(width: 240, height: 120)) { TestStyleKit.drawAdvancedShapes(in: $0) }
         try expectPDF(data)
     }
 
     @Test func swiftLogo() throws {
-        let size = CGSize(width: 200, height: 200)
-        let data = try render(TestStyleKit.drawSwiftLogo(frame: CGRect(origin: .zero, size: size)), name: "android_SwiftLogo", size: size)
+        let size = Silica.Size(width: 200, height: 200)
+        let data = try render(name: "android_SwiftLogo", size: size) { TestStyleKit.drawSwiftLogo(in: $0, frame: Silica.Rect(origin: .zero, size: size)) }
         try expectPDF(data)
     }
 
     @Test func singleLineText() throws {
-        let data = try render(TestStyleKit.drawSingleLineText(), name: "android_singleLineText", size: CGSize(width: 240, height: 120))
+        let data = try render(name: "android_singleLineText", size: Silica.Size(width: 240, height: 120)) { TestStyleKit.drawSingleLineText(in: $0) }
         try expectPDF(data)
     }
 
     @Test func bitmapContext() throws {
         AndroidBackend.register()
 
-        let context = try AndroidCanvasContext(bitmap: CGSize(width: 20, height: 20))
-        context.fillColor = CGColor(red: 1, green: 0, blue: 0)
-        context.addRect(CGRect(x: 0, y: 0, width: 20, height: 20))
+        let context = GraphicsContext(try AndroidCanvasRenderer(bitmap: Silica.Size(width: 20, height: 20)))
+        context.fillColor = Silica.Color(red: 1, green: 0, blue: 0)
+        context.addRect(Silica.Rect(x: 0, y: 0, width: 20, height: 20))
         context.fillPath()
 
         let image = try #require(context.makeImage())
@@ -66,19 +66,15 @@ struct AndroidStyleKitTests {
 
     // MARK: - Utilities
 
-    private func render(_ drawingMethod: @autoclosure () -> (), name: String, size: CGSize) throws -> Data {
+    private func render(name: String, size: Size, _ drawing: (GraphicsContext) -> Void) throws -> Data {
 
         AndroidBackend.register()
 
         let path = try Self.outputDirectory() + "/" + name + ".pdf"
 
-        let context = try AndroidCanvasContext(pdf: URL(fileURLWithPath: path), size: size)
+        let context = GraphicsContext(try AndroidCanvasRenderer(pdf: URL(fileURLWithPath: path), size: size))
 
-        UIGraphicsPushContext(context)
-
-        drawingMethod()
-
-        UIGraphicsPopContext()
+        drawing(context)
 
         try context.finish()
 
