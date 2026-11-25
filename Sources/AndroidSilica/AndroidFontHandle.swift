@@ -22,12 +22,12 @@ import Silica
 /// - Note: `Typeface.create` falls back to the system default for unknown
 ///   family names (matching FontConfig's fuzzy behavior on Linux), so font
 ///   creation does not fail for unrecognized names.
-public final class AndroidFontHandle: CGFontHandle {
+public final class AndroidFontHandle: Silica.FontFace {
 
     // MARK: - Constants
 
     /// Nominal em size used for measuring (Android exposes no font-unit metrics).
-    internal static let nominalSize: CGFloat = 2048
+    internal static let nominalSize: Double = 2048
 
     // MARK: - Properties
 
@@ -40,10 +40,10 @@ public final class AndroidFontHandle: CGFontHandle {
     /// Paint configured at the nominal size, used for measuring and shaping.
     private let measuringPaint: Paint
 
-    private let internalMetrics: (ascent: CGFloat, descent: CGFloat, capHeight: CGFloat)
+    private let internalMetrics: (ascent: Double, descent: Double, capHeight: Double)
 
     /// Shaped glyph information, populated by `glyph(for:)`.
-    private var glyphCache = [Silica.CGGlyph: (advance: CGFloat, font: AndroidGraphics.Font?)]()
+    private var glyphCache = [Glyph: (advance: Double, font: AndroidGraphics.Font?)]()
 
     /// The font of the first shaped glyph, used as a fallback for `Canvas.drawGlyphs`.
     internal private(set) var baseFont: AndroidGraphics.Font?
@@ -96,31 +96,31 @@ public final class AndroidFontHandle: CGFontHandle {
             else { return nil }
 
         // FontMetrics.ascent is negative above the baseline; descent positive below.
-        let ascent = CGFloat(-fontMetrics.ascent) / AndroidFontHandle.nominalSize
-        let descent = CGFloat(-fontMetrics.descent) / AndroidFontHandle.nominalSize
+        let ascent = Double(-fontMetrics.ascent) / AndroidFontHandle.nominalSize
+        let descent = Double(-fontMetrics.descent) / AndroidFontHandle.nominalSize
 
         // approximate the cap height from the bounds of an uppercase letter
-        let bounds = Rect()
+        let bounds = AndroidGraphics.Rect()
         paint.getTextBounds("H", 0, 1, bounds)
-        let capHeight = CGFloat(bounds.height()) / AndroidFontHandle.nominalSize
+        let capHeight = Double(bounds.height()) / AndroidFontHandle.nominalSize
 
         self.internalMetrics = (ascent: ascent, descent: descent, capHeight: capHeight)
     }
 
-    // MARK: - CGFontHandle
+    // MARK: - FontFace
 
     /// The family name (Android exposes no full font name).
     public var fullName: String { familyName }
 
     public var unitsPerEm: Int { Int(AndroidFontHandle.nominalSize) }
 
-    public var ascent: CGFloat { internalMetrics.ascent }
+    public var ascent: Double { internalMetrics.ascent }
 
-    public var descent: CGFloat { internalMetrics.descent }
+    public var descent: Double { internalMetrics.descent }
 
-    public var capHeight: CGFloat { internalMetrics.capHeight }
+    public var capHeight: Double { internalMetrics.capHeight }
 
-    public func glyph(for scalar: Unicode.Scalar) -> Silica.CGGlyph {
+    public func glyph(for scalar: Unicode.Scalar) -> Glyph {
 
         let characters = Array(String(scalar).utf16)
 
@@ -131,13 +131,13 @@ public final class AndroidFontHandle: CGFontHandle {
             shaped.glyphCount() > 0
             else { return 0 }
 
-        let glyph = Silica.CGGlyph(truncatingIfNeeded: shaped.getGlyphId(0))
+        let glyph = Glyph(truncatingIfNeeded: shaped.getGlyphId(0))
 
         if glyphCache[glyph] == nil {
 
             let font = shaped.getFont(0)
 
-            glyphCache[glyph] = (advance: CGFloat(shaped.getAdvance()) / AndroidFontHandle.nominalSize,
+            glyphCache[glyph] = (advance: Double(shaped.getAdvance()) / AndroidFontHandle.nominalSize,
                                  font: font)
 
             if baseFont == nil {
@@ -152,7 +152,7 @@ public final class AndroidFontHandle: CGFontHandle {
     ///
     /// Android exposes no advance lookup by glyph index; advances are memoized
     /// when glyphs are shaped via `glyph(for:)`. Unknown glyph indices report 0.
-    public func advances(for glyphs: [Silica.CGGlyph]) -> [CGFloat] {
+    public func advances(for glyphs: [Glyph]) -> [Double] {
 
         return glyphs.map { glyphCache[$0]?.advance ?? 0 }
     }
@@ -160,7 +160,7 @@ public final class AndroidFontHandle: CGFontHandle {
     // MARK: - Internal Methods
 
     /// The `android.graphics.fonts.Font` for a previously shaped glyph.
-    internal func font(for glyph: Silica.CGGlyph) -> AndroidGraphics.Font? {
+    internal func font(for glyph: Glyph) -> AndroidGraphics.Font? {
 
         return glyphCache[glyph]?.font
     }
